@@ -1,0 +1,80 @@
+{
+    "type": "P2P Network Reference",
+    "definition": {
+        "text": "The P2P Network Reference node defines which Peer to Peer network the current Network node will run within.",
+        "updated": 1647060713209,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "P2P Ağ Referans düğümü, mevcut Ağ düğümünün hangi Eşler Arası ağ içinde çalışacağını tanımlar.",
+                "updated": 1654395801516
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This node holds a reference to a P2P Network node allowing the User to control exactly which peer to peer network will be accessed.",
+            "updated": 1647061073236,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm, Kullanıcının tam olarak hangi eşler arası ağa erişileceğini kontrol etmesine olanak tanıyan bir P2P Ağ düğümüne referans tutar.",
+                    "updated": 1654395807409,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are three main types of peer to peer networks.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Üç ana eşler arası ağ türü vardır.",
+                    "updated": 1654395813189,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "TestNets used for testing peer to peer functionality.",
+            "updated": 1647061118289,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eşler arası işlevselliği test etmek için kullanılan TestNets.",
+                    "updated": 1654395818995,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Permissioned networks that are only accessible with the right credentials.",
+            "updated": 1647061146408,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yalnızca doğru kimlik bilgileriyle erişilebilen izinli ağlar.",
+                    "updated": 1654395824567,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Open networks that can be accessed freely.",
+            "updated": 1647061163693,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Serbestçe erişilebilen açık ağlar.",
+                    "updated": 1654395830813,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

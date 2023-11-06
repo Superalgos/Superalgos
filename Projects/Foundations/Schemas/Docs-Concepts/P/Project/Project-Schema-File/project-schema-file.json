@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Это самый базовый и низкоуровневый общесистемный файл конфигурации. Вы найдете его в папке Projects. Он содержит список всех интегрированных проектов и для каждого из них список модулей javascript, организованных по различным категориям, например, библиотеки функций, служебные программы, пространства, глобальные объекты и т. д.; в свою очередь организованы в пользовательский интерфейс UI более широких категорий,\nTS и PL.",
                 "updated": 1638287790166
+            },
+            {
+                "language": "TR",
+                "text": "Sistem genelindeki en temel ve düşük seviyeli yapılandırma dosyasıdır. Projeler klasöründe bulabilirsiniz. Tüm entegre projelerin bir listesini ve her biri için İşlev Kütüphaneleri , Yardımcı Programlar  , Alanlar ( Spaces ), Küreseller (Globals) vb. gibi farklı kategorilerde düzenlenmiş javascript modüllerinin listesini içerir; sırayla daha geniş UI , TS ve PL kategorilerinde düzenlenir.",
+                "updated": 1668518547140
+            },
+            {
+                "language": "DE",
+                "text": "Sie ist die grundlegendste und einfachste systemweite Konfigurationsdatei. Sie finden sie im Ordner Projects. Sie enthält eine Liste aller integrierten Projekte und für jedes Projekt die Liste der Javascript-Module, die in verschiedene Kategorien wie Funktionsbibliotheken, Dienstprogramme, Spaces, Globals usw. unterteilt sind, die wiederum in die umfassenderen Kategorien UI, TS und PL unterteilt sind.",
+                "updated": 1696955477190
             }
         ]
     },
@@ -20,6 +30,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638287803921
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955477476,
+                    "style": "Text"
                 }
             ]
         }

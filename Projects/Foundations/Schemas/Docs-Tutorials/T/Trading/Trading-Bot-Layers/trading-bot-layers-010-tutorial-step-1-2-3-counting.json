@@ -15,6 +15,26 @@
                 "text": "Lass uns den ersten Layer im Trading Engine Layer Manager testen: \"Trading Episode Counters\".",
                 "updated": 1623012562920,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Давайте протестируем первый слой в Layer Manager торгового движка: \" Trading Episode Counters\".",
+                "updated": 1640545978777
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Motoru Katman Yöneticisindeki (Trading Engine Layer Manager) ilk Katmanı test edelim: \"Ticaret Bölüm Sayaçları\" (Trading Episode Counters)",
+                "updated": 1641909931604
+            },
+            {
+                "language": "ID",
+                "text": "Mari coba dari Layer pertama di  Trading Engine Layer Manager: \"Trading Episode Counters\".",
+                "updated": 1673832200680
+            },
+            {
+                "language": "ES",
+                "text": "Vamos a probar la primera Layer del Trading Engine Layer Manager: Trading Episode Counters.",
+                "updated": 1675466763449
             }
         ]
     },
@@ -28,6 +48,26 @@
                     "text": "Schalte den Layer ein und fahre mit dem Mauszeiger über den Chart, von ganz links nach ganz rechts auf deinem Bildschirm!",
                     "updated": 1623012556935,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой и проведите указателем мыши по графику от крайней левой до крайней правой части экрана!",
+                    "updated": 1640545998049
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanı açın ve fare imlecinizi ekranınızın en solundan en sağına doğru grafiğin üzerine kaydırın!",
+                    "updated": 1641910223388
+                },
+                {
+                    "language": "ID",
+                    "text": "Nyalakan layer dan geser mouse pointer-mu ke atas chart, dari sisi paling kiri ke sisi paling kanan layar-mu!",
+                    "updated": 1673832207220
+                },
+                {
+                    "language": "ES",
+                    "text": "Activa la capa y desliza el puntero del ratón sobre el gráfico, desde el extremo izquierdo al extremo derecho de la pantalla.",
+                    "updated": 1675463928781
                 }
             ]
         },
@@ -40,6 +80,26 @@
                     "text": "Schau dir an, was mit den verschiedenen Zählern in der Hierarchie darunter passiert... nämlich Periods, Strategy, Position, und so weiter! Du solltest etwas ähnliches sehen, wie ich es im Video im nächsten Schritt zeige…",
                     "updated": 1623012613201,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите, что происходит с различными счетчиками на иерархии ниже... то есть, Periods, Strategies, Positions, и так далее! Вы должны увидеть нечто похожее на то, что я показываю в видео на следующем шаге...",
+                    "updated": 1640546054732
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki hiyerarşideki çeşitli sayaçlara ne olduğunu görün... yani, Dönemler (Periods), Stratejiler (Strategies), Konumlar (Positions), vb! Bir sonraki adımda videoda gösterdiğime benzer bir şey görmelisiniz...",
+                    "updated": 1641910284428
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah apa yang terjadi dengan berbagai counters pada hierarki di bawah... yaitu, Periods, Strategies, Positions, dan sebagainya! kamu akan melihat sesuatu yang mirip dengan apa yang saya tampilkan di video pada langkah selanjutnya...",
+                    "updated": 1673832230156
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa lo que sucede con los distintos contadores en la jerarquía de abajo... es decir, Periods, Strategies, Positions, ¡y así sucesivamente! Deberías ver algo similar a lo que muestro en el vídeo en el siguiente paso...",
+                    "updated": 1675463982667
                 }
             ]
         }

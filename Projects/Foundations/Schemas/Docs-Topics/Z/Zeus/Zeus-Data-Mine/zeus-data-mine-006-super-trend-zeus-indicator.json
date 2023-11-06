@@ -4,21 +4,69 @@
     "type": "Super Trend - Zeus Indicator",
     "definition": {
         "text": "The Super Trend indicator identifies market trends.",
-        "updated": 1611674886554
+        "updated": 1611674886554,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Süper Trend göstergesi, piyasa trendlerini belirler.",
+                "updated": 1647091629800
+            },
+            {
+                "language": "DE",
+                "text": " Der Super Trend Indikator identifiziert Markttrends.",
+                "updated": 1671205719580
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Super Trend On the Charts",
-            "updated": 1611674897756
+            "updated": 1611674897756,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Süper Trend",
+                    "updated": 1647091649184
+                },
+                {
+                    "language": "DE",
+                    "text": "Super Trend auf den Charts",
+                    "updated": 1671205754397
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The inventor of the SuperTrend Indicator is Olivier Seban."
+            "text": "The inventor of the SuperTrend Indicator is Olivier Seban.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "SuperTrend Göstergesinin mucidi Olivier Seban'dır.",
+                    "updated": 1647091660855
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Erfinder des SuperTrend Indikators ist Olivier Seban.",
+                    "updated": 1671205786721
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Super Trend is an indicator quite similar to Moving Average Convergence Divergence or MACD and its main purpose is to identify the trend of a market. Based on the parameters of multiplier and period, the indicator uses 3 for multiplier and 10 for ATR as default values. Average True Range is then represented by the number of periods while the multiplier is the value by which the range is multiplied."
+            "text": "Super Trend is an indicator quite similar to Moving Average Convergence Divergence or MACD and its main purpose is to identify the trend of a market. Based on the parameters of multiplier and period, the indicator uses 3 for multiplier and 10 for ATR as default values. Average True Range is then represented by the number of periods while the multiplier is the value by which the range is multiplied.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Süper Trend, Hareketli Ortalama Yakınsama Iraksama veya MACD'ye oldukça benzer bir göstergedir ve asıl amacı bir piyasanın trendini belirlemektir. Çarpan ve nokta parametrelerine dayalı olarak, gösterge varsayılan değerler olarak çarpan için 3 ve ATR için 10 kullanır. Ortalama Gerçek Aralık daha sonra dönem sayısı ile temsil edilirken çarpan, aralığın çarpıldığı değerdir.",
+                    "updated": 1647091684629
+                },
+                {
+                    "language": "DE",
+                    "text": "Super Trend ist ein Indikator, der dem MACD (Moving Average Convergence Divergence) sehr ähnlich ist und dessen Hauptzweck darin besteht, den Trend eines Marktes zu erkennen. Basierend auf den Parametern Multiplikator und Periode, verwendet der Indikator 3 für den Multiplikator und 10 für die ATR als Standardwerte. Die Average True Range wird dann durch die Anzahl der Perioden dargestellt, während der Multiplikator der Wert ist, mit dem der Bereich multipliziert wird.",
+                    "updated": 1671205829419
+                }
+            ]
         },
         {
             "style": "Png",
@@ -27,31 +75,115 @@
         },
         {
             "style": "Text",
-            "text": "When plotted, the Super Trend indicator appears like an alternating green and red continuous line. The green line is plotted below the current price and indicates an uptrend. The red line is plotted above the current price and indicates a downtrend."
+            "text": "When plotted, the Super Trend indicator appears like an alternating green and red continuous line. The green line is plotted below the current price and indicates an uptrend. The red line is plotted above the current price and indicates a downtrend.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çizildiğinde, Süper Trend göstergesi, değişen yeşil ve kırmızı sürekli bir çizgi gibi görünür. Yeşil çizgi, mevcut fiyatın altında çizilir ve bir yükseliş trendini gösterir. Kırmızı çizgi, mevcut fiyatın üzerinde çizilir ve düşüş eğilimini gösterir.",
+                    "updated": 1647091722230
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Super Trend Indikator erscheint in der Grafik als abwechselnd grüne und rote, durchgehende Linie. Die grüne Linie ist unterhalb des aktuellen Kurses eingezeichnet und zeigt einen Aufwärtstrend an. Die rote Linie ist oberhalb des aktuellen Kurses eingezeichnet und zeigt einen Abwärtstrend an.",
+                    "updated": 1671205876257
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Super Trend plotter panel shows the numeric value for the uptrend or downtrend and the ATR."
+            "text": "The Super Trend plotter panel shows the numeric value for the uptrend or downtrend and the ATR.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Süper Trend çizici paneli, yükseliş trendi veya düşüş trendi ve ATR için sayısal değeri gösterir.",
+                    "updated": 1647091733549
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Super Trend Plotter Panel zeigt den numerischen Wert für den Aufwärts- oder Abwärtstrend und den ATR.",
+                    "updated": 1671205927279
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When compared to a regular Moving Average trading system the Super Trend indicator generates fewer false signals and it’s usually preferred over a common Moving Average trading system."
+            "text": "When compared to a regular Moving Average trading system the Super Trend indicator generates fewer false signals and it’s usually preferred over a common Moving Average trading system.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Normal bir Hareketli Ortalama ticaret sistemiyle karşılaştırıldığında, Süper Trend göstergesi daha az yanlış sinyal üretir ve genellikle ortak bir Hareketli Ortalama ticaret sistemine göre tercih edilir.",
+                    "updated": 1647091761746
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Vergleich zu einem regulären Moving Average Handelssystem erzeugt der Super Trend Indikator weniger Fehlsignale und wird daher in der Regel einem herkömmlichen Moving-Average-Handelssystem vorgezogen.",
+                    "updated": 1671205998757
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Standard values for the indicator are:"
+            "text": "Standard values for the indicator are:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gösterge için standart değerler şunlardır:",
+                    "updated": 1647091777970
+                },
+                {
+                    "language": "DE",
+                    "text": "Standardwerte für den Indikator sind:",
+                    "updated": 1671206037336
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "For ATR standard value is 10."
+            "text": "For ATR standard value is 10.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "ATR için standart değer 10'dur.",
+                    "updated": 1647091786532
+                },
+                {
+                    "language": "DE",
+                    "text": "Für ATR ist der Standardwert 10.",
+                    "updated": 1671206047627
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "For Multiplier standard value is 3."
+            "text": "For Multiplier standard value is 3.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çarpan için standart değer 3'tür.",
+                    "updated": 1647091793757
+                },
+                {
+                    "language": "DE",
+                    "text": "Für Multiplikator ist der Standardwert 3.",
+                    "updated": 1671206058303
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I made it easy to change the parameters needed for the calculation as per users’ needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under Supertrend Product Definition"
+            "text": "I made it easy to change the parameters needed for the calculation as per users’ needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under Supertrend Product Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hesaplama için gerekli parametreleri ihtiyaçlarınıza göre değiştirmeyi kolaylaştırdım. Javascript Kodunu ( Javascript Code ) “DMI Yönlü Hareket” Ürün Tanımı ( Product Definition ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulun ve açın.",
+                    "updated": 1647091807425
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe es einfach gemacht, die für die Berechnung benötigten Parameter nach den Bedürfnissen der Benutzer zu ändern. Suchen und öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter Supertrend Product Definition",
+                    "updated": 1671206119245
+                }
+            ]
         },
         {
             "style": "Png",
@@ -60,32 +192,116 @@
         },
         {
             "style": "Title",
-            "text": "Super Trend Products & Properties"
+            "text": "Super Trend Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Süper Trend Ürünler ve Özellikler",
+                    "updated": 1647091821631
+                },
+                {
+                    "language": "DE",
+                    "text": "Super Trend Produkte & Eigenschaften",
+                    "updated": 1671206152260
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are five properties available:"
+            "text": "There are five properties available:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Beş özellik mevcuttur:",
+                    "updated": 1647091831886
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind fünf Eigenschaften verfügbar:",
+                    "updated": 1671206181401
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Super Trend | superTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |",
-            "updated": 1611675034703
+            "updated": 1611675034703,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Süper Trend | süperTrend | trend, yükseliş trendi, düşüş trendi, atrNPeriod, trueRange |",
+                    "updated": 1647091848033
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Super Trend | superTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |",
+                    "updated": 1671206201689
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Standard output for the trend property is:"
+            "text": "Standard output for the trend property is:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Trend özelliği için standart çıktı:",
+                    "updated": 1647091867181
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Standardausgabe für die Trendeigenschaft lautet:",
+                    "updated": 1671206358252
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trend value is 1 if in an uptrend and -1 if in a downtrend."
+            "text": "Trend value is 1 if in an uptrend and -1 if in a downtrend.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Trend değeri, yükseliş trendindeyse 1, düşüş trendinde ise -1'dir.",
+                    "updated": 1647091878374
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trendwert ist 1, wenn es sich um einen Aufwärtstrend handelt, und -1, wenn es sich um einen Abwärtstrend handelt.",
+                    "updated": 1671206371828
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647091893002
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671206382755
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Basic strategies can be built using the value of the trend or values of upTrend/dnTrend can be used as entry/exit targets or as trailing:"
+            "text": "Basic strategies can be built using the value of the trend or values of upTrend/dnTrend can be used as entry/exit targets or as trailing:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Trendin değeri kullanılarak temel stratejiler oluşturulabilir veya upTrend/dnTrend değerleri giriş/çıkış hedefleri veya takip olarak kullanılabilir:",
+                    "updated": 1647091912990
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Strategien können mit dem Wert des Trends erstellt werden, oder Werte von upTrend/dnTrend können als Einstiegs-/Ausstiegsziele oder als Trailing verwendet werden:",
+                    "updated": 1671206404505
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -94,7 +310,19 @@
         },
         {
             "style": "Text",
-            "text": "An uptrend market is identified."
+            "text": "An uptrend market is identified.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yükselen bir piyasa belirlendi.",
+                    "updated": 1647091950732
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Markt mit Aufwärtstrend wird erkannt.",
+                    "updated": 1671206463083
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -103,7 +331,19 @@
         },
         {
             "style": "Text",
-            "text": "A simple trailing stop loss in a strategy that goes short."
+            "text": "A simple trailing stop loss in a strategy that goes short.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kısa süren bir stratejide basit bir takip kaybı durdurma.",
+                    "updated": 1647091965839
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein einfacher nachlaufender Stop Loss in einer Strategie, die auf Short geht.",
+                    "updated": 1671206503748
+                }
+            ]
         },
         {
             "style": "Text",

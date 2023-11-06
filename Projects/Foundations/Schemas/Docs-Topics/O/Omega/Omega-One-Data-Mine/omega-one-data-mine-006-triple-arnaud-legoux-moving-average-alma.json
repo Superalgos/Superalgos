@@ -1,0 +1,333 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "6",
+    "type": "Triple Arnaud Legoux Moving Average (ALMA)",
+    "definition": {
+        "text": "This indicator contains three ALMA products. For more information on the Arnaud Legoux moving average (ALMA) indicator, see the previous topic.",
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор содержит три продукта ALMA. Более подробную информацию об индикаторе Arnaud Legoux moving average (ALMA) см. в предыдущей теме.",
+                "updated": 1643525915956
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator enthält drei ALMA-Produkte. Weitere Informationen über den Indikator Arnaud Legoux gleitender Durchschnitt (ALMA) finden Sie im vorherigen Thema.",
+                "updated": 1647332800870
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu gösterge üç ALMA ürünü içerir. Arnaud Legoux hareketli ortalama (ALMA) göstergesi hakkında daha fazla bilgi için önceki konuya bakın.",
+                "updated": 1647781855886
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This indicator uses 3 separate ALMA signals:",
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор использует 3 отдельных сигнала ALMA:",
+                    "updated": 1643525924429
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator verwendet 3 separate ALMA-Signale:",
+                    "updated": 1647332911294
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge 3 ayrı ALMA sinyali kullanır:",
+                    "updated": 1647781907813
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "ALMA 1: window: 9, sigma: 6, offset: 0.85"
+        },
+        {
+            "style": "List",
+            "text": "ALMA 2: window: 14, sigma: 6, offset: 0.85"
+        },
+        {
+            "style": "List",
+            "text": "ALMA 3: window: 25, sigma: 6, offset: 0.85"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-TALMA-on-the-charts.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Change the input to optimise it for your use case!",
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643525938481
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Eingabe, um sie für Ihren Anwendungsfall zu optimieren!",
+                    "updated": 1647333017794
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanım durumunuza göre optimize etmek için girişi değiştirin!",
+                    "updated": 1647788197301
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Most of Omega indicators can use different period values. To change periods:",
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643525946554
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Omega Indikatoren können verschiedene Periodenwerte verwenden. Um Perioden zu ändern:",
+                    "updated": 1647333031611
+                },
+                {
+                    "language": "TR",
+                    "text": "Omega indikatörlerinin çoğu farklı periyot değerleri kullanabilir. Periyotları değiştirmek için:",
+                    "updated": 1647788206399
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643525953980
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Data Mine und erweitern Sie sie.",
+                    "updated": 1647333041939
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni'ni ( Data Mine ) bulun ve genişletin.",
+                    "updated": 1647788215591
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643525959856
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Indicator Bot.",
+                    "updated": 1647333060190
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge Botu ( Indicator Bot ) düğümünü genişletin.",
+                    "updated": 1647788228083
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525969973
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1647333066628
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün Tanımı ( Product Definition ) -> Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) -> Prosedür Javascript Kodunu ( Procedure Javascript Code ) bulun.",
+                    "updated": 1647788240091
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643525977667
+                },
+                {
+                    "language": "DE",
+                    "text": "<i>Bearbeiten</i> Sie den Knoten Procedure Javascript Code.",
+                    "updated": 1647333678421
+                },
+                {
+                    "language": "TR",
+                    "text": "Prosedür Javascript Kodu ( Procedure Javascript Code ) düğümünü düzenleyin.",
+                    "updated": 1647788252811
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643526003147
+                },
+                {
+                    "language": "DE",
+                    "text": "Setzen Sie den Textmarker in das Bearbeitungsfeld und drücken Sie die Pfeiltaste nach oben, bis Sie den oberen Teil des Codes erreichen.",
+                    "updated": 1647333090549
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin işaretçisini düzenleme kutusuna koyun ve kodun en üstüne ulaşana kadar Yukarı Ok'a basın.",
+                    "updated": 1647788264397
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Look for \"User defined values\".",
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643526016247
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach \"User defined values\".",
+                    "updated": 1647333104221
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Kullanıcı tanımlı değerler ( User defined values )\" arayın.",
+                    "updated": 1647788278639
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643526022542
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie die Werte Ihrer Wahl ein.",
+                    "updated": 1647333146695
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz değerleri girin.",
+                    "updated": 1647788290774
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643526029233
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Sie die vorhandenen Daten für den Indikator im Ordner Data-Storage löschen und die für den Indikator erforderlichen Data Tasks im Knoten Network neu starten müssen, bevor Sie die Änderungen sehen können.",
+                    "updated": 1647333152012
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Veri Depolama klasöründeki gösterge için mevcut verileri silmeniz ve herhangi bir değişikliği görebilmeniz,Ağ düğümündeki gösterge için gereken Veri Görevlerini ( Data Tasks ) yeniden başlatmanız gerektiğini unutmayın.",
+                    "updated": 1647789004733
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-TALMA-params.png",
+            "updated": 1617958956443
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643526035882
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte, Eigenschaften und Beispiele",
+                    "updated": 1647333184249
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler, Özellikler ve Örnekler",
+                    "updated": 1647788363337
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Triple ALMA | tripleALMA | alma01, alma02, alma03 |",
+            "updated": 1617972838194,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Triple ALMA | tripleALMA | alma01, alma02, alma03 |\n",
+                    "updated": 1647333229459
+                },
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Triple ALMA | tripleALMA | alma01, alma02, alma03 |",
+                    "updated": 1647788378185
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLE */\n\n// Candle close is above ALMA trend.\nchart.at01hs.candle.close > chart.at01hs.ALMA.alma01\n//ALMA 2 is above ALMA3\nchart.at01hs.ALMA.alma02 > chart.at01hs.ALMA.alma03",
+            "updated": 1617973639173
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

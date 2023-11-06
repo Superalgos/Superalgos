@@ -1,0 +1,30 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 26,
+    "type": "Tutorial Step - The Contributions Panel",
+    "definition": {
+        "text": "The panel features a table listing the repositories that make up the Superalgos software. Each repo tracks changes independently.",
+        "updated": 1688052847343,
+        "icon": {
+            "name": "github",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At this point, you should see the details of the new page you created under the Superalgos repository, including the file name, path, a some Git information.",
+            "updated": 1688052962314
+        },
+        {
+            "style": "Important",
+            "text": "Do not touch the Discard button below the list of changes, as your review would disappear if you do. Use this button when you need to discard changes you don't intend to contribute.",
+            "updated": 1688055769255
+        },
+        {
+            "style": "Callout",
+            "text": "If you're ready to commit your review, click the Contribute button. Check your console in case Git asks you to enter your username and token again.",
+            "updated": 1688057170185
+        }
+    ]
+}

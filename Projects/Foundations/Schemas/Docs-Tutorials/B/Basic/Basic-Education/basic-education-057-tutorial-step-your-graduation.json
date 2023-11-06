@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Felicidades! Te has graduado de tu Basic Education y estas listo para pasar a cosas más avanzadas!",
-                "updated": 1628034332132,
+                "text": "¡Felicidades! Te has graduado de tu Basic Education Tutorial y estas listo para pasar a cosas más avanzadas!",
+                "updated": 1675378876499,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Tebrikler! Temel Eğitiminden mezun oldunuz ve daha ileri seviyelere geçmeye hazırsınız!",
                 "updated": 1639837530748
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляем! Вы закончили базовое обучение и готовы перейти к более сложным вещам!",
+                "updated": 1640877555296
+            },
+            {
+                "language": "ID",
+                "text": "Selamat! Kamu telah lulus dari  Basic Education kamu dan siap untuk beralih ke hal-hal yang lebih maju!",
+                "updated": 1645562463593
+            },
+            {
+                "language": "NL",
+                "text": "Gefeliciteerd! Je bent afgestudeerd voor je Basic Education en bent klaar om door te gaan naar meer geavanceerde dingen!",
+                "updated": 1669553215582
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Sonraki eğitimde uygulamanızı nasıl güncelleyeceğinizi, geliştirme dalındaki sürümü test etmek için dalları nasıl değiştireceğinizi, Dokümanlar hakkında birkaç püf noktası ve daha fazlasını öğreneceksiniz!",
                     "updated": 1639837561573
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем уроке вы узнаете, как обновлять приложение, переключаться между ветками для тестирования версии в ветке develop, несколько хитростей, связанных с Docs, и многое другое!",
+                    "updated": 1640877589274
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam tutorial berikutnya kamu akan belajar cara memperbarui aplikasi kamu, beralih branches untuk menguji versi di branches develop version, beberapa trik tentang Docs, dan banyak lagi!",
+                    "updated": 1645562518766
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende zelfstudie leer je hoe je je app kunt updaten, van branches kunt wisselen om de versie in de ontwikkelomgeving te testen, een paar trucs over de Docs, en meer!",
+                    "updated": 1669553254718
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Ayrıca bu noktaya kadar Superalgos ile olan deneyiminiz hakkında bir inceleme gönderebileceksiniz!",
                     "updated": 1639837576185
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также сможете оставить отзыв о своем опыте работы с Superalgos на данный момент!",
+                    "updated": 1640877621521
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu juga dapat mengirimkan ulasan tentang pengalaman Kamu dengan Superalgos hingga saat ini!",
+                    "updated": 1645562541153
+                },
+                {
+                    "language": "NL",
+                    "text": "Je kunt ook een beoordeling geven over je ervaring met Superalgos tot nu toe!",
+                    "updated": 1669553271901
                 }
             ]
         },
@@ -106,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "A medida que avanzas, es posible que necesites un repaso de los temas tratados en este tutorial o en el anterior. Esa es una práctica estándar, ¡así que regresa hasta que aprenda todos los trucos!",
-                    "updated": 1628033960361,
+                    "text": "A medida que avanzas, es posible que necesites un repaso de los temas tratados en este tutorial o en el anterior. Esa es una práctica estándar, ¡así que regresa hasta que aprendas todos los trucos!",
+                    "updated": 1675378906043,
                     "style": "Success"
                 },
                 {
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Superalgos ile ilerlerken, bu eğitimde veya bir öncekinde ele alınan konularda tazelemeye ihtiyacınız olabilir! Bu standart bir uygulamadır, bu yüzden tüm püf noktalarını öğrenene kadar tekrar etmeyi ihmal etmeyin!",
                     "updated": 1639837606771
+                },
+                {
+                    "language": "RU",
+                    "text": "По мере освоения Superalgos вам может понадобиться освежить в памяти темы, затронутые в этом или предыдущем уроке! Это обычная практика, так что возвращайтесь, пока не выучите все хитрости!",
+                    "updated": 1640877652521
+                },
+                {
+                    "language": "ID",
+                    "text": "Saat berprogress maju dengan Superalgos, kamu mungkin perlu merefresh pada topik yang dibahas dalam tutorial ini atau yang sebelumnya! Itu adalah praktik standar, jadi kembalilah sampai kamu mempelajari semua trik!",
+                    "updated": 1645562599862
+                },
+                {
+                    "language": "NL",
+                    "text": "Naarmate je vordert met Superalgos, heb je misschien een opfriscursus nodig over de onderwerpen die in deze zelfstudie of de vorige worden behandeld! Dat is een standaardpraktijk, dus kom terug totdat je alle trucs hebt geleerd!",
+                    "updated": 1669553307966
                 }
             ]
         }

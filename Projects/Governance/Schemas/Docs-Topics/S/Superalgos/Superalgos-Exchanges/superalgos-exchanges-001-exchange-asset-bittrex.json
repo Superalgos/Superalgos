@@ -4,7 +4,24 @@
     "type": "Exchange Asset - Bittrex",
     "definition": {
         "text": "Bittrex Global is the most trusted\ncryptocurrency exchange known\nfor its next-level security.",
-        "updated": 1628185606196
+        "updated": 1628185606196,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bittrex Global является самой надежной биржей криптовалют, известной благодаря своей безопасности нового уровня.",
+                "updated": 1645626612689
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bittrex Global, bir sonraki seviye güvenliği ile bilinen en güvenilir kripto para borsasıdır.",
+                "updated": 1646306963979
+            },
+            {
+                "language": "DE",
+                "text": "Bittrex Global ist die vertrauenswürdigste Kryptowährungsbörse, die für ihre Sicherheit auf höchstem Niveau bekannt ist.",
+                "updated": 1676911914710
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,11 +35,40 @@
         },
         {
             "style": "Title",
-            "text": "Listing Summary"
+            "text": "Listing Summary",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Liste Özeti",
+                    "updated": 1646306982174
+                },
+                {
+                    "language": "DE",
+                    "text": "Abschließend",
+                    "updated": 1676912683458
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We have been introduced to the Exchange listing team and we will be meeting soon."
+            "text": "We have been introduced to the Exchange listing team and we will be meeting soon.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нас познакомили с командой по листингу биржи, и мы скоро встретимся.",
+                    "updated": 1645626647535
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange listeleme ekibiyle tanıştık ve yakında görüşeceğiz.",
+                    "updated": 1646307003160
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wurden dem Börsenteam vorgestellt und werden uns demnächst treffen.",
+                    "updated": 1676911978657
+                }
+            ]
         }
     ]
 }

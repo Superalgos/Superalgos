@@ -1,4 +1,4 @@
-exports.newFoundationsUtilitiesMiscellaneousFunctions = function () {
+exports.newFoundationsUtilitiesMiscellaneousFunctions = function() {
 
     let thisObject = {
         truncateToThisPrecision: truncateToThisPrecision,
@@ -8,6 +8,15 @@ exports.newFoundationsUtilitiesMiscellaneousFunctions = function () {
     return thisObject
 
     function truncateToThisPrecision(floatNumber, precision) {
+        if (floatNumber == null) {
+            floatNumber = 0
+        }
+        if (isNaN(floatNumber)) {
+            floatNumber = 0
+        }
+        if (floatNumber === undefined) {
+            floatNumber = 0
+        }
         return parseFloat(floatNumber.toFixed(precision))
     }
 
@@ -19,6 +28,7 @@ exports.newFoundationsUtilitiesMiscellaneousFunctions = function () {
         let promise = new Promise((resolve, reject) => {
 
             datasetModule.getTextFile(filePath, fileName, onFileReceived)
+
             function onFileReceived(err, text) {
 
                 let response = {

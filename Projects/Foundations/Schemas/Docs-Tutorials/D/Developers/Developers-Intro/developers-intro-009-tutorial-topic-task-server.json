@@ -7,24 +7,109 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI ."
+        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI .",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Task-Server ist ein Node.js-Fork-Prozess des Clients, der die Definition des Tasks, der ausgeführt werden soll, von der Benutzeroberfläche erhält.",
+                "updated": 1641729950857
+            },
+            {
+                "language": "RU",
+                "text": "Task Server - это Node.js форк процесса Client, который получает определение задачи, которую нужно запустить, из пользовательского интерфейса.",
+                "updated": 1640930213490
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Görev Sunucusu, Kullanıcı Arabiriminden (UI) çalıştırılması gereken Görev tanımını alan İstemcinin bir Node.js çatal işlemidir.",
+                "updated": 1643040241961
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The definition includes:"
+            "text": "The definition includes:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Definition beinhaltet:",
+                    "updated": 1641729959239
+                },
+                {
+                    "language": "RU",
+                    "text": "Определение включает в себя:",
+                    "updated": 1640930221960
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanım şunları içerir:",
+                    "updated": 1643040254360
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot."
+            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bot to run: Der Bot könnte ein Sensor-Bot, ein Indikator-Bot oder ein Handels-Bot sein.",
+                    "updated": 1641729970143
+                },
+                {
+                    "language": "RU",
+                    "text": "Бот для запуска: Бот может быть Sensor Bot, Indicator Bot или Trading Bot.",
+                    "updated": 1640930268288
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot çalıştırılacak: Bot, bir Sensör Botu( Sensor Bot ), Gösterge Botu (Indicator Bot) veya Ticaret Botu (Trading Bot) olabilir.",
+                    "updated": 1643040274006
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Processes to run: Each bot definition may have one or more bot processes."
+            "text": "Processes to run: Each bot definition may have one or more bot processes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Processes to run:  Jede Bot-Definition kann einen oder mehrere Bot-Prozesse enthalten.",
+                    "updated": 1641729977633
+                },
+                {
+                    "language": "RU",
+                    "text": "Процессы для запуска: Каждое определение бота может иметь один или несколько процессов бота.",
+                    "updated": 1640930279775
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalıştırılacak süreçler: Her bot tanımında bir veya daha fazla bot süreci olabilir.",
+                    "updated": 1643040284762
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run."
+            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alle Definitionen befinden sich in der Benutzeroberfläche. Jedes Mal, wenn der Benutzer eine Aufgabe ausführt, sammelt die Benutzeroberfläche alle relevanten Informationen in einem einzigen, riesigen JSON-Objekt und sendet dieses an den Task-Manager-Server, der wiederum, nachdem der Fork-Prozess ausgeführt wurde, diese Definition an die gerade erstellte Task-Server-Instanz weitergibt. Mit dieser Definition kennt der Task-Server alle Details der auszuführenden Aufgabe.",
+                    "updated": 1641729984073
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс (UI) - это место, где хранятся все определения. Каждый раз, когда пользователь запускает задачу, UI собирает всю необходимую информацию в один гигантский объект JSON и отправляет его на сервер Task Manager Server, который, в свою очередь, после запуска процесса fork передает это определение только что созданному экземпляру Task Server. Благодаря этому определению сервер задач знает все детали запускаемой задачи.",
+                    "updated": 1640930344481
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kullanıcı arabirimi (UI), tüm tanımların depolandığı yerdir. Kullanıcı bir görevi her başlattığında, kullanıcı arayüzü ihtiyaç duyduğu tüm bilgileri tek bir dev JSON nesnesinde toplar ve bunu Görev Yöneticisi Sunucusuna gönderir, bu da çatal işlemini çalıştırdıktan sonra bu tanımı yeni oluşturulan Görev Sunucusu örneğine iletir.. Bu tanım sayesinde görev sunucusu çalıştırılmakta olan görevin tüm detaylarını bilir.",
+                    "updated": 1643040302955
+                }
+            ]
         }
     ]
 }

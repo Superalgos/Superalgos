@@ -7,6 +7,21 @@
                 "language": "ES",
                 "text": "El nodo  plugin tutorials  presenta las definiciones de tutoriales que se incluirán como complementos en el workspace.",
                 "updated": 1636559382952
+            },
+            {
+                "language": "RU",
+                "text": "Узел Plugin Tutorials содержит определения учебников, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
+                "updated": 1645166028861
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti öğreticileri düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek öğreticilerin tanımlarını içerir.",
+                "updated": 1651952329383
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin tutorials enthält die Definitionen von Tutorials, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639668189
             }
         ]
     },
@@ -17,7 +32,24 @@
         },
         {
             "style": "Important",
-            "text": "Tutorials included in the workspace as plugins do not keep track of users' progress, thus, may not return to the last step using the <i>Resume</i> button on the menu."
+            "text": "Tutorials included in the workspace as plugins do not keep track of users' progress, thus, may not return to the last step using the <i>Resume</i> button on the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники, включенные в рабочее пространство в качестве плагинов, не отслеживают прогресс пользователя, поэтому он не может вернуться к последнему шагу с помощью кнопки Resume в меню.",
+                    "updated": 1645166044312
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti olarak çalışma alanına dahil edilen öğreticiler, kullanıcıların ilerlemesini takip etmez, bu, menüdeki Devam düğmesini kullanarak son adıma dönmeyebilir.",
+                    "updated": 1651952379034
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials, die als Plugins in den Arbeitsbereich integriert sind, verfolgen nicht den Fortschritt des Benutzers und können daher nicht zum letzten Schritt zurückkehren, wenn Sie die Schaltfläche Fortsetzen im Menü verwenden.",
+                    "updated": 1674639752077
+                }
+            ]
         },
         {
             "style": "Block",
@@ -25,7 +57,19 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Plugin Tutorials"
+            "text": "Configuring Plugin Tutorials",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Plugin Tutorials",
+                    "updated": 1645166057934
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Eğitimlerini Yapılandırma",
+                    "updated": 1651952437396
+                }
+            ]
         },
         {
             "style": "Text",
@@ -35,6 +79,16 @@
                     "language": "ES",
                     "text": "Seleccione Configure en el menu para acceder a la configuración.",
                     "updated": 1636559608194
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1645166062911
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1651952452058
                 }
             ]
         }

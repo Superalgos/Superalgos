@@ -11,6 +11,11 @@
                 "text": "Zusammenfassung: Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben. Ins deutsche übersetzt von gitforkgit.",
                 "updated": 1634133897069,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un ve entegre edilen diğer projelerin Docs sayfaları orijinal olarak İngilizce yazılmıştır. Sistem, kullanıcılar daha önce ilgili çevirilere katkıda bulundukları sürece, kullanıcıların diğer dillerde de arama yapmasına ve sayfalara göz atmasına olanak tanır.",
+                "updated": 1654393533416
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
                     "updated": 1634069381374,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "İngilizce varsayılan dil olarak kabul edilir. Farklı bir dile geçtiğinizde, sistem içeriği yeni dilde göstermeye çalışır. Ancak, çeviri henüz mevcut değilse, bunun yerine İngilizce sürümü gösterir.",
+                    "updated": 1654393538976,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +51,12 @@
                     "language": "DE",
                     "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
                     "updated": 1634069418064,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm türleri, değişken adları, Dokümanlar'daki sayfaların başlığı ve Superalgos'un birkaç öğesi daha, söz konusu öğelerin benzersiz tanımlayıcıları oldukları için çevrilmeyebilir. Bunları her zaman İngilizce olarak alacaksınız.",
+                    "updated": 1654393544916,
                     "style": "Text"
                 }
             ]
@@ -53,8 +70,15 @@
                     "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Dokumente.",
                     "updated": 1634069431390,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Dil değiştirmek için Dokümanların altbilgisindeki bayraklara tıklayın.",
+                    "updated": 1654393551489,
+                    "style": "Success"
                 }
-            ]
+            ],
+            "updated": 1674832048987
         },
         {
             "style": "Note",
@@ -65,6 +89,12 @@
                     "language": "DE",
                     "text": "Sie können nur Seiten/Absätze zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist.",
                     "updated": 1634069541313,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlara yalnızca dil İngilizce olarak ayarlandığında sayfa / paragraf ekleyebilir veya silebilirsiniz.",
+                    "updated": 1654393557631,
                     "style": "Note"
                 }
             ]
@@ -82,6 +112,12 @@
                     "language": "DE",
                     "text": "Wenn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
                     "updated": 1634069577126,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevirilere katkıda bulunmak istiyorsanız, Çevirilere Nasıl Katkıda Bulunulur sayfasını okuyun.",
+                    "updated": 1654393563778,
                     "style": "Success"
                 }
             ]

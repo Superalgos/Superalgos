@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел, чтобы установить ссылку на Feature Contribution Claim, размещенное вашим коллегой в разделе «Claims Program» своего профиля пользователя. Это голосование означает, что вы поддерживаете утверждение своего коллеги с помощью Claim Support Power, которую вы вводите в узел Claim Votes!",
                 "updated": 1639138039593
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğümü, iş arkadaşınız tarafından Kullanıcı Profilinin Talep Programı bölümüne yerleştirilen bir Özellik Katkı Talebi ile referans oluşturmak için kullanın. Bu oy, meslektaşınızın talebini Talep Oyları düğümüne sürdüğünüz Talep Destek Gücü ile desteklediğiniz anlamına gelir!",
+                "updated": 1654394717571
             }
         ]
     },
@@ -24,7 +29,15 @@
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Claim Votes Content"
+            "text": "Governance->Concept->Reusable Governance Snippets->Claim Votes Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Talep Oyları İçeriği",
+                    "updated": 1654394723874,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -34,16 +47,38 @@
                     "language": "RU",
                     "text": "Работа с несколькими рабочими пространствами",
                     "updated": 1639138085204
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden Fazla Çalışma Alanında Çalışma",
+                    "updated": 1654394730063,
+                    "style": "Subtitle"
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Kullanılabilir Yönetişim Parçacıkları->Derin Yönetişim",
+                    "updated": 1654394735767,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar 2",
+                    "updated": 1654394741990,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -65,6 +100,12 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639138099714
+                },
+                {
+                    "language": "TR",
+                    "text": "Konfigürasyon",
+                    "updated": 1654394748560,
+                    "style": "Title"
                 }
             ]
         }

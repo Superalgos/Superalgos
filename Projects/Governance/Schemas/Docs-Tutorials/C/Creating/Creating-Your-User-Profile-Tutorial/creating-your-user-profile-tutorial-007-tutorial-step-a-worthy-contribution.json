@@ -1,6 +1,6 @@
 {
     "tutorial": "Creating Your User Profile Tutorial",
-    "pageNumber": 7,
+    "pageNumber": "7",
     "type": "Tutorial Step - A Worthy Contribution",
     "definition": {
         "text": "No matter who you are, you can bring value to the Superalgos network!",
@@ -14,6 +14,27 @@
                 "language": "RU",
                 "text": "Независимо от того, кто вы, вы можете принести пользу сети Superalgos!",
                 "updated": 1639045362977
+            },
+            {
+                "language": "DE",
+                "text": "Ganz gleich, wer Sie sind, Sie können dem Superalgos-Netzwerk einen Mehrwert bieten!",
+                "updated": 1640072430688
+            },
+            {
+                "language": "TR",
+                "text": "Kim olursanız olun, Superalgos ağına değer katabilirsiniz!",
+                "updated": 1654395662458,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Tidak penting siapa dirimu, kamu bisa membawa sesuatu yang berharga kepada jaringan Superalgos!",
+                "updated": 1670849076414
+            },
+            {
+                "language": "ES",
+                "text": "No importa quién seas, ¡puedes aportar valor a la red Superalgos!",
+                "updated": 1682519692666
             }
         ]
     },
@@ -27,6 +48,27 @@
                     "language": "RU",
                     "text": "Каждый из нас привносит уникальные таланты и опыт в работу с Superalgos. Даже если вы не программист или не опытный трейдер, у вас все еще есть способы принять участие!",
                     "updated": 1639045383920
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder von uns bringt einzigartige Talente und Erfahrungen in unsere Arbeit mit Superalgos ein. Auch wenn Sie kein Programmierer oder Handelsexperte sind, gibt es Möglichkeiten, sich einzubringen!",
+                    "updated": 1640072443184
+                },
+                {
+                    "language": "TR",
+                    "text": "Her birimiz Superalgos ile olan çalışmalarımıza benzersiz yetenekler ve deneyimler katıyoruz. Bir programcı veya uzman tüccar olmasanız bile, dahil olmanız için hala yollar var!",
+                    "updated": 1654395669684,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap dari kita memiliki talenta unik dan bereksperience ke pekerjaan kita dengan Superalgos. Bahkan jika kamu bukanlah programmer atau trader expert selalu ada jalan untuk kamu dalam berkembang!",
+                    "updated": 1670849083559
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada uno de nosotros aporta un talento y una experiencia únicos a nuestro trabajo con Superalgos. Incluso si no eres un programador o un operador experto, ¡aún hay formas de que participes!",
+                    "updated": 1682519798504
                 }
             ]
         },
@@ -38,6 +80,27 @@
                     "language": "RU",
                     "text": "Один из первых вкладов, который вы можете внести в проект, - это участие в самом управлении. Сеть пользователей, направляющих Superalgos, является неотъемлемой частью успеха нашего открытого сотрудничества. Вы приносите пользу сети, просто будучи ее частью!",
                     "updated": 1639045442200
+                },
+                {
+                    "language": "DE",
+                    "text": "Einer der ersten Beiträge, die Sie zu dem Projekt leisten können, ist die Beteiligung an der Verwaltung selbst. Das Netzwerk der Nutzer, die Superalgos leiten, ist ein wesentlicher Bestandteil des Erfolgs unserer offenen Zusammenarbeit. Sie tragen zum Wert des Netzwerks bei, indem Sie einfach ein Teil davon sind!",
+                    "updated": 1640072453264
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye yapabileceğiniz ilk katkılardan biri yönetişimin kendisine dahil olmaktır. Superalgos'a rehberlik eden kullanıcı ağı, açık işbirliğimizin başarısının ayrılmaz bir parçasıdır. Sadece bir parçası olarak bile bu ağa değer katabilirsiniz!",
+                    "updated": 1654395675953,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Salah satu kontribusi pertama yang bisa kamu berikan kepada proyek ini yaitu terlibat dalam tata kelola (governance) itu sendiri. Jaringan dari sesama pengguna yang saling memandu dalam Superalgos adalah bagian integral dari keberhasilan kolaborasi terbuka kita. Kamu membawa nilai ke jaringan hanya dengan menjadi bagiannya!",
+                    "updated": 1670849090150
+                },
+                {
+                    "language": "ES",
+                    "text": "Una de las primeras contribuciones que puedes hacer al proyecto es implicarte en la propia gobernanza. La red de usuarios que guían Superalgos es parte integrante del éxito de nuestra colaboración abierta. Tú aportas valor a la red por el simple hecho de formar parte de ella.",
+                    "updated": 1682519836558
                 }
             ]
         }

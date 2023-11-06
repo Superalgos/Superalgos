@@ -1,0 +1,50 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 6,
+    "type": "User Storage",
+    "definition": {
+        "text": "This is the storage used to house signal content in order to be easily available to signal recipents.",
+        "updated": 1642564985762,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это хранилище, используемое для размещения содержимого сигнала, чтобы оно было легко доступно получателям сигнала.",
+                "updated": 1645625421521
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, sinyal alıcılarına kolayca erişilebilmesi ve sinyal içeriğini barındırmak için kullanılan depolamadır",
+                "updated": 1646297539869
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist der Speicher, in dem die Signalinhalte abgelegt werden, damit sie für die Signalempfänger leicht zugänglich sind.",
+                "updated": 1674677136768
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The open storage used to house signal content is defined under the provider’s governance profile. These nodes simply hold the address of this open storage and allow Social Trading Bots to reference this information.",
+            "updated": 1642565006804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Открытое хранилище, используемое для размещения сигнального контента, определяется в профиле управления провайдера. Эти узлы просто хранят адрес этого открытого хранилища и позволяют социальным торговым ботам ссылаться на эту информацию.",
+                    "updated": 1645625462639
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyal içeriğini barındırmak için kullanılan açık depolama, sağlayıcının yönetim profili altında tanımlanır. Bu düğümler, yalnızca bu açık depolamanın adresini tutar ve Sosyal Ticaret Botlarının ( Social Trading Bots ) bu bilgilere başvurmasına izin verir.",
+                    "updated": 1646297590645
+                },
+                {
+                    "language": "DE",
+                    "text": "Der offene Speicher, in dem Signalinhalte gespeichert werden, wird im Governance-Profil des Anbieters definiert. Diese Knoten enthalten die Adresse dieses offenen Speichers und ermöglichen es Sozialen-Trading-Bots (Social Trading Bots) auf diese Informationen zu verweisen.",
+                    "updated": 1674756421937
+                }
+            ]
+        }
+    ]
+}

@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Inzwischen sollten alle Prozesse zu 100 % abgeschlossen sein. Wir brauchen die Daten, damit wir mit den Diagrammen weiterarbeiten können!",
                 "updated": 1639262156623
+            },
+            {
+                "language": "RU",
+                "text": "К этому моменту все процессы должны быть на 100%. Нам нужно, чтобы данные были готовы, чтобы мы могли пойти и немного поработать с графиками!",
+                "updated": 1640935206005
+            },
+            {
+                "language": "TR",
+                "text": "Şimdiye kadar, tüm işlemler %100 tamamlanmış olmalıdır. Grafiklerle çalışmaya devam edebilmemiz için verilere ihtiyacımız var!",
+                "updated": 1641653038053
+            },
+            {
+                "language": "ES",
+                "text": "En este momento, todos los procesos deberían estar al 100%. Necesitamos que los datos estén listos para poder ir a trabajar en los gráficos.",
+                "updated": 1675622251334
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Wenn Sie Daten schürfen, weil Sie es im vorherigen Tutorial nicht getan haben, schauen Sie sich um, ob alle Prozesse bei 100% sind. Wenn das der Fall ist, beenden Sie das Data Mining!",
                     "updated": 1639262167165
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы добываете данные, потому что не сделали этого в предыдущем руководстве, оглянитесь вокруг и посмотрите, все ли процессы работают на 100%. Если все, то прекратите добычу данных!",
+                    "updated": 1640935225772
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki öğreticide yapmadığınız için veri madenciliği yapıyorsanız, tüm işlemlerin %100'de olduğundan emin olmak için etrafınıza bakın. Eğer öyleyse, veri madenciliğini durdurun!",
+                    "updated": 1641653048518
+                },
+                {
+                    "language": "ES",
+                    "text": "Si estás extrayendo datos porque no lo hiciste en el tutorial anterior, mira a tu alrededor y comprueba si todos los procesos están al 100%. Si todos lo están, ¡entonces detén la minería de datos!",
+                    "updated": 1675622272359
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Warten Sie, bis alle Prozesse die 100%-Marke erreicht haben, bevor Sie fortfahren!",
                     "updated": 1639262180697
+                },
+                {
+                    "language": "RU",
+                    "text": "Подождите, пока все процессы достигнут отметки 100%, прежде чем продолжить!",
+                    "updated": 1640935236270
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Devam etmeden önce tüm süreçlerin %100 işaretine ulaşmasını bekleyin!",
+                    "updated": 1641653061884
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Espera hasta que todos los procesos alcancen el 100% antes de continuar!",
+                    "updated": 1675622280601
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Gehen wir zu den Diagrammen!",
                     "updated": 1639262192326
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте перейдем к графикам!",
+                    "updated": 1640935245949
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Hadi grafiklere geçelim!",
+                    "updated": 1641653074590
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a los gráficos!",
+                    "updated": 1675622286619
                 }
             ]
         }

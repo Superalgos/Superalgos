@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Uno scenario tipico è modificare una strategia inclusa nel sistema per iniziare con un setup già pronto.",
-                "updated": 1619590461442,
+                "text": "Esaminiamo il primo scenario: un caso tipico è quando si desidera introdurre modifiche a una strategia già presente nel sistema per iniziare con una configurazione collaudata!",
+                "updated": 1666640946648,
                 "style": "Definition"
             },
             {
@@ -31,25 +31,40 @@
                 "language": "TR",
                 "text": "İlk senaryoyu inceleyelim: Bu tipik bir durumdur, daha önce denenmiş bir kurulumla başlayarak denemek ya da bu kurulumda değişiklik yapmak istediğinizde ortaya çıkar!",
                 "updated": 1639817762221
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим первый сценарий: типичный случай - когда вы хотите внести изменения в стратегию, поставляемую вместе с системой, чтобы начать с проверенной конфигурации!",
+                "updated": 1640874819658
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat skenario pertama: tipikal kasus dimana ketika kamu ingin memperkenalkan perubahan pada pengiriman strategi dengan sistem untuk memulai dengan pengaturan yang terbukti!",
+                "updated": 1645559252341
+            },
+            {
+                "language": "NL",
+                "text": "Laten we eens kijken naar het eerste scenario: een typisch geval is wanneer u wijzigingen wilt aanbrengen in een strategie die met het systeem wordt verzonden om te beginnen met een bewezen strategie!",
+                "updated": 1669547591326
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's say you are ready to start playing with a strategy. You want to start with an existing one and introduce modifications to understand how things work. You don't intend to contribute the changes. You just wish to play with it and tune it to your liking! Then, do the following:",
-            "updated": 1629908540100,
+            "text": "Let's say you wish to build a strategy. You want to start with an existing one and introduce modifications to understand how things work. You don't intend to contribute the changes. You just wish to play with it and tune it to your liking! Then, do the following:",
+            "updated": 1649175246476,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Mettiamo che hai completato i tutorial di Superalgos e sei pronto a sperimentare con una strategia. Vuoi iniziare da una strategia esistente e modificare qualche dettaglio per capire meglio come funziona il tutto. La strategia in questione è inclusa come un plugin in uno specifico workspace.",
-                    "updated": 1619590579206,
+                    "text": "Diciamo che desideri costruire una strategia. Vuoi iniziare con una esistente e introdurre modifiche per capire come funzionano le cose. Non intendi contribuire alle modifiche. Vuoi solo giocarci e modularla a tuo piacimento! Quindi, procedi come segue:",
+                    "updated": 1666641003137,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Digamos que está listo para comenzar a jugar con una estrategia.. Quiere comenzar con una existente o introducir modificaciones para entender como trabajan las cosas. No tiene intensiones de contribuir con los cambios. Solo desea jugar con esto y cambiarlo a su gusto! Entonces, haga lo siguiente:",
-                    "updated": 1633283766269,
+                    "text": "Supongamos que quieres construir una estrategia. Quieres empezar con una ya existente e introducir modificaciones para entender cómo funcionan las cosas. No tienes intención de aportar los cambios. Sólo deseas jugar con ella y afinarla a tu gusto. Entonces, haz lo siguiente:",
+                    "updated": 1675377997361,
                     "style": "Text"
                 },
                 {
@@ -59,26 +74,41 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Diyelim ki bir strateji ile başlamaya hazırsınız. Mevcut olanla başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişiklik yaparak katkıda bulunmak niyetinde değilsiniz. Sadece onu denemek ve beğeninize göre ayarlamak istiyorsunuz! Aşağıdakileri yapın:",
-                    "updated": 1639817833420
+                    "text": "Diyelim ki bir strateji oluşturmak istiyorsunuz. Mevcut bir strateji ile başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişikliklere katkıda bulunmak niyetinde değilsiniz. Sadece onunla oynamak ve beğeninize göre ayarlamak istiyorsunuz! O zaman aşağıdakileri yapın:",
+                    "updated": 1666104096123
+                },
+                {
+                    "language": "RU",
+                    "text": "Предположим, вы хотите построить стратегию. Вы хотите начать с существующей и внести в нее изменения, чтобы понять, как все работает. Вы не собираетесь вносить изменения. Вы просто хотите поиграть с ней и настроить ее по своему вкусу! Тогда сделайте следующее:",
+                    "updated": 1661377766025
+                },
+                {
+                    "language": "ID",
+                    "text": "Katakanlah kamu siap untuk mulai bermain dengan strategi. Kamu ingin memulai dengan yang sudah ada dan memperkenalkan modifikasi untuk memahami cara kerja berbagai hal. Kamu tidak bermaksud berkontribusi terhadap perubahan. Kamu hanya ingin bermain dengannya dan menyetelnya sesuai keinginanmu! Kemudian, lakukan hal berikut:",
+                    "updated": 1645559301189
+                },
+                {
+                    "language": "NL",
+                    "text": "Stel dat u een strategie wilt ontwikkelen. U wilt beginnen met een bestaande en wijzigingen aanbrengen, om te begrijpen hoe dingen werken. U bent niet van plan om de wijzigingen aan het project bij te dragen. Je wilt er gewoon mee spelen en afstemmen op je eigen smaak! Doe dan het volgende:",
+                    "updated": 1669547645420
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Delete the Plugin File node corresponding to the Trading System and restore the original plugin file (in the \\Plugins\\Trading-Systems folder) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
-            "updated": 1629908649650,
+            "text": "Delete the Plugin File node of to the Trading System and restore the original plugin file (<code>\\Plugins\\Algorithmic-Trading\\Trading-Systems</code>) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
+            "updated": 1649175373972,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space!",
-                    "updated": 1619590641442,
+                    "text": "Cancella il nodo Plugin File corrispondente al Trading System e ripristina l'originale presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space! La strategia ora vive nell'area di lavoro e puoi modificarla e salvarla!",
+                    "updated": 1666641097053,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Borre el nodo Plugin File correspondiente al Trading System y restablezca el plugin file original en (\\Plugins\\Trading-Systems folder) como si fuera un a backup: arrastre el archivo y suéltelo en el Design Space! La estrategia ahora vive en el workspace y puede modificarlo y grabarlo.",
-                    "updated": 1633283708150,
+                    "text": "Elimina el nodo Plugin File del Trading System y restaura el archivo plugin original (\\Plugins\\Algorithmic-Trading\\Trading-Systems) como si fuera una copia de seguridad: ¡arrastra el archivo y suéltalo en el Design Space! La estrategia ahora vive en el espacio de trabajo y puede modificarla y guardarla.",
+                    "updated": 1675377955610,
                     "style": "Success"
                 },
                 {
@@ -88,8 +118,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz!",
-                    "updated": 1639818432673
+                    "text": "İşlem Sisteminin Eklenti Dosyası düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Algorithmic-Trading\\Trading-Systems) bir yedekmiş gibi geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanında yaşıyor ve onu değiştirebilir ve kaydedebilirsiniz!",
+                    "updated": 1666104165309
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите узел Plugin File торговой системы и восстановите оригинальный файл плагина (\\Plugins\\Algorithmic-Trading\\Trading-Systems), как если бы это была резервная копия: перетащите файл и бросьте его в Design Space! Теперь стратегия живет в рабочем пространстве, и вы можете изменять и сохранять ее!",
+                    "updated": 1661377802343
+                },
+                {
+                    "language": "ID",
+                    "text": "Delete node Plugin File yang sesuai dengan Trading System dan restore file plugin asli (di folder \\Plugins\\Trading-Systems folder) seolah-olah itu adalah cadangan: seret file dan letakkan di Design Space! Strategi-nya sekarang hidup di workspace dan kamu dapat memodifikasi dan menyimpannya!",
+                    "updated": 1645562741733
+                },
+                {
+                    "language": "NL",
+                    "text": "Verwijder het knooppunt van het Plugin File van het Trading System en herstel het originele plugin bestand (\\Plugins\\Algorithmic-Trading\\Trading-Systems) alsof het een backup is: sleep het bestand en zet het neer in de Design Space! De strategie staat nu in de werkruimte en u kunt deze wijzigen en opslaan!",
+                    "updated": 1669547728260
                 }
             ]
         }

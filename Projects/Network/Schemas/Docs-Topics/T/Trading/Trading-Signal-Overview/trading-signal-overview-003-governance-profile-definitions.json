@@ -1,0 +1,117 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 3,
+    "type": "Governance Profile Definitions",
+    "definition": {
+        "text": "The Superalgos Governance profile is a key part of the peer to peer network.",
+        "updated": 1642463519899,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Профиль Superalgos Governance является ключевой частью сети Peer to Peer (\"равный равному\").",
+                "updated": 1645625260679
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos Yönetişim profili, eşler arası ağın önemli bir parçasıdır.",
+                "updated": 1646297124975
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos Governance-Profil ist ein wichtiger Bestandteil des Peer-to-Peer-Netzwerks.",
+                "updated": 1674676846188
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is especially important for signal sending and receiving. Users define under their Profiles a number of important things:",
+            "updated": 1642463531864,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это особенно важно для отправки и приема сигналов. Пользователи определяют под своими профилями ряд важных вещей:",
+                    "updated": 1645625288911
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikle sinyal gönderme ve alma için önemlidir. Kullanıcılar, Profillerinin altında bir dizi önemli şeyi tanımlar:",
+                    "updated": 1646297168328
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist für das Senden und Empfangen von Signalen besonders wichtig. Benutzer definieren unter ihren Profilen eine Reihe bedeutsamer Dinge:",
+                    "updated": 1674676857749
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Which apps or nodes they are going to run.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Какие приложения или узлы они собираются запускать.",
+                    "updated": 1645625300293
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi uygulamaları veya düğümleri çalıştıracakları.",
+                    "updated": 1646297177016
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Anwendungen oder Knotenpunkte sie ausführen werden.",
+                    "updated": 1674676864975
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "What Social Trading Bots belong to this user (Social trading bots can be thought of as collections of signals). ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Какие Social Trading Bot принадлежат этому пользователю (Social trading bot можно рассматривать как коллекции сигналов).",
+                    "updated": 1645625329581
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi Sosyal Ticaret Botları ( Social Trading Bots ) bu kullanıcıya aittir (Sosyal ticaret botları, sinyal koleksiyonları olarak düşünülebilir).",
+                    "updated": 1646297210082
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Social Trading Bots gehören zu diesem Benutzer (soziale-Handels-Bot (Social Trading Bots) können als Sammlungen von Signalen betrachtet werden).",
+                    "updated": 1674676912971
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The location of the open storage where signals will be stored.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расположение открытого хранилища, где будут храниться сигналы.",
+                    "updated": 1645625343369
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyallerin saklanacağı açık depolamanın yeri.",
+                    "updated": 1646297224834
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ort des offenen Speichers, an dem die Signale abgelegt werden sollen.",
+                    "updated": 1674756018779
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

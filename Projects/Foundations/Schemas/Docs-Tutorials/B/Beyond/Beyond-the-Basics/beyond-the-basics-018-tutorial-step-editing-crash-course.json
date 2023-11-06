@@ -26,6 +26,26 @@
                 "language": "DE",
                 "text": "Ich gebe Ihnen ein paar Tipps, wie Sie die Seite bearbeiten können! Klicken Sie mit der rechten Maustaste auf einen Absatz, um das Menü Stile aufzurufen. Der Bleistift startet den Bearbeitungsmodus...",
                 "updated": 1635149071490
+            },
+            {
+                "language": "RU",
+                "text": "Я дам вам несколько советов по редактированию страницы! Щелкните правой кнопкой мыши на абзаце, чтобы вызвать меню стилей. Карандаш запускает режим редактирования...",
+                "updated": 1640161520306
+            },
+            {
+                "language": "TR",
+                "text": "Sayfayı nasıl düzenleyeceğiniz konusunda size birkaç ipucu vereceğim! Stiller menüsünü görüğntülemek için bir paragrafa sağ tıklayın. Kalem simgesi düzenleme modunu başlatır...",
+                "updated": 1640610406161
+            },
+            {
+                "language": "ID",
+                "text": "Aku akan memberikanmu beberapa petunjuk tentang cara mengedit halaman! Klik kanan pada paragraf untuk mendapatkan styles menu. Si Pensil akan memulai mode edit...",
+                "updated": 1668848857606
+            },
+            {
+                "language": "NL",
+                "text": "Ik zal je een paar tips geven over hoe je de pagina kunt bewerken! Klik met de rechtermuisknop op een alinea om het stijlenmenu te openen. Het potlood start de bewerkingsmodus...",
+                "updated": 1669747731330
             }
         ]
     },
@@ -45,6 +65,26 @@
                     "language": "DE",
                     "text": "Dies ist eine H1 Überschrift... H2 ist kleiner!",
                     "updated": 1635149095321
+                },
+                {
+                    "language": "RU",
+                    "text": "Это H1... H2 меньше!",
+                    "updated": 1640161612660
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu başlık bir H1... H2 daha küçüktür!",
+                    "updated": 1640610460431
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah H1... H2 lebih kecil!",
+                    "updated": 1668848866546
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is een H1... H2 is kleiner!",
+                    "updated": 1669747746429
                 }
             ]
         },
@@ -63,6 +103,31 @@
                     "language": "DE",
                     "text": "Ab|: erstellt Aufzählungslisten wie diese hier!",
                     "updated": 1635149117453
+                },
+                {
+                    "language": "RU",
+                    "text": "Ab|: создавайте списки, подобные этому!",
+                    "updated": 1640161624921
+                },
+                {
+                    "language": "TR",
+                    "text": "Ab|: Bunun gibi madde işareti listeleri oluşturur!",
+                    "updated": 1640610448673
+                },
+                {
+                    "language": "ID",
+                    "text": "Ab|: membuat bullet list seperti ini!",
+                    "updated": 1668848878865
+                },
+                {
+                    "language": "NL",
+                    "text": "Ab|: maakt bullet-lijsten zoals deze!",
+                    "updated": 1669747757103
+                },
+                {
+                    "language": "ES",
+                    "text": "Ab|: crea listas de viñetas como ésta.",
+                    "updated": 1675452651174
                 }
             ]
         },
@@ -87,6 +152,26 @@
                     "language": "DE",
                     "text": "Die vierte Spalte enthält Notizen (wie diese hier), sowie Tipps, wichtige und Warnhinweise.",
                     "updated": 1635149125740
+                },
+                {
+                    "language": "RU",
+                    "text": "В четвертой колонке размещаются примечания (как, например, в этой), а также советы, важные и предупреждающие поля.",
+                    "updated": 1640161643056
+                },
+                {
+                    "language": "TR",
+                    "text": "Dördüncü simge, ipuçları, önemli ve uyarı kutuları ile birlikte notları (bunun gibi) içerir.",
+                    "updated": 1640610502107
+                },
+                {
+                    "language": "ID",
+                    "text": "Kolom keempat memiliki fitur note(seperti ini), dengan beberapa box tips, kepentingan, dan peringatan.",
+                    "updated": 1668848906562
+                },
+                {
+                    "language": "NL",
+                    "text": "De vierde kolom bevat notities (zoals deze), samen met tips, belangrijke en waarschuwingsvensters.",
+                    "updated": 1669747769677
                 }
             ]
         },
@@ -105,6 +190,16 @@
                     "language": "DE",
                     "text": "Verwenden Sie JS um Code hinzuzufügen === \"styled by prism!\"",
                     "updated": 1635149192282
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте JS для добавления кода === \"styled by prism!\"",
+                    "updated": 1640161702527
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan JS untuk menambahkan kode === \"styled by prism!\"",
+                    "updated": 1668848918659
                 }
             ]
         },
@@ -129,6 +224,26 @@
                     "language": "DE",
                     "text": "Abc| verwandelt den Absatz wieder in reinen Text. Das sollte ausreichen, um Ihre Rezension großartig aussehen zu lassen! Den Rest des Menüs erkläre ich zu einem späteren Zeitpunkt!",
                     "updated": 1635149165714
+                },
+                {
+                    "language": "RU",
+                    "text": "Abc| превращает абзац обратно в обычный текст. Этого должно быть достаточно, чтобы ваш обзор выглядел великолепно! Остальное меню я объясню позже!",
+                    "updated": 1640161675024
+                },
+                {
+                    "language": "TR",
+                    "text": "Abc| paragrafı düz metne döndürür. İncelemenizin harika görünmesi için bu yeterli olmalı! Menünün geri kalanını daha sonra açıklayacağım!",
+                    "updated": 1640610795195
+                },
+                {
+                    "language": "ID",
+                    "text": "Abc| mengubah paragraf kembali ke text biasa. Semua ini seharusnya cukup untuk membuat review kamu terlihat hebat! Aku akan menjelaskan menu lainnya di waktu yang lain!",
+                    "updated": 1668848980721
+                },
+                {
+                    "language": "NL",
+                    "text": "Abc| verandert de alinea terug in platte tekst. Dat zou genoeg moeten zijn om uw recensie er goed uit te laten zien! De rest van het menu leg ik later uit!",
+                    "updated": 1669747789761
                 }
             ]
         }

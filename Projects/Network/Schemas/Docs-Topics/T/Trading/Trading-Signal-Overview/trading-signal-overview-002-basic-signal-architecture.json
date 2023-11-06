@@ -1,0 +1,200 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": "2",
+    "type": "Basic Signal Architecture",
+    "definition": {
+        "text": "Signals sent across the Superalgos peer to peer network are designed to be extensible and resource wise.",
+        "updated": 1642463394466,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Сигналы, передаваемые по одноранговой сети Superalgos, разработаны таким образом, чтобы быть расширяемыми и не требовать больших ресурсов.",
+                "updated": 1645623645444
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos eşler arası ağ üzerinden gönderilen sinyalleri genişletilebilir ve kaynak açısından uygun olacak şekilde tasarlanmıştır.",
+                "updated": 1646296871090
+            },
+            {
+                "language": "DE",
+                "text": "Die über das Superalgos-Peer-to-Peer-Netz gesendeten Signale sind so konzipiert, dass sie erweiterbar und ressourcenschonend sind.",
+                "updated": 1674676725795
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Now that we know a little bit about what signals can do, let’s discuss some of the basic architecture of where trading signals live. Because signals can hold a large amount of data, the entirety of a signal is not sent via the Superalgos peer to peer network. Instead, signal providers send a header message via the peer to peer network that contains an encryption key and address to the contents of the signal. Breaking this architecture down looks like this:",
+            "updated": 1647054695356,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь, когда мы немного знаем о том, что могут делать сигналы, давайте обсудим базовую архитектуру того, где живут торговые сигналы. Поскольку сигналы могут содержать большой объем данных, весь сигнал не отправляется через одноранговую сеть Superalgos. Вместо этого поставщики сигналов отправляют по одноранговой сети заголовочное сообщение, содержащее ключ шифрования и адрес содержимого сигнала. В развернутом виде эта архитектура выглядит следующим образом:",
+                    "updated": 1647785350717
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık sinyallerin neler yapabileceğini biraz bildiğimize göre, ticaret sinyallerinin nerede yaşadığının bazı temel mimarisini tartışalım. Sinyaller büyük miktarda veri tutabildiğinden, bir sinyalin tamamı Superalgos eşler arası ağ aracılığıyla gönderilmez. Bunun yerine, sinyal sağlayıcılar, sinyal içeriğinin adresini içeren eşler arası ağ aracılığıyla bir başlık mesajı gönderir. Bu mimariyi yıkmak şuna benzer:",
+                    "updated": 1646296964446
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun, da wir ein wenig darüber wissen, was Signale tun können, lassen Sie uns einige der grundlegenden Architektur diskutieren, wo Handelssignale leben. Da Signale eine große Menge an Daten enthalten können, wird die Gesamtheit eines Signals nicht über das Superalgos Peer-to-Peer-Netzwerk gesendet. Stattdessen senden die Signalanbieter eine Header-Nachricht über das Peer-to-Peer-Netzwerk, die einen Kryptoschlüssel und eine Adresse für den Inhalt des Signals enthält. Wenn man diese Architektur aufschlüsselt, sieht das folgendermaßen aus:",
+                    "updated": 1674676737904
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Provider sends a signal.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Провайдер посылает сигнал.",
+                    "updated": 1645623808751
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağlayıcı bir sinyal gönderir.",
+                    "updated": 1646296995062
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Anbieter sendet ein Signal.",
+                    "updated": 1674676746461
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Signal is split up into header and contents.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сигнал разделяется на заголовок и содержимое.",
+                    "updated": 1645623815746
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyal, başlık ve içerik olarak ikiye ayrılır.",
+                    "updated": 1646297010574
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Signal wird in Kopf und Inhalt aufgeteilt.",
+                    "updated": 1674676755549
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Contents are encrypted and then uploaded to an open access storage (currently this is a public github repository).",
+            "updated": 1647054722453,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Содержимое шифруется, а затем загружается в хранилище с открытым доступом (в настоящее время это публичный репозиторий Github).",
+                    "updated": 1647785377940
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerikler bir açık erişim deposuna yüklenir (şu anda bu bir genel github deposudur).",
+                    "updated": 1646297032855
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Inhalte werden verschlüsselt und dann in einen frei zugänglichen Speicher hochgeladen (derzeit ist dies ein öffentliches Github-Repository).",
+                    "updated": 1674676766979
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Header is sent via the peer to peer network to all subscribed signal recipients.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заголовок отправляется через одноранговую сеть всем подписавшимся получателям сигнала.",
+                    "updated": 1645623913511
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlık, abone olunan tüm sinyal alıcılarına eşler arası ağ aracılığıyla gönderilir.",
+                    "updated": 1646297049256
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Header wird über das Peer-to-Peer-Netzwerk an alle abonnierten Signalempfänger gesendet.",
+                    "updated": 1674676778882
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Signal recipient bots interpret the address where the contents of the signal is stored, then downloads the signal contents.",
+            "updated": 1647054963776,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Боты-получатели сигналов интерпретируют адрес, где хранится содержимое сигнала, затем загружают содержимое сигнала.",
+                    "updated": 1647785401840
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyal alıcıları, sinyalin adresini yorumlar ve ardından sinyal içeriğini indirir.",
+                    "updated": 1646297065451
+                },
+                {
+                    "language": "DE",
+                    "text": "Signalempfänger-Bots interpretieren die Adresse, an der der Inhalt des Signals gespeichert ist, und laden dann den Signalinhalt herunter.",
+                    "updated": 1674676789970
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Using the received encryption key, data is decrypt and then made available for use withing the recipients Trading System.",
+            "updated": 1647055040815,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Alınan şifreleme anahtarı kullanılarak verilerin şifresi çözülür ve daha sonra alıcıların Ticaret Sisteminde kullanılmak üzere hazır hale getirilir.",
+                    "updated": 1654395886789,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dem erhaltenen Verschlüsselungscode werden die Daten entschlüsselt und dem Empfänger im Handelssystem (Trading System) zur Verfügung gestellt.",
+                    "updated": 1674676807956
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This signal architecture greatly reduces the load on the Superalgos network allowing the transmission of large amounts of data to many recipients while using minimal network resources.  ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Такая архитектура сигнала значительно снижает нагрузку на сеть Superalgos, позволяя передавать большие объемы данных многим получателям при минимальном использовании сетевых ресурсов.",
+                    "updated": 1645624111790
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sinyal mimarisi, Superalgos ağındaki yükü büyük ölçüde azaltır ve minimum ağ kaynakları kullanırken büyük miktarda verinin birçok alıcıya iletilmesine olanak tanır.",
+                    "updated": 1646297085484
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Signalarchitektur reduziert die Belastung des Superalgos-Netzes erheblich und ermöglicht die Übertragung großer Datenmengen an viele Empfänger bei minimalem Einsatz von Netzressourcen.",
+                    "updated": 1674755960032
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,7 +1,24 @@
 {
     "type": "Plugin Super Scripts",
     "definition": {
-        "text": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace."
+        "text": "The plugin super scripts node features the definitions of super scripts to be included as plugins in the current workspace.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Plugin Super Scripts содержит определения суперскриптов, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
+                "updated": 1645165504191
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti süper komut dosyaları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek süper komut dosyalarının tanımlarını içerir.",
+                "updated": 1651951706831
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin super scripts enthält die Definitionen von Superskripten, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639423204
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +27,45 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Plugin Super Scripts"
+            "text": "Configuring Plugin Super Scripts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Plugin Super Scripts",
+                    "updated": 1645165515295
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Süper Komut Dosyalarını Yapılandırma",
+                    "updated": 1651951727576
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren von Plugin Superskripten",
+                    "updated": 1674638557526
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1645165526110
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1651951742866
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie Menü <i>Configure</i>, um auf die Konfiguration zuzugreifen.",
+                    "updated": 1674638719814
+                }
+            ]
         }
     ]
 }

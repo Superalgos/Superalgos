@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Ana düğüm açısı ayarını iptal ettiğinizde , düğüm ebeveynine ve kardeşlerine göre herhangi bir açıyı almakta serbesttir!",
                 "updated": 1636747810405
+            },
+            {
+                "language": "RU",
+                "text": "Когда вы выбираете опцию отмены настройки Angle to Parent, узел может принимать любой угол относительно своего родителя и родственников!",
+                "updated": 1640866365932
+            },
+            {
+                "language": "ID",
+                "text": "Pada saat memilih opsi untuk membatalkan pengaturan Angle to Parent, node sendiri sangat mudah untuk diatur tergantung parent dan saudaranya!",
+                "updated": 1643473689963
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer u de optie selecteert om de instelling Angle to Parent te annuleren, is het knooppunt vrij om elke hoek te nemen ten opzichte van zijn ouder en broers en zussen!",
+                "updated": 1668335774658
             }
         ]
     },
@@ -42,14 +57,14 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Apri il menù del nodo Trading Parameters, seleziona l'opzione per disattivare la proprietà Angle to Parent e sposta il nodo in una qualsiasi direzione.",
-                    "updated": 1619460372348,
+                    "text": "Accedi al menu del nodo Trading Parameters, seleziona l'opzione per annullare l'impostazione Angle to Parent e sposta il nodo in qualsiasi direzione!",
+                    "updated": 1666638174174,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Ingresa al menú del nodo Trading Parameters selecciona la opción para cancelar la configuración de Ángulo a padre y mueva el nodo en cualquier dirección.",
-                    "updated": 1625957286505,
+                    "text": "Ingresa al menú del nodo Trading Parameters selecciona la opción para cancelar la configuración de Ángulo a padre y mueve el nodo en cualquier dirección.",
+                    "updated": 1675375388817,
                     "style": "Callout"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "İşlem Parametreleri ( Trading Parameters ) düğümünün menüsüne girin, düğüm açısı ayarını iptal etme seçeneğini seçin ve düğümü herhangi bir yöne hareket ettirin!",
                     "updated": 1636747904764
+                },
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню узла Trading Parameters, выберите опцию отмены настройки Angle to Parent и переместите узел в любом направлении!",
+                    "updated": 1640866392715
+                },
+                {
+                    "language": "ID",
+                    "text": "Masuk ke menu node Trading Parameters, pilih opsi untuk membatalkan pengaturan Angle to Parent, dan pindahkan node ke segala arah!",
+                    "updated": 1643434201967
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar het menu van het knooppunt Trading Parameters, selecteer de optie om de instelling Angle to Parent te annuleren en verplaats het knooppunt in een willekeurige richting!",
+                    "updated": 1668335816319
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Gördüğünüz gibi, düğüm bıraktığınız yerde kalıyor ve ebeveynine bağlanan noktalı çizgi sarıya dönüyor. Hem ana düğüme olan açının hem de uzaklığın keyfi hale geldiğine dikkat edin.",
                     "updated": 1636747945735
+                },
+                {
+                    "language": "RU",
+                    "text": "Как видите, узел остается там, где его оставили, а пунктирная линия, соединяющая его с родительским узлом, становится желтой. Обратите внимание, что и угол к родительскому узлу, и расстояние стали произвольными.",
+                    "updated": 1640866416691
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu lihat, node bertahan saat kamu meninggalkannya, dan garis putus menjadi kuning yang terkoneksi dengan parent-nya. Perhatikan kedua sisi node parent dan jarak menjadi leluasa.",
+                    "updated": 1643352704204
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals je kunt zien, blijft het knooppunt waar je het verlaat en wordt de stippellijn die verbonden is met het bovenliggende knooppunt geel. Merk op dat zowel de hoek naar het bovenliggende knooppunt als de afstand willekeurig worden.",
+                    "updated": 1668335840693
                 }
             ]
         }

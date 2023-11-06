@@ -1,0 +1,90 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 41,
+    "type": "Superalgos Review - Very Interesting Open Source Project",
+    "definition": {
+        "text": "An interesting and promising project with novel ways to collaborate and motivate.",
+        "updated": 1642174038123,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein interessantes und vielversprechendes Projekt mit neuartigen Möglichkeiten der Zusammenarbeit und Motivation.",
+                "updated": 1687641249159
+            },
+            {
+                "language": "TR",
+                "text": "İşbirliği yapmanın ve motive etmenin yeni yollarını içeren ilginç ve gelecek vaat eden bir proje.",
+                "updated": 1695986920850
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I found this project via GitHub and my first impression is that it is very interesting and promising.",
+            "updated": 1642173671160,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe dieses Projekt über GitHub gefunden und mein erster Eindruck ist, dass es sehr interessant und vielversprechend ist.",
+                    "updated": 1687641331073
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu projeyi GitHub üzerinden buldum ve ilk izlenimim çok ilginç ve umut verici olduğu yönünde.",
+                    "updated": 1695986978890
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Managing not only the codebase, but also all the assets (Data Mines, Trading Algorithms, etc.) via git on GitHub so that all contributions are just commits and then designing an interface to make it possible to contribute in a user friendly way is something I have never seen before.",
+            "updated": 1642173717907,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Verwaltung nicht nur der Codebasis, sondern auch aller Assets (Data Mines, Handelsalgorithmen (Trading Algorithms) usw.) über Git auf GitHub, so dass alle Beiträge nur Commits sind, und dann die Entwicklung einer Schnittstelle, die es ermöglicht, auf benutzerfreundliche Weise Beiträge zu leisten, ist etwas, das ich noch nie gesehen habe.",
+                    "updated": 1687641445909
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece kod tabanını değil, aynı zamanda tüm varlıkları (Veri Madenleri ( Data Mine ), Ticaret Algoritmaları, vb.) GitHub'daki git aracılığıyla yönetmek, böylece tüm katkıların sadece taahhütler olması ve ardından kullanıcı dostu bir şekilde katkıda bulunmayı mümkün kılmak için bir arayüz tasarlamak daha önce hiç görmediğim bir şey.",
+                    "updated": 1695987036342
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To incentivice contributions via SA Tokens is a really novel way to motivate people to contribute to open source that I also have never seen before.",
+            "updated": 1642173898947,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anreize für Beiträge über SA-Token zu schaffen, ist ein wirklich neuer Weg, um Menschen zu motivieren, zu Open Source beizutragen, den ich auch noch nie zuvor gesehen habe.",
+                    "updated": 1687641350344
+                },
+                {
+                    "language": "TR",
+                    "text": "SA Tokenları aracılığıyla katkıları teşvik etmek, insanları açık kaynağa katkıda bulunmaya motive etmek için daha önce hiç görmediğim gerçekten yeni bir yol.",
+                    "updated": 1695987055209
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Although the UI is sometimes clunky and laggy, and bugs definitely exist, I think that Superalgos has a promising future!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auch wenn die Benutzeroberfläche (UI) manchmal klobig und verzögert ist und es definitiv Bugs gibt, denke ich, dass Superalgos eine vielversprechende Zukunft hat!",
+                    "updated": 1687641389189
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı arayüzü ( UI ) bazen hantal ve gecikmeli olsa da ve hatalar kesinlikle mevcut olsa da, Superalgos'un umut verici bir geleceği olduğunu düşünüyorum!",
+                    "updated": 1695987080394
+                }
+            ]
+        }
+    ]
+}

@@ -31,36 +31,66 @@
                 "language": "TR",
                 "text": "Borsada listelenen işlem çiftlerinden herhangi biriyle çalışabilirsiniz! Exchange Markets düğümündeki kuruluma bir göz atın!",
                 "updated": 1639833320638
+            },
+            {
+                "language": "RU",
+                "text": "Вы можете работать с любым из рынков, перечисленных на бирже! Посмотрите на настройки в узле Exchange Markets!",
+                "updated": 1640875793247
+            },
+            {
+                "language": "ID",
+                "text": "Kamu dapat bekerja dengan salah satu markets yang terdaftar di exchange! Lihatlah pengaturan di node Exchange Markets!",
+                "updated": 1645561144156
+            },
+            {
+                "language": "NL",
+                "text": "U kunt werken met een van de markten die op de handelsplatform worden vermeld! Bekijk de instellingen in het knooppunt Exchange Markets!",
+                "updated": 1669549060752
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I'm not going to explain how to set up new markets as the topic is covered in the Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. I just wanted to let you know that it's easy!",
+            "text": "I'm not going to explain how to set up new markets as the topic is covered in the Install a New Market Tutorial in the Install a New Market Tutorial Native Workspace. I just wanted to let you know that it's easy!",
             "updated": 1622635572968,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non tratterò la cosa nel dettaglio, perchè ci penserà il tutorial Install a New Market Tutorial nel Tested Exchanges Plugin Workspace. Voglio solo dirti quanto sia facile!",
-                    "updated": 1619591965876,
+                    "text": "Non spiegherò ora come impostare un nuovo market, perchè ci penserà il tutorial <i>Install a New Market Tutorial </i> nel <i>Tested Exchanges Native Workspace</i>. Voglio solo dirti quanto sia facile!",
+                    "updated": 1666641995057,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "No voy a explicar cómo configurar nuevos mercados, ya que el tema se trata en Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. ¡Solo quería hacerte saber que es fácil!",
-                    "updated": 1628020854073,
+                    "text": "No voy a explicar cómo configurar nuevos mercados, ya que el tema se trata en Install a New Market Tutorial Native Workspace. ¡Solo quería hacerte saber que es fácil!",
+                    "updated": 1675378551727,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Ich werde nicht erklären, wie man neue Märkte einrichtet, da das Thema im Tutorial Install a New Market Tutorial im the Install a New Market Tutorial Plugin Workspace behandelt wird. Ich wollte Sie nur wissen lassen, dass es ganz einfach ist!",
+                    "text": "Ich werde nicht erklären, wie man neue Märkte einrichtet, da das Thema im Tutorial Install a New Market Tutorial im the Install a New Market Tutorial Native Workspace behandelt wird. Ich wollte Sie nur wissen lassen, dass es ganz einfach ist!",
                     "updated": 1634590236889
                 },
                 {
                     "language": "TR",
                     "text": "Yeni bir market'in (herhangi bir işlem çifti için) nasıl kurulacağı  ( Install a New Market Tutorial ) Çalışma Alanında gösterildiği için burada tekrar açıklanmayacaktır. Sadece kolay olduğunu bilmeni istedim!",
                     "updated": 1639833692046
+                },
+                {
+                    "language": "RU",
+                    "text": "Я не буду объяснять, как устанавливать новые рынки, поскольку эта тема рассматривается в учебнике Install a New Market Tutorial в Install a New Market Tutorial Native Workspace. Я просто хочу сообщить вам, что это просто!",
+                    "updated": 1640875839511
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku tidak akan menjelaskan cara mengatur markets baru karena topiknya dibahas dalam Install a New Market Tutorial di Install a New Market Tutorial Native Workspace. Aku hanya ingin memberi tahu kamu bahwa itu mudah!",
+                    "updated": 1645561195904
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik ga niet uitleggen hoe nieuwe markten moeten worden opgezet, aangezien het onderwerp wordt behandeld in de zelfstudie Install a New Market Tutorial in de Install a New Market Tutorial Native Workspace. Ik wilde je alleen even laten weten dat het makkelijk is!",
+                    "updated": 1669549132584
                 }
             ]
         },
@@ -71,14 +101,14 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Guarda il menù del market BTC\\USDT, e trova i pulsanti Install Market e Uninstall Market. Ecco come si fa!",
-                    "updated": 1619592006493,
+                    "text": "Guarda il menù del market BTC\\USDT, e trova i pulsanti \"Install Market\" e \"Uninstall Market\". Ecco come si fa!",
+                    "updated": 1666642026679,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eche un vistazo al menú del mercado BTC/USDT! Observe los botones \"Install Market\" y \"Uninstall Market\" . ¡Asi es como lo haces!",
-                    "updated": 1628021245760,
+                    "text": "¡Echa un vistazo al menú del mercado BTC/USDT! Observa los botones \"Install Market\" y \"Uninstall Market\". ¡Asi es como lo haces!",
+                    "updated": 1675378572413,
                     "style": "Callout"
                 },
                 {
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "BTC/USDT Çiftinin menüsüne bir göz atın! \"Install Market\" ve \"Uninstall Market\" düğmelerine dikkat edin! Herhangi bir işlem çiftine ait marketi bu şekilde kurabilir ve kaldırabilirsiniz.",
                     "updated": 1639833782204
+                },
+                {
+                    "language": "RU",
+                    "text": "Взгляните на меню рынка BTC/USDT! Обратите внимание на кнопки \" Install Market\" и \"Uninstall Market\"! Вот как вы это делаете!",
+                    "updated": 1640875877271
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah menu BTC/USDT Market ! Perhatikan tombol \"Install Market\" dan \"Uninstall Market\"! Begitulah cara kamu melakukannya!",
+                    "updated": 1645561266392
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk het menu van de BTC/USDT Market! Let op de knoppen \"Install Market\" en \"Uninstall Market\"! zo doe je dat!",
+                    "updated": 1669549173038
                 }
             ]
         },
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Bu konuyu burada kağtacağım ve zamanı geldiğinde Yeni Pazar Kurma Eğitimini ( Install a New Market Tutorial ) konusunda tekrar değineceğim.!",
                     "updated": 1639833840253
+                },
+                {
+                    "language": "RU",
+                    "text": "Я оставлю все как есть и предоставлю вам самим заняться установкой нового рынка, когда придет время!",
+                    "updated": 1640875902618
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan berhenti di situ dan membiarkan kamu melakukan Install a New Market Tutorial ketika waktunya tepat!",
+                    "updated": 1645561315721
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik laat het daarbij en laat je de Install a New Market Tutorial doen wanneer de tijd rijp is!",
+                    "updated": 1669549198816
                 }
             ]
         }

@@ -1,4 +1,4 @@
-Data-Storage
+/Data-Storage
 Log-Files
 My-Workspaces
 My-Social-Trading-Data
@@ -11,13 +11,52 @@ debug.log
 *.db
 Projects/Foundations/Icons/Thumbs.db
 *.bat
+# exception for installer batch
+!clone_superalgos.bat
 !launch-windows.bat
 !create-shortcut-windows.bat
 !uninstall-shortcut-windows.bat
 *.exe
+# exception for installer
+!superalgos.exe
 node_modules
 launch.json
 package-lock.json
 .idea
 dist
 /nbproject/private/
+Platform/WebServer/externalScripts
+*.backup
+Plugins/Algorithmic-Trading
+Plugins/Data-Mining
+Plugins/Foundations
+Plugins/Governance
+Plugins/Machine-Learning
+Plugins/Network
+Plugins/Portfolio-Management
+Plugins/TensorFlow
+Plugins/Trading-Signals
+tmp/
+Superalgos.desktop
+.dccache
+testfile.js
+ForecastCases
+TestCases
+OutputData
+parameters.CSV
+time-series.CSV
+instructions.CSV
+models
+Bitcoin-Factory/Test-Client/notebooks/parameters.csv
+Bitcoin-Factory/Test-Client/notebooks/time-series.csv
+Bitcoin-Factory/Test-Client/notebooks/ray_results/
+Platform/WebServer/externalScripts/jquery-3.6.0.js
+Platform/WebServer/externalScripts/jquery-ui.js
+Platform/WebServer/externalScripts/jquery-3.6.0.js
+knexfile.js
+
+# Temporary translations
+*_translated.json
+
+# installer files
+unins000.dat

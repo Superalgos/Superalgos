@@ -1,0 +1,150 @@
+{
+    "type": "Github Storage Container",
+    "definition": {
+        "text": "The Github Storage Container node idetifies a particular public github repository as an Open Storage location on the Superalgos Peer to Peer Network.",
+        "updated": 1643398529846,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Github Depolama Konteyneri düğümü, belirli bir genel github deposunu Superalgos Eşler Arası Ağ üzerinde bir Açık Depolama konumu olarak tanımlar.",
+                "updated": 1654395957375
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643398599536
+        },
+        {
+            "style": "Title",
+            "text": "Github Storage Container Node Configuration",
+            "updated": 1643398681137,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Github Depolama Konteyneri Düğüm Yapılandırması",
+                    "updated": 1654395963184,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654395970200,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "codeName This property defines the name associated with the Open Storage Container used within the Superalgos system.",
+            "updated": 1643399110891,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "codeName Bu özellik, Superalgos sistemi içinde kullanılan Açık Depolama Konteyneri ile ilişkili adı tanımlar.",
+                    "updated": 1654395976524,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Use this name to help easily identify this storage container. A good naming convention is to use the type of storage container, your profile name, and the storage container's use together. ",
+            "updated": 1643399588286,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu saklama kabını kolayca tanımlamaya yardımcı olması için bu adı kullanın. Saklama kabının türünü, profil adınızı ve saklama kabının kullanımını birlikte kullanmak iyi bir adlandırma kuralıdır.",
+                    "updated": 1654395982387,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example: ",
+            "updated": 1643399673486,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1654395988127,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "Github-Storage-Container-Luis-Fernando-Molina-My-Social-Trading-Data"
+        },
+        {
+            "style": "List",
+            "text": "githubUserName This property defines the Github Profile that owns this Open Storage Container (in this case public github repository.)",
+            "updated": 1643399175961,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "githubUserName Bu özellik, bu Açık Depolama Konteynerinin sahibi olan Github Profilini tanımlar (bu durumda genel github deposu).",
+                    "updated": 1654395995460,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example: ",
+            "updated": 1643399699759,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1654396001863,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "Luis-Fernando-Molina"
+        },
+        {
+            "style": "List",
+            "text": "repositoryName This property defines the name of the public github repository being used as an Open Storage Container.",
+            "updated": 1643399222586,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "repositoryName Bu özellik, Açık Depolama Konteyneri olarak kullanılan genel github deposunun adını tanımlar.",
+                    "updated": 1654396007915,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example: ",
+            "updated": 1643399711095,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1654396014011,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "My-Social-Trading-Data-Backup",
+            "updated": 1647055218714
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": 10,
+    "type": "Custom Charts Tutorials Native Workspace",
+    "definition": {
+        "text": "This workspace will walk you through everything you need to know about setting up custom charts within the Design Space. The tutorials aim to offer step by step guidance taking you from charting beginner to charting expert.",
+        "updated": 1622624767597,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace lo guiará a través de todo lo que necesita saber sobre la configuración de gráficos personalizados dentro del Design Space. ( espacio de diseño) Los tutorialse Su objetivo es ofrecer una guía paso a paso que lo lleve de principiante a experto en gráficos.",
+                "updated": 1636560253593
+            },
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство проведет вас через все, что вам нужно знать о настройке пользовательских диаграмм в пространстве Design Space. Учебные пособия призваны предложить пошаговые инструкции, которые проведут вас от новичка до эксперта в области построения графиков.",
+                "updated": 1639056750290
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, Tasarım Alanı ( Design Space ) içinde özel grafikler ayarlama hakkında bilmeniz gereken her şeyde size yol gösterecektir. Öğreticiler, sizi yeni başlayanlardan grafik uzmanına kadar adım adım rehberlik etmeyi amaçlamaktadır.",
+                "updated": 1644676337360
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich führt Sie durch alles, was Sie über die Einrichtung benutzerdefinierter Diagramme im Design Space wissen müssen. Die Tutorials bieten eine schrittweise Anleitung, die Sie vom Diagramm-Anfänger zum Diagramm-Experten macht.",
+                "updated": 1688936579289
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639056760525
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler",
+                    "updated": 1644676348563
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Setting Up a New Chart Tutorial",
+            "updated": 1621990804177,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Setting Up a New Chart Tutorial ( Cómo configurar un nuevo tutorial de gráfico)",
+                    "updated": 1636560294366
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Grafik Oluşturma Eğitimi ( Setting Up a New Chart Tutorial )",
+                    "updated": 1644676378224
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056785533
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936541991
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "@harrellbm (Telegram, and Discord).",
+            "updated": 1622013887113
+        }
+    ]
+}

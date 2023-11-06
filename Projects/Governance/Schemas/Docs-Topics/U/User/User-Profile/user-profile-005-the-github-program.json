@@ -4,7 +4,19 @@
     "type": "The Github Program",
     "definition": {
         "text": "Set yourself up to contribute and help more developers find us on Github!",
-        "updated": 1630494854079
+        "updated": 1630494854079,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Katkıda bulunmak ve daha fazla geliştiricinin bizi Github'da bulmasına yardımcı olmak için kendinizi hazırlayın!",
+                "updated": 1646302201082
+            },
+            {
+                "language": "ES",
+                "text": "Conviértete en colaborador y ayuda a que más desarrolladores nos encuentren en Github.",
+                "updated": 1682597083746
+            }
+        ]
     },
     "paragraphs": [
         {

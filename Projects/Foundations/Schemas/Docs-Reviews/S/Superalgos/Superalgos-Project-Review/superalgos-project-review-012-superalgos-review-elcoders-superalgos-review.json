@@ -4,17 +4,68 @@
     "type": "Superalgos Review - elcoder's Superalgos Review",
     "definition": {
         "text": "I've just started using Superalgos and so far I'm blown away. The way the design is structured and the fact that everything is visualized makes it very intuitive and easier to grasp than comparable systems that are lacking in these areas.",
-        "updated": 1621253734755
+        "updated": 1621253734755,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Я только что начал использовать Superalgos, и уже нахожусь в полном восторге. То, как структурирован дизайн и то, что все визуализировано, делает его очень интуитивным и более легким для восприятия, чем аналогичные системы, которым не хватает этих качеств.",
+                "updated": 1640412481470
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u yeni kullanmaya başladım ve şimdiye kadar çok şaşırdım. Tasarımın yapılandırılma şekli ve her şeyin görselleştirilmiş olması, bu alanlarda eksik olan karşılaştırılabilir sistemlere göre çok sezgisel ve kavranmasını kolaylaştırıyor.",
+                "updated": 1669195202679
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe gerade angefangen, Superalgos zu benutzen, und bisher bin ich überwältigt. Die Art und Weise, wie das Design strukturiert ist und die Tatsache, dass alles visualisiert wird, macht es sehr intuitiv und leichter verständlich als vergleichbare Systeme, denen es in diesen Bereichen fehlt.",
+                "updated": 1685392556923
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "On top of that, this makes every structure (trading strategy, data mining, backtesting, etc...) highly configurable without the need for programming experience. ",
-            "updated": 1621253740784
+            "updated": 1621253740784,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, это делает каждую структуру (торговую стратегию, анализ данных, бэктестинг и т.д.) легко настраиваемой без необходимости опыта программирования.",
+                    "updated": 1640412514960
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahası, bu, her yapıyı (ticaret stratejisi, veri madenciliği, geriye dönük test, vb...) programlama deneyimine ihtiyaç duymadan son derece yapılandırılabilir hale getirir.",
+                    "updated": 1669195256850
+                },
+                {
+                    "language": "DE",
+                    "text": "Darüber hinaus ist jede Struktur (Handelsstrategie, Data Mining, Backtesting usw.) in hohem Maße konfigurierbar, ohne dass Programmierkenntnisse erforderlich sind.",
+                    "updated": 1685392569747
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like I said, I'm very new to this project and for the short time I've used it I am falling in love with it. After delving into the first 3 tutorials it becomes quite obviouse that the potencial for both the Superalgos project and its'users are through the roof."
+            "text": "Like I said, I'm very new to this project and for the short time I've used it I am falling in love with it. After delving into the first 3 tutorials it becomes quite obviouse that the potencial for both the Superalgos project and its'users are through the roof.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как я уже сказал, я совсем новичок в этом проекте, и за то короткое время, что я им пользуюсь, я влюбился в него. После изучения первых трех руководств становится совершенно очевидно, что потенциал проекта Superalgos и его пользователей просто зашкаливает.",
+                    "updated": 1640412545157
+                },
+                {
+                    "language": "TR",
+                    "text": "Dediğim gibi, bu projede çok yeniyim ve kullandığım kısa süre için bunu sevdim. İlk 3 öğreticiden geçtikten sonra, hem Superalgos projesi hem de kullanıcıları için potansiyelin tavan yaptığı oldukça açık.",
+                    "updated": 1669195324050
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie gesagt, ich bin sehr neu in diesem Projekt und in der kurzen Zeit, in der ich es benutzt habe, habe ich mich in es verliebt. Nachdem ich mich in die ersten 3 Tutorials vertieft habe, wird es ziemlich offensichtlich, dass das Potenzial sowohl für das Superalgos-Projekt als auch für seine Benutzer unübertroffen ist.",
+                    "updated": 1685392583728
+                }
+            ]
         },
         {
             "style": "Text",

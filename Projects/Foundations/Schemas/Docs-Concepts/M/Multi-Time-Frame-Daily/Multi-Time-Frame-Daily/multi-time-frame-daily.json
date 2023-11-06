@@ -13,6 +13,16 @@
                 "language": "RU",
                 "text": "Это относится к типу набора данных Dataset Type, который содержит файлы для Time Frame от 1 минуты до 45 минут и имеет по одному файлу на каждый день.",
                 "updated": 1638286046084
+            },
+            {
+                "language": "TR",
+                "text": "Bu, 1 dakikadan 45 dakikaya kadar her Zaman Dilimi ( Time Frame ) için dosyalar içeren ve her farklı gün için bir dosyaya sahip olan Veri Kümesi ( Dataset ) Türünü ifade eder.\n",
+                "updated": 1666713467312
+            },
+            {
+                "language": "DE",
+                "text": "Dies bezieht sich auf den Datensatztyp (Dataset-Type), der Dateien für jeden Zeitrahmen (Time-Frame) von 1 Minute bis zu 45 Minuten enthält und eine Datei für jeden Tag hat.",
+                "updated": 1684512175520
             }
         ]
     },

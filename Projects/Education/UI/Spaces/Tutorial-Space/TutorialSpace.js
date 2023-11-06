@@ -12,7 +12,7 @@ function newEducationTutorialSpace() {
         playTutorialStep: playTutorialStep,
         resumeTutorialStep: resumeTutorialStep,
         resetTutorialProgress: resetTutorialProgress,
-        sidePanelTab: undefined,
+        // sidePanelTab: undefined,
         container: undefined,
         physics: physics,
         draw: draw,
@@ -26,6 +26,7 @@ function newEducationTutorialSpace() {
     let PAGE_NUMBER
 
     let isInitialized = false
+    let doUpdateTutorialDiv = true
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -38,8 +39,8 @@ function newEducationTutorialSpace() {
     resize()
 
     let browserResizedEventSubscriptionId
-    let openingEventSubscriptionId
-    let closingEventSubscriptionId
+    // let openingEventSubscriptionId
+    // let closingEventSubscriptionId
 
     let tutorialRootNode
     let currentNode
@@ -108,18 +109,18 @@ function newEducationTutorialSpace() {
         batchConfigChangesCounter = 0
         workspacesCounter = 0
 
-        setupSidePanelTab()
+        // setupSidePanelTab()
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace
         workspace.executeAction({ name: 'Play Tutorials', project: 'Visual-Scripting' })
         isInitialized = true
     }
 
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+        // thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+        // thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
 
         tutorialRootNode = undefined
         currentNode = undefined
@@ -139,12 +140,12 @@ function newEducationTutorialSpace() {
 
     function getContainer(point, purpose) {
 
-        if (thisObject.sidePanelTab === undefined) { return }
+        // if (thisObject.sidePanelTab === undefined) { return }
 
-        let container
+        // let container
 
-        container = thisObject.sidePanelTab.getContainer(point, purpose)
-        if (container !== undefined) { return container }
+        // container = thisObject.sidePanelTab.getContainer(point, purpose)
+        // if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return thisObject.container
@@ -159,21 +160,21 @@ function newEducationTutorialSpace() {
         switch (currentStatus) {
             case 'Stopped': {
                 makeInvisible()
-                thisObject.sidePanelTab.close()
+                // thisObject.sidePanelTab.close()
                 currentNode = undefined
                 break
             }
             case 'Playing Tutorial': {
-                makeVsible()
-                thisObject.sidePanelTab.open()
+                makeVisible()
+                // thisObject.sidePanelTab.open()
                 break
             }
             case 'Playing Topic': {
-                makeVsible()
+                makeVisible()
                 break
             }
             case 'Playing Step': {
-                makeVsible()
+                makeVisible()
                 break
             }
         }
@@ -312,7 +313,7 @@ function newEducationTutorialSpace() {
             currentImageName = newImageName
             
             // If gathering Icon by Project and Name get it now 
-            let icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(newImageProject, newImageName)
+            let icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(newImageProject, newImageName)
             if (icon !== undefined) {
                     htmlImage.src = icon.src
                     htmlImage.width = "100"
@@ -395,24 +396,24 @@ function newEducationTutorialSpace() {
                 */
                 return
             }
-            if (config.workspaces === "" || config.workspaces === "Close") {
-                /*
-                This forces the tutorial to close the workspaces panel and to keep it closed.
-                */
-                if (workspacesCounter === 5) {
-                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
-                }
-                return
-            }
-            if (config.workspaces === "Open") {
-                /*
-                This forces the tutorial to open the workspaces panel and to keep it closed.
-                */
-                if (workspacesCounter === 5) {
-                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.open()
-                }
-                return
-            }
+            // if (config.workspaces === "" || config.workspaces === "Close") {
+            //     /*
+            //     This forces the tutorial to close the workspaces panel and to keep it closed.
+            //     */
+            //     if (workspacesCounter === 5) {
+            //         UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
+            //     }
+            //     return
+            // }
+            // if (config.workspaces === "Open") {
+            //     /*
+            //     This forces the tutorial to open the workspaces panel and to keep it closed.
+            //     */
+            //     if (workspacesCounter === 5) {
+            //         UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.open()
+            //     }
+            //     return
+            // }
         }
 
         function checkSlider() {
@@ -732,46 +733,34 @@ function newEducationTutorialSpace() {
         }
 
         function makeInvisible() {
-            const HEIGHT = 0
-            const WIDTH = 0
-            const FORM_HEIGHT = 0
-
-            tutorialPosition = {
-                x: 100000,
-                y: 100000
-            }
-
-            tutorialDiv.style = '   ' +
-                'position:fixed; top:' + tutorialPosition.y + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
-                'height: ' + HEIGHT + 'px;' +
-                'z-index:1;'
-
-            tutorialFormDiv.style = '   ' +
-                'position:fixed; top:' + (tutorialPosition.y) + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
-                'height: ' + FORM_HEIGHT + 'px;' +
-                'z-index:1;'
+            if (doUpdateTutorialDiv === true) { return }
+            // Since we’re using jQuery UI enyway, use the native hide and show methods
+            $("#tutorialDiv").hide()
+            doUpdateTutorialDiv = true
         }
 
-        function makeVsible() {
+        function makeVisible() {
             const HEIGHT = 675
             const WIDTH = 400
             const MARGIN = 100
-            const FORM_HEIGHT = 40
 
+            if (doUpdateTutorialDiv === false) { return }
+            
             let nodeConfig
             try {
-                nodeConfig = JSON.parse(currentNode.config)
+                /* Check the NEXT node, or we’re late */
+                nodeConfig = JSON.parse(navigationStack[navigationStack.length - 1].config)
             } catch (err) {
                 return
             }
             let position = nodeConfig.position
-            if (UI.projects.education.spaces.docsSpace.isVisible === true || UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+            if (nodeConfig.controlDocs !== undefined && nodeConfig.controlDocs.panel === 'Open') {
                 position = 'Left'
             }
+            /* This is ineffective now */
+            /* if (UI.projects.education.spaces.docsSpace.isVisible === true || UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+                position = 'Left'
+            } */
 
             switch (position) {
                 case 'Left': {
@@ -803,31 +792,25 @@ function newEducationTutorialSpace() {
                     break
                 }
             }
-            tutorialDiv.style = '   ' +
-                'position:fixed; top:' + tutorialPosition.y + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
-                'height: ' + HEIGHT + 'px;' +
-                'z-index:1;'
 
+            tutorialDiv.style.left = tutorialPosition.x
+            tutorialDiv.style.top = tutorialPosition.y
+            $("#tutorialDiv").show()
             buildHTML()
-
-            tutorialFormDiv.style = '   ' +
-                'position:fixed; top:' + (tutorialPosition.y + HEIGHT - 30) + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + (WIDTH + 20) + 'px;' +
-                'height: ' + FORM_HEIGHT + 'px;' +
-                'z-index:1;'
+            doUpdateTutorialDiv = false
         }
     }
 
-    function stop() {
+    function stop(close=false) {
         resumeModeActivated = false
         resetAfterButtonPressed()
         checkForceFocus()
         if (tutorialRootNode !== undefined) {
             tutorialRootNode.payload.uiObject.isPlaying = false
             tutorialRootNode = undefined
+        }
+        if(close) {
+            doUpdateTutorialDiv = false
         }
         currentStatus = 'Stopped'
     }
@@ -839,8 +822,9 @@ function newEducationTutorialSpace() {
         let tutorial = {
             status: 'Skipped'
         }
-        UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+        UI.projects.education.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance(true)
+        doUpdateTutorialDiv = true
     }
 
     function previous() {
@@ -856,10 +840,10 @@ function newEducationTutorialSpace() {
             Reset the Status of Current and Previous Node
             so that RESUME goes to the right node.
             */
-            UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+            UI.projects.education.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
             previousNode = navigationStack[navigationStack.length - 3]
             if (previousNode !== undefined) {
-                UI.projects.foundations.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
             }
             previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
@@ -886,6 +870,7 @@ function newEducationTutorialSpace() {
                 }
             }
         }
+        doUpdateTutorialDiv = true
     }
 
     function next() {
@@ -896,8 +881,9 @@ function newEducationTutorialSpace() {
         let tutorial = {
             status: 'Done'
         }
-        UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+        UI.projects.education.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance()
+        doUpdateTutorialDiv = true
     }
 
     function resetAfterButtonPressed() {
@@ -989,7 +975,7 @@ function newEducationTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -1004,7 +990,7 @@ function newEducationTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace.isInitialized !== true) { return }
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
         //navigationStack = []
         node.payload.uiObject.isPlaying = true
@@ -1068,7 +1054,7 @@ function newEducationTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                UI.projects.foundations.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {
@@ -1076,7 +1062,7 @@ function newEducationTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                UI.projects.foundations.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
                 resetNextNode(tutorialTopic)
             }
         }
@@ -1146,7 +1132,7 @@ function newEducationTutorialSpace() {
                             let tutorial = {
                                 status: undefined
                             }
-                            UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
+                            UI.projects.education.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
                             currentNode = tutorialStep
                             currentStatus = 'Playing Step'
                             navigationStack.push(currentNode)
@@ -1182,7 +1168,7 @@ function newEducationTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.education.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         navigationStack.push(currentNode)
@@ -1221,7 +1207,7 @@ function newEducationTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.education.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         navigationStack.push(currentNode)
@@ -1235,7 +1221,7 @@ function newEducationTutorialSpace() {
                 if (tutorialTopic.id === currentNode.id) {
                     found = true
                 } else {
-                    findNextTopic(tutorialTopic, found)
+                    findNextTopic(tutorialTopic)
                 }
             }
         }
@@ -1542,6 +1528,7 @@ function newEducationTutorialSpace() {
             html = html + '</div>'
 
             tutorialDiv.innerHTML = html
+            tutorialDiv.appendChild(tutorialFormDiv)
             _self.Prism.highlightAllUnder(tutorialDiv, true)
             // Create tooltip objects for all the elements
             tippy('#tooltip-container', {
@@ -1554,36 +1541,36 @@ function newEducationTutorialSpace() {
         if (isInitialized === false) { return }
     }
 
-    function setupSidePanelTab() {
-        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'tutorial', 'Tutorial', 'left')
+    // function setupSidePanelTab() {
+    //     thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'tutorial', 'Tutorial', 'left')
 
-        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
-        closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
-    }
+    //     openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
+    //     closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
+    // }
 
-    function onOpening() {
-        //console.log('onOpening');
-        if (currentStatus !== "Stopped"){return}
+    // function onOpening() {
+    //     //console.log('onOpening');
+    //     if (currentStatus !== "Stopped"){return}
 
-        let nodeResume = navigationStack.pop()
-        switch (nodeResume.type) {
-            case 'Tutorial': {
-                resumeTutorial(nodeResume)
-                break
-            }
-            case 'Tutorial Topic': {
-                resumeTutorialTopic(nodeResume)
-                break
-            }
-            case 'Tutorial Step': {
-                resumeTutorialStep(nodeResume)
-                break
-            }
-        }
-    }
+    //     let nodeResume = navigationStack.pop()
+    //     switch (nodeResume.type) {
+    //         case 'Tutorial': {
+    //             resumeTutorial(nodeResume)
+    //             break
+    //         }
+    //         case 'Tutorial Topic': {
+    //             resumeTutorialTopic(nodeResume)
+    //             break
+    //         }
+    //         case 'Tutorial Step': {
+    //             resumeTutorialStep(nodeResume)
+    //             break
+    //         }
+    //     }
+    // }
 
-    function onClosing() {
-        //console.log('onClosing');
-        stop()
-    }
+    // function onClosing() {
+    //     //console.log('onClosing');
+    //     stop()
+    // }
 }

@@ -7,13 +7,25 @@
                 "language": "ES",
                 "text": "Limit buy orders es la sección de la estructura de datos que realiza un seguimiento de este tipo específico de pedido.",
                 "updated": 1624496559567
+            },
+            {
+                "language": "RU",
+                "text": "Лимитные ордера на покупку - это раздел структуры данных, который отслеживает данный конкретный тип ордера.",
+                "updated": 1645168184450
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645168190034
+                }
+            ]
         }
     ]
 }

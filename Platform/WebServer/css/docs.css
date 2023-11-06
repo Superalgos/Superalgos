@@ -9,7 +9,7 @@ background-color: whitesmoke;
 font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 color: #365558; 
 line-height: 150%;
-margin: 20 25 20 30px;
+margin: 20px 25px 20px 30px;
 }
 
 .docs-common-style-container{
@@ -29,7 +29,7 @@ background-color: #365558;
 line-height: 160%;
 border-top: 5px solid #0295aa;
 margin: 80px 0 0 0;
-padding: 30 0 20 0px;
+padding: 30px 0 20px 0px;
 caret-color: transparent;
 }
 
@@ -187,6 +187,7 @@ font-weight:500;
 font-size:150%; 
 margin-top: 40px;
 margin-bottom: 20px;
+line-height: 1.2em;
 }
 
 .docs-h4 {
@@ -295,7 +296,7 @@ box-sizing: border-box;
 
 .docs-topic-index {
 background-color:white;
-padding: 25 20px;
+padding: 25px 20px;
 margin: 40px 0 0 0;
 border: 1px solid rgba(49, 112, 143, .2);
 border-left-width: 5px;
@@ -507,13 +508,13 @@ color: #ffd1a9;
 .docs-footer-language {
 width: 30px;
 margin-top: 7px;
-padding: 7 7px;
+padding: 7px;
 }
 
 .docs-footer-language-selected {
     width: 30px;
     margin-top: 7px;
-    padding: 7 7px;
+    padding: 7px;
     background-color: rgba(230, 234, 234, 0.2);
 /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
 border: 1px solid rgba(200, 200, 200, .5);
@@ -1110,3 +1111,115 @@ max-width: 830px;
 max-height: 476px;
 }
 
+/* Navigation elements*/
+.docs-navigation-elements-top-table {
+display: table;
+border: 0px;
+width: inherit;
+margin: 0 auto;
+position: fixed;
+z-index: 99;
+text-align: center;
+background-color: #365558;
+line-height: 160%;
+border-bottom: 5px solid #0295aa;
+}
+
+.docs-navigation-elements-top-table-row {
+display: table-row;
+}
+
+.docs-navigation-elements-top-table-cell {
+border: 1px;
+display: table-cell;
+vertical-align:middle;
+}
+
+.docs-navigation-elements-top-table-body {
+display: table-row-group;
+}
+
+.docs-navigation-elements-top-table button {
+font: 400 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+color: #e6eaea; 
+border: 0px;
+background-color: transparent;
+cursor: pointer;
+opacity: 0.6;
+}
+
+.docs-navigation-elements-top-table button:hover {
+opacity: 1;
+}
+
+.docs-navigation-elements-sidebar {
+width: 0px;
+position: fixed;
+z-index: 99;
+top: 39vh;
+right: 0;
+overflow-x: hidden;
+transition: 0.3s;
+padding-top: 5px;
+padding-bottom: 5px;
+}
+
+.docs-navigation-elements-sidebar-circle {
+position: fixed;
+width: 50px;
+height: 50px;
+font-size: 24px;
+color: #e68a00;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 50vh;
+z-index: 3;
+}
+
+.docs-navigation-elements-sidebar-circle:hover {
+cursor: pointer;
+opacity: 1;
+}
+
+.fa-chevron-left {
+margin-right: 15px;
+}
+
+.fa-chevron-right {
+margin-left: 0px;
+}
+
+.docs-navigation-elements-right-table {
+display: table;
+border: 0px;
+margin: 0 auto;
+}
+
+.docs-navigation-elements-right-table-row {
+display: table-row;
+}
+
+.docs-navigation-elements-right-table-cell {
+border: 0px;
+display: table-cell;
+}
+
+.docs-navigation-elements-right-table-body {
+display: table-row-group;
+}
+
+.docs-navigation-elements-right-table button {
+border: 0px;
+background-color: transparent;
+cursor: pointer;
+}
+
+.docs-navigation-elements-right-table button:hover {
+opacity: 1;
+}
+
+.docs-navigation-elements-right-table button:disabled {
+opacity: 0.5;
+cursor: default;
+}

@@ -29,8 +29,23 @@
             },
             {
                 "language": "TR",
-                "text": "Arkadaşım Hoş Geldiniz dersinin size etrafı gösterdiğini ve birkaç ucuz numarayla sizi büyülediğini duydum... Ne gösteriş! :-)",
-                "updated": 1636698021188
+                "text": "Arkadaşım \"Superalgos'a Hoş Geldiniz dersinin size etrafı gösterdiğini ve birkaç ucuz numarayla sizi büyülediğini duydum... Ne gösteriş ama !:-)",
+                "updated": 1670336945922
+            },
+            {
+                "language": "RU",
+                "text": "Я слышал, мой друг, что учебник Welcome to Superalgos показал вам все необходимое и заворожил вас несколькими простыми трюками... Вот это показуха!",
+                "updated": 1640858585433
+            },
+            {
+                "language": "ID",
+                "text": "Aku mendengar temanku  Welcome to Superalgos Tutorial menunjukkan kamu sekeliling bot serta memperkenalkan beberapa trik mudah... Pertunjukan yang luar biasa bukan!",
+                "updated": 1641093078598
+            },
+            {
+                "language": "NL",
+                "text": "Ik hoor dat mijn vriend de Welcome zelfstudie je rondleidde en je betoverde met een paar goedkope trucs... Wat een opschepperij!",
+                "updated": 1668333763030
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Şimdi çalışma zamanı!",
                     "updated": 1636698045347
+                },
+                {
+                    "language": "RU",
+                    "text": "Что ж, теперь пора работать!",
+                    "updated": 1640858607562
+                },
+                {
+                    "language": "ID",
+                    "text": "Nah, sekarang saatnya untuk kita bekerja!",
+                    "updated": 1641092624533
+                },
+                {
+                    "language": "NL",
+                    "text": "Nou, nu is het tijd om aan de slag te gaan!",
+                    "updated": 1668333785942
                 }
             ]
         },
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "Superalgos'u öğrenmek oldukça zahmetli bir iştir! Zor olduğu için değil, sistem çok geniş, son derece esnek ve yeni bir paradigma üzerine kurulu olduğu için...",
                     "updated": 1636698298697
+                },
+                {
+                    "language": "RU",
+                    "text": "Изучение Superalgos - довольно сложное занятие! Не потому, что это сложно, а потому, что система обширна, чрезвычайно гибка и построена на новой парадигме, которая не очевидна в начале...",
+                    "updated": 1640858657887
+                },
+                {
+                    "language": "ID",
+                    "text": "Belajar Superalgos cukup sulit! Bukan karena susah, tetapi karena sistemnya luas, sangat fleksibel, dan dibangun di atas paradigma baru yang tidak tentu pada awalnya...",
+                    "updated": 1641092701951
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos leren is een hele onderneming! Niet omdat het moeilijk is, maar omdat het systeem enorm is, extreem flexibel en gebouwd is op een nieuw paradigma dat in het begin niet voor de hand ligt...",
+                    "updated": 1668333811196
                 }
             ]
         },
@@ -116,8 +161,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır!",
-                    "updated": 1636698446384
+                    "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri birkaç kez tekrar eder!",
+                    "updated": 1670336971432
+                },
+                {
+                    "language": "RU",
+                    "text": "Но не волнуйтесь! Если вы будете внимательны и пройдете все доступные уроки, вы сможете справиться с кривой обучения как чемпион! Тем не менее, имейте в виду... большинство людей проходят учебники не один раз!",
+                    "updated": 1640858678160
+                },
+                {
+                    "language": "ID",
+                    "text": "Tapi jangan khawatir! Jika kamu memperhatikan dan mengikuti semua tutorial yang ada, Kamu akan dapat mengatasi kesulitan dengan mudah! Tetap harus diperhatikan... kebanyakan orang melakukan tutorial lebih dari sekali!",
+                    "updated": 1641092815981
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar maak je geen zorgen! Als je goed oplet en alle beschikbare zelfstudies volgt, kun je de leercurve als een kampioen aanpakken! Maar wees gewaarschuwd... de meeste mensen doen zelfstudies meer dan eens!",
+                    "updated": 1668333877715
                 }
             ]
         }

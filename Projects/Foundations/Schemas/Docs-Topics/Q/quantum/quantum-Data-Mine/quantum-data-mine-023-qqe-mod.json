@@ -1,0 +1,107 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 23,
+    "type": "QQE Mod",
+    "definition": {
+        "text": "The QQE Mod is a port of the indiacator by Mihkel00.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der QQE Mod ist eine Portierung des Indiakators von Mihkel00.",
+                "updated": 1671697504277
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "QQE Mod On the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "QQE Mod auf den Charts",
+                    "updated": 1671697524385
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The QQE mod is an extension of the Quantitative Qualitative Estimation indicator. It uses two QQE indicators of differing parameters, and will print a coloured output when both of these agree.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der QQE mod ist eine Erweiterung des Indikators Quantitative Qualitative Estimation. Er verwendet zwei QQE Indikatoren mit unterschiedlichen Parametern und gibt eine farbige Ausgabe aus, wenn beide übereinstimmen.",
+                    "updated": 1671697558564
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-mod.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the QQE Mod can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"QQE Mod\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der QQE Mod können geändert werden, indem der Javascript Code  unter Data Building Procedure -> Procedure Loop unter \"QQE Mod\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671697644778
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-mod-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "QQE Mod Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "QQE Mod Produkte & Eigenschaften",
+                    "updated": 1671697708522
+                }
+            ],
+            "updated": 1680863213490
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| QQE_Mod | qqeMod | qqe, histo, qqeUp, qqeDown, histoDir |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| QQE_Mod | qqeMod | qqe, histo, qqeUp, qqeDown, histoDir |",
+                    "updated": 1671697725187
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671697740810
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the qqe value and histogram is above the zero:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in einen Handel einsteigt, wenn der qqe Wert und das Histogramm über dem Nullpunkt liegen:",
+                    "updated": 1671697765314
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.qqeMod.qqe > 0 && chart.at15min.qqeMod.histo > 0"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "type": "Social Personas",
+    "definition": {
+        "text": "The Social Personas node defines profiles for use within the Superalgos Desktop app.",
+        "updated": 1643981744504,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Sosyal Kişiler düğümü, Superalgos Masaüstü uygulamasında kullanılmak üzere profilleri tanımlar.",
+                "updated": 1654396565937
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396572225,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

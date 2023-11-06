@@ -13,6 +13,36 @@
                 "language": "DE",
                 "text": "Weak hands Buster basiert auf der Idee, dass ein Zusammenbruch der BB eine Vertiefung eines Abwärtstrends und einige Umkehrungen vorhersagen kann.",
                 "updated": 1639252612250
+            },
+            {
+                "language": "RU",
+                "text": "Weak-hands Buster основан на идее, что пробой ВВ может предсказывать углубление нисходящего тренда и некоторые развороты.",
+                "updated": 1640890614740
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Weak-hands Buster, BB'nin bir çöküşünün bir düşüş trendinin derinleşebileceğini ve bazı geri dönüşleri tahmin edebileceği fikrine dayanır.",
+                "updated": 1640947625302
+            },
+            {
+                "language": "ES",
+                "text": "\"Weak-hands Buster\" se basa en la idea de que una ruptura de las BB puede predecir la profundidad de una tendencia bajista y algunos retrocesos.",
+                "updated": 1675205837970
+            },
+            {
+                "language": "IT",
+                "text": "Weak-hands Buster si basa sull'idea che una rottura delle BB possa prevedere un approfondimento di una tendenza al ribasso e alcune inversioni.",
+                "updated": 1669900444360
+            },
+            {
+                "language": "NL",
+                "text": "Weak-hands Buster is gebaseerd op het idee dat een neerwaartse uitbraak van de BB een verdieping van een neerwaartse trend en enkele omkeringen kan voorspellen.",
+                "updated": 1670785282237
+            },
+            {
+                "language": "ID",
+                "text": "Weak-hands Buster didasarkan pada gagasan bahwa breakdown BB dapat memprediksi pendalaman tren turun dan beberapa reversal/pembalikan.",
+                "updated": 1674693411857
             }
         ]
     },
@@ -25,6 +55,36 @@
                     "language": "DE",
                     "text": "Ich habe Sie gerade auf den 10. April 2020 gebracht, um einen Fall von Durchbruch der Bänder zu überprüfen. Sehen Sie, was bei den folgenden Kerzen passiert:",
                     "updated": 1639252623606
+                },
+                {
+                    "language": "RU",
+                    "text": "Я только что перенес вас на 10 апреля 2020 года, чтобы проверить случай пробоя диапазонов. Посмотрите, что произойдет на следующих свечах:",
+                    "updated": 1640890629104
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni 10 Nisan 2020'ye grupların bozulmasıyla ilgili bir vakayı kontrol etmen için getirdim. Aşağıdaki mumlarda neler olduğunu görün:",
+                    "updated": 1640947649403
+                },
+                {
+                    "language": "ES",
+                    "text": "Acabo de llevarte al 10 de abril de 2020 para comprobar un caso de ruptura de las bandas. Mira lo que sucede en las siguientes velas:",
+                    "updated": 1675205852835
+                },
+                {
+                    "language": "IT",
+                    "text": "Ti ho appena portato al 10 aprile 2020 per verificare un caso di rottura delle bande. Guarda cosa succede alle seguenti candele:",
+                    "updated": 1669900466941
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb je zojuist naar 10 april 2020 gebracht om een geval van neerwaartse uitbraak van de banden te bekijken. Zie wat er gebeurt bij de volgende candles:",
+                    "updated": 1670785325669
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku baru saja membawa kamu ke 10 April 2020 untuk memeriksa kasus kerusakan band. Lihat apa yang terjadi pada candle berikut:",
+                    "updated": 1674693419716
                 }
             ]
         },
@@ -36,6 +96,36 @@
                     "language": "DE",
                     "text": "04 hs: Eine Kerze schließt unterhalb des unteren Bandes bei 7,176 USDT.",
                     "updated": 1639252770468
+                },
+                {
+                    "language": "RU",
+                    "text": "04 ч: Свеча закрывается ниже нижней полосы на уровне 7,176 USDT.",
+                    "updated": 1640890817451
+                },
+                {
+                    "language": "TR",
+                    "text": "04 hs: alt bandın altında bir mum 7.176 USDT'de kapanır.",
+                    "updated": 1640947665565
+                },
+                {
+                    "language": "ES",
+                    "text": "04 hs: Una vela cierra por debajo de la banda inferior en 7.176 USDT.",
+                    "updated": 1668191085979
+                },
+                {
+                    "language": "IT",
+                    "text": "04 hs: una candela chiude sotto la banda inferiore a 7,176 USDT.",
+                    "updated": 1669900482814
+                },
+                {
+                    "language": "NL",
+                    "text": "04 hs: Een candle sluit onder de onderste band bij 7.176 USDT.",
+                    "updated": 1670785348997
+                },
+                {
+                    "language": "ID",
+                    "text": "04 hs: candle ditutup di bawah lower band di 7,176 USDT.",
+                    "updated": 1674693435313
                 }
             ]
         },
@@ -47,6 +137,36 @@
                     "language": "DE",
                     "text": "05 hs: Eine zweite Kerze schließt unterhalb des Bandes bei 7,140 USDT.",
                     "updated": 1639252763565
+                },
+                {
+                    "language": "RU",
+                    "text": "05 ч: Вторая свеча закрывается ниже диапазона на отметке 7.140 USDT.",
+                    "updated": 1640890811841
+                },
+                {
+                    "language": "TR",
+                    "text": "05 hs: Bandın altında 7.140 USDT'de ikinci bir mum kapanır.",
+                    "updated": 1640947676893
+                },
+                {
+                    "language": "ES",
+                    "text": "05 hs: Una segunda vela cierra por debajo de la banda en 7.140 USDT.",
+                    "updated": 1668191080698
+                },
+                {
+                    "language": "IT",
+                    "text": "05 hs: una seconda candela chiude sotto la banda a 7.140 USDT.",
+                    "updated": 1669900498240
+                },
+                {
+                    "language": "NL",
+                    "text": "05 hs: Een tweede candle sluit onder de band bij 7.140 USDT.",
+                    "updated": 1670785368045
+                },
+                {
+                    "language": "ID",
+                    "text": "05 hs: candle kedua ditutup di bawah band di 7.140 USDT.",
+                    "updated": 1674693447879
                 }
             ]
         },
@@ -58,6 +178,36 @@
                     "language": "DE",
                     "text": "06 hs: Es folgt ein stärkerer Rückgang, der die zuvor beobachtete Kursbewegung noch verstärkt.",
                     "updated": 1639252780679
+                },
+                {
+                    "language": "RU",
+                    "text": "06 ч: Следует более серьезное падение, подчеркивающее ценовое движение, наблюдавшееся ранее.",
+                    "updated": 1640890807711
+                },
+                {
+                    "language": "TR",
+                    "text": "06 hs: Daha önce görülen fiyat hareketini vurgulayan daha ciddi bir düşüş.",
+                    "updated": 1640947716039
+                },
+                {
+                    "language": "ES",
+                    "text": "06 hs: Sigue una caída más seria, acentuando la acción del precio vista anteriormente.",
+                    "updated": 1668191107841
+                },
+                {
+                    "language": "IT",
+                    "text": "06 hs: Segue un calo più grave, accentuando l'azione dei prezzi vista in precedenza.",
+                    "updated": 1669900516139
+                },
+                {
+                    "language": "NL",
+                    "text": "06 hs: Er volgt een serieuzere daling, die de eerder waargenomen prijsactie accentueert.",
+                    "updated": 1670785393636
+                },
+                {
+                    "language": "ID",
+                    "text": "06 hs: Penurunan yang lebih serius mengikuti, menonjolkan price action yang terlihat sebelumnya.",
+                    "updated": 1674693470433
                 }
             ]
         },
@@ -69,6 +219,31 @@
                     "language": "DE",
                     "text": "16 hs: Zehn Stunden nach dem ersten Durchbruch liegt der niedrigste Stundenschlusskurs des Tages bei 6,766 USDT, mehr als 6 % darunter.",
                     "updated": 1639252791455
+                },
+                {
+                    "language": "RU",
+                    "text": "16 ч: Через десять часов после первого пробоя самое низкое часовое закрытие дня составляет 6,766 USDT, что более чем на 6% ниже.",
+                    "updated": 1640890803039
+                },
+                {
+                    "language": "TR",
+                    "text": "16 hs: İlk kırılmadan on saat sonra, günün en düşük saatlik kapanışı 6.766 USDT'yi işaret ediyor, %6'dan fazla aşağıda.",
+                    "updated": 1640947733988
+                },
+                {
+                    "language": "ES",
+                    "text": "16 hs: Diez horas después de la primera ruptura, el cierre horario más bajo del día marca 6.766 USDT, más de un 6% por debajo.",
+                    "updated": 1668191139532
+                },
+                {
+                    "language": "NL",
+                    "text": "16 hs: Tien uur na de eerste neerwaartse uitbraak noteert de laagste uur sluiting van de dag 6,766 USDT, meer dan 6% lager.",
+                    "updated": 1670785454526
+                },
+                {
+                    "language": "ID",
+                    "text": "16 hs: Sepuluh jam setelah breakdown pertama, penutupan per jam terendah hari ini menandai 6,766 USDT, lebih rendah dari 6%.",
+                    "updated": 1674693487218
                 }
             ]
         }

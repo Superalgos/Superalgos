@@ -1,0 +1,175 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 20,
+    "type": "KDJ Indicator",
+    "definition": {
+        "text": "The KDJ Indicator is used to identify the trend direction and determine optimal entry points.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der KDJ Indikator wird verwendet, um die Trendrichtung zu erkennen und optimale Einstiegspunkte zu bestimmen.",
+                "updated": 1671696037597
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "KDJ Indicator on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "KDJ Indikator auf den Charts",
+                    "updated": 1671696074717
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The KDJ is similar to the alligator and Stochastic indicators as it helps to determine the trend direction and strength. It is a trend following indicator, and as such it can produce a lot of false signals during flat markets.",
+            "updated": 1658980316661,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der KDJ ähnelt dem Alligator und dem Stochastik Indikator, da er hilft, die Trendrichtung und -stärke zu bestimmen. Er ist ein Trendfolge Indikator und kann als solcher bei flachen Märkten viele Fehlsignale erzeugen.",
+                    "updated": 1671696119209
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671696141402
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Consists of 3 components, the K, D and J lines. K and D are the same as the stochastic oscillator. The J Line represents the divergence between the D and the K.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besteht aus 3 Komponenten, den Linien K, D und J. K und D sind die gleichen wie beim stochastischen Oszillator. Die J Linie stellt die Divergenz zwischen der D und der K Linie dar.",
+                    "updated": 1671696194577
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Convergence of all three values hints at emerging trading opportunities.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Annäherung aller drei Werte deutet auf neue Handelsmöglichkeiten hin.",
+                    "updated": 1671696271146
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A convergence in the oversold area (below 20) signals potential buy signals.",
+            "updated": 1655425894312,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Annäherung im überverkauften Bereich (unter 20) signalisiert potenzielle Kaufsignale.",
+                    "updated": 1671696275069
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A convergence in the overbought area (above 80) signals potential sell signals.",
+            "updated": 1655425898522,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Annäherung im überkauften Bereich (über 80) signalisiert potenzielle Verkaufssignale.",
+                    "updated": 1671696313155
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-kdj-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the KDJ indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"KDJ Indicator\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des KDJ Indikators können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"KDJ Indicator\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671696411387
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-kdj-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "KDJ indicator Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "KDJ Indikator Produkte & Eigenschaften",
+                    "updated": 1671696403100
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| KDJ Indicator | KDJ | k, d, j |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| KDJ Indicator | KDJ | k, d, j |",
+                    "updated": 1671696427802
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671696440448
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the KDJ J crosses upwards over the D value when below 20:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der KDJ J den D Wert nach oben kreuzt und unter 20 liegt:",
+                    "updated": 1671696468814
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.KDJ.j > chart.at02hs.KDJ.d && chart.at15min.KDJ.previous.j < chart.at15min.KDJ.previous.d && chart.at15min.KDJ.j < 20"
+        },
+        {
+            "style": "Text",
+            "text": "For optimal results KDJ should with other indicators, such as Average Directional Index (ADX) or Average True Range (ATR). The former is always ahead of the curve and can hint into an upcoming trend reversal. The latter is capable of determining the volatility of the market, which is especially useful since KDJ doesn�t work in a ranging market.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für optimale Ergebnisse sollte KDJ mit anderen Indikatoren wie dem Average Directional Index (ADX) oder der Average True Range (ATR) kombiniert werden. Ersterer ist der Kurve immer voraus und kann Hinweise auf eine bevorstehende Trendumkehr geben. Letzterer ist in der Lage, die Volatilität des Marktes zu bestimmen, was besonders nützlich ist, da KDJ in einem schwankenden Markt nicht funktioniert.",
+                    "updated": 1671696519343
+                }
+            ]
+        }
+    ]
+}

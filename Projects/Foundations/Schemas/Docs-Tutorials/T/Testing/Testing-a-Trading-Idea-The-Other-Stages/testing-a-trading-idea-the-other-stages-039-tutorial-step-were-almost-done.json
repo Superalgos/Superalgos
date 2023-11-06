@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wir sind praktisch bereit, einen neuen Backtest durchzuführen, dieses Mal mit vollständigen Definitionen in allen Phasen!",
                 "updated": 1639418119159
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu sefer, tüm aşamalarda eksiksiz tanımlarla yeni bir geriye dönük test çalıştırmaya neredeyse hazırız!",
+                "updated": 1641797299912
+            },
+            {
+                "language": "RU",
+                "text": "Мы практически готовы запустить новый бэктест, на этот раз с полными определениями на всех этапах!",
+                "updated": 1642943579552
+            },
+            {
+                "language": "ES",
+                "text": "Estamos prácticamente listos para realizar un nuevo backtest, esta vez, ¡con definiciones completas en todas las etapas!",
+                "updated": 1681055261321
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Bevor wir das tun, sollten wir das Close Stage Event löschen, da wir es auch nicht verwenden werden!",
                     "updated": 1639418128027
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapmadan önce Close Stage Event'i de kullanmayacağımız için silmeliyiz!",
+                    "updated": 1641797314910
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем мы это сделаем, давайте удалим событие Close Stage Event, поскольку мы не собираемся его использовать!",
+                    "updated": 1642943592068
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de hacerlo, vamos a eliminar el Close Stage Event, ya que tampoco lo vamos a utilizar.",
+                    "updated": 1681055289856
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Das war's! Das war doch gar nicht so schwer, oder? Diese Grundeinstellung ist für das Testen einfacher Handelsideen geeignet. In den nächsten Tutorials werden wir ausführlichere Verwaltungs- und Ausführungs-Setups durchgehen!",
                     "updated": 1639418135544
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: İşte bu! O kadar zor olmadı, değil mi? Bu temel ayar, basit ticaret fikirlerini test etmek için uygun. Sonraki birkaç eğitimde daha ayrıntılı yönetim ve yürütme kurulumlarını inceleyeceğiz!",
+                    "updated": 1641797323873
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот и все! Это было совсем не сложно, верно? Эта базовая настройка подходит для тестирования простых торговых идей. В следующих нескольких уроках мы рассмотрим более сложные настройки управления и исполнения!",
+                    "updated": 1642943606876
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ya está! No ha sido nada difícil, ¿verdad? Esta configuración básica está bien para probar ideas simples de trading. ¡En los próximos tutoriales, vamos a ir a través de la gestión más elaborada y configuraciones de ejecución!",
+                    "updated": 1681055309395
                 }
             ]
         }

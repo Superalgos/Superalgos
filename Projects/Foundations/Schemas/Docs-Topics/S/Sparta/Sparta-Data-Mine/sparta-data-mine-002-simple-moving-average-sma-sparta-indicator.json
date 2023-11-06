@@ -4,18 +4,69 @@
     "type": "Simple Moving Average (SMA) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces the Simple Moving Average in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
-        "updated": 1611661320849
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает простую скользящую среднюю в нескольких вариантах, включая популярные 20, 50, 100 и 200, а также менее распространенные базовые 7 и базовые 11 SMA.",
+                "updated": 1643529461628
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, popüler 20, 50, 100 ve 200'ün yanı sıra daha az sıklıkta taban 7 ve taban 11 SMA'lar dahil olmak üzere birden çok ayarda Basit Hareketli Ortalama üretir.",
+                "updated": 1650620007637
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator erzeugt den Simple Moving Average in mehreren Einstellungen, einschließlich der beliebten 20, 50, 100 und 200 sowie der weniger häufigen Basis 7 und Basis 11 SMAs.",
+                "updated": 1671032392634
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Simple Moving Average On the Charts",
-            "updated": 1611661332955
+            "updated": 1611661332955,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая скользящая средняя на графиках",
+                    "updated": 1643529471412
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Basit Hareketli Ortalama",
+                    "updated": 1650620021171
+                },
+                {
+                    "language": "DE",
+                    "text": "Simple Moving Average auf den Charts",
+                    "updated": 1671032571738
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "According to Investopedia, “A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time frames in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react.”",
-            "updated": 1611764485658
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"простая скользящая средняя (SMA) - это арифметическая скользящая средняя, рассчитываемая путем сложения последних цен закрытия и последующего деления на количество таймфреймов в расчетной средней. Краткосрочные средние быстро реагируют на изменения в цене базового актива, в то время как долгосрочные средние реагируют медленно.\"",
+                    "updated": 1643529482422
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, “Basit bir hareketli ortalama (SMA), son kapanış fiyatları eklenerek ve ardından bunu hesaplama ortalamasındaki zaman dilimi sayısına bölerek hesaplanan bir aritmetik hareketli ortalamadır. Kısa vadeli ortalamalar, dayanak varlığın fiyatındaki değişikliklere hızlı tepki verirken, uzun vadeli ortalamalar yavaş tepki verir.”",
+                    "updated": 1650620035103
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia „ist ein einfacher gleitender Durchschnitt (SMA) ein arithmetischer gleitender Durchschnitt, der berechnet wird, indem die letzten Schlusskurse addiert und dann durch die Anzahl der Zeitrahmen im Berechnungsdurchschnitt geteilt werden. Kurzfristige Durchschnitte reagieren schnell auf Veränderungen im Preis des zugrunde liegenden Vermögenswerts, während langfristige Durchschnitte langsam reagieren.\"",
+                    "updated": 1671032769686
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -28,39 +79,165 @@
         },
         {
             "style": "Text",
-            "text": "You will find several layers with different settings for SMAs, calculated on different periods. Each layer corresponds to a product made available by the indicator."
+            "text": "You will find several layers with different settings for SMAs, calculated on different periods. Each layer corresponds to a product made available by the indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы найдете несколько слоев с различными настройками для SMA, рассчитанных на разных периодах. Каждый слой соответствует продукту, предлагаемому индикатором.",
+                    "updated": 1643529495375
+                },
+                {
+                    "language": "TR",
+                    "text": "Farklı dönemlerde hesaplanan SMA'lar için farklı ayarlara sahip birkaç katman bulacaksınız. Her katman, gösterge tarafından kullanıma sunulan bir ürüne karşılık gelir.",
+                    "updated": 1650620069559
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie finden mehrere Ebenen mit unterschiedlichen Einstellungen für SMAs, die für verschiedene Zeiträume berechnet werden. Jede Ebene entspricht einem Produkt, das der Indikator zur Verfügung stellt.",
+                    "updated": 1671032820409
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The information panel shows the numeric value for each SMA in the layer, in ascending order (i.e. SMA 20, SMA 50, SMA 100, etc.)."
+            "text": "The information panel shows the numeric value for each SMA in the layer, in ascending order (i.e. SMA 20, SMA 50, SMA 100, etc.).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На информационной панели отображается числовое значение для каждого SMA в слое в порядке возрастания (т.е. SMA 20, SMA 50, SMA 100 и т.д.).",
+                    "updated": 1643529506264
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi paneli, katmandaki her SMA için sayısal değeri artan sırada gösterir (yani SMA 20, SMA 50, SMA 100, vb.).",
+                    "updated": 1650620087161
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Informationsfeld zeigt den numerischen Wert für jeden SMA in der Schicht in aufsteigender Reihenfolge an (d. h. SMA 20, SMA 50, SMA 100 usw.).",
+                    "updated": 1671032897900
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Simple Moving Average Products & Properties"
+            "text": "Simple Moving Average Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Simple Moving Average",
+                    "updated": 1643529517612
+                },
+                {
+                    "language": "TR",
+                    "text": "Basit Hareketli Ortalama Ürünler ve Özellikler",
+                    "updated": 1650620099324
+                },
+                {
+                    "language": "DE",
+                    "text": "Simple Moving Average Produkte & Eigenschaften",
+                    "updated": 1671032997012
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:"
+            "text": "There are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть три продукта, предварительно настроенные на начало расчета сразу после запуска соответствующей задачи, каждый с различными конфигурациями периода:",
+                    "updated": 1643529528730
+                },
+                {
+                    "language": "TR",
+                    "text": "Her biri farklı dönem konfigürasyonlarına sahip, ilgili görevi başlatır başlatmaz hesaplamaya başlamak üzere önceden yapılandırılmış üç ürün vardır:",
+                    "updated": 1650620109715
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei Produkte, die so vorkonfiguriert sind, dass sie mit der Berechnung beginnen, sobald Sie die entsprechende Aufgabe starten, jeweils mit unterschiedlichen Periodenkonfigurationen:",
+                    "updated": 1671033044862
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Popular SMAs | popularSMA | sma20, sma50, sma100, sma200 |\n| Base 7 | base7SMA | sma7, sma14, sma21, sma28, sma35, sma70, sma140, sma210, sma280, sma350, sma700, sma1400 |\n| Base 11 | base11SMA | sma11, sma22, sma33, sma55, sma111 |",
-            "updated": 1611661544067
+            "updated": 1611661544067,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Popular SMAs | popularSMA | sma20, sma50, sma100, sma200 |\n| Base 7 | base7SMA | sma7, sma14, sma21, sma28, sma35, sma70, sma140, sma210, sma280, sma350, sma700, sma1400 |\n| Base 11 | base11SMA | sma11, sma22, sma33, sma55, sma111 |",
+                    "updated": 1650620123809
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Popular SMAs | popularSMA | sma20, sma50, sma100, sma200 |\n| Base 7 | base7SMA | sma7, sma14, sma21, sma28, sma35, sma70, sma140, sma210, sma280, sma350, sma700, sma1400 |\n| Base 11 | base11SMA | sma11, sma22, sma33, sma55, sma111 |",
+                    "updated": 1671033411931
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are four more products available but they will not be calculated unless you create the corresponding data outputs and reference them to the corresponding data sets:",
-            "updated": 1611661553639
+            "updated": 1611661553639,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеются еще четыре продукта, но они не будут рассчитаны, пока вы не создадите соответствующие выходы данных и не свяжете их с соответствующими наборами данных:",
+                    "updated": 1643529543161
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut dört ürün daha vardır, ancak ilgili veri çıktılarını oluşturup bunları ilgili veri kümelerine göndermediğiniz sürece bunlar hesaplanmayacaktır:",
+                    "updated": 1650620148580
+                },
+                {
+                    "language": "DE",
+                    "text": "Es stehen vier weitere Produkte zur Verfügung, die jedoch nur dann berechnet werden, wenn Sie die entsprechenden Datenausgaben erstellen und auf die entsprechenden Datensätze verweisen:",
+                    "updated": 1671033526038
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Base 5 | base5SMA | sma5, sma10, sma15, sma20, sma25, sma50, sma100, sma150, sma200, sma250, sma500, sma1000 |\n| Base 6 | base6SMA | sma6, sma12, sma18, sma24, sma30, sma60, sma120, sma180, sma240, sma300, sma600, sma1200 |\n| Base 12 | base12SMA | sma12, sma24, sma36, sma48, sma60, sma120, sma240, sma360, sma480, sma600, sma1200 |\n| Base 30 | base30SMA | sma30, sma60, sma90, sma120, sma150, sma300, sma600, sma900, sma1200, sma1500 |",
-            "updated": 1611661663605
+            "updated": 1611661663605,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Base 5 | base5SMA | sma5, sma10, sma15, sma20, sma25, sma50, sma100, sma150, sma200, sma250, sma500, sma1000 |\n| Base 6 | base6SMA | sma6, sma12, sma18, sma24, sma30, sma60, sma120, sma180, sma240, sma300, sma600, sma1200 |\n| Base 12 | base12SMA | sma12, sma24, sma36, sma48, sma60, sma120, sma240, sma360, sma480, sma600, sma1200 |\n| Base 30 | base30SMA | sma30, sma60, sma90, sma120, sma150, sma300, sma600, sma900, sma1200, sma1500 |",
+                    "updated": 1650620161963
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Base 5 | base5SMA | sma5, sma10, sma15, sma20, sma25, sma50, sma100, sma150, sma200, sma250, sma500, sma1000 |\n| Base 6 | base6SMA | sma6, sma12, sma18, sma24, sma30, sma60, sma120, sma180, sma240, sma300, sma600, sma1200 |\n| Base 12 | base12SMA | sma12, sma24, sma36, sma48, sma60, sma120, sma240, sma360, sma480, sma600, sma1200 |\n| Base 30 | base30SMA | sma30, sma60, sma90, sma120, sma150, sma300, sma600, sma900, sma1200, sma1500 |",
+                    "updated": 1671033439058
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611661674316
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643529550190
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1650620172049
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671033560938
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -69,7 +246,24 @@
         },
         {
             "style": "Text",
-            "text": "An indication of a bull market? Is the 50-day moving average above the 200-day moving average?"
+            "text": "An indication of a bull market? Is the 50-day moving average above the 200-day moving average?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Признак бычьего рынка? Находится ли 50-дневная скользящая средняя выше 200-дневной скользящей средней?",
+                    "updated": 1643529558881
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa piyasasının bir göstergesi mi? 50 günlük hareketli ortalama, 200 günlük hareketli ortalamanın üzerinde mi?",
+                    "updated": 1650620189364
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Anzeichen für einen Bullenmarkt? Liegt der 50-Tage-Durchschnitt über dem 200-Tage-Durchschnitt?",
+                    "updated": 1671033604514
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -78,7 +272,24 @@
         },
         {
             "style": "Text",
-            "text": "Looking even further in the past, comparing a 200-day with a 350-day moving average. Notice how the two MA belong to different products."
+            "text": "Looking even further in the past, comparing a 200-day with a 350-day moving average. Notice how the two MA belong to different products.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заглянув еще дальше в прошлое, сравним 200-дневную и 350-дневную скользящие средние. Обратите внимание, что эти две MA относятся к разным продуктам.",
+                    "updated": 1643529575939
+                },
+                {
+                    "language": "TR",
+                    "text": "200 günlük hareketli ortalama ile 350 günlük hareketli ortalamayı karşılaştırarak geçmişe daha da bakın. İki MA'nın nasıl farklı ürünlere ait olduğuna dikkat edin.",
+                    "updated": 1650620201347
+                },
+                {
+                    "language": "DE",
+                    "text": "Noch weiter in die Vergangenheit blicken und einen gleitenden 200-Tage-Durchschnitt mit einem 350-Tage-Durchschnitt vergleichen. Beachten Sie, dass die beiden MA zu unterschiedlichen Produkten gehören.",
+                    "updated": 1671033650967
+                }
+            ]
         },
         {
             "style": "Table",

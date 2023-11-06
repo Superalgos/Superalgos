@@ -22,31 +22,41 @@
             },
             {
                 "language": "RU",
-                "text": "Прежде чем рассматривать графики, нам нужны данные! Я установил несколько шахт данных (Data Mines) и торговую систему (Trading System).",
-                "updated": 1637915147584
+                "text": "Прежде чем рассматривать графики, нам нужны данные! Я установил несколько источников данных и торговую систему.",
+                "updated": 1641833691018
+            },
+            {
+                "language": "TR",
+                "text": "Grafiklere bakmadan önce verilere ihtiyacımız var! Bazı veri madenleri ( Data Mine )  ve bir ticaret sistemi (Trading System )  kurdum.",
+                "updated": 1642518530495
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You should see the Candles, Masters, and Sparta data mine plugins. These give us access to a range of interesting indicators. For this tutorial we will only be using the Candles Data Mine. My friends will teach you how to create charts using the other data mines later. I also installed the Lighting Strike Trading System plugin.",
-            "updated": 1628362351148,
+            "text": "You should see the Candles, Masters, and Sparta data mine plugins. These give us access to a range of interesting indicators. For this tutorial we will only be using the Candles Data Mine. My friends will teach you how to create charts using the other data mines later. I also installed the Lightning Strike Trading System plugin.",
+            "updated": 1640711451701,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "You should see the Candles, Masters, y Sparta data mine plugins. Estos nos dan acceso a una serie de indicadores interesantes. Para este tutorial solo usaremos el Candles Data Mine. Mis amigos te enseñarán cómo crear gráficos usando el otro data mines. También instalé el plugin Lighting Strike Trading System.",
-                    "updated": 1628639477988
+                    "text": "Debería visualizar the Candles, Masters, y Sparta data mine plugins. Estos nos dan acceso a una gama de indicadores interesantes. Para este tutorial solo usaremos Candles Data Mine. Mis amigos te enseñarán cómo crear gráficos usando las otras datas mine más adelante. También instalé el plugin Lightning Strike Trading System.",
+                    "updated": 1682429601424
                 },
                 {
                     "language": "DE",
-                    "text": "Sie sollten die Candles, Masters und Sparta data mine plugins ansehen. Diese ermöglichen uns den Zugang zu einer Reihe interessanter Indikatoren. In diesem Tutorial werden wir nur die Candles Data Mine verwenden. Meine Freunde werden Ihnen später zeigen, wie Sie charts mit den anderen data mines erstellen können. Ich habe auch das Lighting Strike Trading System Plugin installiert.",
-                    "updated": 1637613044410
+                    "text": "Sie sollten sich die Data-Mine-Plugins Candles, Masters und Sparta ansehen. Diese geben uns Zugang zu einer Reihe von interessanten Indikatoren. In diesem Tutorial werden wir nur die Candles-Data-Mine verwenden. Meine Freunde werden Ihnen später zeigen, wie Sie mit den anderen Data Mines Charts erstellen können. Ich habe auch das Lightning Strike Trading System Plugin installiert.",
+                    "updated": 1641764063058
                 },
                 {
                     "language": "RU",
-                    "text": "Вы должны увидеть плагины Candles, Masters и Sparta data mine. Они дают нам доступ к ряду интересных индикаторов. Для этого учебника мы будем использовать только шахты данных свечей (Data Mine). Мои друзья научат вас создавать графики с использованием других шахт данных позже. Я также установил плагин торговой системы Lighting Strike (Trading System).",
-                    "updated": 1637915564262
+                    "text": "Вы должны увидеть плагины Candles, Masters и Sparta. Они дают нам доступ к целому ряду интересных индикаторов. В этом уроке мы будем использовать только источник данных Candles. Позже мои друзья научат вас создавать графики с помощью других источников данных. Я также установил плагин торговой системы Lightning Strike.",
+                    "updated": 1641833630516
+                },
+                {
+                    "language": "TR",
+                    "text": "Candles, Masters ve Sparta veri madeni eklentilerine göz atmalısınız. Bunlar bize bir dizi ilginç göstergeye erişim sağlıyor. Bu eğitimde sadece Candles Data Mine kullanacağız. Arkadaşlarım daha sonra size diğer veri madenleriyle nasıl çizelgeler oluşturacağınızı gösterecek. Lighting Strike Trading System eklentisini de kurdum.",
+                    "updated": 1642518545752
                 }
             ]
         },
@@ -57,8 +67,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Este es el mismo sistema comercial con el que interactuó durante los tutoriales de bienvenida.",
-                    "updated": 1628639517053
+                    "text": "Este es el mismo sistema comercial con el que interactuaste durante los tutoriales de bienvenida.",
+                    "updated": 1682429661728
                 },
                 {
                     "language": "DE",
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Это та же самая торговая система, с которой вы взаимодействовали во время приветственных уроков.",
                     "updated": 1637915579748
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu, hoş geldiniz eğitimleri sırasında etkileşimde bulunduğunuz ticaret sisteminin aynısıdır.",
+                    "updated": 1642518558667
                 }
             ]
         }

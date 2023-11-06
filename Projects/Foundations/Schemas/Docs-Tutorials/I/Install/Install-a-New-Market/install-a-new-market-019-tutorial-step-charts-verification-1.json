@@ -18,6 +18,21 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Charting Space Datenstrukturen für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636470181662
+            },
+            {
+                "language": "TR",
+                "text": "İlgili Borsa ( Market ) için Grafik Alanı ( Charting Space ) veri yapılarının başarıyla oluşturulduğunu doğrulayın.",
+                "updated": 1642163570821
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что структуры данных Charting Space для соответствующего Market были успешно созданы.",
+                "updated": 1643091359625
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Charting Space gegevensstructuren voor de overeenkomstige Market met succes zijn gemaakt.",
+                "updated": 1676128606399
             }
         ]
     },
@@ -35,6 +50,21 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636470213873
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki veri yapılarını bulun:",
+                    "updated": 1642163686885
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1643091367234
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676128616703
                 }
             ]
         },
@@ -51,6 +81,21 @@
                     "language": "DE",
                     "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
                     "updated": 1636470376014
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme'de ( Testing Trading Tasks ) oluşturulan her Ticaret Oturumu için bir Zaman Makinesi ( Time Machine ) düğümü.",
+                    "updated": 1642163816154
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Time Machine для каждой торговой сессии, созданной в Testing Trading Tasks.",
+                    "updated": 1643091408100
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Time Machine knooppunt voor elke handelssessie die is gemaakt in de Testing Trading Tasks.",
+                    "updated": 1676128686451
                 }
             ]
         },
@@ -60,13 +105,28 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Un nodo Time Machine oara cada Trading Session creada en el Production Trading Tasks.",
-                    "updated": 1629251407209
+                    "text": "Un nodo Time Machine para cada Trading Session creada en el Production Trading Tasks.",
+                    "updated": 1682428167929
                 },
                 {
                     "language": "DE",
                     "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
                     "updated": 1636470394173
+                },
+                {
+                    "language": "TR",
+                    "text": "Üretim Ticareti Görevlerinde ( Production Trading Tasks ) oluşturulan her ticaret oturumu için bir Zaman Makinesi ( Time Machine ) düğümü.",
+                    "updated": 1642163915545
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Time Machine для каждой торговой сессии, созданной в Production Trading Tasks.",
+                    "updated": 1643091426995
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Time Machine knooppunt voor elke handelssessie die is gemaakt in de Production Trading Tasks.",
+                    "updated": 1676128668370
                 }
             ]
         }

@@ -4,37 +4,156 @@
     "type": "Luno Test Status",
     "definition": {
         "text": "Luno is tested for data mining and for live trading - however, due to recent changes in their API, it has become virtually useless for back-testing, and not much better for live trading. See below for explanation.",
-        "updated": 1621587736536
+        "updated": 1621587736536,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Luno тестируется для анализа данных и для торговли в реальном времени - однако, из-за недавних изменений в их API, он стал практически бесполезным для обратного тестирования, и не намного лучше для торговли в реальном времени. Объяснение смотрите ниже.",
+                "updated": 1646902241483
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Luno, veri madenciliği ve canlı ticaret için test edilmiştir - ancak, API'lerindeki son değişiklikler nedeniyle, geriye dönük test için neredeyse işe yaramaz hale geldi ve canlı ticaret için çok daha iyi değil. Açıklama için aşağıya bakın.",
+                "updated": 1650571264948
+            },
+            {
+                "language": "DE",
+                "text": "Luno wurde für Data Mining und für den Live-Handel getestet - aufgrund der jüngsten Änderungen an der API ist es jedoch für Backtests praktisch unbrauchbar geworden und für den Live-Handel nicht viel besser. Siehe unten für eine Erklärung.",
+                "updated": 1690357271188
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902254631
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571279943
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357276674
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes - but with severe restrictions. The ability to fetch historic data for backtesting purposes has been now been severely restricted, since you can no longer fetch trades older than 24 hours.",
-            "updated": 1621587332130
+            "updated": 1621587332130,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да - но с серьезными ограничениями. Возможность получения исторических данных для целей бэктестинга теперь сильно ограничена, поскольку вы больше не можете получать данные о сделках старше 24 часов.",
+                    "updated": 1646902290628
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet - ancak ciddi kısıtlamalarla. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği, artık 24 saatten eski işlemleri getiremeyeceğiniz için ciddi şekilde kısıtlandı.",
+                    "updated": 1650571283783
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja - aber mit starken Einschränkungen. Die Möglichkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde nun stark eingeschränkt, da Sie keine Trades mehr abrufen können, die älter als 24 Stunden sind.",
+                    "updated": 1690357286448
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Yes - but with restrictions. The ability to run strategies in live-trading mode is now possible. Ensure that the version of the CCXT library being used by Superalgos is 1.42.77 or better - earlier versions of this library did not correctly apply the precision settings of the exchange in the amounts specified for creating orders.",
-            "updated": 1621587760053
+            "updated": 1621587760053,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли [**]: Да - но с ограничениями. Появилась возможность запускать стратегии в режиме реальной торговли. Убедитесь, что версия библиотеки CCXT, используемой Superalgos, составляет 1.42.77 или лучше - более ранние версии этой библиотеки некорректно применяли настройки точности биржи в объемах, указанных для создания ордеров.",
+                    "updated": 1646902345017
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Evet - ancak kısıtlamalarla. Canlı ticaret modunda stratejiler yürütme yeteneği artık mümkün. Superalgos tarafından kullanılan CCXT kitaplığının sürümünün 1.42.77 veya daha iyi olduğundan emin olun - bu kitaplığın önceki sürümleri, sipariş oluşturmak için belirtilen miktarlarda borsanın hassas ayarlarını doğru şekilde uygulamadı.",
+                    "updated": 1650571332292
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsfähigkeit (Trading Capability) [**]: Ja - aber mit Einschränkungen. Die Fähigkeit, Strategien im Live-Handelsmodus auszuführen, ist jetzt möglich. Stellen Sie sicher, dass die Version der CCXT -Bibliothek, die von Superalgos verwendet wird, 1.42.77 oder besser ist - frühere Versionen dieser Bibliothek wendeten die Präzisionseinstellungen der Börse nicht korrekt in den für die Erstellung von Aufträgen angegebenen Beträgen an.",
+                    "updated": 1690357298625
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data mining is extremely slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API. One day of Raw Data used to take about 5 minutes to download. However, since a recent upgrade (somewhere around 15th May, 2021) it is no longer possible to retrieve raw trades older than 24 hours. This means that a start day must be fully specified (i.e. both date and time), and it must be less than 24 hours behind the current date/time. Keep this in mind when setting a start date. The reason for this is because they do not support fetching of OHCLV data - this data has to be compiled by fetching individual trades. The fetching of trades is limited to 100 trades per request, and the rate limit is 1 second. Furthermore, you will need to run data mining for at least 24 hours before being able to start running any trading.",
-            "updated": 1621587866572
+            "updated": 1621587866572,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Добыча необработанных данных происходит крайне медленно из-за ограничений обмена на их API, которые ограничивают количество данных, которые можно запросить через Rest API. Раньше загрузка одного дня необработанных данных занимала около 5 минут. Однако после недавнего обновления (где-то около 15 мая 2021 года) больше невозможно получить необработанные сделки старше 24 часов. Это означает, что начальный день должен быть полностью определен (т.е. и дата, и время), и он должен быть менее чем на 24 часа позже текущей даты/времени. Помните об этом, когда устанавливаете начальную дату. Причина этого в том, что они не поддерживают получение данных OHCLV - эти данные должны быть собраны путем получения отдельных сделок. Получение данных о сделках ограничено 100 сделками на один запрос, а ограничение скорости составляет 1 секунду. Кроме того, прежде чем приступить к торговле, вам придется работать с данными не менее 24 часов.",
+                    "updated": 1646902410686
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla istenebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle son derece yavaştır. Eskiden bir günlük Raw Data'nın indirilmesi yaklaşık 5 dakika sürerdi. Ancak, yakın zamanda yapılan bir yükseltmeden beri (15 Mayıs 2021 civarında bir yerde), 24 saatten daha eski ham alım satımları almak artık mümkün değil. Bu, bir başlangıç gününün tam olarak belirtilmesi gerektiği (yani hem tarih hem de saat) ve geçerli tarih/saatin 24 saatten daha az olması gerektiği anlamına gelir. Bir başlangıç tarihi belirlerken bunu aklınızda bulundurun. Bunun nedeni, OHCLV verilerinin alınmasını desteklememeleridir - bu verilerin bireysel işlemler getirilerek derlenmesi gerekir. İşlemlerin getirilmesi, istek başına 100 işlem ile sınırlıdır ve oran limiti 1 saniyedir. Ayrıca, herhangi bir işlem yapmaya başlamadan önce en az 24 saat veri madenciliği yapmanız gerekecektir.",
+                    "updated": 1650571350854
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Die Gewinnung von Rohdaten (Raw Data) ist extrem langsam, da die Anzahl der Daten, die über die Rest-API angefordert werden können, durch Austauschbeschränkungen der API begrenzt ist. Das Herunterladen von Rohdaten für einen Tag dauerte früher etwa 5 Minuten. Seit einem kürzlichen Upgrade (um den 15. Mai 2021) ist es jedoch nicht mehr möglich, Rohdaten (Raw Data) abzurufen, die älter als 24 Stunden sind. Das bedeutet, dass der Starttag vollständig angegeben werden muss (d. h. sowohl Datum als auch Uhrzeit) und weniger als 24 Stunden hinter dem aktuellen Datum/Uhrzeit liegen muss. Beachten Sie dies, wenn Sie ein Startdatum festlegen. Der Grund dafür ist, dass sie den Abruf von OHCLV-Daten nicht unterstützen - diese Daten müssen durch den Abruf einzelner Abschlüsse zusammengestellt werden. Das Abrufen von Abschlüssen ist auf 100 Abschlüsse pro Anfrage beschränkt, und die Geschwindigkeit ist auf 1 Sekunde begrenzt. Außerdem müssen Sie das Data Mining mindestens 24 Stunden lang laufen lassen, bevor Sie mit dem Handel beginnen können.",
+                    "updated": 1690357310874
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "RECOMMENDATION: Luno is no longer suitable for use with SuperAlgos until such time that the Luno developers implement the correct API for retrieving OHLCV data.",
-            "updated": 1621588017824
+            "updated": 1621588017824,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "РЕКОМЕНДАЦИЯ: Luno больше не подходит для использования с SuperAlgos до тех пор, пока разработчики Luno не реализуют правильный API для получения данных OHLCV.",
+                    "updated": 1646902423300
+                },
+                {
+                    "language": "TR",
+                    "text": "ÖNERİ: Luno geliştiricileri, OHLCV verilerini almak için doğru API'yi uygulayana kadar, Luno artık SuperAlgos ile kullanım için uygun değildir.",
+                    "updated": 1650571370331
+                },
+                {
+                    "language": "DE",
+                    "text": "EMPFEHLUNG: Luno ist nicht mehr für die Verwendung mit SuperAlgos geeignet, bis die Luno-Entwickler die korrekte API für den Abruf von OHLCV-Daten implementieren.",
+                    "updated": 1690357325531
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902431497
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571379150
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357331240
+                }
+            ]
         },
         {
             "style": "Json",

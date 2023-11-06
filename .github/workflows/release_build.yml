@@ -10,10 +10,11 @@ on:
 
 jobs:
   build-release:
+    if: github.repository == 'superalgos/superalgos'
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
-          os: [windows-latest, macos-latest]
+          os: [windows-latest, macos-latest, ubuntu-latest]
 
     steps:
       - name: Check out Git repository

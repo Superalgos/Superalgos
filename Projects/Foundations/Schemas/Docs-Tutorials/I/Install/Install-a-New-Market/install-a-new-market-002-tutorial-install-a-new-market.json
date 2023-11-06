@@ -19,6 +19,21 @@
                 "language": "DE",
                 "text": "Dieses Tutorial führt Sie durch den Prozess der Einrichtung eines neuen Market, auf dem Sie Data-Mining- und Handelsoperationen durchführen können.",
                 "updated": 1635737811408
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu eğitim, ticaret ve veri madenciliği operasyonlarını yürütmek için yeni bir borsa ( Market ) kurma sürecinde size rehberlik edecek.",
+                "updated": 1642085180877
+            },
+            {
+                "language": "RU",
+                "text": "В этом учебном пособии рассматривается процесс создания нового рынка, на котором будут выполняться операции по анализу данных и торговле.",
+                "updated": 1643090121182
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie leidt u door het proces van het opzetten van een nieuwe markt waarop datamining en handelsactiviteiten kunnen worden uitgevoerd.",
+                "updated": 1676120227113
             }
         ]
     },
@@ -37,6 +52,21 @@
                     "language": "DE",
                     "text": "Die Einrichtung eines neuen Market umfasst Folgendes:",
                     "updated": 1635737994943
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir borsa ( Market ) kurmak şu anlama gelir:",
+                    "updated": 1642085213069
+                },
+                {
+                    "language": "RU",
+                    "text": "Создание нового рынка (Market) включает в себя:",
+                    "updated": 1643090149861
+                },
+                {
+                    "language": "NL",
+                    "text": "Het opzetten van een nieuwe markt omvat:",
+                    "updated": 1676120254953
                 }
             ]
         },
@@ -46,14 +76,29 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "1. Añadiendo los assets para el exchange de elección.",
-                    "updated": 1628985249427,
+                    "text": "1. Añadiendo los Assets para el exchange de elección.",
+                    "updated": 1682425103443,
                     "style": "List"
                 },
                 {
                     "language": "DE",
                     "text": "1. Hinzufügen der Vermögenswerte für die gewünschte Börse.",
                     "updated": 1635738091361
+                },
+                {
+                    "language": "TR",
+                    "text": "1.Seçim değişimi için varlıkları ekleme",
+                    "updated": 1642085228042
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Добавление активов для выбранной биржи.",
+                    "updated": 1643090165628
+                },
+                {
+                    "language": "NL",
+                    "text": "1. Een token toevoegen voor een beurs naar keuze.",
+                    "updated": 1676120321705
                 }
             ]
         },
@@ -63,14 +108,29 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "2. Creación de un mercado con dichos assets.",
-                    "updated": 1628990068651,
+                    "text": "2. Creación de un market con dichos assets.",
+                    "updated": 1682425409315,
                     "style": "List"
                 },
                 {
                     "language": "DE",
                     "text": "2. Einrichten eines Marktes mit den genannten Vermögenswerten.",
                     "updated": 1635738118471
+                },
+                {
+                    "language": "TR",
+                    "text": "2.Söz konusu varlıklarla bir borsa oluşturulması.",
+                    "updated": 1642085324285
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Создание рынка с использованием указанных активов.",
+                    "updated": 1643090173250
+                },
+                {
+                    "language": "NL",
+                    "text": "2. Het opzetten van een markt met de genoemde token.",
+                    "updated": 1676120340488
                 }
             ]
         },
@@ -80,14 +140,29 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "3. Instalando el mercado",
-                    "updated": 1628990055678,
+                    "text": "3. Instalando el market",
+                    "updated": 1682425417225,
                     "style": "List"
                 },
                 {
                     "language": "DE",
                     "text": "3. Installieren des Marktes",
                     "updated": 1635738137290
+                },
+                {
+                    "language": "TR",
+                    "text": "3.Borsayı kurmak",
+                    "updated": 1642085313913
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Установка рынка",
+                    "updated": 1643090179040
+                },
+                {
+                    "language": "NL",
+                    "text": "3. De markt installeren",
+                    "updated": 1676120355289
                 }
             ]
         },
@@ -99,13 +174,28 @@
                 {
                     "language": "ES",
                     "text": "Cuando hagas clic en el botón Next a continuación, irás al nodo Exchange Assets bajo Binance, en la jerarquía Crypto Ecosystem. Puedes aprender a instalar un mercado en este exchange para que puedas hacer lo mismo en tu exchange de elección más adelante.",
-                    "updated": 1628991773444,
+                    "updated": 1682427208499,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
                     "text": "Wenn Sie auf die Schaltfläche Weiter unten klicken, gelangen Sie zum Knoten Exchange Assets unter Binance in der Crypto Ecosystem Hierarchie. Sie können lernen, wie man einen Markt in dieser Börse installiert, so dass Sie später dasselbe in Ihrer Börse der Wahl tun können.",
                     "updated": 1635738358469
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki Next butonuna tıkladığınızda, Crypto Ecosystem hiyerarşisinde Binance altındaki Exchange Assets düğümüne gideceksiniz. Daha sonra tercih ettiğiniz borsada da aynısını yapabilmeniz için bu borsada nasıl bir piyasa oluşturacağınızı öğrenebilirsiniz.",
+                    "updated": 1642085403595
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы нажмете кнопку Next, вы перейдете в узел Exchange Assets под Binance в иерархии Crypto Ecosystem. Вы можете узнать, как установить рынок на этой бирже, чтобы впоследствии сделать то же самое на другой выбранной вами бирже.",
+                    "updated": 1643090214708
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer u op de onderstaande knop Volgende klikt, gaat u naar het Exchange Assets knooppunt onder Binance, in de Crypto Ecosystem hiërarchie. U kunt leren hoe u een markt in deze beurs installeert, zodat u later hetzelfde kunt doen voor de beurs van uw keuze.",
+                    "updated": 1676120416792
                 }
             ]
         }

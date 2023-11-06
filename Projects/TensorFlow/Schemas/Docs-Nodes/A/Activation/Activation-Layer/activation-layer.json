@@ -2,13 +2,38 @@
     "type": "Activation Layer",
     "definition": {
         "text": "Applies an activation function to an output. ",
-        "updated": 1613213636961
+        "updated": 1613213636961,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Применяет функцию активации к выходу.",
+                "updated": 1645195258172
+            },
+            {
+                "language": "TR",
+                "text": "Bir çıktıya bir aktivasyon fonksiyonu uygular.",
+                "updated": 1654396620804
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This layer applies element-wise activation function. Other layers, notably dense can also apply activation functions. Use this isolated activation function to extract the values before and after the activation.",
-            "updated": 1613213641004
+            "updated": 1613213641004,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этом слое применяется функция активации \"по элементам\". Другие слои, в частности плотный, также могут применять функции активации. Используйте эту изолированную функцию активации для извлечения значений до и после активации.",
+                    "updated": 1645195274794
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu katman eleman bazında aktivasyon fonksiyonu uygular. Başta yoğun olmak üzere diğer katmanlar da aktivasyon fonksiyonları uygulayabilir. Aktivasyondan önceki ve sonraki değerleri çıkarmak için bu yalıtılmış aktivasyon fonksiyonunu kullanın.",
+                    "updated": 1654396626756,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

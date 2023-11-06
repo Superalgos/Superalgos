@@ -2,7 +2,14 @@
     "type": "Delegation Power",
     "definition": {
         "text": "Delegation Power is the Token Power that goes into the Delegation Program, and determines how much power you are ready to delegate.",
-        "updated": 1624782333561
+        "updated": 1624782333561,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Delegation Power (\"Делегированная сила\") - это Token Power, которая входит в программу делегирования ( Delegation Program) и определяет, сколько полномочий вы готовы делегировать.",
+                "updated": 1645082448629
+            }
+        ]
     },
     "paragraphs": [
         {

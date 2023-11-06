@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Superalgos strebt danach, die Dinge einfach zu halten, und das sollten Sie auch tun, denn das ist der beste Weg, um die zunehmende Komplexität zu bewältigen!",
                 "updated": 1639265605790
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos стремится к простоте, как и вы, ведь это лучший способ справиться со сложностью!",
+                "updated": 1640944539611
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos işleri basit tutmaya çalışır ve siz de böyle yapmalısınız çünkü artan karmaşıklıkla başa çıkmanın en iyi yolu budur!",
+                "updated": 1641654461543
+            },
+            {
+                "language": "ES",
+                "text": "Superalgos se esfuerza por simplificar las cosas, y tú también deberías hacerlo, ya que es la mejor manera de gestionar la complejidad del sistema.",
+                "updated": 1677100764758
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Bedingungen sollten so einfach (granular) wie möglich sein, weil:",
                     "updated": 1639265632592
+                },
+                {
+                    "language": "RU",
+                    "text": "Условия должны быть как можно более детализированными, потому что:",
+                    "updated": 1640944550824
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşullar mümkün olduğunca basit ama ayrıntılı olmalıdır, çünkü:",
+                    "updated": 1641654483527
+                },
+                {
+                    "language": "ES",
+                    "text": "Las condiciones deben ser lo más granulares posible porque:",
+                    "updated": 1677100787538
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Es erleichtert die Fehlersuche in der Syntax: Wenn Sie die Logik in einer einzigen Bedingung anhäufen, ist es schwer, Fehler zu finden, die Sie möglicherweise eingeführt haben.",
                     "updated": 1639265643416
+                },
+                {
+                    "language": "RU",
+                    "text": "Это облегчает отладку синтаксиса: когда вы нагромождаете логику в одном условии, трудно найти ошибки, которые вы могли допустить.",
+                    "updated": 1640944582297
+                },
+                {
+                    "language": "TR",
+                    "text": "Söz diziminde hata ayıklamayı kolaylaştırır: tüm kodları tek bir koşulda topladığınızda, ortaya çıkan sorunun hangi koşuldan kaynaklandığını bulmanız zorlaşacaktır. Bu yüzden her koşulu ayrı bir düğümde tanımlamak iyi bir seçenektir.",
+                    "updated": 1669580320629
+                },
+                {
+                    "language": "ES",
+                    "text": "Facilita la depuración de la sintaxis: cuando amontonas lógica en una sola condición, es difícil encontrar los errores que puedas haber introducido.",
+                    "updated": 1677100784940
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Es erleichtert die Fehlersuche in der Strategie: Wenn Sie die Logik in verschiedene Bedingungen aufteilen, können Sie genau sehen, welcher Teil der Logik wahr oder falsch ist.",
                     "updated": 1639265656108
+                },
+                {
+                    "language": "RU",
+                    "text": "Это облегчает отладку стратегии: если вы сохраните логику, разделенную на различные условия, вы сможете точно увидеть, какая часть логики соответствует true или false.",
+                    "updated": 1640944611736
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejide hata ayıklamayı kolaylaştırır: mantığı farklı koşullara bölerseniz, mantığın tam olarak hangi bölümünün doğru veya yanlış olduğunu görebilirsiniz.",
+                    "updated": 1641654517648
+                },
+                {
+                    "language": "ES",
+                    "text": "Facilita la depuración de la estrategia: si se mantiene la lógica segregada en diferentes condiciones, se podrá ver con precisión qué parte de la lógica valida verdadero o falso.",
+                    "updated": 1677100802104
                 }
             ]
         },
@@ -58,6 +118,21 @@
                     "language": "DE",
                     "text": "Die Strategie ist leichter zu pflegen und zu aktualisieren: Granulare Bedingungen machen alles einfacher zu verstehen und nachzuvollziehen.",
                     "updated": 1639265661578
+                },
+                {
+                    "language": "RU",
+                    "text": "Это облегчает сопровождение и обновление стратегии: гранулированные условия делают все более простым и понятным.",
+                    "updated": 1640944662827
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejiyi sürdürmeyi ve yükseltmeyi kolaylaştırır: ayrıntılı koşullar, her şeyin anlaşılmasını ve takip edilmesini kolaylaştırır.",
+                    "updated": 1641654533068
+                },
+                {
+                    "language": "ES",
+                    "text": "Hace que la estrategia sea más fácil de mantener y actualizar: las condiciones granulares hacen que todo sea más fácil de entender y seguir.",
+                    "updated": 1677100742488
                 }
             ]
         }

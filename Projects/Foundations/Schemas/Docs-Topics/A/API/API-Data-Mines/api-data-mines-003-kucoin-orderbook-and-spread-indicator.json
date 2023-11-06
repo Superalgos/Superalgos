@@ -1,0 +1,76 @@
+{
+    "topic": "API Data Mines",
+    "pageNumber": 3,
+    "type": "Kucoin Orderbook and Spread Indicator",
+    "definition": {
+        "text": "The Kucoin Orderbook indicator polls Kucoin's API to pull the latest data from the BTC orderbook and processes this data."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Kucoin Orderbook on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The data pulled from Kucoin's Orderbook API includes the following information:"
+        },
+        {
+            "style": "List",
+            "text": "Bid Price: 20 zones of bid price is returned."
+        },
+        {
+            "style": "List",
+            "text": "Ask Price: 20 zones of ask price is returned."
+        },
+        {
+            "style": "List",
+            "text": "Bid Depth: 20 zones of bid depth is returned."
+        },
+        {
+            "style": "List",
+            "text": "Ask Depth: 20 zones of ask depth is returned."
+        },
+        {
+            "style": "Text",
+            "text": "The spread is then calculated using the difference between bid and ask price, as well bid and ask depth."
+        },
+        {
+            "style": "Text",
+            "text": "A small exponential moving average, of length 10 is then applied to the spread and made available."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/api-kucoin-spread.png"
+        },
+        {
+            "style": "Text",
+            "text": "The API by default runs every 30 seconds but can be changed to run as often as needed."
+        },
+        {
+            "style": "Text",
+            "text": "To install this indicator, both the data mine and API map needs to be installed."
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Orderbook | orderbook | bp1-bp20, ap1-ap20, bd1-bd20, ad1-ad20 |\n| Spread | spread | spread, ema |",
+            "updated": 1658284770199
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "An example to access the data is as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.Fear-And-Greed-Indicator.value    // returns an integer\nchart.at24hs.Fear-And-Greed-Indicator.value_classification    // returns a string, eg: \"Extreme Fear\", \"Neutral\", \"Greed\"",
+            "updated": 1658280533119
+        }
+    ]
+}

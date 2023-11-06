@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Si eres un desarrollador y tu intercambio preferido no ha sido probado, ¡puedes unirte al esfuerzo y ayudar con las pruebas!",
-                "updated": 1628015097699,
+                "text": "Si eres un desarrollador y tu exchange preferido no ha sido probado, ¡puedes unirte al esfuerzo y ayudar con las pruebas!",
+                "updated": 1675378201972,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Bir geliştiriciyseniz ve tercih ettiğiniz değişim test edilmediyse, bize katılabilir ve teste yardımcı olabilirsiniz!",
                 "updated": 1639820286972
+            },
+            {
+                "language": "RU",
+                "text": "Если вы являетесь разработчиком и предпочитаемый вами биржа не была протестирована, вы можете присоединиться к усилиям и помочь в тестировании!",
+                "updated": 1640875445774
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu seorang developer dan exchange pilihan kamu belum diuji, Kamu dapat bergabung dalam upaya dan membantu dalam pengujian!",
+                "updated": 1645559894532
+            },
+            {
+                "language": "NL",
+                "text": "Als u een ontwikkelaar bent en uw voorkeurs handelsplatform niet is getest, kunt u meedoen en helpen met testen!",
+                "updated": 1669548418660
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Dokümanlar'daki bu konu, bir borsadan veri getirmesini sağlamak için Sensör Botu'nda ( Sensor Bot ) nasıl hata ayıklanılacağını açıklar. Borsa Superalgos'un gerektirdiği temel özellikleri destekliyorsa, bir çözümünüz var demektir.",
                     "updated": 1639820492644
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта тема в документации объясняет, как отладить Sensor Bot, чтобы заставить его получать данные с биржи. Если биржа поддерживает основные функции, требуемые Superalgos, то в итоге у вас должно получиться решение!",
+                    "updated": 1640875470175
+                },
+                {
+                    "language": "ID",
+                    "text": "Topik dalam Docs ini menjelaskan cara men-debug Sensor Bot untuk membuatnya mengambil data dari exchange. Jika exchange mendukung fitur dasar yang diperlukan oleh Superalgos, Kamu berakhir dengan mendapatkan solusi!",
+                    "updated": 1645559962595
+                },
+                {
+                    "language": "NL",
+                    "text": "In dit onderwerp in de Docs wordt uitgelegd hoe je de Sensor Bot kunt debuggen om ervoor te zorgen dat deze gegevens van een handelsplatform ophaalt. Als de uitwisseling de basisfuncties ondersteunt die Superalgos nodig heeft, zou je een oplossing moeten hebben!",
+                    "updated": 1669548461199
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Çözümü Toplulukla paylaşmak değerli bir katkıdır. Gelen herkes de en sevdiği borsanın tadını çıkarabilir!",
                     "updated": 1639820542894
+                },
+                {
+                    "language": "RU",
+                    "text": "Поделиться решением с Сообществом - это ценный вклад. Каждый, кто придет следующим, тоже сможет насладиться любимой биржей!",
+                    "updated": 1640875498456
+                },
+                {
+                    "language": "ID",
+                    "text": "Berbagi solusi dengan Komunitas adalah kontribusi yang berharga. Setiap orang yang datang berikutnya dapat menikmati exchange favorit mereka juga!",
+                    "updated": 1645559987882
+                },
+                {
+                    "language": "NL",
+                    "text": "Het delen van de oplossing met de Community is een waardevolle bijdrage. Iedereen die daarna komt, kan ook genieten van zijn favoriete handelsplatform!",
+                    "updated": 1669548487268
                 }
             ]
         },
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Diğer borsaları kurmaya başlamadan önce tüm eğitimleri yaparak Superalgos eğitiminizi tamamlamanızı şiddetle tavsiye ederiz.",
                     "updated": 1639820558610
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы настоятельно рекомендуем вам завершить обучение на Superalgos, пройдя все учебники, прежде чем приступать к настройке других бирж.",
+                    "updated": 1640875514056
+                },
+                {
+                    "language": "ID",
+                    "text": "Kami sangat menyarankan kamu untuk menyelesaikan edukasimu di Superalgos dengan melakukan semua tutorial sebelum kamu terjun ke dalam pengaturan exchanges lainnya.",
+                    "updated": 1645560045273
+                },
+                {
+                    "language": "NL",
+                    "text": "We raden je ten zeerste aan om je training van Superalgos te voltooien door alle zelfstudies te volgen voordat je je verdiept in het opzetten van andere handelsplatformen.",
+                    "updated": 1669548536900
                 }
             ]
         }

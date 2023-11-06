@@ -6,8 +6,18 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Набор низкоуровневых определений, помещенных в файл JSON, который определяет, какие типы узлов предоставляются определенным проектом Project для использования в пространстве дизайна Design Space.",
+                "text": "Набор низкоуровневых определений, помещенных в файл JSON, который определяет, какие типы узлов предоставляются определенным проектом Project для использования в пространстве проектирования Design Space.",
                 "updated": 1638278549743
+            },
+            {
+                "language": "DE",
+                "text": "Ein Satz von Low-Level-Definitionen in einer JSON-Datei, die festlegt, welche Arten von Knoten von einem bestimmten Projekt (Project) für die Verwendung im Design Space zur Verfügung gestellt werden.",
+                "updated": 1682020148070
+            },
+            {
+                "language": "TR",
+                "text": "Tasarım Alanında ( Design Space ) kullanılmak üzere belirli bir Proje ( Project ) tarafından hangi düğüm türlerinin kullanılabilir hale getirildiğini tanımlayan bir JSON dosyasına yerleştirilmiş bir dizi düşük seviye tanım.",
+                "updated": 1671981878068
             }
         ]
     },
@@ -21,6 +31,17 @@
                     "language": "RU",
                     "text": "Файл App Schema представляет собой массив объектов, каждый из которых определяет определенный тип узла.",
                     "updated": 1638278618390
+                },
+                {
+                    "language": "DE",
+                    "text": "Die App-Schema-Datei ist ein Array von Objekten, wobei jedes Objekt einen bestimmten Knotentyp definiert. ",
+                    "updated": 1682020170893
+                },
+                {
+                    "language": "TR",
+                    "text": "App Schema dosyası bir dizi nesneden oluşur ve her nesne belirli bir düğüm türünü tanımlar.",
+                    "updated": 1654390583818,
+                    "style": "Text"
                 }
             ]
         },
@@ -32,13 +53,31 @@
                     "language": "RU",
                     "text": "Пример",
                     "updated": 1638278626072
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel ",
+                    "updated": 1682020179814
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654390589361,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "Json",
             "text": "   {\n        \"type\": \"Plotter Panel\",\n        \"level\": 4,\n        \"propertyNameAtParent\": \"panels\",\n        \"attachingRules\": {\n            \"compatibleTypes\": \"->Plotter Module->\"\n        },\n        \"childrenNodesProperties\": [\n            {\n                \"name\": \"plotterPanelJavascriptCode\",\n                \"type\": \"node\",\n                \"childType\": \"Plotter Panel Javascript Code\"\n            },\n            {\n                \"name\": \"panelData\",\n                \"type\": \"array\",\n                \"childType\": \"Panel Data\",\n                \"autoAdd\": true\n            }\n        ],\n        \"menuItems\": [\n            {\n                \"action\": \"Add UI Object\",\n               \"actionProject\": \"Visual-Scripting\"\n        \"disableIfPropertyIsDefined\": true,\n                \"propertyToCheckFor\": \"plotterPanelJavascriptCode\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Javascript Code\",\n                \"relatedUiObject\": \"Plotter Panel Javascript Code\"\n            },\n            {\n                \"action\": \"Add UI Object\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Panel Data\",\n                \"relatedUiObject\": \"Panel Data\"\n           \"actionProject\": \"Visual-Scripting\"\n  },\n            {\n                \"action\": \"Delete UI Object\",\n                \"askConfirmation\": true,\n                \"confirmationLabel\": \"Confirm to Delete\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Delete\",\n                \"iconPathOn\": \"delete-entity\",\n                \"iconPathOff\": \"delete-entity\"\n            }\n        ],\n        \"addLeftIcons\": true\n    }",
-            "updated": 1614785173292
+            "updated": 1614785173292,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "{\n        \"type\": \"Plotter Panel\",\n        \"level\": 4,\n        \"propertyNameAtParent\": \"panels\",\n        \"attachingRules\": {\n            \"compatibleTypes\": \"->Plotter Module->\"\n        },\n        \"childrenNodesProperties\": [\n            {\n                \"name\": \"plotterPanelJavascriptCode\",\n                \"type\": \"node\",\n                \"childType\": \"Plotter Panel Javascript Code\"\n            },\n            {\n                \"name\": \"panelData\",\n                \"type\": \"array\",\n                \"childType\": \"Panel Data\",\n                \"autoAdd\": true\n            }\n        ],\n        \"menuItems\": [\n            {\n                \"action\": \"Add UI Object\",\n               \"actionProject\": \"Visual-Scripting\"\n        \"disableIfPropertyIsDefined\": true,\n                \"propertyToCheckFor\": \"plotterPanelJavascriptCode\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Javascript Code\",\n                \"relatedUiObject\": \"Plotter Panel Javascript Code\"\n            },\n            {\n                \"action\": \"Add UI Object\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Panel Data\",\n                \"relatedUiObject\": \"Panel Data\"\n           \"actionProject\": \"Visual-Scripting\"\n  },\n            {\n                \"action\": \"Delete UI Object\",\n                \"askConfirmation\": true,\n                \"confirmationLabel\": \"Confirm to Delete\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Delete\",\n                \"iconPathOn\": \"delete-entity\",\n                \"iconPathOff\": \"delete-entity\"\n            }\n        ],\n        \"addLeftIcons\": true\n    }",
+                    "updated": 1642029581637
+                }
+            ]
         },
         {
             "style": "Title",
@@ -49,6 +88,17 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638278658128
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften ",
+                    "updated": 1682020189903
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654390595447,
+                    "style": "Title"
                 }
             ]
         },
@@ -60,12 +110,36 @@
                     "language": "RU",
                     "text": "Каждый объект может иметь предопределенный набор свойств, которые вы можете увидеть здесь:",
                     "updated": 1638278677269
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Objekt kann einen vordefinierten Satz von Eigenschaften haben, die Sie hier sehen können: ",
+                    "updated": 1682020199494
+                },
+                {
+                    "language": "TR",
+                    "text": "Her nesne, burada görebileceğiniz önceden tanımlanmış bir dizi özelliğe sahip olabilir:",
+                    "updated": 1654390601332,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "type"
+            "text": "type",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "tip",
+                    "updated": 1654390607544,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Typ",
+                    "updated": 1682020206999
+                }
+            ]
         },
         {
             "style": "Text",
@@ -76,12 +150,36 @@
                     "language": "RU",
                     "text": "Тип узла - это ключ, по которому каждый узел идентифицируется в контексте определенного проекта Project. Согласно соглашению об именах все слова должны начинаться с заглавной буквы.",
                     "updated": 1638278782720
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Typ des Knotens ist der Schlüssel, mit dem jeder Knoten im Kontext eines bestimmten Projekts (Project) identifiziert wird. Die Namenskonvention besagt, dass alle Wörter großgeschrieben werden müssen.",
+                    "updated": 1682020221620
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün Tipi, her bir düğümün belirli bir Proje ( Project ) bağlamında tanımlanmasını sağlayan anahtardır. Buradaki adlandırma kuralı, tüm kelimelerin büyük harfle yazılması gerektiğidir.",
+                    "updated": 1671982092279,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "level"
+            "text": "level",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "seviye",
+                    "updated": 1654390619647,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ebene (Level)",
+                    "updated": 1682020287937
+                }
+            ]
         },
         {
             "style": "Text",
@@ -92,12 +190,31 @@
                     "language": "RU",
                     "text": "Это целое число от 0 до 5, представляющее важность этого типа узла. 0 - самое главное. Чем важнее тип узла, тем крупнее отображается в пространстве Design Space. Разница между уровнями едва заметна.",
                     "updated": 1638278881729
+                },
+                {
+                    "language": "DE",
+                    "text": "Es handelt sich um eine ganze Zahl von 0 bis 5, die die Bedeutung dieser Art von Knoten darstellt. 0 ist der wichtigste. Je wichtiger der Knotentyp ist, desto größer wird er im Design Space dargestellt. Der Unterschied zwischen den Stufen ist kaum spürbar. ",
+                    "updated": 1682020275452
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm türünün önemini temsil eden 0 ila 5 arasında bir tamsayıdır. 0 en önemli olanıdır. Düğüm türü ne kadar önemli olursa, Tasarım Alanında ( Design Space )  o kadar büyük işlenir. Seviye arasındaki fark neredeyse hiç fark edilmez.",
+                    "updated": 1671982150577,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "propertyNameAtParent"
+            "text": "propertyNameAtParent",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "propertyNameAtParent",
+                    "updated": 1654390631349,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -107,13 +224,32 @@
                     "language": "RU",
                     "text": "Узлы обычно являются дочерними по отношению к другим узлам. У каждого узла также могут быть дочерние элементы. Во время выполнения дочерние ссылки хранятся в некотором свойстве объекта Node, но это свойство не является уникальным или предопределенным. Вместо этого каждый тип узла объявляет свое собственное определение в App Scheme, который будет именем свойства, которое будет размещать его собственную ссылку на родительском узле.",
                     "updated": 1638279224579
+                },
+                {
+                    "language": "DE",
+                    "text": "Knoten sind in der Regel Unterknoten von anderen Knoten. Jeder Knoten (Node) kann auch Kinder haben. Zur Laufzeit werden Verweise auf Kinder in einer Eigenschaft des Knotenobjekts (Node object) gespeichert, aber diese Eigenschaft ist nicht eindeutig oder vordefiniert. Stattdessen deklariert jeder Knotentyp (Node Type) in seiner eigenen Definition im App-Schema den Namen der Eigenschaft, die seinen eigenen Verweis auf den übergeordneten Knoten beherbergen wird.",
+                    "updated": 1682020329017
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler genellikle diğer düğümlerin alt düğümleridir. Her Düğümün ( Node ) alt düğümleri de olabilir. Çalışma zamanında alt düğüm referansları Düğüm nesnesinin ( Node object ) bazı özelliklerinde saklanır, ancak bu özellik benzersiz veya önceden tanımlanmış değildir. Bunun yerine, her Düğüm Tipi ( Node Type ), Uygulama Şemasında ( App Schema ) kendi tanımında, üst düğümünde kendi referansını barındıracak özelliğin adını beyan eder.",
+                    "updated": 1671982486105,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "childrenNodesProperties",
-            "updated": 1614785903518
+            "updated": 1614785903518,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "childrenNodesProperties",
+                    "updated": 1654390642830,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -124,6 +260,17 @@
                     "language": "RU",
                     "text": "Узлы также объявляют массив имен свойств, который будет использоваться для определения того, какой тип дочерних узлов может иметь узел. Например:",
                     "updated": 1638279285883
+                },
+                {
+                    "language": "DE",
+                    "text": "Knoten deklarieren auch eine Reihe von Eigenschaftsnamen, die verwendet werden, um zu definieren, welche Art von Kindern der Knoten haben kann. Zum Beispiel:",
+                    "updated": 1682020342828
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler ayrıca, düğümün hangi tür alt düğümlere sahip olabileceğini tanımlamak için kullanılacak bir dizi özellik adı bildirir. Örneğin:",
+                    "updated": 1671982580386,
+                    "style": "Text"
                 }
             ]
         },
@@ -141,6 +288,17 @@
                     "language": "RU",
                     "text": "Каждый элемент массива представляет один тип дочернего узла, который может иметь этот узел.",
                     "updated": 1638279302533
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Array-Element steht für einen Typ von Unterknoten, den dieser Knoten haben kann. ",
+                    "updated": 1682020404956
+                },
+                {
+                    "language": "TR",
+                    "text": "Her dizi öğesi, bu düğümün sahip olabileceği bir tür alt düğümü temsil eder.",
+                    "updated": 1671982617790,
+                    "style": "Text"
                 }
             ]
         },
@@ -152,6 +310,17 @@
                     "language": "RU",
                     "text": "Каждый объект может иметь 4 свойства:",
                     "updated": 1638279315877
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Objekt kann 4 Eigenschaften haben:",
+                    "updated": 1682020415748
+                },
+                {
+                    "language": "TR",
+                    "text": "Her nesne 4 özelliğe sahip olabilir:",
+                    "updated": 1654390660924,
+                    "style": "Text"
                 }
             ]
         },
@@ -164,6 +333,17 @@
                     "language": "RU",
                     "text": "name: означает имя свойства, которое будет содержать ссылку на дочерний узел во время выполнения.",
                     "updated": 1638279338674
+                },
+                {
+                    "language": "DE",
+                    "text": "name: ist der Name der Eigenschaft, die zur Laufzeit den Verweis auf den untergeordneten Knoten enthält.",
+                    "updated": 1682020455837
+                },
+                {
+                    "language": "TR",
+                    "text": "ad (name): çalışma zamanında alt düğüme referansı tutacak özelliğin adı anlamına gelir.",
+                    "updated": 1671982675260,
+                    "style": "List"
                 }
             ]
         },
@@ -176,6 +356,17 @@
                     "language": "RU",
                     "text": "type: возможные значения: узел или массив. Подробности см. Ниже.",
                     "updated": 1638279360593
+                },
+                {
+                    "language": "DE",
+                    "text": "type: mögliche Werte sind node oder array. Siehe Details unten. ",
+                    "updated": 1682020473122
+                },
+                {
+                    "language": "TR",
+                    "text": "tür: olası değerler düğüm veya dizidir. Aşağıdaki ayrıntılara bakın.",
+                    "updated": 1654390672149,
+                    "style": "List"
                 }
             ]
         },
@@ -187,6 +378,17 @@
                     "language": "RU",
                     "text": "childType: означает тип дочернего узла.",
                     "updated": 1638279375028
+                },
+                {
+                    "language": "DE",
+                    "text": "childType: bezeichnet den Typ des untergeordneten Knotens.",
+                    "updated": 1682020488869
+                },
+                {
+                    "language": "TR",
+                    "text": "childType: alt düğümün türü anlamına gelir.",
+                    "updated": 1654390677668,
+                    "style": "List"
                 }
             ]
         },
@@ -198,6 +400,17 @@
                     "language": "RU",
                     "text": "autoAdd: необязательный, означает, что один экземпляр этих дочерних элементов будет автоматически создан при создании этого типа узла.",
                     "updated": 1638279396835
+                },
+                {
+                    "language": "DE",
+                    "text": "autoAdd: optional, bedeutet, dass eine Instanz dieser Kinder automatisch erstellt wird, wenn dieser Knotentyp (Node type) erstellt wird.",
+                    "updated": 1682020503436
+                },
+                {
+                    "language": "TR",
+                    "text": "autoAdd: isteğe bağlı, bu düğüm türü oluşturulduğunda bu çocukların bir örneğinin otomatik olarak oluşturulup oluşturulmayacağı anlamına gelir.",
+                    "updated": 1671982810970,
+                    "style": "List"
                 }
             ]
         },
@@ -210,6 +423,17 @@
                     "language": "RU",
                     "text": "Свойство type может быть узлом или массивом, что означает:",
                     "updated": 1638279416753
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaft type kann entweder node oder array sein, was bedeutet: ",
+                    "updated": 1682020513220
+                },
+                {
+                    "language": "TR",
+                    "text": "Tür özelliği, düğüm veya dizi olabilir, yani:",
+                    "updated": 1654390689381,
+                    "style": "Text"
                 }
             ]
         },
@@ -221,6 +445,17 @@
                     "language": "RU",
                     "text": "node: означает, что может быть только один экземпляр этого типа потомков.",
                     "updated": 1638279490221
+                },
+                {
+                    "language": "DE",
+                    "text": "node: bedeutet, dass es nur eine Instanz dieser Art von Unterordnungen geben kann. ",
+                    "updated": 1682020568565
+                },
+                {
+                    "language": "TR",
+                    "text": "düğüm (node): bu tür alt düğümlerin yalnızca bir örneğine sahip olabileceği anlamına gelir.",
+                    "updated": 1671982864671,
+                    "style": "List"
                 }
             ]
         },
@@ -232,12 +467,31 @@
                     "language": "RU",
                     "text": "array: означает, что у него может быть более одного экземпляра дочерних элементов этого типа.",
                     "updated": 1638279519517
+                },
+                {
+                    "language": "DE",
+                    "text": "array: bedeutet, dass es mehr als eine Instanz dieses Typs von Unterordnungen geben kann.",
+                    "updated": 1682020645926
+                },
+                {
+                    "language": "TR",
+                    "text": "dizi (array): bu tür alt düğümlerin birden fazla örneğine sahip olabileceği anlamına gelir.",
+                    "updated": 1671982919988,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "attachingRules"
+            "text": "attachingRules",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "attachingRules",
+                    "updated": 1654390707384,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -247,6 +501,17 @@
                     "language": "RU",
                     "text": "Это свойство определяет, к каким узлам может подключаться текущий определяемый узел, считая эти узлы возможными родителями. Значения выражаются в строке со списком типов узлов, как в следующем примере:",
                     "updated": 1638279549919
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Eigenschaft legt fest, an welche Knoten der aktuell definierte Knoten anknüpfen kann, wobei diese Knoten als mögliche Eltern betrachtet werden. Die Werte werden in einer Zeichenkette mit einer Liste von Knotentypen (Node Types) ausgedrückt, wie im folgenden Beispiel:",
+                    "updated": 1682020650780
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün, bu düğümleri olası ana düğümler olarak dikkate alarak hangi düğümlere bağlanabileceğini tanımlar. Değerler, aşağıdaki örnekte olduğu gibi Düğüm Türleri ( Node Types ) listesini içeren bir dize olarak ifade edilir:",
+                    "updated": 1671983085364,
+                    "style": "Text"
                 }
             ]
         },
@@ -264,12 +529,31 @@
                     "language": "RU",
                     "text": "Свойство incompatibleTypes также можно использовать для явного определения узлов, которые не могут быть родительскими.",
                     "updated": 1638279584965
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaft incompatibleTypes kann auch verwendet werden, um explizit festzulegen, welche Knoten keine Eltern sein können.",
+                    "updated": 1682020684667
+                },
+                {
+                    "language": "TR",
+                    "text": "incompatibleTypes özelliği, hangi düğümlerin ana düğüm olamayacağını açıkça tanımlamak için de kullanılabilir.",
+                    "updated": 1671983121387,
+                    "style": "Note"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "referencingRules"
+            "text": "referencingRules",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "referansKuralları",
+                    "updated": 1654390725220,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -280,6 +564,17 @@
                     "language": "RU",
                     "text": "Это свойство определяет, на какие узлы может ссылаться текущий определяемый узел, учитывая эти узлы в качестве возможных ссылочных родителей. Значения выражаются в строке со списком типов узлов, как в следующем примере:",
                     "updated": 1638279615218
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Eigenschaft definiert, auf welche Knoten der aktuell definierte Knoten verweisen kann, wobei diese Knoten als mögliche Referenzeltern betrachtet werden. Die Werte werden in einer Zeichenkette mit einer Liste von Knotentypen (Node Types) wie im folgenden Beispiel ausgedrückt: ",
+                    "updated": 1682020698398
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, tanımlanmakta olan geçerli düğümün hangi düğümlere referans verebileceğini tanımlar ve bu düğümleri olası referans ana düğümleri olarak dikkate alır. Değerleri, aşağıdaki örnekte olduğu gibi Düğüm Türleri ( Node Types ) listesini içeren bir dize olarak ifade edilir:",
+                    "updated": 1671983351424,
+                    "style": "Text"
                 }
             ]
         },
@@ -297,12 +592,31 @@
                     "language": "RU",
                     "text": "Свойство incompatibleTypes также можно использовать для явного определения узлов, которые не могут быть родительскими.",
                     "updated": 1638279633289
+                },
+                {
+                    "language": "DE",
+                    "text": " Hinweis: Die property incompatibleTypes kann auch verwendet werden, um explizit zu definieren, welche nodes keine parents (Eltern) sein können.",
+                    "updated": 1642118714518
+                },
+                {
+                    "language": "TR",
+                    "text": "incompatibleTypes özelliği, hangi düğümlerin ana düğüm olamayacağını açıkça tanımlamak için de kullanılabilir.",
+                    "updated": 1671983378728,
+                    "style": "Note"
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "menuItems"
+            "text": "menuItems",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "menuItems",
+                    "updated": 1654390743455,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -312,6 +626,17 @@
                     "language": "RU",
                     "text": "Это свойство позволяет вам определять меню этого типа узла Node Type в пространстве Design Space. Это меню будет массивом объектов Menu Items, как в примере ниже:",
                     "updated": 1638279740182
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Eigenschaft ermöglicht es Ihnen, das Menü dieses Knotentyps (Node Type) im Designbereich (Design Space) zu definieren. Dieses Menü besteht aus einem Array von Menüobjekten, wie im folgenden Beispiel:",
+                    "updated": 1682020755699
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, Tasarım Alanında bu Düğüm Tipinin ( Node Type ) menüsünü tanımlamanıza olanak tanır. Bu menü, aşağıdaki örnekte olduğu gibi Menü Öğeleri nesnelerinden oluşan bir dizi olacaktır:",
+                    "updated": 1671983450939,
+                    "style": "Text"
                 }
             ]
         },
@@ -329,6 +654,17 @@
                     "language": "RU",
                     "text": "Хотя вы можете добавить любой понравившийся пункт меню, некоторые из них уже стандартизированы. Эти стандартные пункты меню также помещаются в определенное место в меню для единообразия.",
                     "updated": 1638279775037
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl es Ihnen freisteht, jeden beliebigen Menüpunkt hinzuzufügen, gibt es einige, die bereits standardisiert sind. Diese Standard-Menüpunkte werden aus Gründen der Konsistenz auch an einer bestimmten Stelle im Menü platziert.",
+                    "updated": 1682020778131
+                },
+                {
+                    "language": "TR",
+                    "text": "İstediğiniz herhangi bir menü öğesini eklemekte özgür olsanız da, halihazırda standart hale gelmiş birkaç tane var. Bu standart Menü Öğeleri de tutarlılık için menü içinde belirli bir konuma yerleştirilmiştir.",
+                    "updated": 1654390755001,
+                    "style": "Text"
                 }
             ]
         },
@@ -340,6 +676,17 @@
                     "language": "RU",
                     "text": "configure: всегда идти первым",
                     "updated": 1638279791582
+                },
+                {
+                    "language": "DE",
+                    "text": "configure: ist immer als erstes Element",
+                    "updated": 1682020824402
+                },
+                {
+                    "language": "TR",
+                    "text": "yapılandırma: her zaman ilk öğe olarak gidin",
+                    "updated": 1654390761000,
+                    "style": "List"
                 }
             ]
         },
@@ -351,6 +698,16 @@
                     "language": "RU",
                     "text": "run: после настройки, если есть",
                     "updated": 1638279811797
+                },
+                {
+                    "language": "DE",
+                    "text": "run: nach der Konfiguration, wenn es eine gibt ",
+                    "updated": 1682020852923
+                },
+                {
+                    "language": "TR",
+                    "text": "çalıştır (run): eğer varsa yapılandırmadan sonra",
+                    "updated": 1671983591005
                 }
             ]
         },
@@ -362,6 +719,17 @@
                     "language": "RU",
                     "text": "delete: это всегда последний",
                     "updated": 1638279831140
+                },
+                {
+                    "language": "DE",
+                    "text": "delete: ist immer das letzte Element",
+                    "updated": 1682020903404
+                },
+                {
+                    "language": "TR",
+                    "text": "sil: her zaman sonuncudur",
+                    "updated": 1654390779605,
+                    "style": "List"
                 }
             ]
         },
@@ -371,7 +739,15 @@
         },
         {
             "style": "Subtitle",
-            "text": "initialValues"
+            "text": "initialValues",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "initialValues",
+                    "updated": 1654390785201,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -381,6 +757,17 @@
                     "language": "RU",
                     "text": "Это свойство необходимо, когда определяемый тип узла Node Type будет иметь конфигурацию. В таких случаях это свойство будет устанавливать начальное значение для этой конфигурации. Пример:",
                     "updated": 1638279873643
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Eigenschaft wird benötigt, wenn der zu definierende Knotentyp (Node Type) eine Konfiguration hat. In solchen Fällen wird diese Eigenschaft den Anfangswert für diese Konfiguration festlegen. Beispiel:",
+                    "updated": 1682020914204
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, tanımlanmakta olanDüğüm Türünün ( Node Type ) bir yapılandırmaya sahip olacağı durumlarda gereklidir. Bu durumlarda, bu özellik söz konusu yapılandırma için başlangıç değerini ayarlayacaktır. Örnek:",
+                    "updated": 1671983710527,
+                    "style": "Text"
                 }
             ]
         },
@@ -391,7 +778,20 @@
         },
         {
             "style": "Subtitle",
-            "text": "editors"
+            "text": "editors",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "editörler",
+                    "updated": 1654390796903,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Herausgeber",
+                    "updated": 1682020922075
+                }
+            ]
         },
         {
             "style": "Text",
@@ -401,6 +801,17 @@
                     "language": "RU",
                     "text": "Это свойство сообщит системе, какой редактор будет доступен для этого типа узла. Пример:",
                     "updated": 1638279892074
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dieser Eigenschaft wird dem System mitgeteilt, welcher Editor für diesen Knotentyp zur Verfügung steht. Beispiel:",
+                    "updated": 1682020935787
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik, sisteme bu düğüm türü için hangi düzenleyicinin kullanılabileceğini söyleyecektir. Örnek:",
+                    "updated": 1654390802882,
+                    "style": "Text"
                 }
             ]
         },
@@ -417,6 +828,17 @@
                     "language": "RU",
                     "text": "Есть несколько существующих редакторов:",
                     "updated": 1638279904218
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einige bestehende Editoren: ",
+                    "updated": 1682020967524
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut birkaç editör var:",
+                    "updated": 1654390808584,
+                    "style": "Text"
                 }
             ]
         },
@@ -428,6 +850,17 @@
                     "language": "RU",
                     "text": "config: редактор конфигураций узлов.",
                     "updated": 1638279924602
+                },
+                {
+                    "language": "DE",
+                    "text": "config: Editor für Knotenkonfigurationen.",
+                    "updated": 1682020976972
+                },
+                {
+                    "language": "TR",
+                    "text": "config: düğüm konfigürasyonları için editör.",
+                    "updated": 1654390814317,
+                    "style": "List"
                 }
             ]
         },
@@ -439,6 +872,17 @@
                     "language": "RU",
                     "text": "code: редактор для кода javascript.",
                     "updated": 1638279944275
+                },
+                {
+                    "language": "DE",
+                    "text": "code: Editor für Javascript-Code.",
+                    "updated": 1682020985441
+                },
+                {
+                    "language": "TR",
+                    "text": "code: javascript kodu için editör.",
+                    "updated": 1654390820178,
+                    "style": "List"
                 }
             ]
         },
@@ -450,6 +894,17 @@
                     "language": "RU",
                     "text": "formula: формулы, выраженные в javascript.",
                     "updated": 1638279957482
+                },
+                {
+                    "language": "DE",
+                    "text": "formula: Formeln, ausgedrückt in javascript.",
+                    "updated": 1682020994669
+                },
+                {
+                    "language": "TR",
+                    "text": "formül: javascript ile ifade edilen formüller.",
+                    "updated": 1654390825983,
+                    "style": "List"
                 }
             ]
         },
@@ -462,6 +917,17 @@
                     "language": "RU",
                     "text": "condition: редактор условий.",
                     "updated": 1638279974968
+                },
+                {
+                    "language": "DE",
+                    "text": "condition: Bedingungen für die Bearbeitung",
+                    "updated": 1682021089633
+                },
+                {
+                    "language": "TR",
+                    "text": "koşul: koşullar düzenleyici.",
+                    "updated": 1654390831647,
+                    "style": "List"
                 }
             ]
         },
@@ -473,6 +939,17 @@
                     "language": "RU",
                     "text": "Чтобы пользователь действительно мог открыть настроенный здесь редактор, должен быть пункт меню Menu Item, у которого есть действие = \"Configure\".",
                     "updated": 1638280037119
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit der Benutzer den hier konfigurierten Editor tatsächlich öffnen kann, muss es einen Menüpunkt (Menu Item) mit der Aktion \"Konfigurieren\" geben.",
+                    "updated": 1682021102979
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcının burada yapılandırılan düzenleyiciyi gerçekten açabilmesi için, eylemi = \"Yapılandır\" (\"Configure\")  olan bir Menü Öğesi ( Menu Item ) olmalıdır.",
+                    "updated": 1671983901323,
+                    "style": "Note"
                 }
             ]
         },

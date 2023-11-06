@@ -1,7 +1,14 @@
 {
     "type": "Master Script",
     "definition": {
-        "text": "A master script contains the definitions of any number of template scripts along with the master JavaScript code providing the logic to implement them."
+        "text": "A master script contains the definitions of any number of template scripts along with the master JavaScript code providing the logic to implement them.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Главный скрипт (сценарий) содержит определения любого количества шаблонных сценариев вместе с главным кодом JavaScript, обеспечивающим логику их реализации.",
+                "updated": 1645168640374
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "In general terms, master scripts serve to atomize the complexity of the task at hand by subdividing the task into any number of specific scopes, handled by individual template scripts. The master script controls the execution of template scripts and solves issues beyond their scope."
+            "text": "In general terms, master scripts serve to atomize the complexity of the task at hand by subdividing the task into any number of specific scopes, handled by individual template scripts. The master script controls the execution of template scripts and solves issues beyond their scope.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В общих чертах, мастер-скрипты служат для распыления сложности выполняемой задачи путем разделения задачи на любое количество конкретных областей, обрабатываемых отдельными шаблонными скриптами. Мастер-скрипт контролирует выполнение шаблонных скриптов и решает вопросы, выходящие за их рамки.",
+                    "updated": 1645168656671
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The current implementation of the Masters super scripts hierarchy features two master scripts you may use as examples. The Setup Market master script deals with all the steps required to install a new market, while the Delete Market Dependencies master script deals with uninstalling markets."
+            "text": "The current implementation of the Masters super scripts hierarchy features two master scripts you may use as examples. The Setup Market master script deals with all the steps required to install a new market, while the Delete Market Dependencies master script deals with uninstalling markets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущая реализация иерархии суперскриптов Masters включает два мастер-скрипта, которые вы можете использовать в качестве примеров. Мастер-скрипт Setup Market рассматривает все шаги, необходимые для установки нового рынка, а мастер-скрипт Delete Market Dependencies рассматривает удаление рынков.",
+                    "updated": 1645168678498
+                }
+            ]
         }
     ]
 }

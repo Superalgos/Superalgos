@@ -1,20 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="206 -206 512 512" style="enable-background:new 206 -206 512 512;" xml:space="preserve">
-<style type="text/css">
-	.st0{display:none;}
-	.st1{display:inline;}
-	.st2{fill:#365558;}
-	.st3{fill:#CDD4D5;}
-	.st4{fill:#E6EAEA;}
-	.st5{fill:#9BAAAB;}
-</style>
-<g id="Layer_3" class="st0">
-	<rect x="824" y="-824.4" class="st1" width="512" height="512.8"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_115_699)">
+<path d="M263 0V512C121.615 512 7 397.385 7 256C7 114.615 121.615 0 263 0Z" fill="#365558"/>
+<path d="M263 512V0C404.385 0 519 114.615 519 256C519 397.385 404.385 512 263 512Z" fill="#0295AA"/>
+<path d="M263 200V318.5L444 402V137L263 200Z" fill="#E6EAEA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M263 189.5V46L441 128.063L263 189.5Z" fill="white"/>
+<path d="M69 383.324L246.321 465.4V201.643L69 118.047V383.324Z" fill="#9BAAAB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M246.74 194L78 113.169L263 46V189.5L246.74 194Z" fill="#CDD4D5"/>
 </g>
-<circle class="st2" cx="462" cy="50" r="256"/>
-<polygon id="Fill-620" class="st3" points="283.3,-88.8 450.8,-8.9 646.7,-79.2 477.7,-159.2 "/>
-<polygon id="Fill-622" class="st4" points="274.9,178.2 446.8,259.2 446.8,-1.1 274.9,-83.6 "/>
-<polygon id="Fill-624" class="st5" points="474.3,-8.9 474.3,108.4 649.1,191 649.1,-70.8 "/>
+<defs>
+<clipPath id="clip0_115_699">
+<rect width="512" height="512" fill="white"/>
+</clipPath>
+</defs>
 </svg>

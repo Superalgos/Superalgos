@@ -1,0 +1,109 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": "1",
+    "type": "Divergences by @quantum8",
+    "definition": {
+        "text": "The Divergences Data Mine features divergence calculations and their underlying momentum indicators. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В Divergences Data Mine представлены расчеты дивергенций и лежащие в их основе индикаторы импульса. Параметры этих индикаторов можно настроить в экземпляре Indicator Bot в соответствующем узле задачи Data Mining.",
+                "updated": 1645608270202
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Divergences Veri Madeni ( Data Mine ), sapma hesaplamalarını ve bunların altında yatan momentum göstergelerini içerir. Bu göstergenin parametreleri, ilgili Veri Madenciliği Görev Düğümü ( Task Node ) altındaki Gösterge Bot örneğinde ( Indicator Bot Instance ) ayarlanabilir.",
+                "updated": 1647001692709
+            },
+            {
+                "language": "DE",
+                "text": "Die Divergences Data Mine bietet Divergenzberechnungen und die ihnen zugrunde liegenden Momentum-Indikatoren. Die Parameter dieser Indikatoren können in der Indicator Bot Instance unter dem entsprechenden Data Mining Task Node angepasst werden.",
+                "updated": 1672780989689
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Divergences:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дивергенции:",
+                    "updated": 1645608278009
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "1.) RSI Divergence",
+            "updated": 1646094526582
+        },
+        {
+            "style": "List",
+            "text": "2) Commodity Channel Index Indicator - CCI",
+            "updated": 1646094775135
+        },
+        {
+            "style": "List",
+            "text": "3) CCI Divergence"
+        },
+        {
+            "style": "List",
+            "text": "4) MFI Divergence"
+        },
+        {
+            "style": "List",
+            "text": "5) Awesome Oscillator Indicator"
+        },
+        {
+            "style": "List",
+            "text": "6) Awesome Oscillator Divergence"
+        },
+        {
+            "style": "List",
+            "text": "7) Klinger Volume Oscillator Indicator"
+        },
+        {
+            "style": "List",
+            "text": "8) Klinger Oscillator Divergence"
+        },
+        {
+            "style": "List",
+            "text": "9) Stochastic Divergence"
+        },
+        {
+            "style": "List",
+            "text": "10) Ultimate Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "11) CCI Stochastic Divergence",
+            "updated": 1649651565349
+        },
+        {
+            "style": "List",
+            "text": "12) Know Sure Thing Oscillator",
+            "updated": 1652685371281
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1672781063187
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

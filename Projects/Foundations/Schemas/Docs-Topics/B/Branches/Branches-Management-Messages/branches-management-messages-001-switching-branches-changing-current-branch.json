@@ -3,12 +3,37 @@
     "pageNumber": "1",
     "type": "Switching Branches - Changing Current Branch",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Write here a summary for this topic page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Buraya bu konu sayfası için bir özet yazın.",
+                "updated": 1654393213293
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie hier eine Zusammenfassung für diese Themenseite.",
+                "updated": 1680719216909
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654393218982,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1680719235763
+                }
+            ]
         }
     ]
 }

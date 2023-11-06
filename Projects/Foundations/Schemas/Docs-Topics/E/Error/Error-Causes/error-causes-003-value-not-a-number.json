@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Во время выполнения некоторые узлы могут получить значение, и когда ожидается, что значение будет числом, появится ошибка этого типа. Чтобы этого не произошло, убедитесь, что в узлах, которые должны иметь только числовые значения, они ни в коем случае не получают нечисловые значения.",
                 "updated": 1638553135261
+            },
+            {
+                "language": "DE",
+                "text": "Zur Laufzeit können einige Nodes einen Wert erhalten, und wenn erwartet wird, dass der Wert eine Zahl ist, wird diese Art von Fehler angezeigt. Um dies zu vermeiden, stellen Sie sicher, dass Nodes, die nur numerische Werte haben sollen, auf keinen Fall einen nicht numerischen Wert erhalten.",
+                "updated": 1645478334129
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma zamanında bazı düğümler bir değer elde edebilir ve değerin bir sayı olması beklendiğinde bu tür bir hata açılır. Bunun olmasını önlemek için, yalnızca sayısal değerlere sahip olması gereken düğümlerde, hiçbir şekilde sayısal olmayan bir değer almadıklarından emin olun.",
+                "updated": 1652296493045
             }
         ]
     },
@@ -22,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1638553150958
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652296419836
                 }
             ]
         }

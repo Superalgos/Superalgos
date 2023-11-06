@@ -1,19 +1,39 @@
 {
     "tutorial": "Trading Bot Layers",
-    "pageNumber": 12,
+    "pageNumber": "12",
     "type": "Tutorial Step - How About the Rest?",
     "definition": {
+        "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?",
         "icon": {
             "name": "Trading/trading-episode",
             "project": "Foundations"
         },
-        "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?",
         "translations": [
             {
                 "language": "DE",
                 "text": "Nun, warum zeigen die Knoten weiter links nicht auch ihre Werte an? Zum Beispiel Exit Type, Status, End Rate, Begin Rate, und so weiter?",
                 "updated": 1623012850714,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, почему бы узлам, расположенным дальше слева, тоже не показывать свои значения? Скажем, тип выхода (Exit Type), статус (Status), конечная ставка (End Rate), начальная ставка (Begin Rate) и так далее?",
+                "updated": 1640546181925
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi, neden daha soldaki düğümler de değerlerini göstermiyor? Çıkış Türü (Exit Type), Durum (Status), Bitiş Oranı (End Rate), Başlangıç Oranı (Begin Rate) vb.\n",
+                "updated": 1641911229332
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang, mengapa node yang lebih jauh ke kiri tidak menunjukkan nilainya juga? Seperti,  Exit Type, Status, End Rate, Begin Rate, dan sebagainya?",
+                "updated": 1673855273316
+            },
+            {
+                "language": "ES",
+                "text": "Ahora bien, ¿por qué los nodos situados más a la izquierda no muestran también sus valores? Por ejemplo, ¿el \"Tipo de Salida\", el \"Estado\", la \"Tasa Final\", la \"Tasa Inicial\", etc.?",
+                "updated": 1675464101242
             }
         ]
     },
@@ -27,6 +47,27 @@
                     "text": "Ändern wir das!",
                     "updated": 1623012862833,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поменяем это!",
+                    "updated": 1640546203339
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu değiştirelim!",
+                    "updated": 1654394201684,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari ubah itu!",
+                    "updated": 1673855280763
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Cambiemos eso!",
+                    "updated": 1675464091471
                 }
             ]
         },
@@ -40,6 +81,26 @@
                     "text": "Blätter im Trading Engine Layer Manager, bis du den Layer Current Episode findest. Schalte sie ein!",
                     "updated": 1623012960646,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутите менеджер слоев торгового движка, пока не найдете слой \"Current Episode\". Включите его!",
+                    "updated": 1640546264989
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Current Episode\" katmanını bulana kadar Ticaret Motoru (Trading Engine) katman yöneticisini kaydırın.",
+                    "updated": 1641911386069
+                },
+                {
+                    "language": "ID",
+                    "text": "Gulir layer manager dari Trading Engine sampai kamu menemukan layer \"Current Episode\". Hidupkan itu!",
+                    "updated": 1673855288753
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplázate por el gestor de capas del Trading Engine hasta que encuentres la capa Current Episode. Activa esta capa.",
+                    "updated": 1675466782360
                 }
             ]
         },
@@ -52,6 +113,26 @@
                     "text": "Nun fahre wieder mit deinem Mauszeiger... et voilà!",
                     "updated": 1623013012511,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь снова проведите указателем мыши... и вуаля!",
+                    "updated": 1640546290110
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi fare işaretçinizi tekrar grafiğin üzerine, mumlara doğru kaydırın.. et voilà!",
+                    "updated": 1641911418855
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang geser pointer mouse kamu lagi... et voila!",
+                    "updated": 1673855298816
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ahora desliza de nuevo el puntero del ratón... et voilà!",
+                    "updated": 1675464119179
                 }
             ]
         },
@@ -65,6 +146,26 @@
                     "text": "Durch das Ein- und Ausschalten von Layern schaltest du die Fähigkeit des Systems ein und aus, die Werte auf verschiedenen Abschnitten der Hierarchie der Trading Engine zu melden!",
                     "updated": 1623013079166,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Включая и выключая слои, вы включаете и выключаете способность системы сообщать значения на разных участках иерархии Trading Engine!",
+                    "updated": 1640546309831
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları açıp kapatarak, sistemin Trading Engine hiyerarşisinin farklı bölümlerindeki değerleri raporlama yeteneğini açar ve kapatırsınız!",
+                    "updated": 1641911445260
+                },
+                {
+                    "language": "ID",
+                    "text": "Dengan mengaktifkan dan menonaktifkan layer, kamu mengaktifkan dan menonaktifkan kemampuan sistem untuk melaporkan nilai pada berbagai bagian hierarki Trading Engine!",
+                    "updated": 1673886819833
+                },
+                {
+                    "language": "ES",
+                    "text": "Al activar y desactivar las capas, activa y desactiva la capacidad del sistema para informar de los valores en diferentes secciones de la jerarquía del Trading Engine.",
+                    "updated": 1675464139418
                 }
             ]
         }

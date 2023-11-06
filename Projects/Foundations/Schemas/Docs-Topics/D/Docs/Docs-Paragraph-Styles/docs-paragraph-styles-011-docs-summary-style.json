@@ -3,7 +3,7 @@
     "pageNumber": 11,
     "type": "Docs Summary Style",
     "definition": {
-        "text": "Summary paragraphs are usually used at the begining of a page, like in this one.",
+        "text": "Summary paragraphs are usually used at the beginning of a page, like in this one.",
         "translations": [
             {
                 "language": "DE",
@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Краткие абзацы обычно используются в начале страницы, как в этом.",
                 "updated": 1638534073279
+            },
+            {
+                "language": "TR",
+                "text": "Özet paragraflar genellikle bu sayfadaki gibi bir sayfanın başında kullanılır.",
+                "updated": 1652385199486
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Все, что вы напишете при редактировании сводного абзаца, будет отображено на странице.",
                     "updated": 1638534020770
+                },
+                {
+                    "language": "TR",
+                    "text": "Özet paragrafını düzenlerken yazdığınız her şey sayfada görüntülenecektir.",
+                    "updated": 1652385242810
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638534045159
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652385251355
                 }
             ]
         },
@@ -64,6 +79,11 @@
                     "language": "RU",
                     "text": "Это краткий абзац.",
                     "updated": 1638534058934
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bir özet paragraftır.",
+                    "updated": 1652385269731
                 }
             ]
         },

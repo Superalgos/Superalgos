@@ -1,0 +1,115 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 51,
+    "type": "Tutorial Step - Highlights and Values",
+    "definition": {
+        "icon": {
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
+        },
+        "text": "Let's move on to a brighter topic! I'll show you how to verify the validation of conditions with the highlights and values layers.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Kommen wir zu einem spannenderen Thema! Ich zeige Ihnen, wie Sie die Validierung von Bedingungen mit den Ebenen \"Highlights\" und \"Werte\" überprüfen können.",
+                "updated": 1639388506323
+            },
+            {
+                "language": "TR",
+                "text": "Heyecan verici bir konuya gelelim! Size \"highlights\" ve \"values\" seviyelerini kullanarak koşulların doğrulanmasını nasıl kontrol edeceğinizi göstereceğim.",
+                "updated": 1669661435319
+            },
+            {
+                "language": "RU",
+                "text": "Давайте перейдем к более яркой теме! Я покажу вам, как проверить корректность условий с помощью слоев \"Highlights\" и \" Values\".",
+                "updated": 1642658200961
+            },
+            {
+                "language": "ES",
+                "text": "¡Pasemos a un tema más brillante! Te mostraré cómo verificar la validación de las condiciones con las capas de aspectos destacados y valores.",
+                "updated": 1679099325507
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go to the Trading System layer manager and turn on the \"Trading System Highlights\" and the \"Trading System Values\" layers...",
+            "updated": 1622488043632,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ebenenmanager des Trading Systems und aktivieren Sie die Ebenen \"Trading System Highlights\" und \"Trading System Values\"...",
+                    "updated": 1639388623984
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve \"Trading System Highlights\" ve \"Trading System Values\" katmanlarını açın...",
+                    "updated": 1669661714686
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев торговой системы и включите слои \"Trading System Highlights\" и \"Trading System Values\"...",
+                    "updated": 1642658306766
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al gestor de capas del Sistema de Trading y activa las capas \" Trading System Highlights\" y \"Trading System Values\"...",
+                    "updated": 1679099348729
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Now slide the mouse pointer over the candle where the strategy is triggered on!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie nun den Mauszeiger über die Kerze, bei der die Strategie ausgelöst wird!",
+                    "updated": 1639388640820
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi fare imlecini stratejiyi tetikleyen mumun üzerine getirin!",
+                    "updated": 1641661969200
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь наведите указатель мыши на свечу, на которой сработала стратегия!",
+                    "updated": 1642658328550
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora desliza el puntero del ratón sobre la vela en la que se activa la estrategia.",
+                    "updated": 1679099352531
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Use this resource when things are not going as you'd expect! This is how you find out why an event is not triggering when you think it should!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nutzen Sie dieses Hilfsmittel, wenn die Dinge nicht so laufen, wie Sie es erwarten würden! So können Sie herausfinden, warum ein Ereignis nicht auslöst, wenn Sie denken, dass es das sollte!",
+                    "updated": 1639388647566
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu aracı, işler beklediğiniz gibi gitmediğinde kullanın! Bu, olması gerektiğini düşündüğünüz bir olayın neden tetiklenmediğini öğrenmenin harika bir yoludur!",
+                    "updated": 1669661726883
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте этот ресурс, когда все идет не так, как вы ожидаете! Так вы узнаете, почему событие не срабатывает, когда вы думаете, что оно должно сработать!",
+                    "updated": 1642658348930
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Utiliza este recurso cuando las cosas no vayan como esperas! ¡Así es como puedes averiguar por qué un evento no se está activando cuando crees que debería!",
+                    "updated": 1679099361748
+                }
+            ]
+        }
+    ]
+}

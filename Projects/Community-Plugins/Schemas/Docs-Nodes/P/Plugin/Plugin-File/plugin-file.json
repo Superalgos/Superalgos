@@ -7,6 +7,21 @@
                 "language": "ES",
                 "text": "Un pluginfile es el archivo JSON que constituye el complemento. En el contexto de la jerarquía de complementos, un complemento es la definición de una jerarquía.",
                 "updated": 1628043670168
+            },
+            {
+                "language": "RU",
+                "text": "Plugin File - это файл JSON, составляющий плагин. В контексте иерархии плагинов, плагин - это определение иерархии.",
+                "updated": 1645164981627
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti dosyası, eklentiyi oluşturan JSON dosyasıdır. Eklenti hiyerarşisi bağlamında eklenti, hiyerarşinin tanımıdır.",
+                "updated": 1651950501163
+            },
+            {
+                "language": "DE",
+                "text": "Eine Plugin Datei ist die JSON Datei, die das Plugin bildet. Im Zusammenhang mit der Plugin Hierarchie ist ein Plugin die Definition einer Hierarchie.",
+                "updated": 1674279783143
             }
         ]
     },
@@ -18,7 +33,24 @@
         {
             "style": "Text",
             "text": "Plugin files distributed with the system are stored in the corresponding folders on the following path:",
-            "updated": 1609869641569
+            "updated": 1609869641569,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файлы плагинов, распространяемые вместе с системой, хранятся в соответствующих папках по следующему пути:",
+                    "updated": 1645165011078
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemle birlikte dağıtılan eklenti dosyaları, aşağıdaki yoldaki ilgili klasörlerde saklanır:",
+                    "updated": 1651950523507
+                },
+                {
+                    "language": "DE",
+                    "text": "Die mit dem System verteilten Plugin Dateien werden in den entsprechenden Ordnern unter dem folgenden Pfad gespeichert:",
+                    "updated": 1674279841568
+                }
+            ]
         },
         {
             "style": "Json",
@@ -27,22 +59,90 @@
         },
         {
             "style": "Text",
-            "text": "To create a plugin and make it available to the system you need to:"
+            "text": "To create a plugin and make it available to the system you need to:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы создать плагин и сделать его доступным для системы, необходимо:",
+                    "updated": 1645165021746
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir eklenti oluşturmak ve sistem tarafından kullanılabilir hale getirmek için yapmanız gerekenler:",
+                    "updated": 1651950561972
+                },
+                {
+                    "language": "DE",
+                    "text": "Um ein Plugin zu erstellen und es dem System zur Verfügung zu stellen, müssen Sie:",
+                    "updated": 1674279880493
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Take a backup of the hierarchy.",
-            "updated": 1609869665918
+            "updated": 1609869665918,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию иерархии.",
+                    "updated": 1645165028001
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşinin yedeğini alın.",
+                    "updated": 1651950575802
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstelle eine Sicherungskopie der Hierarchie.",
+                    "updated": 1674280012911
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Place it in the proper folder of the path.",
-            "updated": 1609869675048
+            "updated": 1609869675048,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите его в соответствующую папку пути.",
+                    "updated": 1645165051561
+                },
+                {
+                    "language": "TR",
+                    "text": "Yolun uygun klasörüne yerleştirin.",
+                    "updated": 1651950589410
+                },
+                {
+                    "language": "DE",
+                    "text": "Legen Sie sie in den richtigen Ordner des Pfades.",
+                    "updated": 1674280006315
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609869687063
+            "updated": 1609869687063,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархии, включенные в рабочее пространство в качестве подключаемых модулей, не сохраняются на уровне рабочего пространства. Поэтому изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо создать резервную копию плагина и работать с полученной копией.",
+                    "updated": 1645165196927
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler, çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı değildir. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamalı veya yedeklemeli ve bunun yerine ortaya çıkan kopya üzerinde çalışmalısınız.",
+                    "updated": 1651950623371
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchies , die als Plugins in den Arbeitsbereich eingebunden sind, werden nicht auf Arbeitsbereichsebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
+                    "updated": 1674280095669
+                }
+            ]
         },
         {
             "style": "Block",

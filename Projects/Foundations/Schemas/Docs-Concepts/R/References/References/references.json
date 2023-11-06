@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Ссылка на объект (официального определения этого термина пока нет).",
                 "updated": 1638288734992
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie die Definition für diesen Begriff.",
+                "updated": 1698005592171
             }
         ]
     },
@@ -19,6 +24,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку карандаша, чтобы войти в режим редактирования.",
                     "updated": 1638288537471
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1698005600219
                 }
             ]
         }

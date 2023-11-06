@@ -1,0 +1,23 @@
+{
+    "topic": "Superalgos Chat Groups",
+    "pageNumber": "0",
+    "type": "Discord Server",
+    "definition": {
+        "text": "This is our new Discord Server! Bear in mind there is much less activity in Discord than in the original Telegram groups!",
+        "updated": 1660162326942,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist unser neuer Discord Server! Bitte beachten Sie, dass in Discord viel weniger Aktivität herrscht als in den ursprünglichen Telegram-Gruppen!",
+                "updated": 1697733584604
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "Use this link to join the server!->discord.gg/CGeKC6WQQb",
+            "updated": 1660162365277
+        }
+    ]
+}

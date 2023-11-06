@@ -16,8 +16,13 @@
             },
             {
                 "language": "TR",
-                "text": "Düğümü ebeveynine bağlı tutan ebeveyn-yavru ilişkisini keser. Ayrıldıktan sonra, düğüm artık bağlı olduğu hiyerarşinin bir parçası olarak hesaplamadan çıkar.",
-                "updated": 1639484932090
+                "text": "Düğümü ana düğüme bağlı tutan ana düğüm-yavru düğüm ilişkisini keser. Ayrıldıktan sonra, düğüm artık bağlı olduğu hiyerarşinin bir parçası olarak hesaplanmaz.",
+                "updated": 1671218326505
+            },
+            {
+                "language": "DE",
+                "text": "Unterbricht die Eltern-Nachkommen-Beziehung, durch die der Knoten mit seinem Elternteil verbunden bleibt. Nach der Abtrennung wird der Knoten nicht mehr als Teil der Hierarchie berechnet, mit der er verbunden war.",
+                "updated": 1696955467814
             }
         ]
     },
@@ -30,6 +35,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638282966323
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654391103739,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1696955467972,
+                    "style": "Text"
                 }
             ]
         }

@@ -4,17 +4,53 @@
     "type": "TS LF Trading Bot Info - Order Skipped",
     "definition": {
         "text": "The order that generated this Info Message was not considered to be opened because the Lock at the referenced order at the Trading Engine was found closed. ",
-        "updated": 1611919981100
+        "updated": 1611919981100,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu Bilgi Mesajını oluşturan emir, Ticaret Motorunda ( Trading Engine ) referans verilen emirdeki Kilit ( Lock ) kapalı bulunduğundan açılmış olarak kabul edilmedi.",
+                "updated": 1647355429075
+            },
+            {
+                "language": "DE",
+                "text": "Der Auftrag, der diese Info-Meldung erzeugt hat, wurde nicht als geöffnet betrachtet, da die Sperre des referenzierten Auftrags in der Trading Engine als geschlossen befunden wurde.",
+                "updated": 1678991998631
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Lock is a mechanism to prevent an order to be opened while another instance of the same order definition is already running and occupying it's place at the Trading Engine.",
-            "updated": 1611920085962
+            "updated": 1611920085962,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kilit, aynı emir tanımının başka bir örneği çalışırken ve Ticaret Motorundaki ( Trading Engine ) yerini işgal ederken bir siparişin açılmasını engelleyen mekanizmadır.",
+                    "updated": 1647356343764
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Sperre (Lock) ist ein Mechanismus, der verhindert, dass ein Auftrag geöffnet wird, während eine andere Instanz derselben Auftragsdefinition bereits läuft und ihren Platz in der Trading Engine einnimmt.",
+                    "updated": 1678992041034
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Order Skipped"
+            "text": "Order Skipped",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Emir Atlandı",
+                    "updated": 1647356326789
+                },
+                {
+                    "language": "DE",
+                    "text": "Befehl übersprungen",
+                    "updated": 1678992092543
+                }
+            ]
         }
     ]
 }

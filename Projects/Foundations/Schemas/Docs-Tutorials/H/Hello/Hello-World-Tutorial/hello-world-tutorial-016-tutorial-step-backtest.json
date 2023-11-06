@@ -20,6 +20,31 @@
                 "language": "ES",
                 "text": "¡Asegurarte que los Parameters están en su lugar!",
                 "updated": 1629577782178
+            },
+            {
+                "language": "IT",
+                "text": "Assicurati che i Parameters siano corretti!",
+                "updated": 1640110797351
+            },
+            {
+                "language": "TR",
+                "text": "Parametrelerin yerinde olduğundan emin olun!",
+                "updated": 1640618152585
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что параметры установлены!",
+                "updated": 1640857393649
+            },
+            {
+                "language": "NL",
+                "text": "Zorg ervoor dat de Parameters ingesteld zijn!",
+                "updated": 1670776278306
+            },
+            {
+                "language": "ID",
+                "text": "Pastikan bahwa Parameters berada pada tempatnya!",
+                "updated": 1670587774087
             }
         ]
     },
@@ -37,8 +62,33 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Antes de ejecutar el backtest, asegúrese de que el Trading Parameters nodo tiene datos consistentes. Ya preparé todo para ti, pero tómate un tiempo y fíjate que:",
-                    "updated": 1629577823477
+                    "text": "Antes de ejecutar el backtest, asegúrate de que el Trading Parameters nodo tiene datos consistentes. Ya preparé todo para ti, pero tómate un tiempo y fíjate que:",
+                    "updated": 1682357848214
+                },
+                {
+                    "language": "IT",
+                    "text": "Prima di eseguire il backtest, assicurati che il nodo Parameters abbia dati coerenti con la strategia. Ho già preparato tutto per te, ma esplora il nodo:",
+                    "updated": 1640110851355
+                },
+                {
+                    "language": "TR",
+                    "text": "Backtest'i çalıştırmadan önce, İşlem Parametreleri ( Trading Parameters ) düğümünün tutarlı verilere sahip olduğundan emin olun. Senin için her şeyi hazırladım, ama biraz zaman ayır ve fark et:",
+                    "updated": 1640618166584
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем запускать бэктест, убедитесь, что в узле Trading Parameters есть последовательные данные. Я уже все подготовил для вас, но уделите немного времени и обратите на это внимание:",
+                    "updated": 1640857441714
+                },
+                {
+                    "language": "NL",
+                    "text": "Voordat u de backtest uitvoert, moet u ervoor zorgen dat het knooppunt Trading Parameters consistente gegevens heeft. Ik heb alles al voor je voorbereid, maar neem even de tijd en merk op dat:",
+                    "updated": 1670776311336
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebelum menjalankan backtest, pastikan bahwa node Trading Parameters memiliki data yang konsisten. Aku sudah menyiapkan semuanya untukmu, tapi butuh waktu dan tetap perhatikan:",
+                    "updated": 1670587764577
                 }
             ]
         },
@@ -56,6 +106,31 @@
                     "language": "ES",
                     "text": "Session Base Asset está establecido en 0",
                     "updated": 1629577840744
+                },
+                {
+                    "language": "IT",
+                    "text": "Session Base Asset è impostata a 0 (Non ho BTC)",
+                    "updated": 1640110899267
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturum Temel Varlığı ( Session Base Asset ) 0 olarak ayarlandı",
+                    "updated": 1640618371740
+                },
+                {
+                    "language": "RU",
+                    "text": "Session Base Asset установлен на 0",
+                    "updated": 1640857460578
+                },
+                {
+                    "language": "NL",
+                    "text": "Session Base Asset is ingesteld op 0",
+                    "updated": 1670776324073
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Base Asset diatur ke 0",
+                    "updated": 1670587579722
                 }
             ]
         },
@@ -72,8 +147,33 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Session Quoted Assetestá establecido en 1000 (es decir, 1000 $ USDT en este caso)",
-                    "updated": 1629577866359
+                    "text": "Session Quoted Asset está establecido en 1000 (es decir, 1000 $ USDT en este caso)",
+                    "updated": 1682357857774
+                },
+                {
+                    "language": "IT",
+                    "text": "Session Quoted Asset è impostata a 1000 (Indico che ho 1000$ a disposizione)",
+                    "updated": 1640110927779
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturum Kote Edilen Varlık ( Session Quoted Asset  ) 1000 olarak ayarlandı (Bu durumda 1000$ USDT)",
+                    "updated": 1640618317454
+                },
+                {
+                    "language": "RU",
+                    "text": "Session Quoted Asset установлен на 1000 (В данном случае это 1000$ USDT)",
+                    "updated": 1640857473351
+                },
+                {
+                    "language": "NL",
+                    "text": "Session Quoted Asset is ingesteld op 1000 (Dat is 1000$ USDT in deze situatie)",
+                    "updated": 1670776347433
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Quoted Asset diatur ke 1000 (Artinya 1000$ USDT dalam kasus ini)",
+                    "updated": 1670587605016
                 }
             ]
         },
@@ -92,6 +192,31 @@
                     "language": "ES",
                     "text": "Slippage se establece en 0 porque estoy probando pequeñas cantidades y puedo asumir que los pedidos se llenan sin slippage",
                     "updated": 1629577911905
+                },
+                {
+                    "language": "IT",
+                    "text": "Ho impostato lo Slippage a zero. Gli ordini sono piccoli e non avrò problemi di ordini non completamente eseguiti al prezzo impostato.",
+                    "updated": 1640110981032
+                },
+                {
+                    "language": "TR",
+                    "text": "Küçük miktarları test ettiğim için Slippage 0 olarak ayarlandı ve siparişlerin slippage olmadan karşılandığını varsayabilirim",
+                    "updated": 1640618396637
+                },
+                {
+                    "language": "RU",
+                    "text": "Slippage установлен на 0, потому что я бэктестирую небольшие суммы и могу предположить, что ордера будут исполнены без проскальзывания.",
+                    "updated": 1640857501416
+                },
+                {
+                    "language": "NL",
+                    "text": "Slippage is ingesteld op 0 omdat ik kleine hoeveelheden aan het backtesten ben en ik kan aannemen dat orders zonder afwijking worden uitgevoerd",
+                    "updated": 1670776403766
+                },
+                {
+                    "language": "ID",
+                    "text": "Slippage diatur ke 0 karena aku membacktesting dengan jumlah kecil dan aku berasumsi bahwa pesananku terisi tanpa slippage",
+                    "updated": 1670587748854
                 }
             ]
         },
@@ -110,6 +235,31 @@
                     "language": "ES",
                     "text": "¿Estás listo? ¡Ejecuta el backtest!",
                     "updated": 1629578196637
+                },
+                {
+                    "language": "IT",
+                    "text": "Sei pronto? Fai partire il backtest!",
+                    "updated": 1640110995079
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Hazır mısınız? Geri testi çalıştırın!",
+                    "updated": 1640618407506
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы готовы? Запускаем бэктест!",
+                    "updated": 1640857519428
+                },
+                {
+                    "language": "NL",
+                    "text": "Ben je klaar? Voer de backtest uit!",
+                    "updated": 1670776420548
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu sudah siap? Run backtest-nya!",
+                    "updated": 1670587821559
                 }
             ]
         }

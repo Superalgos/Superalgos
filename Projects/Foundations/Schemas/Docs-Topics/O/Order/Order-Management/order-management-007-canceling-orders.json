@@ -4,7 +4,19 @@
     "type": "Canceling Orders",
     "definition": {
         "text": "After running a few checks, if the Cancel Order Event is triggered, the order is canceled, the synchronization is run, and accounts are updated.",
-        "updated": 1610221990441
+        "updated": 1610221990441,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "После выполнения нескольких проверок, если срабатывает событие Cancel Order Event, ордер отменяется, запускается синхронизация, и счета обновляются.",
+                "updated": 1640331297865
+            },
+            {
+                "language": "DE",
+                "text": "Wenn nach einigen Prüfungen das Ereignis \" Cancel Order Event \" ausgelöst wird, wird der Auftrag storniert, die Synchronisierung wird durchgeführt und die Konten werden aktualisiert.",
+                "updated": 1679756950453
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,15 +26,51 @@
         },
         {
             "style": "Title",
-            "text": "Check Cancel Order Event"
+            "text": "Check Cancel Order Event",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка события Cancel Order Event",
+                    "updated": 1640331330200
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen der Stornierung des Auftrages",
+                    "updated": 1679757308621
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before evaluating the cancel order event, a few checks are in order."
+            "text": "Before evaluating the cancel order event, a few checks are in order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем оценивать событие отмены ордера, необходимо выполнить несколько проверок.",
+                    "updated": 1640331378510
+                },
+                {
+                    "language": "DE",
+                    "text": "Vor der Auswertung des Ereignisses \"Bestellung stornieren\" sind einige Prüfungen erforderlich.",
+                    "updated": 1679757623675
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Orders are not canceled if the stage is closing."
+            "text": "Orders are not canceled if the stage is closing.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера не отменяются, если этап закрывается.",
+                    "updated": 1640331394066
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Aufträge (Orders) werden nicht storniert, wenn die Prüfung geschlossen wird.",
+                    "updated": 1679760289343
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -30,7 +78,19 @@
         },
         {
             "style": "List",
-            "text": "Orders may only be canceled if the status is Open."
+            "text": "Orders may only be canceled if the status is Open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера могут быть отменены только в том случае, если их статус открыт (\"Open\").",
+                    "updated": 1640331426561
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufträge (Orders) können nur storniert werden, wenn sie den Status \"Offen\" (Open) haben.",
+                    "updated": 1679757654219
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -39,36 +99,132 @@
         {
             "style": "Text",
             "text": "If both checks pass, then the cancel order event is evaluated. If a situation in the event is true, then the following actions take place:",
-            "updated": 1610222066264
+            "updated": 1610222066264,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если обе проверки пройдены, то оценивается событие отмены ордера. Если ситуация в событии истинна (true), то выполняются следующие действия:",
+                    "updated": 1640331468108
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn beide Prüfungen erfolgreich sind, wird das Ereignis \"Auftrag stornieren\" ausgewertet. Wenn eine Situation des Ereignisses wahr (true) ist, finden die folgenden Aktionen statt:",
+                    "updated": 1679757725128
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If it’s a backtesting or paper trading session, the order cancellation must be simulated (see Simulating Order Cancellation).",
-            "updated": 1610222051378
+            "updated": 1610222051378,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если речь идет о бэктестинге или бумажной торговой сессии, отмена ордера должна быть смоделирована (см. раздел  Simulating Order Cancellation).",
+                    "updated": 1640331492703
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es sich um eine Backtesting- oder Papierhandelssitzung handelt, muss die Orderstornierung simuliert werden (siehe Orderstornierung simulieren).",
+                    "updated": 1679757745238
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If it’s a forward testing or live trading session, the order must be canceled at the exchange."
+            "text": "If it’s a forward testing or live trading session, the order must be canceled at the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если речь идет о форвардном тестировании или реальной торговой сессии, ордер должен быть отменен на бирже.",
+                    "updated": 1640331506439
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es sich um einen Forward-Test oder einen Live-Handel handelt, muss der Auftrag an der Börse storniert werden.",
+                    "updated": 1679757757843
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Canceling Orders"
+            "text": "Canceling Orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отмена ордеров",
+                    "updated": 1640331518335
+                },
+                {
+                    "language": "DE",
+                    "text": "Stornierung von Aufträgen",
+                    "updated": 1679757773088
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When the cancel order event as defined in the trading system is triggered, the trading bot sends the cancel order request to the exchange, and waits for an answer. No further action is taken until the exchange confirms the order has been closed."
+            "text": "When the cancel order event as defined in the trading system is triggered, the trading bot sends the cancel order request to the exchange, and waits for an answer. No further action is taken until the exchange confirms the order has been closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда срабатывает событие отмены ордера, определенное в торговой системе, торговый бот отправляет запрос на отмену ордера на биржу и ждет ответа. Никаких дальнейших действий не предпринимается до тех пор, пока биржа не подтвердит, что ордер отменен.",
+                    "updated": 1640331555397
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das im Handelssystem definierte Ereignis \"Auftrag stornieren\" ausgelöst wird, sendet der Trading-Bot die Anfrage zum Stornieren des Auftrags an die Börse und wartet auf eine Antwort. Es werden keine weiteren Maßnahmen ergriffen, bis die Börse bestätigt, dass der Auftrag geschlossen wurde.",
+                    "updated": 1679757808719
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the confirmation is in, a new request to check the order is sent, so as to determine if the size filled for the order changed between the last time it was checked and the moment of the cancellation."
+            "text": "Once the confirmation is in, a new request to check the order is sent, so as to determine if the size filled for the order changed between the last time it was checked and the moment of the cancellation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После получения подтверждения отправляется новый запрос на проверку заказа, чтобы определить, изменился ли размер, заполненный для заказа, между последней проверкой и моментом отмены.",
+                    "updated": 1640331578598
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Bestätigung eingegangen ist, wird eine neue Anfrage zur Überprüfung des Auftrags gesendet, um festzustellen, ob sich die für den Auftrag gefüllte Größe zwischen der letzten Überprüfung und dem Zeitpunkt der Stornierung geändert hat.",
+                    "updated": 1679757824750
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the trading bot gets the order details, it runs the synchronization (see Syncing with the exchange) and the recalculation of the stage size again (see Accounting), to make up and account for any differences that may exist compared to the last known state of the order"
+            "text": "Once the trading bot gets the order details, it runs the synchronization (see Syncing with the exchange) and the recalculation of the stage size again (see Accounting), to make up and account for any differences that may exist compared to the last known state of the order",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только торговый бот получает детали ордера, он запускает синхронизацию (см. Syncing with exchange) и повторный пересчет размера этапа (см. Accounting), чтобы исправить и учесть любые различия, которые могут существовать по сравнению с последним известным состоянием ордера.",
+                    "updated": 1640331626638
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald der Trading-Bot die Auftragsdetails erhält, führt er die Synchronisierung (siehe Synchronisierung mit der Börse) und die Neuberechnung der Bühnengröße durch - siehe Abrechnung (Accounting), um eventuelle Unterschiede zum letzten bekannten Stand des Auftrags auszugleichen und zu berücksichtigen",
+                    "updated": 1679757834971
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The order is not closed until the order details are received from the exchange."
+            "text": "The order is not closed until the order details are received from the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордер не закрывается до тех пор, пока данные ордера не будут получены от биржи.",
+                    "updated": 1640331660264
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Auftrag wird erst geschlossen, wenn die Auftragsdetails von der Börse erhalten werden.",
+                    "updated": 1679757854667
+                }
+            ]
         },
         {
             "style": "Javascript",

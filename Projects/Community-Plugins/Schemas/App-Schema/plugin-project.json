@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionProject": "Foundations"
@@ -12,6 +13,7 @@
         {
             "action": "Add Missing Plugin Types",
             "label": "Add Missing Plugin Types",
+            "translationKey": "add.missing.pluginTypes",
             "relatedUiObject": "Plugins",
             "actionFunction": "payload.executeAction",
             "actionProject": "Community-Plugins",
@@ -22,7 +24,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -142,6 +146,12 @@
             "type": "node",
             "childType": "Plugin Positions",
             "autoAdd": false
+        },
+        {
+            "name": "pluginP2PNetworks",
+            "type": "node",
+            "childType": "Plugin P2P Networks",
+            "autoAdd": false
         }
     ],
     "alternativeIcons": [
@@ -164,6 +174,10 @@
         {
             "codeName": "Governance",
             "iconName": "governance"
+        },
+        {
+            "codeName": "Network",
+            "iconName": "network"
         }
     ]
 }

@@ -9,6 +9,21 @@
                 "language": "DE",
                 "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
                 "updated": 1639266626339
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1640950736222
+            },
+            {
+                "language": "TR",
+                "text": "Bu adımda, Video tam ekran modunda oynatılır.",
+                "updated": 1669585265309
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1677101898737
             }
         ]
     },

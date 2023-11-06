@@ -118,6 +118,12 @@ function newGovernanceFunctionLibraryTokens() {
         ) {
             node.payload.tokens = tokens * node.payload.weight
             drawTokenFlow(node, node.payload.tokens, node.payload.weight)
+        } else if (
+            isNaN(node.payload.weight) !== true &&
+            node.payload.weight !== undefined &&
+            node.payload.weight === 0   
+        ) {
+            node.payload.uiObject.resetStatus()
         }
         /*
         If there is a reference parent defined, this means that the token flow is 

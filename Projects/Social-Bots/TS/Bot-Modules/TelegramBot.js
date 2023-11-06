@@ -1,4 +1,4 @@
-exports.newSocialBotsBotModulesTelegramBot = function (processIndex) {
+exports.newSocialBotsBotModulesTelegramBot = function newSocialBotsBotModulesTelegramBot(processIndex) {
 
     const MODULE_NAME = 'Telegram Bot'
 
@@ -39,29 +39,32 @@ exports.newSocialBotsBotModulesTelegramBot = function (processIndex) {
                 }
             }
 
-            thisObject.telegramBot.launch()
-
             thisObject.telegramAPI = thisObject.telegramBot.telegram
 
-            const message = "Telegram bot is starting. For assistance type /help."
-            thisObject.telegramAPI.sendMessage(thisObject.chatId, message)
+            thisObject.telegramBot.launch()
+                .then(() => {
+                    const message = "Telegram bot is starting. For assistance type /help."
+                    thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError('[WARN] initialize.sendMessage -> Telegram API error -> err = ' + err.stack))
+                }).catch(err => logError('[WARN] initialize.launch -> Telegram API error -> err = ' + err.stack))
+
 
         } catch (err) {
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[WARN] initialize -> Telegram API error -> err = " + err.stack)
+            logError("[WARN] initialize -> Telegram API error -> err = " + err.stack)
         }
 
     }
 
     function finalize() {
         const message = "Telegram bot is signing off."
-        thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-            "[WARN] finalize -> Telegram API error -> err = " + err.stack))
+        thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError("[WARN] finalize -> Telegram API error -> err = " + err.stack))
     }
 
     function sendMessage(message) {
-        thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-            "[WARN] sendMessage -> Telegram API error -> err = " + err.stack))
+        if(thisObject.telegramAPI !== undefined) {
+            thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => logError("[WARN] sendMessage -> Telegram API error -> err = " + err.stack))
+        } else {
+            logError("[WARN] sendMessage -> Telegram API not initialized")
+        }
     }
 
 
@@ -88,14 +91,15 @@ exports.newSocialBotsBotModulesTelegramBot = function (processIndex) {
         try {
             message = eval(command)
         } catch (err) {
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[WARN] interpretCommand -> Telegram API error evaluating user formula -> err = " + err.stack)
+            logError("[WARN] interpretCommand -> Telegram API error evaluating user formula -> err = " + err.stack)
             return
         }
 
-        thisObject.telegramAPI.sendMessage(thisObject.chatId, message, {parse_mode: 'HTML'}).catch(err => TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-            "[WARN] sendMessage -> Telegram API error -> err = " + err.stack))
+        thisObject.telegramAPI.sendMessage(thisObject.chatId, message, {parse_mode: 'HTML'}).catch(err => logError("[WARN] sendMessage -> Telegram API error -> err = " + err.stack))
+    }
 
+    function logError(message) {
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME, message)
     }
 
 }

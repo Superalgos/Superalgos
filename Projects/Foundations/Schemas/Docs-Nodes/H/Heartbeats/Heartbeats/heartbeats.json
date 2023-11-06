@@ -12,6 +12,11 @@
                 "language": "DE",
                 "text": "\nWährend einer trading session kommuniziert das Backend mit dem Frontend über Heartbeats, um das Frontend über den Status der session (Sitzung) zu informieren. Der Parameter steuert, welche Informationen dem Nutzer über das Frontend zur Verfügung gestellt werden.\nWährend einer trading session kommuniziert das Backend mit dem Frontend über Heartbeats, um das Frontend über den Status der session (Sitzung) zu informieren. Der Parameter steuert, welche Informationen dem Nutzer über das Frontend zur Verfügung gestellt werden.",
                 "updated": 1639341922551
+            },
+            {
+                "language": "TR",
+                "text": "Bir işlem oturumu sırasında arka uç, oturumun durumu hakkında ön ucu bilgilendirmek için kalp atışları aracılığıyla ön uçla iletişim kurar. Parametre, ön uç aracılığıyla kullanıcıya hangi bilgilerin sunulacağını kontrol eder.",
+                "updated": 1654419294433
             }
         ]
     },
@@ -26,8 +31,14 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Этот параметр влияет на то, как вы видите ход торговой сессии под узлом экземпляра торгового бота Trading Bot Instance в пространстве дизайна Design Space.",
+                    "text": "Этот параметр влияет на то, как вы видите ход торговой сессии под узлом экземпляра торгового бота Trading Bot Instance в пространстве проектирования Design Space.",
                     "updated": 1638966004839
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu parametre, tasarım alanındaki ticaret botu örneği düğümünün altındaki ticaret oturumunun ilerlemesini nasıl göreceğinizi etkiler.",
+                    "updated": 1654419301780,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "DE",
                     "text": "Heartbeats Konfiguration",
                     "updated": 1639342011272
+                },
+                {
+                    "language": "TR",
+                    "text": "Kalp Atışları Konfigürasyonu",
+                    "updated": 1654419307926,
+                    "style": "Title"
                 }
             ]
         },
@@ -61,6 +78,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638965840942
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419313782,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -72,6 +95,12 @@
                     "language": "RU",
                     "text": "date определяет, отображается ли дата в уведомлении о ходе выполнения под узлом экземпляра торгового процесса Trading Process Instance; возможные значения - true (истина) или false (ложь).",
                     "updated": 1638966097944
+                },
+                {
+                    "language": "TR",
+                    "text": "date, ticaret süreci örnek düğümünün altındaki ilerleme bildiriminde tarihin gösterilip gösterilmeyeceğini belirler; olası değerler true veya false'tur.",
+                    "updated": 1654419322604,
+                    "style": "List"
                 }
             ]
         },
@@ -83,6 +112,12 @@
                     "language": "RU",
                     "text": "candleIndex определяет, отображается ли индекс свечи в уведомлении о ходе выполнения под узлом экземпляра торгового процесса Trading Process Instance; возможные значения - true (истина) или false (ложь).",
                     "updated": 1638966074737
+                },
+                {
+                    "language": "TR",
+                    "text": "candleIndex, işlem süreci örnek düğümünün altındaki ilerleme bildiriminde mum indeksinin gösterilip gösterilmeyeceğini belirler; olası değerler true veya false'tur.",
+                    "updated": 1654419329161,
+                    "style": "List"
                 }
             ]
         }

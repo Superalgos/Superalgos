@@ -2,7 +2,8 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
 
     let thisObject = {
         getRequestBody: getRequestBody,
-        getRequestBodyAsync: getRequestBodyAsync
+        getRequestBodyAsync: getRequestBodyAsync,
+        getRequestCompressedBody: getRequestCompressedBody
     }
 
     return thisObject
@@ -25,12 +26,12 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
             })
 
             httpRequest.on('error', function (err) {
-                console.log('[ERROR] getBody -> err.stack = ' + err.stack)
+                SA.logger.error('getBody -> err.stack = ' + err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                 callback()
             })
         } catch (err) {
-            console.log('[ERROR] getBody -> err.stack = ' + err.stack)
+            SA.logger.error('getBody -> err.stack = ' + err.stack)
             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
             callback()
         }
@@ -40,7 +41,7 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
         return new Promise((resolve, reject) => {
             let body = []
             httpRequest.on('error', (err) => {
-                console.error('[ERROR] getRequestBodyAync -> err.stack = ', err.stack)
+                SA.logger.error('getRequestBodyAync -> err.stack = ', err.stack)
                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                 reject(err)
             }).on('data', (chunk) => {
@@ -50,5 +51,36 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
                 resolve(body)
             })
         })
+    }
+
+    function getRequestCompressedBody(httpRequest, httpResponse, callback) { 
+        try {
+            let body;
+            httpRequest.on('data', function(data) {
+                if(body === undefined) {
+                    body = data
+                }
+                else {
+                    var mergedArray = new Uint8Array(body.length + data.length);
+                    mergedArray.set(body);
+                    mergedArray.set(data, body.length);
+                    body = mergedArray
+                }
+            })
+    
+            httpRequest.on('end', function() {
+                callback(body)
+            })
+    
+            httpRequest.on('error', function(err) {
+                SA.logger.error('getBody -> err.stack = ' + err.stack)
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(DEFAULT_FAIL_RESPONSE), httpResponse)
+                callback()
+            })
+        } catch(err) {
+            SA.logger.error('getBody -> err.stack = ' + err.stack)
+            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(DEFAULT_FAIL_RESPONSE), httpResponse)
+            callback()
+        }
     }
 }

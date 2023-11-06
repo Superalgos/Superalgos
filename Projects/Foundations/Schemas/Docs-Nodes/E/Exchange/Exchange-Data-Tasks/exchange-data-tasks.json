@@ -34,6 +34,17 @@
                     "language": "RU",
                     "text": "Узел Exchange Data Tasks должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом упомянутой биржи.",
                     "updated": 1638359117939
+                },
+                {
+                    "language": "ES",
+                    "text": "El nodo de Exchange Data Tasks debe hacer referencia al Exchange elegido. Esta referencia limita el resto de definiciones al contexto de dicho Exchange.",
+                    "updated": 1641092155389
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa veri görevleri düğümü tercih edilen borsaya referans vermelidir. Bu referans, tanımların geri kalanını söz konusu borsa bağlamıyla sınırlar.",
+                    "updated": 1654392271592,
+                    "style": "Text"
                 }
             ]
         },
@@ -45,6 +56,17 @@
                     "language": "RU",
                     "text": "При использовнии биржи, представленной в библиотеке значков системы, стандартный значок задач обмена данными заменяется логотипом биржи.",
                     "updated": 1638358906400
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando se representa un Exchange que se encuentra en la biblioteca de íconos del sistema, el ícono estándar del Exchange Data Tasks se reemplaza por logo del Exchange elegido.",
+                    "updated": 1641092171894
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistemin simgeler kitaplığında yer alan bir borsayı temsil ederken, standart borsa veri görevleri simgesinin yerini borsanın logosu alır.",
+                    "updated": 1654392279515,
+                    "style": "Text"
                 }
             ]
         },

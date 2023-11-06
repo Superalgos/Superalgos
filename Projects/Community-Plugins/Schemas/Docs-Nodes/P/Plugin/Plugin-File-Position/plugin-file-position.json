@@ -7,6 +7,21 @@
                 "language": "ES",
                 "text": "La posición del plugin El nodo de posicin del archivo determina la posicin en el workspace en el que se coloca la jerarquía de plugin.",
                 "updated": 1628037843191
+            },
+            {
+                "language": "RU",
+                "text": "Положение узла позиции файла плагина определяет позицию в рабочем пространстве, на которой размещается иерархия плагинов.",
+                "updated": 1645165249083
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti dosyası konum düğümünün konumu, eklenti hiyerarşisinin yerleştirildiği çalışma alanındaki konumu belirler.",
+                "updated": 1651950758260
+            },
+            {
+                "language": "DE",
+                "text": "Die Position des Knotens plugin file position bestimmt die Position im Arbeitsbereich, an der die Plugin Hierarchie platziert wird.",
+                "updated": 1674281041917
             }
         ]
     },
@@ -17,7 +32,24 @@
         },
         {
             "style": "Text",
-            "text": "To define where the hierarchy defined in a plugin file is positioned in the workspace, move the plugin file position node to the desired position in the workspace, and pin the node. Then, collapse the plugin file node so that the plugin file position node is no longer visible."
+            "text": "To define where the hierarchy defined in a plugin file is positioned in the workspace, move the plugin file position node to the desired position in the workspace, and pin the node. Then, collapse the plugin file node so that the plugin file position node is no longer visible.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы определить местоположение иерархии, определенной в подключаемом файле, в рабочем пространстве, переместите узел позиции подключаемого файла в нужную позицию в рабочем пространстве и закрепите узел. Затем сверните узел подключаемого файла так, чтобы узел позиции подключаемого файла больше не был виден.",
+                    "updated": 1645165276159
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir eklenti dosyasında tanımlanan hiyerarşinin çalışma alanında nerede konumlandığını tanımlamak için, eklenti dosyası konum düğümünü çalışma alanında istenen konuma taşıyın ve düğümü sabitleyin. Ardından, eklenti dosyası konum düğümünün artık görünmemesi için eklenti dosyası düğümünü daraltın.",
+                    "updated": 1651950787129
+                },
+                {
+                    "language": "DE",
+                    "text": "Um festzulegen, wo die in einer Plugin Datei definierte Hierarchie im Arbeitsbereich positioniert werden soll, verschieben Sie den Knoten plugin file position an die gewünschte Position im Arbeitsbereich und heften den Knoten an. Klappen Sie dann den plugin file Knoten zu, so dass der plugin file position Knoten nicht mehr sichtbar ist.",
+                    "updated": 1674281629541
+                }
+            ]
         },
         {
             "style": "Block",

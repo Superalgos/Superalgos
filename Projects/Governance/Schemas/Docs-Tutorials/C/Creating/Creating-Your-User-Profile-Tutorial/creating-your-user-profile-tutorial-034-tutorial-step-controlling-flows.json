@@ -20,6 +20,21 @@
                 "language": "RU",
                 "text": "Конфигурация каждого узла, в который может входить Token Power, действует как шлюз! Вот как вы управляете потоками токенов Token Power Flows!",
                 "updated": 1639051361085
+            },
+            {
+                "language": "DE",
+                "text": "Die Konfiguration eines jeden Knotens, in den Token Power einfließen kann, wirkt wie eine Schleuse! So kontrollieren Sie die Token Power Flows!",
+                "updated": 1640080729154
+            },
+            {
+                "language": "TR",
+                "text": "Token Gücünün gidebileceği her bir düğümün konfigürasyonu bir kapı görevi görür! Token Güç Akışlarını Token Power Flows) bu şekilde kontrol edersiniz!",
+                "updated": 1645101201621
+            },
+            {
+                "language": "ID",
+                "text": "Konfigurasi dari setiap node dimana Token Power mungkin bertindak sebagai pintu air! Begitulah cara kamu mengontrol Token Power Flows!",
+                "updated": 1671529844944
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "RU",
                     "text": "Вернитесь в узел Onboarding Programs. Знаешь, что? Этим программам не нужен Token Power, поэтому мы закроем шлюз!",
                     "updated": 1639051493624
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zurück zum Knoten Onboarding Programs. Raten Sie mal! Diese Programme brauchen keine Token Power, also schließen wir die Schleuse!",
+                    "updated": 1640080737966
+                },
+                {
+                    "language": "TR",
+                    "text": "Onboarding Programs düğümüne geri dönün. Bu programların Token Gücüne ihtiyacı yok, bu yüzden kapıyı kapatacağız!",
+                    "updated": 1645101256755
+                },
+                {
+                    "language": "ID",
+                    "text": "Kembali ke node Onboarding Programs. Tebak apa? Program-program itu tidak membutuhkan Token Power, jadi kita akan menutup pintu air-nya!",
+                    "updated": 1671529857895
                 }
             ]
         },
@@ -49,14 +79,29 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Copie la siguiente configuración y péguela en la configuración del nodo Onboarding Programs.",
-                    "updated": 1630897367644,
+                    "text": "Copia la siguiente configuración y pégala en la configuración del nodo Onboarding Programs.",
+                    "updated": 1682521624288,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
                     "text": "Скопируйте приведенную ниже конфигурацию и вставьте ее в конфигурацию узла Onboarding Programs!",
                     "updated": 1639051532113
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie die untenstehende Konfiguration und fügen Sie sie in die Konfiguration des Knotens \" Onboarding Programs \" ein!",
+                    "updated": 1640080783653
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki konfigürasyonu kopyalayın ve Onboarding Programs düğüm konfigürasyonuna yapıştırın!",
+                    "updated": 1645101272781
+                },
+                {
+                    "language": "ID",
+                    "text": "Salin konfigurasi dibawah ini dan tempelkan itu ke konfigurasi node Onboarding Programs!",
+                    "updated": 1671529969042
                 }
             ]
         },

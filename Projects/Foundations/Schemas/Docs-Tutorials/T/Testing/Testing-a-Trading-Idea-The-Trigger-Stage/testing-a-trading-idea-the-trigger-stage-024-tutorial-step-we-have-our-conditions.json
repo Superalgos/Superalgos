@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Es sieht so aus, als hätten wir endlich eine Möglichkeit gefunden, einen Abwärtstrend zu definieren... lassen Sie uns zwei Bedingungen aufstellen!",
                 "updated": 1639264158030
+            },
+            {
+                "language": "RU",
+                "text": "Похоже, что мы наконец-то придумали, как определить нисходящий тренд... давайте определим его как два условия!",
+                "updated": 1640940263525
+            },
+            {
+                "language": "TR",
+                "text": "Sonunda bir düşüş trendi tanımlamanın yolunu bulduk gibi görünüyor... İki koşul belirleyelim!",
+                "updated": 1641654018928
+            },
+            {
+                "language": "ES",
+                "text": "Parece que por fin hemos dado con una forma de definir una tendencia bajista... ¡establezcámosla como dos condiciones!",
+                "updated": 1677100174566
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Bedingung 1: Die Richtungseigenschaft des bollingerSubChannel Produkts ist Abwärts im 24-Stunden-Chart. Geben Sie die richtige Syntax ein:",
                     "updated": 1639264283108
+                },
+                {
+                    "language": "RU",
+                    "text": "Условие 1: свойство direction продукта bollingerSubChannel на 24-х часовом графике имеет значение Down. Вставьте правильный синтаксис:",
+                    "updated": 1640940334924
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul 1: bollingerSubChannel ürününün yön özelliği 24 saatlik grafikte aşağı yönlüdür. Doğru sözdizimini girin:",
+                    "updated": 1641654031506
+                },
+                {
+                    "language": "ES",
+                    "text": "Condition 1: La dirección de la propiedad bollingerSubChannel es Bajista en el gráfico de 24H. Pongamos la sintaxis adecuada:",
+                    "updated": 1677100270175
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "language": "DE",
                     "text": "Bedingung 2: Die Slope-Eigenschaft des bollingerSubChannel ist im 24-Stunden-Chart nicht Side. Geben Sie die richtige Syntax ein:",
                     "updated": 1639264309092
+                },
+                {
+                    "language": "RU",
+                    "text": "Условие 2: свойство slope продукта bollingerSubChannel не является Side на 24-x часовом графике. Вставьте правил��ный синтаксис:",
+                    "updated": 1640940363124
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul 2: bollingerSubChannel ürününün eğim özelliği 24H grafikte \"Side\" değildir. Uygun sözdizimini girin:",
+                    "updated": 1669578032974
+                },
+                {
+                    "language": "ES",
+                    "text": "Condition 2: La propiedad Slope del producto bollingerSubChannel no es Side en el gráfico de 24H. Escribe la sintaxis adecuada:",
+                    "updated": 1677100321275
                 }
             ]
         },

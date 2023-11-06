@@ -1,0 +1,508 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": "4",
+    "type": "CCI Divergence",
+    "definition": {
+        "text": "The CCI Divergence - this indicator analyses highs and lows of a 20 period CCI indicator and compares it to the price action and produces any divergence data found.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "CCI Divergence - этот индикатор анализирует максимумы и минимумы 20-периодного индикатора CCI, сравнивает их с ценовым движением и выдает любые найденные данные о дивергенции.",
+                "updated": 1647357755402
+            },
+            {
+                "language": "TR",
+                "text": "Özet: CCI Sapması - bu gösterge, 20 dönemlik bir CCI göstergesinin en yüksek, en düşük noktalarını analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
+                "updated": 1647715798270
+            },
+            {
+                "language": "DE",
+                "text": "Die CCI Divergence - dieser Indikator analysiert die Höchst- und Tiefstwerte eines 20-Perioden-CCI-Indikators, vergleicht sie mit dem aktuellen Kurs und gibt alle gefundenen Divergenzdaten aus.",
+                "updated": 1673460789381
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "CCI Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дивергенция CCI на графиках",
+                    "updated": 1647357766639
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde CCI Sapması",
+                    "updated": 1647716738256
+                },
+                {
+                    "language": "DE",
+                    "text": "CCI Divergenz in den Charts",
+                    "updated": 1673040260160
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового движения и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового движения, он просто проверяет, согласны или не согласны цена и моментум.",
+                    "updated": 1647357798674
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647716758974
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Preis mit dem Preis vergleichen zu müssen. Das Momentum ist eine Untersuchung zur Stärke der Kursbewegung, bei der geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673470939200
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться несколько различных моделей.",
+                    "updated": 1647357814712
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647716768294
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen dem Indikator und dem Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673039435403
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Understanding momentum - (investopedia)->www.investopedia.com/trading/trading-divergence-and-understanding-momentum/#toc-momentum-divergence"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
+                    "updated": 1647357825064
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647716782471
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1673039470236
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычий (сплошная зеленая линия): индикатор моментума формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
+                    "updated": 1647357879416
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647716791815
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator markiert ein höheres Tief, während die Preisbewegung ein niedrigeres Tief hat.",
+                    "updated": 1673039525515
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежий (сплошная красная линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
+                    "updated": 1647357862680
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647716801769
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673039548906
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое бычье продолжение (пунктирная зеленая линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
+                    "updated": 1647357895833
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647716809998
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673039601483
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое медвежье продолжение (пунктирная красная линия): индикатор моментума формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
+                    "updated": 1647357910919
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647716866478
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish Continuation (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673039625535
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-CCI-1.png"
+        },
+        {
+            "style": "Text",
+            "text": "Above: a bullish divergence (leftmost, green), a red bearish divergence (centre, red), and a bullish (green) divergence.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выше: бычья дивергенция (крайняя слева, зеленая), медвежья дивергенция (в центре, красная) и бычья (зеленая) дивергенция.",
+                    "updated": 1661276219991
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: bir yükseliş sapma (en soldaki, yeşil), bir kırmızı düşüş sapma (ortada, kırmızı) ve bir yükseliş (yeşil) sapma.",
+                    "updated": 1647716878439
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: eine bullish divergence (ganz links, grün), eine red bearish divergence (Mitte, rot) und eine bullish (grüne) divergenz.",
+                    "updated": 1673039674450
+                }
+            ],
+            "updated": 1652685465913
+        },
+        {
+            "style": "Text",
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’CCI Divergence’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длина искателя дивергенции, длина раз��орота, а также порог для сильных и слабых дивергенций могут быть изменены путем нахождения и открытия Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'CCI Divergence' Procedure Loop.",
+                    "updated": 1647357943577
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma bulucunun uzunluğu, pivot uzunluğu, ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'CCI Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647716892931
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenz-Finder, die Pivot-Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter ´CCI Divergence´ Procedure Loop suchen und öffnen.",
+                    "updated": 1673041839320
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
+        },
+        {
+            "style": "Note",
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
+                    "updated": 1647357954986
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesininde o kadar uzun olacağını unutmayın.",
+                    "updated": 1647716908050
+                },
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Je länger der Pivot ist, desto größer ist die Genauigkeit, aber desto länger ist auch die Verzögerung bei der Bestätigung des Pivot-Hochs/Tiefs.",
+                    "updated": 1673039847256
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’CCI Divergence’ Procedure Initialization.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Верхний и нижний срез для определения дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'CCI Divergence' Procedure Initialization.",
+                    "updated": 1647357981137
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> “CCI Divergence” Prosedür Başlatma altında ( Procedure Initialization ) bulunup açılmasıyla değiştirilebilir.",
+                    "updated": 1647716919985
+                },
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Erfassung der Divergenz kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ´CCI Divergence´ Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673040131701
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-2.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the CCI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’CCI14’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину CCI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'CCI14' Procedure Loop.",
+                    "updated": 1647357991234
+                },
+                {
+                    "language": "TR",
+                    "text": "CCI'nin uzunluğu, 'CCI14' Prosedür Döngüsü altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
+                    "updated": 1647716932187
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des CCI kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ´CCI14´ Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673040187431
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1647357997536
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün ve Özellikler",
+                    "updated": 1647716941473
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1673040283733
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1647358005773
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişmek mümkündür:",
+                    "updated": 1647716948554
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Möglichkeiten stehen zur Auswahl:",
+                    "updated": 1673040385388
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| CciDiv | cciDiv | status, strength, divPerc |",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "|  Ürün Adı | Ürün Değişkeni | Özellikler |\n| CCI-Div | cciDiv | durum, güç, divPerc |",
+                    "updated": 1647716999522
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| CciDiv | cciDiv | status, strength, divPerc |",
+                    "updated": 1673040428409
+                }
+            ],
+            "updated": 1667785800257
+        },
+        {
+            "style": "List",
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "status: возвращает строку со следующими возможными значениями: бычий (\"bullish\"), медвежий (\"bearish\"), бычье продолжение (\"bull continuation\"), медвежье продолжение (\"bear continuation\").",
+                    "updated": 1647358401901
+                },
+                {
+                    "language": "TR",
+                    "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647717010207
+                },
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten aus: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673040464885
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "strength: возвращает строку со следующими возможными значениями: слабый (\"weak\"), средний (\"medium\"), сильный (\"strong\").",
+                    "updated": 1647358073192
+                },
+                {
+                    "language": "TR",
+                    "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647717018605
+                },
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten aus: schwach, mittel, stark",
+                    "updated": 1673040482448
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
+                    "updated": 1647358088216
+                },
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647717026605
+                },
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl aus, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673040501934
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1647358095129
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647717035826
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673040515314
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.cciDiv.status == \"bullish\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.cciDiv.strength == \"strong\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.cciDiv.divPerc > 20"
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, find a suitable CCI value to enter the trade after the divergence is found, for example, CCI > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы повысить уверенность подтверждения, найдите подходящее значение CCI для входа в сделку после обнаружения дивергенции, например, CCI > 50 после обнаружения бычьей дивергенции.",
+                    "updated": 1647358105784
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek için uygun bir CCI değeri bulun, örneğin bir yükseliş tespitinden sonra CCI > 50.",
+                    "updated": 1647717048606
+                },
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten RSI-Wert finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673042493304
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673041169614
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Это способ ссылаться на все типы наборов данных Dataset Types, которые содержат файлы для каждого Time Frame, от 1 минуты до 24 часов.",
                 "updated": 1638285931082
+            },
+            {
+                "language": "TR",
+                "text": "Bu, 1 dakikadan 24 saate kadar her bir Zaman Dilimi ( Time Frame ) için dosya içeren tüm Veri Kümesi ( Dataset ) Türlerine başvurmanın bir yoludur.\n\n",
+                "updated": 1666713074212
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist eine Möglichkeit, auf alle Datensatztypen (Dataset -Type) zu verweisen, die Dateien für jeden Zeitrahmen (Time Frame) enthalten, von 1 Minute bis zu 24 Stunden.",
+                "updated": 1684512129091
             }
         ]
     },

@@ -1,0 +1,150 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 10,
+    "type": "Double Super Trend",
+    "definition": {
+        "text": "Identifies market trends comparing two different Supertrend",
+        "updated": 1659619576462,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Identifiziert Markttrends und vergleicht zwei verschiedene Supertrend",
+                "updated": 1671264734835
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Double Super Trend",
+            "updated": 1659619717015
+        },
+        {
+            "style": "Text",
+            "text": "Double Supertrend makes use of two classic Supertrend indicator. Explanation of what is a Supertrend indicator can be found under Zeus - Supertrend Indicator.",
+            "updated": 1659619972486,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Double Supertrend nutzt zwei klassische Supertrend Indikatoren. Eine Erklärung, was ein Supertrend Indikator ist, finden Sie unter Zeus  Supertrend Indikator.",
+                    "updated": 1671264846059
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Users can set up two different Supertrend using different parameters both for lenght and for factor. Usually the cross between two Supertrends can be used to signal and entry/exit from the market.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutzer können zwei verschiedene Supertrends mit unterschiedlichen Parametern für Länge und Faktor einrichten. Normalerweise kann die Kreuzung zwischen zwei Supertrends als Signal für den Einstieg oder Ausstieg aus dem Markt verwendet werden.",
+                    "updated": 1671264874260
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/double-supertrend.png",
+            "updated": 1659620040108
+        },
+        {
+            "style": "Subtitle",
+            "text": "Double Super Trend Products & Properties",
+            "updated": 1659620172698,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Double Super Trend Produkte & Eigenschaften",
+                    "updated": 1671264914498
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are ten properties available, five for the first Supertrend and five for the secon one.",
+            "updated": 1659620414324,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es stehen zehn Eigenschaften zur Verfügung, fünf für den ersten und fünf für den zweiten Supertrend.",
+                    "updated": 1671264979570
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "trendFirst, uptrendFirst, downtrendFirst, atrNPeriodFirst, trueRangeFirst",
+            "updated": 1659620788568
+        },
+        {
+            "style": "Text",
+            "text": "trendSecond, uptrendSecond, downtrendSecond, atrNPeriodSecond, trueRangeSecond",
+            "updated": 1659620837344
+        },
+        {
+            "style": "Text",
+            "text": "Standard output for the trend property is:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Standardausgabe für die Trendeigenschaft lautet:",
+                    "updated": 1671265044844
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Trend value is 1 if in an uptrend and -1 if in a downtrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Trendwert ist 1, wenn es sich um einen Aufwärtstrend handelt, und -1, wenn es sich um einen Abwärtstrend handelt.",
+                    "updated": 1671265054105
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671265062198
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Basic strategies can be built using the value of the trend or checking for crosses between the two Supertrends:",
+            "updated": 1659620955763,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Strategien können unter Verwendung des Trendwerts oder der Überprüfung auf Kreuzungen zwischen den beiden Supertrends erstellt werden:",
+                    "updated": 1671265073575
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "chart.at03min.doubleSuperTrend.trendFirst =='1'",
+            "updated": 1659620976362
+        },
+        {
+            "style": "Text",
+            "text": "chart.at03min.doubleSuperTrend.trendSecond =='1'"
+        },
+        {
+            "style": "Text",
+            "text": "An uptrend market is identified.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Markt mit Aufwärtstrend wird identifiziert.",
+                    "updated": 1671265101731
+                }
+            ]
+        }
+    ]
+}

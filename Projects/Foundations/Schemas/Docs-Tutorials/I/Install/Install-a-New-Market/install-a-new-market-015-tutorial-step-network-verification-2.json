@@ -18,6 +18,21 @@
                 "language": "DE",
                 "text": "Vergewissern Sie sich, dass die Testing Trading Tasks für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636468598028
+            },
+            {
+                "language": "TR",
+                "text": "İlgili borsa ( Market ) için Test Alım Satım Görevlerinin ( Testing Trading Tasks ) başarıyla oluşturulduğunu doğrulayın.",
+                "updated": 1642152834137
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что задачи Testing Trading Tasks для соответствующего Market были успешно созданы.",
+                "updated": 1643090869900
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Testing Trading Tasks taken voor de overeenkomstige Market met succes zijn aangemaakt.",
+                "updated": 1676125743562
             }
         ]
     },
@@ -35,6 +50,21 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636468630701
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki veri yapılarını bulun:",
+                    "updated": 1642152888661
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1643090877252
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676125760130
                 }
             ]
         },
@@ -51,6 +81,21 @@
                     "language": "DE",
                     "text": "Ein Market Trading Tasks Knoten für den neuen Markt.",
                     "updated": 1636468840153
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni borsa için bir Borsa Ticaret Görevleri düğümü ( Market Trading Tasks ).",
+                    "updated": 1642152952162
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Market Trading Tasks для нового рынка.",
+                    "updated": 1643090888797
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt voor Market Trading Tasks voor de nieuwe markt.",
+                    "updated": 1676125788194
                 }
             ]
         },
@@ -67,6 +112,21 @@
                     "language": "DE",
                     "text": "Ein Knoten Trading Mine Tasks für jede im Workspace enthaltene Handelsmine.",
                     "updated": 1636468853305
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanına ( Workspace ) dahil olan her ticari maden için bir Ticaret Madeni Görevleri ( Trading Mine Tasks ) düğümü.",
+                    "updated": 1642153013004
+                },
+                {
+                    "language": "RU",
+                    "text": "Один узел Trading Mine Tasks для каждого Trading Mine, включенного в рабочее пространство (Workspace).",
+                    "updated": 1643090971005
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Trading Mine Tasks knooppunt voor elke handelsmijn in de Workspace.",
+                    "updated": 1676125822274
                 }
             ]
         },
@@ -83,6 +143,21 @@
                     "language": "DE",
                     "text": "Ein Task Manager pro Handelsmine und ein Task mit einer Backtesting Session für jedes Trading System im Arbeitsbereich.",
                     "updated": 1636468875339
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticari maden başına bir Görev Yöneticisi ( Task Manager ) ve çalışma alanındaki her Ticaret Sistemi ( Trading System ) için Geriye Dönük Test ( Backtesting Session ) Oturumu içeren bir Görev ( Task ).",
+                    "updated": 1642153132487
+                },
+                {
+                    "language": "RU",
+                    "text": "Один Task Manager (Менеджер задач) на Trading Mine и одна задача (Task) с сессией бэктестинга (Backtesting Session) для каждой торговой системы в рабочем пространстве.",
+                    "updated": 1643091057906
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Task Manager per handelsmijn en één Task met een Backtesting Session voor elk Trading System in de werkruimte.",
+                    "updated": 1676125877420
                 }
             ]
         }

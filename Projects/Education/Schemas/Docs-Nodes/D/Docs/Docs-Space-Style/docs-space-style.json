@@ -1,27 +1,48 @@
 {
     "type": "Docs Space Style",
     "definition": {
-        "text": "This node is currently a place holder that will eventually allow users to adjust the visual appearance of the docs space.",
-        "updated": 1631589004055,
+        "text": "Trough this Node you can adjust your UI through changing the Backround color or font size as well as font color.",
+        "updated": 1642631429639,
         "translations": [
             {
                 "language": "RU",
-                "text": "Этот узел в настоящее время является заполнителем, который в конечном итоге позволит пользователям настраивать внешний вид пространства документов.",
-                "updated": 1638532516073
+                "text": "С помощью этого узла вы можете настроить свой пользовательский интерфейс, изменив цвет фона или размер шрифта, а также цвет шрифта. ",
+                "updated": 1647781458275
+            },
+            {
+                "language": "TR",
+                "text": "Bu Düğüm aracılığıyla, Arka Plan rengini veya yazı tipi boyutunu ve yazı tipi rengini değiştirerek UI'nizi ayarlayabilirsiniz.",
+                "updated": 1652014236549
+            },
+            {
+                "language": "DE",
+                "text": "Über diesen Node können Sie Ihre UI  anpassen, indem Sie die Hintergrundfarbe oder die Schriftgröße sowie die Schriftfarbe ändern.",
+                "updated": 1674917375851
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode.",
+            "text": "There exists an explicit article about what colors can be added.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Щелкните правой кнопкой мыши и выберите кнопку карандаша, чтобы войти в режим редактирования.",
-                    "updated": 1638532527365
+                    "text": "Существует отдельная статья о том, какие цвета можно добавлять.",
+                    "updated": 1647781484535
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi renklerin eklenebileceği hakkında açık bir makale var.",
+                    "updated": 1652014248357
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einen ausdrücklichen Artikel darüber, welche Farben hinzugefügt werden können.",
+                    "updated": 1674917489390
                 }
-            ]
+            ],
+            "updated": 1642631433302
         }
     ]
 }

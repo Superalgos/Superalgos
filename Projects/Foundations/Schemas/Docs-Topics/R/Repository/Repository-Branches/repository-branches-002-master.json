@@ -4,13 +4,47 @@
     "type": "Master",
     "definition": {
         "text": "The Master branch is where the stable code or current version is located at. This is the branch where the software is installed from by default. ",
-        "updated": 1622467520315
+        "updated": 1622467520315,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ветка Master - это ветка, в которой находится стабильный код или текущая версия. Это ветка, из которой программное обеспечение устанавливается по умолчанию.",
+                "updated": 1640353048759
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ana dal, kararlı kodun veya geçerli sürümün bulunduğu yerdir. Bu, yazılımın varsayılan olarak yüklendiği daldır.",
+                "updated": 1650621916265
+            },
+            {
+                "language": "DE",
+                "text": "Der Master-Zweig ist der Ort, an dem sich der stabile Code oder die aktuelle Version befindet. Dies ist der Zweig, aus dem die Software standardmäßig installiert wird. ",
+                "updated": 1689530273554
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Users of Superalgos running the stable version at Master discuss several topics here:",
-            "updated": 1622468372179
+            "updated": 1622468372179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи Superalgos, работающие со стабильной версией на Master, обсуждают здесь несколько тем:",
+                    "updated": 1640353065387
+                },
+                {
+                    "language": "TR",
+                    "text": "Master'da kararlı sürümü çalıştıran Superalgos kullanıcıları burada çeşitli konuları tartışıyor:",
+                    "updated": 1650621942651
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzer von Superalgos, die die stabile Version bei Master einsetzen, diskutieren hier verschiedene Themen: ",
+                    "updated": 1689530332508
+                }
+            ]
         },
         {
             "style": "Link",
@@ -19,7 +53,24 @@
         },
         {
             "style": "Text",
-            "text": "When they have issues with the stable version at Master, they ask for help here:"
+            "text": "When they have issues with the stable version at Master, they ask for help here:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда у них возникают проблемы со стабильной версией в Master, они обращаются за помощью сюда:",
+                    "updated": 1640353080781
+                },
+                {
+                    "language": "TR",
+                    "text": "Master'da kararlı sürümle ilgili sorunları olduğunda buradan yardım istiyorlar:",
+                    "updated": 1650621956764
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sie Probleme mit der stabilen Version bei Master haben, bitten sie hier um Hilfe: ",
+                    "updated": 1689530347048
+                }
+            ]
         },
         {
             "style": "Link",

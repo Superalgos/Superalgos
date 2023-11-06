@@ -1,0 +1,50 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 8,
+    "type": "Keeping the Bots of Provider and Recipient in Sync",
+    "definition": {
+        "text": "Keeping the bots of provider and recipient on the same candle is vital for trading signals to actually be useful.",
+        "updated": 1642565498959,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Удержание ботов поставщика и получателя на одной свече является жизненно важным для того, чтобы торговые сигналы были действительно полезными.",
+                "updated": 1645625995459
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sağlayıcı ve alıcı botlarını aynı mum üzerinde tutmak, alım satım sinyallerinin gerçekten faydalı olması için hayati önem taşır.",
+                "updated": 1646299451181
+            },
+            {
+                "language": "DE",
+                "text": "Damit Handelssignale tatsächlich nützlich sind, müssen die Bots des Anbieters und des Empfängers auf derselben Kerze stehen.",
+                "updated": 1674677452549
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "One unique and important use of the Signal nodes happens right at the top layer of the Trading System hierarchy.  The top layer Trading System node can accept either an Outgoing or Incoming Signal node.  These nodes have a vital role in synchronizing the trading bots of the provider and the recipient.  They communicate the candle on which the current signal belongs.  This allows the recipient’s bots to identify the exact same candle and stay in sync with the provider’s bots.  This is achieved by connecting a reference from the Signal Reference node to the Trading System Signal node held under the Social Trading Bot of the provider.",
+            "updated": 1642565435192,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одно уникальное и важное использование узлов сигналов происходит на верхнем уровне иерархии Trading System. Верхний уровень узла Trading System может принимать либо исходящий, либо входящий сигнальный узел. Эти узлы играют важную роль в синхронизации торговых ботов поставщика и получателя. Они сообщают свечу, на которой находится текущий сигнал. Это позволяет ботам получателя идентифицировать точно такую же свечу и оставаться в синхронизации с ботами поставщика. Это достигается путем соединения ссылки из узла Signal Reference с узлом Trading System Signal, находящимся в Social Trading Bot провайдера.",
+                    "updated": 1645626099348
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyal düğümlerinin benzersiz ve önemli bir kullanımı, Ticaret Sistemi ( Trading System ) hiyerarşisinin en üst katmanında gerçekleşir. Üst katman Ticaret Sistemi düğümü, Giden veya Gelen Sinyal düğümünü kabul edebilir. Bu düğümler, sağlayıcı ve alıcının ticaret botlarını senkronize etmede hayati bir role sahiptir. Mevcut sinyalin ait olduğu mumu iletirler. Bu, alıcının botlarının tam olarak aynı mumu tanımlamasına ve sağlayıcının botlarıyla senkronize kalmasına olanak tanır. Bu, Sinyal Referans düğümünden sağlayıcının Sosyal Ticaret Botu ( Social Trading Bot ) altında tutulan Ticaret Sistemi Sinyal ( Trading System Signal ) düğümüne bir referans bağlanarak elde edilir.",
+                    "updated": 1646299593480
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einzigartige und wichtige Verwendung der Signalknoten findet direkt auf der obersten Ebene der Handelssystem (Trading System) -Hierarchie statt. Der Handelssystem (Trading System) -Knoten der obersten Ebene kann entweder einen ausgehenden oder einen eingehenden Signalknoten akzeptieren. Diese Knoten spielen eine wichtige Rolle bei der Synchronisierung der Handelsbots des Anbieters und des Empfängers. Sie übermitteln die Kerze, zu der das aktuelle Signal gehört. Dadurch können die Bots des Empfängers genau dieselbe Kerze identifizieren und mit den Bots des Anbieters synchronisiert werden. Dies wird erreicht, indem eine Referenz vom Signalreferenzknoten mit dem Handelssystemsignal (Trading System Signal) -Knoten verbunden wird, der sich unter dem (Sozialen-Handels-Bot) Social Trading Bot des Anbieters befindet.",
+                    "updated": 1674756437556
+                }
+            ]
+        }
+    ]
+}

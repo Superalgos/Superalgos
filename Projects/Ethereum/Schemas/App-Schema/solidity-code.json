@@ -5,6 +5,7 @@
             "action": "Edit",
             "actionFunction": "uiObject.codeEditor.activate",
             "label": "Edit",
+            "translationKey": "general.edit",
             "iconPathOn": "ethereum",
             "iconPathOff": "ethereum"
         },
@@ -13,7 +14,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

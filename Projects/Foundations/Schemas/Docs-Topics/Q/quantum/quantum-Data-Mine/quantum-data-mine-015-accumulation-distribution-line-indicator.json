@@ -1,0 +1,170 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 15,
+    "type": "Accumulation Distribution Line Indicator",
+    "definition": {
+        "text": "The Accumulation Distribution Line was created by Marc Chaikin to determine the flow of money into or out of a security.",
+        "updated": 1651227770438,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Accumulation Distribution Line wurde von Marc Chaikin entwickelt, um den Geldfluss in oder aus einem Wertpapier zu bestimmen.",
+                "updated": 1671641604111
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Accumulation Distribution Line the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Accumulation Distribution Line die Charts",
+                    "updated": 1671641648467
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, the Accumulation Distribution Line is a cumulative indicator that uses volume and price to assess whether a stock is being accumulated or distributed. The A/D measure seeks to identify divergences between the stock price and the volume flow.",
+            "updated": 1651227684422,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia ist die Akkumulations Distributions Linie ein kumulativer Indikator, der anhand des Volumens und des Preises beurteilt, ob ein Bestand akkumuliert oder verteilt wird. Das A/D-Maß versucht, Divergenzen zwischen dem Börsenpreis und dem Volumenstrom zu erkennen.",
+                    "updated": 1671641779781
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671641811299
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Gauges supply and demand of an asset or security by looking at where the price closed within the period's range and then multiplying that by volume.",
+            "updated": 1651227691615,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Misst Angebot und Nachfrage eines Vermögenswerts oder Wertpapiers, indem er die Schlusskurse innerhalb der Spanne des Zeitraums betrachtet und diese mit dem Volumen multipliziert.",
+                    "updated": 1671641880970
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Is cumulative, meaning one period's value is added or subtracted from the last.",
+            "updated": 1651227697577,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ist kumulativ, d. h. der Wert einer Periode wird zur letzten addiert oder subtrahiert.",
+                    "updated": 1671641897798
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A rising A/D line helps confirm a rising price trend, while a falling A/D line helps confirm a price downtrend.",
+            "updated": 1651227706848,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine steigende A/D-Linie bestätigt einen steigenden Preistrend, während eine fallende A/D-Linie einen fallenden Preistrend bestätigt.",
+                    "updated": 1671641916631
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Accumulation Distribution (investopedia)->www.investopedia.com/terms/a/accumulationdistribution.asp"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator also includes a smoothed signal line to help identify potential trend changes. The value and signal are then combined to show the overall trend when viewing on the charts.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator enthält auch eine geglättete Signallinie, die hilft, potenzielle Trendänderungen zu erkennen. Der Wert und das Signal werden dann kombiniert, um den Gesamttrend bei der Betrachtung auf den Charts anzuzeigen.",
+                    "updated": 1671641948672
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-adl-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Accumulation Distribution Line can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"ADL\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der Akkumulationsverteilungslinie können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"ADL\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671642005523
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-adl-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Accumulation Distribution Line Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Accumulation Distribution Line Produkte & Eigenschaften",
+                    "updated": 1671642037820
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| ADL | adl | value, signal |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| ADL | adl | value, signal |",
+                    "updated": 1671642054591
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671642071729
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the value crosses the signal line upwards:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der Wert die Signallinie nach oben kreuzt:",
+                    "updated": 1671642090291
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.adl.value > chart.at15min.adl.signal"
+        }
+    ]
+}

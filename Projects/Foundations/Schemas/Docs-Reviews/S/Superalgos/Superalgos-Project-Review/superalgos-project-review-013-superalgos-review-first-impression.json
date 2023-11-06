@@ -4,34 +4,153 @@
     "type": "Superalgos Review - First Impression",
     "definition": {
         "text": "WOW! I like what I see!",
-        "updated": 1621290234633
+        "updated": 1621290234633,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "ОГО! Мне нравится то, что я вижу!",
+                "updated": 1640412573255
+            },
+            {
+                "language": "TR",
+                "text": "VAY CANINA! Gördüğüm şey hoşuma gitti!",
+                "updated": 1669195422580
+            },
+            {
+                "language": "DE",
+                "text": "WOW! Ich mag, was ich sehe!",
+                "updated": 1686338739304
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "My first impression is just: WOW!",
-            "updated": 1621372762668
+            "updated": 1621372762668,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мое первое впечатление просто: ОГО!",
+                    "updated": 1640412599527
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk izlenimim sadece: VAY CANINA!",
+                    "updated": 1669195444491
+                },
+                {
+                    "language": "DE",
+                    "text": "Mein erster Eindruck ist einfach: WOW!",
+                    "updated": 1686338759623
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Someone really wanted to develop something completely unique."
+            "text": "Someone really wanted to develop something completely unique.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кто-то действительно хотел разработать нечто совершенно уникальное.",
+                    "updated": 1640412612442
+                },
+                {
+                    "language": "TR",
+                    "text": "Birisi gerçekten tamamen benzersiz bir şey geliştirmek istemiş.",
+                    "updated": 1669195465187
+                },
+                {
+                    "language": "DE",
+                    "text": "Jemand wollte wirklich etwas völlig Einzigartiges entwickeln.",
+                    "updated": 1686338794233
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Impressive Tutorials: They must have been a ton of work."
+            "text": "Impressive Tutorials: They must have been a ton of work.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Впечатляющие учебники: Наверное, над ними пришлось изрядно потрудиться.",
+                    "updated": 1640412634273
+                },
+                {
+                    "language": "TR",
+                    "text": "Etkileyici Öğreticiler: Bir ton iş yapmış olmalılar.",
+                    "updated": 1669195481203
+                },
+                {
+                    "language": "DE",
+                    "text": "Beeindruckende Tutorials: Das muss eine Menge Arbeit gewesen sein.",
+                    "updated": 1686338805094
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Playfull User Interface: I can see the interest to bring gamification to trading"
+            "text": "Playfull User Interface: I can see the interest to bring gamification to trading",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Игровой пользовательский интерфейс: Я вижу интерес к привнесению игровых технологий в торговлю",
+                    "updated": 1640412661828
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğlenceli Kullanıcı Arayüzü: Ticarete oyunlaştırma getirmeye olan ilgiyi görebiliyorum",
+                    "updated": 1669195511854
+                },
+                {
+                    "language": "DE",
+                    "text": "Spielerische Benutzeroberfläche: Ich sehe das Interesse daran, den Handel spielerisch zu gestalten",
+                    "updated": 1686338815410
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "I am basically a visual person and therefore hope that the great visiualization of the bots trading actions will help me to develop working and profitable trading strategies. Because till now I am a more or less novice to trading and the crypto world.",
-            "updated": 1621290581690
+            "updated": 1621290581690,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я в основном визуальный человек и поэтому надеюсь, что большая визуализация торговых действий бота поможет мне разработать рабочие и прибыльные торговые стратегии. Потому что до сих пор я являюсь начинающим трейдером и новичком в мире криптовалют.",
+                    "updated": 1640412704569
+                },
+                {
+                    "language": "TR",
+                    "text": "Ben temelde görsel bir insanım ve bu nedenle botların ticaret eylemlerini mükemmel bir şekilde görselleştirmesinin, çalışan ve karlı ticaret stratejileri geliştirmeme yardımcı olacağını umuyorum. Çünkü şimdiye kadar ticaret ve kripto dünyasında aşağı yukarı bir acemiyim.",
+                    "updated": 1669195558700
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich bin grundsätzlich ein visueller Mensch und hoffe daher, dass die großartige Visualisierung der Handelsaktionen des Bots mir helfen wird, funktionierende und profitable Handelsstrategien zu entwickeln. Denn bis jetzt bin ich ein mehr oder weniger Neuling im Handel und in der Kryptowelt.",
+                    "updated": 1686338824648
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I will stay tuned."
+            "text": "I will stay tuned.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я буду следить за развитием событий.",
+                    "updated": 1640412714606
+                },
+                {
+                    "language": "TR",
+                    "text": "Takipte kalacağım.",
+                    "updated": 1669195576057
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde dranbleiben.",
+                    "updated": 1686338833992
+                }
+            ]
         },
         {
             "style": "Text",

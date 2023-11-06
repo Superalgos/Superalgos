@@ -1,0 +1,160 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": 11,
+    "type": "Ultimate Oscillator",
+    "definition": {
+        "text": "The Ultimate Oscillator indicator was developed by Larry Williams in 1976 to measure the price momentum of an asset across multiple timeframes.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Ultimate Oszillator-Indikator wurde 1976 von Larry Williams entwickelt, um die Preisdynamik eines Vermögenswerts über mehrere Zeitrahmen hinweg zu messen.",
+                "updated": 1673555995507
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Ultimate Oscillator On the Charts",
+            "updated": 1649651083474,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ultimate Oszillator in den Charts",
+                    "updated": 1673556265262
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: By using the weighted average of three different timeframes the indicator has less volatility and fewer trade signals compared to other oscillators that rely on a single timeframe. Buy and sell signals are generated following divergences. The Ultimate Oscillator generates fewer divergence signals than other oscillators due to its multi-timeframe construction.",
+            "updated": 1649650986196,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Durch die Verwendung des gewichteten Durchschnitts von drei verschiedenen Zeitrahmen hat der Indikator eine geringere Volatilität und weniger Handelssignale als andere Oszillatoren, die sich auf einen einzigen Zeitrahmen stützen. Kauf- und Verkaufssignale werden nach Divergenzen generiert. Der Ultimate Oszillator erzeugt aufgrund seiner Konstruktion mit mehreren Zeitrahmen weniger Divergenzsignale als andere Oszillatoren.",
+                    "updated": 1673556449996
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die wichtigsten Begriffe:",
+                    "updated": 1673557141413
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The indicator uses three timeframes in its calculation; 7, 14, and 28 periods. The shorter timeframe has the most weight in the calculation, while the longer timeframe has the least weight.",
+            "updated": 1649651009818,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Indikator verwendet bei seiner Berechnung drei Zeitrahmen 7, 14 und 28 Perioden. Der kürzere Zeitrahmen hat den größten Anteil bei der Berechnung, während der längere Zeitrahmen den geringsten Anteil hat.",
+                    "updated": 1673556999952
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Buy signals occur when there is bullish divergence, the divergence low is below 30 on the indicator, and the oscillator then rises above the divergence high.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kaufsignale treten auf, wenn eine bulish Divergenz vorliegt, das Divergenztief unter 30 des Indikators liegt und der Oszillator anschließend über das Divergenzhoch ansteigt.",
+                    "updated": 1673556797062
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A sell signal occurs when there is bearish divergence, the divergence high is above 70, and the oscillator then falls below the divergence low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Verkaufssignal entsteht, wenn eine bearish Divergenz vorliegt, das Divergenzhoch über 70 liegt und der Oszillator anschließend unter das Divergenztief fällt.",
+                    "updated": 1673557041161
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Ultimate Oscillator(investopedia)->www.investopedia.com/terms/u/ultimateoscillator.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-UltimateOscillator-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Ultimate Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Ultimate Oscillator\" Product Definition.",
+            "updated": 1649651029261,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Ultimate Oszillators können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Ultimate Oscillator\" Product Definition suchen und öffnen.",
+                    "updated": 1673557308069
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-UltimateOscillator-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Ultimate Oscillator Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ultimate Oszillator Produkte & Eigenschaften",
+                    "updated": 1673557337252
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| UltimateOsc | UO | value |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| UltimateOsc | UO | value |",
+                    "updated": 1673557389873
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673557400082
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the oscillator rises above the zero line:",
+            "updated": 1648533587629,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn der Oszillator über die Nulllinie ansteigt:",
+                    "updated": 1673557453813
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.UO.value > 0 && chart.at01hs.UO.previous.value < 0",
+            "updated": 1648533639988
+        }
+    ]
+}

@@ -4,63 +4,301 @@
     "type": "CoinGecko API Mine",
     "definition": {
         "text": "This data mine processes data fetched from the CoinGecko API Map.",
-        "updated": 1622689326578
+        "updated": 1622689326578,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu veri madeni, CoinGecko API Haritasından ( CoinGecko API Map ) alınan verileri işler.",
+                "updated": 1644592339501
+            },
+            {
+                "language": "RU",
+                "text": "Этот сервис обрабатывает данные, полученные из API-карты CoinGecko.",
+                "updated": 1645607307253
+            },
+            {
+                "language": "DE",
+                "text": "Diese Data Mine verarbeitet Daten, die von der CoinGecko API Map geholt werden.\n",
+                "updated": 1681763750827
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "There are currently not plotters for this mine. This means that there are currently no visual representations of this data for the charts. However, all data is processed into Multi-Time-Frame-Daily and Multi-Time-Frame-Market data types making it ready to be used by other SA bots.",
-            "updated": 1622689830172
+            "updated": 1622689830172,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Şu anda bu maden için çizici yok. Bu, şu anda grafikler için bu verilerin görsel temsillerinin olmadığı anlamına gelir. Ancak, tüm veriler Multi-Time-Frame-Daily ve Multi-Time-Frame-Market veri türlerinde işlenerek diğer SA botları tarafından kullanılmaya hazır hale getirilir.",
+                    "updated": 1644592390152
+                },
+                {
+                    "language": "RU",
+                    "text": "В настоящее время для этого источника данных нет плоттеров. Это означает, что в настоящее время нет визуальных представлений этих данных для графиков. Однако все данные обрабатываются в типы данных Multi-Time-Frame-Daily и Multi-Time-Frame-Market, что делает их готовыми к использованию другими ботами SA.",
+                    "updated": 1645607352821
+                },
+                {
+                    "language": "DE",
+                    "text": "Für diese data mine gibt es derzeit keine Grafik. Dies bedeutet, dass es derzeit keine visuellen Darstellungen dieser Daten für die Charts gibt. Alle Daten werden jedoch in die Datentypen Multi-Time-Frame-Daily und Multi-Time-Frame-Market aufbereitet, so dass sie von anderen SA-Bots verwendet werden können.",
+                    "updated": 1681763767775
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Processed Values",
-            "updated": 1622689893560
+            "updated": 1622689893560,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlenen Değerler",
+                    "updated": 1644592417881
+                },
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения",
+                    "updated": 1645607362867
+                },
+                {
+                    "language": "DE",
+                    "text": "Verarbeitete Werte",
+                    "updated": 1681762693819
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "id: name of returned coin (string)."
+            "text": "id: name of returned coin (string).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "id: döndürülen paranın adı (dize).",
+                    "updated": 1644592498579
+                },
+                {
+                    "language": "RU",
+                    "text": "id: название возвращаемой монеты (строка).",
+                    "updated": 1645607371130
+                },
+                {
+                    "language": "DE",
+                    "text": "id: Name der zurückgegebenen Münze (String).",
+                    "updated": 1681762681347
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "market_cap_rank: Current ranking of coin based on its overall share of the crypto market cap (number)."
+            "text": "market_cap_rank: Current ranking of coin based on its overall share of the crypto market cap (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa değeri sıralaması(market_cap_rank): Kripto piyasa değeri (sayı) içindeki genel payına göre mevcut madeni para sıralaması.",
+                    "updated": 1644592583358
+                },
+                {
+                    "language": "RU",
+                    "text": "market_cap_rank: Текущий рейтинг монет на основе их общей доли в капитале рынка криптовалют (число).",
+                    "updated": 1645607380144
+                },
+                {
+                    "language": "DE",
+                    "text": "market_cap_rank: Aktueller Rang der Münze basierend auf ihrem Gesamtanteil an der Krypto-Marktkapitalisierung (Anzahl).",
+                    "updated": 1681762746813
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "sentiment_votes_up_percentage: Percentage of up votes for coin through CoinGecko platforms (number)."
+            "text": "sentiment_votes_up_percentage: Percentage of up votes for coin through CoinGecko platforms (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Duyarlılık oyu artış yüzdesi(sentiment_votes_up_percentage): CoinGecko platformları aracılığıyla madeni para için artan oy yüzdesi (sayı).",
+                    "updated": 1644666582578
+                },
+                {
+                    "language": "RU",
+                    "text": "sentiment_votes_up_percentage: Процент голосов \"за\" монету через платформы CoinGecko (количество).",
+                    "updated": 1645607388255
+                },
+                {
+                    "language": "DE",
+                    "text": "sentiment_votes_up_percentage: Aktueller Rang der Münze basierend auf ihrem Gesamtanteil an der Krypto-Marktkapitalisierung (Anzahl).",
+                    "updated": 1681762809440
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "sentiment_votes_down_percentage: Percentage of down votes for coin through CoinGecko platforms (number)."
+            "text": "sentiment_votes_down_percentage: Percentage of down votes for coin through CoinGecko platforms (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Duyarlılık oyu düşüş yüzdesi(sentiment_votes_down_percentage): CoinGecko platformları aracılığıyla madeni para için aşağı oy yüzdesi (sayı).",
+                    "updated": 1644666574665
+                },
+                {
+                    "language": "RU",
+                    "text": "sentiment_votes_down_percentage: Процент голосов \"за\" монету через платформы CoinGecko (число).",
+                    "updated": 1645607396936
+                },
+                {
+                    "language": "DE",
+                    "text": "sentiment_votes_down_percentage: Prozentsatz der Abwärtsstimmen für eine Münze über CoinGecko-Plattformen (Anzahl).",
+                    "updated": 1681762823432
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "block_time_in_minutes: Current time in minutes taken to mine the last block of coin (number)."
+            "text": "block_time_in_minutes: Current time in minutes taken to mine the last block of coin (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dakika cinsinden blok süresi(block_time_in_minutes): Son madeni para bloğunu (sayı) çıkarmak için alınan dakika cinsinden geçerli süre.",
+                    "updated": 1644666620720
+                },
+                {
+                    "language": "RU",
+                    "text": "block_time_in_minutes: Текущее время в минутах, затраченное на добычу последнего блока монет (число).",
+                    "updated": 1645607420782
+                },
+                {
+                    "language": "DE",
+                    "text": "block_time_in_minutes: Aktuelle Zeit in Minuten, die für das Mining des letzten Münzblocks (Zahl) benötigt wurde.",
+                    "updated": 1681762836583
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "coingecko_score: Overall trust score given to coin by the CoinGecko platform (number)."
+            "text": "coingecko_score: Overall trust score given to coin by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Coingecko puanı(coingecko_score): CoinGecko platformu tarafından madeni paraya verilen genel güven puanı (sayı).",
+                    "updated": 1644666658065
+                },
+                {
+                    "language": "RU",
+                    "text": "coingecko_score: Общий балл доверия, присвоенный монете платформой CoinGecko (число).",
+                    "updated": 1645607430840
+                },
+                {
+                    "language": "DE",
+                    "text": "coingecko_score: Gesamtvertrauenswürdigkeit der Münze durch die CoinGecko-Plattform (Zahl).",
+                    "updated": 1681762851065
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "CoinGecko score is an aggregated score combining liquidity, community, and developer scores.",
-            "updated": 1622846902289
+            "updated": 1622846902289,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: CoinGecko puanı, likidite, topluluk ve geliştirici puanlarını birleştiren toplam bir puandır.",
+                    "updated": 1644666677154
+                },
+                {
+                    "language": "RU",
+                    "text": "Оценка CoinGecko - это агрегированная оценка, объединяющая оценки ликвидности, сообщества и разработчиков.",
+                    "updated": 1645607457031
+                },
+                {
+                    "language": "DE",
+                    "text": "Der CoinGecko-Score ist ein aggregierter Score, der Liquidität, Community- und Entwickler-Scores kombiniert.",
+                    "updated": 1681762862320
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "liquidity_score: Liquidity health score given by the CoinGecko platform (number)."
+            "text": "liquidity_score: Liquidity health score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Likidite puanı(liquidity_score): CoinGecko platformu tarafından verilen likidite sağlık puanı (sayı).",
+                    "updated": 1644666755992
+                },
+                {
+                    "language": "RU",
+                    "text": "liquidity_score: Показатель ликвидности, выдаваемый платформой CoinGecko (число).",
+                    "updated": 1645607478944
+                },
+                {
+                    "language": "DE",
+                    "text": "liquidity_score: Von der CoinGecko-Plattform vergebener Liquiditätswert (Zahl).",
+                    "updated": 1681762876895
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "community_score: Community strength score given by the CoinGecko platform (number)."
+            "text": "community_score: Community strength score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Topluluk puanı(community_score): CoinGecko platformu tarafından verilen topluluk gücü puanı (sayı).",
+                    "updated": 1644666790715
+                },
+                {
+                    "language": "RU",
+                    "text": "community_score: Оценка силы сообщества, присвоенная платформой CoinGecko (число).",
+                    "updated": 1645607487927
+                },
+                {
+                    "language": "DE",
+                    "text": "community_score: Von der CoinGecko-Plattform vergebene Punktzahl für die Gemeinschaftsstärke (Zahl).",
+                    "updated": 1681762974415
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "developer_score: Developer strength score given by the CoinGecko platform (number)."
+            "text": "developer_score: Developer strength score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geliştirici puanı(developer_score): CoinGecko platformu tarafından verilen geliştirici gücü puanı (sayı).",
+                    "updated": 1644666822477
+                },
+                {
+                    "language": "RU",
+                    "text": "developer_score: Оценка силы разработчиков, присвоенная платформой CoinGecko (число).",
+                    "updated": 1645607496586
+                },
+                {
+                    "language": "DE",
+                    "text": "developer_score: Von der CoinGecko-Plattform vergebene Bewertung der Entwicklerstärke (Zahl).",
+                    "updated": 1681763031892
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "public_interest_score: Level of public interest score given by the CoinGecko platform (number)."
+            "text": "public_interest_score: Level of public interest score given by the CoinGecko platform (number).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kamu yararı puanı(public_interest_score): CoinGecko platformu tarafından verilen kamu yararı puanı seviyesi (sayı).",
+                    "updated": 1644666860903
+                },
+                {
+                    "language": "RU",
+                    "text": "public_interest_score: Оценка уровня общественного интереса, данная платформой CoinGecko (число).",
+                    "updated": 1645607504425
+                },
+                {
+                    "language": "DE",
+                    "text": "public_interest_score: Grad des öffentlichen Interesses, der von der CoinGecko-Plattform vergeben wird (Zahl).",
+                    "updated": 1681762956887
+                }
+            ]
         },
         {
             "style": "Text",

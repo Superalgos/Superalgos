@@ -1,6 +1,6 @@
 {
     "tutorial": "Defining a Trading Idea",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Defining a Trading Idea Tutorial",
     "definition": {
         "text": "This tutorial teaches you how to formulate a testable trading idea. In a way, it is an introduction to the systematic approach to trading, a crucial concept that you must grasp to automate strategies. The example laid out in this tutorial is later used in the rest of the series.",
@@ -8,13 +8,38 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este tutorial le enseña cómo formular una idea de trading testeable. En cierto modo, es una introducción al enfoque sistemático del trading, un concepto crucial que debe comprender para automatizar estrategias. El ejemplo presentado en este tutorial se utiliza más adelante en el resto de la serie.",
-                "updated": 1636725384415
+                "text": "Este tutorial te enseña cómo formular una idea de trading testeable. En cierto modo, es una introducción al enfoque sistemático del trading, un concepto crucial que debes comprender para automatizar estrategias. El ejemplo presentado en este tutorial se utiliza más adelante en el resto de la serie.",
+                "updated": 1675205000166
             },
             {
                 "language": "DE",
                 "text": "In diesem Lernprogramm lernen Sie, wie Sie eine überprüfbare Handelsidee formulieren können. Es ist gewissermaßen eine Einführung in den systematischen Ansatz beim Handel, ein entscheidendes Konzept, das Sie verstehen müssen, um Strategien zu automatisieren. Das Beispiel, das in diesem Tutorial vorgestellt wird, wird später im Rest der Serie verwendet.",
                 "updated": 1639251150861
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник научит вас формулировать проверяемую торговую идею. В некотором смысле это введение в систематический подход к торговле - важнейшую концепцию, которую необходимо усвоить для автоматизации стратегий. Пример, изложенный в этом уроке, в дальнейшем будет использоваться в остальных частях серии.",
+                "updated": 1640887454787
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
+                "updated": 1640858379007
+            },
+            {
+                "language": "IT",
+                "text": "Questo tutorial ti insegna come formulare un'idea di trading verificabile. In un certo senso, è un'introduzione all'approccio sistematico al trading, un concetto cruciale che devi cogliere per automatizzare le strategie. L'esempio illustrato in questo tutorial viene successivamente utilizzato nel resto della serie.",
+                "updated": 1669885201391
+            },
+            {
+                "language": "NL",
+                "text": "Deze tutorial leert je hoe je een testbaar handelsidee formuleert. In zekere zin is het een inleiding tot de systematische benadering van handelen, een cruciaal concept dat u moet begrijpen om strategieën te automatiseren. Het voorbeeld in deze zelfstudie wordt later in de rest van de serie gebruikt.",
+                "updated": 1670782970695
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini mengajarkan kamu cara memformulasikan ide trading yang dapat diuji. Di satu sisi, ini adalah pengantar pendekatan sistematis untuk trading, konsep penting yang harus kamu pahami untuk mengotomatiskan strategi. Contoh yang diberikan dalam tutorial ini nantinya akan digunakan di seri selanjutnya.",
+                "updated": 1674637821698
             }
         ]
     },
@@ -22,15 +47,69 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617115088230
+            "updated": 1617115088230,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640887463797
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654393934900,
+                    "style": "Title"
+                },
+                {
+                    "language": "IT",
+                    "text": "Riguardo questo tutorial",
+                    "updated": 1669885161053
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1674637834896
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620814456
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials Plugin Workspace."
+            "text": "Workspace: Trading System Design Tutorials Native Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Ticaret Sistemi Tasarımı Eğitimleri Eklenti Çalışma Alanı.",
+                    "updated": 1654393941299,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @julianmolina (Telegram).",
+                    "updated": 1654393947007,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @julianmolina (Telegram).",
+                    "updated": 1670782985914
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675620492493
+                }
+            ]
         }
     ]
 }

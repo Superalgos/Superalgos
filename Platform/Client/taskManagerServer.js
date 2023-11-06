@@ -3,7 +3,8 @@
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        newEventsServerClient: newEventsServerClient
     }
 
     /*
@@ -38,20 +39,20 @@
         eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, taskStatus)
 
         function runTask(message) {
-            //console.log('[INFO] Client -> Task Manager Server -> runTask -> Entering function.') 
+            //SA.logger.info('Client -> Task Manager Server -> runTask -> Entering function.') 
 
             if (message.event === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> runTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskDefinition === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> runTask -> Message Received Without taskDefinition -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> runTask -> Message Received Without taskDefinition -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
@@ -60,8 +61,8 @@
                 eventsServerClient.raiseEvent(key, 'Running') // Meaning Task Running
                 return
             }
-            //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Name = ' + message.event.taskName)
-            //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Id = ' + message.event.taskId) 
+            //SA.logger.info('Client -> Task Manager Server -> runTask -> Task Name = ' + message.event.taskName)
+            //SA.logger.info('Client -> Task Manager Server -> runTask -> Task Id = ' + message.event.taskId) 
 
             let path = global.env.BASE_PATH + '/TaskServerRoot.js'
 
@@ -72,6 +73,12 @@
                     process.execArgv[i] = ''
                 }
             }
+
+            const taskArgs = [message.event.taskId]
+            if(global.env.LOG_LEVEL !== undefined) {
+                taskArgs.push('logLevel=' + global.env.LOG_LEVEL)
+            }
+            
             /* 
             Forking this process: 
 
@@ -81,7 +88,7 @@
             emit an event that is ready, and at that point we will send all the information needed to run the task.
             */
             let task = {
-                childProcess: fork(path, [message.event.taskId], { stdio: 'inherit' }),
+                childProcess: fork(path, taskArgs, { stdio: 'inherit' }),
                 id: message.event.taskId,
                 name: message.event.taskName
             }
@@ -89,15 +96,15 @@
             tasksMap.set(message.event.taskId, task)
             /* If the Task Server crashes, we remove it from our task map */
             task.childProcess.on('error', (err) => {
-                console.log('[ERROR] Client -> Task Manager Server -> runTask -> Problem with Task Name = ' + task.name)
-                console.log('[ERROR] Client -> Task Manager Server -> runTask -> Problem with Task Id = ' + task.id)
-                console.log(`[ERROR] Client -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
+                SA.logger.error('Client -> Task Manager Server -> runTask -> Problem with Task Name = ' + task.name)
+                SA.logger.error('Client -> Task Manager Server -> runTask -> Problem with Task Id = ' + task.id)
+                SA.logger.error(`[ERROR] Client -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
                 tasksMap.delete(task.id)
             })
             /* If the Task Server stops, we remove it from our task map */
             task.childProcess.on('close', (code, signal) => {
-                //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
-                //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
+                //SA.logger.info('Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
+                //SA.logger.info('Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
                 tasksMap.delete(task.id)
             })
             /* 
@@ -112,24 +119,24 @@
             intra-process communications.
             */
             function sendStartingEvent() {
-                //console.log('[INFO] Client -> Task Manager Server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
+                //SA.logger.info('Client -> Task Manager Server -> runTask -> Emitting Event -> key = ' + 'Task Server - ' + task.id)
                 eventsServerClient.raiseEvent('Task Server - ' + task.id, 'Run Task', message.event)
             }
         }
 
         function stopTask(message) {
-            //console.log('[INFO] Client -> Task Manager Server -> stopTask -> Entering function.')
+            //SA.logger.info('Client -> Task Manager Server -> stopTask -> Entering function.')
             if (message.event === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> stopTask -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> stopTask -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
-            //console.log('[INFO] Client -> Task Manager Server -> stopTask -> Task Name = ' + message.event.taskName)
-            //console.log('[INFO] Client -> Task Manager Server -> stopTask -> Task Id = ' + message.event.taskId) 
+            //SA.logger.info('Client -> Task Manager Server -> stopTask -> Task Name = ' + message.event.taskName)
+            //SA.logger.info('Client -> Task Manager Server -> stopTask -> Task Id = ' + message.event.taskId) 
 
             let task = tasksMap.get(message.event.taskId)
 
@@ -139,25 +146,25 @@
             */
             if (task) {
                 task.childProcess.send('Stop this Task');
-                //console.log('[INFO] Client -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
+                //SA.logger.info('Client -> Task Manager Server -> stopTask -> Child Process instructed to finish.')
             } else {
-                console.log('[WARN] Client -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
+                SA.logger.warn('Client -> Task Manager Server -> stopTask -> Cannot delete Task that does not exist.')
             }
         }
 
         function taskStatus(message) {
-            //console.log('[INFO] Client -> Task Manager Server -> taskStatus -> Entering function.')
+            //SA.logger.info('Client -> Task Manager Server -> taskStatus -> Entering function.')
             if (message.event === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> taskStatus -> Message Received Without Event -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
 
             if (message.event.taskId === undefined) {
-                console.log('[WARN] Client -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
+                SA.logger.warn('Client -> Task Manager Server -> taskStatus -> Message Received Without taskId -> message = ' + JSON.stringify(message).substring(0, 1000))
                 return
             }
-            //console.log('[INFO] Client -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)
-            //console.log('[INFO] Client -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
+            //SA.logger.info('Client -> Task Manager Server -> taskStatus -> Task Name = ' + message.event.taskName)
+            //SA.logger.info('Client -> Task Manager Server -> taskStatus -> Task Id = ' + message.event.taskId) 
 
             let task = tasksMap.get(message.event.taskId)
             let event = {}
@@ -223,8 +230,8 @@
                     if (handler) {
                         handler.callBack(message)
                     } else {
-                        console.log(key + ' not found so could not deliver event raised.')
-                        console.log(' Message = ' + data)
+                        SA.logger.error(key + ' not found so could not deliver event raised.')
+                        SA.logger.error(' Message = ' + data)
                     }
                     return
                 }
@@ -237,8 +244,8 @@
                     return
                 }
             } catch (err) {
-                console.log('[ERROR] Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> data = ' + JSON.stringify(data))
-                console.log('[ERROR] Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> error = ' + err.stack)
+                SA.logger.error('Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> data = ' + JSON.stringify(data))
+                SA.logger.error('Client -> Task Manager Server -> onMessage -> Error Receiving Message from Events Server -> error = ' + err.stack)
             }
         }
 
@@ -265,8 +272,8 @@
 
                 PL.servers.EVENT_SERVER.onMessage(JSON.stringify(command), thisObject.onMessage)
             } catch (err) {
-                console.log('[ERROR] Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> command = ' + JSON.stringify(command))
-                console.log('[ERROR] Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> error = ' + err.stack)
+                SA.logger.error('Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> command = ' + JSON.stringify(command))
+                SA.logger.error('Client -> Task Manager Server -> sendCommand -> Error Sending Command to Events Server -> error = ' + err.stack)
             }
         }
 

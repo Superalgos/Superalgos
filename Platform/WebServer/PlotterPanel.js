@@ -5,7 +5,7 @@
     try {
         return window[functionName]();
     } catch (err) {
-        console.log('[ERROR] getNewPlotterPanel -> Error trying to Load a Plotter Panel.  err = ' + err.stack)
-        console.log('[ERROR] getNewPlotterPanel -> functionName = ' + functionName)
+        console.log((new Date()).toISOString(), '[ERROR] getNewPlotterPanel -> Error trying to Load a Plotter Panel.  err = ' + err.stack)
+        console.log((new Date()).toISOString(), '[ERROR] getNewPlotterPanel -> functionName = ' + functionName)
     }
 }

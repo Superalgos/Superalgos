@@ -20,8 +20,8 @@
             },
             {
                 "language": "ES",
-                "text": "El comando docs.save fue exitoso y todos los cambios se guardaron en el Superalgos Client.",
-                "updated": 1630888477712,
+                "text": "El comando docs.save tuvo éxito y todos los cambios se guardaron en el Cliente Superalgos.",
+                "updated": 1680708765419,
                 "style": "Definition"
             },
             {
@@ -33,6 +33,16 @@
                 "language": "RU",
                 "text": "Команда docs.save была выполнена успешно, и все изменения были сохранены в клиенте Superalgos Client.",
                 "updated": 1637925175363
+            },
+            {
+                "language": "TR",
+                "text": "docs.save komutu başarılı oldu ve tüm değişiklikler Superalgos İstemcisine kaydedildi",
+                "updated": 1640002778163
+            },
+            {
+                "language": "NL",
+                "text": "De opdracht docs.save is gelukt en alle wijzigingen zijn opgeslagen in de Superalgos-client.",
+                "updated": 1669749167457
             }
         ]
     },
@@ -56,13 +66,23 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Alle aktuellen Änderungen an node, concept, topic, tutorial, review, and book pages wurden auf der Festplatte gespeichert.",
-                    "updated": 1633901444521
+                    "text": "Alle Änderungen an node, concept, topic, tutorial, review, und book pages wurden auf der Festplatte gespeichert.",
+                    "updated": 1677190798473
                 },
                 {
                     "language": "RU",
                     "text": "Все последние изменения узла, концепций, тем, учебной пособии, обзоров и страниц книги были сохранены на диск.",
                     "updated": 1637925337735
+                },
+                {
+                    "language": "TR",
+                    "text": "Node, concept, topic, tutorial, review, and dokümanlar sayfalarındaki en son değişikliklerin tümü diske kaydedildi.",
+                    "updated": 1640002830025
+                },
+                {
+                    "language": "ES",
+                    "text": "Todos los últimos cambios en las páginas de nodos, conceptos, temas, tutoriales, revisiones y libros se han guardado en el disco.",
+                    "updated": 1668195020322
                 }
             ]
         }

@@ -4,41 +4,115 @@
     "type": "Features Hierarchy",
     "definition": {
         "text": "Each project may define Features, so that the Community may incentivize desired directions of development.",
-        "updated": 1624720133681
+        "updated": 1624720133681,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Her proje, Topluluğun ( Community ) istenen gelişim yönlerini teşvik edebilmesi için Özellikler ( Features ) tanımlayabilir.",
+                "updated": 1646740288963
+            },
+            {
+                "language": "ES",
+                "text": "Cada proyecto puede definir Características, de modo que la Comunidad pueda incentivar las direcciones de desarrollo deseadas.",
+                "updated": 1682595537173
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Include",
             "text": "Governance->Node->Features->Definition",
-            "updated": 1624720223930
+            "updated": 1624720223930,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Features->Definition",
+                    "updated": 1654395300609,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Features->Content"
+            "text": "Governance->Node->Features->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Features->Content",
+                    "updated": 1654395307618,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Feature Class Nodes"
+            "text": "Feature Class Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellik Sınıfı Düğümleri",
+                    "updated": 1646740319224
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature Class->Definition"
+            "text": "Governance->Node->Feature Class->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature Class->Definition",
+                    "updated": 1654395314337,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature Class->Content"
+            "text": "Governance->Node->Feature Class->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature Class->Content",
+                    "updated": 1654395321657,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Feature Nodes"
+            "text": "Feature Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellik Düğümleri",
+                    "updated": 1646740332801
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature->Definition"
+            "text": "Governance->Node->Feature->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature->Definition",
+                    "updated": 1654395327322,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Feature->Content"
+            "text": "Governance->Node->Feature->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Feature->Content",
+                    "updated": 1654395332968,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

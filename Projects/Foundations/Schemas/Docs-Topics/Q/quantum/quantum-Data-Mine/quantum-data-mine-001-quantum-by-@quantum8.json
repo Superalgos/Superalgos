@@ -4,13 +4,42 @@
     "type": "quantum By @quantum8",
     "definition": {
         "text": "This data mine includes trend indicators such as Keltner Channel, Moving Volume Weighted Average Price (MVWAP), Parabolic Stop and Reverse (PSAR), a buy/sell inducator BeepBoop, and two indicators designed to help gauge trending or consolidating markets; Choppy and Chop Index.",
-        "updated": 1611685345604
+        "updated": 1611685345604,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В эти источники данных входят такие трендовые индикаторы, как канал Кельтнера, средневзвешенная цена скользящего объема (MVWAP), параболический стоп и реверс (PSAR), индуктор покупки/продажи BeepBoop, а также два индикатора, предназначенные для оценки трендовых или консолидирующихся рынков: Choppy и Chop Index.",
+                "updated": 1646897591284
+            },
+            {
+                "language": "DE",
+                "text": "Diese Datenmine umfasst Trendindikatoren wie Keltner Channel, Moving Volume Weighted Average Price (MVWAP), Parabolic Stop and Reverse (PSAR), einen Kauf-/Verkaufsindikator BeepBoop und zwei Indikatoren, die helfen sollen, die Entwicklung oder Konsolidierung von Märkten zu messen: Choppy und Chop Index.",
+                "updated": 1671461244192
+            },
+            {
+                "language": "TR",
+                "text": "Bu veri madeni Keltner Kanalı, Hareketli Hacim Ağırlıklı Ortalama Fiyat (MVWAP), Parabolik Durdurma ve Ters Çevirme (PSAR) gibi trend göstergelerini, bir alım/satım indikatörü BeepBoop'u ve trend veya konsolide piyasaları ölçmeye yardımcı olmak için tasarlanmış iki göstergeyi içerir; Choppy ve Chop Index.",
+                "updated": 1698091952855
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The quantum data mine is brought to you by...",
-            "updated": 1611685372883
+            "updated": 1611685372883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Источник данных quantum предоставлен вам...",
+                    "updated": 1646897635744
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Quanten Datenmine wird präsentiert von...",
+                    "updated": 1671461306509
+                }
+            ]
         },
         {
             "style": "Link",
@@ -19,7 +48,19 @@
         },
         {
             "style": "Success",
-            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Участвуйте в работе с этим источником данных и сообщайте о проблемах непосредственно в хранилище Superalgos.",
+                    "updated": 1646897680707
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu veri madeni ile işbirliği yapın ve sorunları doğrudan Superalgos deposuna bildirin.",
+                    "updated": 1698091974933
+                }
+            ]
         }
     ]
 }

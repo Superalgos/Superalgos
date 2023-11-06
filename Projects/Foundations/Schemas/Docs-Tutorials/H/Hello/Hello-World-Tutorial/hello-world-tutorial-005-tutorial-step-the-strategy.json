@@ -25,6 +25,26 @@
                 "language": "IT",
                 "text": "Costruiamo la nostra strategia!",
                 "updated": 1639073736630
+            },
+            {
+                "language": "TR",
+                "text": "Tüm stratejilerin anasını oluşturalım!",
+                "updated": 1640616263549
+            },
+            {
+                "language": "RU",
+                "text": "Давайте создадим материнскую стратегию!",
+                "updated": 1640854438221
+            },
+            {
+                "language": "NL",
+                "text": "Laten we de moeder van alle strategieën bouwen!",
+                "updated": 1670773136561
+          },
+          {
+                "language": "ID",
+                "text": "Ayo buat Ibu dari segala strategi!",
+                "updated": 1670299308387
             }
         ]
     },
@@ -49,6 +69,26 @@
                     "language": "IT",
                     "text": "Per testare una strategia, prima dobbiamo scriverla o averla chiaramente in mente:",
                     "updated": 1639074134645
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir stratejiyi geriye dönük test etmek için önce onu yazmamız veya zihnimizde net bir şekilde oluşturmanız gerekir. Dolayısıyla aşağıdakiler, testimizin dayandığı temel taşlardır:",
+                    "updated": 1640616279114
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы протестировать стратегию, сначала нужно написать ее или четко представить ее в уме. Таким образом, это ключевые моменты, на которых основывается наш тест:",
+                    "updated": 1640854130229
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een strategie te backtesten, moeten we deze eerst schrijven of duidelijk in ons hoofd hebben. Dit zijn dus de pilaren waarop onze test is gebaseerd:",
+                    "updated": 1670773271124
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk backtesting strategi, pertama kita harus menulis itu atau menjernihkan pikiran. Sehingga ini adalah landasan yang menjadi dasar pengujian kita:",
+                    "updated": 1670299318951
                 }
             ]
         },
@@ -71,6 +111,26 @@
                     "language": "IT",
                     "text": "La strategia usa 2 medie mobili semplici, rispettivamente SMA50 e SMA200",
                     "updated": 1639073807049
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji ( Strategy ), SMA50 ve SMA200'ü kullanır",
+                    "updated": 1640616295110
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия использует SMA50 и SMA200",
+                    "updated": 1640854147037
+                },
+                {
+                    "language": "NL",
+                    "text": "Strategy gebruikt SMA 50 en SMA 200",
+                    "updated": 1670773188644
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategy menggunakan SMA50 dan SMA200",
+                    "updated": 1670299331351
                 }
             ]
         },
@@ -93,6 +153,26 @@
                     "language": "IT",
                     "text": "Il Time Frame usato è di 4H",
                     "updated": 1639073824134
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji ( Strategy ) 4H TF'ye dayalıdır",
+                    "updated": 1640616306545
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия основана на 4H TF",
+                    "updated": 1640854168176
+                },
+                {
+                    "language": "NL",
+                    "text": "Strategy is gebaseerd op 4H TF",
+                    "updated": 1670773212245
+                },
+                {
+                    "language": "ID",
+                    "text": "Strategy berdasar pada TF 4H",
+                    "updated": 1670299341617
                 }
             ]
         },
@@ -115,6 +195,26 @@
                     "language": "IT",
                     "text": "Il bot compra a market l'asset scelto quando la SMA50 incrocia verso l'alto la SMA200",
                     "updated": 1639074531653
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA50, SMA200'ü geçtiğinde varlığı satın alacak",
+                    "updated": 1640616318507
+                },
+                {
+                    "language": "RU",
+                    "text": "Бот будет покупать актив, когда SMA50 пересечет снизу вверх SMA200",
+                    "updated": 1640854277674
+                },
+                {
+                    "language": "NL",
+                    "text": "Bot koopt de asset wanneer SMA50 SMA200 kruist",
+                    "updated": 1670773300009
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot akan membeli aset ketika SMA50 bersilangan keatas dengan SMA200",
+                    "updated": 1670299352564
                 }
             ]
         },
@@ -137,6 +237,26 @@
                     "language": "IT",
                     "text": "Lo Stop Loss è settato al 20%",
                     "updated": 1639073940750
+                },
+                {
+                    "language": "TR",
+                    "text": "Kaybı durdur ( Stop Loss ) girişten noktasından %20 olarak ayarlandı",
+                    "updated": 1640616332642
+                },
+                {
+                    "language": "RU",
+                    "text": "Стоп-лосс устанавливается на уровне 20% от входа",
+                    "updated": 1640854291612
+                },
+                {
+                    "language": "NL",
+                    "text": "Stop Loss is ingesteld op 20% vanaf het startpunt",
+                    "updated": 1670773328721
+                },
+                {
+                    "language": "ID",
+                    "text": "Stop Loss diatur 20% dari entry",
+                    "updated": 1670299362487
                 }
             ]
         },
@@ -159,6 +279,26 @@
                     "language": "IT",
                     "text": "Il Take Profit è settato al 100% ma può  funzionare anche da Stop Loss in quanto la posizione viene chiusa se la SMA50 incrocia verso il basso la SMA200",
                     "updated": 1639074585392
+                },
+                {
+                    "language": "TR",
+                    "text": "%100'de Kârı Al ( Take Profit ) veya SMA50 aşağı çaprazda SMA200'e ayarlandı",
+                    "updated": 1640616352964
+                },
+                {
+                    "language": "RU",
+                    "text": "Тейк-профит устанавливается на уровне 100% или при пересечении SMA50 сверху вниз SMA200",
+                    "updated": 1640854324507
+                },
+                {
+                    "language": "NL",
+                    "text": "Take Profit is ingesteld op 100% of op bij het kruisen van SMA50 met SMA200 in een neerwaartse trend",
+                    "updated": 1670773469552
+                },
+                {
+                    "language": "ID",
+                    "text": "Take Profit diatur 100% atau pada SMA50 bersilangan kebawah dengan SMA200",
+                    "updated": 1670299372817
                 }
             ]
         }

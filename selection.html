@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Select Workspace</title>
+
+    <style>
+        :root {
+        --font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        body {
+        background-color: black;
+        color: white;
+        font-family: var(--font-face);
+        }
+        h2 {
+        text-align: center;
+        font-size: 45px;
+        padding: 60px 0;
+        }
+
+        .wrapper {
+        padding: 30px;
+        }
+        
+        .workspace-container {
+        margin: 0 30px;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(4, 20vw);
+        grid-auto-rows: 20vw;
+        justify-content: center;
+      }
+
+        .workspace-container div {
+        border: 1px white solid;
+        }
+
+        footer {
+        display: flex;
+        flex-direction: row;
+        padding: 50px;
+        }
+
+        footer div {
+        margin: 30px;
+        }
+
+        footer div {
+        width: 33%;
+        }
+
+        @media only screen and (min-width: 1560px) {
+        .workspace-container {
+            grid-template-columns: repeat(6, 14vw);
+            grid-auto-rows: 14vw;
+            }
+        }
+
+        img {
+        width: 100%;
+        height: 100%
+        }
+        
+
+    </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h2>Select your onboarding experience.</h2>
+    <div class="workspace-container" id="container"></div>
+    <footer>
+      <div>
+        <h3>ONBOARDING WORKSPACE</h3>
+        <p>The onboarding workspace is the one you will use to learn the basic operation of the platform. Superalgos can trade with all major exchanges, and your selection will not affect which exchanges you may trade with in the future.</p>
+      </div>
+      <div>
+        <h3>PARTNER EXCHANGES WORKSPACES</h3>
+        <p>Partner exchanges have custom workspaces and offer preferential trading fees for Superalgos users. If your favorite exchange is on the list, then go for it! If you're not a customer yet, find the referral link in the corresponding Telegram group.</p>
+      </div>
+      <div>
+        <h3>FALLBACK WORKSPACE</h3>
+        <p>The fallback workspace uses Binance or Binance US as the active exchange. Use this workspace if you're not interested in trading with one of the Partner Exchanges to benefit from discounted trading fees. Later on, you may switch to any other exchange.</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Here we receive the array with all the available workspaces to create the list
+    window.onload = () => {
+        window.api.send("toMain", "getExchanges")
+        window.api.receive('fromMain', (data) => {
+            var exchanges = data
+            for  (x = 0; x < exchanges.length; x++) {
+                var item = exchanges[x]
+                var img = document.createElement("img")
+                img.id = item
+                item = item.split('-')[2].split('.')[0]
+                img.src = "Projects/Foundations/Icons/Crypto-Exchanges/" + item.toLowerCase() + '.png' // get the exchange image
+                img.setAttribute('onclick', "exchange(this.id)")
+                var newElement = document.createElement("div")
+                newElement.appendChild(img)
+                document.getElementById('container').appendChild(newElement)
+            }
+            var fallback = document.createElement("img")
+            fallback.id = "Getting-Started-Tutorials.json"
+            fallback.src =  "Projects/Foundations/Icons/Crypto-Exchanges/fallback-workspace.png"
+            fallback.setAttribute('onclick', "exchange(this.id)")
+            var newElem = document.createElement("div")
+            newElem.appendChild(fallback)
+            document.getElementById('container').appendChild(newElem)
+        })
+    }
+
+    // Send the workspace to start the platform
+    function exchange(id) {
+        window.api.send("toMain", id)
+    }
+</script>
+</body>
+</html>

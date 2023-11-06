@@ -13,6 +13,26 @@
                 "language": "DE",
                 "text": "Ich weiß! Das klingt alles zu abstrakt! Lassen Sie mich ein paar Beispiele anführen!",
                 "updated": 1639145205438
+            },
+            {
+                "language": "RU",
+                "text": "Я знаю! Все это звучит слишком абстрактно! Позвольте мне привести несколько примеров!",
+                "updated": 1640630620897
+            },
+            {
+                "language": "TR",
+                "text": "Biliyorum! Bütün bunlar kulağa çok soyut geliyor! Birkaç örnek vereyim!",
+                "updated": 1642513528325
+            },
+            {
+                "language": "ID",
+                "text": "Aku tahu! Ini semua terdengar terlalu abstrak! Izinkan aku memberimu beberapa contoh!",
+                "updated": 1673966238532
+            },
+            {
+                "language": "ES",
+                "text": "¡Ya lo sé! Todo esto suena demasiado abstracto. Permítanme exponer algunos ejemplos.",
+                "updated": 1675468190983
             }
         ]
     },
@@ -25,6 +45,26 @@
                     "language": "DE",
                     "text": "Wenn Sie in Zeiträumen unter einer Stunde arbeiten und ein Konzept oder ein Ereignis - zum Beispiel eine Position - sich über mehrere Tage erstreckt:",
                     "updated": 1639145224459
+                },
+                {
+                    "language": "RU",
+                    "text": "При работе с часовыми таймфреймами, когда концепция или событие - например, позиция - охватывает несколько дней:",
+                    "updated": 1640630647856
+                },
+                {
+                    "language": "TR",
+                    "text": "Br saat altı zaman dilimlerinde çalışırken bir kavram veya olay (örneğin, bir pozisyon) birden çok güne yayılır:",
+                    "updated": 1642513663893
+                },
+                {
+                    "language": "ID",
+                    "text": "Saat bekerja dalam sub-hour time frames dan concept atau event—misalnya, position—spans selama beberapa hari:",
+                    "updated": 1673966245630
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando trabajamos en plazos inferiores a una hora y un concepto o acontecimiento -por ejemplo, una posición- abarca varios días:",
+                    "updated": 1675468209710
                 }
             ]
         },
@@ -36,6 +76,26 @@
                     "language": "DE",
                     "text": "Sie können mehrere Dreiecke sehen! Ein Dreieck wird am Ende eines jeden Tages gezeichnet, und ein letztes Dreieck wird am Ende der Position oder - falls die Position noch nicht geschlossen wurde - zum aktuellen Zeitpunkt gezeichnet.",
                     "updated": 1639145242168
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете увидеть несколько треугольников! Один треугольник рисуется при закрытии каждого дня, а последний - при закрытии позиции, или, если позиция еще не закрылась, - в текущий момент времени.Вы можете увидеть несколько треугольников! Один треугольник рисуется при закрытии каждого дня, а последний - при закрытии позиции, или, если позиция еще не закрылась, - в данный момент времени.",
+                    "updated": 1640630685321
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden çok üçgen görebilirsiniz! Her günün sonunda bir üçgen çizilir ve pozisyonun kapanışında veya pozisyonun henüz kapanmamış olması durumunda mevcut tarih saatinde son bir üçgen çizilir.",
+                    "updated": 1642513671951
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin melihat banyak segitiga! Satu segitiga digambar pada penutupan setiap hari, dan satu segitiga terakhir digambar pada penutupan position, atau—kalau position-nya belum ditutup—pada datetime saat ini.",
+                    "updated": 1673966251980
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que veas varios triángulos. Un triángulo se dibuja al cierre de cada día, y un último triángulo se dibuja al cierre de la posición o, en caso de que la posición no se haya cerrado todavía, en la fecha y hora actuales.",
+                    "updated": 1675468227560
                 }
             ]
         },
@@ -47,6 +107,26 @@
                     "language": "DE",
                     "text": "Statistics und Metriken sind ebenfalls fragmentiert! Zum Beispiel werden ROI, Profit Loss und die Bewertung der Position als Hit oder Fail täglich ermittelt!",
                     "updated": 1639145250990
+                },
+                {
+                    "language": "RU",
+                    "text": "Статистика (Statistics) и показатели тоже фрагментированы! Например, ROI, Profit Loss и оценка позиции как удачной или неудачной определяются ежедневно!",
+                    "updated": 1640630754804
+                },
+                {
+                    "language": "TR",
+                    "text": "İstatistikler (Statistics) ve metrikler de parçalıdır! Örneğin, ROI, Kar Kaybı (Profit Loss) ve pozisyonun isabet veya başarısızlık olarak değerlendirilmesi günlük olarak belirlenir!",
+                    "updated": 1642513762084
+                },
+                {
+                    "language": "ID",
+                    "text": "Statistics dan metrics juga terfragmentasi! Misalnya, ROI, Profit Loss, dan evaluasi posisi sebagai hit atau fail ditentukan setiap hari!",
+                    "updated": 1673966258662
+                },
+                {
+                    "language": "ES",
+                    "text": "Las estadísticas y métricas también están fragmentadas. Por ejemplo, el ROI, el Profit Loss y la evaluación de la posición como éxito o fracaso se determinan diariamente.",
+                    "updated": 1675468255076
                 }
             ]
         }

@@ -4,17 +4,53 @@
     "type": "Ichimoku Cloud - Zeus Indicator",
     "definition": {
         "text": "One-glance equilibrium chart.",
-        "updated": 1611673922795
+        "updated": 1611673922795,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Tek bakışta denge grafiği.",
+                "updated": 1647090900520
+            },
+            {
+                "language": "DE",
+                "text": "Gleichgewichtschart auf einen Blick.",
+                "updated": 1671203710487
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Ichimoku Cloud on the Charts",
-            "updated": 1611673941748
+            "updated": 1611673941748,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Grafiklerdeki Ichimoku Bulutu",
+                    "updated": 1647090921635
+                },
+                {
+                    "language": "DE",
+                    "text": "Ichimoku Cloud auf den Charts",
+                    "updated": 1671203633994
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Wikipedia, “Ichimoku Kinko Hyo translates to one glance equilibrium chart or instant look at the balance chart and is sometimes referred to as one glance cloud chart based on the unique clouds that feature in Ichimoku charting. Ichimoku is a moving average-based trend identification system and because it contains more data points than standard candlestick charts, it provides a clearer picture of potential price action.”"
+            "text": "According to Wikipedia, “Ichimoku Kinko Hyo translates to one glance equilibrium chart or instant look at the balance chart and is sometimes referred to as one glance cloud chart based on the unique clouds that feature in Ichimoku charting. Ichimoku is a moving average-based trend identification system and because it contains more data points than standard candlestick charts, it provides a clearer picture of potential price action.”",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Wikipedia'ya göre, \"Ichimoku Kinko Hyo, bir bakışta denge tablosuna veya denge tablosuna anında bakma anlamına gelir ve bazen Ichimoku tablosunda yer alan benzersiz bulutlara dayanan bir bakışta bulut grafiği olarak anılır. Ichimoku, hareketli ortalama tabanlı bir trend belirleme sistemidir ve standart mum grafiklerinden daha fazla veri noktası içerdiğinden, potansiyel fiyat hareketinin daha net bir resmini sunar.”",
+                    "updated": 1647090933412
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Wikipedia bedeutet \"Ichimoku Kinko Hyo\" so viel wie \"Gleichgewichtschart auf einen Blick\" oder \"Gleichgewichtschart auf einen Blick\" und wird manchmal auch als \"Wolkendiagramm auf einen Blick\" bezeichnet, was auf die einzigartigen Wolken zurückzuführen ist, die in Ichimoku Diagrammen zu sehen sind. Ichimoku ist ein auf dem gleitenden Durchschnitt basierendes System zur Trenderkennung, das aufgrund der Tatsache, dass es mehr Datenpunkte als Standard-Kerzencharts enthält, ein klareres Bild der potenziellen Kursentwicklung liefert.\"",
+                    "updated": 1671203747596
+                }
+            ]
         },
         {
             "style": "Png",
@@ -27,31 +63,115 @@
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “The Ichimoku Cloud is a collection of technical indicators that show support and resistance levels, as well as momentum and trend direction. It does this by taking multiple averages and plotting them on the chart. It also uses these figures to compute a cloud which attempts to forecast where the price may find support or resistance in the future.”"
+            "text": "According to Investopedia, “The Ichimoku Cloud is a collection of technical indicators that show support and resistance levels, as well as momentum and trend direction. It does this by taking multiple averages and plotting them on the chart. It also uses these figures to compute a cloud which attempts to forecast where the price may find support or resistance in the future.”",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, “Ichimoku Bulutu, destek ve direnç seviyelerinin yanı sıra momentum ve trend yönünü gösteren bir teknik göstergeler koleksiyonudur. Bunu, birden fazla ortalama alarak ve bunları grafikte çizerek yapar. Ayrıca bu rakamları, fiyatın gelecekte nerede destek veya direnç bulabileceğini tahmin etmeye çalışan bir bulutu hesaplamak için kullanıyor.”",
+                    "updated": 1647090978288
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia ist die Ichimoku Wolke eine Sammlung von technischen Indikatoren, die Unterstützungs- und Widerstandsniveaus sowie die Dynamik und Trendrichtung anzeigen. Zu diesem Zweck werden mehrere Durchschnittswerte auf dem Diagramm aufgetragen. Anhand dieser Zahlen wird eine Wolke berechnet, die versucht vorherzusagen, wo der Kurs in Zukunft Unterstützung oder Widerstand finden könnte.\"",
+                    "updated": 1671203794068
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Standard parameters for the indicator are set for a crypto market:"
+            "text": "Standard parameters for the indicator are set for a crypto market:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gösterge için standart parametreler bir kripto piyasası için ayarlanmıştır:",
+                    "updated": 1647090982873
+                },
+                {
+                    "language": "DE",
+                    "text": "Für den Indikator werden Standardparameter für einen Kryptomarkt festgelegt:",
+                    "updated": 1671203819820
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Conversion Line Periods = 20"
+            "text": "Value for Conversion Line Periods = 20",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dönüşüm Satırı Dönemlerinin ( Periods ) Değeri = 20",
+                    "updated": 1647091055055
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für Conversion Line Periods = 20",
+                    "updated": 1671203981173
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "value for Base Line Periods = 30"
+            "text": "value for Base Line Periods = 30",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Referans Çizgisi Dönemleri ( Periods ) için değer = 30",
+                    "updated": 1647091067003
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für Base Line Periods= 30",
+                    "updated": 1671203995526
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Lagging Span 2 Periods = 120"
+            "text": "Value for Lagging Span 2 Periods = 120",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gecikme Aralığı Değeri 2 Periyot = 120",
+                    "updated": 1647091080218
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für Lagging Span 2 Periods = 120",
+                    "updated": 1671204009276
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Displacement = 60"
+            "text": "Value for Displacement = 60",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yer Değiştirme Değeri = 60",
+                    "updated": 1647091090619
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für Displacement = 60",
+                    "updated": 1671204015291
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I made it easy to change the parameters needed for the calculation as per your needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “Ichimoku” Product Definition."
+            "text": "I made it easy to change the parameters needed for the calculation as per your needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “Ichimoku” Product Definition.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hesaplama için gerekli parametreleri ihtiyaçlarınıza göre değiştirmeyi kolaylaştırdım. Javascript Kodunu ( Javascript Code ) “DMI Yönlü Hareket” Ürün Tanımı ( Product Definition ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulun ve açın.",
+                    "updated": 1647091139814
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe es Ihnen leicht gemacht, die für die Berechnung benötigten Parameter nach Ihren Bedürfnissen zu ändern. Suchen und öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Ichimoku\" Product Definition.",
+                    "updated": 1671204086655
+                }
+            ]
         },
         {
             "style": "Png",
@@ -60,20 +180,68 @@
         },
         {
             "style": "Title",
-            "text": "Ichimoku Cloud Products & Properties"
+            "text": "Ichimoku Cloud Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ichimoku Bulut Ürünleri ve Özellikleri",
+                    "updated": 1647091154474
+                },
+                {
+                    "language": "DE",
+                    "text": "Ichimoku Cloud Produkte & Eigenschaften",
+                    "updated": 1671204134550
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are four properties available:"
+            "text": "There are four properties available:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dört özellik mevcuttur:",
+                    "updated": 1647091162402
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind vier Eigenschaften verfügbar:",
+                    "updated": 1671204162471
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Ichimoku | ichimoku | conversionLine, baseLine, leadLine1, leadLine2 |",
-            "updated": 1611674317041
+            "updated": 1611674317041,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Ichimoku | ichimoku | convertLine, baseLine, leadLine1, leadLine2 |",
+                    "updated": 1647091176326
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Ichimoku | ichimoku | conversionLine, baseLine, leadLine1, leadLine2 |",
+                    "updated": 1671204189055
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Please note that Lead Line 1 & 2 are plotted on the chart in the future. To avoid misconfiguration when writing strategies, values of Lead Line 1 & 2 are synced with the current candle close so there is no need to call past values of the 2 properties when compared to current price action."
+            "text": "Please note that Lead Line 1 & 2 are plotted on the chart in the future. To avoid misconfiguration when writing strategies, values of Lead Line 1 & 2 are synced with the current candle close so there is no need to call past values of the 2 properties when compared to current price action.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Lütfen Ön Hat 1 ve 2'nin gelecekte çizelgede çizileceğini unutmayın. Strateji yazarken yanlış yapılandırmayı önlemek için, Ön Hat 1 ve 2'nin değerleri mevcut mum kapanışıyla senkronize edilir, böylece mevcut fiyat hareketiyle karşılaştırıldığında 2 özelliğin geçmiş değerlerini aramaya gerek kalmaz.",
+                    "updated": 1647091216287
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte beachten Sie, dass Lead Line 1 & 2 im Chart in der Zukunft eingezeichnet werden. Um Fehlkonfigurationen beim Schreiben von Strategien zu vermeiden, werden die Werte von Lead Line 1 & 2 mit dem aktuellen Kerzenschluss synchronisiert, so dass es nicht notwendig ist, vergangene Werte der beiden Eigenschaften im Vergleich zur aktuellen Preisaktion aufzurufen.",
+                    "updated": 1671204306731
+                }
+            ]
         },
         {
             "style": "Png",
@@ -82,15 +250,51 @@
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647091232030
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671204315478
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Basic strategies can be built by checking if the price is above the cloud:"
+            "text": "Basic strategies can be built by checking if the price is above the cloud:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Fiyatın bulutun üzerinde olup olmadığını kontrol ederek temel stratejiler oluşturulabilir:",
+                    "updated": 1647091251959
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Strategien können erstellt werden, indem überprüft wird, ob der Preis über der Wolke liegt:",
+                    "updated": 1671204358160
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Price is above Lead Line 1 & 2 and above the Conversion Line."
+            "text": "Price is above Lead Line 1 & 2 and above the Conversion Line.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Fiyat, Öncü Çizgi 1 ve 2'nin üzerinde ve Dönüşüm Çizgisinin üzerindedir.",
+                    "updated": 1647091264766
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Preis liegt über der Lead Line 1 & 2 und über der Conversion Line.",
+                    "updated": 1671204363657
+                }
+            ]
         },
         {
             "style": "Javascript",

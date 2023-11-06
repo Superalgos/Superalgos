@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wir haben die Definition der Kurs- und Größenziele abgeschlossen. Legen wir nun fest, wie wir die Position in Bezug auf die Ausführung einnehmen werden!",
                 "updated": 1639398406017
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Rota ve boyut hedeflerini tanımlamayı bitirdik. şimdi ilgili Pozisyonu nasıl alacağımızı tanımlayalım.",
+                "updated": 1641746452539
+            },
+            {
+                "language": "RU",
+                "text": "Мы закончили определение целей по курсу и размеру. Давайте определим, как мы собираемся занять позицию с точки зрения исполнения!",
+                "updated": 1642779536801
+            },
+            {
+                "language": "ES",
+                "text": "Hemos terminado la definición de los objetivos de tipo y tamaño. ¡Definamos cómo vamos a tomar la posición en términos de ejecución!",
+                "updated": 1680781360322
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Wir befinden uns im Abschnitt Open Execution der Open Stage! Sehen Sie sich den Execution Algorithm und die von mir erstellte Market Sell Order an!",
                     "updated": 1639398443802
+                },
+                {
+                    "language": "TR",
+                    "text": "Openstage'in Open Execution bölümündeyiz! Oluşturduğum Yürütme Algoritmasına ( Execution Algorithm  ) ve Piyasa Satış Emrine ( Market Sell Order ) bir göz atın!",
+                    "updated": 1641746471068
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы находимся в разделе Open Execution стадии открытия! Перейдите к изучению алгоритма исполнения и созданного мной рыночного ордера на продажу!",
+                    "updated": 1642779580669
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Estamos en la parte de Open Execution de la Open Stage! ¡Ve explorando el Execution Algorithm y la Market Sell Order que he creado!",
+                    "updated": 1680782161871
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Ich habe den Ausführungsalgorithmus und die Marktorder im Voraus erstellt, damit ich sie leicht referenzieren und Sie während des Tutorials zu den richtigen Knotenpunkten führen kann. Beide sind in einem frisch erstellten Zustand, genau so, wie sie sein würden, wenn Sie sie jetzt erstellt hätten!",
                     "updated": 1639398453514
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yürütme algoritmasını ve piyasa emirlerini önceden oluşturdum, böylece onları kolayca referans alabilir ve öğretici sırasında doğru düğümlere yönlendirebilirim. Her ikisi de yeni yaratılmış durumda, onları şimdi yaratmış olsaydınız tam olarak nasıl olurdu!",
+                    "updated": 1641746482927
+                },
+                {
+                    "language": "RU",
+                    "text": "Я создал алгоритм исполнения и рыночный ордер заранее, чтобы легко ссылаться на них и вести вас к нужным узлам во время урока. Оба они находятся в свежесозданном состоянии, как если бы вы создали их прямо сейчас!",
+                    "updated": 1642779621565
+                },
+                {
+                    "language": "ES",
+                    "text": "He creado el algo de ejecución y la orden de mercado con antelación para poder referenciarlos fácilmente y llevarte a los nodos correctos durante el tutorial. Ambos están recién creados, tal y como estarían si los hubieras creado ahora mismo.",
+                    "updated": 1680782187305
                 }
             ]
         }

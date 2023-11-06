@@ -1,0 +1,222 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "16",
+    "type": "DCA Levels Long",
+    "definition": {
+        "text": "Dollar Cost Average (DCA) levels is an indicator that provides a set of take profit, stop loss signals and potential entry points based upon DCA principles. It is to be used for spot buying, or for long entries only, shorting is not currently suported by this indicator.",
+        "updated": 1622696264788,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Уровни Dollar Cost Average (DCA) - это индикатор, который предоставляет набор сигналов тейк-профита, стоп-лосса и потенциальных точек входа, основанных на принципах DCA. Он используется только для спотовой покупки или для длинных входов, короткие входы в настоящее время не поддерживаются этим индикатором.",
+                "updated": 1645611772806
+            },
+            {
+                "language": "TR",
+                "text": "Dolar Maliyet Ortalaması (DCA) seviyeleri, DCA ilkelerine dayalı olarak bir dizi kar alma, zararı durdurma sinyali ve potansiyel giriş noktaları sağlayan bir göstergedir. Spot alım için veya yalnızca uzun girişler için kullanılmalıdır, kısa devre şu anda bu gösterge tarafından desteklenmemektedir.",
+                "updated": 1697836203631
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "DCA Levels on the Charts:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Уровни DCA на графиках:",
+                    "updated": 1645611779118
+                },
+                {
+                    "language": "TR",
+                    "text": "DCA Levels :",
+                    "updated": 1697836213210
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For each candle, this indicator provides potential entry points marked as safetyDown, as well as potential take profit values. This indicator is based on using the Average True Range to provide the values and makes use of DCA principles to try and lower the overall cost of entry.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для каждой свечи этот индикатор предоставляет потенциальные точки входа, помеченные как safetyDown, а также потенциальные значения тейк-профита. Данный индикатор основан на использовании среднего истинного диапазона для получения значений и использует принципы DCA, чтобы попытаться снизить общую стоимость входа.",
+                    "updated": 1645611791630
+                },
+                {
+                    "language": "TR",
+                    "text": "Her mum için bu gösterge, safetyDown olarak işaretlenmiş potansiyel giriş noktalarının yanı sıra potansiyel kar alma değerleri sağlar. Bu gösterge, değerleri sağlamak için Ortalama Gerçek Aralığı kullanmaya dayanır ve genel giriş maliyetini denemek ve düşürmek için DCA ilkelerini kullanır.",
+                    "updated": 1697836222313
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "DCA - (investopedia)->https://www.investopedia.com/terms/d/dollarcostaveraging.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-DCALevels.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The following parameters can be modified by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’DCALevelsLong’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующие параметры можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в Product Definition 'DCALevelsLong'.",
+                    "updated": 1645611808912
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki parametreler, 'DCALevelsLong' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697836256665
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-DCALevels-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645611815913
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697836262144
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645611821580
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697836265621
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| DCALevelsLong | DCALevelsLong | tp1Up...tp3Up, safety1Down...safety3Down, slLong, atr |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1645611826547
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1697836270512
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Percentage calculation could be used to set a take profit or stop loss limit based on the desired percentage change.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет Percentage можно использовать для установки лимита тейк-профита или стоп-лосса на основе желаемого процентного изменения.",
+                    "updated": 1645611842266
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde hesaplaması, istenen yüzde değişikliğine bağlı olarak bir kar alma veya zararı durdurma limiti belirlemek için kullanılabilir.",
+                    "updated": 1697836274321
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following example would set a take profit signal if the current candle close price rose above the tp2Up setpoint:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующий пример устанавливает сигнал тейк-профита, если цена закрытия текущей свечи поднимается выше уставки tp2Up:",
+                    "updated": 1645611850877
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnek, mevcut mum kapanış fiyatı tp2Up ayar noktasının üzerine çıkarsa bir kar alma sinyali ayarlayacaktır:",
+                    "updated": 1697836283169
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "if(chart.at01hs.DCALevelsLong.tp2Up < chart.at01hs.candle.close){\n    let tp=chart.at01hs.candle.close\n    }\n tp \\\\returns take profit variable",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "To implement DCA, this indicator can be used to set up buy orders at the desired safety levels, such as safety1Down, safety2Down and safety3Down.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для реализации DCA этот индикатор можно использовать для установки ордеров на покупку на желаемых уровнях безопасности, таких как safety1Down, safety2Down и safety3Down.",
+                    "updated": 1645611860829
+                },
+                {
+                    "language": "TR",
+                    "text": "DCA'yı uygulamak için bu gösterge, safety1Down, safety2Down ve safety3Down gibi istenen güvenlik seviyelerinde alım emirleri oluşturmak için kullanılabilir.",
+                    "updated": 1697836289911
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "As these values will change for each candle period, it is recommended to copy the value to a user defined variable, such as tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value , at a set moment in time to prevent the value being overwritten with each new candle period:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку эти значения будут меняться для каждого периода свечи, рекомендуется в определенный момент времени копировать значение в переменную, определяемую пользователем, например, tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value, чтобы предотвратить перезапись значения с каждым новым периодом свечи:",
+                    "updated": 1645611873561
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu değerler her mum dönemi için değişeceğinden, her yeni mum döneminde değerin üzerine yazılmasını önlemek için değerin belirli bir zamanda tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value gibi kullanıcı tanımlı bir değişkene kopyalanması önerilir:",
+                    "updated": 1697836309586
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "let tp = tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value\nif ( tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value == 1 ) {\n    tp = chart.at01hs.DCALevelsLong.tp1Up\n    tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value = tp\n    }\n tp \\\\returns take profit variable"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

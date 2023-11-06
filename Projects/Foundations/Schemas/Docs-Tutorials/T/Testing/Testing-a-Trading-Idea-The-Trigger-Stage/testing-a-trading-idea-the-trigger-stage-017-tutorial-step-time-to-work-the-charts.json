@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wir werden nun die Charts bearbeiten und dabei den Schwerpunkt auf das Trigger On Event legen!",
                 "updated": 1639262218264
+            },
+            {
+                "language": "RU",
+                "text": "Мы собираемся немного поработать с графиками, сосредоточив внимание на событии Trigger On Event!",
+                "updated": 1640935263371
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi grafikleri düzenleyeceğiz ve Tetikleme Etkinliğine ( Trigger On Event ) odaklanacağız!",
+                "updated": 1641653099361
+            },
+            {
+                "language": "ES",
+                "text": "Vamos a trabajar un poco en los gráficos, centrándonos en el Trigger On Event.",
+                "updated": 1675622305875
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass das Trigger-On-Ereignis bei jeder Strategie innerhalb eines Trading Systems bestimmt, welche der Strategien im aktuellen Kontext gehandelt wird. In unserem Fall werden wir mindestens zwei Strategien haben, und wir wollen, dass jede von ihnen auf verschiedene Trends spezialisiert ist.",
                     "updated": 1639262228333
+                },
+                {
+                    "language": "RU",
+                    "text": "Следует помнить, что событие включения каждой стратегии в торговой системе определяет, какая из стратегий будет торговать в текущем контексте. В нашем случае у нас будет как минимум две стратегии, и мы хотим, чтобы каждая из них специализировалась на разных трендах.",
+                    "updated": 1640935284010
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi içindeki herhangi bir strateji için tetikleme olayının (trigger on event), mevcut bağlamda hangi stratejinin işlem yapacağını belirlediğini unutmayın. Bizim durumumuzda, en az iki stratejimiz olacak ve her birinin farklı trendlerde uzmanlaşmasını istiyoruz.",
+                    "updated": 1641653112167
+                },
+                {
+                    "language": "ES",
+                    "text": "Ten en cuenta que el Trigger On Event en cada estrategia dentro de un sistema de trading es lo que determina cual de las estrategias va a operar en el contexto actual. En nuestro caso, eventualmente tendremos al menos dos estrategias, y queremos que cada una de ellas se especialice en diferentes tendencias.",
+                    "updated": 1675622356905
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Das erste Problem besteht darin, den Trend zu bestimmen! Wie gehen wir dabei vor?",
                     "updated": 1639262240587
+                },
+                {
+                    "language": "RU",
+                    "text": "В первую очередь необходимо определить тенденцию! Как мы можем это сделать?",
+                    "updated": 1640935292847
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk işimiz trendi belirlemek! Peki bunu nasıl yapacağız?",
+                    "updated": 1641653125211
+                },
+                {
+                    "language": "ES",
+                    "text": "La primera preocupación es determinar la tendencia. ¿Cómo lo hacemos?",
+                    "updated": 1675622350772
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Wie Sie sich vielleicht vorstellen können, werden wir uns mit den Bollinger Bands beschäftigen!",
                     "updated": 1639262255755
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы будем работать над чем-нибудь вокруг полос Боллинджера (Bollinger Bands), как вы можете себе представить!",
+                    "updated": 1640935355485
+                },
+                {
+                    "language": "TR",
+                    "text": "Tahmin edebileceğiniz gibi, Bollinger Gruplarına bakacağız!",
+                    "updated": 1641653133727
+                },
+                {
+                    "language": "ES",
+                    "text": "Trabajaremos en torno a las Bandas de Bollinger, ¡como puedes imaginar!",
+                    "updated": 1675622344335
                 }
             ]
         }

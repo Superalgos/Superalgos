@@ -15,6 +15,16 @@
                 "language": "EL",
                 "text": "Η προτιμώμενη ροή εργασιών σας θα προκύψει από την κατανόηση του τρόπου με τον οποίο το Superalgos διαχειρίζεται την πολυπλοκότητα πολλαπλών εννοιών που συνθέτουν την τεχνητή νοημοσύνη συναλλαγών.",
                 "updated": 1638970878530
+            },
+            {
+                "language": "DE",
+                "text": "Ihr bevorzugter Arbeitsablauf (Workflow) entwickelt sich aus dem Verständnis dafür, wie Superalgos die Komplexität der verschiedenen Konzepte verwaltet, die Trading Intelligence ausmachen.",
+                "updated": 1641766513910
+            },
+            {
+                "language": "TR",
+                "text": "Tercih ettiğiniz iş akışı, Superalgos'un ticari zekayı oluşturan çoklu kavramların karmaşıklığını nasıl yönettiğini anlamanızla ortaya çıkacaktır.",
+                "updated": 1673376368621
             }
         ]
     },
@@ -32,6 +42,16 @@
                     "language": "EL",
                     "text": "Το Superalgos διαθέτει πολλαπλές διαπλεκόμενες ροές εργασίας, καθεμία με πολλαπλές διακλαδώσεις και παραλλαγές. Οι περιπτώσεις χρήσης για μια πλατφόρμα αυτοματισμού συναλλαγών όπως το Superalgos αφθονούν και είναι πιθανώς αδύνατο να διαχωριστούν η μια από την άλλη:",
                     "updated": 1638971083486
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos verfügt über mehrere ineinandergreifende Arbeitsabläufe, von denen jeder mehrere Verzweigungen und Variationen aufweist. Die Anwendungsfälle für eine Handelsautomatisierungsplattform wie Superalgos sind zahlreich und lassen sich wahrscheinlich nicht voneinander trennen:",
+                    "updated": 1641766080067
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, her biri birden fazla sonuç ve çeşitliliğe sahip, iç içe geçmiş birden fazla iş akışına sahiptir. Superalgos gibi bir alım satım otomasyon platformunun kullanım alanları çoktur ve bunları birbirinden ayırmak muhtemelen imkansızdır:",
+                    "updated": 1673376418963
                 }
             ]
         },
@@ -48,6 +68,16 @@
                     "language": "EL",
                     "text": "Οι χρήστες μπορούν να πραγματοποιούν λήψη δεδομένων από πολλαπλά χρηματιστήρια και πολλές αγορές.",
                     "updated": 1638971109206
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzer können Daten von mehreren Börsen und Märkten herunterladen.",
+                    "updated": 1641766091595
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar birden fazla borsadan ve birden fazla piyasadan veri indirebilir.",
+                    "updated": 1673376437420
                 }
             ]
         },
@@ -64,6 +94,16 @@
                     "language": "EL",
                     "text": "Μπορούν να επεξεργάζονται δεδομένα χρησιμοποιώντας υπάρχοντες δείκτες, να τροποποιούν αυτούς τους δείκτες ή να δημιουργούν τις δικές τους τεχνικές μελέτες με διάφορους βαθμούς πολυπλοκότητας.",
                     "updated": 1638971233726
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Daten mit Hilfe bestehender Indikatoren verarbeiten, diese Indikatoren modifizieren oder ihre eigenen technischen Studien mit unterschiedlichem Komplexitätsgrad erstellen.",
+                    "updated": 1641766107945
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut göstergeleri kullanarak verileri işleyebilir, bu göstergeleri değiştirebilir veya farklı karmaşıklık derecelerinde kendi teknik çalışmalarını oluşturabilirler.",
+                    "updated": 1673376458666
                 }
             ]
         },
@@ -80,6 +120,16 @@
                     "language": "EL",
                     "text": "Μπορούν να χρησιμοποιούν απλά γραφήματα ή μπορεί να διαμορφώνουν πολύπλοκα γραφήματα που συνθέτουν πληροφορίες από διαφορετικές αγορές και διαφορετικά ανταλλακτήρια.",
                     "updated": 1638971291976
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können einfache Charts verwenden oder komplexe Charts konfigurieren, die Informationen von verschiedenen Märkten und verschiedenen Börsen überlagern.",
+                    "updated": 1641766125074
+                },
+                {
+                    "language": "TR",
+                    "text": "Basit grafikler kullanabilirler veya farklı piyasalardan ve farklı borsalardan gelen bilgileri üst üste bindirerek karmaşık grafikler yapılandırabilirler.",
+                    "updated": 1673376477424
                 }
             ]
         },
@@ -96,6 +146,16 @@
                     "language": "EL",
                     "text": "Μπορούν να χρησιμοποιούν και να τροποποιούν υπάρχοντα συστήματα συναλλαγών ή να δημιουργούν τα δικά τους, τόσο με ή χωρίς κώδικα.",
                     "updated": 1638971338820
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können bestehende Handelssysteme verwenden und modifizieren oder eigene Systeme erstellen, sowohl mit als auch ohne Kodierung.",
+                    "updated": 1641766145248
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut ticaret sistemlerini kullanabilir ve değiştirebilir veya kodlu ya da kodsuz olarak kendi sistemlerini oluşturabilirler.",
+                    "updated": 1673376497386
                 }
             ]
         },
@@ -112,6 +172,16 @@
                     "language": "EL",
                     "text": "Μπορούν να συναλλάσσονται με πλήρως αυτοματοποιημένο τρόπο, να χρησιμοποιούν το σύστημα για τεστ ή για τη δημιουργία σημάτων από δοκιμαστικές συνεδρίες συναλλαγών.",
                     "updated": 1638971485066
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können vollautomatisch handeln, das System zum Backtesting oder zur Generierung von Signalen aus Papierhandelssitzungen verwenden.",
+                    "updated": 1641766206680
+                },
+                {
+                    "language": "TR",
+                    "text": "Tam otomatik bir şekilde işlem yapabilir, sistemi geriye dönük test için veya kağıt alım satım seanslarından sinyal üretmek için kullanabilirler.",
+                    "updated": 1673376516251
                 }
             ]
         },
@@ -128,6 +198,16 @@
                     "language": "EL",
                     "text": "Μπορούν να εκτελούν μινιμαλιστικές, απλού μεγέθους διαδικασίες συναλλαγών ή να αναπτύξουν επαγγελματικού επιπέδου διαδικασίες συναλλαγών.",
                     "updated": 1638971930130
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können minimalistische Handelsoperationen in Heimgröße durchführen oder Handelsfarmen in Industriequalität einsetzen.",
+                    "updated": 1641766220562
+                },
+                {
+                    "language": "TR",
+                    "text": "Minimum düzeyde, kendi çaplarında ticaret operasyonları yürütebilir veya profesyonel düzeyde ticaret merkezleri kurabilirler.",
+                    "updated": 1673376587982
                 }
             ]
         },
@@ -144,6 +224,16 @@
                     "language": "EL",
                     "text": "Μπορούν να λειτουργούν σε μια μόνο αγορά ή να αξιοποιούν πολλαπλά χρηματιστήρια και αγορές με ένα περίπλοκο δίκτυο συστημάτων συναλλαγών.",
                     "updated": 1638971972693
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können an einem einzigen Markt tätig sein oder mehrere Börsen und Märkte mit einem komplexen Netz von Handelssystemen nutzen.",
+                    "updated": 1641766232618
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek bir piyasada faaliyet gösterebilirler veya karmaşık bir ticaret sistemleri ağıyla birden fazla borsa ve piyasadan yararlanabilirler.",
+                    "updated": 1673376607593
                 }
             ]
         },
@@ -160,6 +250,16 @@
                     "language": "EL",
                     "text": "Όλες αυτές οι περιπτώσεις χρήσης και οι άπειρες περιπτώσεις που μπορεί να προκύψουν από το συνδυασμό κάθε είδους χρήσης σε διάφορα επίπεδα μπορεί επίσης να παράγουν άπειρες ροές εργασίας.",
                     "updated": 1638972089493
+                },
+                {
+                    "language": "DE",
+                    "text": "All diese Anwendungsfälle und die unendlichen Permutationen, die sich aus der Kombination der einzelnen Anwendungsbereiche in unterschiedlichem Umfang ergeben können, können auch zu unendlich vielen Arbeitsabläufen führen.",
+                    "updated": 1641766422337
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm bu kullanım durumları ve her bir kullanım boyutunun farklı ölçülerde birleştirilmesiyle ortaya çıkabilecek sonsuz permütasyon, sonsuz iş akışları da üretebilir.",
+                    "updated": 1673376641505
                 }
             ]
         },
@@ -176,6 +276,16 @@
                     "language": "EL",
                     "text": "Η καλύτερη προσέγγιση για να ξεκινήσετε την ανάπτυξη της ροής εργασίας σας είναι να κατανοήσετε πώς είναι δομημένο το σύστημα και —ιδιαίτερα — πώς οι πληροφορίες διατίθενται σε καθένα από τα στοιχεία του συστήματος.",
                     "updated": 1638972116621
+                },
+                {
+                    "language": "DE",
+                    "text": "Am besten beginnen Sie mit der Entwicklung Ihres Arbeitsablaufs, indem Sie sich ein Bild davon machen, wie das System strukturiert ist und vor allem, wie die Informationen den einzelnen Komponenten des Systems zur Verfügung gestellt werden.",
+                    "updated": 1641766449557
+                },
+                {
+                    "language": "TR",
+                    "text": "İş akışınızı geliştirmeye başlamak için en iyi yaklaşım, sistemin nasıl yapılandırıldığına ve özellikle de bilgilerin sistemin her bir bileşenine nasıl sunulduğuna ilişkin anlayışınızı geliştirmektir.",
+                    "updated": 1673376665992
                 }
             ]
         },
@@ -192,6 +302,16 @@
                     "language": "EL",
                     "text": "Κατά κανόνα, ένα από τα κύρια κριτήρια σχεδιασμού συστήματος για το Superalgos είναι η ευελιξία. Το σύστημα δεν θα πρέπει να επιβάλλει περιορισμούς και αλλά να αφήνει τη φαντασία και τους πόρους υλικού σας να θέτουν τα όρια του τι μπορείτε να κάνετε ή να μην κάνετε.",
                     "updated": 1638972168343
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Faustregel kann man sagen, dass eines der wichtigsten Kriterien für das Systemdesign von Superalgos die Flexibilität ist. Das System sollte keine Beschränkungen auferlegen und es Ihrer Vorstellungskraft und Ihren Hardwareressourcen überlassen, was Sie tun können und was nicht.",
+                    "updated": 1641766476497
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel bir kural olarak, Superalgos için en önde gelen sistem tasarım kriterlerinden biri esnekliktir. Sistem hiçbir kısıtlama getirmemeli ve yapabileceklerinizin ya da yapamayacaklarınızın sınırlarını hayal gücünüzün ve donanım kaynaklarınızın belirlemesine izin vermelidir.",
+                    "updated": 1673376709699
                 }
             ]
         }

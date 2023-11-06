@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Удаляет узел и все его потомки. Требуется подтверждение в виде дополнительного клика.",
                 "updated": 1638282734383
+            },
+            {
+                "language": "TR",
+                "text": "Düğümü ve tüm yavru düğümlerini siler. Ek bir tıklama şeklinde onay gereklidir.",
+                "updated": 1671218554714
+            },
+            {
+                "language": "DE",
+                "text": "Löscht den Knoten und alle seine Nachkommen. Eine Bestätigung in Form eines zusätzlichen Klicks ist erforderlich.",
+                "updated": 1696955464138
             }
         ]
     },
@@ -21,6 +31,18 @@
                     "language": "RU",
                     "text": "Эту операцию нельзя отменить.",
                     "updated": 1638282747415
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlem geri alınamaz.",
+                    "updated": 1654390977256,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Vorgang kann nicht rückgängig gemacht werden.",
+                    "updated": 1696955464280,
+                    "style": "Warning"
                 }
             ]
         }

@@ -15,6 +15,16 @@
                 "language": "TR",
                 "text": "Yedekleme özelliği, bir veri yapısını önceki bir duruma geri yüklemek istediğinizde referansların bütünlüğünü korumak için tasarlanmıştır.",
                 "updated": 1639484850205
+            },
+            {
+                "language": "DE",
+                "text": "Die Sicherungsfunktion (Feature) ist so konzipiert, dass die Integrität der Verweise erhalten bleibt, wie Sie es erwarten würden, wenn Sie eine Datenstruktur in einem früheren Zustand wiederherstellen möchten.",
+                "updated": 1681245294682
+            },
+            {
+                "language": "RU",
+                "text": "Функция резервного копирования предназначена для сохранения целостности ссылок, как вы ожидаете, когда хотите восстановить структуру данных к предыдущему состоянию.",
+                "updated": 1647354533674
             }
         ]
     },
@@ -22,7 +32,19 @@
         {
             "style": "Title",
             "text": "Introduction",
-            "updated": 1611489635384
+            "updated": 1611489635384,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einführung",
+                    "updated": 1640724984273
+                },
+                {
+                    "language": "RU",
+                    "text": "Введение",
+                    "updated": 1647354540398
+                }
+            ]
         },
         {
             "style": "Text",
@@ -33,13 +55,35 @@
                     "language": "TR",
                     "text": "Bir Düğümü ( Node ), düğümlerin yapısını, tam bir hiyerarşiyi ve hatta Çalışma Alanı'nı yedeklediğinizde, varolan tüm başvurular bir JSON dosyasında depolanır.",
                     "updated": 1639569680254
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Knoten (Node), eine Struktur von Knoten, eine komplette Hierarchie oder sogar den Arbeitsbereich (Workspace) sichern, werden alle vorhandenen Referenzen in der resultierenden JSON-Datei gespeichert.",
+                    "updated": 1681245314934
+                },
+                {
+                    "language": "RU",
+                    "text": "При резервном копировании узла, структуры узлов, полной иерархии или даже рабочего пространства все существующие ссылки сохраняются в файле JSON.",
+                    "updated": 1647354571435
                 }
             ]
         },
         {
             "style": "Text",
             "text": "When you restore a workspace backup, the current workspace is replaced with the backup.",
-            "updated": 1615820832685
+            "updated": 1615820832685,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Workspace Sicherung (ein workspace backup) wiederherstellen, wird der aktuelle Workspace durch die Sicherung ersetzt.",
+                    "updated": 1640725141272
+                },
+                {
+                    "language": "RU",
+                    "text": "При восстановлении резервной копии рабочего пространства текущее рабочее пространство заменяется резервной копией.",
+                    "updated": 1647354582238
+                }
+            ]
         },
         {
             "style": "Text",
@@ -50,6 +94,16 @@
                     "language": "TR",
                     "text": "Şimdi, bir çalışma alanı dışında bir şeyi, yani çalışma alanında bulunan veri yapılarından herhangi birini geri yüklediğinizde ne olacağını görelim. Analiz etmek istediğimiz şey, yapıda, özellikle de farklı referans türlerinde bulunabilecek referanslarla ne olduğudur.",
                     "updated": 1639569846722
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen wir uns nun an, was passiert, wenn Sie etwas anderes als einen Workspace wiederherstellen, d. h. eine der im Workspace enthaltenen Datenstrukturen. Was wir analysieren wollen, ist, was mit den Referenzen passiert, die in der Struktur vorhanden sein können, insbesondere mit den verschiedenen Arten von Referenzen.",
+                    "updated": 1640725417736
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь давайте посмотрим, что происходит при восстановлении чего-либо, кроме рабочего пространства, то есть любой из структур данных, содержащихся в рабочем пространстве. Мы хотим проанализировать, что происходит со ссылками, которые могут присутствовать в структуре, в частности, с различными типами ссылок.",
+                    "updated": 1647354608493
                 }
             ]
         },
@@ -62,6 +116,16 @@
                     "language": "TR",
                     "text": "Bir yedekleme geri yüklendiğinde, her bir referans tipine ne olacağı bir faktöre bağlı olarak değişir: Çalışma alanında orijinal yapı mevcut mu? Veya yedeği geri yüklemeden önce yapı silindi mi?",
                     "updated": 1639569943473
+                },
+                {
+                    "language": "DE",
+                    "text": "Was bei der Wiederherstellung einer Sicherung mit den einzelnen Referenztypen geschieht, hängt von einem Faktor ab: Ist die ursprüngliche Struktur im Arbeitsbereich vorhanden? Oder wurde die Struktur vor der Wiederherstellung des Backups gelöscht?",
+                    "updated": 1640725512954
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда резервная копия восстанавливается, то, что происходит с каждым типом ссылок, зависит от одного фактора: Присутствует ли исходная структура в рабочем пространстве? Или структура была удалена до восстановления резервной копии?",
+                    "updated": 1647354638952
                 }
             ]
         },
@@ -73,6 +137,16 @@
                     "language": "TR",
                     "text": "Giden Referanslar",
                     "updated": 1639569984223
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Referenzen",
+                    "updated": 1681245331648
+                },
+                {
+                    "language": "RU",
+                    "text": "Исходящие ссылки",
+                    "updated": 1647354646726
                 }
             ]
         },
@@ -85,6 +159,16 @@
                     "language": "TR",
                     "text": "Düğümlerin orijinal yapısı hala mevcut olsun veya olmasın, giden referanslar olduğu gibi tutulur.",
                     "updated": 1639570000190
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Verweise bleiben intakt, unabhängig davon, ob die ursprüngliche Struktur der Nodes noch existiert oder nicht.",
+                    "updated": 1681245351260
+                },
+                {
+                    "language": "RU",
+                    "text": "Исходящие ссылки сохраняются независимо от того, существует ли еще исходная структура узлов или нет.",
+                    "updated": 1647354667651
                 }
             ]
         },
@@ -97,6 +181,16 @@
                     "language": "TR",
                     "text": "Örneğin, bir Geriye Dönük Test Oturumu ( Backtesting Session ) çalıştırmak için ayarlanmış bir Görevde (Task), Trading Process Instance,  Trading Bot Multi-Time-Frame modeline atıfta bulunur, Alım Satım Sistemi Referansı bir Alım Satım Sistemine atıfta bulunur ve Ticaret Motoru Referansı, Ticaret Motoruna ( Trading Engine ) atıfta bulunur. Bunların tümü, bir Görevi oluşturan düğümlere göre giden referanslardır.",
                     "updated": 1639570954741
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, в задаче, настроенной на запуск сессии бэктестинга, экземпляр торгового процесса ссылается на многотаймфреймовый процесс Trading Bot, ссылка на торговую систему ссылается на торговую систему, а ссылка на торговый движок ссылается на торговый движок. Все это исходящие ссылки относительно структуры узлов, составляющих задачу.",
+                    "updated": 1647354717366
+                },
+                {
+                    "language": "DE",
+                    "text": "In einer Aufgabe (Task), die für die Ausführung einer Backtesting-Sitzung (Backtesting Session) eingerichtet wurde, verweist beispielsweise die Handelsprozessinstanz (Trading Process Instance) auf den Multi-Time-Frame-Prozess (Trading Bot Multi-Time-Frame) des Handelsroboters, die Handelssystemreferenz (Trading System Reference) auf ein Handelssystem (Trading System) und die Handelsmodulreferenz (Trading Engine Reference) auf das Handelsmodul (Trading Engine). Es handelt sich hierbei um ausgehende Verweise in Bezug auf die Struktur der Knoten, aus denen eine Aufgabe (Task) besteht.",
+                    "updated": 1681245362877
                 }
             ]
         },
@@ -114,6 +208,16 @@
                     "language": "TR",
                     "text": "Yukarıdaki videoda görüldüğü gibi, bir Görevin yedeğini geri yüklediğinizde, orijinal görev silinmemiş olsa bile üç giden referans korunur.",
                     "updated": 1639571022872
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie die obige Abbildung zeigt, werden beim Wiederherstellen der Sicherung einer Task die drei ausgehenden Referenzen beibehalten, auch wenn der ursprüngliche Task nicht gelöscht wurde.",
+                    "updated": 1640726069877
+                },
+                {
+                    "language": "RU",
+                    "text": "Как показано на рисунке выше, при восстановлении резервной копии задачи три исходящие ссылки сохраняются, даже если исходная задача не была удалена.",
+                    "updated": 1647354742156
                 }
             ]
         },
@@ -126,6 +230,16 @@
                     "language": "TR",
                     "text": "Bu, bir yedeği geri yüklemenin, giden referansların korunmasını beklediğiniz zaman, giden referanslara sahip düğüm yapılarını çoğaltmanın uygun bir yolu olduğu anlamına gelir.",
                     "updated": 1639571057901
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass die Wiederherstellung eines Backups ein gangbarer Weg ist, um Strukturen von Nodes mit ausgehenden Referenzen zu duplizieren, wenn Sie erwarten, dass ausgehende Referenzen erhalten bleiben.",
+                    "updated": 1640733080570
+                },
+                {
+                    "language": "RU",
+                    "text": "Это означает, что восстановление резервной копии является приемлемым способом дублирования структур узлов с исходящими ссылками, если вы ожидаете, что исходящие ссылки будут сохранены.",
+                    "updated": 1647354757783
                 }
             ]
         },
@@ -137,6 +251,16 @@
                     "language": "TR",
                     "text": "Gelen Referanslar",
                     "updated": 1639571071289
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen",
+                    "updated": 1640733100638
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящие ссылки",
+                    "updated": 1647355091941
                 }
             ]
         },
@@ -148,6 +272,16 @@
                     "language": "TR",
                     "text": "Gelen referanslar, yalnızca yedekleme geri yüklenmeden önce düğümlerin orijinal yapısı silindiğinde geri yüklenir.",
                     "updated": 1639571087047
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen werden nur wiederhergestellt, wenn die ursprüngliche Struktur der Nodes vor der Wiederherstellung der Sicherung gelöscht wird.",
+                    "updated": 1640733159364
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящие ссылки восстанавливаются только в том случае, если исходная структура узлов удалена перед восстановлением резервной копии.",
+                    "updated": 1647355104665
                 }
             ]
         },
@@ -160,6 +294,16 @@
                     "language": "TR",
                     "text": "Örnek olarak bir Ticaret Sistemini ( Trading System ) ele alalım. Ticaret sistemleri genellikle farklı test ve canlı alım satım oturumlarından kaynaklanan birkaç gelen referansa sahiptir.",
                     "updated": 1639571163845
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir ein Trading System als Beispiel. Trading systems haben in der Regel mehrere eingehende Referenzen, die aus verschiedenen Testing- und Live-trading sessions stammen.",
+                    "updated": 1640733244793
+                },
+                {
+                    "language": "RU",
+                    "text": "В качестве примера возьмем торговую систему (Trading System). Торговые системы обычно имеют несколько входящих ссылок, поступающих из различных тестовых и реальных торговых сессий.",
+                    "updated": 1647355141811
                 }
             ]
         },
@@ -177,6 +321,16 @@
                     "language": "TR",
                     "text": "Yukarıdaki video, orijinal düğüm hala çalışma alanındayken bir ticaret sisteminin yedeğinin geri yüklenmesinin, geri yüklenen düğümde gelen referansların kaybolmasına neden olduğunu göstermektedir. Bunun nedeni, yedeklemenin her düğümde yeni kimliklerle geri yüklenmesidir.",
                     "updated": 1639571240315
+                },
+                {
+                    "language": "DE",
+                    "text": "Die obige Abbildung zeigt, dass bei der Wiederherstellung eines Backups eines trading systems, wenn sich die ursprüngliche Definition noch im Workspace befindet, die eingehenden Referenzen verloren gehen. Dies liegt daran, dass die Sicherung mit neuen IDs bei jeder Node wiederhergestellt wird.",
+                    "updated": 1640733352449
+                },
+                {
+                    "language": "RU",
+                    "text": "Приведенный выше снимок показывает, что восстановление резервной копии торговой системы, когда исходное определение все еще находится в рабочем пространстве, приводит к потере входящих ссылок. Это происходит потому, что резервная копия восстанавливается с новыми идентификаторами на каждом узле.",
+                    "updated": 1647355186282
                 }
             ]
         },
@@ -189,6 +343,16 @@
                     "language": "TR",
                     "text": "Ancak, aşağıdaki videoda gösterdiği gibi, yedek geri yüklenmeden önce düğümün orijinali silinirse, gelen referanslar da geri yüklenir. Bunun nedeni, orijinal yapının silinmesinin ilgili düğümlerin ID'lerini serbest bırakması ve her bir düğümün sahip olduğu aynı ID ile yapının yeniden oluşturulmasına izin vermesidir.",
                     "updated": 1639571396509
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn jedoch die ursprüngliche Struktur der Nodes vor der Wiederherstellung des Backups gelöscht wird, werden auch die eingehenden Referenzen wiederhergestellt, wie die folgende Abbildung zeigt. Dies liegt daran, dass durch das Löschen der ursprünglichen Struktur die IDs der beteiligten Nodes freigegeben werden und die Struktur mit denselben IDs wiederhergestellt werden kann, die jede der Nodes zuvor hatte.",
+                    "updated": 1640733629146
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако, как показано на рисунке ниже, если исходная структура узлов удаляется до восстановления резервной копии, то входящие ссылки также восстанавливаются. Это происходит потому, что удаление исходной структуры освобождает идентификаторы соответствующих узлов и позволяет воссоздать структуру с теми же идентификаторами, которые были у каждого из узлов.",
+                    "updated": 1647355206346
                 }
             ]
         },
@@ -205,6 +369,16 @@
                     "language": "TR",
                     "text": "Dahili Referanslar",
                     "updated": 1639571413230
+                },
+                {
+                    "language": "DE",
+                    "text": "Interne Referenzen/Verweise",
+                    "updated": 1640733658815
+                },
+                {
+                    "language": "RU",
+                    "text": "Внутренние ссылки",
+                    "updated": 1647355215660
                 }
             ]
         },
@@ -217,6 +391,16 @@
                     "language": "TR",
                     "text": "Dahili referanslar, yalnızca yedek geri yüklenmeden önce düğümlerin orijinal yapısı silindiğinde dahili referanslar olarak kalır. Düğümlerin orijinal yapısı mevcutsa, referanslar, düğümlerin orijinal yapısındaki orijinal düğümlere işaret edecektir.",
                     "updated": 1639571562138
+                },
+                {
+                    "language": "DE",
+                    "text": "Interne Referenzen bleiben nur dann interne Referenzen, wenn die ursprüngliche Node-Struktur vor der Wiederherstellung des Backups gelöscht wird. Wenn die ursprüngliche Node-Struktur vorhanden ist, verweisen die Referenzen auf die ursprünglichen Knoten der ursprünglichen Node-Struktur.",
+                    "updated": 1640733792123
+                },
+                {
+                    "language": "RU",
+                    "text": "Внутренние ссылки остаются внутренними ссылками только в том случае, если исходная структура узлов удалена перед восстановлением резервной копии. Если исходная структура узлов присутствует, то ссылки будут указывать на исходные узлы на исходной структуре узлов.",
+                    "updated": 1647355233119
                 }
             ]
         },
@@ -229,6 +413,16 @@
                     "language": "TR",
                     "text": "Önce orijinal düğümü silmeden Shapes düğümünün yedeğini geri yüklediğimizde ne olacağını görelim:",
                     "updated": 1639571592239
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen wir uns an, was passiert, wenn wir die Sicherung einer Knotenform (Node Shapes) wiederherstellen, ohne den Originalknoten vorher zu löschen:",
+                    "updated": 1681245388483
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте посмотрим, что произойдет, если мы восстановим резервную копию узла Shapes без предварительного удаления исходного узла:",
+                    "updated": 1647355247211
                 }
             ]
         },
@@ -246,6 +440,16 @@
                     "language": "TR",
                     "text": "Beklendiği gibi, geri yüklenen yedeklemedeki tepe noktalarından yapılan referanslar aynı yapıdaki noktaları değil, bunun yerine orijinal yapıdaki orijinal noktaları gösterir.",
                     "updated": 1639571677540
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie erwartet, verweisen die Referenzen von vertices in dem wiederhergestellten Backup nicht auf die Punkte in derselben Struktur, sondern auf die ursprünglichen Punkte in der ursprünglichen Struktur.",
+                    "updated": 1640734058324
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и ожидалось, ссылки от вершин в восстановленной резервной копии не указывают на точки в той же структуре, а вместо этого указывают на исходные точки в оригинальной структуре.",
+                    "updated": 1647355260614
                 }
             ]
         },
@@ -257,6 +461,16 @@
                     "language": "TR",
                     "text": "Öte yandan, yedekleme geri yüklenmeden önce düğümlerin orijinal yapısı silinirse, referanslar aynı yapı içindeki düğümlere işaret eder:",
                     "updated": 1639571692796
+                },
+                {
+                    "language": "DE",
+                    "text": "Wird hingegen die ursprüngliche Struktur der Nodes vor der Wiederherstellung des Backups gelöscht, verweisen die Referenzen auf die Nodes innerhalb derselben Struktur:",
+                    "updated": 1640734082461
+                },
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, если исходная структура узлов удалена перед восстановлением резервной копии, то ссылки указывают на узлы в пределах той же структуры:",
+                    "updated": 1647355269524
                 }
             ]
         },
@@ -274,6 +488,16 @@
                     "language": "TR",
                     "text": "Bu davranışı anlamak için —tekrar— ilgili düğümlerin ID'lerinin ne olduğunu düşünmelisiniz! İlk durumda, yedekleme geri yüklenmeden önce düğümlerin yapısını sildiğinizde, ID'ler serbest bırakılır, böylece yedekleme geri yüklendiğinde, düğümler eskiden sahip oldukları aynı ID'lerle geri yüklenebilir. Bu, referansların eskisi gibi tutulmasına izin verir. İkinci durumda, ID'ler zaten alınır ve düğümler yeni ID'lerle oluşturulur. Bu, yedekten geri yüklenenler yerine orijinal düğümlere işaret eden referanslarla sonuçlanır.",
                     "updated": 1639572909389
+                },
+                {
+                    "language": "DE",
+                    "text": "Um dieses Verhalten zu verstehen, müssen Sie sich noch einmal vor Augen führen, was mit den IDs der beteiligten Knoten passiert! Im ersten Fall, wenn Sie die Struktur der Knoten vor der Wiederherstellung des Backups löschen, werden die IDs freigegeben, so dass die Knoten bei der Wiederherstellung des Backups mit denselben IDs wiederhergestellt werden können, die sie vorher hatten. Auf diese Weise können die Verweise (Referenzen) so beibehalten werden, wie sie vorher waren. Im zweiten Fall sind die IDs bereits vergeben und die Knoten werden mit neuen IDs erstellt. Dies führt dazu, dass die Verweise auf die ursprünglichen Knoten zeigen und nicht auf die, die aus dem Backup wiederhergestellt wurden.",
+                    "updated": 1681245445780
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы понять это поведение, необходимо еще раз рассмотреть, что происходит с идентификаторами узлов! В первом случае, когда вы удаляете структуру узлов перед восстановлением резервной копии, идентификаторы освобождаются, так что при восстановлении резервной копии узлы могут быть восстановлены с теми же идентификаторами, которые они имели раньше. Это позволяет сохранить ссылки в прежнем виде. Во втором случае идентификаторы уже заняты, и узлы создаются с новыми идентификаторами. В результате ссылки будут указывать на исходные узлы, а не на те, которые были восстановлены из резервной копии.",
+                    "updated": 1647355296224
                 }
             ]
         },
@@ -285,6 +509,16 @@
                     "language": "TR",
                     "text": "Çözüm",
                     "updated": 1639572923025
+                },
+                {
+                    "language": "DE",
+                    "text": "Fazit",
+                    "updated": 1640734243540
+                },
+                {
+                    "language": "RU",
+                    "text": "Заключение",
+                    "updated": 1647355304104
                 }
             ]
         },
@@ -296,6 +530,16 @@
                     "language": "TR",
                     "text": "Yedekleme özelliği, bir veri yapısını önceki bir duruma geri yüklemek istediğinizde beklediğiniz gibi referansların bütünlüğünü korumak için tasarlanmıştır.",
                     "updated": 1639572939771
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Backup Feature ist so konzipiert, dass die Integrität der Verweise erhalten bleibt, wie Sie es erwarten würden, wenn Sie eine Datenstruktur in einem früheren Zustand wiederherstellen möchten.",
+                    "updated": 1640734277625
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция резервного копирования предназначена для сохранения целостности ссылок, как вы ожидаете, когда хотите восстановить структуру данных к предыдущему состоянию.",
+                    "updated": 1647355312978
                 }
             ]
         },
@@ -308,6 +552,16 @@
                     "language": "TR",
                     "text": "Ancak, orijinal yapıyı silmeden bir yedeği geri yüklerken aracın özel davranışı belirli durumlarda faydalı olabilir. Bu gibi durumlarda, yedekleme özelliği klonlama özelliğinden farklı davranır.",
                     "updated": 1639572961211
+                },
+                {
+                    "language": "DE",
+                    "text": "Das besondere Verhalten des Tools beim Wiederherstellen eines Backups ohne Löschen der ursprünglichen Struktur kann jedoch in bestimmten Fällen von Nutzen sein. In solchen Fällen verhält sich die Backup Funktion anders als die clone Funktion (clone feature).",
+                    "updated": 1640734348339
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако в некоторых случаях может пригодиться особое поведение инструмента при восстановлении резервной копии без удаления исходной структуры. В таких случаях функция резервного копирования ведет себя иначе, чем функция клонирования.",
+                    "updated": 1647355329095
                 }
             ]
         },

@@ -12,81 +12,125 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Casi me olvido! Antes de que se vaya, Voy a darle un curso intensivo para que pueda jugar un poco con algo de Token Power real!",
-                "updated": 1633297571727
+                "text": "Casi me olvido! Antes de que te vayas, Voy a darte un curso intensivo para que puedas jugar un poco con algo de Token Power real!",
+                "updated": 1682522317630
             },
             {
                 "language": "RU",
                 "text": "Чуть не забыл! Прежде чем вы уйдете, я дам вам ускоренный курс, чтобы вы могли немного поиграть с настоящей силой Token Power!",
                 "updated": 1639054268952
+            },
+            {
+                "language": "DE",
+                "text": "Fast vergessen! Bevor Sie gehen, gebe ich Ihnen einen Crashkurs, damit Sie ein bisschen mit echter Token Power spielen können!",
+                "updated": 1640082755036
+            },
+            {
+                "language": "TR",
+                "text": "Neredeyse unuttum! Gitmeden önce, biraz gerçek Jeton Gücü (Token Power) ile oynaman için sana hızlandırılmış bir kurs vereceğim!",
+                "updated": 1645168190446
+            },
+            {
+                "language": "ID",
+                "text": "Hampir lupa! Sebelum kamu pergi, aku akan memberi kamu kursus kilat sehingga kamu dapat bermain sedikit dengan Token Power nyata!",
+                "updated": 1671546856606
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We're sneaking into the lead developer's User Profile, particularly in his Delegation Program! Your mission: delegate yourself some Token Power so that you can play with the flows within your own profile!",
-            "updated": 1630931293437,
+            "text": "We're sneaking into Julian's User Profile, particularly in his Delegation Program! Your mission: delegate yourself some Token Power so that you can play with the flows within your own profile!",
+            "updated": 1660648678459,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Estamos espiando en el User Profile del leader de develop, particularlmente en su Delegation Program! la misión: deleguese a si mismo algo de Token Power para que pueda jugar con el flujo dentro de su propio perfil!",
-                    "updated": 1633297853468
+                    "text": "Nos colamos en el Perfil de Usuario de Julian, ¡en concreto en su Programa de Delegación! Tu misión: ¡delegarte un poco de Token Power para que puedas jugar con los flujos dentro de tu propio perfil!",
+                    "updated": 1682522336390
                 },
                 {
                     "language": "RU",
                     "text": "Мы пробираемся в профиль пользователя ведущего разработчика, особенно в его программу делегирования Delegation Program! Ваша миссия: делегировать себе некоторую часть Token Power, чтобы вы могли играть с потоками в своем собственном профиле!",
                     "updated": 1639054385904
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir schleichen uns in das Benutzerprofil des Hauptentwicklers, insbesondere in sein Delegation Program! Ihre Aufgabe: Delegieren Sie sich selbst etwas Token Power, damit Sie mit den Abläufen in Ihrem eigenen Profil spielen können!",
+                    "updated": 1640082784254
+                },
+                {
+                    "language": "TR",
+                    "text": "Baş geliştiricinin Kullanıcı Profiline gizlice giriyoruz, özellikle Delegasyon Programında (Delegation Program)! Göreviniz: Kendi profilinizdeki token gücünüz ile oynayabilmeniz için kendinize biraz Jeton Gücü devredin!",
+                    "updated": 1645168252108
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita menyelinap ke User Profile Julian, khususnya dalam  Delegation Program miliknya! Misi kamu: delegasikan beberapa Token Power kepada dirimu sendiri sehingga dapat bermain dengan arus dalam profilmu sendiri!",
+                    "updated": 1671546863582
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Use the User Delegate node on the right to reference your own User Profile!",
+            "text": "Use the Delegate Power Switch to add a User Delegate node and reference your profile!",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Use el nodo de User Delegate a la derecha para referenciar a su propio User Profile!",
-                    "updated": 1633298180980
+                    "text": "Utiliza el Interruptor de Poder Delegado para añadir un nodo de Delegado de Usuario y hacer referencia a tu perfil.",
+                    "updated": 1682522359922
                 },
                 {
                     "language": "RU",
                     "text": "Используйте узел делегирования пользователей User Delegate справа, чтобы ссылаться на свой собственный профиль пользователя User Profile!",
                     "updated": 1639054442027
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie den Knoten User Delegate auf der rechten Seite, um auf Ihr eigenes Benutzerprofil zu verweisen!",
+                    "updated": 1640082804692
+                },
+                {
+                    "language": "TR",
+                    "text": "Kendi Kullanıcı Profilinize başvurmak için sağdaki User Delegate düğümünü kullanın!",
+                    "updated": 1645173721560
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan Delegate Power Switch untuk menambahkan node User Delegate dan referensikan profilmu!",
+                    "updated": 1671546869932
                 }
-            ]
+            ],
+            "updated": 1660648850165
         },
         {
             "style": "List",
-            "text": "You can freely play with other User Profiles.",
-            "updated": 1630931454654,
+            "text": "You can freely play with other User Profiles as they don't save with your workspace.",
+            "updated": 1660648883074,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Puede libremente jugar con otros User Profiles.",
-                    "updated": 1633297955207
+                    "text": "Puedes jugar libremente con otros Perfiles de Usuario ya que no se guardan con tu espacio de trabajo. ",
+                    "updated": 1682522387266
                 },
                 {
                     "language": "RU",
                     "text": "Вы можете свободно играть с другими профилями пользователей.",
                     "updated": 1639054457749
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Those profiles don't save with the workspace.",
-            "updated": 1630931469032,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Esos profiles no se graban en el workspace.",
-                    "updated": 1633298215317
                 },
                 {
-                    "language": "RU",
-                    "text": "Эти профили не сохраняются в рабочей области.",
-                    "updated": 1639054467286
+                    "language": "DE",
+                    "text": "Du kannst mit anderen Benutzerprofilen frei spielen.",
+                    "updated": 1640082813232
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer Kullanıcı Profilleri ile özgürce oynayabilirsiniz.",
+                    "updated": 1645168379111
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat dengan bebas bermain dengan User Profiles lain karena tidak tersimpan dengan workspace milikmu.",
+                    "updated": 1671546878235
                 }
             ]
         },
@@ -96,13 +140,28 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Aunque los someta al repositorio, serían rechazados por nuestro bot controlando que profiles son actualizados por sus dueños unicamente.",
-                    "updated": 1633298152744
+                    "text": "Aunque los someta al repositorio, serían rechazados por nuestro bot controlando que perfiles son actualizados por sus dueños unicamente.",
+                    "updated": 1682522413225
                 },
                 {
                     "language": "RU",
                     "text": "Даже если вы отправите их в репозиторий, они будут отклонены нашим ботом, контролирующим, что профили загружаются только их владельцами.",
                     "updated": 1639054507561
+                },
+                {
+                    "language": "DE",
+                    "text": "Selbst wenn Sie sie in das Repo einreichen würden, würden sie von unserem Bot abgelehnt werden, der kontrolliert, dass Profile nur von ihren Besitzern hochgeladen werden.",
+                    "updated": 1640082839390
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunları depoya göndermiş olsanız bile, profillerin yalnızca sahipleri tarafından yüklendiğini kontrol eden botumuz tarafından reddedilirler.",
+                    "updated": 1645168447442
+                },
+                {
+                    "language": "ID",
+                    "text": "Bahkan jika kamu mengirimkannya ke repo, itu  akan ditolak oleh bot kami yang mengontrol bahwa profil hanya diunggah oleh pemiliknya sendiri.",
+                    "updated": 1671546884882
                 }
             ]
         }

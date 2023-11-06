@@ -1,7 +1,24 @@
 {
     "type": "Plugin Data Mines",
     "definition": {
-        "text": "The plugin data mines node features the definitions of data mines to be included as plugins in the current workspace."
+        "text": "The plugin data mines node features the definitions of data mines to be included as plugins in the current workspace.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Plugin Data Mines содержит определения источников данных, которые должны быть включены в качестве подключаемых в текущее рабочее пространство.",
+                "updated": 1645164922926
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti veri mayınları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek veri mayınlarının tanımlarını içerir.",
+                "updated": 1651949992546
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin data mines enthält die Definitionen von Datenminen, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639383806
+            }
+        ]
     },
     "paragraphs": [
         {

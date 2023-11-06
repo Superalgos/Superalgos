@@ -1,0 +1,453 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 119,
+    "type": "Tutorial Step - Tabbed Search Results",
+    "definition": {
+        "text": "Results are organized in several categories, and each category is represented by a tab grouping results matching the category...",
+        "updated": 1610652285058,
+        "icon": {
+            "name": "Data\\dataset",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I risultati sono organizzati in categorie, e ogni categoria è rappresentata da un tab che raggruppa i risultati che corrispondono alla categoria...",
+                "updated": 1618072849624,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los resultados están organizados en varias categorías, y cada una está representada por una pestaña que agrupa los resultados que coinciden con la categoría...",
+                "updated": 1624486888979,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Ergebnisse sind in verschiedene Kategorien eingeteilt, und jede Kategorie wird durch eine Registerkarte repräsentiert, die die der Kategorie entsprechenden Ergebnisse zusammenfasst...",
+                "updated": 1634246412249
+            },
+            {
+                "language": "TR",
+                "text": "Sonuçlar birkaç kategoride düzenlenir ve her kategori, kategoriyle eşleşen sonuçları gruplayan bir sekme ile temsil edilir...",
+                "updated": 1636642465424
+            },
+            {
+                "language": "ID",
+                "text": "Hasil disusun dalam beberapa kategori, dan setiap kategori diwakili oleh hasil pengelompokan tab yang cocok dengan kategori tersebut...",
+                "updated": 1640599617096
+            },
+            {
+                "language": "RU",
+                "text": "Результаты организованы в несколько категорий, и каждая категория представлена вкладкой, группирующей результаты, соответствующие категории...",
+                "updated": 1642773776354
+            },
+            {
+                "language": "NL",
+                "text": "Resultaten zijn georganiseerd in verschillende categorieën en elke categorie wordt weergegeven door een tabblad waarin de resultaten worden gegroepeerd die overeenkomen met de categorie...",
+                "updated": 1667137704069
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'll explain each briefly and set you free to look around:",
+            "updated": 1610712854590,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti spiego al volo quanto basta per orientarti:",
+                    "updated": 1618072878367,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Explicaré cada uno brevemente y te dejaré observar:",
+                    "updated": 1624486914405,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich erkläre jede Kategorie kurz und überlasse es Ihnen, sich umzusehen:",
+                    "updated": 1634246421578
+                },
+                {
+                    "language": "TR",
+                    "text": "Her birini kısaca açıklayacağım ve etrafınıza bakmanız için sizi serbest bırakacağım:",
+                    "updated": 1636642479116
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan menjelaskan masing-masing secara singkat dan membebaskan kamu untuk melihat-lihat :",
+                    "updated": 1640599649961
+                },
+                {
+                    "language": "RU",
+                    "text": "Я кратко расскажу о каждом из них и предоставлю вам возможность осмотреться:",
+                    "updated": 1642773787219
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal ze kort uitleggen en je vrij laten om rond te kijken:",
+                    "updated": 1667137718552
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "All: features results from all categories.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "All: risultati da ogni categoria",
+                    "updated": 1618072897216,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "All: presenta resultados de todas las categorías.",
+                    "updated": 1624486755415,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "All: enthält Ergebnisse aus allen Kategorien.",
+                    "updated": 1634246435535
+                },
+                {
+                    "language": "TR",
+                    "text": "Tümü (All): Tüm kategorilerden sonuçları içerir.",
+                    "updated": 1636642639726
+                },
+                {
+                    "language": "ID",
+                    "text": "All: semua fitur dari all categories.",
+                    "updated": 1640599673560
+                },
+                {
+                    "language": "RU",
+                    "text": "All:  показывает результаты из всех категорий.",
+                    "updated": 1642773813152
+                },
+                {
+                    "language": "NL",
+                    "text": "All: bevat resultaten uit alle categorieën.",
+                    "updated": 1667137732623
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Nodes: Node Type matches containing the phrase.",
+            "updated": 1616694586239,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nodes: un tipo di nodo corrisponde alla frase",
+                    "updated": 1618072910891,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Nodes: Node Type coincidencias en la frase.",
+                    "updated": 1624486865186,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes: Ergebnisse vom Node Type, die den Begriff enthalten.",
+                    "updated": 1634246458058
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler (Nodes): Düğüm Türü ifadesi içeren  sözcüklerle eşleşir.",
+                    "updated": 1636642633711
+                },
+                {
+                    "language": "ID",
+                    "text": "Nodes: Node Type mengandung frasa yang cocok.",
+                    "updated": 1640599774344
+                },
+                {
+                    "language": "RU",
+                    "text": "Nodes: типы узлов, содержащие фразу.",
+                    "updated": 1642773950391
+                },
+                {
+                    "language": "NL",
+                    "text": "Nodes: Node Type overeenkomsten die de zin bevatten.",
+                    "updated": 1667137748371
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Concepts: includes notions such as References.",
+            "updated": 1610712970644,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Concepts: include concetti come le References",
+                    "updated": 1618072928787,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Concepts: incluye nociones como References.",
+                    "updated": 1624486815927,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Concepts: enthält Begriffe wie References.",
+                    "updated": 1634246469250
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramlar (Concepts): Referanslar vb. gibi kavramları içerir.",
+                    "updated": 1636642672030
+                },
+                {
+                    "language": "ID",
+                    "text": "Concepts: termasuk gagasan seperti References.",
+                    "updated": 1640599711150
+                },
+                {
+                    "language": "RU",
+                    "text": "Concepts: содержит такие понятия, как ссылки.",
+                    "updated": 1642774013725
+                },
+                {
+                    "language": "NL",
+                    "text": "Concepts: bevat begrippen als References.",
+                    "updated": 1667137791891
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Topics: large themes covered in sequenced pages.",
+            "updated": 1610712670894,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Topics: temi estesi trattati da sequenze di pagine",
+                    "updated": 1618072951866,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Topics: temas cubiertos en páginas secuenciadas.",
+                    "updated": 1624487132871,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Topics: große Themen, die in aufeinanderfolgenden Seiten behandelt werden.",
+                    "updated": 1634246475658
+                },
+                {
+                    "language": "TR",
+                    "text": "Konular (Topics): Birçok sayfadan oluşan konular.",
+                    "updated": 1636642724279
+                },
+                {
+                    "language": "ID",
+                    "text": "Topics: tema besar tercakup dalam halaman berurutan.",
+                    "updated": 1640599802958
+                },
+                {
+                    "language": "RU",
+                    "text": "Topics: большие темы, освещаемые на последовательных страницах.",
+                    "updated": 1642774029117
+                },
+                {
+                    "language": "NL",
+                    "text": "Topics: grote thema's die in opeenvolgende pagina's worden behandeld.",
+                    "updated": 1667137810365
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Tutorials: features the pages that make up tutorials.",
+            "updated": 1610652329836,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tutorials: contiene le pagine che formano i tutorial",
+                    "updated": 1618072968448,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tutorials: Son las páginas que los componen.",
+                    "updated": 1624487067166,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials: enthält die Seiten, aus denen Tutorials bestehen.",
+                    "updated": 1634246482307
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler (Tutorials): Öğreticileri oluşturan sayfaları içerir.",
+                    "updated": 1636642744211
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorials: fitur halaman yang membentuk tutorial.",
+                    "updated": 1640599821810
+                },
+                {
+                    "language": "RU",
+                    "text": "Tutorials: содержит страницы, составляющие учебные пособия.",
+                    "updated": 1642774041253
+                },
+                {
+                    "language": "NL",
+                    "text": "Tutorials: bevat de pagina's die deel uitmaken van zelfstudies/handleidingen.",
+                    "updated": 1667137841437
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Reviews: features users reviews on plugins , etc...",
+            "updated": 1610712626605,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Reviews: contiene le reviews degli utenti su vari temi",
+                    "updated": 1618072989751,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Reviews: reseñas de usuarios sobre plugins etc.",
+                    "updated": 1624487122000,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Reviews: enthält Benutzerrezensionen zu Plugins usw..",
+                    "updated": 1634246489513
+                },
+                {
+                    "language": "TR",
+                    "text": "İncelemeler (Reviews): Kullanıcıların eklentiler vb. hakkındaki incelemelerini içerir.",
+                    "updated": 1636642782352
+                },
+                {
+                    "language": "ID",
+                    "text": "Reviews: fitur user review pada plugin, dll...",
+                    "updated": 1640599847355
+                },
+                {
+                    "language": "RU",
+                    "text": "Reviews: особенности отзывов пользователей о плагинах и т.д....",
+                    "updated": 1642774060029
+                },
+                {
+                    "language": "NL",
+                    "text": "Reviews: bevat gebruikersrecensies over plug-ins, enz...",
+                    "updated": 1667137866870
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Books: collections of topics organized in chapters that cover entire app domains, for an orderly read.",
+            "updated": 1610712723851,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Books: collezioni di topic organizzati in capitoli che coprono intere funzionalità del software",
+                    "updated": 1618073039515,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Books: colecciones de temas organizados en capítulos, para una lectura ordenada.",
+                    "updated": 1624487191610,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Books: Sammlungen von Themen, die in Kapiteln organisiert sind, die ganze App-Bereiche abdecken, um ein geordnetes Lesen zu ermöglichen.",
+                    "updated": 1634246497013
+                },
+                {
+                    "language": "TR",
+                    "text": "Kitaplar (Books): Düzenli bir okuma için tüm uygulama alanlarını kapsayan bölümleri içerir.",
+                    "updated": 1636642824353
+                },
+                {
+                    "language": "ID",
+                    "text": "Books: koleksi topik yang disusun dalam bab-bab yang mencakup seluruh domain aplikasi, untuk dibaca dengan tertib.",
+                    "updated": 1640599872210
+                },
+                {
+                    "language": "RU",
+                    "text": "Books: сборники тем, организованные в главы, охватывающие целые области приложения, для упорядоченного чтения.",
+                    "updated": 1642774085004
+                },
+                {
+                    "language": "NL",
+                    "text": "Books: verzamelingen van onderwerpen georganiseerd in hoofdstukken die hele app-domeinen bestrijken, voor een ordelijke lezing.",
+                    "updated": 1667137892245
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Workspace: returns nodes that are present in the active workspace... click to go to them!",
+            "updated": 1610713053382,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Workspace: mostra i nodi presenti nel workspace corrente. Clicca per raggungerli!",
+                    "updated": 1618073062614,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: devuelve los nodos que están presentes en el espacio de trabajo activo... ¡haz clic para ir ahi!",
+                    "updated": 1624487240382,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspace: zeigt Knoten an, die sich im aktiven Arbeitsbereich befinden... klicken Sie darauf, um zu ihnen zu gelangen!",
+                    "updated": 1634246504156
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı (Workspace): Aktif çalışma alanında bulunan düğümleri döndürür... Onlara gitmek için tıklayın!",
+                    "updated": 1636642870169
+                },
+                {
+                    "language": "ID",
+                    "text": "Workspace: mengembalikan node yang ada di ruang kerja aktif... klik untuk pergi ke mereka!",
+                    "updated": 1640599896894
+                },
+                {
+                    "language": "RU",
+                    "text": "Workspace: возвращает узлы, которые присутствуют в активной рабочем пространстве... щелкните, чтобы перейти к ним!",
+                    "updated": 1642774113477
+                },
+                {
+                    "language": "NL",
+                    "text": "Workspace: geeft nodes terug die aanwezig zijn in de actieve werkruimte... klik om ernaartoe te gaan!",
+                    "updated": 1667137919281
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "type": "Permissioned P2P Networks",
+    "definition": {
+        "text": "The Permissioned P2P Networks node holds definitions of restricted peer to peer networks.",
+        "updated": 1647061823515,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "İzin Verilen P2P Ağları düğümü, kısıtlanmış eşler arası ağların tanımlarını tutar.",
+                "updated": 1654395849430
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654395855509,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

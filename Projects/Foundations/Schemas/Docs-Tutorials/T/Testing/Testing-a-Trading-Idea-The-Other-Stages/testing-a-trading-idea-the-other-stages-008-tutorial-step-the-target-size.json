@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Ich habe bereits erwähnt, dass Sie - wie beim Einrichten eines manuellen Auftrags an der Börse - die Größe in einem der beiden Vermögenswerte definieren können!",
                 "updated": 1639395616578
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Daha önce de belirtmiştim,borsada manuel sipariş verirken olduğu gibi - varlıkların herhangi birindeki büyüklüğü tanımlayabilirsiniz!",
+                "updated": 1641668302644
+            },
+            {
+                "language": "RU",
+                "text": "Я уже упоминал, что, как и при установке ручного ордера на бирже, вы можете определить размер в любом из активов!",
+                "updated": 1642777034934
+            },
+            {
+                "language": "ES",
+                "text": "Antes he mencionado que, al igual que cuando se establece una orden manual en la bolsa, se puede definir el tamaño en cualquiera de los activos.",
+                "updated": 1680704651276
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Was ich nicht erwähnt habe, ist, dass Sie nicht zwei Definitionen haben können! Um Zweideutigkeiten zu vermeiden, ist nur eine erlaubt!",
                     "updated": 1639395625733
+                },
+                {
+                    "language": "TR",
+                    "text": "Bahsetmediğim şey, iki tanımlama olamaz! Belirsizliği önlemek için sadece bir tanesine izin verilir!",
+                    "updated": 1641668311699
+                },
+                {
+                    "language": "RU",
+                    "text": "Я не упомянул, что нельзя иметь два определения! Чтобы избежать двусмысленности, допускается только одно!",
+                    "updated": 1642777046115
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo que no he mencionado es que no se pueden tener dos definiciones. Para evitar ambigüedades, sólo se permite una.",
+                    "updated": 1680704679815
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Wir werden die Größe in der Basisanlage definieren, also löschen Sie den Knoten Target Size In Quoted Asset !",
                     "updated": 1639395661440
+                },
+                {
+                    "language": "TR",
+                    "text": "Boyutu temel varlıkta tanımlayacağız, bu nedenle Kote Edilen Varlıktaki Hedef Boyut ( Target Size In Quoted Asset ) düğümünü silin!",
+                    "updated": 1641668328808
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы будем определять размер в базовом активе, поэтому удалите узел Target Size In Quoted Asset!",
+                    "updated": 1642777072869
+                },
+                {
+                    "language": "ES",
+                    "text": "Definiremos el Target Size In Base Asset, así que elimine el nodo Target Size In Quoted Asset.",
+                    "updated": 1680704764806
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Wir werden auch diesen Knoten einfach halten. Wir werden vorerst das gesamte für die Sitzung verfügbare Guthaben verwenden.",
                     "updated": 1639395670818
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümü de basit tutacağız. Şimdilik, oturum için mevcut tüm krediyi kullanacağız.",
+                    "updated": 1641668351020
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь мы тоже будем действовать просто. На данный момент мы будем использовать весь баланс, доступный для сессии.",
+                    "updated": 1642777098664
+                },
+                {
+                    "language": "ES",
+                    "text": "También ésta será sencilla. Por el momento, utilizaremos todo el saldo disponible para la sesión.",
+                    "updated": 1680704806727
                 }
             ]
         },
@@ -58,6 +118,21 @@
                     "language": "DE",
                     "text": "Wie machen wir das? Sie werden es sehen!",
                     "updated": 1639395677961
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunu nasıl yapacağız? Birazdan göreceksin!",
+                    "updated": 1641668361263
+                },
+                {
+                    "language": "RU",
+                    "text": "Как мы это сделаем? Вы это увидите!",
+                    "updated": 1642777128556
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Cómo lo hacemos? Ya lo verás.",
+                    "updated": 1680704826077
                 }
             ]
         }

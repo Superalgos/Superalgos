@@ -8,8 +8,13 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Díganos que ha hecho por el proyecto y como deberíamos recompensarlo!",
-                "updated": 1636281513982
+                "text": "Díganos que haz hecho por el proyecto y como deberíamos recompensarlo!",
+                "updated": 1682597185423
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Proje için ne yaptığınızı ve sizi nasıl ödüllendirmemiz gerektiğini bize anlatın!",
+                "updated": 1646303492815
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Три типа Claim Folders",
                     "updated": 1639133107079
+                },
+                {
+                    "language": "TR",
+                    "text": "Üç Tür Talep Dosyası",
+                    "updated": 1646303523734
                 }
             ]
         },
@@ -43,7 +53,14 @@
         {
             "style": "Subtitle",
             "text": "Asset Claims Folder",
-            "updated": 1630496355821
+            "updated": 1630496355821,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlık Talepleri Klasörü",
+                    "updated": 1646303551025
+                }
+            ]
         },
         {
             "style": "Include",
@@ -52,7 +69,14 @@
         {
             "style": "Subtitle",
             "text": "Feature Claims Folder",
-            "updated": 1630496368526
+            "updated": 1630496368526,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellik Talepleri Klasörü",
+                    "updated": 1646303569401
+                }
+            ]
         },
         {
             "style": "Include",
@@ -60,7 +84,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Position Claims Folder"
+            "text": "Position Claims Folder",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Talepleri Klasörü",
+                    "updated": 1646303587260
+                }
+            ]
         },
         {
             "style": "Include",
@@ -75,6 +106,11 @@
                     "language": "RU",
                     "text": "Три типа Contribution Claims",
                     "updated": 1639133414363
+                },
+                {
+                    "language": "TR",
+                    "text": "Üç Tür Katkı Talebi",
+                    "updated": 1646303616071
                 }
             ]
         },
@@ -85,7 +121,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Asset Contribution Claim"
+            "text": "Asset Contribution Claim",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlık Katkı Talebi",
+                    "updated": 1646303638711
+                }
+            ]
         },
         {
             "style": "Include",
@@ -93,7 +136,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Feature Contribution Claim"
+            "text": "Feature Contribution Claim",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellik Katkı Talebi",
+                    "updated": 1646303653368
+                }
+            ]
         },
         {
             "style": "Include",
@@ -101,7 +151,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Position Contribution Claim"
+            "text": "Position Contribution Claim",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Katkısı Talebi",
+                    "updated": 1646303664306
+                }
+            ]
         },
         {
             "style": "Include",

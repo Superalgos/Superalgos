@@ -2,12 +2,41 @@
     "type": "Plugin API Maps",
     "definition": {
         "text": "The plugin API Maps node features the definitions of tutorials to be included as plugins in the current workspace.",
-        "updated": 1622165615601
+        "updated": 1622165615601,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Plugin API Maps содержит определения учебников, которые должны быть включены в текущее рабочее пространство в качестве плагинов.",
+                "updated": 1645164778025
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti API Haritaları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek öğreticilerin tanımlarını içerir.",
+                "updated": 1651949789834
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Plugin API Maps enthält die Definitionen von Tutorials, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674279204847
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1651949804645
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1674279227257
+                }
+            ]
         }
     ]
 }

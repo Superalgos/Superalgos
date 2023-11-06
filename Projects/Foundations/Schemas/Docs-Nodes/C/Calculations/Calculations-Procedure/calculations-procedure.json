@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Calculations Procedure обрабатывает информацию, которая должна быть передана в вычисляемые свойства. Вычисляемые свойства не сохраняются в наборе данных; вместо этого они вычисляются в режиме реального времени по мере использования данных другими пользователями.",
                 "updated": 1638645712103
+            },
+            {
+                "language": "TR",
+                "text": "Hesaplama prosedürü, hesaplanan özelliklere beslenecek bilgileri işler. Hesaplanan özellikler veri kümesinde saklanmaz; bunun yerine, veriler başkaları tarafından tüketildiği için gerçek zamanlı olarak hesaplanır.",
+                "updated": 1652797102731
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Боты хранят данные в формате минимизированного массива в качестве стратегии для создания максимально легких наборов данных. По той же причине бот может отказаться от хранения легко вычисляемой информации.",
                     "updated": 1638645744288
+                },
+                {
+                    "language": "TR",
+                    "text": "Botlar, mümkün olan en hafif veri kümelerini oluşturmak için bir strateji olarak verileri simge durumuna küçültülmüş dizi biçiminde depolar. Aynı nedenle, bir bot kolayca hesaplanabilen bilgileri saklamamayı seçebilir.",
+                    "updated": 1652797118803
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Например, представьте индикатор, который хранит объемы покупок и продаж ... нужно ли ему хранить общий объем? Учитывая, что это так легко вычислить, ответ, вероятно, нет. Решение остается за разработчиком, но это, конечно, не обязательно.",
                     "updated": 1638645764246
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, alım satım hacimlerini saklayan bir gösterge hayal edin... toplam hacmi saklaması gerekiyor mu? Hesaplaması çok kolay olduğu için, cevap muhtemelen değildir. Karar geliştiriciye kalmıştır, ancak kesinlikle gerekli değildir.",
+                    "updated": 1652797129208
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Процедура вычислений используется для вычисления свойств, которые разработчик решает не хранить в наборе данных.",
                     "updated": 1638645783469
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Hesaplama prosedürü, geliştiricinin veri kümesinde saklamamayı tercih ettiği özellikleri hesaplamak için kullanılır.",
+                    "updated": 1652797141680
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Чтобы полностью понять роль процедуры вычислений, обратитесь к странице Data Mining - Workflows.",
                     "updated": 1638645915223
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Hesaplama prosedürünün rolünü tam olarak anlamak için lütfen veri madenciliği iş akışı sayfasına bakın.",
+                    "updated": 1652797151465
                 }
             ]
         }

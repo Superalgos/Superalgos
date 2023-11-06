@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Lassen Sie mich Ihnen erklären, wie Sie die benötigten Informationen in der Trading Engine finden",
                 "updated": 1639417757292
+            },
+            {
+                "language": "TR",
+                "text": "Özet: size ticaret motorunda ( Trading Engine ) ihtiyacınız olan bilgileri nasıl bulacağınızı açıklamama izin verin.",
+                "updated": 1641796303371
+            },
+            {
+                "language": "RU",
+                "text": "Позвольте мне провести вас через рассуждения, чтобы найти необходимую информацию в Trading Engine",
+                "updated": 1642942249006
+            },
+            {
+                "language": "ES",
+                "text": "Déjame guiarte a través del razonamiento para encontrar la información requerida en el Trading Engine",
+                "updated": 1681053574096
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Wir befinden uns im Abschnitt Trading Current > Strategy Open Stage > Stage Quoted Asset. Das ist der Grund:",
                     "updated": 1639417767361
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Akımı - işlem akımı ( Trading Current ) > Strateji Açık Aşaması ( Strategy Open Stage ) > Aşamalı Kote Varlık ( Stage Quoted Asset section ) bölümündeyiz. Bunun nedeni:",
+                    "updated": 1641796324299
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы находимся в разделе Trading Current > Strategy Open Stage > Stage Quoted Asset. Вот почему:",
+                    "updated": 1642942284526
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos en el Trading Current > Strategy Open Stage > Stage Quoted Asset section. Esto es por que:",
+                    "updated": 1681053611291
                 }
             ]
         },
@@ -38,6 +68,21 @@
                     "language": "DE",
                     "text": "Trading Current: Hier geht es um die aktuelle Position.",
                     "updated": 1639417783553
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Akımı - işlem akımı(Trading Current) : Her şey mevcut pozisyonla ilgilidir.",
+                    "updated": 1641796452062
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Current: здесь все о текущей позиции.",
+                    "updated": 1642942321682
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Current: se trata de la posición actual.",
+                    "updated": 1681053626667
                 }
             ]
         },
@@ -49,6 +94,21 @@
                     "language": "DE",
                     "text": "Strategy Open Stage: weil die Transaktion zur Eingabe der Position in dieser Phase stattfand. Wir wollen wissen, wie viel USDT wir bekommen haben!",
                     "updated": 1639417795471
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji Açık Aşama(Strategy Open Stage): pozisyona girme işlemi bu aşamada gerçekleştiği için. Ne kadar USDT aldığımızı bilmek istiyoruz",
+                    "updated": 1641796466681
+                },
+                {
+                    "language": "RU",
+                    "text": "Strategy Open Stage: так как на этом этапе произошла транзакция по входу в позицию. Мы хотим знать, сколько USDT мы получили!",
+                    "updated": 1642942338889
+                },
+                {
+                    "language": "ES",
+                    "text": "Strategy Open Stage: porque la transacción para entrar en la posición ocurrió durante esta etapa. ¡Queremos saber cuántos USDT hemos conseguido!",
+                    "updated": 1681053641296
                 }
             ]
         },
@@ -60,6 +120,21 @@
                     "language": "DE",
                     "text": "Stage Quoted Asset: weil wir den Basiswert verkauft und den quotierten Vermögenswert erhalten haben, und es ist der quotierte Vermögenswert, den wir in der Close Stage loswerden wollen! Die Frage ist, wie viel davon!",
                     "updated": 1639417812713
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamalı Kote Varlık (Stage Quoted Asset): çünkü temel varlığı sattık ve kote varlığı elde ettik ve bu, yakın aşamada kurtulmak istediğimiz kote varlık! Soru, bunun ne kadar olduğu!",
+                    "updated": 1641796478499
+                },
+                {
+                    "language": "RU",
+                    "text": "Stage Quoted Asset: поскольку мы продали базовый актив и получили котируемый актив, и именно от котируемого актива мы хотим избавиться на этапе закрытия! Вопрос в том, сколько именно!",
+                    "updated": 1642942364747
+                },
+                {
+                    "language": "ES",
+                    "text": "Stage Quoted Asset: porque la transacción para entrar en la posición ocurrió durante esta etapa. ¡Queremos saber cuántos USDT hemos conseguido!",
+                    "updated": 1681053697015
                 }
             ]
         },
@@ -71,6 +146,21 @@
                     "language": "DE",
                     "text": "Irgendwelche Ideen für die Formel?",
                     "updated": 1639417825100
+                },
+                {
+                    "language": "TR",
+                    "text": "Formül için herhangi bir fikriniz var mı?",
+                    "updated": 1641796488115
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть идеи по поводу формулы?",
+                    "updated": 1642942370719
+                },
+                {
+                    "language": "ES",
+                    "text": "Algunas ideas para la formula?",
+                    "updated": 1681053724581
                 }
             ]
         }

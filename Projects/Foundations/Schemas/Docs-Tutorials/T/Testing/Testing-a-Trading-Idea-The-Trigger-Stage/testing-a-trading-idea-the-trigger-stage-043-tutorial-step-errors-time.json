@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Fehler sind immer an einen Zeitpunkt, d.h. an eine bestimmte Kerze gebunden! Wie in diesem Fall kann mehr als ein Fehler gleichzeitig auftreten!",
                 "updated": 1639267360171
+            },
+            {
+                "language": "TR",
+                "text": "Hatalar her zaman zamanın bir noktasına, yani belirli bir muma bağlıdır! Bu durumda olduğu gibi aynı anda birden fazla hata oluşabilir!",
+                "updated": 1669587118067
+            },
+            {
+                "language": "RU",
+                "text": "Ошибки всегда привязаны к моменту времени, то есть к конкретной свече! Как и в данном случае, одновременно может произойти более одной ошибки!",
+                "updated": 1642656437527
+            },
+            {
+                "language": "ES",
+                "text": "Los errores siempre están ligados a un punto en el tiempo, es decir, ¡a una vela concreta! Como en este caso, ¡puede ocurrir más de un error a la vez!",
+                "updated": 1677104624681
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Wenn der Trading Bot eine Handelssitzung durchführt, wendet er die Definitionen im Trading System Kerze für Kerze an, eine nach der anderen. Der Bot weiß nicht, was als Nächstes kommt... er kennt nur die aktuelle Kerze - die, die gerade ausgewertet wird.",
                     "updated": 1639267371193
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Botu ( Trading Bot ) bir ticaret seansı gerçekleştirdiğinde, Ticaret Sistemindeki ( Trading System ) tanımları birer birer,mum mum uygular. Bot sırada ne olduğunu bilmez... sadece mevcut mumu bilir — yani değerlendirilen mumu.",
+                    "updated": 1641660498609
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда торговый бот запускает торговую сессию, он применяет определения в торговой системе свеча за свечой, по одной за раз. Бот не знает, что будет дальше... он знает только текущую свечу - ту, которая оценивается.",
+                    "updated": 1642656951573
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando el Trading Bot ejecuta una sesión de trading, aplica las definiciones del Trading System vela a vela, de una en una. El robot no sabe qué es lo siguiente... sólo conoce la vela actual, la que se está evaluando.",
+                    "updated": 1677104632495
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Wenn ein Fehler auftritt, wird er mit dem Zeitstempel der entsprechenden Kerze gespeichert. Wenn mehr als ein Fehler bei derselben Kerze auftritt, wird jeder Fehler unter dem vorherigen aufgezeichnet, wobei die Kugeln immer kleiner werden. Auf diese Weise wissen Sie genau, welche Fehler wann aufgetreten sind.",
                     "updated": 1639267380172
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir hata oluştuğunda, ilgili mumun zaman damgasıyla birlikte kaydedilir. Aynı mumda birden fazla hata meydana gelirse, her hata bir öncekinin altına çizilir ve uyarı işaretinin boyutu küçülür. Hangi hataların ne zaman gerçekleştiğini tam olarak bu şekilde bilirsiniz.",
+                    "updated": 1669587143588
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда происходит ошибка, она сохраняется вместе с временной меткой соответствующей свечи. Если на одной и той же свече произошло несколько ошибок, каждая ошибка отображается под предыдущей, причем размер шариков уменьшается. Так вы узнаете, какие именно ошибки когда произошли.",
+                    "updated": 1642657028952
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando se produce un error, se guarda con la marca de tiempo de la vela correspondiente. Si se produce más de un error en la misma vela, cada error se traza debajo del anterior, con viñetas de tamaño decreciente. Así sabrás exactamente qué errores se han producido y cuándo.",
+                    "updated": 1677104640399
                 }
             ]
         }

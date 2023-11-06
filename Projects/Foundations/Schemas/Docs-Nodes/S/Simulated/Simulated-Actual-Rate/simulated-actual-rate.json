@@ -1,7 +1,19 @@
 {
     "type": "Simulated Actual Rate",
     "definition": {
-        "text": "The simulated actual rate node allows setting a specific rate value for the simulation of each order, overriding the slippage parameter of the trading session."
+        "text": "The simulated actual rate node allows setting a specific rate value for the simulation of each order, overriding the slippage parameter of the trading session.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Simulated Actual Rate позволяет установить конкретное значение ставки для имитации каждого ордера, переопределяя параметр проскальзывания торговой сессии.",
+                "updated": 1639846326204
+            },
+            {
+                "language": "TR",
+                "text": "Simüle edilmiş gerçek oran düğümü (The simulated actual rate node), ticaret seansının kayma parametresini geçersiz kılarak her bir siparişin simülasyonu için belirli bir oran değeri ayarlamaya izin verir.",
+                "updated": 1656067140258
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +22,35 @@
         },
         {
             "style": "Text",
-            "text": "The slippage parameter of the trading session allows setting a blanket slippage for all orders in the trading system. The simulated actual rate node allows control on a per-order basis, so each order may be simulated with a specific rate."
+            "text": "The slippage parameter of the trading session allows setting a blanket slippage for all orders in the trading system. The simulated actual rate node allows control on a per-order basis, so each order may be simulated with a specific rate.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр проскальзывания торговой сессии позволяет установить общее проскальзывание для всех ордеров в торговой системе. Узел имитации реальной ставки позволяет управлять на основе каждого ордера, поэтому для каждого ордера может быть смоделирована определенная ставка.",
+                    "updated": 1639846367023
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem seansının kayma (slippage) parametresi, işlem sistemindeki tüm emirler için genel bir kayma ayarlanmasına olanak tanır. Simüle edilmiş gerçek oran düğümü, emir bazında kontrole izin verir, böylece her emir belirli bir oranla simüle edilebilir.",
+                    "updated": 1656067183510
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If the node is not present or the parameter is undefined, the slippage parameter set up for the trading session is used."
+            "text": "If the node is not present or the parameter is undefined, the slippage parameter set up for the trading session is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если узел отсутствует или параметр не определен, используется параметр проскальзывания, установленный для данной торговой сессии.",
+                    "updated": 1639846393863
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm mevcut değilse veya parametre tanımlanmamışsa, işlem seansı için ayarlanan kayma parametresi kullanılır.",
+                    "updated": 1656067200514
+                }
+            ]
         }
     ]
 }

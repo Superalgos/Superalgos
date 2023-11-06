@@ -1,0 +1,98 @@
+{
+    "type": "Swap Pair",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokenOut",
+            "label": "Add Token Out (Base Asset)",
+            "translationKey": "add.tokenOutBaseAsset",
+            "relatedUiObject": "Pair Token Out",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokenIn",
+            "label": "Add Token In (Quoted Asset)",
+            "translationKey": "add.tokenInQuotedAsset",
+            "relatedUiObject": "Pair Token In",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Install Pair",
+            "label": "Install Pair (Market)",
+            "translationKey": "install.marketPair",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Install Pair",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Uninstall Pair",
+            "label": "Uninstall Pair (Market)",
+            "translationKey": "uninstall.marketPair",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Uninstall Pair",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "childrenNodesProperties": [
+        {
+            "name": "tokenOut",
+            "type": "node",
+            "childType": "Pair Token Out",
+            "autoAdd": true
+        },
+        {
+            "name": "tokenIn",
+            "type": "node",
+            "childType": "Pair Token In",
+            "autoAdd": true
+        }
+    ],
+    "addLeftIcons": true,
+    "isTitleAllwaysVisible": true,
+    "level": 4,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type_the_name_of_the_pair_or_market\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Swap Pairs->"
+    },
+    "propertyNameAtParent": "swapPair"
+}

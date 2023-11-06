@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Это относится к типу набора данных Dataset Type, который содержит файлы для каждого Time Frame от 1 часа до 24 часов, и каждый файл содержит данные всего рынка.",
                 "updated": 1638286131523
+            },
+            {
+                "language": "TR",
+                "text": "Bu, 1 saatten 24 saate kadar her bir Zaman Dilimi ( Time Frame ) için dosyalar içeren Veri Kümesi ( Dataset Type ) Türünü ifade eder ve her dosya tüm pazarın verilerini içerir.\n",
+                "updated": 1666713936285
+            },
+            {
+                "language": "DE",
+                "text": "Dies bezieht sich auf den Datensatztyp (Dataset-Type), der Dateien für jeden Zeitrahmen (Time-Frame) von 1 Stunde bis zu 24 Stunden enthält, wobei jede Datei die Daten der gesamten Marke enthält.",
+                "updated": 1684512199857
             }
         ]
     },

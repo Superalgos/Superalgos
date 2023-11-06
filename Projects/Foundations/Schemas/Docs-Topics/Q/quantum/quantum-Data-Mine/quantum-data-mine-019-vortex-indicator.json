@@ -1,0 +1,155 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 19,
+    "type": "Vortex Indicator",
+    "definition": {
+        "text": "The Vortex Indicator is used to identify trend reversals and confirm current trends.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Vortex Indikator wird verwendet, um Trendumkehrungen zu erkennen und aktuelle Trends zu bestätigen.",
+                "updated": 1671695617301
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Vortex Indicator on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vortex Indikator auf den Charts",
+                    "updated": 1671695642831
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia: The Vortex Indicator was first developed by Etienne Botes and Douglas Siepman who introduced the concept in a 2009 edition of \"Technical Analysis of Stocks & Commodities\". The vortex indicator is based on two trendlines: VI+ and VI-.",
+            "updated": 1658980125657,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Der Vortex Indikator wurde erstmals von Etienne Botes und Douglas Siepman entwickelt, die das Konzept 2009 in einer Ausgabe von \"Technical Analysis of Stocks & Commodities\" vorstellten. Der Vortex-Indikator basiert auf zwei Trendlinien: VI+ und VI-.",
+                    "updated": 1671695676934
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671695701115
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "An uptrend or buy signal occurs when VI+ is below VI- and then crosses above VI- to take the top position among the trendlines.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Aufwärtstrend oder ein Kaufsignal entsteht, wenn VI+ unter VI- liegt und dann über VI- kreuzt, um die Spitzenposition unter den Trendlinien einzunehmen.",
+                    "updated": 1671695724892
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A downtrend or sell signal occurs when VI- is below VI+ and crosses above VI+ to take the top position among the trendlines.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Abwärtstrend oder Verkaufssignal entsteht, wenn VI- unter VI+ liegt und über VI+ kreuzt, um die Spitzenposition unter den Trendlinien einzunehmen.",
+                    "updated": 1671695747414
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Overall, the trendline in the top position generally dictates whether the security is in an uptrend or downtrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Allgemeinen gibt die Trendlinie an der oberen Position an, ob sich das Wertpapier in einem Aufwärts- oder Abwärtstrend befindet.",
+                    "updated": 1671695773315
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Vortex Indicator (investopedia)->www.investopedia.com/terms/v/vortex-indicator-vi.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vortex-on-the-charts.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Vortex indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Vortex Indicator\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Vortex Indikator können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Vortex Indicator\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671695863062
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vortex-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Vortex indicator Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vortex Indikator Produkte & Eigenschaften",
+                    "updated": 1671695897548
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Vortex Indicator | VI | vip, vim |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Vortex Indicator | VI | vip, vim |",
+                    "updated": 1671695913899
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671695928285
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the vortex positive value crosses above the minus value:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn der positive Wert des Vortex den negativen Wert übersteigt:",
+                    "updated": 1671695982727
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.VI.vip > chart.at02hs.VI.vim && chart.at02hs.VI.previous.vip < chart.at02hs.VI.previous.vim"
+        }
+    ]
+}

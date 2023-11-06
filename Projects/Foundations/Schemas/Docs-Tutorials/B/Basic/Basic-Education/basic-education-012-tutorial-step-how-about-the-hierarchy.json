@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "La razón por la cual la distancia al nodo principal es relativa a la distancia del principal al principal es para que pueda afectar las estructuras largas de los nodos.",
-                "updated": 1625957988594,
+                "text": "La razón por la que la distancia al nodo padre es relativa a la distancia del padre a su padre es que ¡puedes afectar a estructuras largas de nodos!",
+                "updated": 1675375818853,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Ebeveyn düğüme olan uzaklığın ebeveynin ebeveynine olan mesafesine göre olmasının nedeni, uzun düğüm yapılarını etkileyebilmeniz içindir!",
                 "updated": 1636750239895
+            },
+            {
+                "language": "RU",
+                "text": "Таким образом, расстояние до родительского узла относительно расстояния родительского узла до его родителя позволяет воздействовать на длинные структуры узлов!",
+                "updated": 1640866787529
+            },
+            {
+                "language": "ID",
+                "text": "Alasan kenapa jarak ke node parent-nya relatif ke jarak antara parent dengan parent agar kamu bisa mempengaruhi struktur panjang dari node!",
+                "updated": 1643354222281
+            },
+            {
+                "language": "NL",
+                "text": "De reden waarom de afstand tot het bovenliggende knooppunt relatief is ten opzichte van de afstand van het bovenliggende knooppunt tot zijn bovenliggende knooppunt, is dat u lange structuren van knooppunten kunt beïnvloeden!",
+                "updated": 1668336339323
             }
         ]
     },
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic una vez en el botón Distance to Parent del nodo Network.",
-                    "updated": 1625958052161,
+                    "text": "Haz clic una vez en el botón \"Distance to Parent\" del nodo Network.",
+                    "updated": 1675375706767,
                     "style": "Callout"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Ağ düğümünün Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
                     "updated": 1636750278445
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите один раз на кнопку Distance to Parent  узла Network!",
+                    "updated": 1640866845765
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik sekali pada tombol Distance to Parent dari node Network!",
+                    "updated": 1643354241738
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik eenmaal op de knop Distance to Parent van de Network node!",
+                    "updated": 1668336360348
                 }
             ]
         },
@@ -77,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
-                    "updated": 1625958134928,
+                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organizar visualmente las jerarquías!",
+                    "updated": 1675375718551,
                     "style": "Text"
                 },
                 {
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Vayyy! Gördün mü? Bu araçlar, hiyerarşiler üzerinde görsel olarak tam kontrol sahibi olmanızı sağlar!",
                     "updated": 1636751755132
+                },
+                {
+                    "language": "RU",
+                    "text": "Ух ты! Видите? Эти инструменты позволяют вам полностью контролировать то, как вы визуально организуете иерархии!",
+                    "updated": 1640866862862
+                },
+                {
+                    "language": "ID",
+                    "text": "Wow! Lihat? alat ini memperbolehkan kamu untuk mengontrol penuh atas bagaimana kamu mengatur visualisasi hirarki!",
+                    "updated": 1643473999623
+                },
+                {
+                    "language": "NL",
+                    "text": "Wauw! Zie je het? Met deze tools heb je volledige controle over hoe je hiërarchieën visueel organiseert!",
+                    "updated": 1668336392595
                 }
             ]
         },
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Ticaret Görevlerini Test Etme ( Testing Trading Tasks ) düğümündeki Ebeveyne Mesafe (Distance To Parent) ayarını iptal etmeyi deneyin! Gördüğünüz gibi, ebeveyn düğüme herhangi bir uzaklık ayarlayabilirsiniz, Ancak ebeveyne olan açı sabit kalır.",
                     "updated": 1636751865776
+                },
+                {
+                    "language": "RU",
+                    "text": "Попробуйте отменить настройку Distance to Parent в узле Testing Trading Tasks! Как видите, вы можете задать любое произвольное расстояние до родительского узла, но угол к нему остается фиксированным.",
+                    "updated": 1640866885334
+                },
+                {
+                    "language": "ID",
+                    "text": "Coba batalkan aturan Distance to Parent di node Testing Trading Tasks! Seperti yang terlihat, kamu bisa leluasa mengatur jarak dari node parent-nya. Tetapi sudut ke parent-nya tetap.",
+                    "updated": 1643354269938
+                },
+                {
+                    "language": "NL",
+                    "text": "Probeer de instelling Distance to Parent op het knooppunt Testing Trading Tasks te annuleren! Zoals u kunt zien, kunt u elke willekeurige afstand tot het bovenliggende knooppunt instellen, maar de hoek naar het bovenliggende knooppunt blijft vast.",
+                    "updated": 1668336442363
                 }
             ]
         }

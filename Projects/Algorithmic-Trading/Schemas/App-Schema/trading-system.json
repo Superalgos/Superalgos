@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Trading Strategy",
+            "translationKey": "add.trading.strategy",
             "relatedUiObject": "Trading Strategy",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -14,6 +15,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "dynamicIndicators",
             "label": "Add Dynamic Indicators",
+            "translationKey": "add.dynamicIndicators",
             "relatedUiObject": "Dynamic Indicators",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -26,6 +28,7 @@
             "propertyToCheckFor": "outgoingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Outgoing Signals",
+            "translationKey": "add.signals.outgoing",
             "relatedUiObject": "Outgoing Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -36,15 +39,29 @@
             "propertyToCheckFor": "incomingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Incoming Signals",
+            "translationKey": "add.signals.incoming",
             "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
-        },           
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "portfolioManagedSystem",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Portfolio Managed System",
+            "translationKey": "add.portfoliaManagedSystem",
+            "relatedUiObject": "Portfolio Managed System",
+            "relatedUiObjectProject": "Portfolio-Management"
+        },        
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -79,6 +96,12 @@
             "type": "node",
             "childType": "Incoming Signals",
             "project": "Trading-Signals"
+        },
+        {
+            "name": "portfolioManagedSystem",
+            "type": "node",
+            "childType": "Portfolio Managed System",
+            "project": "Portfolio-Management"
         }
     ]
 }

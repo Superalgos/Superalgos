@@ -4,21 +4,69 @@
     "type": "TS LF Trading Bot Info - Order Closed",
     "definition": {
         "text": "The order that triggered this Info Message has been closed.",
-        "updated": 1611920136713
+        "updated": 1611920136713,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu Bilgi Mesajını tetikleyen emir kapatılmıştır.",
+                "updated": 1647356609998
+            },
+            {
+                "language": "DE",
+                "text": "Der Auftrag, der diese Info-Meldung ausgelöst hat, wurde abgeschlossen.",
+                "updated": 1678992124609
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Details of the Exit Type for that order can be seen below.",
-            "updated": 1611920197722
+            "updated": 1611920197722,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu emir için Çıkış Tipinin ( Exit Type ) ayrıntıları aşağıda görülebilir.",
+                    "updated": 1647356687156
+                },
+                {
+                    "language": "DE",
+                    "text": "Details zur Ausstiegsart (Exit Type) für diesen Auftrag finden Sie unten.",
+                    "updated": 1678992151964
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İçerik Bilgisi",
+                    "updated": 1647356700913
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1678992162438
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here are the context information preserved at the moment this Info Message was generated."
+            "text": "Here are the context information preserved at the moment this Info Message was generated.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu Bilgi Mesajının oluşturulduğu anda muhafaza edilen içerik bilgileri aşağıdadır.",
+                    "updated": 1647356753862
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier finden Sie die Kontextinformationen, die Sie zum Zeitpunkt der Erstellung dieser Infomeldung erhalten. wurden.",
+                    "updated": 1678992237032
+                }
+            ]
         },
         {
             "style": "Placeholder",

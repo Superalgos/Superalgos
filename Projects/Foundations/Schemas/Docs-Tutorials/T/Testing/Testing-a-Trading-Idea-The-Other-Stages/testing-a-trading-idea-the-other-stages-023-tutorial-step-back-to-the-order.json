@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Bevor wir zu den Definitionen in der Manage Stage übergehen, müssen wir uns noch um eine Sache kümmern!",
                 "updated": 1639399149008
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Yönetim Aşamasındaki tanımlara geçmeden önce, ilgilenmemiz gereken bir şey daha var!",
+                "updated": 1641747075526
+            },
+            {
+                "language": "RU",
+                "text": "Есть еще одна вещь, о которой нам нужно позаботиться, прежде чем мы перейдем к определениям на этапе управления!",
+                "updated": 1642941384534
+            },
+            {
+                "language": "ES",
+                "text": "Hay una cosa más de la que tenemos que ocuparnos antes de pasar a las definiciones en la fase de gestión.",
+                "updated": 1680806938915
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Der Trading Bot verfolgt jede Order zu jeder Zeit und speichert die entsprechenden Informationen in einer bestimmten Struktur von Knoten in der Trading Engine.",
                     "updated": 1639399157023
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu ( Trading Bot ) her siparişi her zaman takip eder ve ilgili bilgileri ticaret motorundaki ( Trading Engine ) belirli bir düğüm yapısında kaydeder.",
+                    "updated": 1641747087980
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый бот постоянно отслеживает каждый ордер и сохраняет соответствующую информацию в определенной структуре узлов в Trading Engine.",
+                    "updated": 1642941411695
+                },
+                {
+                    "language": "ES",
+                    "text": "El Trading Bot realiza un seguimiento de cada orden en todo momento y guarda la información correspondiente en una estructura específica de nodos en el Trading Engine.",
+                    "updated": 1680807052638
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Erweitern Sie den Knoten Market Sell Order #1 und werfen Sie einen Blick hinein.",
                     "updated": 1639399163727
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Satış Emri ( Market Sell Order ) #1 düğümünü genişletin ve içeriye bir göz atın.",
+                    "updated": 1641747101176
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Market Sell Order #1 и загляните внутрь.",
+                    "updated": 1642941425340
+                },
+                {
+                    "language": "ES",
+                    "text": "Amplíe el nodo Orden de venta a mercado nº 1 y eche un vistazo a su interior.",
+                    "updated": 1680807092350
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Da jeder Auftrag ein Eigenleben hat, speichert der Bot die Informationen über jeden Auftrag in separaten Knotenstrukturen, eine pro Auftrag.",
                     "updated": 1639399172402
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Her işin kendine ait bir ömrü olduğundan, bot her bir iş hakkındaki bilgileri her iş için bir tane olmak üzere ayrı düğüm yapılarında saklar.",
+                    "updated": 1641747110517
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку каждый ордер живет своей жизнью, бот хранит информацию о каждом ордере в отдельных структурах узлов, по одному на каждый ордер.",
+                    "updated": 1642941448355
+                },
+                {
+                    "language": "ES",
+                    "text": "Como cada pedido tiene vida propia, el bot almacena información sobre cada uno de ellos en estructuras separadas de nodos, una por pedido.",
+                    "updated": 1680807114937
                 }
             ]
         }

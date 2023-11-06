@@ -4,17 +4,63 @@
     "type": "Exponential Moving Average (EMA) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces the Exponential Moving Average in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
-        "updated": 1611661783066
+        "updated": 1611661783066,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает экспоненциальную скользящую среднюю в нескольких вариантах, включая популярные 20, 50, 100 и 200, а также менее распространенные SMA на базе 7 и 11.",
+                "updated": 1643529587015
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, popüler 20, 50, 100 ve 200'ün yanı sıra daha az sıklıkta taban 7 ve taban 11 SMA'lar dahil olmak üzere birden çok ayarda Üstel Hareketli Ortalama üretir.",
+                "updated": 1650620218306
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator erzeugt den Exponential Moving Average in mehreren Einstellungen, einschließlich der beliebten 20, 50, 100 und 200 sowie der weniger häufigen Basis 7 und Basis 11 SMAs.",
+                "updated": 1671033735441
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Exponential Moving Average On the Charts",
-            "updated": 1611661800711
+            "updated": 1611661800711,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экспоненциальная скользящая средняя на графиках",
+                    "updated": 1643529593060
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Üstel Hareketli Ortalama",
+                    "updated": 1650620229297
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “An exponential moving average (EMA) is a type of moving average (MA) that places a greater weight and significance on the most recent data points. The exponential moving average is also referred to as the exponentially weighted moving average. An exponentially weighted moving average reacts more significantly to recent price changes than a simple moving average (SMA), which applies an equal weight to all observations in the period.”"
+            "text": "According to Investopedia, “An exponential moving average (EMA) is a type of moving average (MA) that places a greater weight and significance on the most recent data points. The exponential moving average is also referred to as the exponentially weighted moving average. An exponentially weighted moving average reacts more significantly to recent price changes than a simple moving average (SMA), which applies an equal weight to all observations in the period.”",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"экспоненциальная скользящая средняя (EMA) - это тип скользящей средней (MA), которая придает больший вес и значение самым последним точкам данных. Экспоненциальную скользящую среднюю также называют экспоненциально взвешенной скользящей средней. Экспоненциально взвешенная скользящая средняя реагирует на последние изменения цены более существенно, чем простая скользящая средняя (SMA), которая применяет равный вес ко всем наблюдениям за период.\"",
+                    "updated": 1643529603822
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, \"Üssel hareketli ortalama (EMA), en son veri noktalarına daha fazla ağırlık ve önem veren bir tür hareketli ortalamadır (MA). Üstel hareketli ortalama, üstel ağırlıklı hareketli ortalama olarak da adlandırılır. Üstel ağırlıklı bir hareketli ortalama, son fiyat değişikliklerine, dönemdeki tüm gözlemlere eşit ağırlık uygulayan basit bir hareketli ortalamaya (SMA) göre daha önemli tepki verir.",
+                    "updated": 1650620238969
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia ist \"ein exponentieller gleitender Durchschnitt (EMA) eine Art gleitender Durchschnitt (MA), der den jüngsten Datenpunkten ein größeres Gewicht und eine größere Bedeutung beimisst. Der exponentiell gleitende Durchschnitt wird auch als exponentiell gewichteter gleitender Durchschnitt bezeichnet. Ein exponentiell gewichteter gleitender Durchschnitt reagiert deutlicher auf die jüngsten Kursänderungen als ein einfacher gleitender Durchschnitt (SMA), der alle Beobachtungen im Zeitraum gleich gewichtet.\"",
+                    "updated": 1671033844680
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -23,39 +69,165 @@
         },
         {
             "style": "Text",
-            "text": "The same explanations offered for SMAs apply to EMAs."
+            "text": "The same explanations offered for SMAs apply to EMAs.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Те же объяснения, что и для SMA, применимы и к EMA.",
+                    "updated": 1643529612306
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA'lar için sunulan aynı açıklamalar EMA'lar için de geçerlidir.",
+                    "updated": 1650620251319
+                },
+                {
+                    "language": "DE",
+                    "text": "Die gleichen Erklärungen, die für SMAs angeboten werden, gelten auch für EMAs.",
+                    "updated": 1671033885984
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Exponential Moving Average Products & Properties"
+            "text": "Exponential Moving Average Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Exponential Moving Average",
+                    "updated": 1643529626094
+                },
+                {
+                    "language": "TR",
+                    "text": "Üstel Hareketli Ortalama Ürünler ve Özellikler",
+                    "updated": 1650620262405
+                },
+                {
+                    "language": "DE",
+                    "text": "Exponential Moving Average Produkte & Eigenschaften",
+                    "updated": 1671033957511
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The products and periods available in EMA map exactly the products and periods available in SMA. To use EMA you simply need to replace the S with an E. That said, for your reference, this is the complete list…"
+            "text": "The products and periods available in EMA map exactly the products and periods available in SMA. To use EMA you simply need to replace the S with an E. That said, for your reference, this is the complete list…",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и периоды, доступные в EMA, в точности соответствуют продуктам и периодам, доступным в SMA. Чтобы использовать EMA, вам просто нужно заменить S на E. Для справки, вот полный список...",
+                    "updated": 1643529636487
+                },
+                {
+                    "language": "TR",
+                    "text": "EMA'da bulunan ürünler ve dönemler, SMA'da bulunan ürünler ve dönemlerle tam olarak eşleşir. EMA'yı kullanmak için S'yi bir E ile değiştirmeniz yeterlidir. Bu, referansınız için tam listedir…",
+                    "updated": 1650620279709
+                },
+                {
+                    "language": "DE",
+                    "text": "Die in EMA verfügbaren Produkte und Zeiträume entsprechen genau den in SMA verfügbaren Produkten und Zeiträumen. Um EMA zu verwenden, müssen Sie lediglich das S durch ein E ersetzen. Zu Ihrer Information finden Sie hier die vollständige Liste...",
+                    "updated": 1671034000683
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like with SMAs, there are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:"
+            "text": "Like with SMAs, there are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с SMA, есть три продукта, предварительно настроенные на начало расчетов сразу после запуска соответствующей задачи, каждый с различными конфигурациями периодов:",
+                    "updated": 1643529645525
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA'larda olduğu gibi, ilgili göreve başlar başlamaz hesaplamaya başlamak üzere önceden yapılandırılmış ve her biri farklı dönem konfigürasyonlarına sahip üç ürün vardır:",
+                    "updated": 1650620287159
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie bei den SMAs gibt es drei Produkte, die vorkonfiguriert sind, um mit der Berechnung zu beginnen, sobald Sie die entsprechende Aufgabe starten, jeweils mit unterschiedlichen Periodenkonfigurationen:",
+                    "updated": 1671034035280
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Popular EMAs | popularEMA | ema20, ema50, ema100, ema200 |\n| Base 7 | base7EMA | ema7, ema14, ema21, ema28, ema35, ema70, ema140, ema210, ema280, ema350, ema700, ema1400 |\n| Base 11 | base11EMA | ema11, ema22, ema33, ema55, ema111 |",
-            "updated": 1611661980687
+            "updated": 1611661980687,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Popular EMAs | popularEMA | ema20, ema50, ema100, ema200 |\n| Base 7 | base7EMA | ema7, ema14, ema21, ema28, ema35, ema70, ema140, ema210, ema280, ema350, ema700, ema1400 |\n| Base 11 | base11EMA | ema11, ema22, ema33, ema55, ema111 |",
+                    "updated": 1650620299885
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Popular EMAs | popularEMA | ema20, ema50, ema100, ema200 |\n| Base 7 | base7EMA | ema7, ema14, ema21, ema28, ema35, ema70, ema140, ema210, ema280, ema350, ema700, ema1400 |\n| Base 11 | base11EMA | ema11, ema22, ema33, ema55, ema111 |",
+                    "updated": 1671034123865
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are four more products available but they will not be calculated unless you create the corresponding data outputs and reference them to the corresponding data sets:",
-            "updated": 1611661993834
+            "updated": 1611661993834,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеются еще четыре продукта, но они не будут рассчитаны, пока вы не создадите соответствующие выходы данных и не свяжете их с соответствующими наборами данных:",
+                    "updated": 1643529654851
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut dört ürün daha vardır, ancak ilgili veri çıktılarını oluşturup bunları ilgili veri kümelerine göndermediğiniz sürece bunlar hesaplanmayacaktır:",
+                    "updated": 1650620319202
+                },
+                {
+                    "language": "DE",
+                    "text": "Es stehen vier weitere Produkte zur Verfügung, die jedoch nur dann berechnet werden, wenn Sie die entsprechenden Datenausgaben erstellen und auf die entsprechenden Datensätze verweisen:",
+                    "updated": 1671034155358
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Base 5 | base5EMA | ema5, ema10, ema15, ema20, ema25, ema50, ema100, ema150, ema200, ema250, ema500, ema1000 |\n| Base 6 | base6EMA | ema6, ema12, ema18, ema24, ema30, ema60, ema120, ema180, ema240, ema300, ema600, ema1200 |\n| Base 12 | base12EMA | ema12, ema24, ema36, ema48, ema60, ema120, ema240, ema360, ema480, ema600, ema1200 |\n| Base 30 | base30EMA | ema30, ema60, ema90, ema120, ema150, ema300, ema600, ema900, ema1200, ema1500 |",
-            "updated": 1611662076042
+            "updated": 1611662076042,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Base 5 | base5EMA | ema5, ema10, ema15, ema20, ema25, ema50, ema100, ema150, ema200, ema250, ema500, ema1000 |\n| Base 6 | base6EMA | ema6, ema12, ema18, ema24, ema30, ema60, ema120, ema180, ema240, ema300, ema600, ema1200 |\n| Base 12 | base12EMA | ema12, ema24, ema36, ema48, ema60, ema120, ema240, ema360, ema480, ema600, ema1200 |\n| Base 30 | base30EMA | ema30, ema60, ema90, ema120, ema150, ema300, ema600, ema900, ema1200, ema1500 |",
+                    "updated": 1650620306682
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Base 5 | base5EMA | ema5, ema10, ema15, ema20, ema25, ema50, ema100, ema150, ema200, ema250, ema500, ema1000 |\n| Base 6 | base6EMA | ema6, ema12, ema18, ema24, ema30, ema60, ema120, ema180, ema240, ema300, ema600, ema1200 |\n| Base 12 | base12EMA | ema12, ema24, ema36, ema48, ema60, ema120, ema240, ema360, ema480, ema600, ema1200 |\n| Base 30 | base30EMA | ema30, ema60, ema90, ema120, ema150, ema300, ema600, ema900, ema1200, ema1500 |",
+                    "updated": 1671034179749
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611662085941
+            "updated": 1611662085941,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643529668847
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1650620326624
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671034207604
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -64,7 +236,24 @@
         },
         {
             "style": "Text",
-            "text": "May the trend be reversing? Checking if a fast 5-hours exponential moving average goes below the slower 25-hours EMA."
+            "text": "May the trend be reversing? Checking if a fast 5-hours exponential moving average goes below the slower 25-hours EMA.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может ли тренд развернуться? Проверка, если быстрая 5-часовая экспоненциальная скользящая средняя опускается ниже более медленной 25-часовой EMA.",
+                    "updated": 1643529684968
+                },
+                {
+                    "language": "TR",
+                    "text": "Trend tersine dönebilir mi? 5 saatlik hızlı üstel hareketli ortalamanın daha yavaş olan 25 saatlik EMA'nın altına düşüp düşmediğini kontrol etmek.",
+                    "updated": 1650620338262
+                },
+                {
+                    "language": "DE",
+                    "text": "Könnte sich der Trend umkehren? Prüfung, ob ein schneller exponentieller gleitender 5-Stunden-Durchschnitt unter den langsameren 25-Stunden-EMA fällt.",
+                    "updated": 1671034241624
+                }
+            ]
         }
     ]
 }

@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Нажатие кнопки «минус» сворачивает структуру, скрывая дочерние узлы. Это также приводит к высвобождению ресурсов ЦП, поскольку система перестает вычислять их положение и статус. В общем, рекомендуется держать иерархии закрытыми, когда над ними не ведется активная работа.",
                 "updated": 1638280901710
+            },
+            {
+                "language": "TR",
+                "text": "Eksi düğmesine tıklandığında yapı daraltılarak yavru düğümler gizlenir. Bu aynı zamanda sistem konumlarını ve durumlarını hesaplamayı durdurduğu için CPU kaynaklarını serbest bırakma etkisine sahiptir. Genel olarak, üzerinde aktif olarak çalışılmadığında hiyerarşileri kapalı tutmak iyi bir uygulamadır.",
+                "updated": 1654390887458
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie auf die Minus-Schaltfläche klicken, wird die Struktur zusammengeklappt und die Nachbarknoten werden ausgeblendet. Dies hat auch den Effekt, dass CPU-Ressourcen freigesetzt werden, da das System aufhört, ihre Position und ihren Status zu berechnen. Im Allgemeinen ist es eine gute Praxis, Hierarchien geschlossen zu halten, wenn nicht aktiv daran gearbeitet wird.",
+                "updated": 1696955461339
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638280916055
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654390893571,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1696955461574,
+                    "style": "Text"
                 }
             ]
         }

@@ -3,7 +3,7 @@
     "pageNumber": 50,
     "type": "Tutorial Step - Clean Workspace",
     "definition": {
-        "text": "Talking about tested exchanges and plugins, there is one plugin workspace you may use as a clean slate when designing new stuff!",
+        "text": "Talking about tested exchanges and plugins, there is one Native Workspace you may use as a clean slate when designing new stuff!",
         "icon": {
             "name": "workspace",
             "project": "Foundations"
@@ -12,84 +12,129 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Parlando di exchanges e plugins testati, c'è un plugin workspace che puoi usare come punto di inizio quando crei nuovi oggetti!",
+                "text": "Parlando di exchanges e plugins testati, c'è un Native Workspace che puoi usare come punto di inizio quando crei nuovi oggetti!",
                 "updated": 1619591538451,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Hablando de exchanges y plugins probados, hay un espacio de trabajo de plugins que se puede usar como borrón y cuenta nueva al diseñar cosas nuevas.",
-                "updated": 1628015811665,
+                "text": "Hablando de exchanges y plugins probados, hay un Workspace de Plugins que se puede usar como borrón y cuenta nueva al diseñar cosas nuevas.",
+                "updated": 1675378299103,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Apropos getestete Börsen und Plugins: Es gibt einen Plugin Workspace, den Sie als saubere Schiefertafel verwenden können, wenn Sie neue Sachen entwerfen!",
+                "text": "Apropos getestete Börsen und Plugins: Es gibt einen Native Workspace, den Sie als saubere Schiefertafel verwenden können, wenn Sie neue Sachen entwerfen!",
                 "updated": 1634589661481
             },
             {
                 "language": "TR",
                 "text": "Test edilmiş borsalar ve eklentilerden bahsetmişken, yeni şeyler tasarlarken temiz bir sayfa olarak kullanabileceğiniz bir eklenti çalışma alanı var!",
                 "updated": 1639823713705
+            },
+            {
+                "language": "RU",
+                "text": "Говоря о проверенных биржах и плагинах, есть одно рабочее пространство плагина, которое вы можете использовать как чистый лист при разработке нового материала!",
+                "updated": 1640875531924
+            },
+            {
+                "language": "ID",
+                "text": "Berbicara tentang pengujian exchanges dan plugin, ada satu workspace plugin yang dapat kamu gunakan sebagai batu tulis bersih saat mendesain barang baru!",
+                "updated": 1645560408483
+            },
+            {
+                "language": "NL",
+                "text": "Over geteste handelsplatformen en plugins gesproken, er is één werkruimte voor plugins die u kunt gebruiken als een schone lei bij het ontwerpen van nieuwe dingen!",
+                "updated": 1669548607915
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Note",
-            "text": "It's the Blank Template Plugin Workspace!",
+            "text": "It's the Blank Template Native Workspace!",
             "updated": 1629912296914,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "È il Tested Exchanges Plugin Workspace!",
-                    "updated": 1619591552367,
+                    "text": "È il Blank Template Native Workspace!",
+                    "updated": 1666641689504,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Es el Tested Exchanges Plugin Workspace!",
-                    "updated": 1628015859577,
+                    "text": "¡Es el Blank Template Native Workspace!",
+                    "updated": 1675378275747,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Es ist der Blank Template Plugin Workspace!",
+                    "text": "Es ist der Blank Template Native Workspace!",
                     "updated": 1634589668492
                 },
                 {
                     "language": "TR",
-                    "text": "Bu Blank Template Plugin Workspace!",
+                    "text": "Bu Blank Template Native Workspace!",
                     "updated": 1639823744077
+                },
+                {
+                    "language": "RU",
+                    "text": "Это Blank Template Native Workspace!",
+                    "updated": 1640875623186
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah Blank Template Native Workspace!",
+                    "updated": 1645561606714
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is de Blank Template Native Workspace!",
+                    "updated": 1669548623802
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Once you finish your initial education doing all existing tutorials, you will eventually be ready to start building your own Trading System. This is the plugin workspace you may use for that purpose!",
+            "text": "Once you finish your initial education doing all existing tutorials, you will eventually be ready to start building your own Trading System. This is the Native Workspace you may use for that purpose!",
             "updated": 1616173240467,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Quando avrai fatto tutti i tutorial disponibili, sarai finalmente pronto a costruire il tuo Trading System. Questo è il plugin workspace da cui puoi partire!",
+                    "text": "Quando avrai fatto tutti i tutorial disponibili, sarai finalmente pronto a costruire il tuo Trading System. Questo è il Native Workspace da cui puoi partire!",
                     "updated": 1619591627147,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que termines tu educación inicial con todos los tutoriales existentes, eventualmente estarás listo para comenzar a construir tu propio Trading System. ¡Este es el Plugin Workspace que puedes usar para ese propósito!",
+                    "text": "Una vez que termines tu educación inicial con todos los tutoriales existentes, eventualmente estarás listo para comenzar a construir tu propio Trading System. ¡Este es el Native Workspace que puedes usar para ese propósito!",
                     "updated": 1628016330767,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie Ihre anfängliche Ausbildung mit allen vorhandenen Tutorials abgeschlossen haben, werden Sie schließlich bereit sein, mit dem Aufbau Ihres eigenen Trading Systems zu beginnen. Dies ist der Plugin Workspace, den Sie zu diesem Zweck verwenden können!",
+                    "text": "Wenn Sie Ihre anfängliche Ausbildung mit allen vorhandenen Tutorials abgeschlossen haben, werden Sie schließlich bereit sein, mit dem Aufbau Ihres eigenen Trading Systems zu beginnen. Dies ist der Native Workspace, den Sie zu diesem Zweck verwenden können!",
                     "updated": 1634589676279
                 },
                 {
                     "language": "TR",
                     "text": "Mevcut tüm eğitimleri alarak ilk eğitiminizi tamamladığınızda, kendi Ticaret Sisteminizi oluşturmaya başlamaya hazır olacaksınız. Bu çalışma alanı, bu amaçla kullanabileceğiniz eklenti çalışma alanıdır!",
                     "updated": 1639823794327
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы закончите свое начальное обучение, пройдя все существующие учебники, вы будете готовы приступить к созданию своей собственной торговой системы. Это рабочее пространство плагина, которое вы можете использовать для этой цели!",
+                    "updated": 1640875647118
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu menyelesaikan edukasi awal kamu dengan melakukan semua tutorial yang ada, kamu akhirnya akan siap untuk mulai membangun Trading System kamu sendiri. Ini adalah workspace plugin yang dapat kamu gunakan untuk tujuan tersebut!",
+                    "updated": 1645560511328
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je eenmaal je initiële training hebt voltooid door alle bestaande zelfstudies te volgen, ben je uiteindelijk klaar om te beginnen met het bouwen van je eigen Trading System. Dit is de plugin werkruimte die u voor dat doel kunt gebruiken!",
+                    "updated": 1669548695322
                 }
             ]
         },
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Bu çalışma alanı kutudan çıktığı gibi temiz bir Ticaret Sistemi , Yeni Pazar Kur Eğitimi ( Install New Market Tutorial )  ve kullanabileceğiniz test edilmiş borsalar dizisi içerir.",
                     "updated": 1639823948749
+                },
+                {
+                    "language": "RU",
+                    "text": "Она включает в себя чистую торговую систему прямо из коробки, учебник по установке нового рынка и список проверенных бирж, которые вы можете использовать.",
+                    "updated": 1640875683576
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini fitur Trading System bersih langsung dari kotak, Install New Market Tutorial, dan jajaran exchanges teruji yang dapat kamu gunakan.",
+                    "updated": 1645560581373
+                },
+                {
+                    "language": "NL",
+                    "text": "Het beschikt over een schoon Trading System direct uit de doos, de New Market Tutorial en de reeks geteste handelsplatformen die u mogelijk gebruikt.",
+                    "updated": 1669548778835
                 }
             ]
         }

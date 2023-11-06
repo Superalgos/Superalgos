@@ -4,37 +4,156 @@
     "type": "Kraken Test Status",
     "definition": {
         "text": "Kraken is tested for data mining but not for live trading.",
-        "updated": 1616005542987
+        "updated": 1616005542987,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Kraken тестируется для добычи данных, но не для реальной торговли.",
+                "updated": 1646902465103
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kraken, veri madenciliği için test edilmiştir, ancak canlı ticaret için test edilmemiştir.",
+                "updated": 1650571420308
+            },
+            {
+                "language": "DE",
+                "text": "Kraken ist für Data Mining getestet, aber nicht für den Live-Handel.",
+                "updated": 1690357347856
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902471759
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571427494
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357354512
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616005497164
+            "updated": 1616005497164,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902507414
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650571436302
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357366456
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Unknown",
-            "updated": 1615204614502
+            "updated": 1615204614502,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Неизвестно",
+                    "updated": 1646902513190
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Bilinmiyor",
+                    "updated": 1650571448767
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte: Unbekannt",
+                    "updated": 1690357375704
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Unknown. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616005523609
+            "updated": 1616005523609,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые возможности [**]: Неизвестно. Возможность запуска стратегий в режиме реальной торговли не была проверена.",
+                    "updated": 1646902522460
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Bilinmiyor. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
+                    "updated": 1650571833409
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelskapazitäten (Trading Capability)[**]: Unbekannt. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde nicht überprüft.",
+                    "updated": 1690357385968
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: With standard settings only one day worth of Raw Data is fetched. To retrieve Raw Data in Kraken, pairs in config are reversed. Backtesting and Live Trading behaviour unknown",
-            "updated": 1615278620667
+            "updated": 1615278620667,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: При стандартных настройках извлекаются необработанные данные только за один день. Чтобы получить необработанные данные в Kraken, пары в конфигурации меняются местами. Поведение при бэктестинге и реальной торговле неизвестно",
+                    "updated": 1646902544917
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Standart ayarlarla yalnızca bir günlük Ham Veri alınır. Kraken'de Ham Verileri almak için yapılandırmadaki çiftler tersine çevrilir. Geriye dönük test ve Canlı Ticaret davranışı bilinmiyor",
+                    "updated": 1650571484258
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Mit den Standardeinstellungen werden nur die Rohdaten (Raw Data) eines Tages abgerufen. Um die Rohdaten (Raw Data) in Kraken abzurufen, werden die Paare in der Konfiguration umgedreht. Backtesting und Live Trading Verhalten unbekannt",
+                    "updated": 1690357394505
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902551135
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571391973
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357400984
+                }
+            ]
         },
         {
             "style": "Json",

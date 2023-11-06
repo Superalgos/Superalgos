@@ -14,6 +14,21 @@
                 "language": "DE",
                 "text": "Das Herstellen einer Referenz ist ein Kinderspiel! Die einzige \"Herausforderung\" dabei ist, dass der zu referenzierende Knoten weit vom Urheber entfernt ist.",
                 "updated": 1639399501986
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Referans oluşturmak çok kolay! Buradaki tek zorluk, başvurulacak düğümün oluşturucudan uzak olmasıdır.",
+                "updated": 1641747275101
+            },
+            {
+                "language": "RU",
+                "text": "Создание ссылки - это детская забава! Единственная \"сложность\" здесь заключается в том, что узел, на который нужно сослаться, находится далеко от создателя.",
+                "updated": 1642941647985
+            },
+            {
+                "language": "ES",
+                "text": "Te daré un par de consejos sobre el siguiente paso si no estás seguro de cómo hacerlo.",
+                "updated": 1680809227462
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Diese UI Tricks können Ihnen das Leben leichter machen:",
                     "updated": 1639399516703
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kullanıcı arabirimi ( UI ) püf noktaları hayatınızı kolaylaştırabilir:",
+                    "updated": 1641747288126
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти приемы пользовательского интерфейса могут облегчить вам жизнь:",
+                    "updated": 1642941658710
+                },
+                {
+                    "language": "ES",
+                    "text": "Estos trucos de IU pueden hacerte la vida más fácil:",
+                    "updated": 1680809252838
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Verwenden Sie die Karte des design space so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
                     "updated": 1639399577411
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümden diğerine yolunuzu bulmak için tasarım alanı haritasını gerektiği kadar kullanın.",
+                    "updated": 1641747299780
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте карту пространства проектирования столько раз, сколько потребуется, чтобы найти путь от узла к узлу.",
+                    "updated": 1642941669022
+                },
+                {
+                    "language": "ES",
+                    "text": "Utiliza el mapa del espacio de diseño tantas veces como sea necesario para encontrar el camino de un nodo a otro.",
+                    "updated": 1680809271777
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Pinnen Sie den zu verschiebenden Knoten im design space an, so dass Sie ihn an jedem beliebigen Punkt loslassen können, um in der design space map die Richtung zu überprüfen.",
                     "updated": 1639399585335
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı haritasındaki yönü kontrol etmek ve herhangi bir noktada serbest bırakabilmeniz için tasarım alanında taşınacak düğümü sabitleyin.",
+                    "updated": 1641747396829
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел, который вы собираетесь перемещать по пространству проектирования, так, чтобы вы могли отпустить его в любой момент, чтобы проверить карту пространства проектирования на предмет направления.",
+                    "updated": 1642941704410
+                },
+                {
+                    "language": "ES",
+                    "text": "Fija el nodo que vas a mover a través del espacio de diseño, de modo que puedas soltarlo en cualquier punto para comprobar las direcciones en el mapa del espacio de diseño.",
+                    "updated": 1680809291229
                 }
             ]
         },
@@ -60,6 +120,21 @@
                     "language": "DE",
                     "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
                     "updated": 1639399727689
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın. Düğmelere basılı tutun ve düğüm uçsun!",
+                    "updated": 1641747364521
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте клавиши Ctrl / Command + стрелки для перетаскивания узла по экрану после щелчка по нему мышью. Удерживайте клавиши нажатыми, и узел полетит!",
+                    "updated": 1642941716006
+                },
+                {
+                    "language": "ES",
+                    "text": "Utiliza Ctrl / Command + teclas de flecha para arrastrar el nodo por la pantalla después de hacer clic en él con el ratón. Mantén pulsadas las teclas y el nodo volará.",
+                    "updated": 1680810950969
                 }
             ]
         },
@@ -71,6 +146,21 @@
                     "language": "DE",
                     "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
                     "updated": 1639399594561
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra sabitlemeyi kapatın.",
+                    "updated": 1641747419430
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
+                    "updated": 1642941723937
+                },
+                {
+                    "language": "ES",
+                    "text": "Retira el pin una vez establecida la referencia para que el nodo vuelva a su sitio.",
+                    "updated": 1680810980234
                 }
             ]
         }

@@ -6,8 +6,18 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Узел прикреплен к рабочей области по определенной координате \n[x, y]. Этот статус отменяет любые другие настройки, влияющие на мобильность узла. Только прямое действие пользователя путем щелчка и перетаскивания может переместить закрепленный узел.",
+                "text": "Узел прикреплен к рабочему пространству по определенной координате \n[x, y]. Этот статус отменяет любые другие настройки, влияющие на мобильность узла. Только прямое действие пользователя путем щелчка и перетаскивания может переместить закрепленный узел.",
                 "updated": 1638287227826
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm, belirli bir [x, y] koordinatında çalışma alanına sabitlenir. Bu durum, düğümün hareketliliğini etkileyen diğer tüm ayarları geçersiz kılar. Yalnızca tıklama ve sürükleme yoluyla doğrudan kullanıcı eylemi sabitlenmiş bir düğümü hareket ettirebilir.",
+                "updated": 1668523190196
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten ist an einer bestimmten [x, y] Koordinate im Arbeitsbereich verankert. Dieser Status hat Vorrang vor allen anderen Einstellungen, die die Beweglichkeit des Knotens beeinflussen. Ein angehefteter Knoten kann nur durch direktes Klicken und Ziehen bewegt werden.",
+                "updated": 1696955476809
             }
         ]
     },
@@ -20,6 +30,12 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638287245389
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1696955477020,
+                    "style": "Text"
                 }
             ]
         }

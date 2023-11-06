@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Lesen Sie diese ersten Absätze über die Open Execution, damit wir dann mit der Arbeit an den Definitionen beginnen können.",
                 "updated": 1639398487234
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Açık Yürütmeyle ( Open Execution ) ilgili bu ilk birkaç paragrafı okuyun, böylece tanımlar üzerinde çalışmaya başlayabiliriz.",
+                "updated": 1641746506818
+            },
+            {
+                "language": "RU",
+                "text": "Прочитайте эти первые несколько абзацев об Open Execution, чтобы затем мы могли начать работу над определениями.",
+                "updated": 1642779643028
+            },
+            {
+                "language": "ES",
+                "text": "Lee estos primeros párrafos sobre la Open Execution para que luego podamos empezar a trabajar en las definiciones.",
+                "updated": 1680804736784
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Der springende Punkt ist, dass Superalgos granulare Definitionen von Aufträgen innerhalb von Ausführungsalgorithmen vorschlägt, die wiederum in Strategien eingebaut sind, um sowohl einfache als auch komplexe Ausführungslogik zu programmieren.",
                     "updated": 1639398494473
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana nokta, Superalgos'un hem basit hem de karmaşık yürütme mantığını programlamanın bir yolu olarak, sırayla stratejilere yerleştirilen yürütme algoritmaları içinde oluşturulan siparişlerin ayrıntılı tanımlarını önermesidir.",
+                    "updated": 1641746531047
+                },
+                {
+                    "language": "RU",
+                    "text": "Суть в том, что Superalgos предлагает гранулированные определения ордеров, установленных в алгоритмах исполнения, которые, в свою очередь, встроены в стратегии, как способ программирования как простой, так и сложной логики исполнения.",
+                    "updated": 1642779658421
+                },
+                {
+                    "language": "ES",
+                    "text": "El punto a tener en cuenta es que Superalgos propone definiciones granulares de órdenes establecidas dentro de algoritmos de ejecución, que a su vez se incorporan a las estrategias, como la forma de programar una lógica de ejecución tanto simple como compleja.",
+                    "updated": 1680804770224
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen!",
                     "updated": 1639398502617
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunları yapmadan önce biraz daha okuma yapacağız!",
+                    "updated": 1641746555946
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы еще немного почитаем, прежде чем спустить все это на землю!",
+                    "updated": 1642779672453
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a leer un poco más antes de bajar todo esto a la Tierra.",
+                    "updated": 1680804791532
                 }
             ]
         }

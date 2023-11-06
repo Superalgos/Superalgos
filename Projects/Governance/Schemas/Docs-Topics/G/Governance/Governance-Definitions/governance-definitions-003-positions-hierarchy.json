@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "В проектах могут определяться должности, которые люди могут занимать, участвуя в проекте.",
                 "updated": 1639039711837
+            },
+            {
+                "language": "TR",
+                "text": "Projeler, insanların projeye katkıda bulunurken üstlenebilecekleri pozisyonları tanımlayabilir.",
+                "updated": 1645189193611
+            },
+            {
+                "language": "ES",
+                "text": "Los proyectos pueden definir los cargos que las personas pueden asumir mientras contribuyen al proyecto.",
+                "updated": 1682595445407
             }
         ]
     },
@@ -17,40 +27,104 @@
         {
             "style": "Include",
             "text": "Governance->Node->Positions->Definition",
-            "updated": 1624719628603
+            "updated": 1624719628603,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Düğüm->Pozisyonlar->Tanım",
+                    "updated": 1654395246233,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Positions->Content"
+            "text": "Governance->Node->Positions->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Düğüm->Pozisyonlar->İçerik",
+                    "updated": 1654395252640,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Position Class Nodes",
-            "updated": 1624719765396
+            "updated": 1624719765396,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Sınıfı Düğümleri",
+                    "updated": 1654395261312,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Position Class->Definition",
-            "updated": 1624719782927
+            "updated": 1624719782927,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Düğüm->Pozisyon Sınıfı->Tanım",
+                    "updated": 1654395268184,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Position Class->Content",
-            "updated": 1624719787155
+            "updated": 1624719787155,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Düğüm->Konum Sınıfı->İçerik",
+                    "updated": 1654395275315,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Position Nodes"
+            "text": "Position Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Konum Düğümleri",
+                    "updated": 1654395281396,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Position->Definition",
-            "updated": 1624719793612
+            "updated": 1624719793612,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Position->Definition",
+                    "updated": 1654395288339,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Governance->Node->Position->Content",
-            "updated": 1624719798497
+            "updated": 1624719798497,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Position->Content",
+                    "updated": 1654395294209,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",

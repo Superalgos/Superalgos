@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Begin balance  - это баланс на дату и время свойства begin родительского узла или концепции.",
                 "updated": 1638644475250
+            },
+            {
+                "language": "TR",
+                "text": "Başlangıç ​​bakiyesi ( Begin Balance ), ana düğümün veya kavramın başlangıç ​​özelliğinin tarih saatindeki bakiyedir.",
+                "updated": 1652795861104
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В контексте эпизода это баланс на дату начала эпизода.",
                     "updated": 1638644498154
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bölüm bağlamında, bölümün başladığı tarihteki bakiyedir.",
+                    "updated": 1652795747399
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "В контексте позиции это баланс на дату и время начала позиции.",
                     "updated": 1638644506887
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon bağlamında, pozisyonun başladığı tarihteki bakiyedir.",
+                    "updated": 1652795768495
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Конфигурация Begin Balance",
                     "updated": 1638644521666
+                },
+                {
+                    "language": "TR",
+                    "text": "Begin Balance Yapılandırması",
+                    "updated": 1652795801730
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638644529836
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652795810787
                 }
             ]
         },
@@ -75,6 +100,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638644540324
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1652795820172
                 }
             ]
         }

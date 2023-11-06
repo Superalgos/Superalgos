@@ -4,11 +4,11 @@
     "type": "Tutorial Step - Update the App!",
     "definition": {
         "text": "It's good practice to be up-to-date before contributing or when troubleshooting or reporting errors of any kind!",
+        "updated": 1636914372518,
         "icon": {
             "name": "indicator-process-instance",
             "project": "Foundations"
         },
-        "updated": 1636914372518,
         "translations": [
             {
                 "language": "IT",
@@ -18,22 +18,42 @@
             },
             {
                 "language": "ES",
-                "text": "El App Update Command obtiene la última versión del software del repositorio upstream en el Current Branch!",
-                "updated": 1628186697267,
+                "text": "Es una buena práctica estar al día antes de contribuir, solucionar problemas o informar de errores de cualquier tipo.",
+                "updated": 1675452243054,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Der App Update Command holt die neueste Version der Software aus dem Upstream Repository im aktuellen Zweig!",
-                "updated": 1635148204351
+                "text": "Es ist eine gute Praxis, auf dem neuesten Stand zu sein, bevor man einen Beitrag leistet oder wenn man Fehler jeglicher Art behebt oder meldet!",
+                "updated": 1641741722279
+            },
+            {
+                "language": "RU",
+                "text": "Перед внесением вклада, а также при устранении неполадок или сообщении об ошибках любого рода рекомендуется обновлять данные!",
+                "updated": 1640158960617
+            },
+            {
+                "language": "TR",
+                "text": "Katkıda bulunmadan önce veya herhangi bir türdeki hatayı giderirken yada bildirirken superalgos'un güncel olması gerekir!",
+                "updated": 1640554335251
+            },
+            {
+                "language": "ID",
+                "text": "Itu praktek yang baik untuk selalu terupdate sebelum berkontribusi atau setelah menyelesaikan masalah atau melaporkan kesalahan apapun!",
+                "updated": 1668787138904
+            },
+            {
+                "language": "NL",
+                "text": "Het is een goede gewoonte om up-to-date te zijn voordat u een bijdrage levert of bij het oplossen van problemen of het melden van fouten van welke aard dan ook!",
+                "updated": 1669747067013
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
-            "updated": 1636914274377,
+            "text": "The App Update Command (Contributors Installation only) fetches the latest version of the software from the upstream repository in the Current Branch!",
+            "updated": 1649176869565,
             "translations": [
                 {
                     "language": "IT",
@@ -43,14 +63,35 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eso significa que puede usar este comando en cualquiera de las ramas! Eso es todo:",
-                    "updated": 1628186724646,
+                    "text": "App Update Command (sólo para la instalación de contribuidores) obtiene la última versión del software del repositorio principal en la rama actual.",
+                    "updated": 1675452292565,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Das bedeutet, dass Sie diesen Befehl in jedem der Zweige verwenden können! Das ist es:",
-                    "updated": 1635148211414
+                    "text": "Der App-Update-Befehl holt sich die neueste Version der Software aus dem Upstream-Repository im Current Branch! ",
+                    "updated": 1641741748139
+                },
+                {
+                    "language": "RU",
+                    "text": "Команда App Update Command получает последнюю версию программного обеспечения из репозитория upstream в текущей ветке!",
+                    "updated": 1661377958451
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulama Güncelleme Komutu (yalnızca Katkıda Bulunanların Kurulumu) yazılımın en son sürümünü Geçerli Daldaki yukarı akış deposundan alır!",
+                    "updated": 1654393910447,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "App Update Command (hanya Penginstalan Kontributor) mengambil versi terupdate software dari repository upstream dalam Current Branch!",
+                    "updated": 1668787155150
+                },
+                {
+                    "language": "NL",
+                    "text": "De App Update Command (alleen Contributors branch) haalt de nieuwste versie van de software op uit de upstream-repository in de huidige branche!",
+                    "updated": 1669747151725
                 }
             ]
         },
@@ -60,7 +101,8 @@
         },
         {
             "style": "Callout",
-            "text": "Copy and run the command in the search/command box at the far top of the Docs.",
+            "text": "If you are on the Contributors Installation, copy and run the command in the search/command box at the far top of the Docs.",
+            "updated": 1649176921704,
             "translations": [
                 {
                     "language": "IT",
@@ -70,22 +112,41 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Copia y ejecuta el comando!",
-                    "updated": 1628186919347,
+                    "text": "Si estás en la Instalación de Contribuidores, copia y ejecuta el comando en el cuadro de búsqueda/comando en la parte superior de los Documentos.",
+                    "updated": 1675452330501,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
                     "text": "Kopieren Sie den Befehl und führen Sie ihn aus indem sie Ihn in den Docs ganz oben im Such- und Befehlsfeld eingeben. ",
                     "updated": 1635148726927
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы находитесь на установке для вкладчиков, скопируйте и выполните команду в окне поиска/команды в самом верху Docs.",
+                    "updated": 1661379939089
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
+                    "updated": 1640554566255
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu di Penginstalan Kontributor, salin dan jalankan di pencarian/command box di atas Docs.",
+                    "updated": 1668787165529
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u zich in de Contributors branch bevindt, kopieert u de opdracht en voert u deze uit in het zoek-/commando-venster helemaal bovenaan de Documenten.",
+                    "updated": 1669747143412
                 }
-            ],
-            "updated": 1635148665427
+            ]
         },
         {
             "style": "Success",
-            "text": "Because you just switched branches, you should already be up to date!",
-            "updated": 1636914400732,
+            "text": "You should be up to date after the switch!",
+            "updated": 1649177004728,
             "translations": [
                 {
                     "language": "IT",
@@ -95,14 +156,34 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que se realiza la actualización, deberás cerrar la aplicación nuevamente, reiniciarla, buscar el tutorial y hacer clic en Resume, ¡como hiciste antes!",
-                    "updated": 1628186790847,
+                    "text": "Deberías estar al día después del cambio.",
+                    "updated": 1675452357891,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Sobald die Aktualisierung abgeschlossen ist, müssen Sie die App wieder schließen, neu starten, das Tutorial finden und auf Fortsetzen klicken, genau wie Sie es zuvor getan haben!",
-                    "updated": 1635148282859
+                    "text": "Da Sie gerade die Branche gewechselt haben, sollten Sie bereits auf dem neuesten Stand sein!",
+                    "updated": 1641741763842
+                },
+                {
+                    "language": "RU",
+                    "text": "После перехода у вас должна быть актуальная версия",
+                    "updated": 1661378446952
+                },
+                {
+                    "language": "TR",
+                    "text": "Şube değiştirdiğiniz için zaten güncel olmalısınız!",
+                    "updated": 1640554583592
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu seharusnya sudah versi terkini setelah mengubah!",
+                    "updated": 1668787174440
+                },
+                {
+                    "language": "NL",
+                    "text": "Je moet up-to-date zijn na de overstap!",
+                    "updated": 1669747164044
                 }
             ]
         }

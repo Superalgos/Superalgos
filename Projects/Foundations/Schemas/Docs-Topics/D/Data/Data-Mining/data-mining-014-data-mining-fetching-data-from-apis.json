@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Superalgos позволяет пользователям получать данные из любого API в Интернете без необходимости писать код. Вместо этого пользователи создают API Map, которая представляет собой набор определений того, как бот может получить доступ к определенному API и как интерпретировать ответы сервера API Server. С помощью этого бот API Data Fetcher Bot может быть настроен для извлечения данных с любого сервера и хранения необработанных данных Raw Data внутри системы. Эти необработанные данные могут позже обрабатываться и использоваться другими ботами.",
                 "updated": 1639581078565
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos, kullanıcılarının kod yazmaya gerek kalmadan İnternet'teki herhangi bir API'den veri almasına olanak tanır. Bunun yerine kullanıcılar, bir Botun belirli bir API'ye nasıl erişebileceğine ve API Sunucusu ( API Server ) yanıtlarının nasıl yorumlanacağına ilişkin bir dizi tanım olan bir API Haritası ( API Map ) tasarlar. Bu API Haritası ile, herhangi bir API Sunucusundan veri çıkarmak ve Ham Verileri ( Raw Data ) sistem içinde depolamak için bir API Veri Alıcı Botu ( API Data Fetcher Bot ) yapılandırılabilir. Bu ham veriler daha sonra diğer Botlar tarafından işlenebilir ve tüketilebilir.",
+                "updated": 1645964220802
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Как получить данные по API?",
                     "updated": 1639581246065
+                },
+                {
+                    "language": "TR",
+                    "text": "API'den Veri Nasıl Çekilir?",
+                    "updated": 1645964282151
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Основной рабочий процесс для этого довольно прост. Он вообще не требует кодирования. Следуйте этому руководству, и вы сразу же сможете использовать данные из любого источника в интернете для своих торговых стратегий.",
                     "updated": 1639581276317
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu başarmak için ana iş akışı oldukça basittir. Hiç kodlama gerektirmez. Bu kılavuzu takip edin ve internetteki herhangi bir kaynaktan gelen verileri hemen ticaret stratejileriniz için kullanacaksınız.",
+                    "updated": 1645964319431
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "RU",
                     "text": "1. Выберите API: текущая версия ограничена только общедоступными API. Скоро появятся защищенные API.",
                     "updated": 1639581299361
+                },
+                {
+                    "language": "TR",
+                    "text": "1. Bir API seçin: Geçerli sürüm yalnızca genel API'lerle ( APIs ) sınırlıdır. Güvenli API'ler yakında kullanıma sunulacak.",
+                    "updated": 1645964441588
                 }
             ]
         },
@@ -89,6 +109,11 @@
                     "language": "RU",
                     "text": "2. Разработайте API Map: прочтите онлайн-документацию по API и определите конечные точки, которые возвращают данные, которые вы хотите получить. Тщательно сопоставьте конечные точки, определяя параметры, которые сервер API ожидает при каждом вызове, а также то, как форматируется ответ сервера API.",
                     "updated": 1639581367988
+                },
+                {
+                    "language": "TR",
+                    "text": "2. Bir API Haritası ( API Map ) Tasarlayın: API'lerin çevrimiçi belgelerini okuyun ve getirmek istediğiniz verileri döndüren Uç Noktaları belirleyin. API Sunucusunun ( API Server ) her çağrıda beklediği parametreleri ve ayrıca API Sunucusu yanıtının nasıl biçimlendirildiğini tanımlayan Uç Noktaları dikkatlice eşleyin.",
+                    "updated": 1645964538603
                 }
             ]
         },
@@ -106,6 +131,11 @@
                     "language": "RU",
                     "text": "3. Настройте API Data Fetcher Bot: создайте Data Mine для этого API и добавьте бота API Data Fetcher Bot. В свойствах этого бота вам нужно будет указать поля, возвращаемые сервером API, определенные на API Map. Таким образом вы определяете, какие поля из каждого ответа вы собираетесь сохранять на диск. Вам также может потребоваться определить здесь параметры запроса или пути.",
                     "updated": 1639581719021
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Bir API Veri Alıcı Botu kurun: Bu API için bir Veri Madeni oluşturun ve bir API Veri Alıcı Botu ( API Data Fetcher Bot ) ekleyin. Bu Bot'un Kayıt Özelliklerinden, API Haritasında ( API Map ) tanımlanan API Sunucusu ( API Server ) tarafından döndürülen alanlara başvurmanız gerekecektir. Her yanıttan hangi alanları diske kaydedeceğinizi bu şekilde tanımlarsınız. Burada ayrıca sorgu veya yol parametreleri tanımlamanız gerekebilir.",
+                    "updated": 1645964747362
                 }
             ]
         },
@@ -123,6 +153,11 @@
                     "language": "RU",
                     "text": "4. Настройте Indicator Bot для преобразования типа набора данных: необработанные данные, сохраненные на диск, необходимо организовать для использования. Вам нужно будет настроить ваш Indicator Bot, который будет выполнять преобразование типа набора данных из необработанных данных Raw Data в стандартный тип набора данных Dataset Type. Этот процесс будет выполнять агрегирование данных, чтобы сгенерировать элементы с фиксированным временным диапазоном для каждого возможного таймфрейма.",
                     "updated": 1639582680749
+                },
+                {
+                    "language": "TR",
+                    "text": "4. Veri Kümesi Türü ( Dataset Type ) Dönüşümü için bir Gösterge Botu ( Indicator Bot ) Kurun: Diske kaydedilen Ham Verilerin ( Raw Data ) tüketim için düzenlenmesi gerekir. Ham Veriden standart bir Veri Kümesi Türüne Veri Kümesi Türü Dönüşümü yapacak bir Gösterge Botu kurmanız gerekecektir. Bu işlem, mümkün olan her Zaman Çerçevesi için sabit bir zaman aralığına ( Time Frame ) sahip öğeleri oluşturmak için veri toplama yapacaktır.",
+                    "updated": 1645965055280
                 }
             ]
         },
@@ -140,6 +175,11 @@
                     "language": "RU",
                     "text": "5. Настройка ботов Indicator Bot: после преобразования данных вы можете извлекать из них определенные наборы данных. Эти наборы данных можно использовать для определения набора индикаторов, которые вы можете построить на основе этих данных. Эти индикаторы могут быть такими же простыми, как реорганизация данных (с некоторыми корректировками имен полей и разделением данных на разные индикаторы),или он может включать некоторую обработку / преобразование данных, если хотите (это потребует некоторый программный код).",
                     "updated": 1639583053953
+                },
+                {
+                    "language": "TR",
+                    "text": "5. Gösterge Botlarını Ayarlayın: Veriler dönüştürüldüğünde, ondan belirli Veri Kümelerini çıkarabilirsiniz. Bu veri kümeleri, bu verilerden oluşturabileceğiniz bir dizi göstergeyi tanımlamak için kullanılabilir. Bu Göstergeler, verilerin yeniden düzenlenmesi kadar basit olabilir (alan adlarında bazı ayarlamalar ve verileri farklı göstergelere bölerek) veya dilerseniz bazı veri işleme/dönüşümler içerebilir (bu biraz kodlama gerektirir).",
+                    "updated": 1645965119799
                 }
             ]
         },
@@ -157,6 +197,11 @@
                     "language": "RU",
                     "text": "6. Настройка плоттеров Plotter: после настройки индикаторов вы можете разработать для них плоттеры, если хотите.",
                     "updated": 1639583067239
+                },
+                {
+                    "language": "TR",
+                    "text": "6. Çizici Kurulumu: Göstergelerinizi kurduktan sonra dilerseniz onlar için çiziciler tasarlayabilirsiniz.",
+                    "updated": 1645965160284
                 }
             ]
         },
@@ -174,6 +219,11 @@
                     "language": "RU",
                     "text": "7. Используйте данные для торговых стратегий: эти индикаторы можно использовать в ваших торговых стратегиях.",
                     "updated": 1639583082960
+                },
+                {
+                    "language": "TR",
+                    "text": "7. Ticaret Stratejileri ( Trading Strategies ) için Verileri Kullanın: Bu göstergeler işlem stratejilerinizden kullanılabilir.",
+                    "updated": 1645965259673
                 }
             ]
         },
@@ -191,6 +241,11 @@
                     "language": "RU",
                     "text": "Существует рабочее пространство Workspace под названием API Data Fetcher Bot Demo с простым рабочим примером предыдущих шагов, которые вы можете использовать в качестве справки.",
                     "updated": 1639583153738
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Referans olarak kullanabileceğiniz önceki adımların basit bir çalışma örneğini içeren API Veri Alıcısı Bot ( API Data Fetcher Bot ) Demosu adlı bir Çalışma Alanı ( Workspace ) vardır.",
+                    "updated": 1645965400919
                 }
             ]
         },
@@ -212,6 +267,11 @@
                     "language": "RU",
                     "text": "Как работает агрегирование данных?",
                     "updated": 1639583179200
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Toplama Nasıl Çalışır?",
+                    "updated": 1645965419519
                 }
             ]
         },
@@ -229,6 +289,11 @@
                     "language": "RU",
                     "text": "Когда необработанные данные Raw Data извлекаются из интернета, их необходимо преобразовать в тип набора данных Dataset Type либо в тип Multi-Time-Frame-Daily или Multi-Time-Frame-Market. Обычно необработанные данные представляют собой набор данных с отметкой времени с полем timesStamp или у него есть свойства начала и конца, если они фрагментированы во временных интервалах в одну минуту.",
                     "updated": 1639592111110
+                },
+                {
+                    "language": "TR",
+                    "text": "Ham Veriler İnternetten getirildiğinde, Çoklu-Zaman-Çerçeve-Günlük veya Çoklu-Zaman-Çerçeve-Pazar ( Multi-Time-Frame-Daily or Multi-Time-Frame-Market ) türlerinden bir Veri Kümesi Türüne dönüştürülmesi gerekir. Genellikle Ham Veri, bir zaman damgası alanına sahip zaman damgalı bir veri kümesidir veya bir dakikalık zaman dilimlerinde parçalanmışlarsa başlangıç ve bitiş özelliklerine sahiptir.",
+                    "updated": 1645965501233
                 }
             ]
         },
@@ -245,6 +310,11 @@
                     "language": "RU",
                     "text": "Отсюда процесс преобразования должен генерировать элементы с временными интервалами от 2 минут, 3 минут, 4 минут, 5 минут, 10, минут, ... до 24 часов. Для этого необходимо определенным образом агрегировать каждое поле.",
                     "updated": 1639592141298
+                },
+                {
+                    "language": "TR",
+                    "text": "Buradan, dönüştürme işleminin 2 dak, 3 dak, 4 dak, 5 dak, 10, dak,... 24 saate kadar zaman dilimlerine sahip öğeler üretmesi gerekir. Bunu başarmak için, her alanın belirli bir şekilde toplanması gerekir.",
+                    "updated": 1645965536613
                 }
             ]
         },
@@ -262,12 +332,17 @@
                     "language": "RU",
                     "text": "В боте, где происходит это преобразование, узлы Record Property должны иметь свойство конфигурации aggregationMethod, которое определяет, как это будет обрабатываться. Вот список поддерживаемых методов агрегирования, которые можно использовать во время этой процедуры преобразования:",
                     "updated": 1639592207422
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu dönüşümün gerçekleştiği Bot'ta, Kayıt Özelliği ( Record Property ) düğümlerinin, bunun nasıl ele alınacağını tanımlayan bir aggregationMethod yapılandırma özelliğine sahip olması gerekir. Bu dönüştürme prosedürü sırasında kullanılabilecek desteklenen toplama yöntemlerinin listesi aşağıda verilmiştir:",
+                    "updated": 1645965591741
                 }
             ]
         },
         {
             "style": "List",
-            "text": "First: This means that the fisrt value found within the time range being processed, will define the value of the Record Property.",
+            "text": "First: This means that the first value found within the time range being processed, will define the value of the Record Property.",
             "translations": [
                 {
                     "language": "DE",
@@ -276,10 +351,16 @@
                 },
                 {
                     "language": "RU",
-                    "text": "First: Это означает, что первое значение, найденное в обрабатываемом диапазоне времени, будет определять значение Record Property.",
-                    "updated": 1639592268016
+                    "text": "First: Это означает, что первое значение, найденное в обрабатываемом временном диапазоне, будет определять значение свойства Record.",
+                    "updated": 1661149004841
+                },
+                {
+                    "language": "TR",
+                    "text": "Birincisi: Bu, işlenmekte olan zaman aralığında bulunan ilk değerin Kayıt Özelliğinin ( Record Property ) değerini tanımlayacağı anlamına gelir.",
+                    "updated": 1645965639537
                 }
-            ]
+            ],
+            "updated": 1652772107530
         },
         {
             "style": "List",
@@ -294,6 +375,11 @@
                     "language": "RU",
                     "text": "Last: Это означает, что из всех значений, найденных в текущем временном диапазоне, последнее будет выбрано в качестве окончательного значения оцениваемого узла Record Property.",
                     "updated": 1639592324372
+                },
+                {
+                    "language": "TR",
+                    "text": "Son: Bu, geçerli zaman aralığında bulunan tüm değerlerden sonuncusunun değerlendirilmekte olan Kayıt Özelliği ( Record Property ) düğümünün son değeri için seçileceği anlamına gelir.",
+                    "updated": 1645965671384
                 }
             ]
         },
@@ -311,6 +397,11 @@
                     "language": "RU",
                     "text": "Min: Это означает, что математическое минимальное значение из всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
                     "updated": 1639592368578
+                },
+                {
+                    "language": "TR",
+                    "text": "Min: Bu, zaman aralığında bulunan tüm değerlerden matematiksel minimum değerin Kayıt Özelliği ( Record Property ) değeri olarak kullanılacağı anlamına gelir.",
+                    "updated": 1645965746500
                 }
             ]
         },
@@ -328,6 +419,11 @@
                     "language": "RU",
                     "text": "Max: Это означает, что математическое максимальное значение из всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
                     "updated": 1639592398114
+                },
+                {
+                    "language": "TR",
+                    "text": "Max: Bu, zaman aralığında bulunan tüm değerlerden matematiksel maksimum değerin Kayıt Özelliği ( Record Property ) değeri olarak kullanılacağı anlamına gelir.",
+                    "updated": 1645965770544
                 }
             ]
         },
@@ -345,6 +441,11 @@
                     "language": "RU",
                     "text": "Sum: Это означает, что сумма всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
                     "updated": 1639592421169
+                },
+                {
+                    "language": "TR",
+                    "text": "Toplam: Bu, zaman aralığında bulunan tüm değerlerin toplamının Kayıt Özelliği ( Record Property ) değeri olarak kullanılacağı anlamına gelir.",
+                    "updated": 1645965807724
                 }
             ]
         },
@@ -362,6 +463,11 @@
                     "language": "RU",
                     "text": "Avg: Это означает, что среднее значение всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
                     "updated": 1639592453807
+                },
+                {
+                    "language": "TR",
+                    "text": "Avg: Bu, zaman aralığında bulunan tüm değerlerin ortalamasının Kayıt Özelliği ( Record Property )  değeri olarak kullanılacağı anlamına gelir.",
+                    "updated": 1645965837266
                 }
             ]
         },
@@ -383,6 +489,11 @@
                     "language": "RU",
                     "text": "Пошаговое руководство по извлечению данных по API",
                     "updated": 1639593336973
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım Adım Bir API'den Veri Almak Kılavuzu",
+                    "updated": 1645965954789
                 }
             ]
         },
@@ -400,23 +511,33 @@
                     "language": "RU",
                     "text": "Это подробное руководство о том, как настроить операцию интеллектуального анализа данных, извлекающую данные из интернет-API.",
                     "updated": 1639593681217
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, bir İnternet API'sinden veri alan bir veri madenciliği işleminin nasıl kurulacağına dair ayrıntılı bir kılavuzdur.",
+                    "updated": 1645965973274
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Step #1: Open the API Data Fetcher Bot Demo Plugin Workspace and study it for a while. Run the tasks in there, watch while data is processed, check the charts and finally run the Trading Task that uses the data processed.",
+            "text": "Step #1: Open the API Data Fetcher Bot Demo Native Workspace and study it for a while. Run the tasks in there, watch while data is processed, check the charts and finally run the Trading Task that uses the data processed.",
             "updated": 1621976539133,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #1: Öffnen Sie den API Data Fetcher Bot Demo Plugin Workspace und arbeiten sie eine Weile mit ihm. Führen Sie die Tasks darin aus, beobachten Sie, wie die Daten verarbeitet werden, prüfen Sie die Charts und führen Sie schließlich die Trading Task aus, die die verarbeiteten Daten verwendet.",
+                    "text": "Schritt #1: Öffnen Sie den API Data Fetcher Bot Demo Native Workspace und arbeiten sie eine Weile mit ihm. Führen Sie die Tasks darin aus, beobachten Sie, wie die Daten verarbeitet werden, prüfen Sie die Charts und führen Sie schließlich die Trading Task aus, die die verarbeiteten Daten verwendet.",
                     "updated": 1635186793995
                 },
                 {
                     "language": "RU",
-                    "text": "Шаг № 1: Откройте рабочее пространство API Data Fetcher Bot Demo Plugin Workspace и изучите ее некоторое время. Запустите там задачи, посмотрите, как обрабатываются данные, проверьте графики и, наконец, запустите торговую задачу Trading Task, которая использует обработанные данные.",
+                    "text": "Шаг № 1: Откройте рабочее пространство API Data Fetcher Bot Demo Native Workspace и изучите ее некоторое время. Запустите там задачи, посмотрите, как обрабатываются данные, проверьте графики и, наконец, запустите торговую задачу Trading Task, которая использует обработанные данные.",
                     "updated": 1639654353623
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #1: API Veri Alıcısı Bot Demo Eklentisi Çalışma Alanını ( API Data Fetcher Bot Demo Native Workspace ) açın ve bir süre çalışın. Oradaki görevleri çalıştırın, verilerin işlenip işlenmediğini izleyin, çizelgeleri kontrol edin ve son olarak işlenen verileri kullanan Ticaret Görevini ( Trading Task ) çalıştırın.",
+                    "updated": 1645966176017
                 }
             ]
         },
@@ -434,6 +555,11 @@
                     "language": "RU",
                     "text": "Шаг № 2: Откройте второй пользовательский интерфейс UI (это помешает предыдущему сохранить изменения, но вам не нужно этого делать). Вы будете использовать первый UI, чтобы время от времени проверять, как там настроены узлы, а второй UI - для создания собственной операции интеллектуального анализа данных с нуля. Остальные шаги вы будете выполнять во втором UI.",
                     "updated": 1639594328460
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #2: İkinci bir kullanıcı arayüzü ( UI ) açın (bu, öncekinin değişiklikleri kaydetmesini engeller, ancak bunu yapmanız gerekmez). Zaman zaman düğümlerin burada nasıl yapılandırıldığını kontrol etmek için ilk kullanıcı arayüzünü ve kendi veri madenciliği operasyonunuzu sıfırdan oluşturmak için ikinci kullanıcı arayüzünü kullanacaksınız. İkinci kullanıcı arayüzünde yapacağınız diğer adımlar.",
+                    "updated": 1645966261102
                 }
             ]
         },
@@ -451,6 +577,11 @@
                     "language": "RU",
                     "text": "Шаг № 3: Выберите API из Интернета с данными, которые могут быть полезны в вашей торговой стратегии Trading Strategy.",
                     "updated": 1639595531345
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #3: İnternetten Ticaret Stratejinizde ( Trading Strategy ) faydalı olabilecek veriler içeren bir API seçin.",
+                    "updated": 1645966319921
                 }
             ]
         },
@@ -468,6 +599,11 @@
                     "language": "RU",
                     "text": "Шаг № 4: Прочтите документацию по API, определите конечные точки, какие параметры им требуются и какие данные они вам предоставят. Еще один полезный способ узнать, как реагирует api, - это ввести конечную точку api в свой браузер и просмотреть необработанный вывод.",
                     "updated": 1639654349803
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #4: API'nin belgelerini okuyun, uç noktaları tanımlayın, hangi parametrelere ihtiyaç duyduklarını ve size hangi verileri sağlayacaklarını belirleyin. API'nin nasıl yanıt verdiğini görmenin bir başka yararlı yolu, tarayıcınıza api uç noktasını yazmak ve ham çıktıya bakmaktır.",
+                    "updated": 1645966376471
                 }
             ]
         },
@@ -485,6 +621,11 @@
                     "language": "RU",
                     "text": "Шаг № 5: Создайте в Superalgos чистое рабочее пространство без предустановленных плагинов.",
                     "updated": 1639595678796
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #5: Superalgos'ta önceden kurulmuş eklentiler olmadan temiz bir çalışma alanı elde edin.",
+                    "updated": 1645966426736
                 }
             ]
         },
@@ -502,6 +643,11 @@
                     "language": "RU",
                     "text": "Шаг № 6: Создайте узел API Map и начните сопоставлять задокументированный API, добавляя к нему дочерние элементы. Особенно обратите внимание на безымянные массивы и объекты, которые могут обернуть данные.",
                     "updated": 1639595770230
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #6: Bir API Haritası ( API Map ) düğümü oluşturun ve belgelenmiş API'ye alt öğeleri ekleyerek eşlemeye başlayın. Özellikle isimsiz dizilere ve verileri sarabilecek nesnelere dikkat edin.",
+                    "updated": 1645966482733
                 }
             ]
         },
@@ -519,6 +665,11 @@
                     "language": "RU",
                     "text": "Шаг № 7: Для каждого добавляемого узла прочтите страницу документации узла. Это сэкономит вам время, пытаясь угадать, как все это работает.",
                     "updated": 1639596038033
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #7: Eklediğiniz her düğüm için, düğümün doküman sayfasını okuyun. Bu, tüm bunların nasıl çalıştığını tahmin etmeye çalışırken zamandan tasarruf etmenizi sağlayacaktır.",
+                    "updated": 1645966526081
                 }
             ]
         },
@@ -536,6 +687,11 @@
                     "language": "RU",
                     "text": "Шаг № 8: Сначала определите одну конечную точку API Endpoint, после того как первая заработает, перейдите к остальным доступным конечным точкам.",
                     "updated": 1639629818131
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #8: İlk önce bir API Uç Noktası ( API Endpoint ) tanımlayın, ilkini çalıştırdıktan sonra, mevcut diğer uç noktaları seçin.",
+                    "updated": 1645967140966
                 }
             ]
         },
@@ -553,6 +709,11 @@
                     "language": "RU",
                     "text": "Шаг № 9: Определите параметры запроса или пути и ответы. Прочтите справку по каждому узлу, чтобы узнать, как это сделать правильно.",
                     "updated": 1639629873312
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #9: Sorgu veya yol parametreleri ile yanıtları tanımlayın. Nasıl doğru yapılacağına ilişkin ayrıntılar için her bir düğümün yardımını okuyun.",
+                    "updated": 1645967176495
                 }
             ]
         },
@@ -570,6 +731,11 @@
                     "language": "RU",
                     "text": "Шаг № 10: Создайте торговую систему Trading System с пустой стратегией Strategy.. Это позволит процедуре Install New Market для создания торговых задач, ссылающихся на эту торговую систему.",
                     "updated": 1639629960162
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #10: Boş bir Stratejiye ( Strategy ) sahip bir Ticaret Sistemi ( Trading System ) oluşturun. Bu, Yeni Pazar Kurma prosedürünün, Ticaret Sistemine atıfta bulunan ticaret görevleri oluşturmasına olanak tanır.",
+                    "updated": 1645967805601
                 }
             ]
         },
@@ -587,6 +753,11 @@
                     "language": "RU",
                     "text": "Шаг № 11: Создайте новый узел Data Mine с названием компании, в которой размещен API.",
                     "updated": 1639630033121
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #11: API'yi barındıran şirketin adı ile yeni bir Veri Madeni ( Data Mine ) oluşturun.",
+                    "updated": 1645967918816
                 }
             ]
         },
@@ -604,6 +775,11 @@
                     "language": "RU",
                     "text": "Шаг № 12: Добавьте в Data Mine бот API Data Fetcher Bot. Настройте узлы бота, следуя примеру в  UI №1.",
                     "updated": 1639630378985
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #12: Veri Madeni içinde bir API Veri Alıcı Botu ( API Data Fetcher Bot ) ekleyin. UI #1'deki örneği izleyerek Bot'un düğümlerini yapılandırın.",
+                    "updated": 1645967979605
                 }
             ]
         },
@@ -621,6 +797,11 @@
                     "language": "RU",
                     "text": "Шаг № 13: Установите новый рынок. Эта процедура многое настроит для вас. Он обнаружит API Map и созданный вами Data Mine и создаст соответствующие задачи Task для запуска вашего API Data Fetcher Bot.",
                     "updated": 1639630535373
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #13: Yeni bir pazar kurun. Bu prosedür sizin için birçok şeyi ayarlayacaktır. API Haritasını ( API Map ) ve oluşturduğunuz Veri Madeni'ni algılayacak ve API Getirici Botunuzu çalıştırmak için uygun Görevler oluşturacaktır.",
+                    "updated": 1645968087009
                 }
             ]
         },
@@ -637,6 +818,11 @@
                     "language": "RU",
                     "text": "Шаг № 14: Обратите внимание на свойство nodePath в узле API Response Schema. Подробности см. на странице документации узла.",
                     "updated": 1639654342520
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #14: API Haritasının API Yanıt Şeması ( API Response Schema ) düğümündeki nodePath özelliğine dikkat edin. Ayrıntılar için düğümün dokümanlar sayfasına bakın.",
+                    "updated": 1645968267950
                 }
             ]
         },
@@ -654,6 +840,11 @@
                     "language": "RU",
                     "text": "Шаг № 15: В узлах Record Property определения продукта Product Definition бота API Data Fetcher Bot определите поля, которые вы хотите сохранить из ответа сервера API Server. Вам не нужно сохранять все, только то, что имеет для вас смысл.",
                     "updated": 1639654368661
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #15: API Veri Alıcı Botunuzun Ürün Tanımı ( Product Definition ) Kaydı Özelliklerinde, API Sunucusu ( API Server ) yanıtından kaydetmek istediğiniz alanları tanımlayın. Her şeyi kaydetmeniz gerekmez, yalnızca sizin için anlamlı olanı kaydetmeniz gerekir.",
+                    "updated": 1645968624461
                 }
             ]
         },
@@ -670,13 +861,18 @@
                     "language": "RU",
                     "text": "Шаг № 16: Установите ссылку API Response Field Reference от каждого дочернего узла Record Property на узел типа API Response Field на карте API Map. Делайте это внимательно для каждого Record Property.",
                     "updated": 1639654373997
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #16: Her bir Kayıt Özelliği alt API Yanıt Alanı Referans ( API Response Field Reference ) düğümünden API Yanıt Alanı türündeki API Haritasındaki ( API Map ) bir düğüme bir referans oluşturun. Bunu her Kayıt Özelliği için dikkatli bir şekilde yapın.",
+                    "updated": 1645969790307
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Step #17: The timestamp record property is the only required property. It helps keep the records you save organized. Addtionally, the timestamp may live in the header of the API responce. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
-            "updated": 1622475120505,
+            "text": "Step #17: The timestamp record property is the only required property. It helps keep the records you save organized. Additionally, the timestamp may live in the header of the API response. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
+            "updated": 1652841936784,
             "translations": [
                 {
                     "language": "DE",
@@ -685,8 +881,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Шаг № 17: Свойство записи timestamp - единственное обязательное свойство. Это помогает организовывать сохраняемые вами записи. Кроме того, временная метка может находиться в заголовке ответа API. Прочтите документацию узла справки по полю ответа API, чтобы при необходимости настроить свойство nodePath.",
-                    "updated": 1639653850071
+                    "text": "Шаг № 17: Свойство записи timestamp является единственным обязательным свойством. Оно помогает упорядочить сохраняемые записи. Кроме того, метка времени может находиться в заголовке ответа API. Прочитайте документацию узла API Response Field Reference, чтобы настроить свойство nodePath, если это необходимо.",
+                    "updated": 1661149061116
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #17: Zaman damgası kaydı özelliği, gerekli olan tek özelliktir. Kaydettiğiniz kayıtları düzenli tutmanıza yardımcı olur. Ek olarak, zaman damgası API yanıtının başlığında bulunabilir. Gerekirse nodePath özelliğini ayarlamak için API Response Field Reference düğümünün belgelerini okuyun.",
+                    "updated": 1645969866563
                 }
             ]
         },
@@ -704,6 +905,11 @@
                     "language": "RU",
                     "text": "Перед переходом к следующему шагу рекомендуется убедиться, что у вас запущен и отлажен API Data Fetcher Bot.",
                     "updated": 1639653939392
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bir sonraki adıma geçmeden önce api alıcı botunu çalıştırdığınızdan ve hata ayıklandığından emin olmak iyi bir fikirdir.",
+                    "updated": 1645969898192
                 }
             ]
         },
@@ -721,6 +927,11 @@
                     "language": "RU",
                     "text": "Шаг № 18: В вашем Data Mine настройте Indicator Bot и настройте его узлы Process Definition на платформу, которая будет преобразовывать типы наборов данных Dataset с One-Min-Daily на Multi-Time-Frame-Daily and Multi-Period-Market. Посмотрите, как это было сделано в UI №1.",
                     "updated": 1639654131787
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #18: Veri Madeninizde, bir Gösterge Botu ( Indicator Bot ) kurun ve Süreç Tanımı ( Process Definition ) düğümlerini Bir Dakikalık Günlükten Çok Zamanlı Çerçeveli Günlük ve Çok Dönemli Pazarlı ( One-Min-Daily to Multi-Time-Frame-Daily and Multi-Period-Market ) Veri Kümeleri türlerine dönüştürecek çerçeveye yapılandırın. Kullanıcı arabiriminde #1 nasıl yapıldığını görün.",
+                    "updated": 1645970077393
                 }
             ]
         },
@@ -738,6 +949,11 @@
                     "language": "RU",
                     "text": "Шаг № 19: В только что добавленном Indicator Bot определите узлы Record Property на основе информации, которую вы хотите преобразовать из необработанных данных Raw Data. Убедитесь, что вы добавили свойства begin и end записи, даже если оно не существует в необработанных данных, чтобы Indicator Bot работал правильно.",
                     "updated": 1639677386954
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #19: Yeni eklediğiniz Gösterge Botunda ( Indicator Bot ), Ham Veriden ( Raw Data ) dönüştürmek istediğiniz bilgilere göre Kayıt Özelliği ( Record Property ) düğümlerini tanımlayın. Gösterge botunun doğru çalışması için Ham Veride mevcut olmasa bile bir başlangıç ve bitiş Kayıt Özelliği eklediğinizden emin olun.",
+                    "updated": 1645970159204
                 }
             ]
         },
@@ -755,6 +971,11 @@
                     "language": "RU",
                     "text": "Шаг № 20: Настройте свойство aggregationMethod для каждого Record Property. За подробностями обращайтесь к документации этого узла.",
                     "updated": 1639654586451
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #20: Her Kayıt Özelliği için aggregationMethod özelliğini yapılandırın. Ayrıntılar için o düğümün belgelerine bakın.",
+                    "updated": 1645970197796
                 }
             ]
         },
@@ -772,6 +993,11 @@
                     "language": "RU",
                     "text": "Шаг № 21: При желании вы можете создать несколько Indicator Bots, чтобы разделить набор данных на разные группы Record Property.",
                     "updated": 1639654823323
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #21: İsterseniz, veri kümesini farklı Kayıt Özellikleri gruplarında kesmek için birden fazla Gösterge Botu oluşturabilirsiniz.",
+                    "updated": 1645970228616
                 }
             ]
         },
@@ -788,6 +1014,11 @@
                     "language": "RU",
                     "text": "Шаг № 22: Установите Plotter в вашем новом Data Mine и укажите на него ссылку из Product Definition последнего созданного Indicator Bot.",
                     "updated": 1639655125610
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #22: Yeni Veri Madeninizde bir Çizici ( Plotter ) kurun ve oluşturulan en son Gösterge Botunun Ürün Tanımından referans alın.",
+                    "updated": 1645970300493
                 }
             ]
         },
@@ -804,6 +1035,11 @@
                     "language": "RU",
                     "text": "Шаг № 23: Теперь вы готовы к запуску задачи Task, в которой определен экземпляр процесса бота API Data Fetcher Bot.",
                     "updated": 1639655304673
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #23: Artık Veri Alıcı Bot İşlem Eşgörünümü'nün tanımlandığı Görevi ( Task ) çalıştırmaya hazırsınız.",
+                    "updated": 1645970337518
                 }
             ]
         },
@@ -820,6 +1056,11 @@
                     "language": "RU",
                     "text": "Шаг № 24: Если что-то не сработало, проверьте карту рабочего пространства, чтобы увидеть, есть ли узел с ошибкой. Найдите узел, щелкните ошибку и просмотрите страницу с ошибкой в ​​документе. Попытайтесь понять, что не так, исправьте и попробуйте еще раз.",
                     "updated": 1639655350002
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #24: Bir şey yolunda gitmediyse, hatalı bir düğüm olup olmadığını görmek için çalışma alanı haritasını kontrol edin. Düğümü bulun, hatayı tıklayın ve belgede hatanın sayfasına bakın. Neyin yanlış olduğunu anlamaya çalışın, düzeltin ve tekrar deneyin.",
+                    "updated": 1645970376645
                 }
             ]
         },
@@ -837,6 +1078,11 @@
                     "language": "RU",
                     "text": "Шаг № 25: Повторяйте шаг № 24, пока все не заработает. Перечитайте документацию узла, пока не получите все подробности. Перечитайте это руководство или всю эту тему с самого начала, пока не усвоите объясненные концепции.",
                     "updated": 1639655549136
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #25: Her şey çalışana kadar 24. adımı yineleyin. Orada açıklananların ayrıntılarını elde edene kadar düğümün belgelerini tekrar okuyun. Bu kılavuzu veya tüm Konuyu baştan itibaren, açıklanan kavramlar devreye girene kadar tekrar okuyun.",
+                    "updated": 1645970457316
                 }
             ]
         },
@@ -854,6 +1100,11 @@
                     "language": "RU",
                     "text": "Шаг № 26: Если после изучения документов и следования всем этим советам вы все еще не смогли заставить его работать, перейдите в группу поддержки Telegram Support и попросите о помощи.",
                     "updated": 1639655446982
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #26: Belgeleri sindirdikten sonra ve tüm bu tavsiyeleri takip ettikten sonra hala işe yaramıyorsa, Telegram Destek grubuna gidin ve yardım isteyin.",
+                    "updated": 1645970505471
                 }
             ]
         },
@@ -871,6 +1122,11 @@
                     "language": "RU",
                     "text": "Шаг № 27: Как только все заработает, настройте свою торговую стратегию Trading Strategy таким образом, чтобы вы могли проверить, есть ли у вас доступ к обработанным данным (предоставленным последними созданными индикаторными ботами).",
                     "updated": 1639656452233
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #27: Her şey yolunda gittiğinde, Ticaret Stratejinizi ( Trading Strategy ), işlenmiş verilere (oluşturulan en son Gösterge Botları tarafından sağlananlar) erişiminiz olup olmadığını test etmenize olanak sağlayacak şekilde ayarlayın.",
+                    "updated": 1645970804891
                 }
             ]
         },
@@ -888,6 +1144,11 @@
                     "language": "RU",
                     "text": "Шаг № 29: После того, как данные будут правильно использованы вашей торговой стратегией, выполните итерацию по этому руководству, добавив еще одну конечную точку API Endpoint на карту API Map. Вам нужно будет добавить дополнительный API Data Fetcher Bot.",
                     "updated": 1639656543620
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #29: Veriler Ticaret Stratejiniz ( Trading Strategy ) tarafından doğru bir şekilde tüketildiğinde, API Haritasına ( API Map ) başka bir API Uç Noktası ( API Endpoint ) ekleyerek bu kılavuzu yineleyin. Ek bir API Alıcı Botu API Fetcher Bot eklemeniz gerekecek.",
+                    "updated": 1645970799491
                 }
             ]
         },
@@ -905,6 +1166,11 @@
                     "language": "RU",
                     "text": "После того, как вы успешно сопоставили весь API и протестировали все необходимое: API Data Fetcher Bot, Indicator Bot и плоттеры Plotter - вы можете поделиться своей картой API Map и Data Mine с сообществом в качестве плагина и получить токены SA Token в обмен на ваш вклад.",
                     "updated": 1639657964609
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım #30: Tüm API'yi başarılı bir şekilde eşleştirdikten ve gerekli tüm API Veri Alıcıları, Gösterge Botları ve Çizicileri test ettikten sonra, API Haritanızı ve Veri Madeni'nizi bir eklenti olarak toplulukla paylaşmaya ve karşılığında SA Simgelerini almaya hazırsınız.",
+                    "updated": 1645970794729
                 }
             ]
         },

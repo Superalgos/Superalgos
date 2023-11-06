@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Bir geliştiriciyseniz veya en azından temel bir JavaScript bilgisine sahipseniz, kendi göstergelerinizi oluşturabilirsiniz!",
                 "updated": 1639834040491
+            },
+            {
+                "language": "RU",
+                "text": "Если вы являетесь разработчиком или имеете хотя бы базовое понимание JavaScript, вы сможете создавать свои собственные индикаторы!",
+                "updated": 1640875917049
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu seorang developer atau memiliki setidaknya pemahaman dasar tentang JavaScript, Kamu akan dapat membuat indikator sendiri!",
+                "updated": 1645561357928
+            },
+            {
+                "language": "NL",
+                "text": "Als u een ontwikkelaar bent of op zijn minst een basiskennis van JavaScript heeft, kunt u uw eigen indicatoren maken!",
+                "updated": 1669552417237
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Bu, Superalgos'un çok önemli bir özelliğidir, çünkü ticaret zekası, piyasa verilerini analiz etme yeteneği olmadan ortaya çıkamaz! Yine, bu noktada göstergelerin nasıl oluşturulacağına değinmeyeceğim.",
                     "updated": 1639834127231
+                },
+                {
+                    "language": "RU",
+                    "text": "Это важнейшая особенность Superalgos, поскольку торговый интеллект не может появиться без возможности анализировать рыночные данные! Опять же, я не буду сейчас подробно описывать, как строить индикаторы, но хочу сообщить вам, что мы позаботились об этом!",
+                    "updated": 1640875946020
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah fitur penting Superalgos, karena trading intelligence tidak dapat muncul tanpa kemampuan untuk menganalisis data market! Sekali lagi, aku tidak akan membahas cara membangun indikator pada titik ini, tetapi aku ingin memberi tahu kamu bahwa kami telah membantu kamu!",
+                    "updated": 1645561426287
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is een cruciaal kenmerk van Superalgos, aangezien handelsinformatie niet kan ontstaan zonder de mogelijkheid om marktgegevens te analyseren! Nogmaals, ik ga op dit moment niet in op het bouwen van indicatoren, maar ik wil je wel laten weten dat het mogelijk is!",
+                    "updated": 1669552502929
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Tüm süreci açıklayan kapsamlı bir dizi video eğitimi var! Dokümanlar'daki bu sayfaya hızlıca bir göz atın!",
                     "updated": 1639834143931
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует обширная серия видеоуроков, объясняющих весь процесс! Взгляните на эти страницы во кладке Docs!",
+                    "updated": 1640875987555
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada serangkaian tutorial video komprehensif yang menjelaskan seluruh proses! Lihatlah halaman ini dengan cepat di Docs!",
+                    "updated": 1645561474655
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is een uitgebreide reeks video-zelfstudies die het hele proces uitleggen! Kijk dan snel op deze pagina in de Docs!",
+                    "updated": 1669552529817
                 }
             ]
         }

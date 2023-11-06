@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Versuchen Sie, die gute Praxis beizubehalten, den Knoten, die Definitionen enthalten, entsprechende Namen oder Bezeichnungen zu geben!",
                 "updated": 1639265931417
+            },
+            {
+                "language": "RU",
+                "text": "Старайтесь придерживаться хорошей практике давать соответствующие имена или метки узлам, содержащим определения!",
+                "updated": 1640946360643
+            },
+            {
+                "language": "TR",
+                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek çalışmaya devam edin!",
+                "updated": 1669581566160
+            },
+            {
+                "language": "ES",
+                "text": "Intenta seguir la buena práctica de dar nombres o etiquetas relevantes a los nodos que contienen definiciones.",
+                "updated": 1677101288983
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Bedenken Sie, dass die Komplexität der Strategie mit dem Fortschritt zunehmen wird! Es ist gut, wenn Sie Bedingungen und Situationen erkennen können, ohne den Code zu überprüfen!",
                     "updated": 1639265940339
+                },
+                {
+                    "language": "RU",
+                    "text": "Учитывайте, что по мере совершенствования стратегия будет усложняться! Хорошо уметь определять условия и ситуации без проверки кода!",
+                    "updated": 1640946396531
+                },
+                {
+                    "language": "TR",
+                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Düğümü genişleterek kodunuzu kontrol etmek zorunda kalmak yerine onlara adlar ve etiketler vererek işinizi kolaylaştırırsınız. Adlar ve etiketler bu işe yarayacaktır.",
+                    "updated": 1669581766714
+                },
+                {
+                    "language": "ES",
+                    "text": "Ten en cuenta que la complejidad de la estrategia aumentará a medida que avancemos. Es bueno poder identificar condiciones y situaciones sin revisar el código.",
+                    "updated": 1677101306974
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Sie werden auch in der Lage sein, die Situation, die das Ereignis ausgelöst hat, direkt in den Diagrammen zu erkennen!",
                     "updated": 1639265952036
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также сможете определить, какая ситуация вызвала событие, прямо по графикам!",
+                    "updated": 1640946410762
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, olayı tetikleyen durumu doğrudan grafiklerden de belirleyebileceksiniz!",
+                    "updated": 1641655028852
+                },
+                {
+                    "language": "ES",
+                    "text": "También podrás identificar qué situación desencadenó el evento directamente desde los gráficos.",
+                    "updated": 1677101320747
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Sie können die erste Situation und die erste Bedingung mit demselben Namen bezeichnen, 24H Up, und die zweite mit dem folgenden: 24H Seite.",
                     "updated": 1639265958681
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете обозначить первую ситуацию и первое условие одним и тем же именем - 24H Up, а второе - следующим: 24H Side.",
+                    "updated": 1640946426685
+                },
+                {
+                    "language": "TR",
+                    "text": " İlk durumu ve ilk koşulu aynı isimle, 24H Yukarı, ikincisini de şu şekilde etiketleyebilirsiniz: 24H Yan.",
+                    "updated": 1669581860004
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes etiquetar la primera situación y la primera condición con el mismo nombre,\"24H Up\", y la segunda con el siguiente: \"24H Lateral\".",
+                    "updated": 1677101334837
                 }
             ]
         }

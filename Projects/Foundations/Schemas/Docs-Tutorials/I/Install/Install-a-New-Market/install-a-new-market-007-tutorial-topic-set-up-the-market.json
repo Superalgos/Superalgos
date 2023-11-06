@@ -11,14 +11,29 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Si no hay un Market configurado con el par con el que deseas trabajar en Exchange Markets, debes configurar la definición de mercado antes de instalarlo.",
-                "updated": 1629164083032,
+                "text": "Si no hay ningún Mercado configurado con el par que desea trabajar en Mercados de Intercambio, deberá configurar la definición del mercado antes de instalarlo.",
+                "updated": 1682426344694,
                 "style": "Definition"
             },
             {
                 "language": "DE",
                 "text": "Wenn für das Paar, mit dem Sie arbeiten möchten, unter Exchange Markets kein Market eingerichtet ist, müssen Sie die Marktdefinition vor der Installation einrichten.",
                 "updated": 1635829019620
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Borsa Piyasalarında ( Exchange Markets ) çalışmak istediğiniz parite ile yapılandırılmış bir borsa ( Market ) yoksa, kurmadan önce borsa tanımını yapılandırmanız gerekir.",
+                "updated": 1642144421649
+            },
+            {
+                "language": "RU",
+                "text": "Если для пары, с которой вы хотите работать, не установлен рынок в разделе Exchange Markets, вы должны настроить определение рынка перед его установкой.",
+                "updated": 1643090437109
+            },
+            {
+                "language": "NL",
+                "text": "Als er geen Market is ingesteld met het paar waarmee u wilt werken onder Exchange Markets, moet u de marktdefinitie instellen voordat u deze installeert.",
+                "updated": 1676121259470
             }
         ]
     },
@@ -37,6 +52,21 @@
                     "language": "DE",
                     "text": "In den nächsten Schritten lernen Sie, wie Sie den Markt einrichten, damit Sie ihn später installieren können.",
                     "updated": 1635829102056
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki adımlar, daha sonra yükleyebilmeniz için borsayı (market) nasıl kuracağınızı öğretecektir.",
+                    "updated": 1642144635773
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующие несколько шагов научат вас, как настроить рынок, чтобы впоследствии вы могли его установить.",
+                    "updated": 1643090447849
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende paar stappen leert u hoe u de markt opzet, zodat u deze later kunt installeren.",
+                    "updated": 1676121276338
                 }
             ]
         },
@@ -55,6 +85,21 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass die Kombination aus Market Base Asset und Market Quoted Asset, die Sie als Market in Superalgos definieren möchten, als börsennotierter Markt existiert.",
                     "updated": 1635829254330
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Superalgos'ta Piyasa olarak tanımlamak istediğiniz Piyasa Bazlı Varlık ( Market Base Asset ) ve Piyasaya Kote Varlık ( Market Quoted Asset ) kombinasyonunun kote bir borsa olarak var olduğundan emin olun.",
+                    "updated": 1642145513258
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что комбинация Market Base Asset и Market Quoted Asset, которую вы хотите определить как рынок в Superalgos, существует как рынок, котируемый на бирже.",
+                    "updated": 1643090473194
+                },
+                {
+                    "language": "NL",
+                    "text": "Zorg ervoor dat de combinatie van Market Base Asset en Market Quoted Asset activa die u als een Market in Superalgos wilt definiëren, bestaat als een handelspaar die bij het handelsplatform is genoteerd.",
+                    "updated": 1676121368414
                 }
             ]
         }

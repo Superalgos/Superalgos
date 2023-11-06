@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Указанный номер страницы документов Docs Page Number не совпадает с номером на странице, которую вы хотите удалить.",
                 "updated": 1638530491431
+            },
+            {
+                "language": "TR",
+                "text": "Sağlanan Dokümanlar Sayfa Numarası (Docs Page Number ) silmek istediğiniz sayfada bulunan Dokümanlar Sayfa Numarasıyla ( Docs Page Number ) eşleşmiyor.",
+                "updated": 1652041183831
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Die Seitenzahl stimmt nicht überein. Die angegebene Docs Page Number stimmt nicht mit der Docs Page Number der zu löschenden Seite überein.",
                     "updated": 1633899713136
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa Numarası Uyuşmazlığı. Sağlanan Dokümanlar Sayfa Numarası ( Docs Page Number ) silinecek sayfanın Dokümanlar Sayfa numarasıyla ( Docs Page Number ) eşleşmiyor. ",
+                    "updated": 1652041347528
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Отметьте страницу, которую вы хотите удалить, и получите правильный номер страницы для использования в команде.",
                     "updated": 1638530507477
+                },
+                {
+                    "language": "TR",
+                    "text": "Silmek istediğiniz sayfayı kontrol edin ve komutta kullanılacak doğru sayfa numarasını alın. ",
+                    "updated": 1652041389470
                 }
             ]
         },

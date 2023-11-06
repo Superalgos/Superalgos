@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Github API",
+            "translationKey": "add.githubAPI",
             "relatedUiObject": "Github API",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "githubAPI",
@@ -14,9 +15,21 @@
         {
             "action": "Add UI Object",
             "label": "Add Web3 API",
+            "translationKey": "add.web3API",
             "relatedUiObject": "Web3 API",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "web3API",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add API Authorization Key",
+            "translationKey": "add.apiAuthorizationKey",
+            "relatedUiObject": "API Authorization Key",
+            "iconPathOn": "exchange-account-key",
+            "iconPathOff": "exchange-account-key",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -26,7 +39,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -45,6 +60,11 @@
             "name": "web3API",
             "type": "node",
             "childType": "Web3 API"
+        },
+        {
+            "name": "apiAuthorizationKey",
+            "type": "node",
+            "childType": "API Authorization Key"
         }
     ],
     "isPersonalData": true

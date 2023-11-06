@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел User Mentor должен установить ссылку на профиль пользователя вашего наставника. Если у вас более одного наставника, добавьте больше узлов! Так вы определяете своих наставников.",
                 "updated": 1639129307731
+            },
+            {
+                "language": "TR",
+                "text": "Bir Kullanıcı Mentoru düğümü, mentorunuzun Kullanıcı Profili ile bir referans oluşturmalıdır. Birden fazla mentorunuz varsa, daha fazla düğüm ekleyin! Mentorlarınızın kim olduğunu bu şekilde belirlersiniz.",
+                "updated": 1645100600175
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Заявление хотя бы одного User Mentor является обязательным условием для участия в программе. Если вы не заявите хотя бы один, вы не имеете права на получение бонусов Tokens Bonus.",
                     "updated": 1639129353758
+                },
+                {
+                    "language": "TR",
+                    "text": "Programa katılmak için en az bir Kullanıcı Mentoru beyan etmek şarttır. En az birini beyan edemezseniz, Token Bonus teşviklerine hak kazanamazsınız.",
+                    "updated": 1645100617643
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639129363094
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645100624179
                 }
             ]
         }

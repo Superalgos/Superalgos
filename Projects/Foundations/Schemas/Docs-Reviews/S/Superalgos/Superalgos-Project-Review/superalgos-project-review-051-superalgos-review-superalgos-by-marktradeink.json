@@ -1,0 +1,110 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 51,
+    "type": "Superalgos Review - Superalgos by MarkTradeink",
+    "definition": {
+        "text": "When I discovered Superalgos, I just got amazed from the first impression. How powerful this software is and it's unique approach.",
+        "updated": 1675469732532,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "When I discovered Superalgos, I just got amazed from the first impression how powerful this software is and it's unique approach. ",
+                "updated": 1677416754289
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Als ich Superalgos entdeckte, war ich vom ersten Eindruck an begeistert. Wie leistungsfähig diese Software ist und wie einzigartig ihr Ansatz ist.",
+                "updated": 1687642771776
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u keşfettiğimde, ilk izlenimden itibaren hayran kaldım. Bu yazılımın ne kadar güçlü olduğu ve benzersiz yaklaşımı.",
+                "updated": 1696018003639
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1687642786096
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contrib kullanabilirsiniz.",
+                    "updated": 1696018010289
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "by MarkTradeink",
+            "updated": 1675469558695,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "by @MarkTradeink",
+                    "updated": 1677416917256
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Will update my Review soon:)",
+            "updated": 1675469861700,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Werde meine Rezension bald aktualisieren:)",
+                    "updated": 1687642812599
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Title 1",
+            "updated": 1675469886062,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solid Community and Governance ",
+                    "updated": 1677417547073
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "text"
+        },
+        {
+            "style": "Title",
+            "text": "Title 2",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Potential of Trading Tools",
+                    "updated": 1677416958940
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "text"
+        },
+        {
+            "style": "Title",
+            "text": "Title 3",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos Roadmap",
+                    "updated": 1677417013242
+                }
+            ]
+        }
+    ]
+}

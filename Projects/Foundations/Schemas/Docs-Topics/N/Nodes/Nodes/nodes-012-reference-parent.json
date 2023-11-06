@@ -4,12 +4,46 @@
     "type": "Reference Parent",
     "definition": {
         "text": "The Reference Parent of a certain Node A, is the node with which A establishes a Reference.",
-        "updated": 1609240205404
+        "updated": 1609240205404,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Reference Parent (Ссылочный родитель) определенного узла A - это узел, с которым A устанавливает ссылку.",
+                "updated": 1640356776523
+            },
+            {
+                "language": "TR",
+                "text": "Belirli bir Düğüm ( Node ) A'nın Referans Üst Öğesi, A'nın bir Referans oluşturduğu düğümdür.",
+                "updated": 1654892465568
+            },
+            {
+                "language": "DE",
+                "text": "Der Referenz-Elternteil eines bestimmten Knotens A (Node A) ist der Knoten, mit dem A einen Bezug herstellt.",
+                "updated": 1689423289658
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1640356794881
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654892486796
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689423308926
+                }
+            ]
         }
     ]
 }

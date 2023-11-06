@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Üçüncü örneği deneyelim! plygon düğümünden Grafik Noktaları ( Chart Points ) düğümünün altındaki noktalara akan referanslara dikkat edin!",
                 "updated": 1639723270170
+            },
+            {
+                "language": "RU",
+                "text": "Давайте попробуем третий пример! Обратите внимание на ссылки, идущие от вершин полигонов к точкам в узле Chart Points!",
+                "updated": 1640870975645
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita coba contoh ketiga! Perhatikan referensi yang mengalir dari node poligon ke titik di bawah node Chart Points!",
+                "updated": 1644951616463
+            },
+            {
+                "language": "NL",
+                "text": "Laten we het derde voorbeeld proberen! Let op de verwijzingen die lopen van hoekpunten van de polygons naar punten onder het Chart Points knooppunt!",
+                "updated": 1669544537115
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Shapes düğümünün yedeğini alın ve orijinali silmeden yan tarafa geri yükleyin (çalışma alanına sürükleyrek bırakın). Bunu yaptıktan sonra bu sefer aynı işlemi ojinal düğümü silerek tekrarlayın.",
                     "updated": 1639723389534
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию узла Shapes и восстановите ее сбоку, не удаляя оригинал. Затем повторите, но удалите оригинал перед восстановлением резервной копии!",
+                    "updated": 1640870996301
+                },
+                {
+                    "language": "ID",
+                    "text": "Ambil cadangan node Shapes dan kembalikan di samping tanpa menghapus yang asli. Kemudian ulangi, tetapi hapus yang asli sebelum mengembalikan cadangan!",
+                    "updated": 1644951662350
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van het Shapes knooppunt en herstel het aan de zijkant zonder het origineel te verwijderen. Herhaal dit dan, maar verwijder het origineel voordat u de back-up herstelt!",
+                    "updated": 1669544562709
                 }
             ]
         },
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "İlk durumda, referansların harici referanslara dönüşen orijinal noktaları gösterdiğine dikkat edin! Aksine, ikinci durumda, referanslar dahili kalır!",
                     "updated": 1639724259925
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что в первом случае ссылки указывают на исходные точки, превращаясь во внешние ссылки! А во втором случае, наоборот, ссылки остаются внутренними!",
+                    "updated": 1640871024817
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bahwa dalam kasus pertama, referensi menunjuk ke titik asli yang berubah menjadi referensi eksternal! Sebaliknya, dalam kasus kedua, referensi tetap internal!",
+                    "updated": 1644951685971
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat in het eerste geval verwijzingen verwijzen naar de oorspronkelijke punten die in externe verwijzingen veranderen! Integendeel, in het tweede geval blijven referenties intern!",
+                    "updated": 1669544588102
                 }
             ]
         },
@@ -118,6 +163,21 @@
                     "language": "TR",
                     "text": "Referansların yalnızca ilk önce orijinal yapıyı sildiğinizde dahili kaldığını unutmayın!",
                     "updated": 1639724279947
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что ссылки остаются внутренними только тогда, когда вы сначала удалите исходную структуру!",
+                    "updated": 1640871038731
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa referensi tetap internal hanya ketika kamu menghapus struktur asli terlebih dahulu!",
+                    "updated": 1644951711451
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat referenties alleen intern blijven als u eerst de oorspronkelijke structuur verwijdert!",
+                    "updated": 1669544600593
                 }
             ]
         }

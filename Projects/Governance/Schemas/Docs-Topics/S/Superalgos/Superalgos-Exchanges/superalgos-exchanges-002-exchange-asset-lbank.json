@@ -4,7 +4,24 @@
     "type": "Exchange Asset - LBank",
     "definition": {
         "text": "LBank Exchange, which full name is Ledger Bank Exchange, founded in 2015 and registered in the Virgin Islands. It is the high technology crypto asset trading platform around the world, holding the NFA、MSB of U.S, MSB of Canada，austrac of Australia crypto license, providing safe, professional and convenient crypto-asset exchange services, derivatives services, currency quantification, currency interest generation and other businesses for global users.",
-        "updated": 1628185971276
+        "updated": 1628185971276,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "LBank Exchange, полное название которой Ledger Bank Exchange, основана в 2015 году и зарегистрирована на Виргинских островах. Это высокотехнологичная платформа для торговли криптоактивами по всему миру, имеющая криптолицензию NFA, MSB США, MSB Канады, austrac Австралии, предоставляющая безопасные, профессиональные и удобные услуги обмена криптоактивами, услуги деривативов, количественной оценки валюты, генерации валютных процентов и другие виды бизнеса для глобальных пользователей.",
+                "updated": 1645626694640
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tam adı Ledger Bank Exchange olan LBank Exchange, 2015 yılında kurulmuş ve Virgin Adaları'na kayıtlıdır. Güvenli, profesyonel ve kullanışlı kripto varlık değişim hizmetleri, türev hizmetleri, para birimi ölçümü, para birimi sağlayan, NFA、ABD MSB, Kanada MSB，Avustralya kripto lisansına sahip, dünya çapında yüksek teknoloji kripto varlık ticaret platformudur. küresel kullanıcılar için faiz oluşturma ve diğer işletmeler.",
+                "updated": 1646307053383
+            },
+            {
+                "language": "DE",
+                "text": "LBank Exchange, mit vollem Namen Ledger Bank Exchange, wurde 2015 mit Sitz auf den Jungferninseln gegründet. Es ist eine der größten Handelsplattformen für Krypto-Assets weltweit und verfügt über eine NFA- und MSB-Lizenz für die USA, eine MSB-Lizenz für Kanada und eine Krypto-Lizenz für Australien. Sie bietet sichere, professionelle und bequeme Dienstleistungen für den Austausch von Krypto-Assets, Derivaten, die Quantifizierung von Währungen, die Generierung von Währungszinsen und andere Geschäfte für globale Nutzer.",
+                "updated": 1676912531144
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,11 +36,40 @@
         },
         {
             "style": "Title",
-            "text": "Listing Summary"
+            "text": "Listing Summary",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Liste Özeti",
+                    "updated": 1646307103753
+                },
+                {
+                    "language": "DE",
+                    "text": "Abschließend",
+                    "updated": 1676912675647
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We have been introduced to the Exchange listing team and we will be meeting soon."
+            "text": "We have been introduced to the Exchange listing team and we will be meeting soon.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нас познакомили с командой по листингу биржи, и мы скоро встретимся.",
+                    "updated": 1645626705423
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange listeleme ekibiyle tanıştık ve yakında görüşeceğiz.",
+                    "updated": 1646307108372
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wurden dem Börsenteam vorgestellt und werden uns demnächst treffen.",
+                    "updated": 1676912664346
+                }
+            ]
         }
     ]
 }

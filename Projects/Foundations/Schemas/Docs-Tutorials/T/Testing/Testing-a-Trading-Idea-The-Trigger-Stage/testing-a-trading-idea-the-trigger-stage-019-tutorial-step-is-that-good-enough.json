@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Dies scheint für die Umkehrungen vom 25. Februar und 1. April gut zu funktionieren, oder?",
                 "updated": 1639262524455
+            },
+            {
+                "language": "RU",
+                "text": "Кажется, это хорошо работает для разворотов 25 февраля и 1 апреля, верно?",
+                "updated": 1640935539333
+            },
+            {
+                "language": "TR",
+                "text": "Bu, 25 Şubat ve 1 Nisan geri dönüşleri için iyi çalışıyor gibi görünüyor, değil mi?",
+                "updated": 1641653246016
+            },
+            {
+                "language": "ES",
+                "text": "Esto parece funcionar bien para los retrocesos del 25 de febrero y el 1 de abril, ¿verdad?",
+                "updated": 1675622483322
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Schwenken Sie das Diagramm nach rechts und prüfen Sie den Zeitraum zwischen dem 24. Mai und dem 16. Juli!",
                     "updated": 1639262540419
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на график справа и проверьте период между 24 мая и 16 июля!",
+                    "updated": 1640935552309
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiği sağa kaydırın ve 24 Mayıs ile 16 Temmuz arasındaki dönemi kontrol edin!",
+                    "updated": 1641653256138
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplaza el gráfico a la derecha y comprueba el periodo entre el 24 de mayo y el 16 de julio.",
+                    "updated": 1675622495919
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Der Markt bewegt sich eindeutig seitwärts in einer enger werdenden Spanne, und der Indikator wechselt unregelmäßig zwischen Auf- und Abwärtsrichtung hin und her.",
                     "updated": 1639262547864
+                },
+                {
+                    "language": "RU",
+                    "text": "Рынок явно движется в боковом направлении в сужающемся диапазоне, а индикатор неустойчиво переключается между направлениями \"вверх\" и \"вниз\".",
+                    "updated": 1640935568868
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa, daralan bir aralıkta açıkça yana doğru hareket ediyor ve gösterge yukarı ve aşağı yönler arasında düzensiz bir şekilde değişiyor.",
+                    "updated": 1641653266350
+                },
+                {
+                    "language": "ES",
+                    "text": "El mercado se está moviendo claramente hacia los lados en un rango cada vez más estrecho, y el indicador cambia erráticamente entre las direcciones de subida y bajada.",
+                    "updated": 1675622509846
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Dies ist nicht die ultimative Lösung, um den Trend zu bestimmen!",
                     "updated": 1639262556947
+                },
+                {
+                    "language": "RU",
+                    "text": "Это не окончательное решение для определения тренда!",
+                    "updated": 1640935583074
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, eğilimi belirlemek için mutlak çözüm değildir!",
+                    "updated": 1669576764247
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ésta no es la solución definitiva para determinar la tendencia!",
+                    "updated": 1675622516430
                 }
             ]
         }

@@ -1,0 +1,191 @@
+{
+    "type": "Liquidity Program",
+    "definition": {
+        "text": "The Liquidity Program Node claims Governance Rewards for liquidity provided to the Superalgos Token. Spawn one Liquidity Program Node for each asset you have paired with the Superalgos Token at a supported exchange.",
+        "updated": 1644173825884,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Liquidity Program Node beansprucht Governance Rewards für die Bereitstellung von Liquidität für das Superalgos Token. Erzeugen Sie eine Liquidity Program Node für jedes Asset, das Sie auf einer unterstützten Börse in einem Liquidity Pool mit dem Superalgos Token halten.",
+                "updated": 1644743181334
+            },
+            {
+                "language": "RU",
+                "text": "Узел Liquidity Program претендует на вознаграждение за управление ликвидностью, предоставленной токену Superalgos. Создайте один узел Liquidity Program Node для каждого актива, сопряженного с токеном Superalgos на поддерживаемой бирже.\n",
+                "updated": 1645181273865
+            },
+            {
+                "language": "TR",
+                "text": "Likidite Programı Düğümü ( Liquidity Program Node ), Superalgos Token'a sağlanan likidite için Yönetim Ödülleri talep eder. Desteklenen bir borsada Superalgos Token ile eşleştirdiğiniz her varlık için bir Likidite Programı Düğümü (  Liquidity Program Node ) oluşturun.",
+                "updated": 1672153511495
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Liquidity Program offers Governance Rewards for liquidity pools on supported decentralized exchanges where the Superalgos Token is paired with one of these assets:",
+            "updated": 1644172888405,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Liquidity Program werden Governance Rewards gewährt, wenn sich das Superalgos Token auf einer unterstützten Börse in einem Liquidity Pool mit einem der folgenden Assets befindet:",
+                    "updated": 1644743312408
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа ликвидности предлагает вознаграждения за управление пулами ликвидности на поддерживаемых децентрализованных биржах, где токен Superalgos работает в паре с одним из этих активов:",
+                    "updated": 1645181287253
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite Programı, Superalgos Token'ın bu varlıklardan biriyle eşleştirildiği desteklenen merkezi olmayan borsalardaki likidite havuzları için Yönetim Ödülleri sunar:",
+                    "updated": 1672153811260
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "BTCB"
+        },
+        {
+            "style": "List",
+            "text": "BNB"
+        },
+        {
+            "style": "List",
+            "text": "BUSD"
+        },
+        {
+            "style": "List",
+            "text": "ETH"
+        },
+        {
+            "style": "Callout",
+            "text": "Spawn one Liquidity Program Node for each asset you have pooled with the Superalgos Token. Click \"Configure\" and enter the codes of the paired asset and of the exchange to the node configuration.",
+            "updated": 1648995998419,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie eine separate Liquidity Program Node für jedes Asset hinzu, das Sie in einem Liquidity Pool mit dem Superalgos Token halten. Klicken Sie dann auf \"Configure\" und geben Sie das Kürzel des Assets und der Börse ein.",
+                    "updated": 1648996824032
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте по одному узлу Liquidity Program Node для каждого актива, объединенного с токеном Superalgos. Нажмите \"Configure\" и введите код парного актива в конфигурацию узла.",
+                    "updated": 1645181304223
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Token ile havuza aldığınız her varlık için bir Likidite Programı Düğümü (  Liquidity Program Node ) oluşturun. \"Yapılandır \" (\"Configure\")  seçeneğine tıklayın ve eşleştirilmiş varlığın ve borsanın kodlarını düğüm yapılandırmasına girin.",
+                    "updated": 1672153948257
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1648996059714,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1648996735804
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы держите один и тот же пул ликвидности на неско��ьких поддерживаемых биржах, не добавляйте дополнительные узлы на каждую биржу. Остатки на всех поддерживаемых биржах автоматически суммируются под активом.",
+                    "updated": 1645181318536
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak:",
+                    "updated": 1672154088278
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"asset\": \"BNB\",\n    \"exchange\": \"BISWAP\"\n}",
+            "updated": 1648996272204
+        },
+        {
+            "style": "Text",
+            "text": "Valid parameter values:",
+            "updated": 1648995488220,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zulässige Werte:",
+                    "updated": 1648996772301
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli parametre değerleri:",
+                    "updated": 1672154121323
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "asset: \"BTCB\", \"BNB\", \"BUSD\", \"ETH\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "varlık (asset): \"BTCB\", \"BNB\", \"BUSD\", \"ETH\"",
+                    "updated": 1672154167806
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "exchange: \"PANCAKE\", \"1INCH\", \"BISWAP\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "borsa (exchange): \"PANCAKE\", \"1INCH\", \"BISWAP\"",
+                    "updated": 1672154615703
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you hold the same liquidity pool on multiple supported exchanges, make sure to add one dedicated node for each combination of asset and exchange.",
+            "updated": 1648995878473,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Falls Sie denselben Liquidity Pool an mehreren unterstützten Börsen halten, legen Sie eine separate Node für jede Kombination aus Asset und Börse an.",
+                    "updated": 1648996921061
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı likidite havuzunu birden fazla desteklenen borsada tutuyorsanız, her varlık ve borsa kombinasyonu için bir özel düğüm eklediğinizden emin olun.",
+                    "updated": 1672154602064
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When the exchange parameter is missing, the system uses PANCAKE per default.",
+            "updated": 1648995832298,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sollte der Parameter \"exchange\" fehlen, wird standardmäßig \"PANCAKE\" verwendet.",
+                    "updated": 1648996957182
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişim parametresi eksik olduğunda, sistem varsayılan olarak PANCAKE kullanır.",
+                    "updated": 1672154659349
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Liquidity Programs->Supported Exchanges",
+            "updated": 1644173703312
+        }
+    ]
+}

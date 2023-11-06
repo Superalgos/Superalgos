@@ -16,6 +16,16 @@
                 "language": "TR",
                 "text": "Bu konu, Topluluğun Borsa test sonuçlarını kapsar. Konudaki her sayfa, bir borsada yapılan testlerin sonuçlarını açıklar ve değişimin kullanılabilir olup olmadığını açıklar.",
                 "updated": 1639819511102
+            },
+            {
+                "language": "RU",
+                "text": "В этой теме рассматриваются результаты тестирования Сообществом бирж на работоспособность. Каждая страница темы описывает результаты тестов, проведенных на одной бирже, и объясняет, пригодна ли эта биржа для использования или нет.",
+                "updated": 1646899961462
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Abschnitt werden die Ergebnisse der gemeinschaftlichen Arbeitstests (Community work testing) für Austauschgeräte beschrieben. Jede Seite dieses Themas beschreibt die Ergebnisse der Tests, die an einem Austausch durchgeführt wurden, und erklärt, ob der Austausch verwendbar ist oder nicht.",
+                "updated": 1690355890674
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "language": "TR",
                     "text": "CCXT Kütüphanesi",
                     "updated": 1639819519935
+                },
+                {
+                    "language": "RU",
+                    "text": "Библиотека CCXT",
+                    "updated": 1646899969001
+                },
+                {
+                    "language": "DE",
+                    "text": "CCXT-Bibliothek",
+                    "updated": 1690355914905
                 }
             ]
         },
@@ -46,6 +66,16 @@
                     "language": "TR",
                     "text": "Superalgos, borsalarla iletişim kurmak için CCXT kitaplığını kullanır. CCXT, değişim API 'lerine erişimi standartlaştırmaya çalışan açık kaynaklı bir projedir.",
                     "updated": 1639819978823
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos использует библиотеку CCXT для взаимодействия с биржами. CCXT - это проект с открытым исходным кодом, пытающийся стандартизировать доступ к API бирж.",
+                    "updated": 1646899981637
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos verwendet die CCXT -Bibliothek für die Kommunikation mit Börsen. CCXT ist ein Open-Source-Projekt, das versucht, den Zugang zu den API ´s der Börsen zu standardisieren.",
+                    "updated": 1690355926921
                 }
             ]
         },
@@ -64,6 +94,16 @@
                     "language": "TR",
                     "text": "Proje, 120'den fazla borsayı \"desteklenen\" ve birkaç düzine borsayı \"onaylı\" olarak listeliyor. Aşağıdaki listeye bakın:",
                     "updated": 1639820030406
+                },
+                {
+                    "language": "RU",
+                    "text": "В проекте перечислены более 120 бирж как \"поддерживаемые\" и несколько десятков бирж как \"сертифицированные\". Ознакомьтесь со списком по ссылке:",
+                    "updated": 1646900021012
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Projekt führt mehr als 120 Börsen als \"unterstützt\" und einige Dutzend Börsen als \"zertifiziert\" auf. Siehe die Liste in der folgenden Tabelle:",
+                    "updated": 1690355946674
                 }
             ]
         },
@@ -87,6 +127,16 @@
                     "language": "TR",
                     "text": "Ancak, tam olarak neyin desteklendiği veya neyin sertifikalandırıldığı açık değildir. Mevcut deneyim, standardizasyonun daha kat etmesi gereken uzun bir yol olduğunu göstermektedir.",
                     "updated": 1639820050305
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако неясно, что именно поддерживается и что сертифицируется. Текущий опыт показывает, что стандартизация должна пройти еще долгий путь.",
+                    "updated": 1646900035032
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist jedoch nicht klar, was genau unterstützt wird und was zertifiziert ist. Die derzeitigen Erfahrungen zeigen, dass die Normung noch einen langen Weg vor sich hat.",
+                    "updated": 1690355958724
                 }
             ]
         },
@@ -105,6 +155,16 @@
                     "language": "TR",
                     "text": "Tercih ettiğiniz borsanın Superalgos'ta kullanılmaya hazır olup olmadığını öğrenmek için bu konudaki ilgili sayfaya bakın.",
                     "updated": 1639820067403
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать, готов ли предпочитаемый вами биржа к использованию в Superalgos, обратитесь к соответствующей странице в этой теме.",
+                    "updated": 1646900058639
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie wissen möchten, ob Ihre bevorzugte Börse für die Verwendung in Superalgos bereit ist, lesen Sie die entsprechende Seite in diesem Thema.",
+                    "updated": 1690355970370
                 }
             ]
         },
@@ -117,6 +177,16 @@
                     "language": "TR",
                     "text": "Tercih Ettiğiniz Borsa Test Edilmemişse",
                     "updated": 1639820095701
+                },
+                {
+                    "language": "RU",
+                    "text": "Если ваш предпочитаемая биржа не протестирована",
+                    "updated": 1646900082658
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihre bevorzugte Börse nicht getestet ist.",
+                    "updated": 1690355978777
                 }
             ]
         },
@@ -135,6 +205,16 @@
                     "language": "TR",
                     "text": "Tercih ettiğiniz borsa bu listede görünmüyorsa, test edilmemiş demektir. Geliştirme Grubunda ( Develop Group ) testlere başlayan biri olup olmadığını öğrenmek isteyebilirsiniz.",
                     "updated": 1639820140696
+                },
+                {
+                    "language": "RU",
+                    "text": "Если предпочитаемая вами биржа не отображается в этом списке, это означает, что она еще не тестировалась. Вы можете спросить в группе разработчиков, начал ли кто-нибудь тестирование.",
+                    "updated": 1646900104988
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihr bevorzugter Austausch nicht in dieser Liste erscheint, bedeutet das, dass er noch nicht getestet wurde. Sie können in der Entwicklungsgruppe (Develop Group) nachfragen, ob jemand mit den Tests begonnen hat.",
+                    "updated": 1690355987467
                 }
             ]
         },
@@ -152,6 +232,16 @@
                     "language": "TR",
                     "text": "Bir geliştiriciyseniz, Yeni Değişimlerin Nasıl Test Edileceğini öğrenmek ( How to Test New Exchanges )  ve Topluluğa ( Communıty ) listeyi genişletme arayışında yardımcı olmak isteyebilirsiniz.",
                     "updated": 1639820195464
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы являетесь разработчиком, вы можете узнать, как тестировать новые биржи, и помочь сообществу в расширении этого списка.",
+                    "updated": 1646900130161
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie ein Entwickler sind, möchten Sie vielleicht lernen, wie man neue Exchanges testet (How to Test New Exchanges) und der Gemeinschaft (Community) helfen, die Liste zu erweitern.",
+                    "updated": 1690355998950
                 }
             ]
         }

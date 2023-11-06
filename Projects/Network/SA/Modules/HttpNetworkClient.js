@@ -32,7 +32,14 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         thisObject.p2pNetworkNode = p2pNetworkNode
 
         thisObject.host = thisObject.p2pNetworkNode.node.config.host
-        thisObject.port = thisObject.p2pNetworkNode.node.config.webPort
+
+        if (thisObject.p2pNetworkNode.node.networkInterfaces === undefined ||
+            thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface === undefined) {
+                thisObject.port = 0
+                SA.logger.warn('Network Node belonging to User Profile ' + thisObject.p2pNetworkNode.userProfile.name + ' it is NOT reachable via http because the Network Node does not have the children Network Interfaces or Http Netework Interdace configured with the httpPort.')
+        } else {
+            thisObject.port = thisObject.p2pNetworkNode.node.networkInterfaces.httpNetworkInterface.config.httpPort
+        }
     }
 
     async function sendMessage(message) {
@@ -41,46 +48,70 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         function uses callbacks, specifically for retrieving files.
         */
         let promise = new Promise((resolve, reject) => {
-
-            const axios = require('axios')
+            const TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND = 10000
+            let promiseStatus = 'Pending'
+            setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
+            message.callerRole = "Network Client"
+            const axios = SA.nodeModules.axios
             axios
-                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Message', message)
                 .then(res => {
-                    //console.log(`statusCode: ${res.status}`)
-                    //console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
+                    //SA.logger.debug(`statusCode: ${res.status}`)
+                    //SA.logger.debug('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
                     // TODO : Do something when Network Node could not process this signal.
+                    promiseStatus = 'Resolved'
                     resolve()
                 })
                 .catch(error => {
-                    console.error('[ERROR] Error trying to send message to the P2P Network node via its http interface -> Error = ' + error)
-                    reject()
+                    SA.logger.error('Error trying to send message to the P2P Network node via its http interface -> Error = ' + error)
+                    promiseStatus = 'Rejected'
+                    reject(error)
                 })
+            function checkPromise() {
+                if (promiseStatus === 'Pending') {
+                    reject()
+                }
+            }
         })
 
         return promise
     }
 
-    async function sendTestMessage() {
+    async function sendTestMessage(networkServide) {
         /*
         This function us to check if a network node is online and will 
         receive an http request when needed.
         */
         let promise = new Promise((resolve, reject) => {
-
-            const axios = require('axios')
+            const TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND = 10000
+            let promiseStatus = 'Pending'
+            setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
+            const axios = SA.nodeModules.axios
             axios
-                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping/' + networkServide)
                 .then(res => {
-                    if (res.data.indexOf("Pong") >= 0) {
-                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                    if (res.data.indexOf("Pong" + "/"  + thisObject.p2pNetworkNode.userProfile.config.codeName + "/" + thisObject.p2pNetworkNode.node.config.codeName ) >= 0) {
+                        SA.logger.info('')
+                        SA.logger.info('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        SA.logger.info('')
+                        promiseStatus = 'Resolved'
                         resolve()
                     } else {
+                        promiseStatus = 'Rejected'
                         reject()
                     }
                 })
                 .catch(error => {
+                    promiseStatus = 'Rejected'
                     reject()
                 })
+
+            function checkPromise() {
+                if (promiseStatus === 'Pending') {
+                    reject()
+                }
+            }
+
         })
         return promise
     }

@@ -2,7 +2,19 @@
     "type": "Pool Weight Vote",
     "definition": {
         "text": "Use this node to establish a reference with a Pool node in a Pools hierarchy. With this vote, you are passing on Weight Power to the referenced node. That way, the node gets more of the Token Rewards available in the hierarchy. This is how you influence how different areas of the project are incentivized.",
-        "updated": 1630356667487
+        "updated": 1630356667487,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот узел для установления ссылки с узлом Pool в иерархии Pools. С помощью этого голоса вы передаете Weight Power узлу, на который ссылаетесь. Таким образом, узел получает больше вознаграждений в виде токенов, доступных в иерархии. Таким образом вы влияете на то, как стимулируются различные области проекта.",
+                "updated": 1645181753425
+            },
+            {
+                "language": "TR",
+                "text": "Havuzlar ( Pools ) hiyerarşisindeki bir Havuz düğümü ( Pool node ) ile referans oluşturmak için bu düğümü kullanın. Bu oylama ile referans verilen düğüme Ağırlık Gücü ( Weight Power ) aktarmış olursunuz. Bu şekilde, düğüm hiyerarşide mevcut olan Token Ödüllerinden ( Token Rewards ) daha fazlasını alır. Projenin farklı alanlarının nasıl teşvik edildiğini bu şekilde etkilersiniz.",
+                "updated": 1672158830820
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -21,7 +33,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1645181773126
+                }
+            ]
         }
     ]
 }

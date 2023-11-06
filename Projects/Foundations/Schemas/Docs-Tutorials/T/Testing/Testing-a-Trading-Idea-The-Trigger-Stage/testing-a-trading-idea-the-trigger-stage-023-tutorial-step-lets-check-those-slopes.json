@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wir werden die Neigungseigenschaft des Bollinger Subchannels-Indikators verwenden, um zu bestätigen, dass ein Trend ein Trend ist!",
                 "updated": 1639264098758
+            },
+            {
+                "language": "RU",
+                "text": "Мы будем использовать свойство slope индикатора Bollinger Subchannels для подтверждения того, что тренд - это тренд",
+                "updated": 1640940113565
+            },
+            {
+                "language": "TR",
+                "text": "Bir trendin trend olduğunu doğrulamak için Bollinger Alt Kanalları (Bollinger Subchannels) göstergesinin eğim özelliğini kullanacağız!",
+                "updated": 1669577686096
+            },
+            {
+                "language": "ES",
+                "text": "Utilizaremos la propiedad de pendiente del indicador de Bollinger Subchannels para confirmar que una tendencia es una verdadera tendencia.",
+                "updated": 1675640223413
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über verschiedene Subkanäle und beachten Sie deren gemeldete Neigung im Plotter-Panel.",
                     "updated": 1639264110148
+                },
+                {
+                    "language": "RU",
+                    "text": "Проведите указателем мыши по разным подканалам и обратите внимание на их наклон на панели плоттера.",
+                    "updated": 1640940128585
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare işaretçisini farklı alt kanallar üzerinde hareket ettirin ve çizici panelindeki (plotter panel) raporlanan eğilimleri not alın.",
+                    "updated": 1641653967743
+                },
+                {
+                    "language": "ES",
+                    "text": "Desliza el puntero del ratón sobre diferentes subcanales y observa su pendiente en el panel del plotter.",
+                    "updated": 1675640243001
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass die Neigung der Subkanäle bei einem Trend fast nie seitlich ist. Das ist auch zu erwarten, da die seitliche Steigung die geringste mögliche Steigung im MA darstellt. In den Perioden, in denen der Markt schwankt, kann die Richtung zwar zwischen Aufwärts- und Abwärtsbewegungen hin und her wechseln, aber die Neigung ist meistens seitlich.",
                     "updated": 1639264117122
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что когда рынок трендовый, наклон подканала почти никогда не является боковым. И этого следовало ожидать, поскольку боковой наклон представляет собой более мелкий наклон, возможный для МА. С другой стороны, в периоды, когда рынок колеблется, хотя направление может меняться взад и вперед между \"вверх\" и \"вниз\", уклон в основном боковой.",
+                    "updated": 1640940209987
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa trenddeyken, alt kanal eğiminin neredeyse hiçbir zaman Yan olmadığına dikkat edin. Yan eğim MA'da mümkün olan en sığ eğimi temsil ettiği için bu beklenen bir durumdur. Öte yandan, piyasanın değişkenlik gösterdiği dönemlerde, yön Yukarı ve Aşağı arasında gidip gelse de, eğim çoğunlukla Yan'dır.",
+                    "updated": 1669577763292
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa que cuando el mercado está en tendencia, la pendiente del subcanal casi nunca es lateral. Y eso es de esperar, ya que la pendiente lateral representa la menor pendiente posible en la MA. Por otro lado, en los periodos en los que el mercado oscila, aunque la dirección puede oscilar entre alcista y bajista, la pendiente es mayoritariamente lateral.",
+                    "updated": 1675640275136
                 }
             ]
         }

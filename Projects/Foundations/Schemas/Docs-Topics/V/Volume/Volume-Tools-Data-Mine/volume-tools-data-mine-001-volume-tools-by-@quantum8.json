@@ -1,0 +1,76 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "1",
+    "type": "Volume Tools by @quantum8",
+    "definition": {
+        "text": "The Volume Tools Data Mine features a collection of volume related confirmation indicators that can be used in conjunction with primary and confluence indicators. These indicators can help identify potential upward or downward price swings in the market. The parameters of each indicator can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Volume Tools:"
+        },
+        {
+            "style": "List",
+            "text": "1.) Heatmap Volume"
+        },
+        {
+            "style": "List",
+            "text": "2) Heatmap Candles",
+            "updated": 1663912497823
+        },
+        {
+            "style": "List",
+            "text": "3) RVOL"
+        },
+        {
+            "style": "List",
+            "text": "4) Volume Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "5) Trend Volume Accumulation"
+        },
+        {
+            "style": "List",
+            "text": "6) Highest Volume Index"
+        },
+        {
+            "style": "List",
+            "text": "7) OBV EMA"
+        },
+        {
+            "style": "List",
+            "text": "8) Faith Index"
+        },
+        {
+            "style": "List",
+            "text": "9) Strength Finder"
+        },
+        {
+            "style": "List",
+            "text": "10) Hawkeye"
+        },
+        {
+            "style": "List",
+            "text": "11) Volume Flow"
+        },
+        {
+            "style": "List",
+            "text": "12) Volume Trend Direction Force Index",
+            "updated": 1681364867578
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

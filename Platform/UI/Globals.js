@@ -57,7 +57,11 @@ const UI_COLOR = {
     JUNGLE_GREEN: "50,175,162",
     LIGHT_PINK: "254,180,200",
     JUNGLE_LIGHT: "165,223,210",
-    TRUE_ORANGE: "255,160,10"
+    TRUE_ORANGE: "255,160,10",
+    CARMINE_PINK: "240, 80, 52",
+    MANGO_TANGO: "255, 139, 57",
+    GARGOYLE_GAS: "255, 235, 66",
+    CHARLESTON_GREEN: "42, 46, 49"
 };
 
 /* User Interface Fonts */
@@ -163,6 +167,7 @@ dailyTimeFramesArray = JSON.parse(dailyTimeFramesArray);
 let SHOW_ANIMATION_PERFORMACE = false;
 let MENU_ITEM_ON_FOCUS
 let EDITOR_ON_FOCUS
+let DOCS_PAGE_ON_FOCUS
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY

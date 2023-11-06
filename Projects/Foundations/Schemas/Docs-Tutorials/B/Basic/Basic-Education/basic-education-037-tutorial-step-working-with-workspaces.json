@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Puede pensar en un espacio de trabajo como en el escenario de un teatro. ¡Es el escenario en el que se desarrollará algo!",
-                "updated": 1626618738205,
+                "text": "Puedes pensar en un espacio de trabajo (Workspace) como en el escenario de un teatro. ¡Es el escenario en el que se desarrollará algo!",
+                "updated": 1675377305053,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Çalışma alanını bir tiyatro sahnesi olarak düşünebilirsiniz. Herhangi birşey ile oynayabileceğiniz bir yer.",
                 "updated": 1639743696784
+            },
+            {
+                "language": "RU",
+                "text": "Вы можете представить себе рабочее пространство как сцену в театре. Это окружение, на котором что-то будет происходить!",
+                "updated": 1640871697395
+            },
+            {
+                "language": "ID",
+                "text": "Kamu mungkin menganggap workspace sebagai panggung di teater. Ini adalah pengaturan di mana sesuatu akan dimainkan!",
+                "updated": 1645033779536
+            },
+            {
+                "language": "NL",
+                "text": "U kunt een werkruimte zien als een podium in een theater. Het is de setting waarop iets zich zal afspelen!",
+                "updated": 1669545321890
             }
         ]
     },
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede configurar tantos espacios de trabajo como desee, cada uno de ellos para casos de uso específicos. Por ejemplo:",
-                    "updated": 1626618800731,
+                    "text": "Puedes configurar tantos espacios de trabajo como desees, cada uno de ellos para casos de uso específicos. Por ejemplo:",
+                    "updated": 1675377335778,
                     "style": "Text"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Her biri farklı kullanım durumları için istediğiniz kadar çalışma alanı oluşturabilirsiniz. Örneğin:",
                     "updated": 1639745440768
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете создать столько рабочих пространств, сколько пожелаете, каждое из которых предназначено для определенных случаев использования. Например:",
+                    "updated": 1640871711776
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat mengatur workspaces sebanyak yang kamu suka, dengan masing-masing untuk kasus serta penggunaan khusus. Sebagai contoh:",
+                    "updated": 1645033835786
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt zoveel werkruimten instellen als u wilt, elk voor specifieke gebruikssituaties. Bijvoorbeeld:",
+                    "updated": 1669545336118
                 }
             ]
         },
@@ -70,14 +100,14 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Puoi avere un workspace per costruire un Trading System che ha bisogno di specifici indicatori da specifici Data Mine.",
-                    "updated": 1619546574933,
+                    "text": "Puoi usare uno workspace per costruire un Trading System che ha bisogno di specifici indicatori da specifici Data Mine. ",
+                    "updated": 1666639607726,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "Puede tener un espacio de trabajo para construir un Trading System que necesitarán indicadores específicos de un Data Mine.",
-                    "updated": 1626618837507,
+                    "text": "Puedes tener un espacio de trabajo para construir un Trading System que necesitará indicadores específicos de un Data Mine.",
+                    "updated": 1675377351234,
                     "style": "List"
                 },
                 {
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "Belirli bir Veri Madeninden ( Data Mine ) belirli göstergelere ihtiyaç duyacak bir Ticaret Sistemi ( Trading System ) oluşturmak için bir çalışma alanı oluşturabilirsiniz.",
                     "updated": 1639745526299
+                },
+                {
+                    "language": "RU",
+                    "text": "У вас может быть рабочее пространство для построения торговой системы, для которой потребуются определенные индикаторы из конкретных Data Mine.",
+                    "updated": 1640871745307
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin memiliki workspace untuk membangun Trading System yang akan membutuhkan indikator spesifik dari spesifik  Data Mine.",
+                    "updated": 1645033917389
+                },
+                {
+                    "language": "NL",
+                    "text": "Mogelijk hebt u een werkruimte om een Trading System te bouwen waarvoor specifieke indicatoren van een specifieke Data Mine nodig zijn.",
+                    "updated": 1669545372385
                 }
             ],
             "updated": 1622374580811
@@ -106,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Puede tener otra configuración de espacio de trabajo con todos los indicadores disponibles para que puedas estudiar cómo funciona cada uno de ellos.",
-                    "updated": 1626618870536,
+                    "text": "Puedes tener otra configuración de espacio de trabajo con todos los indicadores disponibles para que puedas estudiar cómo funciona cada uno de ellos.",
+                    "updated": 1675377362524,
                     "style": "List"
                 },
                 {
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Her birinin nasıl çalıştığını inceleyebilmeniz için mevcut tüm göstergelere sahip başka bir çalışma alanı kurulumunuz olabilir.",
                     "updated": 1639745549535
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете настроить еще одно рабочее пространство со всеми доступными индикаторами, чтобы изучить, как работает каждый из них.",
+                    "updated": 1640871761029
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin memiliki pengaturan workspace lain dengan semua indikator yang tersedia sehingga kamu dapat mempelajari cara kerja masing-masing.",
+                    "updated": 1645033950889
+                },
+                {
+                    "language": "NL",
+                    "text": "Mogelijk hebt u een andere opstelling van de werkruimte met alle beschikbare indicatoren, zodat u kunt bestuderen hoe elk van hen werkt.",
+                    "updated": 1669545395198
                 }
             ]
         },
@@ -148,6 +208,21 @@
                     "language": "TR",
                     "text": "Çalışma alanlarıyla nasıl başa çıkılacağına ilişkin temel bilgileri öğrenmek için bu sayfayı okuyun... Workspaces",
                     "updated": 1639746575260
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте эту страницу, чтобы узнать основы работы с рабочими пространствами...",
+                    "updated": 1640871822987
+                },
+                {
+                    "language": "ID",
+                    "text": "Baca halaman ini untuk mempelajari dasar-dasar tentang cara berurusan dengan workspaces...",
+                    "updated": 1645033977060
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Lees deze pagina om de basis te leren over hoe om te gaan met werkruimten...</b>",
+                    "updated": 1669545427471
                 }
             ]
         }

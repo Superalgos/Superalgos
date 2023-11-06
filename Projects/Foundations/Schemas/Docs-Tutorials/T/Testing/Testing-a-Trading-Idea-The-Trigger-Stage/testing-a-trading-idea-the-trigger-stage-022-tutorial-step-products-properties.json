@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden!",
                 "updated": 1639263355926
+            },
+            {
+                "language": "RU",
+                "text": "В этом разделе документации каждого индикатора содержится информация, необходимая для использования индикатора с условиями и формулами!",
+                "updated": 1640939815330
+            },
+            {
+                "language": "TR",
+                "text": "Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
+                "updated": 1669577478568
+            },
+            {
+                "language": "ES",
+                "text": "Esta sección de la documentación de cada indicador contiene la información necesaria para utilizar el indicador en condiciones y fórmulas.",
+                "updated": 1675640114905
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Das Produkt  bollingerSubChannel verfügt über drei verschiedene Eigenschaften:",
                     "updated": 1639263385134
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукт bollingerSubChannel имеет три различных свойства:",
+                    "updated": 1640939824708
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerSubChannel ürünü üç farklı özelliğe sahiptir:",
+                    "updated": 1641653841018
+                },
+                {
+                    "language": "ES",
+                    "text": "El producto bollingerSubChannel presenta tres propiedades diferentes:",
+                    "updated": 1675640129063
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Richtung: Aufwärts (Up), Abwärts (Down)",
                     "updated": 1639263435512
+                },
+                {
+                    "language": "RU",
+                    "text": "direction (направление): Вверх, Вниз",
+                    "updated": 1640939865684
+                },
+                {
+                    "language": "TR",
+                    "text": "Yön: Yukarı (Up), Aşağı (Down)",
+                    "updated": 1641653854846
+                },
+                {
+                    "language": "ES",
+                    "text": "Dirección: Arriba, Abajo",
+                    "updated": 1675640135923
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Periode: 1 bis n.",
                     "updated": 1639263445728
+                },
+                {
+                    "language": "RU",
+                    "text": "period (период): от 1 до n.",
+                    "updated": 1640939907591
+                },
+                {
+                    "language": "TR",
+                    "text": "Periyot: 1'den n'ye.",
+                    "updated": 1641653870816
+                },
+                {
+                    "language": "ES",
+                    "text": "Periodo: 1 a n.",
+                    "updated": 1677100059229
                 }
             ]
         },
@@ -58,6 +118,21 @@
                     "language": "DE",
                     "text": "Neigung: Seitlich (Side), Sanft (Gentle), Mittel (Medium), Steil (Steep), Extrem (Extreme).",
                     "updated": 1639267169486
+                },
+                {
+                    "language": "RU",
+                    "text": "slope (наклон): Боковой (\"Side\"), пологий (\"Gentle\"), средний (\"Medium\"), крутой (\"Steep\"), экстремальный (\"Extreme\").",
+                    "updated": 1640939997378
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğim: Yan (Side), Hafif (Gentle), Orta (Medium), Dik (Steep), Aşırı (Extreme).",
+                    "updated": 1641653882500
+                },
+                {
+                    "language": "ES",
+                    "text": "Pendiente: Lateral, Suave, Media, Empinada, Extrema.",
+                    "updated": 1677100064946
                 }
             ]
         },
@@ -69,6 +144,21 @@
                     "language": "DE",
                     "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen!",
                     "updated": 1639263536175
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте этот раздел внимательно, чтобы мы могли вернуться к графикам и решить, как мы будем использовать свойство наклона (slope)!",
+                    "updated": 1640940026048
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölümü dikkatlice okuyun, böylece çizelgelere geri dönebilir ve eğim özelliğini nasıl kullanacağımıza karar verebiliriz!",
+                    "updated": 1669577567795
+                },
+                {
+                    "language": "ES",
+                    "text": "Lee atentamente esta sección para que podamos volver a los gráficos y decidir cómo vamos a utilizar la propiedad de pendiente",
+                    "updated": 1675640183006
                 }
             ]
         }

@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Параметр расстояния отключен, и узел может принять любое расстояние до своего родителя.",
                 "updated": 1638288826128
+            },
+            {
+                "language": "TR",
+                "text": "Mesafe ayarı devre dışı bırakılır ve düğüm, ana düğüme herhangi bir mesafe varsayabilir.",
+                "updated": 1668000269763
+            },
+            {
+                "language": "DE",
+                "text": "Die Entfernungseinstellung ist deaktiviert und der Knoten kann eine beliebige Entfernung zu seinem Elternteil annehmen.",
+                "updated": 1698006020386
             }
         ]
     },
@@ -20,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638288836873
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1698006029803
                 }
             ]
         }

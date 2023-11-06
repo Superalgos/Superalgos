@@ -1,30 +1,81 @@
 {
     "tutorial": "Intro to Trading Systems",
-    "pageNumber": 12,
+    "pageNumber": "12",
     "type": "Tutorial Step - Granularity!",
     "definition": {
+        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?",
         "icon": {
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?",
         "translations": [
             {
                 "language": "DE",
                 "text": "Ich habe das Konzept der Granularität bereits im Willkommens-Tutorial erwähnt... erinnern Sie sich?",
                 "updated": 1639148104019
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hoş Geldiniz öğreticisi sırasında parçalı yapı kavramından bahsettim... Hatırladınız mı?",
+                "updated": 1640781701548
+            },
+            {
+                "language": "RU",
+                "text": "Я упоминал концепцию гранулярности в учебнике Welcome... помните?",
+                "updated": 1640885878435
+            },
+            {
+                "language": "NL",
+                "text": "Ik noemde het concept van granulariteit tijdens de Welcome zelfstudie... weet je nog?",
+                "updated": 1670792020291
+            },
+            {
+                "language": "ID",
+                "text": "Aku menyebutkan konsep dari granularity selama Welcome tutorial...ingat?",
+                "updated": 1674625971922
+            },
+            {
+                "language": "ES",
+                "text": "Ya hablé del concepto de granularidad en el tutorial de bienvenida... ¿recuerdas?",
+                "updated": 1675619772168
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Granularity is a device the helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units.",
+            "text": "Granularity is a device that helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units.",
+            "updated": 1640641303063,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Granularität ist ein Mittel, das hilft, Komplexität zu bewältigen. Anstatt Strategien zu einem komplexen Geflecht von Regeln und Definitionen anwachsen zu lassen, ist es immer besser, komplexe Logik in Stücke zu zerlegen und mit kleineren Einheiten zu arbeiten.",
                     "updated": 1639148158865
+                },
+                {
+                    "language": "TR",
+                    "text": "Granularity,karmaşıklığı ele almanıza yardımcı olan bir cihazdır. Stratejilerin karmaşık bir kural ve tanım ağına dönüşmesine izin vermek yerine, karmaşık mantığı parçalara ayırmak ve daha küçük birimlerle başa çıkmak her zaman tercih edilir.",
+                    "updated": 1640781986760
+                },
+                {
+                    "language": "RU",
+                    "text": "Гранулярность - это инструмент, который помогает справиться со сложностью. Вместо того чтобы позволять стратегиям разрастаться в сложную паутину правил и определений, всегда предпочтительнее разделить сложную логику на части и работать с более мелкими единицами.",
+                    "updated": 1640885899204
+                },
+                {
+                    "language": "NL",
+                    "text": "Granulariteit is een apparaat dat helpt bij het omgaan met complexiteit. In plaats van strategieën te laten uitgroeien tot een complex web van regels en definities, verdient het altijd de voorkeur complexe logica in stukken te splitsen en met kleinere eenheden om te gaan.",
+                    "updated": 1670792046363
+                },
+                {
+                    "language": "ID",
+                    "text": "Granularity adalah perangkat yang membantu dalam menangani kompleksitas. Alih-alih membiarkan strategi tumbuh menjadi jaringan aturan dan definisi yang kompleks, selalu lebih baik untuk membagi logika kompleks menjadi beberapa bagian dan berurusan dengan unit yang lebih kecil.",
+                    "updated": 1674625979955
+                },
+                {
+                    "language": "ES",
+                    "text": "La granularidad es un dispositivo que ayuda a manejar la complejidad. En lugar de dejar que las estrategias se conviertan en una compleja red de reglas y definiciones, siempre es preferible dividir la lógica compleja en partes y tratar con unidades más pequeñas.",
+                    "updated": 1675619791746
                 }
             ]
         },
@@ -36,6 +87,31 @@
                     "language": "DE",
                     "text": "Die Aufteilung komplexer Logik in mehrere Strategien hilft dabei, Strategien einfach und verständlich zu halten. So lassen sich Strategien leichter debuggen und warten!",
                     "updated": 1639148161537
+                },
+                {
+                    "language": "TR",
+                    "text": "Karmaşık mantığı birden çok stratejiye bölmek, stratejilerin basit ve anlaşılır tutulmasına yardımcı olur. Bu, stratejilerin hata ayıklamasını ve bakımını kolaylaştırır!",
+                    "updated": 1640782237916
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделение сложной логики на несколько стратегий помогает сохранить стратегии простыми и понятными. Это облегчает отладку и сопровождение стратегий!",
+                    "updated": 1640885914418
+                },
+                {
+                    "language": "NL",
+                    "text": "Het opsplitsen van complexe logica in meerdere strategieën helpt om strategieën eenvoudig en begrijpelijk te houden. Het maakt strategieën gemakkelijker te debuggen en te onderhouden!",
+                    "updated": 1670792060723
+                },
+                {
+                    "language": "ID",
+                    "text": "Membagi logika kompleks menjadi beberapa strategi membantu menjaga strategi tetap sederhana dan mudah dipahami. Itu membuat strategi lebih mudah untuk di-debug dan dimaintain!",
+                    "updated": 1674625986057
+                },
+                {
+                    "language": "ES",
+                    "text": "Dividir la lógica compleja en múltiples estrategias ayuda a mantener las estrategias simples y comprensibles. Hace que las estrategias sean más fáciles de depurar y mantener.",
+                    "updated": 1675619804335
                 }
             ]
         },
@@ -47,6 +123,32 @@
                     "language": "DE",
                     "text": "Wann immer Sie können, halten Sie es einfach!",
                     "updated": 1639148168274
+                },
+                {
+                    "language": "RU",
+                    "text": "Всегда, когда это возможно, упрощайте!",
+                    "updated": 1640885944269
+                },
+                {
+                    "language": "TR",
+                    "text": "Mümkün olduğunca basit tutun!",
+                    "updated": 1654394084700,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Houd het zo eenvoudig mogelijk!",
+                    "updated": 1670792071308
+                },
+                {
+                    "language": "ID",
+                    "text": "Kapan pun kamu bisa, buatlah tetap sederhana!",
+                    "updated": 1674625994107
+                },
+                {
+                    "language": "ES",
+                    "text": "Siempre que puedas, ¡simplifícalo!",
+                    "updated": 1675619814413
                 }
             ]
         }

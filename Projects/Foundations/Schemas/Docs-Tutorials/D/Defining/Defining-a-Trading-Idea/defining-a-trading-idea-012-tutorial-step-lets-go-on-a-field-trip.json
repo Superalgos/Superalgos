@@ -13,6 +13,36 @@
                 "language": "DE",
                 "text": "Im weiteren Verlauf dieses Tutorials geht es darum, das eben Besprochene in die Praxis umzusetzen!",
                 "updated": 1639252008668
+            },
+            {
+                "language": "RU",
+                "text": "Остальная часть этого урока посвящена применению на практике того, что мы только что обсудили!",
+                "updated": 1640890087042
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu öğreticinin geri kalanı, az önce tartıştıklarımızı uygulamaya koymakla ilgilidir!",
+                "updated": 1640869463819
+            },
+            {
+                "language": "ES",
+                "text": "El resto de este tutorial consiste en poner en práctica lo que acabamos de discutir.",
+                "updated": 1668189832339
+            },
+            {
+                "language": "IT",
+                "text": "Il resto di questo tutorial riguarda la messa in pratica di ciò che abbiamo appena discusso!",
+                "updated": 1669888023340
+            },
+            {
+                "language": "NL",
+                "text": "De rest van deze zelfstudie gaat over het in de praktijk brengen van wat we zojuist hebben besproken!",
+                "updated": 1670784456391
+            },
+            {
+                "language": "ID",
+                "text": "Sisa dari tutorial ini adalah tentang mempraktikkan apa yang baru saja kita diskusikan!",
+                "updated": 1674689866382
             }
         ]
     },
@@ -25,6 +55,36 @@
                     "language": "DE",
                     "text": "Wir werden tief in die Charts eintauchen, ein oder zwei Dinge über einen bestimmten Indikator lernen und versuchen, eine richtige Handelsidee zu entwickeln, die wir im nächsten Tutorial testen können!",
                     "updated": 1639252018026
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы глубоко погрузимся в графики, узнаем кое-что о конкретном индикаторе и попытаемся придумать правильную торговую идею, которую сможем протестировать в следующем уроке!",
+                    "updated": 1640890104809
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklere derinlemesine bir göz atacağız, belirli bir gösterge hakkında bir iki şey öğreneceğiz ve bir sonraki öğreticide test edebileceğimiz uygun bir ticaret fikri bulmaya çalışacağız!",
+                    "updated": 1640869580201
+                },
+                {
+                    "language": "ES",
+                    "text": "Nos sumergiremos en los gráficos, aprenderemos un par de cosas sobre un indicador específico, y trataremos de dar con una idea de trading adecuada que podamos probar en el próximo tutorial.",
+                    "updated": 1668189881582
+                },
+                {
+                    "language": "IT",
+                    "text": "Approfondiremo l'uso dei grafici, impareremo una o due cose su un indicatore specifico e proveremo a trovare un'idea di trading adeguata che possiamo testare nel prossimo tutorial!",
+                    "updated": 1669888039434
+                },
+                {
+                    "language": "NL",
+                    "text": "We duiken diep in de grafieken, leren het een en ander over een specifieke indicator en proberen een goed handelsidee te bedenken dat we in de volgende tutorial kunnen testen!",
+                    "updated": 1670784476522
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan mendalami chart, mempelajari satu atau dua hal tentang indikator tertentu, dan mencoba memunculkan ide trading yang tepat yang dapat kita uji di tutorial berikutnya!",
+                    "updated": 1674689859799
                 }
             ]
         },
@@ -36,6 +96,36 @@
                     "language": "DE",
                     "text": "Schnallen Sie sich an! Ich sehe ein paar scharfe Kurven voraus!",
                     "updated": 1639252025934
+                },
+                {
+                    "language": "RU",
+                    "text": "Пристегнитесь! Я предвижу несколько крутых поворотов впереди!",
+                    "updated": 1640890123486
+                },
+                {
+                    "language": "TR",
+                    "text": " Önemli: Kemerlerinizi bağlayın! İleride birkaç keskin dönüş öngörüyorum!",
+                    "updated": 1640869613037
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Abróchate el cinturón! ¡Nos esperan unas cuantas curvas cerradas por delante!",
+                    "updated": 1668189938125
+                },
+                {
+                    "language": "IT",
+                    "text": "Allacciati le cinture! Prevedo alcune brusche svolte andando avanti!",
+                    "updated": 1669888054433
+                },
+                {
+                    "language": "NL",
+                    "text": "Riemen vast! Ik voorzie een paar scherpe bochten in het verschiet!",
+                    "updated": 1670784499616
+                },
+                {
+                    "language": "ID",
+                    "text": "Sabuk pengaman! Aku meramalkan ada beberapa tikungan tajam di depan!",
+                    "updated": 1674689853883
                 }
             ]
         }

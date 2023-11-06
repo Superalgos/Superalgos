@@ -51,7 +51,6 @@ function newCircularMenu() {
     }
 
     function initialize(menuItemsInitialValues, payload) {
-
         /* Create the array of Menu Items */
         let iconAndTextArray = []
         let iconOnlyArray
@@ -69,6 +68,7 @@ function newCircularMenu() {
             menuItem.actionFunction = menuItemInitialValue.actionFunction
             menuItem.actionStatus = menuItemInitialValue.actionStatus
             menuItem.label = menuItemInitialValue.label
+            menuItem.translationKey = menuItemInitialValue.translationKey
             menuItem.workingLabel = menuItemInitialValue.workingLabel
             menuItem.workDoneLabel = menuItemInitialValue.workDoneLabel
             menuItem.workFailedLabel = menuItemInitialValue.workFailedLabel
@@ -93,6 +93,7 @@ function newCircularMenu() {
             menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
             menuItem.askConfirmation = menuItemInitialValue.askConfirmation
             menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel
+            menuItem.confirmationLabelTranslationKey = menuItemInitialValue.confirmationLabelTranslationKey
             menuItem.disableIfPropertyIsDefined = menuItemInitialValue.disableIfPropertyIsDefined
             menuItem.propertyToCheckFor = menuItemInitialValue.propertyToCheckFor
             menuItem.ring = menuItemInitialValue.ring
@@ -101,7 +102,7 @@ function newCircularMenu() {
             menuItem.circularMenu = thisObject
 
             menuItem.payload = {
-                targetPosition : {
+                targetPosition: {
                     x: 0,
                     y: 0
                 },
@@ -149,7 +150,7 @@ function newCircularMenu() {
             thisObject.menuItems.push(menuItem)
         }
         /* There are 4 possible rings of icons, we will go through each of them here. */
-        let amplitudeArray = [80, 70, 50, 80]
+        let amplitudeArray = [80, 70, 50, 90]
         let initialAngleArray = [220, 215, 205, 180]
         for (let j = 0; j < ringsArray.length; j++) {
             let iconOnlyArray = ringsArray[j]

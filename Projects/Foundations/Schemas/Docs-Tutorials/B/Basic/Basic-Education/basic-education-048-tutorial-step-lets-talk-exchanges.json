@@ -4,11 +4,11 @@
     "type": "Tutorial Step - Let's Talk Exchanges",
     "definition": {
         "text": "We all have our preferred exchanges... let's talk a bit about how Superalgos deals with them and which ones you may use...",
+        "updated": 1615999626738,
         "icon": {
             "name": "crypto-exchange",
             "project": "Foundations"
         },
-        "updated": 1615999626738,
         "translations": [
             {
                 "language": "IT",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puede usar...",
-                "updated": 1628014366400,
+                "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puedes usar...",
+                "updated": 1675378132266,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Hepimizin tercih ettiği borsalar var... Hadi biraz Superalgos'un bunlarla nasıl ilgilendiğinden ve hangilerini kullanabileceğinizden bahsedelim...",
                 "updated": 1639819162110
+            },
+            {
+                "language": "RU",
+                "text": "У каждого из нас есть свои предпочитаемые биржи... давайте немного поговорим о том, как Superalgos работает с ними и какие из них вы можете использовать...",
+                "updated": 1640875212461
+            },
+            {
+                "language": "ID",
+                "text": "Kita semua memiliki exchanges pilihan kita... mari kita bicara sedikit tentang bagaimana Superalgos berurusan dengan mereka dan exchanges mana yang dapat kamu gunakan...",
+                "updated": 1645559672939
+            },
+            {
+                "language": "NL",
+                "text": "We hebben allemaal onze favoriete handelsplatformen... laten we het hebben over hoe Superalgos ermee omgaat en welke u kunt gebruiken...",
+                "updated": 1669548074782
             }
         ]
     },
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con intercambios que cumplen con el estándar:",
-                    "updated": 1628014486689,
+                    "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con exchanges que cumplen con el estándar:",
+                    "updated": 1675378221316,
                     "style": "Text"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Superalgos, Borsa API iletişimleri için bir standart öneren açık kaynaklı bir kitaplık olan CCXT'yi kullanır. Sistem, standarda uygun borsalarla çalışır:",
                     "updated": 1639819344622
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos использует CCXT, библиотеку с открытым исходным кодом, предлагающую стандарт для API-коммуникаций бирж. Система работает с биржами, соответствующими этому стандарту:",
+                    "updated": 1640875273571
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menggunakan CCXT, open-source library yang mengusulkan standar untuk pertukaran API comms. Sistem bekerja dengan pertukaran yang sesuai dengan standar :",
+                    "updated": 1645559710405
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos gebruikt CCXT, een open-source bibliotheek die een standaard voorstelt voor handelsplatformen API communicatie. Het systeem werkt met centrales die voldoen aan de norm:",
+                    "updated": 1669548137597
                 }
             ]
         },
@@ -73,6 +103,22 @@
                     "language": "DE",
                     "text": "Liste der Börsen, die sich zur Einhaltung von CCXT verpflichtet haben ->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
                     "updated": 1634589471287
+                },
+                {
+                    "language": "ID",
+                    "text": "Daftar Exchanges yang Menjanjikan Kepatuhan dengan CCXT->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1645562801470
+                },
+                {
+                    "language": "TR",
+                    "text": "CCXT ile Uyumluluk Taahhüt Eden Borsaların Listesi->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1654393868679,
+                    "style": "Link"
+                },
+                {
+                    "language": "NL",
+                    "text": "Lijst met handelsplatformen die naleving van CCXT beloven->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1669548188970
                 }
             ]
         },
@@ -89,8 +135,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo.  Mira el TOC para encontrar qué intercambios se han probado y en qué medida.",
-                    "updated": 1628014928782,
+                    "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo. Mira el TOC para encontrar qué exchanges se han probado y en qué medida.",
+                    "updated": 1675378212286,
                     "style": "Note"
                 },
                 {
@@ -102,6 +148,21 @@
                     "language": "TR",
                     "text": "Ancak listede görünmek yetmez! Birçok borsa gerçekten uymuyor! Sonuç olarak, Superalgos ile kullanılabilecek Borsaları ve belgeleri test etmek için devam eden bir topluluk çabası var! Bu, çabayı kapsayan Dokümanlar'daki konudur. Hangi borsaların ne ölçüde test edildiğini öğrenmek için TOC'ye bakın.",
                     "updated": 1639819393029
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако одного присутствия в списке недостаточно! Многие биржи на самом деле не соответствуют требованиям! В результате в сообществе ведется работа по тестированию бирж и документированию того, какие из них и как можно использовать с Superalgos! Эта тема есть в документации, где описываются эти усилия. Посмотрите в TOC, чтобы найти, какие биржи были протестированы и в какой степени.",
+                    "updated": 1640875422649
+                },
+                {
+                    "language": "ID",
+                    "text": "Namun, Masuk kedalam daftar saja tidak cukup! Banyak exchanges tidak benar-benar patuh! Akibatnya, ada upaya komunitas yang berkelanjutan untuk menguji exchanges dan dokumen yang dapat digunakan dengan Superalgos dan bagaimana caranya! Ini adalah topik dalam Docs yang membahas upaya tersebut. Lihatlah TOC untuk menemukan pertukaran mana yang telah diuji dan sejauh mana perkembangannya.",
+                    "updated": 1645562832356
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is echter niet genoeg om in de lijst te verschijnen! Veel handelsplatformen voldoen niet echt! Als gevolg hiervan is er een voortdurende inspanning van de gemeenschap om handelsplatformen te testen en documenteren welke kunnen worden gebruikt met Superalgos, en hoe! Deze inspanning is het onderwerp in de Docs. Kijk in de TOC welke handelsplatformen getest zijn en in welke mate.",
+                    "updated": 1669548340782
                 }
             ]
         }

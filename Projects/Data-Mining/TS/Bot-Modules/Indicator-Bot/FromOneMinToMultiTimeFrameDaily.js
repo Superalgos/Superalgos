@@ -1,6 +1,6 @@
 exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (processIndex) {
     /*
-        This module is about converting a One-Min Daily typeo of data set into a Multi Time Frame Daily type.
+        This module is about converting a One-Min Daily type of data set into a Multi Time Frame Daily type.
 
         The process to do so involves:
     
@@ -96,6 +96,18 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                             processIndex,
                             callBackFunction
                         )
+                        checkStopTaskGracefully
+                    }
+                    // If we are ready to stop, stop gracefully.
+                    function checkStopTaskGracefully() {
+                        /* Validation that we dont need to stop. */
+                        if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
+                            callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                            return
+                        } else {
+                            timeFramesLoop
+                        }
+                        
                     }
 
                     function timeframesLoop() {
@@ -173,10 +185,20 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
 
                                         filePath += '/' + fileName
 
-                                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                                        if (fileContent !== '[]') {
 
-                                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> writeOutputFile -> creating file at filePath = " + filePath)
+                                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] start -> writeOutputFile -> creating file at filePath = " + filePath)
+                                        } else {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] start -> writeOutputFile -> No Data to save for File @ " +
+                                                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" +
+                                                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " +
+                                                " filePath = " + filePath)
+                                            callBack()
+                                        }
 
                                         function onFileCreated(err) {
                                             if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -187,7 +209,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                                             }
 
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> writeOutputFile -> onFileCreated ->  Finished with File @ " +
+                                                "[INFO] start -> writeOutputFile -> onFileCreated ->  Finished with File @ " +
                                                 TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" +
                                                 TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " +
                                                 " filePath = " + filePath + "/" + fileName)
@@ -209,6 +231,9 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                             if (timeFrameArrayIndex < TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray().length) {
                                 loopBody()
                             } else {
+                                timeFrameArrayIndex = 0;
+                                writeDataRanges()
+
                                 TS.projects.foundations.functionLibraries.fromOneMinToMultiTimeFrameFunctions.writeStatusReport(
                                     statusDependenciesModule,
                                     contextVariables,
@@ -227,6 +252,106 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
+
+            function writeDataRanges() {
+                let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                let outputDatasetIndex = -1;
+                controlLoop()
+
+                function productLoopBody() {
+                    let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
+                    writeDataRange(
+                        contextVariables.datetimeBeginingOfMarketFile,
+                        contextVariables.datetimeLastProducedFile,
+                        productCodeName,
+                        controlLoop
+                    )
+                }
+
+                function controlLoop() {
+                    outputDatasetIndex++
+                    if (outputDatasetIndex < outputDatasets.length) {
+                        productLoopBody()
+                    } else {
+                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                    }
+                }
+
+
+            }
+
+            function writeDataRange(pBegin, pEnd, productCodeName, callBack) {
+                let dataRange = {
+                    begin: pBegin.valueOf(),
+                    end: pEnd.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                };
+                let fileContent = JSON.stringify(dataRange)
+                let fileName = '/Data.Range.json';
+        let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" +
+            TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
+
+        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+        function onFileCreated(err) {
+            if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    "[ERROR] start -> writeDataRange -> onFileCreated -> err = " + err.stack)
+                callBack(err)
+                return
+            }
+            let key = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + productCodeName + "-" +
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "-" +
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' +
+                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            let event = {
+                dateRange: dataRange
+            }
+
+            TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Data Range Updated', event)
+            writeTimeFramesFile(productCodeName, callBack)
+        }
+            }
+
+            function writeTimeFramesFile(productCodeName, callBack) {
+
+                let timeFramesArray = []
+            for (let n = 0; n < TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray().length; n++) {
+            let timeFrameLabel = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[n][1]
+
+            /* Check Time Frames Filter */
+            if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
+                if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames !== undefined) {
+                    if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.dailyTimeFrames.includes(timeFrameLabel) === true) {
+                        timeFramesArray.push(timeFrameLabel)
+                    }
+                } else {
+                    timeFramesArray.push(timeFrameLabel)
+                }
+            } else {
+                timeFramesArray.push(timeFrameLabel)
+            }
+        }
+
+        let fileContent = JSON.stringify(timeFramesArray)
+        let fileName = '/Time.Frames.json';
+        let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" +
+            TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
+
+        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+        function onFileCreated(err) {
+            if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    "[ERROR] start -> writeTimeFramesFiles -> onFileCreated -> err = " + err.stack)
+                callBack(err)
+                return
+            }
+            //callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+        }
+            }
+
         }
         catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err

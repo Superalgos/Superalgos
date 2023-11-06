@@ -1,138 +1,131 @@
 {
     "type": "Space Style",
     "definition": {
-        "text": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes.",
+        "text": "The Space Style node Controls the Look and Feel of it's Parent Nodes Space.",
         "translations": [
             {
                 "language": "RU",
-                "text": "Узел Space Style позволяет управлять внешним видом пространства, в частности, цветами фона и размерами шрифта.",
-                "updated": 1638350639992
+                "text": "Узел Space Style может иметь две различные конфигурации по умолчанию в зависимости от того, подключен ли он к узлу Design Space или узлу Charting Space.",
+                "updated": 1661275675827
             }
-        ]
+        ],
+        "updated": 1661468267515
     },
     "paragraphs": [
         {
-            "style": "Block",
-            "text": "Configuring"
+            "style": "Text",
+            "text": "The Space Style node can have two different configuration options depending on what space it is attached to. Currently this node can be attached to either the Design Space or the Charting Space.",
+            "updated": 1661459665589
         },
         {
             "style": "Title",
-            "text": "Space Style Configuration",
-            "updated": 1609861783834,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Конфигурация Space Style",
-                    "updated": 1638350660667
-                }
-            ]
+            "text": "The Design Space Default Configuration:",
+            "updated": 1661459121717
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"node\": {\n                   \"fontSize\": 16,\n                   \"imageSize\": 60,\n                   \"type\": {\n                           \"fontColor\": \"UI_COLOR.WHITE\"\n                      },\n                    \"name\": {\n                           \"fontColor\": \"UI_COLOR.WHITE\"\n                      },\n                    \"menuItem\": {\n                           \"backgroundColor\": \"UI_COLOR.BLACK\",\n                           \"fontColor\": \"UI_COLOR.WHITE\",\n                           \"fontSize\": 14,\n                           \"imageSize\": 14\n                       }\n            }\n}",
+            "updated": 1660851056950
         },
         {
             "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609862712741,
+            "text": "Design Space Default Configuration Notes:",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Свойства",
-                    "updated": 1638350672219
+                    "text": "Примечания к Design Space Default Configuration:",
+                    "updated": 1661275720764
                 }
-            ]
+            ],
+            "updated": 1660946508223
         },
         {
             "style": "List",
             "text": "backgroundColor refers to the background of the design space (see table below).",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "backgroundColor относится к фону пространства дизайна (см. таблицу ниже).",
-                    "updated": 1638350683643
-                }
-            ]
+            "updated": 1660946587812
         },
         {
             "style": "List",
             "text": "node refers to all nodes in the design space.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "node относится ко всем узлам в пространстве дизайна.",
-                    "updated": 1638350733106
-                }
-            ]
+            "updated": 1660946662800
         },
         {
             "style": "List",
-            "text": "type refers to the type of node, as indicated by the string of text below each node.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "type относится к типу узла, на что указывает строка текста под каждым узлом.",
-                    "updated": 1638350883557
-                }
-            ]
+            "text": "type refers to the type of node, as indicated by the string of text below each node."
         },
         {
             "style": "List",
-            "text": "name refers to the name or label of the node, as indicated above the node.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "name относится к имени или метке узла, как указано над узлом.",
-                    "updated": 1638350911178
-                }
-            ]
+            "text": "name refers to the name or label of the node, as indicated above the node."
         },
         {
             "style": "List",
-            "text": "menuItem refers to items on the right-hand side of the menu.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "menuItem относится к элементам в правой части меню.",
-                    "updated": 1638350927625
-                }
-            ]
+            "text": "menuItem refers to items on the right-hand side of the menu."
         },
         {
             "style": "List",
-            "text": "fontSize refers to the size of the font of the string of text.",
-            "updated": 1609862776218,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "fontSize относится к размеру шрифта строки текста.",
-                    "updated": 1638350939285
-                }
-            ]
+            "text": "fontSize refers to the size of the font of the string of text."
         },
         {
             "style": "List",
-            "text": "imageSize refers to the size of the icon illustrating the menu item.",
-            "updated": 1609862786614,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "imageSize относится к размеру значка, иллюстрирующего пункт меню.",
-                    "updated": 1638350959942
-                }
-            ]
+            "text": "imageSize refers to the size of the icon illustrating the menu item."
         },
         {
-            "style": "Text",
-            "text": "Available colors:",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Доступные цвета:",
-                    "updated": 1638350973317
-                }
-            ]
+            "style": "Title",
+            "text": "The Charting Space Default Configuration:",
+            "updated": 1661459866205
+        },
+        {
+            "style": "Json",
+            "text": "{\n        \"backgroundColor\": \"UI_COLOR.WHITE\",\n        \"candleStickColor\": \"UI_COLOR.DARK\",\n        \"candleBorderLineWidth\": \"1\",\n        \"candleUpColor\": \"UI_COLOR.GREEN\",\n        \"candleUpBorderColor\": \"UI_COLOR.PATINATED_TURQUOISE\",\n        \"candleDownColor\": \"UI_COLOR.RUSTED_RED\",\n        \"candleDownBorderColor\": \"UI_COLOR.GREEN\",\n        \"candleSideColor\": \"UI_COLOR.DARK\",\n        \"candleSideBorderColor\": \"UI_COLOR.DARK\",\n        \"panelBackgroundColor\": \"UI_COLOR.WHITE\",\n        \"panelBackgroundOpacity\": \"0.5\",\n        \"panelNameColor\": \"UI_COLOR.GREY\",\n        \"panelExchangeMarketName\": \"UI_COLOR.GREY\",\n        \"timeMachineNameColor\": \"UI_COLOR.DARK\",\n        \"onMouseFrameColor\": \"UI_COLOR.TITANIUM_YELLOW\",\n        \"machineFrameColor\": \"UI_COLOR.DARK_TURQUOISE\",\n        \"machineFrameOpacity\": \"1\",\n        \"timeScalePanelColor\": \"UI_COLOR.BLACK\",\n        \"timeScalePanelLabelColor\": \"UI_COLOR.WHITE\",\n        \"timeScaleDateColor\": \"UI_COLOR.GREY\",\n        \"timeScaleDateTimeColor\": \"UI_COLOR.GREY\",\n        \"rateScalePanelColor\": \"UI_COLOR.BLACK\",\n        \"rateScalePanelLabelColor\": \"UI_COLOR.WHITE\",\n        \"rateScaleLabelColor\": \"UI_COLOR.GREY\",\n        \"rateScaleLabelDecimalColor\": \"UI_COLOR.GREY\",\n        \"timeFrameScalePanelColor\": \"UI_COLOR.BLACK\",\n        \"timeFramePanelLabelColor\": \"UI_COLOR.WHITE\",\n        \"indicatorDropDownPanelColor\": \"UI_COLOR.BLACK\",\n        \"indicatorDropDownPanelOpacity\": \"0\",\n        \"indicatorDropDownPanelBorderColor\": \"UI_COLOR.RUSTED_RED\",\n        \"indicatorDropDownPanelLabel1Color\": \"UI_COLOR.WHITE\",\n        \"indicatorDropDownPanelLabel2Color\": \"UI_COLOR.WHITE\",\n        \"indicatorDropDownPanelLabel3Color\": \"UI_COLOR.WHITE\",\n        \"indicatorLayersPanelColor\": \"UI_COLOR.BLACK\",\n        \"indicatorLayersPanelOpacity\": \"1\",\n        \"indicatorLayersPanelBorderColor\": \"UI_COLOR.RUSTED_RED\",\n        \"indicatorLayersPanelLabel1\": \"UI_COLOR.WHITE\",\n        \"indicatorLayersPanelLabel2\": \"UI_COLOR.WHITE\",\n        \"indicatorFrameBackgroundColor\": \"UI_COLOR.WHITE\",\n        \"indicatorFrameBackgroundOpacity\": \"0.75\",\n        \"indicatorFrameTextColor\": \"UI_COLOR.WHITE\",\n        \"indicatorPanelTopBarColor\": \"UI_COLOR.DARK\",\n        \"indicatorPanelTopBarOpacity\": \"1\",\n        \"indicatorPanelTopBarTitleColor\": \"UI_COLOR.WHITE\",\n        \"minCursorSize\": \"10\",\n        \"maxCursorSize\": \"30\"\n    }",
+            "updated": 1666836833400
+        },
+        {
+            "style": "Subtitle",
+            "text": "Charting Space Default Configuration Notes:",
+            "updated": 1660947343209
+        },
+        {
+            "style": "List",
+            "text": "Most changes will instantly take effect upon saving the workspace. For any changes that do not take effect right away a refresh of the web page may be required.",
+            "updated": 1661468449054
+        },
+        {
+            "style": "List",
+            "text": "It is recommended to completely close the Charting Space before making changes to the space style nodes configuration.",
+            "updated": 1661462352221
+        },
+        {
+            "style": "List",
+            "text": "All colors must come from the list of available colors found below and be referenced by name at the configuration.",
+            "updated": 1661459944871
+        },
+        {
+            "style": "List",
+            "text": "Configuration options that have to do with opacity will work with any value between zero and one.",
+            "updated": 1661462399554
+        },
+        {
+            "style": "Title",
+            "text": "Chart Design Stages"
+        },
+        {
+            "style": "Youtube",
+            "text": "m9QOM_BhFjY",
+            "updated": 1667067701050
         },
         {
             "style": "Table",
-            "text": "| Variable Value | RGB Value | Color Sample |\n| DARK | 48, 48, 54 | RGB(48, 48, 54) |\n| LIGHT | 234, 226, 222 | RGB(234, 226, 222) |\n| GREY | 150, 150, 150 | RGB(150, 150, 150) |\n| LIGHT_GREY | 247, 247, 247 | RGB(247, 247, 247) |\n| WHITE | 255, 255, 255 | RGB(255, 255, 255) |\n| BLACK | 0, 0, 0 | RGB(0, 0, 0) |\n| GOLDEN_ORANGE | 240, 162, 2 | RGB(240, 162, 2) |\n| RUSTED_RED | 204, 88, 53 | RGB(204, 88, 53) |\n| GREEN | 188, 214, 67 | RGB(188, 214, 67) |\n| RED | 223, 70, 60 | RGB(223, 70, 60) |\n| PATINATED_TURQUOISE | 27, 153, 139 | RGB(27, 153, 139) |\n| TITANIUM_YELLOW | 244, 228, 9 | RGB(244, 228, 9) |\n| MANGANESE_PURPLE | 91,80, 122 | RGB(91,80, 122) |\n| TURQUOISE | 74, 207, 217 | RGB(74, 207, 217) |\n| DARK_TURQUOISE | 2, 149, 170 | RGB(2, 149, 170) |",
-            "updated": 1609863757224
+            "text": "|Configuration Name |Explanation |\n|\"backgroundColor\":| This controls the background color of the charting space. |\n|\"candleStickColor\": | This controls the color of the candle sticks|\n|\"candleBorderLineWidth\": | Controls the border line width of the candles and sticks. **candleStickColor** must be defined to access|\n|\"candleUpColor\":| This controls the candle up color on the charts.|\n|\"candleUpBorderColor\":| This controls the candle UP border color.|\n|\"candleDownColor\":| This controls the candle down color on the charts.|\n|\"candleDownBorderColor\":| This controls the candle down border color.|\n|\"candleSideColor\":| This controls the candle sideways color on the charts.|\n|\"candleSideBorderColor\":| This controls the candle sideways border color.|\n|\"panelBackgroundColor\"| This controls the background of the time machines in the charting space. |\n|\"panelBackgroundOpacity\":| This controls the background opacity of the time machine.|\n|\"panelNameColor\":| This controls the color of the exchange name shown on the top outside left of each time machine. |\n|\"panelExchangeMarketName\":| This controls the color of the pair for each panel (BTC/USDT) |\n|\"timeMachineNameColor\":| This controls the time machines title color and the color of the tab on the top left of the machine. |\n|\"onMouseFrameColor\":| This controls the time machine frame color when a mouse is hovered over it. |\n|\"machineFrameColor\":| This controls the color of the time machine frames. |\n|\"machineFrameOpacity\":| This controls the opacity of the time machine frame. |\n|\"timeScalePanelColor\": | This controls the background color of the time scale at the top of the charts.|\n|\"timeScalePanelLabelColor\":| For this to work the timeScalePanelColor must also be defined.|\n|\"timeScaleDateColor\":| This controls the date (day and month) at the top of the chart. |\n|\"timeScaleDateTimeColor\":| This controls the time under the date at the top of the chart. |\n|\"rateScalePanelColor\": | This controls the color of the value/ rate scale panel on the right in the charts.|\n|\"rateScalePanelLabelColor\": | For this to work the rateScalePanelColor must also be defined.|\n|\"rateScaleLabelColor\":| This controls the color of the rate scale numbers on the right side of the charts. |\n|\"rateScaleLabelDecimalColor\":| This controls the color of what comes after the decimal place in the rate scale numbers on the right side of the chart. |\n|\"timeFrameScalePanelColor\": | This controls the color of the timeFrame scale at the bottom of a chart.|\n|\"timeFramePanelLabelColor\":| For this to work the timeFrameScalePanelColor must also be defined.|\n|\"indicatorDropDownPanelColor\":| This controls the color of the drop down indicator panels inside the chart.|\n|\"indicatorDropDownPanelOpacity\":| This controls the opacity for the indicator drop down panel if it is defined.|\n|\"indicatorDropDownPanelBorderColor\":| This controls the top and bottom border color for the indicator drop down panel.|\n|\"indicatorDropDownPanelLabel1Color\":| This controls the text color of the largest font size in the drop down indicator layers panels. |\n|\"indicatorDropDownPanelLabel2Color\":| This controls the text color of the MidSized font size in the drop down indicator layers panels. |\n|\"indicatorDropDownPanelLabel3Color\":| This controls the text color of the ON/OFF font size in the drop down indicator layers panels. |\n|\"indicatorLayersPanelColor\":| This controls the color of the panels before scrolling to open them.|\n|\"indicatorLayersPanelOpacity\":| This controls the opacity of the panels before scrolling to open them.|\n|\"indicatorLayersPanelBorderColor\":| This controls the panel border color inside the indicator layer panels.|\n|\"indicatorLayersPanelLabel1\":| This controls the color of the text in the indicator drop down panel top First line. |\n|\"indicatorLayersPanelLabel2\":| This controls the color of the text in the indicator drop down panel top second line. |\n|\"indicatorFrameBackgroundColor\":| This controls the background color of the indicator frame inside the charts.|\n|\"indicatorFrameBackgroundOpacity\":| This controls the opacity for the indicator frame background.|\n|\"indicatorFrameTextColor\":| This controls the text color inside the indicator panel.|\n|\"indicatorPanelTopBarColor\":| This controls the color of the indicator panel top bar.|\n|\"indicatorPanelTopBarOpacity\":| This controls the opacity of the indicator panel top bar.|\n|\"indicatorPanelTopBarTitleColor\":| This controls the color of the title at the indicator frame panel top bar.|\n|\"minCursorSize\":| This controls the initial amount of data that is plotted in the charts.|\n|\"maxCursorSize\":| This controls the max amount of data that can be plotted when users scroll the chart.|",
+            "updated": 1666836906957
+        },
+        {
+            "style": "Subtitle",
+            "text": "Available Colors:"
+        },
+        {
+            "style": "Table",
+            "text": "| Variable Value | RGB Value | Color Sample |\n| WHITE | 255, 255, 255 |RGB(255, 255, 255)|\n| LIGHT_GREY | 247, 247, 247 |RGB(247, 247, 247)|\n| LIGHT | 234, 226, 222 |RGB(234, 226, 222)|\n| GREY | 150, 150, 150 |RGB(150, 150, 150)|\n| DARK | 48, 48, 54 |RGB(48, 48, 54)|\n| BLACK | 0, 0, 0 |RGB(0, 0, 0)|\n|TRUE_YELLOW|255,255,0|RGB(255,255,0)|\n|GARGOYLE_GAS|255, 235, 66|RGB(255, 235, 66)|\n| TITANIUM_YELLOW | 244, 228, 9 |RGB(244, 228, 9)|\n| GOLDEN_ORANGE | 240, 162, 2 |RGB(240, 162, 2)|\n|TRUE_ORANGE|255,160,10|RGB(255,160,10)|\n|TENKAN_ORANGE|233,100,34|RGB(233,100,34)|\n|ORANGE_WEB|252,163,17|RGB(252,163,17)|\n|RED_ORANGE|255,72,0|RGB(255,72,0)|\n| RUSTED_RED | 204, 88, 53 |RGB(204, 88, 53)|\n| RED | 223, 70, 60 |RGB(223, 70, 60)|\n| PATINATED_TURQUOISE | 27, 153, 139 |RGB(27, 153, 139)|\n| MANGANESE_PURPLE | 91,80, 122 |RGB(91,80, 122)|\n| TURQUOISE | 74, 207, 217 |RGB(74, 207, 217)|\n| DARK_TURQUOISE | 2, 149, 170 |RGB(2, 149, 170)|\n|OXFORD_BLUE|20,33,61|RGB(20,33,61)|\n|BYZANTINE_PINK|181,23,158|RGB(181,23,158)|\n|TRUE_PURPLE|114,9,183|RGB(114,9,183)|\n|ULTRAMARINE_BLUE|67,97,238|RGB(67,97,238)|\n|PERSIAN_PLUM|111,29,27|RGB(111,29,27)|\n|SILVER|191,192,192|RGB(191,192,192)|\n|PINK|255,77,78|RGB(255,77,78)|\n|SKY_BLUE|133,206,255|RGB(133,206,255)|\n|MDA_PURPLE|126,71,255|RGB(126,71,255)|\n|CYBER_GRAPE|98,84,160|RGB(98,84,160)|\n|TRUE_RED|255,0,0|RGB(255,0,0)|\n|TRUE_BLUE|0,0,255|RGB(0,0,255)|\n|LIGHT_PINK|254,180,200|RGB(254,180,200)|\n|JUNGLE_LIGHT|165,223,210|RGB(165,223,210)|\n|CARMINE_PINK|240, 80, 52|RGB(240, 80, 52)|\n|MANGO_TANGO|255, 139, 57|RGB(255, 139, 57)|\n|CHARLESTON_GREEN|42, 46, 49|RGB(42, 46, 49)|\n| GREEN | 188, 214, 67 |RGB(188, 214, 67)|\n|OCEAN_GREEN|116,198,157|RGB(116,198,157)|\n|BOTTLE_GREEN|45,106,79|RGB(45,106,79)|\n|APPLE_GREEN|128,185,24|RGB(128,185,24)|\n|MIDNIGHT_GREEN|6,90,96|RGB(6,90,96)|\n|CARIBBEAN_GREEN|59,206,172|RGB(59,206,172)|\n|NEON_GREEN|15,252,31|RGB(15,252,31)|\n|TENKAN_GREEN|43,117,55|RGB(43,117,55)|\n|PERSIAN_GREEN|27,153,139|RGB(27,153,139)|\n|TRUE_GREEN|0,225,0|RGB(0,225,0)|\n|JUNGLE_GREEN|50,175,162|RGB(50,175,162)|\n|BROWN|121,58,21|RGB(121,58,21)|\n|CAMEL_TAN|187,148,87|RGB(187,148,87)|\n|WINDSOR_TAN|153,88,42|RGB(153,88,42)|",
+            "updated": 1661620943509
         }
     ]
 }

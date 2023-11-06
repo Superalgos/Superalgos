@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Diese visuelle Überprüfung hilft Ihnen, die Punkte, die Sie in der Simulation sehen, mit den von Ihnen erstellten Definitionen gedanklich zu verbinden!",
                 "updated": 1639267200208
+            },
+            {
+                "language": "TR",
+                "text": "Bu görsel kontrol, simülasyonda gördüğünüz noktalar ile oluşturduğunuz tanımlar arasında zihinsel olarak bağlantı kurmanıza yardımcı olacaktır!",
+                "updated": 1641656548038
+            },
+            {
+                "language": "RU",
+                "text": "Этот визуальный контроль поможет вам мысленно соединить то, что вы видите на симуляции, с определениями, которые вы создаете!",
+                "updated": 1642655717341
+            },
+            {
+                "language": "ES",
+                "text": "Esta comprobación visual te ayudará a unir mentalmente los puntos de lo que ves en una simulación con las definiciones que produces.",
+                "updated": 1677102358702
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich noch ein paar Minuten Zeit, um das auslösende Ereignis der Strategie sowie die übrigen Auslöser zu untersuchen, die während des Testzeitraums auftreten.",
                     "updated": 1639267208838
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejinin Trigger Off olayını ve test edilen süre boyunca ortaya çıkan diğer tetikleyicileri keşfetmek için birkaç dakikanızı daha ayırın.",
+                    "updated": 1669586132771
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте еще несколько минут на изучение события выключения стратегии, а также остальных триггеров, возникающих в течение тестируемого периода.",
+                    "updated": 1642655740692
+                },
+                {
+                    "language": "ES",
+                    "text": "Dedica unos minutos más a explorar el evento \"trigger off\" de la estrategia, así como el resto de los \"triggers\" que se producen a lo largo del periodo probado.",
+                    "updated": 1677102368458
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich einen Moment Zeit, um die Tatsache zu verinnerlichen, dass Ereignisse nur ausgelöst werden, wenn alle Bedingungen in einer bestimmten Situation erfüllt sind, und dass Bedingungen nur über geschlossene Kerzen ausgewertet werden!",
                     "updated": 1639267218657
+                },
+                {
+                    "language": "TR",
+                    "text": "Olayların yalnızca belirli bir durumdaki tüm koşullar karşılandığında tetiklendiği ve koşulların yalnızca kapalı mumlar üzerinden değerlendirildiği gerçeğini içselleştirmek için bir dakikanızı ayırın!",
+                    "updated": 1669586187331
+                },
+                {
+                    "language": "RU",
+                    "text": "Уделите время тому, чтобы усвоить тот факт, что события наступают только после выполнения всех условий в данной ситуации, и что условия оцениваются только по закрытым свечам!",
+                    "updated": 1642655768655
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate un momento para interiorizar el hecho de que los eventos se activan sólo una vez que se cumplen todas las condiciones en una situación dada, ¡y que las condiciones se evalúan sólo sobre velas cerradas!",
+                    "updated": 1677102382861
                 }
             ]
         }

@@ -1,0 +1,142 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 9,
+    "type": "Heikin Ashi Relative Strength Indicator - HARSI",
+    "definition": {
+        "text": "This script, originally made by JayRogers on TradingView, translates the Heikin Ashi Candles over to an RSI oscillator to show clear trends in the market.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот скрипт, первоначально созданный JayRogers на TradingView, переводит свечи Heikin Ashi в осциллятор RSI, чтобы показать четкие тенденции на рынке.",
+                "updated": 1646899611617
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Skript, das ursprünglich von JayRogers auf TradingView erstellt wurde, übersetzt die Heikin Ashi Kerzen in einen RSI Oszillator, um klare Trends auf dem Markt anzuzeigen.",
+                "updated": 1671548570104
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "HARSI On the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "HARSI на графиках",
+                    "updated": 1646899625881
+                },
+                {
+                    "language": "DE",
+                    "text": "HARSI auf den Charts",
+                    "updated": 1671548590737
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The HARSI indicator uses the RSI as it's basis to show strength in a price trend. It plots the RSI oscillator, but shifts it so that it oscillates around the zero point instead of a value of 50. Buy and Sell zones are then set up at the -20 and 20 lines respectively. A Heikin Ashi style histogram is then plotted using the RSI function as an input. This provides a potential buy/sell signal when the candles enter the respective zones.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор HARSI использует RSI в качестве основы для отображения силы ценового тренда. Он строит график осциллятора RSI, но смещает его так, чтобы он колебался вокруг нулевой точки вместо значения 50. Зоны покупки и продажи устанавливаются на линиях -20 и 20 соответственно. Затем строится гистограмма в стиле Heikin Ashi с использованием функции RSI в качестве входного сигнала. Это дает потенциальный сигнал на покупку/продажу, когда свечи входят в соответствующие зоны.",
+                    "updated": 1646899644512
+                },
+                {
+                    "language": "DE",
+                    "text": "Der HARSI Indikator verwendet den RSI als Grundlage, um die Stärke eines Preistrends anzuzeigen. Er zeichnet den RSI Oszillator auf, verschiebt ihn aber so, dass er um den Nullpunkt statt um einen Wert von 50 oszilliert. Kauf- und Verkaufszonen werden dann bei den Linien -20 bzw. 20 eingerichtet. Anschließend wird ein Histogramm im Stil von Heikin Ashi gezeichnet, wobei die RSI Funktion als Eingabe verwendet wird. Dies liefert ein potenzielles Kauf-/Verkaufssignal, wenn die Kerzen in die jeweiligen Zonen eintreten.",
+                    "updated": 1671548647380
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-HARSI.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the HARSI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"HARSI\" Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры HARSI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе Product Definition \"HARSI\".",
+                    "updated": 1646899663498
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der HARSI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"HARSI\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671548704703
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-HARSI-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "HARSI Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукция и свойства HARSI",
+                    "updated": 1646899671809
+                },
+                {
+                    "language": "DE",
+                    "text": "HARSI Produkte & Eigenschaften",
+                    "updated": 1671548753629
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| HARSI | harsi | rsi, HaOpen, HaClose, HaMax, HaMin, StochK, StochD |",
+            "updated": 1643007813003,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| HARSI | harsi | rsi, HaOpen, HaClose, HaMax, HaMin, StochK, StochD |",
+                    "updated": 1671548776255
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1646899678490
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671548795323
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the HA histogram enters the buy zone at -20 and then leaves it again:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем заключения сделки, когда гистограмма HA входит в зону покупки на уровне -20, а затем снова выходит из нее:",
+                    "updated": 1646899700196
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn das HA Histogramm bei -20 in die Kaufzone eintritt und sie dann wieder verlässt:",
+                    "updated": 1671548832911
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.HARSI.previous.HaClose < -20 && chart.at15min.HARSI.HaClose > -20"
+        }
+    ]
+}

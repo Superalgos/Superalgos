@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Сегодня мы узнаем, как добавить свои собственные пользовательские диаграммы! К концу этого урока у вас будут базовые знания, необходимые для раскрытия возможностей Charting Space.",
                 "updated": 1637913040668
+            },
+            {
+                "language": "TR",
+                "text": "Bugün kendi özel çizelgelerinizi nasıl ekleyeceğinizi öğreneceğiz! Bu öğreticinin sonunda, Grafik Alanının ( Charting Space ) gücünü kullanmaya başlamak için ihtiyacınız olan temel bilgilere sahip olacaksınız.",
+                "updated": 1642518177786
             }
         ]
     },
@@ -35,8 +40,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡El sistema de gráficos dentro de Superalgos es poderoso! Reúne información de todo el sistema para que puedas visualizarla cómodamente en un solo lugar. Como habrás descubierto, hay muchas piezas móviles dentro de Superalgos. The Charting Space te permite acceder a la información específica que desea ver.",
-                    "updated": 1628637309713
+                    "text": "El sistema de gráficos es muy potente. Reúne información de todo el sistema para que puedas visualizarla cómodamente en un solo lugar. Como ya te habrás dado cuenta, hay muchas piezas móviles en Superalgos. El espacio de gráficos te permite acceder a la información específica que deseas ver.",
+                    "updated": 1682429130173
                 },
                 {
                     "language": "DE",
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Система построения графиков очень мощная! Она собирает информацию из всей системы, чтобы вы могли удобно визуализировать ее в одном месте. Как вы уже догадались, в Superalgos очень много движущихся частей. Charting Space позволяет получить конкретную информацию, которую вы хотите увидеть.",
                     "updated": 1637913209029
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik sistemi güçlüdür! Sistem genelindeki bilgileri birleştirir, böylece tek bir yerde kolayca görselleştirebilirsiniz. Fark etmiş olabileceğiniz gibi, Superalgos'un birçok hareketli parçası var. Grafik Alanı ( Charting Space ) , görmek istediğiniz belirli bilgileri almanızı sağlar.",
+                    "updated": 1642518192461
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Вы можете просматривать различные комбинации индикаторов, результаты бэктестинга и реальной торговли Trading , даже данные с разных рынков и бирж! Такая гибкость позволяет настраивать графики по своему усмотрению. Очень круто!",
                     "updated": 1637913366764
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Çeşitli gösterge kombinasyonlarını, geriye dönük test ve gerçek Ticaret sonuçlarını, hatta farklı pazarlardan ve borsalardan gelen verileri bile görüntüleyebilirsiniz! Bu esneklik, grafikleri uygun gördüğünüz şekilde özelleştirmenize olanak tanır. Çok havalı!",
+                    "updated": 1642518221461
                 }
             ]
         }

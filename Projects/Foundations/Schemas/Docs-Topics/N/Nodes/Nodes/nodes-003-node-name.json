@@ -4,12 +4,46 @@
     "type": "Node Name",
     "definition": {
         "text": "Each instance of a Node might have a user-assigned name, or a default name assigned to it by the system at the moment the Node was created. At the Design Space the name of a Node appears above the Node Icon. ",
-        "updated": 1609236312410
+        "updated": 1609236312410,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Каждый экземпляр узла может иметь имя, назначенное пользо��ателем, или имя по умолчанию, присвоенное ему системой в момент создания узла. В пространстве проектирования имя узла отображается над значком узла.",
+                "updated": 1640356152681
+            },
+            {
+                "language": "TR",
+                "text": "Bir Düğümün ( Node ) her örneğinin, kullanıcı tarafından atanan bir adı veya Düğüm ( Node ) oluşturulduğu anda sistem tarafından kendisine atanan varsayılan bir adı olabilir. Tasarım Alanında ( Design Space ) Düğüm Simgesinin ( Node Icon ) üzerinde bir Düğümün adı görünür.",
+                "updated": 1652804371200
+            },
+            {
+                "language": "DE",
+                "text": "Jede Instanz eines Knotens (Node) kann einen vom Benutzer zugewiesenen Namen oder einen Standardnamen haben, der ihm vom System bei der Erstellung des Knotens zugewiesen wurde. Im Entwurfsbereich (Design Space) erscheint der Name eines Knotens oberhalb des Knotensymbols (Node Icon).",
+                "updated": 1689418602379
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1640356167622
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652804448579
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689418612754
+                }
+            ]
         }
     ]
 }

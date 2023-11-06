@@ -11,6 +11,16 @@
                 "text": "La gobernanza del proyecto de Superalgos Project es distribuída entre todos los miembros de la Superalgos Community que deseen participar. El Governance System ( sistema de gobernanza) se construye en la Superalgos Platform, por lo que es bastante sencillo participar.",
                 "updated": 1636038871200,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Projesi'nin (Superalgos Project) yönetimi, Superalgos Topluluğunun katılmaya istekli tüm üyeleri arasında dağıtılır. Yönetim Sistemi, Superalgos Platformunda yerleşiktir, bu nedenle katılım oldukça basittir.",
+                "updated": 1645185517546
+            },
+            {
+                "language": "DE",
+                "text": "Die Leitung des Superalgos Project ist auf alle Mitglieder der Superalgos-Gemeinschaft (Superalgos Community) verteilt, die sich daran beteiligen wollen. Das Governance-System ist in die Superalgos-Plattform integriert, so dass die Teilnahme recht einfach ist.",
+                "updated": 1691358963063
             }
         ]
     },
@@ -18,11 +28,35 @@
         {
             "style": "Title",
             "text": "Overview",
-            "updated": 1628249311062
+            "updated": 1628249311062,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Genel Bakış",
+                    "updated": 1645185532905
+                },
+                {
+                    "language": "DE",
+                    "text": "Übersicht",
+                    "updated": 1691358972387
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Participate"
+            "text": "Participate",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Katılmak",
+                    "updated": 1645185549736
+                },
+                {
+                    "language": "DE",
+                    "text": "Teilnehmen",
+                    "updated": 1691358977773
+                }
+            ]
         },
         {
             "style": "Text",
@@ -33,6 +67,16 @@
                     "text": "Para participar en la gobernanza, los miembros de la comunidad, promedian su tentencia de  Superalgos SA Token, ejerciendo una influencia proporcional a su Token Power. La influencia combinada de todos los que tienen token participando en la gobernanza determina como el token se distribuye encada liberación.",
                     "updated": 1633533342249,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetime katılmak için topluluk üyeleri, Token Güçleriyle orantılı etki uygulayarak Superalgos SA Token varlıklarını kullanır. Yönetime katılan tüm token sahiplerinin birleşik etkisi, token'ın her sürümde nasıl dağıtılacağını belirler.",
+                    "updated": 1645185596479
+                },
+                {
+                    "language": "DE",
+                    "text": "Um an der Governance teilzunehmen, nutzen die Community-Mitglieder ihren Besitz an Superalgos SA Token und üben ihren Einfluss proportional zu ihrer Token Power aus. Der kombinierte Einfluss aller Token-Inhaber, die an der Governance teilnehmen, bestimmt, wie der Token bei jeder Veröffentlichung verteilt wird.",
+                    "updated": 1691359009705
                 }
             ]
         },
@@ -45,13 +89,35 @@
                     "text": "Aún cuando no tenga tokens para comenzar, la comunidad delegará Token Power a su profile para que pueda comenzar!",
                     "updated": 1633533429717,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlamak için jetonunuz olmasa bile, Topluluk, başlayabilmeniz için Token Gücünü profilinize devredecektir!",
+                    "updated": 1645185618370
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch wenn Sie zu Beginn keine Token haben, wird die Gemeinschaft (Community) Ihrem Profil Token Power zuweisen, damit Sie loslegen können!",
+                    "updated": 1691359039126
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Influence",
-            "updated": 1628249266133
+            "updated": 1628249266133,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Etkilemek",
+                    "updated": 1645185661617
+                },
+                {
+                    "language": "DE",
+                    "text": "Einflussnahme",
+                    "updated": 1691359045225
+                }
+            ]
         },
         {
             "style": "List",
@@ -62,6 +128,16 @@
                     "text": "Qué Positions, Features, Assets, o actividades de desarrollo del proyecto, en general, son incentivados y cómo.",
                     "updated": 1633533525021,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak hangi Pozisyonlar (Positions), Özellikler (Features), Varlıklar (Assets) veya proje geliştirme faaliyetleri teşvik edilir ve nasıl teşvik edilir.",
+                    "updated": 1645185707953
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Positionen, Funktionen, Vermögenswerte (Positions, Features, Assets) oder Projektentwicklungsaktivitäten im Allgemeinen gefördert werden und wie. Welche Mitwirkenden für welche Beiträge entschädigt werden.",
+                    "updated": 1691359082628
                 }
             ]
         },
@@ -74,6 +150,16 @@
                     "text": "Qué Contribuyentes son recompensados y por cuáles contribuciones.",
                     "updated": 1633533586785,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Katkıda Bulunanlardan hangileri, hangi Katkıları için ödüllendirilir...",
+                    "updated": 1645185749945
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Mitwirkenden für welche Beiträge entschädigt werden.",
+                    "updated": 1691359126161
                 }
             ]
         },
@@ -86,6 +172,16 @@
                     "text": "Qué Programs son creados y cómo.",
                     "updated": 1633533612445,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi Programlar finanse edilir ve nasıl finanse edilir?",
+                    "updated": 1645185785665
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Programme werden finanziert und wie.",
+                    "updated": 1691359135681
                 }
             ]
         },
@@ -98,13 +194,35 @@
                     "text": "La gobernanza está diseñada como un sistema flexible que  la comunidad dinámicamente dirija influencia en direcciones arbitrarias.",
                     "updated": 1633533779710,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim (Governance), Topluluğun etkiyi dinamik olarak istediği şekilde yönlendirmesine izin veren esnek bir sistem olarak tasarlanmıştır.",
+                    "updated": 1645185888811
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Governance ist als flexibles System konzipiert, das es der Gemeinschaft (Community) ermöglicht, ihren Einfluss dynamisch in beliebige Richtungen zu lenken.",
+                    "updated": 1691359217388
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Earn Tokens",
-            "updated": 1628249282185
+            "updated": 1628249282185,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Token Kazanmak",
+                    "updated": 1645185906240
+                },
+                {
+                    "language": "DE",
+                    "text": "Token verdienen",
+                    "updated": 1691359225124
+                }
+            ]
         },
         {
             "style": "Text",
@@ -115,6 +233,16 @@
                     "text": "Una Community comprometida en la gobernanza es crucial para el desarrollo del proyecto, por lo tanto se incentiva la participación. En otras palabras, ganará Superalgos SA Tokens simplemente por ser parte de la gobernanza de Superalgos.",
                     "updated": 1633542770033,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim ile ilgilenen bir Topluluk, projenin gelişimi için çok önemlidir, bu nedenle katılım teşvik edilir. Başka bir deyişle, sadece Superalgos'un yönetiminde yer alarak Superalgos SA Jetonları kazanabilirsiniz",
+                    "updated": 1645185929745
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Gemeinschaft (Community), die sich an der Governance beteiligt, ist entscheidend für die Entwicklung des Projekts, daher wird die Teilnahme gefördert. Mit anderen Worten, Sie verdienen Superalgos SA Token, indem Sie sich einfach an der Governance von Superalgos beteiligen.",
+                    "updated": 1691359253103
                 }
             ]
         },
@@ -127,12 +255,34 @@
                     "text": "El sistema permite que la gobernanza evolucione con el proyecto. Tambien motiva a la innovación sin permiso, ya que los contribuyentes pueden proponer nuevas áreas de desarrollo y manejar a  la comunidad para que se motive para expandir nuevas lineas.",
                     "updated": 1633543011570,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, yönetişimin projeyle birlikte gelişmesine izin verir. Ayrıca, Katkıda Bulunanlar yeni gelişim alanları önerebileceği ve projeye eklenecek yeni özelliklerle birlikte genişlemeyi teşvik etmesi için harekete geçirebileceğinden inovasyonu da teşvik eder.",
+                    "updated": 1645186097321
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System ermöglicht es, dass sich die Verwaltung mit dem Projekt weiterentwickelt. Es fördert auch die erlaubnisfreie Innovation, da die Mitwirkenden neue Entwicklungsbereiche vorschlagen und die Gemeinschaft (Community) um Anreize für die Expansion in neue Richtungen bitten können.",
+                    "updated": 1691359282999
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Included in this Claim"
+            "text": "Included in this Claim",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Talebe dahil olanlar",
+                    "updated": 1645186172346
+                },
+                {
+                    "language": "DE",
+                    "text": "In dieser Forderung enthalten",
+                    "updated": 1691359292592
+                }
+            ]
         },
         {
             "style": "Text",
@@ -143,6 +293,16 @@
                     "text": "El sistema de gobierno fue construído sobre los bocetos de un nuevo proyecto de Software incluído en el código de base de Superalgos.",
                     "updated": 1633543179992,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Sistemi, Superalgos Codebase içinde yeni bir Yazılım Projesi olarak sıfırdan inşa edilmiştir.",
+                    "updated": 1645186186771
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Governance System wurde von Anfang an als ein neues Software Projekt innerhalb der Superalgos Codebase entwickelt.",
+                    "updated": 1691359312088
                 }
             ]
         },
@@ -155,84 +315,295 @@
                     "text": "Los siguientes programas de Governance Programs fueron desarrollados en este tiempo:",
                     "updated": 1633543245169,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki Yönetişim Programları yeni geliştirilmiştir:",
+                    "updated": 1645186216094
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Governance Programs wurden zu diesem Zeitpunkt entwickelt:",
+                    "updated": 1691359332326
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Onboarding Programs"
+            "text": "Onboarding Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşe Alım Programları",
+                    "updated": 1654394882838,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Onboarding-Programme",
+                    "updated": 1691359346761
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Airdrop Program"
+            "text": "Airdrop Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Airdrop Programı",
+                    "updated": 1654394888372,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Airdrop Program ",
+                    "updated": 1691359452771
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Github Program"
+            "text": "Github Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Github Programı",
+                    "updated": 1654394895635,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Community Building Programs"
+            "text": "Community Building Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları",
+                    "updated": 1654394901089,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Programme für den Aufbau von Gemeinschaften",
+                    "updated": 1691359466227
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Referral Program"
+            "text": "Referral Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönlendirme Programı",
+                    "updated": 1654394906668,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Referral Program (Empfehlungsprogramm)",
+                    "updated": 1691359477868
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Support Program"
+            "text": "Support Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Destek Programı",
+                    "updated": 1654394912234,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Support Program (Förderprogramm)",
+                    "updated": 1691359486628
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Mentroship Program"
+            "text": "Mentroship Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mentorluk Programı",
+                    "updated": 1654394917799,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mentorschaftsprogramm",
+                    "updated": 1691359495205
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Influencer Program"
+            "text": "Influencer Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Influencer Programı",
+                    "updated": 1654394923887,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Votes and Claims Programs"
+            "text": "Votes and Claims Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oylar ve Hasar Programları",
+                    "updated": 1654394930054,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Votes Program"
+            "text": "Votes Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Oy Programı",
+                    "updated": 1654394936416,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Abstimmungsprogramm",
+                    "updated": 1691359512477
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Claims Program"
+            "text": "Claims Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tazminat Programı",
+                    "updated": 1654394942472,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Claims Program (Forderungsprogramm)",
+                    "updated": 1691359522749
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Financial Programs"
+            "text": "Financial Programs",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Finansal Programlar",
+                    "updated": 1654394948922,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Staking Program"
+            "text": "Staking Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Staking Programı",
+                    "updated": 1654394955643,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Staking Program (Absteckprogramm)",
+                    "updated": 1691359537359
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Delegation Program"
+            "text": "Delegation Program",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Delegasyon Programı",
+                    "updated": 1654394961431,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "The following concepts were introduced"
+            "text": "The following concepts were introduced",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ve aşağıdaki tanımlar",
+                    "updated": 1645186252360
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Konzepte wurden eingeführt",
+                    "updated": 1691359545737
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Pools"
+            "text": "Pools",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Havuzlar",
+                    "updated": 1654394967285,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Assets"
+            "text": "Assets",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlıklar",
+                    "updated": 1654394973333,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Features"
+            "text": "Features",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654394980084,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Positions"
+            "text": "Positions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyonlar",
+                    "updated": 1654394987200,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

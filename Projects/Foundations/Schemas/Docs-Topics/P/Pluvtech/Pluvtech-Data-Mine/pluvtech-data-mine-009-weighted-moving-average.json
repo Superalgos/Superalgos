@@ -4,22 +4,191 @@
     "type": "Weighted Moving Average",
     "definition": {
         "text": "A Weighted Moving Average puts more weight on recent data and less on past data. This is done by multiplying each bar’s price by a weighting factor. Because of its unique calculation, WMA will follow prices more closely than a corresponding Simple Moving Average.",
-        "updated": 1622686933380
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Взвешенная скользящая средняя (WMA) придает больший вес последним данным и меньший - прошлым. Это достигается путем умножения цены каждого бара на весовой коэффициент. Благодаря своему уникальному расчету, WMA будет следовать за ценами более внимательно, чем соответствующая простая скользящая средняя.",
+                "updated": 1645610729018
+            },
+            {
+                "language": "DE",
+                "text": "Ein gewichteter gleitender Durchschnitt legt mehr Gewicht auf die jüngsten Daten und weniger auf die vergangenen Daten. Dies geschieht durch Multiplikation des Preises jedes Balkens mit einem Gewichtungsfaktor. Aufgrund seiner einzigartigen Berechnung folgt der WMA den Kursen genauer als ein entsprechender Simple Moving Average.",
+                "updated": 1647934020138
+            },
+            {
+                "language": "TR",
+                "text": "Ağırlıklı Hareketli Ortalama, son verilere daha fazla, geçmiş verilere ise daha az ağırlık verir. Bu, her çubuğun fiyatının bir ağırlık faktörü ile çarpılmasıyla yapılır. Benzersiz hesaplaması nedeniyle WMA, fiyatları karşılık gelen Basit Hareketli Ortalamadan ( Simple Moving Average ) daha yakından takip edecektir.",
+                "updated": 1697835181641
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Info:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645610737606
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697835191049
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "WMA - (Fidelity)->www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/wma"
         },
         {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-WMA.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Weighted Moving Average indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’WMA’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Период расчета индикатора взвешенной скользящей средней можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'WMA' Product Definition.",
+                    "updated": 1645610766194
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Indikators für den gewichteten gleitenden Durchschnitt kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’WMA’ Product Definition suchen und öffnen.",
+                    "updated": 1647934103125
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağırlıklı Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'WMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835221121
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-WMA-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645610772082
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647934137854
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835226585
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645610777319
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647934145852
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835231209
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Weighted Moving Average | WMA | wma |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Weighted Moving Average | WMA | wma |\n",
+                    "updated": 1647934179803
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645610783192
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647934208532
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835237081
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The WMA indicator could be used to generate a buy signal when a candle closes above the WMA:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор WMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше WMA:",
+                    "updated": 1645610791758
+                },
+                {
+                    "language": "DE",
+                    "text": "Der WMA Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des WMA schließt:",
+                    "updated": 1647934224489
+                },
+                {
+                    "language": "TR",
+                    "text": "WMA göstergesi, bir mum WMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697835241730
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.WMA.wma",
+            "updated": 1636853769
+        },
+        {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647934242082
+                }
+            ]
         },
         {
             "style": "Link",

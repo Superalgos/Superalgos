@@ -1,0 +1,63 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "23",
+    "type": "Jurik Filter",
+    "definition": {
+        "text": "The Jurik filter moving average is an adaptive smoother that provides a filtered average that is both responsive and lag free."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Jurik Filter on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator uses a Jurik-filtered moving average that acts as both a baseline and a support and resistance indicator. The Jurik filter is an adaptive smoothing process which helps reduces lag while simultaneously smoothing the input data.",
+            "updated": 1693780392882
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Jurik-Filter.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| JurikFilter | JF | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Jurik Filter\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Jurik-Filter-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This moving average is accessed in the following manner:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.JF.value"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

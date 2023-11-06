@@ -1,0 +1,88 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "4",
+    "type": "Iterating on Definitions",
+    "definition": {
+        "text": "Once you finish the first draft of all Definition Pages, you must run it through developers to get their feedback.",
+        "updated": 1643040927604,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "После того как вы закончите первый проект всех страниц определений, вы должны прогнать его через разработчиков, чтобы получить их отзывы.",
+                "updated": 1670680143608
+            },
+            {
+                "language": "DE",
+                "text": "Sobald Sie den ersten Entwurf aller Definitionsseiten (Definition Pages) fertiggestellt haben, müssen Sie ihn den Entwicklern vorlegen, um deren Feedback einzuholen.",
+                "updated": 1681842417062
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Pretty much like code, documentation is a living organism that must evolve to become great. It is highly unlikely that the first version of anything you write is the best possible version. The truth is that writing the definition pages is part of your learning process.",
+            "updated": 1643040820966,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и код, документация - это живой организм, который должен развиваться, чтобы стать великим. Маловероятно, что первая версия всего, что вы напишете, будет лучшей из возможных версий. Правда в том, что написание страниц определения - это часть вашего процесса обучения.",
+                    "updated": 1670680163480
+                },
+                {
+                    "language": "DE",
+                    "text": "Ähnlich wie der Code ist auch die Dokumentation ein lebender Organismus, der sich weiterentwickeln muss, um gut zu werden. Es ist höchst unwahrscheinlich, dass die erste Version von etwas, das Sie schreiben, die bestmögliche Version ist. Die Wahrheit ist, dass das Schreiben der Definitionsseiten Teil Ihres Lernprozesses ist.",
+                    "updated": 1681842439011
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The session you recorded with the devs will have made things clear enough for you to start writing. However, as you dive into the definition of each node, you will likely have questions or discover that there are details that you still don't grasp.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сессия, которую вы записали с разработчиками, достаточно прояснила ситуацию, чтобы вы могли начать писать. Однако, когда вы погрузитесь в определение каждого узла, у вас, скорее всего, возникнут вопросы или вы обнаружите, что есть детали, которые вы все еще не поняли.",
+                    "updated": 1670680184152
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Sitzung, die Sie mit den Entwicklern aufgezeichnet haben, wird Ihnen genug Klarheit verschafft haben, um mit dem Schreiben zu beginnen. Wenn Sie jedoch in die Definition der einzelnen Knoten eintauchen, werden Sie wahrscheinlich Fragen haben oder feststellen, dass es Details gibt, die Sie noch nicht verstanden haben.",
+                    "updated": 1681842454555
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "As soon as you finish the first draft of the definition pages of each node, you should ask the developers to go through the definitions and obtain their feedback. You may need to fix or improve a few definitions, or even do extensive rewrites. Rest assured this is to be expected, particularly if you're documenting a new project.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только вы закончите первый проект страниц определений каждого узла, вы должны попросить разработчиков просмотреть определения и получить их отзывы. Возможно, вам придется исправить или улучшить несколько определений, или даже переписать их. Будьте уверены, этого следует ожидать, особенно если вы документируете новый проект.",
+                    "updated": 1670680205254
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie den ersten Entwurf der Definitionsseiten eines jeden Knotens fertiggestellt haben, sollten Sie die Entwickler bitten, die Definitionen durchzugehen und ihr Feedback einzuholen. Es kann sein, dass Sie einige Definitionen korrigieren oder verbessern müssen, oder sogar umfangreiche Neufassungen vornehmen müssen. Seien Sie versichert, dass dies zu erwarten ist, insbesondere wenn Sie ein neues Projekt dokumentieren.",
+                    "updated": 1681842463739
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "It is of the utmost importance that you iterate on definitions until developers have nothing else to say about your write-up. Remember that these definitions will make up the better part of the overall documentation, so there's no point in rushing things to get to the next stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Крайне важно, чтобы вы повторяли определения до тех пор, пока разработчикам больше нечего будет сказать о вашей документации. Помните, что эти определения составят большую часть всей документации, поэтому нет смысла торопиться, чтобы перейти к следующему этапу.",
+                    "updated": 1670680221693
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist von größter Wichtigkeit, dass Sie die Definitionen so lange wiederholen, bis die Entwickler nichts mehr zu Ihrem Beitrag sagen können. Denken Sie daran, dass diese Definitionen den größten Teil der gesamten Dokumentation ausmachen werden, es hat also keinen Sinn, die Dinge zu überstürzen, um zur nächsten Stufe zu gelangen.",
+                    "updated": 1681842607540
+                }
+            ]
+        }
+    ]
+}

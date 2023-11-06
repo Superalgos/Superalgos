@@ -1,0 +1,108 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 8,
+    "type": "Aroon",
+    "definition": {
+        "text": "Technical momentum oscillator that allows traders to see whether an asset is trending",
+        "updated": 1659619462164,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Technischer Momentum Oszillator, mit dem Händler erkennen können, ob sich ein Vermögenswert im Trend befindet",
+                "updated": 1671226286512
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The Aroon Indicator",
+            "updated": 1656583627080,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Aroon Indikator",
+                    "updated": 1671226451668
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Aroon indicator is a technical indicator that is used to identify trend changes in the price of an asset, as well as the strength of that trend. In essence, the indicator measures the time between highs and the time between lows over a time period. The idea is that strong uptrends will regularly see new highs, and strong downtrends will regularly see new lows. The indicator signals when this is happening, and when it isn't.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Aroon Indikator ist ein technischer Indikator, der dazu dient, Trendänderungen im Preis eines Vermögenswerts sowie die Stärke dieses Trends zu erkennen. Im Wesentlichen misst der Indikator die Zeit zwischen den Höchstständen und die Zeit zwischen den Tiefstständen über einen bestimmten Zeitraum. Die Idee dahinter ist, dass starke Aufwärtstrends regelmäßig neue Höchststände und starke Abwärtstrends regelmäßig neue Tiefststände aufweisen. Der Indikator zeigt an, wann dies der Fall ist und wann dies nicht der Fall ist",
+                    "updated": 1671263736443
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aroon-indicator.png",
+            "updated": 1656584141084
+        },
+        {
+            "style": "Text",
+            "text": "The Aroon indicator was developed by Tushar Chande in 1995. The indicator consists of the \"Aroon up\" line, which measures the strength of the uptrend, and the \"Aroon down\" line, which measures the strength of the downtrend.",
+            "updated": 1656584172273,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Aroon Indikator wurde von Tushar Chande im Jahr 1995 entwickelt. Der Indikator besteht aus der \"Aroon up\" Linie, die die Stärke des Aufwärtstrends misst, und der \"Aroon down\" Linie, die die Stärke des Abwärtstrends misst.",
+                    "updated": 1671263807981
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Aroon Indicator Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aroon Indikator Produkte & Eigenschaften",
+                    "updated": 1671263873450
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are two properties available",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es sind zwei Eigenschaften verfügbar",
+                    "updated": 1671263906559
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "|Product Name |Properties |\n|aroon | aroonUp, aroonDown |",
+            "updated": 1656584513030,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "|Produktname |Eigenschaften |\n|aroon | aroonUp, aroonDown |",
+                    "updated": 1671226532486
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1656584551727,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671263933717
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "chart.at15min.aroon.aroonUp > chart.at15min.aroon.aroonUp"
+        }
+    ]
+}

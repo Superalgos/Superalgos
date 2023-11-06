@@ -1,0 +1,34 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 49,
+    "type": "Superalgos Review - fediculous first impression",
+    "definition": {
+        "text": "Amazing project, really excited to build this together. I am particularly interested in connecting non-price fundamental data for gaining an edge in predicting price movements.\n",
+        "updated": 1672228275988,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Erstaunliches Projekt, ich freue mich wirklich darauf, es gemeinsam aufzubauen. Ich bin besonders daran interessiert, nicht-preisliche Fundamentaldaten zu verknüpfen, um einen Vorteil bei der Vorhersage von Kursbewegungen zu erlangen.",
+                "updated": 1687642493849
+            },
+            {
+                "language": "TR",
+                "text": "Harika bir proje, bunu birlikte inşa etmek için gerçekten heyecanlıyım. Özellikle fiyat hareketlerini tahmin etmede avantaj elde etmek için fiyat dışı temel verileri bağlamakla ilgileniyorum.",
+                "updated": 1696017846474
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1687642505937
+                }
+            ]
+        }
+    ]
+}

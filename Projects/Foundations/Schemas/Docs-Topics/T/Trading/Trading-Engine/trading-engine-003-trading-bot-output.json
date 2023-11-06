@@ -4,21 +4,89 @@
     "type": "Trading Bot Output",
     "definition": {
         "text": "The trading bot stores every piece of information processed in files, making all data accessible to others, both online and offline.",
-        "updated": 1611254037722
+        "updated": 1611254037722,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот хранит каждую обработанную информацию в файлах, делая все данные доступными для других, как онлайн, так и офлайн.",
+                "updated": 1640341032465
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret botu ( Trading Bot ) , işlenen her bilgiyi dosyalarda saklayarak tüm verilere hem çevrimiçi hem de çevrimdışı olarak erişilmesini sağlar.",
+                "updated": 1650574717425
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading-Bot speichert alle verarbeiteten Informationen in Dateien und macht alle Daten für andere sowohl online als auch offline zugänglich.",
+                "updated": 1693254135766
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "As explained elsewhere, the trading bot makes the information it processes available to users through the hierarchy of the trading engine, which may be visualized both on the design space and over the charts. It also makes it available to trading systems.",
-            "updated": 1611254053601
+            "updated": 1611254053601,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как объясняется в другом месте, торговый бот делает обрабатываемую им информацию доступной для пользователей через иерархию Trading Engine, которая может быть визуализирована как на пространстве проектирования, так и над графиками. Он также делает ее доступной для торговых систем.",
+                    "updated": 1640341127697
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir yerde açıklandığı gibi, ticaret botu, hem tasarım alanında hem de çizelgeler üzerinde görselleştirilebilen ticaret motorunun hiyerarşisi aracılığıyla işlediği bilgileri kullanıcıların kullanımına sunar. Aynı zamanda ticaret sistemleri için kullanılabilir hale getirir.",
+                    "updated": 1650574747061
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie an anderer Stelle erläutert, stellt der Trading-Bot die von ihm verarbeiteten Informationen den Nutzern über die Hierarchie der Trading-Engine zur Verfügung, die sowohl auf der Designfläche als auch auf den Charts visualisiert werden kann. Er stellt sie auch den Handelssystemen zur Verfügung.",
+                    "updated": 1693254151815
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On top of that, the information is also stored in files, sorted by concept. These makes the runtime information available to other processes and external systems, to be accessed both online, that is, at runtime, of offline."
+            "text": "On top of that, the information is also stored in files, sorted by concept. These makes the runtime information available to other processes and external systems, to be accessed both online, that is, at runtime, of offline.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, информация также хранится в файлах, отсортированных по категориям. Это делает информацию о среде выполнения доступной для других процессов и внешних систем, причем доступ к ней можно получить как в режиме онлайн, то есть во время выполнения, так и в режиме офлайн.",
+                    "updated": 1640341265695
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun da ötesinde, bilgiler konsepte göre sıralanmış dosyalarda da saklanır. Bunlar, çalışma zamanı bilgilerini hem çevrimiçi, yani çalışma zamanında, hem de çevrimdışı olarak erişilebilecek diğer süreçler ve harici sistemler için kullanılabilir hale getirir.",
+                    "updated": 1650574755156
+                },
+                {
+                    "language": "DE",
+                    "text": "Darüber hinaus werden die Informationen auch in Dateien gespeichert, die nach Konzepten geordnet sind. Dadurch stehen die Laufzeitinformationen anderen Prozessen und externen Systemen zur Verfügung, auf die sowohl online, d. h. zur Laufzeit, als auch offline zugegriffen werden kann.",
+                    "updated": 1693254220952
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading bot outputs files on the node it runs on, particularly, in the following location:"
+            "text": "The trading bot outputs files on the node it runs on, particularly, in the following location:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый бот выводит файлы на узел, на котором он работает, в частности, в следующее место:",
+                    "updated": 1640341282965
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu ( Trading Bot ), üzerinde çalıştığı düğümdeki dosyaları, özellikle aşağıdaki konuma çıkarır:",
+                    "updated": 1650574797184
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trading-Bot gibt Dateien auf dem Knoten aus, auf dem er läuft, und zwar an folgendem Ort:",
+                    "updated": 1693254229090
+                }
+            ]
         },
         {
             "style": "Json",

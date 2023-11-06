@@ -7,34 +7,188 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "If you can't see what I showed in the video, chances are you skipped one or more of my previous instructions!"
+        "text": "If you can't see what I showed in the video, chances are you skipped one or more of my previous instructions!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn Sie nicht sehen können, was ich in dem Video gezeigt habe, haben Sie wahrscheinlich eine oder mehrere meiner vorherigen Anweisungen übersprungen!",
+                "updated": 1641763445408
+            },
+            {
+                "language": "TR",
+                "text": "Videoda gösterdiklerimi göremiyorsanız, önceki talimatlardan birini veya birkaçını atlamış olabilirsiniz!",
+                "updated": 1641655510400
+            },
+            {
+                "language": "RU",
+                "text": "Если вы не видите то же самое, что я показал в видео, скорее всего, вы пропустили одну или несколько моих предыдущих инструкций!",
+                "updated": 1642655264985
+            },
+            {
+                "language": "ES",
+                "text": "Si no puedes ver lo que muestro en el vídeo, lo más probable es que te hayas saltado una o más de mis instrucciones anteriores.",
+                "updated": 1677101923584
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I will cover some troubleshooting tactics later on, but for the time being, the solution is to go back in the tutorial and make sure you did everything I told you to do!"
+            "text": "I will cover some troubleshooting tactics later on, but for the time being, the solution is to go back in the tutorial and make sure you did everything I told you to do!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich werde später noch auf einige Taktiken zur Fehlerbehebung eingehen, aber im Moment besteht die Lösung darin, im Tutorial zurückzugehen und sicherzustellen, dass Sie alles getan haben, was ich Ihnen gesagt habe!",
+                    "updated": 1641763464944
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha sonra bazı sorun giderme taktiklerini ele alacağız, şimdilik çözüm, öğreticiye geri dönmek ve yapmanızı söylediğim her şeyi yaptığınızdan emin olmaktır.",
+                    "updated": 1641655570798
+                },
+                {
+                    "language": "RU",
+                    "text": "Позже я расскажу о некоторых тактиках устранения неполадок, но на данный момент решение заключается в том, чтобы вернуться в учебник и убедиться, что вы сделали все, что я вам сказал!",
+                    "updated": 1642655287807
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Voy a cubrir algunas tácticas de solución de problemas más adelante, pero por el momento, la solución es volver atrás en el tutorial y asegúrate de que hiciste todo lo que te dije que hicieras!",
+                    "updated": 1677101943518
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Did you turn on the right layers? "
+            "text": "Did you turn on the right layers? ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Haben Sie die richtigen Ebenen aktiviert?",
+                    "updated": 1641763475565
+                },
+                {
+                    "language": "TR",
+                    "text": "Doğru katmanları açtınız mı?",
+                    "updated": 1641655643205
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы включили нужные слои?",
+                    "updated": 1642655302039
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Activaste las capas correctas?",
+                    "updated": 1677101987232
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Did you run the backtest? "
+            "text": "Did you run the backtest? ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Haben Sie den Backtest ausgeführt?",
+                    "updated": 1641763481595
+                },
+                {
+                    "language": "TR",
+                    "text": "Backtest'i yaptınız mı?",
+                    "updated": 1669585318807
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы провели бэктест?",
+                    "updated": 1642655321291
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Has ejecutado el backtest?",
+                    "updated": 1677101998121
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Did you set up the definitions as instructed?",
-            "updated": 1622487112241
+            "updated": 1622487112241,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Haben Sie die Definitionen wie angewiesen eingerichtet?",
+                    "updated": 1641763488940
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımları belirtildiği gibi ayarladınız mı?",
+                    "updated": 1641655635362
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы настроили определения в соответствии с инструкциями?",
+                    "updated": 1642655348842
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Has configurado las definiciones según las instrucciones?",
+                    "updated": 1677102009315
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Did you use two situations in the Trigger Off Event ?",
-            "updated": 1622488179340
+            "updated": 1622488179340,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Haben Sie zwei Situationen im Trigger Off Event verwendet?",
+                    "updated": 1641763496430
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleme Olayında ( Trigger Off Event ) iki durum kullandınız mı?",
+                    "updated": 1641655673934
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы использовали две ситуации в событии Trigger Off Event?",
+                    "updated": 1642655437771
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Has utilizado dos situaciones en el evento Trigger Off?",
+                    "updated": 1677102020307
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Go backwards in the tutorial, step by step, and make sure you didn't skip any steps!"
+            "text": "Go backwards in the tutorial, step by step, and make sure you didn't skip any steps!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie im Lernprogramm Schritt für Schritt zurück und stellen Sie sicher, dass Sie keinen Schritt übersprungen haben!",
+                    "updated": 1641763506682
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitimde adım adım geriye gidin ve hiçbir adımı atlamadığınızdan emin olun!",
+                    "updated": 1669585405893
+                },
+                {
+                    "language": "RU",
+                    "text": "Двигайтесь назад по учебнику, шаг за шагом, и убедитесь, что вы не пропустили ни одного шага!",
+                    "updated": 1642655506221
+                },
+                {
+                    "language": "ES",
+                    "text": "Vuelve atrás en el tutorial, paso a paso, y asegúrate de que no te has saltado ningún paso.",
+                    "updated": 1677101972616
+                }
+            ]
         }
     ]
 }

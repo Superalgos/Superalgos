@@ -1,0 +1,70 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "9",
+    "type": "SMMA",
+    "definition": {
+        "text": "The Smoothed Moving Average (SMMA) is similar to the Simple Moving Average (SMA) in that it aims to reduce noise rather than reduce lag."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "SMMA on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The SMMA is a combination of the EMA and SMA and uses all prices in it's lookback period, but assigns lower weight on older prices."
+        },
+        {
+            "style": "Text",
+            "text": "When compared to the EMA and the SMA, the SMMA will produce a value between the other two moving averages."
+        },
+        {
+            "style": "Text",
+            "text": "This indicator produces two SMMA values; a fast and a slow period value."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-SMMA.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| SMMA | smma | value1, value2 |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the indicator's moving average can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"SMMA\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-SMMA-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the price action rises above the SMMA and the fast SMMA is above the slow SMMA:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.smma.value > chart.at01hs.smma.value1 && chart.at01hs.smma.value1 > chart.at01hs.smma.value2"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

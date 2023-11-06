@@ -8,45 +8,130 @@
                 "language": "RU",
                 "text": "Этот бот может получать данные из любого API в интернете, если ему предоставляется карта API Map во время выполнения.",
                 "updated": 1639657096978
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Bot kann Daten von jeder beliebigen API im Internet abrufen, solange er zur Laufzeit mit einer API-Map versorgt wird.",
+                "updated": 1646078648485
+            },
+            {
+                "language": "TR",
+                "text": "Bu bot, çalışma zamanında bir API Haritası ( API Map ) sağlandığı sürece internetteki herhangi bir API'den veri getirebilir.",
+                "updated": 1652012709979
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "An API Data Fetcher Bot is similar to a Sensor Bot, except that a Sensor Bot requires a dev users to code an algorithm to extract the data, while an API Data Fetcher Bot can do it without coding using an API Map.",
-            "updated": 1622895168429,
+            "text": "An API Data Fetcher Bot is similar to a Sensor Bot, except that a Sensor Bot requires a developer to code an algorithm to extract the data, while an API Data Fetcher Bot can retrieve information without coding by using an API Map.",
+            "updated": 1652829674713,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "API Data Fetcher Bot похож на Sensor Bot, за исключением того, что Sensor Bot требует, чтобы пользователи кодировали алгоритм для извлечения данных, в то время как API Data Fetcher Bot может делать это без кодирования с использованием API Map.",
-                    "updated": 1639657268001
+                    "text": "API Data Fetcher Bot похож на Sensor Bot, за исключением того, что Sensor Bot требует от разработчика кодирования алгоритма для извлечения данных, а API Data Fetcher Bot может получить информацию без кодирования, используя API Map.",
+                    "updated": 1661149085042
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein API Data Fetcher Bot ähnelt einem Sensor Bot, mit dem Unterschied, dass ein Sensor Bot von einem Entwickler einen Algorithmus zum Extrahieren der Daten benötigt, während ein API Data Fetcher Bot dies ohne Programmierung mit Hilfe einer API Map tun kann.",
+                    "updated": 1646078682264
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir API Veri Toplayıcı Botu, bir Sensör Botuna benzer, ancak bir Sensör Botu ( Sensor Bot ), dev kullanıcılarının verileri ayıklamak için bir algoritmayı kodlamasını gerektirirken, bir API Veri Toplayıcı Botu bunu bir API Haritası ( API Map )  kullanarak kodlamadan yapabilir.",
+                    "updated": 1652012801447
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow"
+            "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
+                    "updated": 1654390398261,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Data Mining - Fetching Data From APIs->Step By Step",
-            "updated": 1622120795620
+            "updated": 1622120795620,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Foundations->Topic->Veri Madenciliği - API'lerden Veri Getirme->Adım Adım",
+                    "updated": 1654390404368,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "API Data Fetcher Bot Configuration",
-            "updated": 1622895379480
+            "updated": 1622895379480,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Data Fetcher Bot Konfiguration",
+                    "updated": 1646078715510
+                },
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcısı Bot Yapılandırması",
+                    "updated": 1652012841513
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1622895415959
+            "updated": 1622895415959,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1646078747353
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652012851236
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName Define the name of the bot that will be used in the code.",
-            "updated": 1622895425847
+            "updated": 1622895425847,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "codeName Definieren Sie den Namen des Bots, der im Code verwendet werden soll.",
+                    "updated": 1646078767997
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName Kodda kullanılacak botun adını tanımlayın.",
+                    "updated": 1652012867065
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "apiEndpoint this property defines the endpoint with which the current fetcher bot will connect to from the API Map. It needs to match the codeName of the appropriate API Endpoint node.",
+            "updated": 1653143444187,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "apiEndpoint bu özellik, geçerli fetcher botunun API Haritasından bağlanacağı uç noktayı tanımlar. Uygun API Uç Noktası düğümünün codeName'i ile eşleşmesi gerekir.",
+                    "updated": 1654390410306,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

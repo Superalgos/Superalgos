@@ -114,10 +114,10 @@ function newFoundationsDocsDocumentPage() {
         async function repositionWorkspace() {
             let node
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category === 'Workspace') {
-                node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
+                node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
             }
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId !== undefined) {
-                node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
+                node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
             }
             if (node === undefined) {
                 return
@@ -139,6 +139,8 @@ function newFoundationsDocsDocumentPage() {
             let orderedTutorialPageIndexArray = []
             let orderedReviewPageIndexArray = []
             let HTML = ''
+
+            HTML = HTML + UI.projects.education.spaces.docsSpace.navigationElements.getRightNavPanel()
 
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
@@ -295,9 +297,9 @@ function newFoundationsDocsDocumentPage() {
                 /* We will test if we can draw an image here or not*/
                 let testElement
                 if (docsSchemaDocument.definition.icon !== undefined) {
-                    testElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
+                    testElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
                 } else {
-                    testElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, type)
+                    testElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, type)
                 }
 
                 /* 
@@ -339,11 +341,11 @@ function newFoundationsDocsDocumentPage() {
 
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.previous") +'> Previous </button></span><br/>' + previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.next") +'> Next </button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return
@@ -385,11 +387,11 @@ function newFoundationsDocsDocumentPage() {
 
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.previous") +'> Previous </button></span><br/>' + previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.next") +'> Next </button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return
@@ -397,13 +399,20 @@ function newFoundationsDocsDocumentPage() {
                 }
             }
 
-            function generateTutorialMultiPageIndex() {
+            function generateTutorialMultiPageIndex(project) {
                 /* 
                 We will go through all the schema documents array for the current project and pick
                 the documents that share the same key thatn the document we are rendering now. 
                 With the info on those picked document we will build the index.
                 */
                 let paragraph
+                let indexProject 
+
+                if (project !== undefined) {
+                    indexProject = project
+                } else {
+                    indexProject = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
+                }
 
                 for (let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
                     let arrayItem = orderedTutorialPageIndexArray[i]
@@ -413,7 +422,7 @@ function newFoundationsDocsDocumentPage() {
                         text: "" + arrayItem.type + ""
                     }
                     autoGeneratedParagraphIndex++
-                    HTML = HTML + '<p>' + arrayItem.pageNumber + '. ' + '<a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
+                    HTML = HTML + '<p>' + arrayItem.pageNumber + '. ' + '<a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + indexProject + '\', \'' + 'Tutorial' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
                 }
             }
 
@@ -430,11 +439,11 @@ function newFoundationsDocsDocumentPage() {
 
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.previous") +'> Previous </button></span><br/>' + previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.next") +'> Next </button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return
@@ -733,7 +742,7 @@ function newFoundationsDocsDocumentPage() {
                             break
                         }
                         case 'Tutorial': {
-                            generateTutorialMultiPageIndex()
+                            generateTutorialMultiPageIndex(project)
                             break
                         }
                         case 'Review': {
@@ -771,24 +780,24 @@ function newFoundationsDocsDocumentPage() {
                             equal to the Node Type.
                             */
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                            imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                            imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if (imageElement === undefined) {
-                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
                             }
                         } else {
                             if (imageItem.icon === undefined) {
                                 /* This is the default behaviours */
-                                imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (imageElement === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
-                                imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
+                                imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if (imageElement === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             }
@@ -811,22 +820,22 @@ function newFoundationsDocsDocumentPage() {
                             let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
                             if (appSchemaDocument.icon === undefined) {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                                collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                                collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if (collectionImage === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
-                                collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (collectionImage === undefined) {
-                                    console.log('[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                    console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
-                            collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
+                            collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if (collectionImage === undefined) {
-                                console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
+                                console.log((new Date()).toISOString(), '[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
                             }
                         }
@@ -848,7 +857,7 @@ function newFoundationsDocsDocumentPage() {
 
                 function addProjectImage() {
                     let imageName = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
-                    let imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
+                    let imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
                     if (imageElement !== undefined) {
                         imageElement.width = "50"
                         imageElement.height = "50"
@@ -885,7 +894,7 @@ function newFoundationsDocsDocumentPage() {
                                 } else {
                                     project = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
                                 }
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
+                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
                             } else {
                                 if (actionProject !== undefined) {
                                     project = actionProject
@@ -893,9 +902,9 @@ function newFoundationsDocsDocumentPage() {
                                     project = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
                                 }
                                 if (menuItem.iconPathOn !== undefined) {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
                                 } else {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
                                 }
                             }
                         }
@@ -922,9 +931,9 @@ function newFoundationsDocsDocumentPage() {
 
                         function getIcon() {
                             if (childrenNodesProperty.project !== undefined) {
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
+                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
+                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
                             }
                         }
                     }
@@ -978,11 +987,11 @@ function newFoundationsDocsDocumentPage() {
                             function getIcon() {
                                 let splittedListItem = listItem.split('|')
                                 if (splittedListItem.length === 1) {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
                                 } else {
                                     let project = splittedListItem[0]
                                     let nodeType = splittedListItem[1]
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, nodeType)
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, nodeType)
                                 }
                             }
                         }
@@ -1010,7 +1019,7 @@ function newFoundationsDocsDocumentPage() {
                     for (let i = 0; i < imageArray.length; i++) {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
-                        let collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'configuration')
+                        let collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'configuration')
                         if (collectionImage === undefined) {
                             continue
                         }
@@ -1055,8 +1064,7 @@ function newFoundationsDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
-
-                        HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element"><img>' + menuItem.label + '</button>'
+                        HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element" '+ addDataAttribute(menuItem.translationKey) +'><img>' + menuItem.label + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1112,8 +1120,7 @@ function newFoundationsDocsDocumentPage() {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
 
                         let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
-
-                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(name, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
+                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element" '+ addDataAttribute(childrenNodesProperty.translationKey) +'><img>' + UI.projects.education.utilities.docs.addToolTips(name, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1190,7 +1197,7 @@ function newFoundationsDocsDocumentPage() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element" '+ addDataAttribute(listItem.translationKey) +'><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -1249,7 +1256,7 @@ function newFoundationsDocsDocumentPage() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element" '+ addDataAttribute(listItem.translationKey) +'><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -1306,7 +1313,7 @@ function newFoundationsDocsDocumentPage() {
                     they are using and sample values for each one.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1319,7 +1326,8 @@ function newFoundationsDocsDocumentPage() {
                     let propertyMap = new Map()
                     for (let i = 0; i < allNodesFound.length; i++) {
                         let node = allNodesFound[i]
-                        let config = JSON.parse(node.config)
+                        let config = {}
+                        try { config = JSON.parse(node.config) } catch(e) {}
                         for (const property in config) {
                             let value = JSON.stringify(config[property], undefined, 4)
                             let valueArray = propertyMap.get(property)
@@ -1422,7 +1430,7 @@ function newFoundationsDocsDocumentPage() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1525,7 +1533,7 @@ function newFoundationsDocsDocumentPage() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1740,7 +1748,7 @@ function newFoundationsDocsDocumentPage() {
                         sufix = ''
                         role = ''
                         key = key + '-link'
-                        innerHTML = UI.projects.education.utilities.docs.parseLink(paragraph.text)
+                        innerHTML = UI.projects.education.utilities.docs.parseLink(UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph))
                         break
                     }
                     case 'Youtube': {

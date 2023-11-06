@@ -4,17 +4,50 @@
     "type": "Bollinger by @luis_fernando_molina",
     "definition": {
         "text": "The Bollinger Data Mine features the Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels, and Bollinger Subchannels indicators.",
-        "updated": 1622481705188
+        "updated": 1622481705188,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Bollinger Data Mine bietet die Indikatoren Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels und Bollinger Subchannels.",
+                "updated": 1641726607267
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bollinger Veri Madeni ( Data Mine ), Bollinger Bantları (BB), Yüzde Bant Genişliği (%B), Bollinger Kanalları ve Bollinger Alt Kanalları göstergelerini içerir.",
+                "updated": 1644417428398
+            },
+            {
+                "language": "RU",
+                "text": "В Bollinger Data Mine представлены индикаторы Bollinger Bands (BB), Percentage Bandwidth (%B), Bollinger Channels и Bollinger Subchannels.",
+                "updated": 1645605947624
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı:",
+                    "updated": 1654393178017,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina"
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+                    "updated": 1654393184093,
+                    "style": "Link"
+                }
+            ]
         }
     ]
 }

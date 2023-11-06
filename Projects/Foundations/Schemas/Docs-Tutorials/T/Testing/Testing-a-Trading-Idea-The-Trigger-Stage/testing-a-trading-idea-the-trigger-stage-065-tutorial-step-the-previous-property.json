@@ -1,0 +1,95 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 65,
+    "type": "Tutorial Step - The Previous Property",
+    "definition": {
+        "icon": {
+            "name": "Record\\record-property",
+            "project": "Foundations"
+        },
+        "text": "I mentioned we would use the previous property to modify each property on both sides of the statement...",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich erwähnte, dass wir die vorherige Eigenschaft verwenden würden, um jede Eigenschaft auf beiden Seiten der Anweisung zu ändern...",
+                "updated": 1639390012441
+            },
+            {
+                "language": "TR",
+                "text": "İfadenin her iki tarafındaki her bir özelliği değiştirmek için \"previous\" özelliğini kullanacağımızı belirtmiştim...",
+                "updated": 1669666340789
+            },
+            {
+                "language": "RU",
+                "text": "Я упомянул, что мы будем использовать свойства previous (предыдущий) для изменения каждого свойства с обеих сторон выражения...",
+                "updated": 1642661496564
+            },
+            {
+                "language": "ES",
+                "text": "Mencioné que usaríamos la propiedad anterior (previuos) para modificar cada propiedad en ambos lados de la declaración...",
+                "updated": 1679101221283
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "But such use is not mandatory! You may use the previous property as you wish. We need to compare the close of the candle with the moving average and the deviation of the same candle! That is why we apply it to all statements!",
+            "updated": 1610471797965,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Verwendung ist jedoch nicht zwingend erforderlich! Sie können die vorherige Eigenschaft nach Belieben verwenden. Wir müssen den Schluss der Kerze mit dem gleitenden Durchschnitt und der Abweichung derselben Kerze vergleichen! Deshalb wenden wir sie auf alle Aussagen an!",
+                    "updated": 1639390021071
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, bu kullanım kesinlikle gerekli değildir!\"previous\" özelliğini istediğiniz gibi kullanabilirsiniz. Mumun kapanışını hareketli ortalama ve aynı mumun sapması ile karşılaştırmamız gerekiyordu! Bu nedenle, bunu tüm ifadelere uyguladık!",
+                    "updated": 1669666400654
+                },
+                {
+                    "language": "RU",
+                    "text": "Но такое использование не является обязательным! Вы можете использовать свойство previous по своему усмотрению. Нам нужно сравнить закрытие свечи со скользящей средней и отклонение этой же свечи! Поэтому мы применяем его ко всем условным выражениям!",
+                    "updated": 1642661848699
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero este uso no es obligatorio! Puedes usar la propiedad previous como desees. ¡Necesitamos comparar el cierre de la vela con la media móvil y la desviación de la misma vela! ¡Por eso la aplicamos a todas las declaraciones!",
+                    "updated": 1679101214504
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "But you may, for instance, want to compare the close of the current candle to the close of the previous candle:",
+            "updated": 1610471869420,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aber Sie können zum Beispiel den Schluss der aktuellen Kerze mit dem Schluss der vorherigen Kerze vergleichen:",
+                    "updated": 1639390029761
+                },
+                {
+                    "language": "TR",
+                    "text": "Mesela mevcut mumun kapanışını önceki mumun kapanışıyla karşılaştırmak isteyebilirsiniz. O zaman koşulumuz şu şekilde olacaktı:",
+                    "updated": 1669666454467
+                },
+                {
+                    "language": "RU",
+                    "text": "Но вы можете, например, захотеть сравнить закрытие текущей свечи с закрытием предыдущей свечи:",
+                    "updated": 1642661864141
+                },
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, puedes, por ejemplo, querer comparar el cierre de la vela actual con el cierre de la vela previa:",
+                    "updated": 1679101205698
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > \nchart.at01hs.candle.previous.close",
+            "updated": 1610471621224
+        }
+    ]
+}

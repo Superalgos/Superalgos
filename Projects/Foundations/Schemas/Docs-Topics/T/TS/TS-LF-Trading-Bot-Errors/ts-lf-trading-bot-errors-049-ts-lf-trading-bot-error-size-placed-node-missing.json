@@ -4,17 +4,38 @@
     "type": "TS LF Trading Bot Error - Size Placed Node Missing",
     "definition": {
         "text": "A Size Placed node was expected but not found at the node where the error originated.",
-        "updated": 1611677675945
+        "updated": 1611677675945,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Boyut Olarak Yerleştirilmiş ( Size Placed ) bir düğüm bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
+                "updated": 1649883733807
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Size Placed Node Missing",
-            "updated": 1611678372361
+            "updated": 1611678372361,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yerleştirilen Düğümün Boyutu Eksik. ( Size Placed Node Missing )",
+                    "updated": 1649883762854
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eksik düğümü ekleyin ve yeniden deneyin.",
+                    "updated": 1649883784767
+                }
+            ]
         }
     ]
 }

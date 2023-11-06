@@ -1,10 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Docs Intro",
     "definition": {
-        "text": "The Docs is a Space within the Superalgos Project. It allows users to search for information relative to nodes, concepts, topics, tutorials, reviews, and books.",
-        "updated": 1613753494568,
+        "text": "The Docs is a Space within the Foundations Project. It allows users to search for information relative to nodes, concepts, topics, tutorials, reviews, and books.",
+        "updated": 1642935831112,
         "translations": [
             {
                 "language": "ID",
@@ -20,8 +20,13 @@
             },
             {
                 "language": "RU",
-                "text": "Docs - это пространство в проекте Superalgos. Он позволяет пользователям искать информацию относительно узлов, концепций, тем, руководств, обзоров и книг.",
-                "updated": 1638457173451
+                "text": "Docs - это пространство в рамках проекта Foundations. Оно позволяет пользователям искать информацию по узлам, концепциям, темам, учебникам, обзорам и книгам.",
+                "updated": 1647781093549
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar, Foundation Project içinde bir Alan'dır. Kullanıcıların düğümler, kavramlar, konular, öğreticiler, incelemeler ve kitaplarla ilgili bilgileri aramasına olanak tanır.",
+                "updated": 1646205526218
             }
         ]
     },
@@ -47,6 +52,12 @@
                     "language": "RU",
                     "text": "Каждый проект, интегрированный в Superalgos, может иметь свой собственный набор страниц, составляющих документацию проекта.",
                     "updated": 1638457209931
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a entegre edilen her proje, projenin belgelerini oluşturan kendi sayfa koleksiyonuna sahip olabilir.",
+                    "updated": 1654393315572,
+                    "style": "Text"
                 }
             ]
         }

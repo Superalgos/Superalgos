@@ -4,17 +4,68 @@
     "type": "Node Children",
     "definition": {
         "text": "Nodes might have children. When they do, they usually offer the User a way to create it's children via the Node Menu. A Node Children might end up attached to the Parent Node, but that is not always the case.",
-        "updated": 1609237042862
+        "updated": 1609237042862,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узлы могут иметь дочерние элементы. В этом случае они обычно предлагают пользователю способ создания дочерних узлов через меню узла. Дочерний узел может быть присоединен к родительскому узлу, но это не всегда так.",
+                "updated": 1640356501619
+            },
+            {
+                "language": "TR",
+                "text": "Düğümlerin Alt Düğümleri olabilir. Bunu yaptıklarında, genellikle Kullanıcıya Düğüm Menüsü ( Node Menu ) aracılığıyla alt öğelerini oluşturmanın bir yolunu sunarlar. Bir Düğüm Alt Öğesi Üst Düğüme bağlı olabilir, ancak bu her zaman böyle değildir. Nodes might have children.",
+                "updated": 1654890462782
+            },
+            {
+                "language": "DE",
+                "text": "Knoten können Kinder haben. Wenn dies der Fall ist, bieten sie dem Benutzer normalerweise die Möglichkeit, über das Knotenmenü (Node Menu) Kinder zu erstellen. Ein Knoten Kinder könnte am Ende an den übergeordneten Knoten (Parent Node) angehängt werden, aber das ist nicht immer der Fall.",
+                "updated": 1689420657766
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Children Nodes Properties",
-            "updated": 1609242892197
+            "updated": 1609242892197,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства дочерних узлов",
+                    "updated": 1640356516508
+                },
+                {
+                    "language": "TR",
+                    "text": "Alt Düğüm Özellikleri",
+                    "updated": 1654890926872
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften der Kinderknoten",
+                    "updated": 1689420675915
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property (like in HTML) with an array of children nodes. Instead what we can find is that each Node Type defines which properties will hold those children references."
+            "text": "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property (like in HTML) with an array of children nodes. Instead what we can find is that each Node Type defines which properties will hold those children references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "У каждого типа узла могут быть дочерние объекты. Если они есть, то ссылка на них будет присутствовать во время выполнения в одном или нескольких свойствах объекта узла. Здесь нет общего свойства childrenNodes (как в HTML) с массивом дочерних узлов. Вместо этого каждый тип узла определяет, какие свойства будут содержать ссылки на дочерние узлы.",
+                    "updated": 1640356550579
+                },
+                {
+                    "language": "TR",
+                    "text": "Her düğüm türünün alt Düğümleri olabilir. Bunu yaparlarsa, çalışma zamanında düğüm nesnesinin bir veya daha fazla özelliğinde alt Düğüme bir başvuruda bulunacaktır. childrenNodes Bir dizi alt düğüme sahip genel bir özellik (HTML'deki gibi) yoktur. Bunun yerine bulabileceğimiz şey, her Düğüm Türünün ( Node Type ) hangi özelliklerin bu alt başvuruları tutacağını tanımlamasıdır.",
+                    "updated": 1654890908454
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Art von Knoten kann Kinder haben. Wenn dies der Fall ist, wird ein Verweis auf die Kinder zur Laufzeit in einer oder mehreren Eigenschaften des Knotenobjekts vorhanden sein. Es gibt keine generische Eigenschaft childrenNodes (wie in HTML) mit einem Array von Kinderknoten. Stattdessen definiert jeder Knotentyp (Node Type), welche Eigenschaften die Verweise auf die Kinder enthalten.",
+                    "updated": 1689421148399
+                }
+            ]
         }
     ]
 }

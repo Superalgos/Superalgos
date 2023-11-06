@@ -1,0 +1,51 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 25,
+    "type": "MOBO",
+    "definition": {
+        "text": "The MOBO (MOmentum BreakOut) indicator attempts to identify momentum breakouts and provides possible entry and exit signals."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MOBO On the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator uses the standard deviation of the price action to attempt to predict possible breakouts in the preferred direction of trade. If a possible entry is found, a green signal is produced. Exit signals, or sell signals are produced with the red colour."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-mobo-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the MOBO indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"MOBO\" Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-mobo-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "MOBO Products & Properties",
+            "updated": 1684321596340
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| MoboBands | mobo | dpo, midline, upper, lower, signal1, signal2 |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the buy signal is produced:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.mobo.signal1 == true"
+        }
+    ]
+}

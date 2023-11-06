@@ -4,13 +4,37 @@
     "type": "Zeus By @9808us",
     "definition": {
         "text": "The set of indicators built in the Zeus data mine include Directional Movement Index (DMI), Donchian Channels, Ichimoku Cloud, Wave Trend, Super Trend.",
-        "updated": 1611685533605
+        "updated": 1611685533605,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Zeus veri madeninde yerleşik göstergeler arasında Yönlü Hareket İndeksi (Index )  (DMI), Donchian Kanalları, Ichimoku Bulutu, Dalga Trendi, Süper Trend bulunur.",
+                "updated": 1647086835920
+            },
+            {
+                "language": "DE",
+                "text": "Die in der Zeus-Datenmine erstellten Indikatoren umfassen Directional Movement Index (DMI), Donchian Channels, Ichimoku Cloud, Wave Trend, Super Trend.",
+                "updated": 1671200782168
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Zeus data mine is brought to you by...",
-            "updated": 1611685563052
+            "updated": 1611685563052,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Zeus veri madeni @9808us tarafından sizin için geliştirildi...",
+                    "updated": 1647086957637
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Zeus Datenmine wird präsentiert von...",
+                    "updated": 1671200840308
+                }
+            ]
         },
         {
             "style": "Link",
@@ -25,6 +49,11 @@
                     "language": "DE",
                     "text": "Arbeiten Sie mit dieser Datamine zusammen und melden Sie Probleme direkt an das Repository des Mitwirkenden.",
                     "updated": 1637874691756
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu veri madenciliği ile işbirliği yapın ve sorunları doğrudan katkıda bulunanın deposunda bildirin.",
+                    "updated": 1647086984324
                 }
             ]
         }

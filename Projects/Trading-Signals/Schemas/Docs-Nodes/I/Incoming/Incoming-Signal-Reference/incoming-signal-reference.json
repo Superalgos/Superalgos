@@ -1,0 +1,39 @@
+{
+    "type": "Incoming Signal Reference",
+    "definition": {
+        "text": "This node stores a reference to a signal definition held under the User Profile of the signal provider.",
+        "updated": 1642908288435,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел хранит ссылку на определение сигнала, хранящееся в профиле пользователя поставщика сигнала.",
+                "updated": 1645252953318
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, sinyal sağlayıcının Kullanıcı Profili altında tutulan bir sinyal tanımına referansı saklar.",
+                "updated": 1654397664378
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each of the locations to which signals can be attached have matching Signals nodes under the Trading System Signals node of the provider's Social Trading Bot.",
+            "updated": 1644031659051,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждое из мест, к которым могут быть прикреплены сигналы, имеет соответствующие узлы Signals в узле Trading System Signals социального торгового бота (Social Trading Bot) провайдера.",
+                    "updated": 1645253008740
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyallerin eklenebileceği konumların her biri, sağlayıcının Sosyal Ticaret Botunun Ticaret Sistemi Sinyalleri düğümü altında eşleşen Sinyal düğümlerine sahiptir.",
+                    "updated": 1654397670566,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

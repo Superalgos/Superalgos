@@ -29,8 +29,23 @@
             },
             {
                 "language": "TR",
-                "text": "Varsayılan olarak, düğümler, üst düğümlerinin etrafında bir dönme simetrisine kilitlenir. Simetri, ayara bağlı olarak 360 derece veya daha az olabilir!",
-                "updated": 1636700229623
+                "text": "Varsayılan olarak, düğümler, ana düğümlerinin etrafında bir dönme simetrisine kilitlenir. Yavru düğümler, ayarınıza bağlı olarak, ana düğüm etrafında 0 ile 360 derece arasında bir ölçekte sıralanırlar!",
+                "updated": 1670338509923
+            },
+            {
+                "language": "RU",
+                "text": "По умолчанию узлы фиксируются с вращательной симметрией вокруг своего родительского узла. Симметрия может охватывать 360 градусов или меньше, в зависимости от настройки!",
+                "updated": 1640859273812
+            },
+            {
+                "language": "ID",
+                "text": "Secara umum, node terkunci ke simetris rotational di sekitaran node induknya. simetris ini dapat menjangkau 360 derajat atau kurang, tergantung dari pengaturannya!",
+                "updated": 1643473526505
+            },
+            {
+                "language": "NL",
+                "text": "Standaard zijn knooppunten vergrendeld met een rotatiesymmetrie rond hun bovenliggende knooppunt. De symmetrie kan 360 graden of minder overspannen, afhankelijk van de instelling!",
+                "updated": 1668335047368
             }
         ]
     },
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando haces clic en el botón del nodo Angle to Parent, cambias entre cinco configuraciones diferentes: 360, 180, 90 y 45 grados, más la opción de desactivar la simetría rotacional. ",
-                    "updated": 1625955464925,
+                    "text": "Cuando haces clic en el botón del nodo \"Angle to Parent\", cambias entre cinco configuraciones diferentes: 360, 180, 90 y 45 grados, más la opción de desactivar la simetría rotacional.",
+                    "updated": 1675375134609,
                     "style": "Text"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Ana düğümden Açı butonuna tıkladığınızda, beş farklı ayar arasında geçiş yaparsınız: 360, 180, 90 ve 45 derece ve ayrıca dönme simetrisini devre dışı bırakma seçeneği.",
                     "updated": 1636700351205
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы нажимаете на кнопку Angle to Parent node, вы переключаетесь между пятью различными настройками: 360, 180, 90 и 45 градусов, плюс возможность отключения вращательной симметрии.",
+                    "updated": 1640865758665
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu mengklik tombol Angle to Parent node, kamu berputar di antara lima pengaturan berbeda: 360, 180, 90, dan 45 derajat, ditambah opsi untuk menonaktifkan simetris rotational.",
+                    "updated": 1643473550089
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer u op de knop Angle to Parent node klikt, schakelt u tussen vijf verschillende instellingen: 360, 180, 90 en 45 graden, plus de optie om de rotatiesymmetrie uit te schakelen.",
+                    "updated": 1668335105001
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Lightning Strike Geri Test Oturumu ( Lightning Strike Backtesting Session ) düğümünün her bir öğesinde seçilen ayara hızlıca göz atın: İşlem Parametreleri ( Trading Parameters ), İşlem Sistemi Referansı ( Trading System Reference ) ve İşlem Motoru Referansı ( Trading Engine Reference ). Hepsi 180 dereceye ayarlanmış, değil mi?",
                     "updated": 1636700489786
+                },
+                {
+                    "language": "RU",
+                    "text": "Взгляните на настройки, выбранные в каждом из потомков узла Lightning Strike Backtesting Session: Trading Parameters, Trading System Reference и Trading Engine Reference. Все они установлены на 180 градусов, верно?",
+                    "updated": 1640865800071
+                },
+                {
+                    "language": "ID",
+                    "text": "Coba lihatlah pengaturan yang dipilih pada masing-masing turunan dari node Lightning Strike Backtesting Session : Trading Parameters, Trading System Reference, dan the Trading Engine Reference. Semuanya diatur ke 180 derajat, benar?",
+                    "updated": 1643473584884
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk snel de instelling die is geselecteerd op elk van de nakomelingen van het Lightning Strike Backtesting Session knooppunt: Trading Parameters, Trading System Reference en de Trading Engine Reference. Ze zijn allemaal ingesteld op 180 graden, toch?",
+                    "updated": 1668335174680
                 }
             ]
         }

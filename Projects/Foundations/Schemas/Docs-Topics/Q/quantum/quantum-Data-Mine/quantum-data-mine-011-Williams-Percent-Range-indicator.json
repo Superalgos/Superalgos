@@ -1,0 +1,215 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 11,
+    "type": "William's Percent Range Indicator",
+    "definition": {
+        "text": "Williams %R, also known as the Williams Percent Range, is a type of momentum indicator that moves between 0 and -100 and measures overbought and oversold levels.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Williams %R, также известный как Williams Percent Range, - это тип индикатора импульса, который движется в диапазоне от 0 до -100 и измеряет уровни перекупленности и перепроданности.",
+                "updated": 1647352889609
+            },
+            {
+                "language": "DE",
+                "text": "Williams %R, auch bekannt als Williams Percent Range, ist eine Art Momentum Indikator, der sich zwischen 0 und -100 bewegt und überkaufte und überverkaufte Niveaus misst.",
+                "updated": 1671637537111
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Williams %R On the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Williams %R на графиках",
+                    "updated": 1647352904462
+                },
+                {
+                    "language": "DE",
+                    "text": "Williams %R auf den Charts",
+                    "updated": 1671637558232
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: The Williams %R may be used to find entry and exit points in the market. The indicator is very similar to the Stochastic oscillator and is used in the same way. It was developed by Larry Williams and it compares a stock's closing price to the high-low range over a specific period, typically 14 days or periods.",
+            "updated": 1647223967173,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia: Williams %R может использоваться для поиска точек входа и выхода с рынка. Этот индикатор очень похож на осциллятор Stochastic и используется аналогичным образом. Он был разработан Ларри Уильямсом и сравнивает цену закрытия акции с диапазоном высоких и низких значений за определенный период, обычно за 14 дней или периодов.",
+                    "updated": 1647352921064
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Der Williams %R kann verwendet werden, um Einstiegs- und Ausstiegspunkte auf dem Markt zu finden. Der Indikator ist dem Stochastik-Oszillator sehr ähnlich und wird auf dieselbe Weise verwendet. Er wurde von Larry Williams entwickelt und vergleicht den Schlusskurs einer Aktie mit der Hoch-Tief Spanne über einen bestimmten Zeitraum, normalerweise 14 Tage oder Zeiträume.",
+                    "updated": 1671637601237
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ключевые понятия:",
+                    "updated": 1647352927724
+                },
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671640651846
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Moves between zero and -100",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перемещение между нулем и -100",
+                    "updated": 1647352937597
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegt sich zwischen Null und -100",
+                    "updated": 1671637655941
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "-20 is overbought",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "-20 - перекупленность",
+                    "updated": 1647352945491
+                },
+                {
+                    "language": "DE",
+                    "text": "-20 ist überkauft",
+                    "updated": 1671637669947
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "-80 is oversold",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "-80 - перепроданность",
+                    "updated": 1647352954116
+                },
+                {
+                    "language": "DE",
+                    "text": "-80 ist überverkauft",
+                    "updated": 1671637684288
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Williams %R(investopedia)->investopedia.com/terms/w/williamsr.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-williamsPercR-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Williams %R can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Williams %R\" Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры Williams %R можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе Product Definition \"Williams %R\".",
+                    "updated": 1647352981330
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Williams %R können geändert werden, indem der Javascript Code unter  Data Building Procedure -> Procedure Loop unter \"Williams %R\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671637744463
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-williamsPercR-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Williams %R Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Williams %R ",
+                    "updated": 1647352996991
+                },
+                {
+                    "language": "DE",
+                    "text": "Williams %R Produkte & Eigenschaften",
+                    "updated": 1671637764022
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Williams-PercR | WilliamsPercR | value |",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Product Setting | Product Variable | Properties |\n| Williams-PercR | WilliamsPercR | значение |",
+                    "updated": 1647353007320
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Williams-PercR | WilliamsPercR | value |",
+                    "updated": 1671637778025
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1647353014189
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671640636678
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the %R value leaves the overbought area of -80:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем входа в сделку, когда значение %R выходит из области перекупленности -80:",
+                    "updated": 1647353022815
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der %R-Wert den überkauften Bereich von -80 verlässt:",
+                    "updated": 1671637809707
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at45min.WilliamsPercR.previous.value < -80 && chart.at45min.WilliamsPercR.value > -80"
+        }
+    ]
+}

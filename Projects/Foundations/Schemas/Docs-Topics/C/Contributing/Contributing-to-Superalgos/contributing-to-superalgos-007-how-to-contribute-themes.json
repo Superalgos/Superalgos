@@ -1,0 +1,268 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": "7",
+    "type": "How to Contribute Themes",
+    "definition": {
+        "text": "If you created a cool theme for Superalgos, submit it as a contribution so that others may use it too!",
+        "updated": 1661452228997,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn Sie ein gutes Thema für Superalgos erstellt haben, reichen Sie es als Beitrag ein, damit andere es auch verwenden können!",
+                "updated": 1681710333414
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The Basics",
+            "updated": 1661452336037,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Grundlagen",
+                    "updated": 1681710343085
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To submit a theme, you must create a Docs Page in the corresponding Topic of the Community Themes Book. ",
+            "updated": 1661454117001,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um ein Thema einzureichen, müssen Sie eine Dokumentseite (Docs Page) im entsprechenden Thema des Community-Themenbuchs (Community Themes) erstellen.",
+                    "updated": 1681710356667
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "This page explains how to create the page so that it shows up in the book!",
+            "updated": 1661454150686,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auf dieser Seite wird erklärt, wie man die Seite erstellt, damit sie im Buch erscheint!",
+                    "updated": 1681710369535
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Charting Space Themes",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diagrammraum",
+                    "updated": 1681710378457
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There are three different categories of themes you may submit: Dark, Light, and Color Vision Deficiency themes. Each category is featured on a separate topic and chapter in the book.",
+            "updated": 1661452502653,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei verschiedene Kategorien von Themen, die Sie einreichen können: Themen zu Dunkelheit, Helligkeit und Farbsehschwäche. Jeder Kategorie ist ein eigenes Thema und Kapitel in dem Buch gewidmet.",
+                    "updated": 1681710388660
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Docs Page you will create must feature three sections:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Dokumentseite (Docs Page), die Sie erstellen werden, muss drei Abschnitte enthalten:",
+                    "updated": 1681710398250
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Author: Write your User Profile name, that is, you Github.com user name.",
+            "updated": 1661454297212,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Author: Geben Sie den Namen Ihres Benutzerprofils (User Profile) ein, d. h. Ihren Github.com-Benutzernamen.",
+                    "updated": 1681710414376
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Images: Add as many screen captures of your theme as you like. If you're not familiar with embedding images, check the Docs Png Style page.",
+            "updated": 1661454377379,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Images: Fügen Sie so viele Bildschirmfotos Ihres Themas hinzu, wie Sie möchten. Wenn Sie mit dem Einbetten von Bildern nicht vertraut sind, sehen Sie sich die Seite Docs Png Style an.",
+                    "updated": 1681710433956
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Charting Space Style Configuration: Paste the configuration of the Space Style node so that others may copy it.",
+            "updated": 1661454308523,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Charting Space Style Configuration: Fügen Sie die Konfiguration des Raumstil-Knotens (Space Style) ein, damit andere sie kopieren können.",
+                    "updated": 1681710451015
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1661452785222,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1681710461092
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Dark Charting Space Theme Example",
+            "updated": 1661452832449,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel Dunkler Diagrammraum (Dark Charting Space Theme Example)",
+                    "updated": 1681710856150
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Light Charting Space Theme Example",
+            "updated": 1661452844113,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel Heller Diagrammraum (Light Charting Space Theme Example)",
+                    "updated": 1681710865544
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Color Vision Deficiency Charting Space Theme Example",
+            "updated": 1661452854255,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel Diagrammraum in Farbe (Color Vision Deficiency Charting Space Theme Example)",
+                    "updated": 1681710872036
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Check the examples above to understand how you must structure the page of your theme!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie sich die Beispiele oben an, um zu verstehen, wie Sie die Seite Ihres Themas strukturieren müssen!",
+                    "updated": 1681710894462
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Add Docs Page Syntax",
+            "updated": 1661453351169
+        },
+        {
+            "style": "Text",
+            "text": "For your convenience, find below the three different versions of the Docs Add Command that you will need to create a page on each of the available categories.",
+            "updated": 1661454707772,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zu Ihrer Erleichterung finden Sie unten die drei verschiedenen Versionen des Befehls Docs Add (Docs Add Command), den Sie benötigen, um eine Seite für jede der verfügbaren Kategorien zu erstellen.",
+                    "updated": 1681710919635
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Remember to edit the command to include the name of your theme and the correct page number in the sequence of themes. You must look up the page number in the corresponding topic after updating in the develop branch!",
+            "updated": 1661454746836,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, den Befehl so zu bearbeiten, dass er den Namen Ihres Themas und die richtige Seitenzahl in der Reihenfolge der Themen enthält. Sie müssen die Seitenzahl nach der Aktualisierung im Entwicklungszweig im entsprechenden Thema nachschlagen!",
+                    "updated": 1681710924964
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Dark Themes:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Dark Charting Space Themes->yourThemeName->nextPageNumber",
+            "updated": 1661453801000
+        },
+        {
+            "style": "List",
+            "text": "Light Themes:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Light Charting Space Themes->yourThemeName->nextPageNumber",
+            "updated": 1661453725213
+        },
+        {
+            "style": "List",
+            "text": "Color Vision Deficiency Themes:",
+            "updated": 1661453827559
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Foundations: Color Vision Deficiency Charting Space Themes->yourThemeName->nextPageNumber",
+            "updated": 1661453728845
+        },
+        {
+            "style": "Note",
+            "text": "Notice that your theme must have a unique name, as the name is the identifier of the corresponding Docs Page. Be creative!",
+            "updated": 1661454047607,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass Ihr Thema einen eindeutigen Namen haben muss, da der Name der Bezeichner der entsprechenden Docs-Seite (Docs Page) ist. Seien Sie kreativ!",
+                    "updated": 1681713431076
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you are not familiar with editing the Docs and creating new pages, you may want dive deep and read about How to Contribute to the Docs.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mit der Bearbeitung der Dokumente und der Erstellung neuer Seiten nicht vertraut sind, sollten Sie sich mit dem Thema \"Wie man zu den Dokumenten beiträgt\" (How to Contribute to the Docs) vertraut machen.",
+                    "updated": 1681713480215
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Contributions Reminder",
+            "updated": 1661452262965
+        }
+    ]
+}

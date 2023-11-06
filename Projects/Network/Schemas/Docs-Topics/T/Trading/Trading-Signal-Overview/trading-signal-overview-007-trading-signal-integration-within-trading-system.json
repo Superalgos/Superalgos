@@ -1,0 +1,283 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 7,
+    "type": "Trading Signal Integration within Trading System",
+    "definition": {
+        "text": "Trading Signals intergrate seamlessly into Superalgos Trading Systems ",
+        "updated": 1642565193708,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговые сигналы легко интегрируются в торговые системы Superalgos",
+                "updated": 1645625474439
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret ( Trading ) Sinyalleri, Superalgos Ticaret Sistemlerine sorunsuz bir şekilde entegre olur",
+                "updated": 1646297648279
+            },
+            {
+                "language": "DE",
+                "text": "Handelssignale (Trading Signals) fügen sich nahtlos in Superalgos Handels (Trading) -Systeme ein",
+                "updated": 1674677218846
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The actual node structure of trading signals can be thought of as an extension of a Trading System. If you are unfamiliar with Trading Systems in Superalgos you can read this topic to learn more about how they work and what they can do.  ",
+            "updated": 1642565142346,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактическая узловая структура торговых сигналов может рассматриваться как расширение торговой системы. Если вы не знакомы с торговыми системами в Superalgos, вы можете прочитать эту тему, чтобы узнать больше о том, как они работают и что они могут делать.",
+                    "updated": 1645625503086
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sinyallerinin gerçek düğüm yapısı, bir Ticaret Sisteminin ( Trading System ) bir uzantısı olarak düşünülebilir. Superalgos'taki Ticaret Sistemlerine aşina değilseniz, nasıl çalıştıkları ve neler yapabilecekleri hakkında daha fazla bilgi edinmek için bu konuyu okuyabilirsiniz.",
+                    "updated": 1646297749656
+                },
+                {
+                    "language": "DE",
+                    "text": "Die eigentliche Knotenstruktur von Handelssignalen kann als eine Erweiterung eines Handelssystems (Trading System) betrachtet werden. Wenn Sie mit den Handels (Trading) -Systemen in Superalgos nicht vertraut sind, können Sie dieses Thema nachlesen, um mehr darüber zu erfahren, wie sie funktionieren und was sie tun können.",
+                    "updated": 1674677234586
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Trading signals plug directly into Tradings Systems using two main nodes",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые сигналы подключаются непосредственно к торговым системам с помощью двух основных узлов",
+                    "updated": 1645625540267
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sinyalleri, iki ana düğüm kullanarak doğrudan Ticaret Sistemlerine bağlanır",
+                    "updated": 1646297794472
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Handels (Trading) -Signale werden über zwei Hauptknotenpunkte direkt ins Tradings Systems eingebunden",
+                    "updated": 1674677264035
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Incoming Signals node",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Incoming Signals (узел входящих сигналов)",
+                    "updated": 1645625590648
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen Sinyaller ( Incoming Signals ) düğümü",
+                    "updated": 1646297832700
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Signal (Incoming Signals) -Knoten",
+                    "updated": 1674677275851
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Outgoing Signals node",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Outgoing Signals (узел исходящих сигналов)",
+                    "updated": 1645625641092
+                },
+                {
+                    "language": "TR",
+                    "text": "Giden Sinyaller ( Outgoing Signals ) düğümü",
+                    "updated": 1646297853841
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Signal (Outgoing Signals) -Knoten",
+                    "updated": 1674677283329
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "These types of nodes have a child node called a Signal Reference node (Incoming Signal Reference and Outgoing Signal Reference respectively).  These Signal Reference nodes connect with the Social Trading Bots held under a provider’s profile in order to tell the system where to feed or receive signal data within the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти типы узлов имеют дочерний узел, называемый узлом Signal Reference (Incoming Signal Reference и Outgoing Signal Reference соответственно). Эти узлы Signal Reference соединяются с ботами  Social Trading Bot, находящимися в профиле провайдера, чтобы указать системе, куда подавать или получать сигнальные данные в торговой системе.",
+                    "updated": 1645625690744
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür düğümlerin, Sinyal Referansı düğümü (sırasıyla Gelen Sinyal  Referansı ( Incoming Signal Reference ) ve Giden Sinyal  Referansı ( Outgoing Signal Reference ) adı verilen bir alt düğümü vardır. Bu Sinyal Referans düğümleri, ticaret sistemi içinde sinyal verilerinin nereyi besleyeceğini veya alacağını söylemek için bir sağlayıcının profili altında tutulan Sosyal Ticaret Botları ile bağlantı kurar.",
+                    "updated": 1646298213353
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Arten von Knoten haben einen untergeordneten Knoten, der Signalreferenzknoten genannt wird (Incoming Signal Reference and Outgoing Signal Reference respectively). Diese Signalreferenzknoten stellen eine Verbindung zu den Social Trading Bots her, die unter dem Profil eines Anbieters geführt werden, um dem System mitzuteilen, wo es Signaldaten innerhalb des Handelssystems einspeisen oder empfangen soll.",
+                    "updated": 1674677295609
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples of how these nodes work is as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры того, как работают эти узлы, приведены ниже:",
+                    "updated": 1645625700053
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümlerin nasıl çalıştığına dair örnekler şu şekildedir:",
+                    "updated": 1646298041694
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele für die Funktionsweise dieser Knoten sind die folgenden:",
+                    "updated": 1674677308554
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A provider wants to send a signal every time their trading system triggers on.  To achieve this they add an Outgoing Signal Node to their Trigger On Event (much like adding an announcement node).  Then they add the child Outgoing Signal Reference node.  After this they then connect the Outgoing Signal Reference node to the Trigger On Signal node of the Social Trading Bot that will be sending out this signal.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Провайдер желает отправлять сигнал каждый раз, когда срабатывает его торговая система. Для этого они добавляют узел Outgoing Signal к событию Trigger On Event (аналогично добавлению узла объявления). Затем они добавляют дочерний узел Outgoing Signal Reference. После этого они подключают узел Outgoing Signal Reference к узлу Trigger On Signal социального торгового бота, который будет посылать этот сигнал.",
+                    "updated": 1645625775726
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sağlayıcı, ticaret sistemi her tetiklendiğinde bir sinyal göndermek ister. Bunu başarmak için Tetikleyici Olaylarına ( Trigger On Event ) bir Giden Sinyal Düğümü ( Outgoing Signal Reference ) eklerler (bir duyuru düğümü eklemek gibi). Ardından, alt Giden Sinyal Referans düğümünü eklerler. Bundan sonra, Giden Sinyal Referans düğümünü, bu sinyali gönderecek olan Sosyal Ticaret Botunun ( Social Trading Bot ) Sinyalini  Tetikleyici düğümüne bağlarlar.",
+                    "updated": 1646298809074
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Anbieter möchte jedes Mal, wenn sein Handelssystem ausgelöst wird, ein Signal senden. Um dies zu erreichen, fügt er einen Knoten (Node) mit ausgehendem Signal zu seinem Trigger-On-Ereignis (Trigger On Event) hinzu (ähnlich wie beim Hinzufügen eines Ankündigungsknotens). Dann fügen sie den untergeordneten Knoten Ausgehendes Signal Referenz (Outgoing Signal Reference) hinzu. Danach verbinden sie den Knoten Ausgehendes Signal Referenz (Outgoing Signal Reference) mit dem Knoten Auslöser-Ein-Signal (Trigger On Signal) des Sozialen-Handels-Bot (Social Trading Bot), der dieses Signal senden wird.",
+                    "updated": 1674677319548
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Receiving signals works very similarly. If a recipient wants to receive the Trigger On signal described above, then within their trading system they will add an Incoming Trading Signal node to their Trigger On event.  Then add the Incoming Signal Reference node as a child to it. Finally they will connect the Signal reference node to the same Trigger On Signal node of the Social Trading Bot Sending the signal under the provider’s profile. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получение сигналов работает очень похоже. Если получатель хочет получить сигнал Trigger On, описанный выше, то в своей торговой системе он добавит узел Incoming Trading Signal к своему событию Trigger On. Затем добавит узел Incoming Signal Reference в качестве дочернего узла. И, наконец, они подключат узел Signal reference к тому же узлу Trigger On Signal социального торгового бота, посылающего сигнал, под профилем провайдера.",
+                    "updated": 1645625803324
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyalleri almak çok benzer şekilde çalışır. Bir alıcı yukarıda açıklanan Tetikleme Açık sinyalini almak isterse, ticaret sistemi içinde Tetikleme Açık olayına ( Trigger On Event ) bir Gelen Ticaret Sinyali düğümü ekler. Ardından Gelen Sinyal Referans ( Incoming Signal Reference ) düğümünü alt öğe olarak ekleyin. Son olarak, Sinyal referans düğümünü, sağlayıcının profili altında sinyali gönderen Sosyal Ticaret Botunun ( Social Trading Bot ) Sinyalde Tetikleyici düğümüne bağlayacaklardır.",
+                    "updated": 1646299256145
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Empfang von Signalen funktioniert ganz ähnlich. Wenn ein Empfänger das oben beschriebene Auslöser-Ein-Signal (Trigger On-Signal) empfangen möchte, fügt er in seinem Handelssystem einen Knoten Eingehendes Handels (Trading) -Signal zu seinem Trigger On-Ereignis (Trigger On event) hinzu. Dann fügen Sie dem Knoten die Eingehende Signalreferenz (Incoming Signal Reference) als untergeordnetes Element hinzu. Schließlich verbinden sie den Signalreferenzknoten mit demselben Auslöser-Ein (Trigger On) -Signal-Knoten des Sozialer Handels-Bot (Social Trading Bot), der das Signal unter dem Profilnamen des Anbieters sendet.",
+                    "updated": 1674677330526
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This method of routing signals works everywhere within the Trading System. Here is the list of available places to attach signals:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот метод маршрутизации сигналов работает везде в торговой системе. Вот список доступных мест для закрепления сигналов:",
+                    "updated": 1645625815494
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyalleri yönlendirmeye yönelik bu yöntem, Ticater Sisteminin ( Trading System ) her yerinde çalışır. Sinyal eklemek için uygun yerlerin listesi aşağıdadır:",
+                    "updated": 1646299322205
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Methode zur Weiterleitung von Signalen funktioniert überall innerhalb des Handelssystems (Trading System). Hier ist die Liste der verfügbaren Stellen, an denen Signale angebracht werden können:",
+                    "updated": 1674677343069
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "Include compatible attachment nodes here",
+            "updated": 1642565239257,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Включите сюда совместимые узлы для прикрепления",
+                    "updated": 1645625852517
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Uyumlu ek düğümlerini buraya ekleyin",
+                    "updated": 1646299357546
+                },
+                {
+                    "language": "DE",
+                    "text": "Kompatible Anhangsknoten hier einfügen",
+                    "updated": 1674677361228
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Each of these locations to which signals can be attached also have matching Signals nodes available under Social Trading Bots.",
+            "updated": 1642565217447,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В каждом из этих мест, к которым могут быть прикреплены сигналы, также имеются соответствующие узлы Signals, доступные в разделе Social Trading Bots.",
+                    "updated": 1645625878366
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Sinyallerin eklenebileceği bu konumların her biri, Sosyal Ticaret Botları ( Social Trading Bot ) altında bulunan eşleşen Sinyal düğümlerine de sahiptir.",
+                    "updated": 1646299383979
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu jedem dieser Orte, an denen Signale angehängt werden können, gibt es auch passende Signalknoten unter den Sozialen-Handels-Bot´s (Social Trading Bots).",
+                    "updated": 1674677370510
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "An Incoming Signal node receives the signal information and then injects this data into a specific part of a trading system. This is achieved by connecting the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Incoming Signal получает информацию о сигнале и затем вводит эти данные в определенную часть торговой системы. Это достигается путем соединения узла Signal's Reference с соответствующим узлом Signals под Social Trading Bot провайдера.",
+                    "updated": 1645625928601
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen Sinyal düğümü, sinyal bilgilerini alır ve ardından bu verileri bir ticaret sisteminin belirli bir bölümüne enjekte eder. Bu, Sinyalin Referans düğümünü, Sağlayıcının Sosyal Ticaret Botu ( Social Trading Bot ) altındaki eşleşen Sinyaller düğümüne bağlayarak elde edilir.",
+                    "updated": 1646299425984
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten für eingehende Signale empfängt die Signalinformationen und injiziert diese Daten dann in einen bestimmten Teil eines Handelssystems. Dies wird erreicht, indem der Referenzknoten des Signals mit dem passenden Signalknoten unter dem Sozialen-Handels-Bot (Social Trading Bot) des Anbieters verbunden wird.",
+                    "updated": 1674756430657
+                }
+            ]
+        }
+    ]
+}

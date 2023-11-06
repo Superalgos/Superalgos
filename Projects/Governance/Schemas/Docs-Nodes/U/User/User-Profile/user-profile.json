@@ -1,8 +1,8 @@
 {
     "type": "User Profile",
     "definition": {
-        "text": "The User Profile is the hierarchy that allows you to define how you intend to use the Token Power conferred by your holdings of Superalgos SA Tokens. These definitions are spread across several programs, and your Token Power cascades down to these programs from the head of the hierarchy. Each program is designed to get Contributors involved in different governance needs.",
-        "updated": 1624726047712,
+        "text": "The User Profile is the hierarchy that allows you to authenticate with other parties and define how you intend to use the Token Power conferred by your holdings of Superalgos SA Tokens. These definitions are spread across several governance programs, and your Token Power cascades down to these programs from the head of the hierarchy. Each program is designed to get Contributors involved in different governance needs.",
+        "updated": 1660582078376,
         "translations": [
             {
                 "language": "ES",
@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Token Power перетекает каскадно от узла User Profile к узлу Token Power Switch, к его потомкам и т. д., согласно структуре иерархии.",
                 "updated": 1639040549453
+            },
+            {
+                "language": "TR",
+                "text": "Token Gücü (Token Power), hiyerarşi yapısını izleyerek Kullanıcı Profili (User Profile) düğümünden Token Güç Anahtarı (Token Power Switch) düğümüne,sonra onun alt düğümlerine doğru kademeli olarak akar.",
+                "updated": 1642713345079
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Как объясняется на странице Building Your Profile, ваш профиль пользователя User Profile связан с вашим административным адресом Governance Address. Токены, которые вы держите в этом адресе, наделяют вас полномочиями Token Power, которую вы можете использовать, чтобы влиять на то, как Superalgos распределяет токены, выделенные для каждого выпуска.",
                     "updated": 1639040313012
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizi Oluşturma sayfasında (Building Your Profile) açıklandığı gibi, Kullanıcı Profiliniz Yönetişim Adresinizle (Governance Address) eşleştirilir. Bu adreste tuttuğunuz tokenlar size, Superalgos'un her bir sürümüne tahsis edilen tokenlerin nasıl dağıtılacağını etkilemek için kullanabileceğiniz Token Gücü verir.",
+                    "updated": 1642712984132
                 }
             ]
         },
@@ -53,13 +63,25 @@
                     "language": "RU",
                     "text": "После создания профиля вы должны увидеть, как ваш Token Power перетекает к узлу Token Power Switch, первому потомку главы иерархии. Этот принцип поддерживается во всей иерархии: Token Power передается дочерним узлам через каждый раздел иерархии.",
                     "updated": 1639040408859
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizi oluşturduktan sonra, Token Gücünüzün hiyerarşinin ilk başladığı düğüm olan Token Power Switch düğümüne aktığını görmelisiniz. Bu ilke, hiyerarşi boyunca korunur: Simge Gücü, hiyerarşinin her bölümü aracılığıyla alt düğümlere akar.",
+                    "updated": 1642713185856
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Token Power Flows",
-            "updated": 1630216274356
+            "updated": 1630216274356,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Token Power Akışı",
+                    "updated": 1642713235845
+                }
+            ]
         },
         {
             "style": "Include",

@@ -4,13 +4,47 @@
     "type": "Superalgos Review - Complex but Well Documented",
     "definition": {
         "text": "Superalgos is quite complex and challenging for a beginner, but the built in tutorials help ease some of the difficulty getting started.",
-        "updated": 1619353795599
+        "updated": 1619353795599,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos довольно сложный и трудный для новичка, но встроенные учебники помогают облегчить некоторые трудности в начале работы.",
+                "updated": 1640411852956
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, yeni başlayanlar için oldukça karmaşık ve zorlayıcıdır, ancak yerleşik öğreticiler, başlamanın bazı zorluklarını hafifletmeye yardımcı olur.",
+                "updated": 1669195081044
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist ziemlich komplex und anspruchsvoll für einen Anfänger, aber die eingebauten Tutorials helfen dabei, den Einstieg etwas zu erleichtern.",
+                "updated": 1685392466423
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "I look forward to learning more about this software.",
-            "updated": 1619353876272
+            "updated": 1619353876272,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я с нетерпением жду возможности узнать больше об этом программном обеспечении.",
+                    "updated": 1640411870591
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu yazılım hakkında daha fazla şey öğrenmek için sabırsızlanıyorum.",
+                    "updated": 1669195096575
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich freue mich darauf, mehr über diese Software zu erfahren.",
+                    "updated": 1685392475800
+                }
+            ]
         }
     ]
 }

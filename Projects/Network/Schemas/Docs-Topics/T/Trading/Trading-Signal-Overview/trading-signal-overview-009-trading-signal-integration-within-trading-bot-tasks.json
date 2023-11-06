@@ -1,0 +1,47 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": "9",
+    "type": "Trading Signal Integration within Trading Bot Tasks",
+    "definition": {
+        "text": "Write a summary for this topic page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu konu sayfası için bir özet yazın.",
+                "updated": 1654395906046
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A traditional trading bot executes trades based on the logic held within a Trading System.  Trading signals add on to these functions of a Trading Bot Task to transmit and receive signal data. ",
+            "updated": 1642565795441,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geleneksel bir ticaret botu, bir Ticaret Sisteminde tutulan mantığa dayalı olarak alım satımları gerçekleştirir.  Ticaret sinyalleri, sinyal verilerini iletmek ve almak için bir Ticaret Botu Görevinin bu işlevlerine eklenir.",
+                    "updated": 1654395911784,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You can think of these trading bot tasks as the muscle to put into action all the logic held within the trading system (and in the current case to send and receive signals.)",
+            "updated": 1642565889715,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu ticaret botu görevlerini, ticaret sistemi içinde tutulan tüm mantığı harekete geçiren kas olarak düşünebilirsiniz (ve mevcut durumda sinyal göndermek ve almak için).",
+                    "updated": 1654395917962,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

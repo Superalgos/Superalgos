@@ -13,6 +13,16 @@
                 "language": "RU",
                 "text": "Superalgos предлагает четыре типа торговых сессий: Backtesting Session, Paper Trading Session, Forward Testing Session, и Live Trading Session.",
                 "updated": 1638299574296
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos dört tür ticaret oturumu sunar: Geriye Dönük Test Oturumu ( Backtesting Session ) , Gerçekte Olmayan (Kağıt Üzeri) Ticaret Oturumu ( Paper Trading Session ) , İleriye Dönük Test Oturumu ( Forward Testing Session )  ve Canlı Ticaret Oturumu ( Live Trading Session ).",
+                "updated": 1666875819701
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos bietet vier Arten von Handelssitzungen: Backtesting Session, Paper Trading Session, Forward Testing Session und Live Trading Session.",
+                "updated": 1698614186711
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "RU",
                     "text": "Когда термин используется без указания типа сеанса, то он относится к общей концепции, согласно которой экземпляр торгового бота - на основе наборов данных, представленных как продукты другими ботами - применяет торговую логику, определенную в торговой системе в любом из вышеупомянутых режимов.",
                     "updated": 1638299656007
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu terim oturum türü belirtilmeden kullanıldığında, diğer botlar tarafından ürün olarak sunulan veri kümelerine dayanan bir ticaret botu örneğinin, yukarıda belirtilen modlardan herhangi birinde bir ticaret sisteminde tanımlanan ticaret mantığını uyguladığı genel kavramı ifade eder.",
+                    "updated": 1666876497356
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Begriff ohne Angabe des Sitzungstyps verwendet wird, bezieht er sich auf das Gesamtkonzept, bei dem eine Handels-Bot-Instanz auf der Grundlage von Datensätzen, die von anderen Bots als Produkte offengelegt werden, die auf einem Handelssystem definierte Handelslogik in einem der vorgenannten Modi anwendet.",
+                    "updated": 1698614196031
                 }
             ]
         }

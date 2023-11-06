@@ -1,0 +1,155 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 14,
+    "type": "Worden Stochastic Indicator",
+    "definition": {
+        "text": "The Worden Stochastic indicator uses the percentile rank of the most recent closing price compared to other closing prices over a specified lookpack period.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Worden Stochastik Indikator verwendet den Prozentrang des letzten Schlusskurses im Vergleich zu anderen Schlusskursen über einen bestimmten Zeitraum.",
+                "updated": 1671641233116
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Worden Stochastic the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Worden Stochastic die Charts",
+                    "updated": 1671641253083
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, The Worden Stochastics indicator was designed by Peter Worden to recognize a new trading range more quickly than traditional stochastics. Unlike traditional stochastics that incorporate high, low, and closing prices, the Worden Stochastics indicator uses rankings to avoid over-weighting in outlier periods, providing a potentially more accurate indication of the trading range.",
+            "updated": 1651225202850,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut investopedia wurde der Worden Stochastics Indikator von Peter Worden entwickelt, um eine neue Handelsspanne schneller zu erkennen als die traditionelle Stochastik. Im Gegensatz zur traditionellen Stochastik, die Höchst-, Tiefst- und Schlusskurse berücksichtigt, verwendet der Worden Stochastik Indikator Rankings, um eine Übergewichtung in Ausreißerperioden zu vermeiden, was eine potenziell genauere Anzeige der Handelsspanne ermöglicht.",
+                    "updated": 1671641300000
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671641336471
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Ranks closing prices, assigning a value based on where the recent close ranks compared to prior closes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stellt eine Rangfolge der Schlusskurse auf und weist einen Wert zu, der darauf basiert, wo der jüngste Schlusskurs im Vergleich zu früheren Schlusskursen rangiert.",
+                    "updated": 1671641367254
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Provides overbought and oversold levels, as well as potential trade signals using signal line crossovers.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Liefert überkaufte und überverkaufte Niveaus sowie potenzielle Handelssignale anhand von Signallinienkreuzungen.",
+                    "updated": 1671641384510
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A reading above 80 is considered overbought, while a reading below 20 is considered oversold.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Wert über 80 gilt als überkauft, während ein Wert unter 20 als überverkauft gilt.",
+                    "updated": 1671641401926
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Worden Stochastic(investopedia)->www.investopedia.com/terms/w/worden-stochastics.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-worden-stoch.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Worden Stochastic can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Worden Stochastic\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der Worden Stochastik können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Worden Stochastic\" Product Definition suchen und öffnen.",
+                    "updated": 1671641451781
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-worden-stoch-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Worden Stochastic Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Worden Stochastic Produkte & Eigenschaften",
+                    "updated": 1671641478053
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Worden Stochastic | WordStoch | StochK, StochD |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Worden Stochastic | WordStoch | StochK, StochD |",
+                    "updated": 1671641499149
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671641514243
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the K value crosses the D value upwards when in the oversold region:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der K Wert den D Wert nach oben kreuzt, wenn er sich im überverkauften Bereich befindet:",
+                    "updated": 1671641541868
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.WordStoch.StochK > chart.at01hs.WordStoch.StochD && chart.at01hs.WordStoch.StochK < 20"
+        }
+    ]
+}

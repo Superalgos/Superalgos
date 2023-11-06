@@ -1,6 +1,6 @@
 {
     "tutorial": "Hello World Tutorial",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Hello World Tutorial",
     "definition": {
         "text": "This tutorial is a flash course, cut-to-the-chase style, introducing you to the notion of building a simple Trading System. The tutorial assumes a basic understanding of how Trading Strategies are defined. That said, you may find it useful as a first step introduction too, particularly if you like direct, to-the-point information.",
@@ -11,6 +11,31 @@
                 "text": "Dieses Tutorial ist ein Schnellkurs, der dich in die Idee einführt, ein einfaches Tradingsystem aufzubauen. Das Tutorial setzt ein grundlegendes Verständnis dafür voraus, wie Trading-Strategien definiert werden. Das heißt, du kannst es auch als eine allererste Einführung nützlich finden, besonders wenn du direkte, auf den Punkt gebrachte Informationen magst.",
                 "updated": 1622969782378,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu öğretici, sizi basit bir Ticaret Sistemi ( Trading System ) oluşturma kavramıyla tanıştıran,hızlı ve basit bir kursdur. Eğitim, Ticaret Stratejilerinin ( Trading Strategies ) nasıl tanımlandığına dair temel bir anlayış olduğunu varsayar. Bununla birlikte, özellikle doğrudan, konuya ilişkin bilgileri seviyorsanız, ilk adım girişi olarak da yararlı bulabilirsiniz.",
+                "updated": 1640615219422
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник представляет собой флэш-курс, в стиле \"сразу к делу\", знакомящий вас с понятием построения простой торговой системы. Учебник предполагает базовое понимание того, как определяются торговые стратегии. Тем не менее, вы можете найти его полезным и в качестве первого шага, особенно если вам нравится прямая, конкретная информация.",
+                "updated": 1640632619784
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie is een snelcursus, gelijk ter zake-stijl, die je laat kennismaken met het bouwen van een eenvoudig Trading System. De tutorial gaat uit van een basiskennis van hoe Trading Strategies worden gedefinieerd. Dat gezegd hebbende, vind je het misschien ook nuttig als eerste kennismaking, vooral als je van directe, to-the-point informatie houdt.",
+                "updated": 1670772468801
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini adalah kursus cepat, dengan gaya langsung ke inti, yaitu memperkenalkan kamu tentang gagasan dari membuat Trading System yang simpel. Tutorial ini mengasumsikan pemahaman dasar tentang bagaimana Trading Strategies dijelaskan. Bahwasanya, kamu akan menemukan hal yang berguna sebagai langkah awal perkenalanmu, terutama jika kamu menyukai informasi yang langsung dan to-the-point.",
+                "updated": 1670298868301
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial es un curso relámpago, de estilo \"cortar por lo sano\", que te introduce en la noción de construir un simple Trading System. El tutorial asume una comprensión básica de cómo se definen las Trading Strategies. Dicho esto, también puede resultarte útil como primer paso de introducción, sobre todo si te gusta la información directa y directa.",
+                "updated": 1682357091210
             }
         ]
     },
@@ -18,17 +43,71 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617110507620
+            "updated": 1617110507620,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640632630643
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654393992587,
+                    "style": "Title"
+                },
+                {
+                    "language": "NL",
+                    "text": "Over deze zelfstudie",
+                    "updated": 1670772495678
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1670298925338
+                },
+                {
+                    "language": "ES",
+                    "text": "Sobre este tutorial",
+                    "updated": 1682357103320
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Workspace: Hello World Tutorial Plugin Workspace.",
-            "updated": 1617110547763
+            "text": "Workspace: Hello World Tutorial Native Workspace.",
+            "updated": 1617110547763,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Merhaba Dünya Eğitimi Eklenti Çalışma Alanı.",
+                    "updated": 1654393999403,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: Espacio de trabajo del plugin Hello World Tutorial.",
+                    "updated": 1682357131000
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Maintainer: @us9808 (Telegram).",
-            "updated": 1617111382989
+            "updated": 1617111382989,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @us9808 (Telegram).",
+                    "updated": 1654394005058,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @us9808 (Telegram).",
+                    "updated": 1670772516837
+                }
+            ]
         }
     ]
 }

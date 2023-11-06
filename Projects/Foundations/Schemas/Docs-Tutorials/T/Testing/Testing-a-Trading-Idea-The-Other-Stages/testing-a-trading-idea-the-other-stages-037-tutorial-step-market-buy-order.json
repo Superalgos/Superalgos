@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Genau wie für die Open Stage habe ich den Ausführungsalgorithmus und den Marktkaufauftrag erstellt...",
                 "updated": 1639417994313
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tıpkı açık aşamada olduğu gibi, yürütmeler için algoritmayı ve piyasa satın alma emrini oluşturdum...",
+                "updated": 1641797010360
+            },
+            {
+                "language": "RU",
+                "text": "Как и для этапа открытия, я создал алгоритм исполнения и рыночный ордер на покупку...",
+                "updated": 1642942654494
+            },
+            {
+                "language": "ES",
+                "text": "Al igual que para la fase de apertura, he creado el algoritmo de ejecución y la orden de compra de mercado...",
+                "updated": 1681054146920
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Bevor wir weitermachen, müssen wir noch ein paar Dinge erledigen:",
                     "updated": 1639418002782
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha ileri gitmeden önce, yapmamız gereken birkaç şey daha var:",
+                    "updated": 1641797020786
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте разберемся с парой вещей, прежде чем двигаться дальше:",
+                    "updated": 1642942662251
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a ocuparnos de un par de cosas antes de continuar:",
+                    "updated": 1681054158961
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "<i>Löschen</i> Sie den Simulated Exchange Events Konten! Wir werden ihn vorerst nicht verwenden...",
                     "updated": 1639418010968
+                },
+                {
+                    "language": "TR",
+                    "text": "Simüle Edilmiş Değişim Olayları düğümünü ( Simulated Exchange Events ) silin! Şimdilik kullanmayacağız...",
+                    "updated": 1641797031612
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите узел Simulated Exchange Events! Мы не собираемся использовать его в настоящее время...",
+                    "updated": 1642942676724
+                },
+                {
+                    "language": "ES",
+                    "text": "Elimine el nodo Simulated Exchange Events! No vamos a utilizarlo por el momento...",
+                    "updated": 1681054220051
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Geben Sie  true  in den JavaScript Code Knoten der Bedingung \"Create Order Event \" ein.",
                     "updated": 1639418028676
+                },
+                {
+                    "language": "TR",
+                    "text": "Create Order Event koşulunun JavaScript kod düğümüne true değerini girin.",
+                    "updated": 1641797054508
+                },
+                {
+                    "language": "RU",
+                    "text": "Введите true в узле JavaScript Code в условие Create Order Event.",
+                    "updated": 1642943384139
+                },
+                {
+                    "language": "ES",
+                    "text": "Introduzca true en el nodo JavaScript Code de la condición Create Order Event",
+                    "updated": 1681054507668
                 }
             ]
         },
@@ -58,6 +118,21 @@
                     "language": "DE",
                     "text": "Jetzt müssen Sie den Verweis vom Knoten Market Buy Order auf die Market Order in der Trading Engine erstellen. Welche das ist, zeige ich Ihnen im nächsten Schritt!",
                     "updated": 1639418036873
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Şimdi, işlem motorunda Piyasa Satın Alma Emri ( Market Buy Order ) düğümünden Piyasa Emrine ( Market Order ) referans oluşturmanız gerekir. Bir sonraki adımda size hangisi olduğunu göstereceğim!",
+                    "updated": 1641797064493
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь вам нужно создать ссылку из узла Market Buy Order на Market Order в Trading Engine. Я покажу вам, какую именно, в следующем шаге!",
+                    "updated": 1642943412236
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora tienes que crear la referencia a partir del nodo Market Buy Order a la Market Order en el Trading Engine. ¡Te mostraré cuál en el siguiente paso!",
+                    "updated": 1681054411709
                 }
             ]
         }

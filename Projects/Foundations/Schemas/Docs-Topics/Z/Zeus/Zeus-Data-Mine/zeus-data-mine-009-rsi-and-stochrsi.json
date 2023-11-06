@@ -1,0 +1,107 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 9,
+    "type": "RSI and StochRSI",
+    "definition": {
+        "text": "Price momentum oscillators to forecast market trends",
+        "updated": 1659619398838,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Preisdynamik Oszillatoren zur Vorhersage von Markttrends",
+                "updated": 1671263985476
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The RSI and StochRSI Indicators",
+            "updated": 1656585478330,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Indikatoren RSI und StochRSI",
+                    "updated": 1671264017599
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia the Stochastic RSI (StochRSI) is an indicator used in technical analysis that ranges between zero and one (or zero and 100 on some charting platforms) and is created by applying the Stochastic oscillator formula to a set of relative strength index (RSI) values rather than to standard price data. Using RSI values within the Stochastic formula gives traders an idea of whether the current RSI value is overbought or oversold.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia ist der stochastische RSI (StochRSI) ein in der technischen Analyse verwendeter Indikator, der sich zwischen null und eins bewegt (bzw. null und 100 auf einigen Charting Plattformen) und durch Anwendung der stochastischen Oszillatorformel auf eine Reihe von Relative Stärke Index Werten (RSI) und nicht auf Standardkursdaten erstellt wird. Die Verwendung von RSI Werten innerhalb der Stochastik Formel gibt Händlern eine Vorstellung davon, ob der aktuelle RSI Wert überkauft oder überverkauft ist.",
+                    "updated": 1671264127986
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/RSI+stochRSI.png",
+            "updated": 1656584882032
+        },
+        {
+            "style": "Text",
+            "text": "The StochRSI oscillator was developed to take advantage of both momentum indicators in order to create a more sensitive indicator that is attuned to a specific security's historical performance rather than a generalized analysis of price change.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der StochRSI Oszillator wurde entwickelt, um die Vorteile beider Momentum-Indikatoren zu nutzen und einen sensibleren Indikator zu schaffen, der eher auf die historische Performance eines bestimmten Wertpapiers abgestimmt ist als auf eine allgemeine Analyse von Kursveränderungen.",
+                    "updated": 1671264199151
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "RSI and StochRSI Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "RSI und StochRSI Produkte & Eigenschaften",
+                    "updated": 1671264231616
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "|Product Variable|Properties|\n|rsi|rsi, stochRSI|",
+            "updated": 1656585348054,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "|Produktname |Eigenschaften |\n|rsi|rsi, stochRSI|",
+                    "updated": 1671264267246
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671264295783
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "chart.at15min.rsi.stochRSI > chart.at15min.rsi.rsi"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

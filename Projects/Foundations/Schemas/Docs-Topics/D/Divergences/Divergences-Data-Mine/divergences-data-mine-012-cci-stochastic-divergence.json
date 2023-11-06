@@ -1,0 +1,299 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": "12",
+    "type": "CCI Stochastic Divergence",
+    "definition": {
+        "text": "The CCI Stochastic Oscillator - this indicator is based on the Commodity Channel Index (CCI) instead of RSI to produce its output. It analyses highs and lows of a 28 period Stochastic Oscillator indicator with smoothing values K and D set to 3. The 'slow line', D is then compared to the price action and produces any divergence data found.",
+        "updated": 1649651163746,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der CCI Stochastic Oszillator - dieser Indikator basiert auf dem Commodity Channel Index (CCI) anstelle des RSI, um sein Ergebnis darzustellen. Er analysiert die Höchst- und Tiefstwerte eines Stochastik-Oszillator-Indikator mit 28 Perioden, wobei die Glättungswerte K und D auf 3 gesetzt werden. Die \"langsame Linie\" D wird dann mit dem aktuellen Preis verglichen und liefert alle gefundenen Divergenzdaten.",
+                "updated": 1673643671777
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "CCI Stochastic Oscillator Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "CCI Stochastik Oszillator Divergenz in den Charts",
+                    "updated": 1673643725133
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Preis mit dem Preis vergleichen zu müssen. Das Momentum ist eine Untersuchung der Stärke der Kursbewegung, bei der einfach geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673643848523
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen dem Indikator und dem Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673643895493
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Understanding momentum - (investopedia)->www.investopedia.com/trading/trading-divergence-and-understanding-momentum/#toc-momentum-divergence"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1673643929691
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator bildet ein höheres Tief, während die Kursbewegung ein niedrigeres Tief bildet.",
+                    "updated": 1673643996595
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "(durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673644081709
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673644113044
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish Continuation (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673644124696
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-CCI-Stoch-1.png"
+        },
+        {
+            "style": "Text",
+            "text": "Above: a hidden continuation (dotted green), a bearish divergence (red), a hidden bearish (dotted red) and two two bullish divergences (green).",
+            "updated": 1649651183412,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Oben: eine hidden continuation (grün gestrichelt), eine bearish Divergenz (rot), eine hidden bearish (rot gestrichelt) und zwei bullish Divergenzen (grün).",
+                    "updated": 1673644232151
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’CCI Stoch Divergence’ Procedure Loop.",
+            "updated": 1649651216132,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinders, die Pivot-Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"CCI Stoch Divergence\" Procedure Loop suchen und öffnen.",
+                    "updated": 1673644330866
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
+        },
+        {
+            "style": "Note",
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Je länger der Pivot ist, desto größer ist die Genauigkeit, aber desto länger ist auch die Verzögerung bei der Bestätigung des Pivot-Hochs/Tiefs.",
+                    "updated": 1673644523765
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’CCI Stochastic Divergence’ Procedure Initialization.",
+            "updated": 1649651236050,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Divergenzerkennung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"CCI Stochastic Divergence\" Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673644570957
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-CCI-Stoch-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Stochastic Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Stochastic’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Länge des stochastischen Oszillator kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Stochastic\" Procedure Loop suchen und öffnen.",
+                    "updated": 1673644640475
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1673644695836
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Möglichkeiten stehen zur Auswahl:",
+                    "updated": 1673644687572
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| CciStoch | CciStoch | cci, value|\n| cciStochDiv | cciStochDiv | status, strength, divPerc |",
+            "updated": 1667785870770,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| CciStoch | CciStoch | cci, value|\n| cciStochDiv | cciStochDiv | status, strength, divPerc |",
+                    "updated": 1673644757460
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten zurück: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673644974076
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten zurück: schwach, mittel, stark",
+                    "updated": 1673644991475
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673645003417
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673644797156
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.cciStochDiv.status == \"bullish\"",
+            "updated": 1667786491327
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.cciStochDiv.strength == \"strong\"",
+            "updated": 1667786498543
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.cciStochDiv.divPerc > 20",
+            "updated": 1667786505144
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, find a suitable Stochastic Oscillator value to enter the trade after the divergence is found, for example, stochastic > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten Wert für den Stochastik-Oszillator finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673645162973
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673645063385
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

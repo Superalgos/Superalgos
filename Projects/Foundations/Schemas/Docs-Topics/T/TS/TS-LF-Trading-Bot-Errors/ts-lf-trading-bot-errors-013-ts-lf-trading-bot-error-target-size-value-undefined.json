@@ -4,7 +4,14 @@
     "type": "TS LF Trading Bot Error - Target Size Value Undefined",
     "definition": {
         "text": "The value of the Target Size can not be undefined.",
-        "updated": 1611595969754
+        "updated": 1611595969754,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Hedef Boyutunun ( Target Size ) değeri tanımsız olamaz.",
+                "updated": 1648650070834
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,7 +22,14 @@
         {
             "style": "Success",
             "text": "Check the Formula and try again. The session will not run free of errors until all required nodes are defined.",
-            "updated": 1611939664455
+            "updated": 1611939664455,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Formülü ( Formula ) kontrol edin ve tekrar deneyin. Gerekli tüm düğümler tanımlanıncaya kadar oturum hatasız çalışmayacaktır.",
+                    "updated": 1648650155987
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,14 @@
 {
     "type": "Lock",
     "definition": {
-        "text": "Lock is an internal mechanism that blocks the data structure of the order at the trading engine when the definition of the order at the trading system disallows spawning multiple orders."
+        "text": "Lock is an internal mechanism that blocks the data structure of the order at the trading engine when the definition of the order at the trading system disallows spawning multiple orders.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Lock - это внутренний механизм, который блокирует структуру данных ордера в торговом движке, когда определение ордера в торговой системе запрещает порождать несколько ордеров.",
+                "updated": 1640350471943
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "Possible values for lock are open and closed."
+            "text": "Possible values for lock are open and closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения для Lock - открыто и закрыто.",
+                    "updated": 1640350504578
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The moment an order is closed, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system sets the lock to closed so that the data structure may not be used again during the same position."
+            "text": "The moment an order is closed, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system sets the lock to closed so that the data structure may not be used again during the same position.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В момент закрытия ордера система проверяет параметр spawnMultipleOrders в конфигурации ордера в торговой системе. Если значение равно false, система устанавливает блокировку на closed, чтобы структура данных не могла быть использована снова во время той же позиции.",
+                    "updated": 1640350532458
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "At the moment of opening an order, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system checks the value of the lock. If the value is open, then it may create the order; if it is closed then the order may not be created."
+            "text": "At the moment of opening an order, the system checks the spawnMultipleOrders parameter at the order's configuration in the trading system. If the value is false, the system checks the value of the lock. If the value is open, then it may create the order; if it is closed then the order may not be created.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В момент открытия ордера система проверяет параметр spawnMultipleOrders в конфигурации ордера в торговой системе. Если значение равно false, то система проверяет значение блокировки. Если значение открыто, то она может создать ордер, если закрыто, то ордер не может быть создан.",
+                    "updated": 1640350570086
+                }
+            ]
         },
         {
             "style": "Block",
@@ -28,17 +56,38 @@
         {
             "style": "Title",
             "text": "Lock Configuration",
-            "updated": 1609927200185
+            "updated": 1609927200185,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Lock",
+                    "updated": 1640350587791
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640350594014
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640350602325
+                }
+            ]
         }
     ]
 }

@@ -14,6 +14,31 @@
                 "language": "TR",
                 "text": "Dürüst olmak gerekirse, konuksever arkadaşım, arayüzde gezinmek ve rahat hissetmek için bilmeniz gereken birçok temel işlemi size öğretti...",
                 "updated": 1636700031937
+            },
+            {
+                "language": "RU",
+                "text": "По правде говоря, мой гостеприимный друг научил вас многим базовым операциям, которые необходимо знать, чтобы ориентироваться и чувствовать себя комфортно в данном интерфейсе...",
+                "updated": 1640858784410
+            },
+            {
+                "language": "ID",
+                "text": "Sebenarnya, temanku telah mengajari kamu banyak operasi dasar yang perlu kamu ketahui untuk berputar-putar dan merasa nyaman dengan interface bot...",
+                "updated": 1641093294776
+            },
+            {
+                "language": "DE",
+                "text": "Um fair zu sein, mein Freund hat Ihnen viele der grundlegenden Vorgänge beigebracht, die Sie wissen müssen, um sich zu bewegen und sich mit der Benutzeroberfläche vertraut zu machen...",
+                "updated": 1641741037433
+            },
+            {
+                "language": "NL",
+                "text": "Om eerlijk te zijn, heeft mijn gastvrije vriend je veel van de basishandelingen geleerd die je moet weten om te bewegen en je op je gemak te voelen met de interface...",
+                "updated": 1668333948328
+            },
+            {
+                "language": "ES",
+                "text": "Para ser justos, mi acogedor amigo te enseñó muchas de las operaciones básicas que necesitas conocer para moverte y sentirte cómodo con la interfaz...",
+                "updated": 1675374764911
             }
         ]
     },
@@ -27,6 +52,31 @@
                     "language": "TR",
                     "text": "Benimle temel eğitiminizi tamamlayacaksınız! Bu öğreticiyi bitirdikten sonra, kendi Ticaret Sisteminizi ( Trading System ) nasıl kuracağınızı öğrenmeye başlamaya hazır olacaksınız... Amacımız da değil mi?",
                     "updated": 1636700088723
+                },
+                {
+                    "language": "RU",
+                    "text": "Со мной вы завершите свое базовое обучение! Как только вы закончите этот учебник, вы будете готовы начать учиться строить свою собственную торговую систему (Trading System)... Ведь именно в этом все дело, не так ли?",
+                    "updated": 1640858835665
+                },
+                {
+                    "language": "ID",
+                    "text": "Bersamaku, Kamu akan menyelesaikan edukasi dasar-mu! Setelah Kamu menyelesaikan tutorial ini, Kamu akan siap untuk mulai belajar bagaimana membangun Trading System -mu sendiri... Lagipula tujuan ini semua untuk itu, benar?",
+                    "updated": 1641093411250
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit mir werden Sie Ihre Grundausbildung vervollständigen! Sobald Sie dieses Tutorial beendet haben, werden Sie bereit sein, zu lernen, wie Sie Ihr eigenes Trading System aufbauen können... Darum geht es doch schließlich, oder?",
+                    "updated": 1641741051150
+                },
+                {
+                    "language": "NL",
+                    "text": "Met mij rond je je basisopleiding af! Als je deze tutorial hebt voltooid, ben je klaar om te leren hoe je je eigen Trading System kunt bouwen... Daar gaat het tenslotte om, toch?",
+                    "updated": 1668333979981
+                },
+                {
+                    "language": "ES",
+                    "text": "Conmigo, ¡vas a completar tu educación básica! Una vez que termines este tutorial, estarás listo para empezar a aprender a construir tu propio Trading System... De eso se trata después de todo, ¿verdad?",
+                    "updated": 1675374883413
                 }
             ]
         },
@@ -39,13 +89,71 @@
                     "language": "TR",
                     "text": "Arayüzün genel görünümü, çalışma alanları, yedeklemeler, eklentiler ve daha fazlasına odaklanacağız!",
                     "updated": 1636700135746
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы сосредоточимся на завершении обзора интерфейса, разберемся с рабочими пространствами, резервным копированием, плагинами и многим другим!",
+                    "updated": 1640858865509
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi!",
+                    "updated": 1641093480726
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden uns darauf konzentrieren, den Überblick über die Benutzeroberfläche zu vervollständigen, uns mit Workspaces, Backups, Plugins und mehr zu beschäftigen!",
+                    "updated": 1641741061083
+                },
+                {
+                    "language": "NL",
+                    "text": "We zullen ons concentreren op het voltooien van het overzicht van de interface, het omgaan met werkruimten, back-ups, plug-ins en meer!",
+                    "updated": 1668334005101
+                },
+                {
+                    "language": "ES",
+                    "text": "Nos centraremos en completar la visión general de la interfaz, tratar con espacios de trabajo, copias de seguridad, plugins, ¡y mucho más!",
+                    "updated": 1675374921624
                 }
             ]
         },
         {
             "style": "Success",
             "text": "Let's get on with it!",
-            "updated": 1615311356804
+            "updated": 1615311356804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давайте приступим к делу!",
+                    "updated": 1640858878888
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita lanjutkan!",
+                    "updated": 1641093517301
+                },
+                {
+                    "language": "DE",
+                    "text": "Legen wir los!",
+                    "updated": 1641741068396
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi devam edelim!",
+                    "updated": 1654393820610,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we beginnen!",
+                    "updated": 1668334027573
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pongámonos manos a la obra!",
+                    "updated": 1675374899171
+                }
+            ]
         }
     ]
 }

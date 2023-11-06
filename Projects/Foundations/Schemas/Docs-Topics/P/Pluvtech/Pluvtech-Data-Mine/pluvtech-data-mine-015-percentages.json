@@ -1,0 +1,409 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "15",
+    "type": "Percentages",
+    "definition": {
+        "text": "The Percentages indicator produces information for the current candle when compared to the close price, and the average of high/low/close of candles 1, 5 and 10 periods previous to the current one.",
+        "updated": 1622696264788,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор Percentages выдает информацию для текущей свечи по сравнению с ценой закрытия, а также среднее значение high/low/close свечей за 1, 5 и 10 периодов до текущей.",
+                "updated": 1645611503609
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator Percentages liefert Informationen für die aktuelle Kerze im Vergleich zum Schlusskurs und den Durchschnitt von Hoch/Tief/Schluss der Kerzen 1, 5 und 10 Perioden vor der aktuellen Kerze.",
+                "updated": 1647961193030
+            },
+            {
+                "language": "TR",
+                "text": "Yüzdeler göstergesi, kapanış fiyatıyla karşılaştırıldığında mevcut mum için bilgi ve mevcut mumdan 1, 5 ve 10 dönem önceki mumların yüksek / düşük / kapanış ortalamasını üretir.",
+                "updated": 1697836044554
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Percentages on the Charts:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percentages на графиках:",
+                    "updated": 1645611524514
+                },
+                {
+                    "language": "DE",
+                    "text": "Percentages auf den Charts:",
+                    "updated": 1647961256986
+                },
+                {
+                    "language": "TR",
+                    "text": "Percentages :",
+                    "updated": 1697836052006
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Percentages indicator does not show any plotted information. All data produced from this indicator can be seen in the panel in the charting space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Percentages не отображает никакой графической информации. Все данные, полученные с помощью этого индикатора, можно увидеть на панели в Charting Space.",
+                    "updated": 1645611582080
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator \"Prozentsätze\" zeigt keine grafischen Informationen an. Alle Daten, die von diesem Indikator erzeugt werden, sind in der Tafel im Diagrammbereich zu sehen.",
+                    "updated": 1647961492851
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzdeler göstergesi herhangi bir çizim bilgisi göstermez. Bu göstergeden üretilen tüm veriler grafik alanındaki panelde görülebilir.",
+                    "updated": 1697836057307
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The information in the panel shows the percentage increase or decrease for the following:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация на панели показывает процентное увеличение или уменьшение для следующего:",
+                    "updated": 1645611588698
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen im Panel zeigen den prozentualen Anstieg oder Rückgang für Folgendes an:",
+                    "updated": 1647961507767
+                },
+                {
+                    "language": "TR",
+                    "text": "Paneldeki bilgiler aşağıdakiler için yüzde artış veya azalışı gösterir:",
+                    "updated": 1697836085898
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "p1Close: the percentage increase/decrease of the current candle close when compared to the candle close 1 period previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "p1Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 1 период до этого.",
+                    "updated": 1645611597633
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>p1Close:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 1 Periode zuvor.",
+                    "updated": 1647961519912
+                },
+                {
+                    "language": "TR",
+                    "text": "p1Close: 1 dönem önceki mum kapanışına kıyasla mevcut mum kapanışının artış/azalış yüzdesi.",
+                    "updated": 1697836101492
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "p5Close: the percentage increase/decrease of the current candle close when compared to the candle close 5 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "p5Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 5 периодов до этого.",
+                    "updated": 1645611604853
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>p5Close:</b> der prozentuale Anstieg/Verringerung des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 5 vorangegangenen Perioden.",
+                    "updated": 1647961564994
+                },
+                {
+                    "language": "TR",
+                    "text": "p5Close: 5 dönem önceki mum kapanışına kıyasla mevcut mum kapanışının artış/azalış yüzdesi.",
+                    "updated": 1697836105665
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "p10Close: the percentage increase/decrease of the current candle close when compared to the candle close 10 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "p10Close: процентное увеличение/уменьшение закрытия текущей свечи по сравнению с закрытием свечи за 10 периодов до этого.",
+                    "updated": 1645611615425
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>p10Close:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 10 vorangegangenen Perioden.",
+                    "updated": 1647961586026
+                },
+                {
+                    "language": "TR",
+                    "text": "p10Close: 10 dönem önceki mum kapanışına kıyasla mevcut mum kapanışının yüzde artışı/azalışı.",
+                    "updated": 1697836110646
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "phlc1: the percentage increase/decrease of the current candle average (high + low + close)/3 when compared to the candle average 1 period previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "phlc1: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 1 период до этого.",
+                    "updated": 1645611626698
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>phlc1:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt 1 Periode zuvor.",
+                    "updated": 1647961620062
+                },
+                {
+                    "language": "TR",
+                    "text": "phlc1: 1 dönem önceki mum ortalamasına kıyasla mevcut mum ortalamasının (yüksek + düşük + kapanış)/3 artış/azalış yüzdesi.",
+                    "updated": 1697836116697
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "phlc5: the percentage increase/decrease of the current candle average (high + low + close)/3 when compared to the candle average 5 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "phlc5: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 5 периодов до этого.",
+                    "updated": 1645611648186
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>phlc5:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt der letzten 5 Perioden.",
+                    "updated": 1647961640060
+                },
+                {
+                    "language": "TR",
+                    "text": "phlc5: 5 dönem önceki mum ortalamasına kıyasla mevcut mum ortalamasının (yüksek + düşük + kapanış)/3 artış/azalış yüzdesi.",
+                    "updated": 1697836121118
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "phlc10: the percentage increase/decrease of the current candle average (high + low + close)/3 when compared to the candle average 10 periods previous.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "phlc10: процентное увеличение/уменьшение среднего значения текущей свечи (high + low + close) / 3 по сравнению со средним значением свечи за 10 периодов до этого.",
+                    "updated": 1645611660853
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>phlc10:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt der letzten 10 Perioden.",
+                    "updated": 1647961653158
+                },
+                {
+                    "language": "TR",
+                    "text": "phlc10: 10 dönem önceki mum ortalamasına kıyasla mevcut mum ortalamasının (yüksek + düşük + kapanış)/3 artış/azalış yüzdesi.",
+                    "updated": 1697836125513
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Percentages.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The period length parameter of the Percentages indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Percentages’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр длины периода расчета показателя Percentage можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе'Percentages'Product Definition.",
+                    "updated": 1645611719245
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Parameter Periodenlänge der Berechnung des Indikators Prozentsätze kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter der ’Percentages’ Product Definition suchen und öffnen.",
+                    "updated": 1647961763539
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzdeler gösterge hesaplamasının dönem uzunluğu parametresi, 'Yüzdeler' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697836152329
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Percentages-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645611690323
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647961801941
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697836157653
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645611695666
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647961810910
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697836170217
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Percentages | Percentages | p1Close, p5Close, p10Close, phlc1, phlc5, phlc10 |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Percentages | Percentages | p1Close, p5Close, p10Close, phlc1, phlc5, phlc10 |",
+                    "updated": 1647961911456
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1645611700354
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1647961949261
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1697836173954
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Percentage calculation could be used to set a take profit or stop loss limit based on the desired percentage change.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет Percentage можно использовать для установки лимита тейк-профита или стоп-лосса на основе желаемого процентного изменения.",
+                    "updated": 1645611730992
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Berechnung des Prozentsatzes kann verwendet werden, um ein Take-Profit- oder Stop-Loss-Limit auf der Grundlage der gewünschten prozentualen Veränderung festzulegen.",
+                    "updated": 1647961960111
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde hesaplaması, istenen yüzde değişikliğine bağlı olarak bir kar alma veya zararı durdurma limiti belirlemek için kullanılabilir.",
+                    "updated": 1697836178481
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following example would set a take profit signal if the current candle close price rose above 3% from the close price 5 candles ago:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующий пример устанавливает сигнал тейк-профита, если цена закрытия текущей свечи поднимается выше 3% от цены закрытия 5 свечей назад:",
+                    "updated": 1645611738702
+                },
+                {
+                    "language": "DE",
+                    "text": "Das folgende Beispiel würde ein Take-Profit-Signal setzen, wenn der Schlusskurs der aktuellen Kerze um mehr als 3 % gegenüber dem Schlusskurs vor 5 Kerzen gestiegen ist:",
+                    "updated": 1647961995872
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnek, mevcut mum kapanış fiyatı 3 mum önceki kapanış fiyatından% 5'ün üzerine çıkarsa bir kar alma sinyali belirleyecektir:",
+                    "updated": 1697836182810
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "if(chart.at01hs.Percentages.p5Close > 3){\n    let tp=chart.at01hs.candle.close\n    }\n tp \\\\returns take profit variable",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "This indicator could also be used to provide a trailing stop loss when in a trade by checking if the candle close is still above the midPoint value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор также можно использовать для установки трейлинг-стоп лосса при заключении сделки, проверяя, находится ли закрытие свечи все еще выше значения midPoint.",
+                    "updated": 1645611748981
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator kann auch dazu verwendet werden, einen Trailing-Stop-Loss zu setzen, indem überprüft wird, ob der Kerzenschluss noch über dem midPoint Wert liegt.",
+                    "updated": 1647962079058
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge, mum kapanışının hala orta Nokta değerinin üzerinde olup olmadığını kontrol ederek bir işlem sırasında takip eden bir durdurma kaybı sağlamak için de kullanılabilir.",
+                    "updated": 1697836189769
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647962106155
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

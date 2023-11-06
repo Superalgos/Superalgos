@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Nachdem wir nun festgelegt haben, wann die Strategie ausgelöst werden soll, müssen wir uns überlegen, wann die Idee außer Kraft gesetzt werden soll.",
                 "updated": 1639265679941
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда мы определили, когда стратегия должна срабатывать, давайте рассмотрим, когда идея должна быть признана недействительной.",
+                "updated": 1640944684201
+            },
+            {
+                "language": "TR",
+                "text": "Artık stratejinin ne zaman tetiklenmesi gerektiğini tanımladığımıza göre, fikrin ne zaman geçersiz kılınması gerektiğini düşünelim.",
+                "updated": 1669580554490
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que hemos definido cuándo debe activarse la estrategia, consideremos cuándo debe invalidarse la idea.",
+                "updated": 1677100856344
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Wir wollen nicht mit dieser Strategie handeln, wenn es keinen Abwärtstrend gibt. Also kehren wir die Logik des Trigger-Ereignisses um! Die Bedingungen 1 und 2 finden Sie unten:",
                     "updated": 1639265690802
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы не хотим торговать по этой стратегии, когда нет нисходящего тренда. Поэтому мы изменим логику срабатывания события! Найдите условия 1 и 2 ниже:",
+                    "updated": 1640944703644
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşüş trendi olmadığında bu strateji ile ticaret yapmak istemiyoruz. Bu yüzden, olay üzerindeki tetikleyicinin mantığını tersine çevireceğiz! Aşağıda koşul 1 ve 2'yi bulun:",
+                    "updated": 1669580640435
+                },
+                {
+                    "language": "ES",
+                    "text": "No queremos hacer trading con esta estrategia cuando no hay tendencia bajista. Por lo tanto, vamos a invertir la lógica del evento trigger on. Encuentra las condiciones 1 y 2 a continuación:",
+                    "updated": 1677100871804
                 }
             ]
         },
@@ -47,6 +77,21 @@
                     "language": "DE",
                     "text": "Wir sollten die Strategie auslösen, wenn eine dieser Bedingungen als true gilt. Aber wie?",
                     "updated": 1639265729133
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы должны задействовать стратегию, когда одно из этих условий подтверждается. Каким образом?",
+                    "updated": 1640944736901
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu koşullardan herhangi biri doğru (true) kabul edilirse stratejiyi tetiklemeliyiz. Ama nasıl?",
+                    "updated": 1641654593998
+                },
+                {
+                    "language": "ES",
+                    "text": "Deberíamos desactivar la estrategia cuando cualquiera de estas condiciones valide true. ¿Cómo?",
+                    "updated": 1677100915791
                 }
             ]
         }

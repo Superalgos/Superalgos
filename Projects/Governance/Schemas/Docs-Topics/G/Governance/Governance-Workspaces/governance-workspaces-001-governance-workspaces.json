@@ -3,18 +3,23 @@
     "pageNumber": "1",
     "type": "Governance Workspaces",
     "definition": {
-        "text": "The Governance Project features multiple Project Definition Hierarchies spread across multiple Plugin Workspaces — one Workspace per Project — to facilitate the granular management of definitions by independent teams of maintainers. These are the Governance Workspaces.",
+        "text": "The Governance Project features multiple Project Definition Hierarchies spread across multiple Native Workspaces — one Workspace per Project — to facilitate the granular management of definitions by independent teams of maintainers. These are the Governance Workspaces.",
         "updated": 1630567756861,
         "translations": [
             {
                 "language": "ES",
-                "text": "Superalgos Pools is the top-level hierarchy kickstarting the definition of the whole Superalgos Project. It features the definition of several Pool nodes describing the main areas of project development that the Community wishes to incentivize.",
-                "updated": 1639136414235
+                "text": " Superalgos Pools es la jerarquía de nivel superior que pone en marcha la definición del todo el proyecto superalgos ( Superalgos Project.) Cuenta con la definición de varios nodos Pool describiendo las principales áreas de desarrollo del proyecto que la Community desea incentivar.",
+                "updated": 1640614348830
             },
             {
                 "language": "RU",
-                "text": "Проект управления Governance Project включает несколько иерархий Project Definition Hierarchies, распределенных по нескольким Plugin Workspaces - по одному рабочему пространству Workspace для каждого проекта - для облегчения детального управления определениями независимыми группами специалистов по сопровождению. Это рабочие пространства Governance Workspaces.",
-                "updated": 1639026882441
+                "text": "Superalgos Pools - это иерархия верхнего уровня, с которой начинается определение всего проекта Superalgos. Она включает в себя определение нескольких узлов Pool, описывающих основные бласти развития проекта, которые Community желает стимулировать.",
+                "updated": 1640234966829
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Havuzları (Superalgos Pools), tüm Superalgos Projesinin en üst düzey hiyerarşisidir. Topluluğun teşvik etmek istediği proje ve geliştirmenin ana alanlarını tanımlayan birkaç Havuz düğümünün tanımını içerir.",
+                "updated": 1645099302051
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Основной Governance Workspace",
                     "updated": 1639025240252
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana Governance Workspaces",
+                    "updated": 1645098111854
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Рабочее пространство Token Distribution Superalgos Governance Workspace является основной рабочим пространством. Загрузите это рабочее пространство, чтобы начать взаимодействие с управлением. Здесь вы обычно создаете и настраиваете свой профиль пользователя User Profile.",
                     "updated": 1639025404132
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Distribution Superalgos Native Workspace, ana çalışma alanıdır. Yönetişim ile etkileşiminizi başlatmak için bu çalışma alanını yükleyin. Burası genellikle Kullanıcı Profilinizi oluşturacağınız ve kuracağınız yerdir.",
+                    "updated": 1645098919092
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "RU",
                     "text": "Соглашение о присвоени названий",
                     "updated": 1639025654462
+                },
+                {
+                    "language": "TR",
+                    "text": "Adlandırma Kuralı",
+                    "updated": 1645098936050
                 }
             ]
         },
@@ -72,6 +92,11 @@
                     "language": "RU",
                     "text": "Все рабочие пространства Governance Workspaces имеют аналогичную структуру названий, чтобы их было легко найти на вкладке Workspaces:",
                     "updated": 1639025636955
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm Yönetim Çalışma Alanları, Çalışma Alanları Sekmesinde kolayca fark edilmelerini sağlamak için benzer bir adlandırma yapısını izler:",
+                    "updated": 1645098954389
                 }
             ]
         },
@@ -89,6 +114,12 @@
                     "language": "RU",
                     "text": "XXX заменяется фактическим названием проекта.",
                     "updated": 1639025620533
+                },
+                {
+                    "language": "TR",
+                    "text": "XXX, Projenin gerçek adı ile değiştirilir.",
+                    "updated": 1654395421679,
+                    "style": "Note"
                 }
             ]
         },
@@ -101,6 +132,12 @@
                     "language": "RU",
                     "text": "Поиск своего направления в Governance Workspaces",
                     "updated": 1639025962321
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetişim Çalışma Alanlarında Yolunuzu Bulma",
+                    "updated": 1654395427467,
+                    "style": "Title"
                 }
             ]
         },
@@ -118,12 +155,25 @@
                     "language": "RU",
                     "text": "Каждое из рабочих пространств Governance Workspaces содержит несколько иерархий Project Definition Hierarchies, описывающих пулы, ресурсы, функции и позиции соответствующего проекта Project.",
                     "updated": 1639025816807
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Çalışma Alanlarının her biri, ilgili Projenin Havuzlarını(Pools), Varlıklarını (Assets), Özelliklerini (Features) ve Konumları (Positions) tanımlayan birkaç Proje Tanım Hiyerarşisine (Project Definition Hierarchies) sahiptir.",
+                    "updated": 1645099082842
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance"
+            "text": "Governance->Concept->Reusable Governance Snippets->Deep in Governance",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Kullanılabilir Yönetişim Parçacıkları->Derin Yönetişim",
+                    "updated": 1654395433686,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -138,17 +188,38 @@
                     "language": "RU",
                     "text": "Иерархия Superalgos Pools",
                     "updated": 1639025988114
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Havuz Hiyerarşisi",
+                    "updated": 1645099102194
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Governance->Concept->Superalgos Pools->Definition",
-            "updated": 1630568552530
+            "updated": 1630568552530,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Superalgos Havuzları->Tanım",
+                    "updated": 1654395439602,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Superalgos Pools->Content"
+            "text": "Governance->Concept->Superalgos Pools->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Superalgos Havuzları->İçerik",
+                    "updated": 1654395445716,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -159,17 +230,39 @@
                     "language": "RU",
                     "text": "Объем расчетов",
                     "updated": 1639027923456
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplamaların Kapsamı",
+                    "updated": 1654395453640,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations",
-            "updated": 1630569313627
+            "updated": 1630569313627,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar",
+                    "updated": 1654395459431,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2"
+            "text": "Governance->Concept->Reusable Governance Snippets->Computational Limitations 2",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönetişim->Kavram->Yeniden Kullanılabilir Yönetişim Parçacıkları->Bilişimsel Sınırlamalar 2",
+                    "updated": 1654395465650,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

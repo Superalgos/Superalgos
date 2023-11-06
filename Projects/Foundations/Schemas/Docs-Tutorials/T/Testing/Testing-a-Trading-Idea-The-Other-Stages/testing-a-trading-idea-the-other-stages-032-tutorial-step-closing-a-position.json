@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Lesen wir schnell etwas über die Close Stage! Werfen Sie einen Blick auf diese Seite!",
                 "updated": 1639417649529
+            },
+            {
+                "language": "TR",
+                "text": "Aşama'yı kapat (Close Stage ) hakkında hızlı bir okuma yapalım! Bu sayfaya bir göz atın!",
+                "updated": 1641796035816
+            },
+            {
+                "language": "RU",
+                "text": "Давайте немного почитаем о Close Stage! Загляните на эту страницу!",
+                "updated": 1642942114440
+            },
+            {
+                "language": "ES",
+                "text": "¡Hagamos una lectura rápida sobre el Close Stage! Echa un vistazo a esta página.",
+                "updated": 1681053199884
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Die Close Stage funktioniert ähnlich wie die Open Stage, bietet denselben Grad an Flexibilität bei der Definition der Ausführung und erfordert dieselbe Art von Definitionen.",
                     "updated": 1639417662670
+                },
+                {
+                    "language": "TR",
+                    "text": "Kapalı aşama, açık aşamaya benzer şekilde çalışır, yürütmeyi tanımlamada aynı derecede esneklik sunar ve aynı tür tanımlamaları gerektirir.",
+                    "updated": 1641796045714
+                },
+                {
+                    "language": "RU",
+                    "text": "Стадия закрытия имеет те же механизмы работы, что и стадия открытия, обеспечивает тот же уровень гибкости для определения исполнения и требует тех же определений.",
+                    "updated": 1642942132520
+                },
+                {
+                    "language": "ES",
+                    "text": "La etapa cerrada presenta un funcionamiento similar al de la etapa abierta, ofrece el mismo nivel de flexibilidad para definir la ejecución y requiere el mismo tipo de definiciones.",
+                    "updated": 1681053270460
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich ein paar Minuten Zeit, um darüber nachzudenken, wie Sie diese Position schließen können. Überlegen Sie, wie hoch der Zielkurs und die Zielgröße sein sollten.",
                     "updated": 1639417681367
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu pozisyonu nasıl kapatacağınızı düşünmek için birkaç dakikanızı ayırın. Hedef fiyat ve hedef büyüklüğün ne olması gerektiğini düşünün.",
+                    "updated": 1641796056534
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте несколько минут, чтобы подумать о том, как закрыть эту позицию. Подумайте, какой должна быть наша целевая ставка и целевой размер.",
+                    "updated": 1642942142703
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate unos minutos para pensar cómo cerrar esta posición. Piensa en cuál debería ser nuestra tasa objetivo y el tamaño objetivo.",
+                    "updated": 1681053232677
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Denken Sie auch darüber nach, welche Art von Auftrag wir verwenden sollten!",
                     "updated": 1639417685330
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ayrıca nasıl bir emir kullanmamız gerektiğini de düşün!",
+                    "updated": 1641796064792
+                },
+                {
+                    "language": "RU",
+                    "text": "Также подумайте о том, какой тип ордера мы должны использовать!",
+                    "updated": 1642942157740
+                },
+                {
+                    "language": "ES",
+                    "text": "Piensa también en el tipo de orden que debemos utilizar.",
+                    "updated": 1681053243755
                 }
             ]
         }

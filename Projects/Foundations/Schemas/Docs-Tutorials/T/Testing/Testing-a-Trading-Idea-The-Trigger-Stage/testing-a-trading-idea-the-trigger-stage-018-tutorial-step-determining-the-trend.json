@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv!",
                 "updated": 1639262329481
+            },
+            {
+                "language": "RU",
+                "text": "Существует, наверное, столько же способов определения тренда, сколько трейдеров населяет планету Земля! Это вопрос стиля и в основном субъективный!",
+                "updated": 1640935379900
+            },
+            {
+                "language": "TR",
+                "text": "Bir trendi belirlemenin muhtemelen Dünya gezegeninde yaşayan tüccarlar kadar çok yolu vardır! Bu bir tarz meselesidir ve çoğunlukla özneldir!",
+                "updated": 1669576481664
+            },
+            {
+                "language": "ES",
+                "text": "Probablemente haya tantas formas de determinar una tendencia como traders habitan el planeta Tierra. Es una cuestión de estilo y, sobre todo, subjetiva.",
+                "updated": 1675622381493
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Wir werden einen willkürlichen und recht einfachen Ansatz wählen, der auf dem gleitenden 20-Perioden-Durchschnitt (MA) basiert, der in den Bollinger-Bands integriert ist.",
                     "updated": 1639262362976
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы воспользуемся произвольным и довольно простым подходом, основанным на 20-периодной скользящей средней (MA), встроенной в Bollinger Bands.",
+                    "updated": 1640935395220
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantlarında oluşturulmuş 20 dönemlik hareketli ortalamaya (MA) dayalı, keyfi ve oldukça basit bir yaklaşım izleyeceğiz.",
+                    "updated": 1641653171354
+                },
+                {
+                    "language": "ES",
+                    "text": "Adoptaremos un enfoque arbitrario y bastante simple basado en la media móvil (MA) de 20 periodos incorporada en las Bandas de Bollinger.",
+                    "updated": 1675622399166
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\"!",
                     "updated": 1639262459995
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев (Layer Manager) Bollinger Data и включите слой \" Bollinger Channels Objects\"!",
+                    "updated": 1640935510144
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( (Bollinger Channels Objects) Katmanını (Layer) açın!",
+                    "updated": 1669576557806
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al Bollinger Data Layer Manager y activa la capa \"Bollinger Channels Objects\".",
+                    "updated": 1675622449033
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Dieser Indikator leitet die Richtung des MA ab und zeichnet einen grünen Kanal, wenn der MA nach oben geht und einen roten Kanal, wenn er nach unten geht.",
                     "updated": 1639262472467
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор определяет направление МА и рисует зеленый канал, когда МА идет вверх, и красный канал, когда она идет вниз.",
+                    "updated": 1640935526295
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu gösterge MA'nın yönüne göre çalışır ve MA yukarı çıkarken yeşil bir kanal, aşağı inerken kırmızı bir kanal çizer.",
+                    "updated": 1669576593762
+                },
+                {
+                    "language": "ES",
+                    "text": "Este indicador deriva la dirección de la MA y dibuja un canal verde cuando la MA está subiendo y un canal rojo cuando está bajando.",
+                    "updated": 1675622453899
                 }
             ]
         }

@@ -8,8 +8,13 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ayudénos a premiar a los mentores así ellos continuan haciendo un buen trabajo formando a los contribuyentes!",
-                "updated": 1633543826508
+                "text": "Ayúdanos a premiar a los mentores así ellos continuan haciendo un buen trabajo formando a los contribuyentes!",
+                "updated": 1682597167405
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Katkıda Bulunanların oluşturduğu iyi işleri sürdürmeleri için mentorlar ödüllendirmemize yardımcı olur!",
+                "updated": 1646303357646
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Ваши наставники",
                     "updated": 1639129246702
+                },
+                {
+                    "language": "TR",
+                    "text": "Senin Mentorların",
+                    "updated": 1646303411838
                 }
             ]
         },

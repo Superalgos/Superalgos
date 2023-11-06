@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 6,
+    "pageNumber": "6",
     "type": "Docs Error - Page With No Paragraphs",
     "definition": {
         "text": "The page exists but it's empty.",
@@ -15,13 +15,19 @@
                 "language": "RU",
                 "text": "Страница существует, но пуста.",
                 "updated": 1638529668036
+            },
+            {
+                "language": "TR",
+                "text": "Sayfa var ama boş.",
+                "updated": 1652019423147
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Page With No Paragraphs"
+            "text": "Anchor Page With No Paragraphs",
+            "translations": [ ]
         },
         {
             "style": "Error",
@@ -32,6 +38,11 @@
                     "language": "DE",
                     "text": "Der von Ihnen angegebene Docs Page Name wurde gefunden,  enthält jedoch keine Absätze. Die Seite existiert, ist aber leer.",
                     "updated": 1633896994091
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirttiğiniz Dokümanlar Sayfa Adı ( Docs Page Name ) bulundu, ancak içinde paragraf yok.",
+                    "updated": 1652019520602
                 }
             ]
         },
@@ -49,6 +60,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, помогите нам исправить эту страницу!",
                     "updated": 1638529697705
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen bu sayfayı düzeltmemize yardım edin!",
+                    "updated": 1652019555635
                 }
             ]
         },
@@ -66,12 +82,26 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529734071
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393508703,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Docs Goto Command"
+            "text": "Docs Goto Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393514273,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

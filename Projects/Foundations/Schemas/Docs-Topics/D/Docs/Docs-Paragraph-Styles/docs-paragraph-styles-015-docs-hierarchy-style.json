@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": 15,
+    "pageNumber": "15",
     "type": "Docs Hierarchy Style",
     "definition": {
         "text": "It is possible to inject into a docs page, a hierarchy of nodes, starting on a node specified and letting the system to figure out which are it's decendents.",
@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "На страницу документов можно ввести иерархию узлов, начиная с указанного узла и позволяя системе определить, какие из них являются ее потомками.",
                 "updated": 1638540433364
+            },
+            {
+                "language": "TR",
+                "text": "Bir dokümanlar sayfasına, düğüm hiyerarşisine, belirtilen bir düğümden başlayarak ve sistemin hangilerinin doğru olduğunu bulmasına izin vermek mümkündür.",
+                "updated": 1652385698967
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Когда вы редактируете абзац в стиле иерархии, система ожидает, что вы будете следовать этому синтаксису:",
                     "updated": 1638540451241
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşi stilinin bir paragrafını düzenlediğinizde, sistem bu sözdizimini izlemenizi bekler:",
+                    "updated": 1652385741230
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Project: относится к любому из проектов, уже интегрированных в Superalgos, включая сам Superalgos.",
                     "updated": 1638540469634
+                },
+                {
+                    "language": "TR",
+                    "text": "Project: Superalgos'un kendisi de dahil olmak üzere, halihazırda Superalgos'a entegre edilmiş herhangi bir projeyi ifade eder.",
+                    "updated": 1652385787818
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Node Type: любой допустимый тип узла в контексте указанного проекта.",
                     "updated": 1638540484606
+                },
+                {
+                    "language": "TR",
+                    "text": "Node Type: belirtilen proje bağlamında geçerli herhangi bir düğüm türü.",
+                    "updated": 1652385807019
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Levels: количество поколений ниже по потоку, начиная с указанного типа узла, которое будет отображаться на странице документов. Максимальное количество уровней - 8.",
                     "updated": 1638540575415
+                },
+                {
+                    "language": "TR",
+                    "text": "Levels: Dokümanlar sayfasında oluşturulacak, belirtilen düğüm türünden başlayarak aşağı yönde nesil sayısı. Maksimum seviye sayısı 8'dir.",
+                    "updated": 1652385852333
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638540585632
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652385877802
                 }
             ]
         },
@@ -119,12 +149,25 @@
                     "language": "RU",
                     "text": "на странице документов создает следующее:",
                     "updated": 1638540704929
+                },
+                {
+                    "language": "TR",
+                    "text": "dokümanlar sayfasında aşağıdakileri üretir:",
+                    "updated": 1652385907733
                 }
             ]
         },
         {
             "style": "Hierarchy",
-            "text": "Foundations->Task->5"
+            "text": "Foundations->Task->5",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Temeller->Task->5",
+                    "updated": 1654393783235,
+                    "style": "Hierarchy"
+                }
+            ]
         }
     ]
 }

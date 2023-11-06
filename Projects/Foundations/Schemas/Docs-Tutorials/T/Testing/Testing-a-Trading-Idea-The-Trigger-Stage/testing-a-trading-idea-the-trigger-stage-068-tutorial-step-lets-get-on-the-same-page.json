@@ -1,0 +1,196 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 68,
+    "type": "Tutorial Step - Let's Get On The Same Page",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "bot-data-dependencies"
+        },
+        "text": "I just brought you to the one hour chart! Before discussing what we see here, let's take a minute to organize your chart.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich habe Sie soeben zum Stundendiagramm gebracht! Bevor wir besprechen, was wir hier sehen, sollten wir uns eine Minute Zeit nehmen, um Ihr Diagramm zu ordnen.",
+                "updated": 1639390328831
+            },
+            {
+                "language": "TR",
+                "text": "Seni grafik alanında 1 saatlik zaman dilimine getirdim! Burada gördüklerimizi tartışmadan önce, grafiği düzenlemek için bir dakikanızı ayırın.",
+                "updated": 1669668309249
+            },
+            {
+                "language": "RU",
+                "text": "Я только что привел вас к часовому графику! Прежде чем обсуждать то, что мы здесь видим, давайте потратим минуту на организацию вашего графика.",
+                "updated": 1642662202825
+            },
+            {
+                "language": "ES",
+                "text": "Acabo de llevarte al gráfico de una hora. Antes de discutir lo que vemos aquí, vamos a tomarnos un minuto para organizar tu gráfico.",
+                "updated": 1679252937315
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That way I can make sure you see the same things I see!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auf diese Weise kann ich sicherstellen, dass Sie die gleichen Dinge sehen wie ich!",
+                    "updated": 1639390338979
+                },
+                {
+                    "language": "TR",
+                    "text": "Böylece benimle aynı şeyleri görmeni sağlayabilirim!",
+                    "updated": 1641664010411
+                },
+                {
+                    "language": "RU",
+                    "text": "Так я смогу убедиться, что вы видите то же, что и я!",
+                    "updated": 1642662220133
+                },
+                {
+                    "language": "ES",
+                    "text": "Así me aseguraré de que veas lo mismo que yo.",
+                    "updated": 1679252930184
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bollinger Data layer manager: Turn everything off but the Bollinger Bands layers.",
+            "updated": 1622489215220,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bollinger Data layer manager: Schalten Sie alles aus, bis auf die Bollinger Bands Ebenen.",
+                    "updated": 1639390433103
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Veri Katmanı Yöneticisi (Bollinger Data Layer Manager): Bollinger Bantları (Bollinger Bands) katmanı hariç her şeyi kapatın.",
+                    "updated": 1669668388800
+                },
+                {
+                    "language": "RU",
+                    "text": "Bollinger Data layer manager: Выключите все, кроме слоев Bollinger Bands.",
+                    "updated": 1642662266452
+                },
+                {
+                    "language": "ES",
+                    "text": "Bollinger Data layer manager: Desactiva todas las capas excepto las Bandas de Bollinger.",
+                    "updated": 1679252922087
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Simulation Objects layer manager: Turn everything off but the \"Strategies\" and \"Trigger Stages\" layers.",
+            "updated": 1622489292671,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Simulation Objects layer manager: Schalten Sie alles bis auf die Ebenen \"Strategies\" und \"Trigger Stages\" aus.",
+                    "updated": 1639390442381
+                },
+                {
+                    "language": "TR",
+                    "text": "Simulation Objects Katman Yöneticisi (Simulation Objects Layer Manager) : \"Strategies\" ve \"Trigger Stages\" katmanları dışında her şeyi kapatın.",
+                    "updated": 1669668411542
+                },
+                {
+                    "language": "RU",
+                    "text": "Simulation Objects layer manager:  Выключите все, кроме слоев \"Strategies\" и \"Trigger Stages\".",
+                    "updated": 1642662292100
+                },
+                {
+                    "language": "ES",
+                    "text": "Simulation Objects layer manager: Desactiva todo excepto las capas \" Strategies \" y \" Trigger Stages \".",
+                    "updated": 1679252908900
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading System layer manager: Turn everything off but the \"Trading System Errors\", \"Highlights\", and \"Values\" layers.",
+            "updated": 1622489280401,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading System layer manager: Deaktivieren Sie alles bis auf die Ebenen \"Trading System Errors\", \"Highlights\" und \"Values\".",
+                    "updated": 1639390448071
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi Katman Yöneticisi (Trading System Layer Manager) : \"Ticaret Sistemi Hataları\" (Trading System Errors), \"Highlights\" ve \"Values\" katmanları dışında her şeyi kapatın.",
+                    "updated": 1669668484450
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading System layer manager: Выключите все, кроме слоев \" Trading System Errors\", \"Highlights\" и \"Values\".",
+                    "updated": 1642662317682
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading System layer manager: Desactiva todo excepto las capas \" Trading System Errors\", \"Highlights\" y \"Values\".",
+                    "updated": 1679252888332
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Engine layer manager: Turn everything off.",
+            "updated": 1622489241076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading System layer manager:  Schalten Sie alles aus.",
+                    "updated": 1639390456259
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Motoru Katman Yöneticisi (Trading Engine layer manager) : Her şeyi kapatın.",
+                    "updated": 1669668515457
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Engine layer manager: Выключите все.",
+                    "updated": 1642662332051
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Engine layer manager: Desactiva todo.",
+                    "updated": 1679252850214
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The next video shows what I see... and what you should!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das nächste Video zeigt, was ich sehe... und was Sie sehen sollten!",
+                    "updated": 1639390349810
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki video benim ne gördüğümü gösteriyor ... ve ne görmen gerektiğini!",
+                    "updated": 1641664117925
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем видео показано то, что вижу я... и что должны видеть вы!",
+                    "updated": 1642662346249
+                },
+                {
+                    "language": "ES",
+                    "text": "El siguiente vídeo muestra lo que yo veo... ¡y lo que deberías ver tú!",
+                    "updated": 1679252842616
+                }
+            ]
+        }
+    ]
+}

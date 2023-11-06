@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Указанное название учебного пособия Docs Tutorial Name не совпадает с названием, указанным на странице, которую вы хотите удалить.",
                 "updated": 1638531425066
+            },
+            {
+                "language": "TR",
+                "text": "Sağlanan Dokümanlar Öğretici Adı ( Docs Tutorial Name ) silmek istediğiniz sayfada bulunan Dokümanlar Öğretici Adıyla ( Docs Tutorial Name ) eşleşmiyor.",
+                "updated": 1652041786569
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Tutorial stimmt nicht überein. Der angegebene Name des Docs Tutorial Name stimmt nicht mit dem Namen des Docs Tutorial Name auf der zu löschenden Seite überein.",
                     "updated": 1633900430074
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici Uyuşmazlığı. Sağlanan Dokümanlar Öğretici Adı ( Docs Tutorial Name ) silinecek sayfanın Dokümanlar Öğretici Adıyla ( Docs Tutorial Name ) eşleşmiyor.",
+                    "updated": 1652041859880
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Проверьте страницу, которую вы хотите удалить, и получите правильное имя учебного пособия Docs Tutorial Name, которое будет использоваться в команде.",
                     "updated": 1638531465260
+                },
+                {
+                    "language": "TR",
+                    "text": "Silmek istediğiniz sayfayı kontrol edin ve komutta kullanılacak doğru Dokümanlar Öğretici Adını ( Docs Tutorial Name ) alın.",
+                    "updated": 1652041914145
                 }
             ]
         },

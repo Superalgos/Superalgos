@@ -3,13 +3,28 @@
     "pageNumber": "4",
     "type": "Plugins-Docs",
     "definition": {
-        "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. Outdated: \"The branch Plugins-Docs is used by contributors of Plugins, documentations or tutorials. This branch in synchronized with Develop and Master everytime a new version is released, and it's purpose is to allow the flow of docs pages, plugins and tutorials into the master branch at a higher rate than changes at the codebase done at the Develop branch. This means that the Master branch might have many updates in between releases.\"",
-        "updated": 1638829995951,
+        "text": "The Plugins-Docs Branch has been deprecated. All contributions now go to the Develop branch.",
+        "updated": 1642956423144,
         "translations": [
             {
                 "language": "ES",
                 "text": "La rama Plugins-Docs es utilizada por los contribuyentes de Plugins, documentaciones o tutoriales. Esta rama está sincronizada con Develop y Master cada vez que se lanza una nueva versión, y su propósito es permitir el flujo de páginas de documentos, plugins ay tutoriales en la Master Branch a un ritmo mayor que los cambios en la base de código realizados en el la rama Develop. This means that the Master Branch puede tener muchas actualizaciones entre lanzamientos.",
                 "updated": 1628203486790
+            },
+            {
+                "language": "DE",
+                "text": "Der Plugins-Docs-Zweig wurde abgeschafft. Alle Beiträge gehen nun in den Develop -Zweig.",
+                "updated": 1689530570504
+            },
+            {
+                "language": "RU",
+                "text": "Ветка Plugins-Docs была упразднена. Все материалы теперь направляются в ветку Develop.",
+                "updated": 1647785161188
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Plugins-Docs Branch kullanımdan kaldırıldı. Tüm katkılar artık Geliştirme şubesine gidiyor.",
+                "updated": 1650622486922
             }
         ]
     },
@@ -17,7 +32,24 @@
         {
             "style": "Text",
             "text": "Contributors working at this branch coordinate their here:",
-            "updated": 1622468204165
+            "updated": 1622468204165,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Contributors dieser Branch koordinieren ihre Arbeit hier:",
+                    "updated": 1640303926997
+                },
+                {
+                    "language": "RU",
+                    "text": "Сотрудники, работающие в этой ветке, согласовывают свои действия здесь:",
+                    "updated": 1640353284759
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu şubede çalışan katkıda bulunanlar, burada koordine ederler:",
+                    "updated": 1650622535215
+                }
+            ]
         },
         {
             "style": "Link",

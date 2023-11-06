@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Umarım yedeklemelerin inceliklerini ve her bir kurtarma durumunda referansların nasıl etkilendiğini anlamışsınızdır!",
                 "updated": 1639727234077
+            },
+            {
+                "language": "RU",
+                "text": "Надеюсь, вам удалось разобраться в тонкостях резервного копирования и понять, как влияют ссылки в каждом конкретном случае восстановления!",
+                "updated": 1640871055748
+            },
+            {
+                "language": "ID",
+                "text": "Aku harap kamu dapat memahami seluk-beluk cadangan dan bagaimana referensi dipengaruhi dalam setiap kasus restorasi tertentu!",
+                "updated": 1645032385805
+            },
+            {
+                "language": "NL",
+                "text": "Ik hoop dat je de fijne kneepjes van back-ups hebt begrepen en hoe referenties worden beïnvloed in elk specifiek herstelgeval!",
+                "updated": 1669544663109
             }
         ]
     },
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No es necesario que memorices los casos individuales. En cambio, si comprendes el mecanismo subyacente que involucra referencias, ¡entonces puede deducir el comportamiento en cada caso!",
-                    "updated": 1626617450873,
+                    "text": "No es necesario que memorices los casos individuales. En cambio, si comprendes el mecanismo subyacente que involucran las referencias, ¡entonces puedes deducir el comportamiento en cada caso!",
+                    "updated": 1675377144079,
                     "style": "Text"
                 },
                 {
@@ -61,13 +76,28 @@
                     "language": "TR",
                     "text": "Her durumu ezberlemenize gerek yok. Bunun yerine, referansları içeren temel mekanizmayı anlarsanız, her durumdaki davranışı tahmin edebilirsiniz!",
                     "updated": 1639727308270
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам не нужно запоминать отдельные случаи. Вместо этого, если вы понимаете основной механизм, связанный со ссылками, вы можете сделать вывод о поведении в каждом конкретном случае!",
+                    "updated": 1640871076346
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu tidak perlu menghafal kasus-kasus individual. Sebaliknya, jika kamu memahami mekanisme mendasar yang melibatkan referensi, maka kamu dapat menyimpulkan perilaku pada setiap kasus!",
+                    "updated": 1645032438839
+                },
+                {
+                    "language": "NL",
+                    "text": "U hoeft de individuele gevallen niet uit uw hoofd te leren. In plaats daarvan, als u het onderliggende mechanisme van verwijzingen begrijpt, kunt u het gedrag in elk geval afleiden!",
+                    "updated": 1669544681206
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Remember that each node has a specific ID! When a reference is established, both nodes involved have a unique ID. Outgoing references do not depend on the node's ID, but incoming references do! If the backed up node may be restored with the same ID, incoming references will persist; otherwise, they will change or be lost!",
-            "updated": 1615831079650,
+            "text": "Remember that each node has a specific ID! When a reference is established, both nodes involved have a unique ID. Outgoing references do not depend on the node's ID, but incoming references do! If the backed-up node may be restored with the same ID, incoming references will persist; otherwise, they will change or be lost!",
+            "updated": 1687797767103,
             "translations": [
                 {
                     "language": "IT",
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Her düğümün belirli bir kimliği ( ID ) olduğunu unutmayın! Bir referans oluşturulduğunda, dahil olan her iki düğümün de benzersiz bir ID'si  oluşur. Giden referanslar düğümün ID'sine bağlı değildir, ancak gelen referanslar bağlıdır! Yedeklenen düğüm aynı ID ile geri yüklenebilirse, gelen referanslar devam eder; aksi takdirde değişirler veya kaybolurlar!",
                     "updated": 1639727420761
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что каждый узел имеет определенный идентификатор ID! Когда устанавливается ссылка, оба участвующих узла имеют уникальный ID. Исходящие ссылки не зависят от ID узла, но входящие ссылки зависят! Если резервный узел может быть восстановлен с тем же ID, то входящие ссылки сохранятся; в противном случае они изменятся или будут потеряны!",
+                    "updated": 1640871118732
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa setiap node memiliki ID tertentu! Ketika referensi dibuat, kedua node yang terlibat memiliki ID unik. Referensi Outgoing tidak tergantung pada ID node, tetapi referensi incoming melakukannya! Jika node yang dicadangkan dapat dipulihkan dengan ID yang sama, referensi yang masuk akan tetap ada; jika tidak, mereka akan berubah atau hilang!",
+                    "updated": 1645032505347
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat elk knooppunt een specifiek ID heeft! Wanneer een referentie tot stand is gebracht, hebben beide betrokken knooppunten een uniek ID. Uitgaande referenties zijn niet afhankelijk van het ID van het knooppunt, maar inkomende referenties wel! Als het back-upknooppunt met hetzelfde ID kan worden hersteld, blijven inkomende referenties bestaan; anders zullen ze veranderen of verloren gaan!",
+                    "updated": 1669544745156
                 }
             ]
         }

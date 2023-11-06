@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Die Steigung gibt an, wie steil die MA-Kurve ist... das heißt, wie ausgeprägt der Rückgang oder Anstieg des MA ist!",
                 "updated": 1639263150888
+            },
+            {
+                "language": "RU",
+                "text": "Наклон (slope) показывает, насколько крута кривая МА... то есть, насколько выражен падающий или восходящий участок МА!",
+                "updated": 1640940045619
+            },
+            {
+                "language": "TR",
+                "text": "Eğim (Slope), MA eğrisinin ne kadar dik olduğunu gösterir... Yani MA'daki düşüşün veya yükelişin  ne kadar belirgin olduğunu anlatır!",
+                "updated": 1669577329699
+            },
+            {
+                "language": "ES",
+                "text": "La pendiente (Slope) indica lo pronunciada que es la curva de la MA... es decir, lo pronunciado que es el descenso o ascenso de la MA.",
+                "updated": 1677099961433
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Lesen Sie die Beschreibung des Indikators in der Dokumentation. Scrollen Sie dann nach unten und gehen Sie zum Abschnitt Bollinger SubChannels Products & Properties.",
                     "updated": 1639263159240
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте описание индикатора в документации. Затем прокрутите вниз и дойдите до раздела \" Bollinger SubChannels Products & Properties\".",
+                    "updated": 1640939767412
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümantasyondaki göstergenin açıklamasını okuyun. Ardından aşağı kaydırın ve Bollinger alt Kanal Ürünleri (Bollinger SubChannels Products) ve Özellikleri bölümüne gidin.",
+                    "updated": 1641653630981
+                },
+                {
+                    "language": "ES",
+                    "text": "Lee la descripción del indicador en la documentación. Luego desplázate hacia abajo y llega a la sección Bollinger SubChannels Products & Properties.",
+                    "updated": 1675640058079
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Die Art von Informationen, die Sie auf dieser Seite finden, ist für jeden Indikator verfügbar, der mit dem System ausgeliefert wird.",
                     "updated": 1639263165561
+                },
+                {
+                    "language": "RU",
+                    "text": "Информация, которую вы найдете на этой странице, доступна для каждого индикатора, поставляемого с системой.",
+                    "updated": 1640939776830
+                },
+                {
+                    "language": "TR",
+                    "text": "Göstergelerle ilgili bilgiler sistemle birlikte gelir ve kullanıcı için ulaşılabilir durumdadır.",
+                    "updated": 1669577430735
+                },
+                {
+                    "language": "ES",
+                    "text": "El tipo de información que encontrarás en esta página está disponible para todos los indicadores que se envían con el sistema.",
+                    "updated": 1675640049765
                 }
             ]
         }

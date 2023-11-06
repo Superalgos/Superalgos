@@ -74,9 +74,9 @@ function newPanelsVisibleButton() {
     function draw() {
         let icon
         if (thisObject.showPanels === true) {
-            icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'plotter-panel')
+            icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'plotter-panel')
         } else {
-            icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-panel-off')
+            icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-panel-off')
         }
 
         UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 14, thisObject.container)

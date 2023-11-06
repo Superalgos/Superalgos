@@ -4,13 +4,28 @@
     "type": "App PRs Command",
     "definition": {
         "text": "This command allows you to check all existing PRs and automatically close the ones that do not comply with PRs Rules or merge the ones they do. It also leaves untouched the PRs that are out of the scope of the PRs Rules.",
-        "updated": 1610909304702
+        "updated": 1610909304702,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu komut, mevcut tüm PR'leri kontrol etmenizi ve PR Kurallarına uymayanları otomatik olarak kapatmanızı veya uygun olanları birleştirmenizi sağlar. Ayrıca, PRs Kuralları kapsamı dışında kalan PR'lara dokunmadan bırakır.",
+                "updated": 1654395159498
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Add more text here.",
-            "updated": 1622028842412
+            "updated": 1622028842412,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Buraya daha fazla metin ekleyin.",
+                    "updated": 1654395165347,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

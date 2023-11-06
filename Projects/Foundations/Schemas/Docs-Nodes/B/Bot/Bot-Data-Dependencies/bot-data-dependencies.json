@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Bot Data Dependencies - это организационное устройство, используемое для упорядочивания зависимостей данных, соответствующих конкретному боту.",
                 "updated": 1638644765947
+            },
+            {
+                "language": "TR",
+                "text": "Bot veri bağımlılıkları düğümü, belirli bir bota karşılık gelen veri bağımlılıklarını düzenlemek için kullanılan kurumsal bir cihazdır.",
+                "updated": 1652796199434
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Устройство существует как потомок узла зависимостей данных хранилища данных и не требует ссылки на бота в данном хранилище данных.",
                     "updated": 1638644891455
+                },
+                {
+                    "language": "TR",
+                    "text": "Cihaz, bir veri madeni veri bağımlılıkları düğümünün bir ürünü olarak bulunur ve verilen veri madeninde bir bota referans gerektirmez.",
+                    "updated": 1652796217373
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "RU",
                     "text": "Конфигурция Bot Data Dependencies",
                     "updated": 1638644905981
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Veri Bağımlılıklarını Yapılandırma",
+                    "updated": 1652796236860
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню, чтобы получить доступ к настройкам.",
                     "updated": 1638644958399
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
+                    "updated": 1652796247360
                 }
             ]
         }

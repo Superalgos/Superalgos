@@ -1,0 +1,74 @@
+{
+    "topic": "Trends AI Data Mine",
+    "pageNumber": "4",
+    "type": "Lorentzian Classification",
+    "definition": {
+        "text": "This indicator makes use of the K nearest neighbours (KNN) classification machine learning technique to categorise historical data in order to make predictions on future price action."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Lorentzian Classification on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The algorithm uses the RSI, ADX, wave trend, CCI, and EMA as inputs. It then uses the historical data from these indicators to calculate a kernel estimation and likelihood of future price action.",
+            "updated": 1695019740391
+        },
+        {
+            "style": "Text",
+            "text": "A classification value is printed on each candle which is the distance classification from the kernel mean. These are used in conjunction with EMA and kernel crosses to produce a buy or sell signal.",
+            "updated": 1695020231560
+        },
+        {
+            "style": "Text",
+            "text": "Potential exit signals are provided and are also based on the price crossing over the kernel estimation value."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/TrendsAI-Lorentz-Classification.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| LorentzianClassificationEstimate | LCE | prediction, kernelEst, emaValue, buysignal, sellSignal, endBuy, endSell |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Lorentzian Classification\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/TrendsAI-Lorentz-Classification-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point for a trade is using the provided buy signal:",
+            "updated": 1695020264354
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.LCE.buySignal != 0",
+            "updated": 1695020355138
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

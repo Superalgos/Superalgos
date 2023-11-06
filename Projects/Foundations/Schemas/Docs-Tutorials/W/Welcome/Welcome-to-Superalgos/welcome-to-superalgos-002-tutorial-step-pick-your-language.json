@@ -44,6 +44,21 @@
                 "language": "RU",
                 "text": "Пользователи предоставляют переводы для выбора предпочитаемого языка. Это потрясающее Community! ",
                 "updated": 1635453127908
+            },
+            {
+                "language": "ID",
+                "text": "Pengguna saling berkontribusi dalam menerjemahkan sehingga kamu dapat memilih bahasa pilihanmu! Community ini luarbiasa!",
+                "updated": 1639582383650
+            },
+            {
+                "language": "IT",
+                "text": "Gli utenti stanno contribuendo con le traduzioni in modo che tu possa scegliere la tua lingua preferita! Questa comunità è fantastica!",
+                "updated": 1666386405355
+            },
+            {
+                "language": "PL",
+                "text": "Możesz wybrać swój preferowany język dzięki temu, że inni użytkownicy uczestniczą w tłumaczeniu! To Community jest super!",
+                "updated": 1674746973418
             }
         ]
     },
@@ -55,8 +70,8 @@
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Voici comment cela fonctionne : la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'il existe sa traduction, vous l'obtenez, sinon, elle apparaitra en anglais !",
-                    "updated": 1623947447536,
+                    "text": "Voici comment cela fonctionne: la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'elle est disponible, vous l'obtiendrai, sinon le texte sera en anglais!",
+                    "updated": 1666252457691,
                     "style": "Text"
                 },
                 {
@@ -67,8 +82,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu nasıl çalışır? Varsayılan dil İngilizce'dir. Başka bir dil seçerseniz ve mevcut sayfa için bir herhangi bir dilde çeviri varsa, onu sayfanın aşağısındaki bayraklara tıklaarak seçtiğiniz dilde görüntülersiniz. Eğer çeviri yoksa,İngilizce olarak görürsünüz1",
-                    "updated": 1633120762865,
+                    "text": "Bu nasıl çalışır? Varsayılan dil İngilizce'dir. Başka bir dil seçerseniz ve mevcut sayfa için bir herhangi bir dilde çeviri varsa, onu sayfanın aşağısındaki bayraklara tıklayarak seçtiğiniz dilde görüntülersiniz. Eğer çeviri yoksa,İngilizce olarak görürsünüz.",
+                    "updated": 1644846238415,
                     "style": "Text"
                 },
                 {
@@ -85,8 +100,23 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Как это работает: английский - язык по умолчанию. В случае, если Вы выберете какой-нибудь другой язык, где существует перевод текущей страницы, у Вас появится возможность перевода на данном предпочитаемом языке. В обратном случае, язык остается  - английский.",
+                    "text": "Как это работ��ет: английский - язык по умолчанию. В случае, если Вы выберете какой-нибудь другой язык, где существует перевод текущей страницы, у Вас появится возможность перевода на данном предпочитаемом языке. В обратном случае, язык остается  - английский.",
                     "updated": 1635448551187
+                },
+                {
+                    "language": "ID",
+                    "text": "Begini cara kerjanya: bahasa utama adalah bahasa Inggris. Jika kamu pilih bahasa lain dan ada terjemahannya, maka kamu sudah berada di bahasa yang diinginkan. Jika tidak, Kamu akan membacanya dalam bahasa Inggris!",
+                    "updated": 1639582032428
+                },
+                {
+                    "language": "IT",
+                    "text": "Ecco come funziona: la lingua predefinita è l'inglese. Se scegli un'altra lingua, e c'è una traduzione per la pagina corrente, la leggerai nella lingua selezionata. Altrimenti, lo trovi in inglese!",
+                    "updated": 1666386486930
+                },
+                {
+                    "language": "PL",
+                    "text": "Działa to tak: Domyślnym językiem jest angielski. Jeżeli zmienisz język, system wyświetli stronę w wybranym języku. Jeżeli tłumaczenie na wybrany język nie jest dostępne, strona będzie wyświetlona w języku angielskim!",
+                    "updated": 1674748044891
                 }
             ]
         },
@@ -129,6 +159,21 @@
                     "language": "RU",
                     "text": "Используйте колесико мыши, чтобы прокрутить страницу в правильном направлении вниз. Нажмите на флажок, чтобы изменить предпочитаемый язык, если Вы желаете.",
                     "updated": 1635448656834
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan mouse wheel untuk menggulir halaman di kanan bawah. Click bendera sesuai bahasa yang kamu inginkan!",
+                    "updated": 1639582298058
+                },
+                {
+                    "language": "IT",
+                    "text": "Usa la rotellina del mouse per scorrere la pagina di destra verso il fondo. Clicca su una bandiera per cambiare la lingua preferita, se lo desideri!",
+                    "updated": 1666386554060
+                },
+                {
+                    "language": "PL",
+                    "text": "Użyj rolki w swojej myszce i przewiń stronę na sam dół. Jeżeli masz ochotę, kliknij w wybraną flagę żeby zmienić język!",
+                    "updated": 1674748215781
                 }
             ]
         },
@@ -151,8 +196,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Arayüz veya başlıklar değil, yalnızca Dokümanlar ve öğreticiler çevrilebilir!",
-                    "updated": 1633121237275,
+                    "text": "Sadece Dokümanlar ve eğitimler çevrilebilir, arayüz veya başlıklar çevrilemez!",
+                    "updated": 1669757462355,
                     "style": "Note"
                 },
                 {
@@ -171,6 +216,21 @@
                     "language": "RU",
                     "text": "Только документы и учебное пособие могут быть переведены, но не интерфейс, ни заголовки.",
                     "updated": 1635448708836
+                },
+                {
+                    "language": "ID",
+                    "text": "Hanya Docs dan tutorials yang akan diterjemahkan, bukan interface, ataupun titles!",
+                    "updated": 1639582361956
+                },
+                {
+                    "language": "IT",
+                    "text": "Solo i documenti e i tutorial possono essere tradotti, non l'interfaccia, né i titoli!",
+                    "updated": 1666386577762
+                },
+                {
+                    "language": "PL",
+                    "text": "Jedynie dokumentacja i samouczki mogę być tłumaczone. Interfejs i tytuły nie podlegają tłumaczeniu!",
+                    "updated": 1674745893517
                 }
             ]
         }

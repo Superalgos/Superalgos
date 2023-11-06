@@ -4,7 +4,19 @@
     "type": "Position Management Phases",
     "definition": {
         "text": "You may manage a position using dynamic stop loss and take profit targets. Targets are dynamic in the sense that they are defined by formulas, which may change depending on defined market situations.",
-        "updated": 1610207512419
+        "updated": 1610207512419,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете управлять позицией, используя динамические цели стоп-лосс и тейк-профит. Цели являются динамическими в том смысле, что они определяются формулами, которые могут меняться в зависимости от определенных рыночных ситуаций.",
+                "updated": 1639847670497
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Dinamik stop loss ve kâr hedefleri alarak bir pozisyonu yönetebilirsiniz. Hedefler, tanımlanmış piyasa durumlarına bağlı olarak değişebilen formüllerle tanımlanmaları anlamında dinamiktir.",
+                "updated": 1647851426589
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -28,12 +40,31 @@
         {
             "style": "Callout",
             "text": "We will discuss formulas later on, together with situations and conditions.",
-            "updated": 1610206194016
+            "updated": 1610206194016,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы обсудим формулы позже, вместе с ситуациями и условиями.",
+                    "updated": 1639848420588
+                },
+                {
+                    "language": "TR",
+                    "text": "Formülleri daha sonra durumlar ve koşullarla birlikte tartışacağız.",
+                    "updated": 1647851452021
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Next Phase Event",
-            "updated": 1610206213863
+            "updated": 1610206213863,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sonraki Aşama Etkinliği ( Next Phase Event )",
+                    "updated": 1647851490010
+                }
+            ]
         },
         {
             "style": "Include",
@@ -48,7 +79,14 @@
         {
             "style": "Title",
             "text": "Move To Phase Event",
-            "updated": 1610206257700
+            "updated": 1610206257700,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşama Etkinliğini Taşı ( Move To Phase Event )",
+                    "updated": 1647851584119
+                }
+            ]
         },
         {
             "style": "Include",

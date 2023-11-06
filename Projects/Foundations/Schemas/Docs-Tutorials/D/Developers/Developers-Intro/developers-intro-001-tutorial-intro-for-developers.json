@@ -1,38 +1,143 @@
 {
     "tutorial": "Developers Intro",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Tutorial - Intro for Developers",
     "definition": {
+        "text": "This tutorial walks you through the technical aspects of Superalgos so that you may take advantage of the infrastructure in place as efficiently as possible.",
         "icon": {
-            "project": "Foundations",
-            "name": ""
+            "name": "",
+            "project": "Foundations"
         },
-        "text": "This tutorial walks you through the technical aspects of Superalgos so that you may take advantage of the infrastructure in place as efficiently as possible."
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial führt Sie durch die technischen Aspekte von Superalgos, so dass Sie die Vorteile der vorhandenen Infrastruktur so effizient wie möglich nutzen können.",
+                "updated": 1641729113684
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu eğitim, Superalgos'un teknik yönlerinde size yol gösterir, böylece mevcut altyapıdan olabildiğince verimli şekilde yararlanabilirsiniz.",
+                "updated": 1642886829377
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I will cover the following topics:"
+            "text": "I will cover the following topics:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich werde die folgenden Themen behandeln:",
+                    "updated": 1641729122874
+                },
+                {
+                    "language": "RU",
+                    "text": "Я затрону следующие темы:",
+                    "updated": 1640928868392
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki konulara değineceğim:",
+                    "updated": 1642886840970
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Architecture: Architectural overview of the system."
+            "text": "Architecture: Architectural overview of the system.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Architecture: Architektonischer Überblick über das System.",
+                    "updated": 1641729131556
+                },
+                {
+                    "language": "RU",
+                    "text": "Архитектура: Архитектурный обзор системы.",
+                    "updated": 1640928895162
+                },
+                {
+                    "language": "TR",
+                    "text": "Mimari(Architecture): Sisteme mimari bakış.",
+                    "updated": 1642886851344
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Client: How the Client is organized."
+            "text": "Client: How the Client is organized.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Client: Wie der Client organisiert ist.",
+                    "updated": 1641729140526
+                },
+                {
+                    "language": "RU",
+                    "text": "Клиент: Как организован клиент (Client).",
+                    "updated": 1640928990449
+                },
+                {
+                    "language": "TR",
+                    "text": "Müşteri (Client): Müşteri ( Client ) nasıl düzenlenir.",
+                    "updated": 1642886864759
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Frontend: How the UI works."
+            "text": "Frontend: How the UI works.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Frontend: Wie die Benutzeroberfläche funktioniert.",
+                    "updated": 1641729148232
+                },
+                {
+                    "language": "RU",
+                    "text": "Фронтенд: Как работает пользовательский интерфейс (UI).",
+                    "updated": 1640929013142
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç ​​aşaması: Kullanıcı arabiriminin (UI) nasıl çalıştığı.",
+                    "updated": 1642886880885
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "->"
+            "text": "->",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "->",
+                    "updated": 1654393959748,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This is a 3-year-old project that has pivoted a few times to reach its current state of development. It was initially intended for trading bots competitions and is now focused on crypto-trading automation in general. The main technical pivot occurred when we decided to depart from a centralized cloud-based app, to a decentralized network of nodes."
+            "text": "This is a 3-year-old project that has pivoted a few times to reach its current state of development. It was initially intended for trading bots competitions and is now focused on crypto-trading automation in general. The main technical pivot occurred when we decided to depart from a centralized cloud-based app, to a decentralized network of nodes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein 3 Jahre altes Projekt, das einige Male gewechselt hat, um den aktuellen Entwicklungsstand zu erreichen. Ursprünglich war es für Trading-Bots-Wettbewerbe gedacht und konzentriert sich jetzt auf die Automatisierung des Krypto-Handels im Allgemeinen. Der wichtigste technische Umschwung fand statt, als wir beschlossen, von einer zentralisierten, cloudbasierten Anwendung zu einem dezentralen Netzwerk von Knoten zu wechseln.",
+                    "updated": 1641729160556
+                },
+                {
+                    "language": "RU",
+                    "text": "Это проект трехлетней давности, который несколько раз менял направление развития, чтобы достичь своего нынешнего состояния. Изначально он предназначался для соревнований торговых ботов, а теперь сосредоточен на автоматизации криптотрейдинга в целом. Основной технический поворот произошел, когда мы решили перейти от централизованного облачного приложения к децентрализованной сети узлов.",
+                    "updated": 1640929034831
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu, mevcut durumuna ulaşmak için birkaç kez yön değiştiren üç yıllık bir projedir. Başlangıçta bot yarışmaları ticareti için tasarlandı ve şimdi genel olarak kripto ticaretinin otomasyonuna odaklanıyor. Ana teknik dönüş, merkezi bir bulut uygulamasından merkezi olmayan bir düğüm ağına geçmeye karar verdiğimiz zaman geldi.",
+                    "updated": 1642886893590
+                }
+            ]
         }
     ]
 }

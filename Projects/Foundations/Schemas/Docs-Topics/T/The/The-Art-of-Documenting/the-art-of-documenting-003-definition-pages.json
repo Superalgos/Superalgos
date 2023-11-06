@@ -1,0 +1,514 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "3",
+    "type": "Definition Pages",
+    "definition": {
+        "text": "A definition page, also known as Docs Node Page, is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
+        "updated": 1643045362437,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Страница определения, также известная как Docs Node Page, - это страница, которая описывает, чем является узел или что он представляет собой в данной иерархии, как он работает и как взаимодействует с другими узлами. Это страница, на которую пользователи попадают, нажав кнопку помощи (?) в меню узла.",
+                "updated": 1670678780322
+            },
+            {
+                "language": "DE",
+                "text": "Eine Definitionsseite, auch bekannt als Docs Node Page, ist die Seite, die beschreibt, was ein Knoten in einer bestimmten Hierarchie ist oder darstellt, wie er funktioniert und wie er mit anderen Knoten interagiert. Es ist die Seite, auf die Benutzer zugreifen, wenn sie im Menü eines Knotens auf die Schaltfläche Hilfe (?) klicken.",
+                "updated": 1681838971901
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This page is the main source of information about the particular node. Think of definition pages as the place where people should find all the details about the behavior of the node, including its configuration.",
+            "updated": 1642949968941,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта страница является основным источником информации о конкретном узле. Считайте страницы определения местом, где люди должны найти все подробности о поведении узла, включая его конфигурацию.",
+                    "updated": 1670678806611
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Seite ist die Hauptquelle für Informationen über den jeweiligen Knoten. Betrachten Sie die Definitionsseiten als den Ort, an dem die Benutzer alle Einzelheiten über das Verhalten des Knotens, einschließlich seiner Konfiguration, finden sollten.",
+                    "updated": 1681838983180
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Node Page->Content",
+            "updated": 1643045336873
+        },
+        {
+            "style": "Title",
+            "text": "Definition Box",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поле определения",
+                    "updated": 1670678936712
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The definition box is the top paragraph on a definition page, rendered to the right of the icon representing the node, in bold.",
+            "updated": 1642950012785,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поле определения - это верхний абзац на странице определения, отображаемый справа от иконки, представляющей узел, выделенный жирным шрифтом.",
+                    "updated": 1670678845336
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Definitionsfeld ist der oberste Absatz auf einer Definitionsseite, der rechts neben dem Symbol, das den Knoten darstellt, in Fettdruck dargestellt wird.",
+                    "updated": 1681839005868
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Always have in mind that this paragraph is the one used to build tooltips throughout the Docs. It is the contextual information people gets about the node when you write the Node Type throughout the Docs.",
+            "updated": 1642950076905,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Всегда помните, что этот параграф используется для построения всплывающих подсказок во всех документах. Это контекстная информация, которую люди получают об узле, когда вы пишете тип узла во всех документах.",
+                    "updated": 1670678967896
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie immer daran, dass dieser Absatz für die Erstellung von Tooltips in der gesamten Dokumentation verwendet wird. Es ist die kontextuelle Information, die man über den Knoten erhält, wenn man den Knotentyp (Node Type) in den Docs schreibt.",
+                    "updated": 1681839025929
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Use this space to write a concise, accurate, and careful description of WHAT the node is or represents. As part of this definition, you may include WHAT the node is used for, as it is the use of the node that determines what it is or represents in the first place.",
+            "updated": 1642950136950,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте это место, чтобы написать краткое, точное и тщательное описание того, ЧЕМ является или что представляет собой узел. В качестве части этого определения вы можете указать, для чего используется узел, поскольку именно использование узла определяет, что он представляет собой или представляет в первую очередь.",
+                    "updated": 1670679152577
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie diesen Platz, um eine kurze, genaue und sorgfältige Beschreibung dessen zu verfassen, WAS der Knoten ist oder darstellt. Als Teil dieser Definition können Sie auch angeben, Wofür der Knoten verwendet wird, da die Verwendung des Knotens bestimmt, was er in erster Linie ist oder darstellt.",
+                    "updated": 1681839067540
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Do not include any other type of information in the definition box. Do not explain how to use the node, how the system uses the node, or how the node interacts with other nodes. The definition box must answer the WHAT question, and nothing else.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не включайте в поле определения никакой другой тип информации. Не объясняйте, как использовать узел, как система использует узел или как узел взаимодействует с другими узлами. Поле определения должно отвечать на вопрос ЧТО, и ничего больше.",
+                    "updated": 1670679173532
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie keine anderen Informationen in das Definitionsfeld ein. Erläutern Sie nicht, wie der Knoten zu verwenden ist, wie das System den Knoten verwendet oder wie der Knoten mit anderen Knoten interagiert. Das Definitionsfeld muss die WAS-Frage beantworten, und nichts anderes.",
+                    "updated": 1681839081075
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Keep the definition box to a sentence or two whenever possible. Long definitions make cumbersome tooltips and are hard to read in bold.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По возможности ограничивайте поле определения одним-двумя предложениями. Длинные определения делают всплывающие подсказки громоздкими и трудночитаемыми при выделении жирным шрифтом.",
+                    "updated": 1670679188364
+                },
+                {
+                    "language": "DE",
+                    "text": "Beschränken Sie das Definitionsfeld nach Möglichkeit auf einen oder zwei Sätze. Lange Definitionen machen Tooltips umständlich und sind in Fettschrift schwer zu lesen.",
+                    "updated": 1681839092100
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Using Blocks and Includes",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование блоков и элементов",
+                    "updated": 1670679284565
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwendung von Blöcken und Einbindungen",
+                    "updated": 1681839634861
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The rest of the definition page is organized in blocks.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Остальная часть страницы определения организована в виде блоков.",
+                    "updated": 1670679293826
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Rest der Definitionsseite ist in Blöcken organisiert.",
+                    "updated": 1681839313071
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "We build pages using blocks so that we may later include blocks of content on other pages. This concept of blocks and includes is crucial to avoid duplicating content. When writing a Topic page, you will many times want to refer to content that exists on another page. If that piece of content is set up as a block, then you may include it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы создаем страницы с помощью блоков, чтобы впоследствии включить блоки контента на других страницах. Эта концепция блоков и дополнений очень важна для того, чтобы избежать дублирования контента. При написании тематической страницы вы часто захотите сослаться на контент, существующий на другой странице. Если этот фрагмент контента установлен как блок, то вы можете подключить его.",
+                    "updated": 1670679353987
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir bauen Seiten mit Blöcken auf, damit wir später Inhaltsblöcke auf anderen Seiten einfügen können. Dieses Konzept der Blöcke und Einbindungen ist wichtig, um doppelte Inhalte zu vermeiden. Wenn Sie eine Themenseite schreiben, werden Sie oft auf Inhalte verweisen wollen, die auf einer anderen Seite vorhanden sind. Wenn dieser Inhalt als Block angelegt ist, können Sie ihn einbinden. ",
+                    "updated": 1681839465765
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "And this is the perfect example! I need to explain how to create blocks, but instead of writing the whole thing, I will include content from the Docs Block Style page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "И это идеальный пример! Мне нужно объяснить, как создавать блоки, но вместо того, чтобы писать все это, я включу содержание со страницы Docs Block Style.",
+                    "updated": 1670679371170
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein gutes Beispiel! Ich werde erläutern, wie man Blöcke erstellt, aber anstatt das Ganze zu schreiben, werde ich Inhalte von der Seite Docs Block Style einfügen.",
+                    "updated": 1681839508580
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Notice the faint quotation marks on the right-hand side of the page right after this paragraph. The quotes represent the point in which a block of content is included on the page. Triple-click to the left of quotes to select/highlight the include command that references the block of content I'm including.",
+            "updated": 1642950360363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на тусклые кавычки на правой стороне страницы сразу после этого абзаца. Кавычки представляют собой точку, в которой блок содержимого включается на страницу. Тройным щелчком слева от кавычек выберите/выделите команду include, которая ссылается на блок содержимого, который я подключил.",
+                    "updated": 1670679467378
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie die schwachen Anführungszeichen am rechten Rand der Seite direkt nach diesem Absatz. Die Anführungszeichen stehen für den Punkt, an dem ein Inhaltsblock auf der Seite eingefügt wird. Klicken Sie dreimal auf die linke Seite der Anführungszeichen, um den Einfügebefehl auszuwählen bzw. hervorzuheben, der auf den eingefügten Inhaltsblock verweist.",
+                    "updated": 1681839518731
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Block Style->Definition",
+            "updated": 1642959663822
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Block Style->Content"
+        },
+        {
+            "style": "Note",
+            "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Definition and Content blocks. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block.",
+            "updated": 1642959851690,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все, что находится выше этого абзаца, относится к странице Docs Block Style, в частности, к блокам Definition и Content. Обратите внимание, что вы не можете редактировать абзац выше. Для редактирования содержимого, включенного в страницу, необходимо редактировать источник, а не подключенный блок.",
+                    "updated": 1670679556160
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles oberhalb dieses Absatzes gehört zur Seite Dokumentationsblockstil (Docs Block Style), insbesondere zu den Blöcken Definition und Inhalt. Beachten Sie, dass Sie den Absatz darüber nicht bearbeiten können. Um den in einer Seite enthaltenen Inhalt zu bearbeiten, müssen Sie die Quelle bearbeiten, nicht den enthaltenen Block.",
+                    "updated": 1681839546589
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "You will seldom need to include blocks of content in definition pages. I explained the concept of includes at this point because it helps understand the concept of blocks. You will certainly use blocks in definition pages, but you will not use includes. This is because definition pages refer solely to the node in question and shouldn't include any other kind of information that is not intimately tied to the node itself.",
+            "updated": 1642950616204,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вам редко придется вставлять блоки содержимого в страницы определения. Я объяснил концепцию include на этом этапе, потому что она помогает понять концепцию блоков. Вы, конечно, будете использовать блоки на страницах определения, но не будете использовать подлючения. Это связано с тем, что страницы определения относятся исключительно к рассматриваемому узлу и не должны содержать никакой другой информации, не связанной тесно с самим узлом.",
+                    "updated": 1670679643368
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden nur selten Inhaltsblöcke in Definitionsseiten einfügen müssen. Ich habe das Konzept der Einbindungen an dieser Stelle erklärt, weil es hilft, das Konzept der Blöcke zu verstehen. Sie werden sicherlich Blöcke in Definitionsseiten verwenden, aber Sie werden keine Einbindungen verwenden. Das liegt daran, dass sich Definitionsseiten ausschließlich auf den betreffenden Knoten beziehen und keine anderen Informationen enthalten sollten, die nicht eng mit dem Knoten selbst verbunden sind.",
+                    "updated": 1681839653043
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Content Block",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Блок контента",
+                    "updated": 1670679659119
+                },
+                {
+                    "language": "DE",
+                    "text": "Blockinhalt",
+                    "updated": 1681839666916
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "All definition pages must have a Content block. In fact, the first paragraph on the page must be the block definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все страницы определений должны иметь блок Content. Фактически, первый абзац на странице должен быть определением блока.",
+                    "updated": 1670679695217
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Definitionsseiten müssen einen Inhaltsblock enthalten. Tatsächlich muss der erste Absatz auf der Seite die Blockdefinition sein.",
+                    "updated": 1681839674747
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Let's try with an example right here!",
+            "updated": 1642950852712,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем на примере прямо здесь!",
+                    "updated": 1670679711878
+                },
+                {
+                    "language": "DE",
+                    "text": "Versuchen wir es gleich hier mit einem Beispiel!",
+                    "updated": 1681839680642
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Notice that the paragraph right after this Note and before the green callout paragraph is the definition of a block named Content. You know there is a block because you can see the triangle turning black when you hover the mouse pointer below this box. You can see the block is called Content if you triple-click on the left of the triangle.",
+            "updated": 1642951014933,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что абзац сразу после этого примечания и перед зеленым абзацем с призывом - это определение блока с именем Content. Вы знаете, что здесь есть блок, потому что видите, как треугольник становится черным, когда вы наводите указатель мыши под этим блоком. Вы можете увидеть, что блок называется Content, если сделаете тройной щелчок слева от треугольника.",
+                    "updated": 1670679744053
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der Absatz direkt nach diesem Hinweis und vor dem grünen Callout-Absatz die Definition eines Blocks namens Inhalt ist. Sie wissen, dass es einen Block gibt, weil sich das Dreieck schwarz färbt, wenn Sie mit dem Mauszeiger unter dieses Feld fahren. Sie können sehen, dass der Block \"Inhalt\" heißt, wenn Sie links neben dem Dreieck dreimal klicken.",
+                    "updated": 1681839694955
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Callout",
+            "text": "The content block is where you explain HOW the node works. This is where you explain how the system uses the node, how the node interacts with other nodes, and how users may use the node.",
+            "updated": 1642951098027,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Inhaltsblock erklären Sie, WIE der Knoten funktioniert. Hier erklären Sie, wie das System den Knoten verwendet, wie der Knoten mit anderen Knoten interagiert und wie Benutzer den Knoten verwenden können.",
+                    "updated": 1681839715779
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "This is a good opportunity to go to any node in one of the well-known and properly documented hierarchies, click on the help button on the menu, and analyze how the definition page is structured! Try, for instance, the LAN Network Node. Notice that the page has two blocks: Content and Configuring!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это хорошая возможность перейти к любому узлу в одной из известных и правильно документированных иерархий, нажать кнопку помощи в меню и проанализировать, как структурирована страница определения! Попробуйте, например, узел LAN Network. Обратите внимание, что страница состоит из двух блоков: Content и Configuring!",
+                    "updated": 1670679889636
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine gute Gelegenheit, zu einem beliebigen Knoten in einer der bekannten und gut dokumentierten Hierarchien zu gehen, auf die Hilfe-Schaltfläche im Menü zu klicken und zu analysieren, wie die Definitionsseite aufgebaut ist! Versuchen Sie es zum Beispiel mit dem LAN-Netzwerkknoten (LAN Network Node). Beachten Sie, dass die Seite zwei Blöcke hat: Inhalt und Konfigurieren!",
+                    "updated": 1681839744283
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Block",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Блок Configuring",
+                    "updated": 1670679985402
+                },
+                {
+                    "language": "DE",
+                    "text": "Block konfigurieren",
+                    "updated": 1681839752583
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This block may or not be required, depending on the node. If the node has a configuration, then we use the Configuring block to explain each property.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот блок может потребоваться или не потребоваться в зависимости от узла. Если узел имеет конфигурацию, то мы используем блок Configuring для объяснения каждого свойства.",
+                    "updated": 1670679939783
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Block kann je nach Knoten erforderlich sein oder nicht. Wenn der Knoten eine Konfiguration hat, dann verwenden wir den Block Configuring, um jede Eigenschaft zu erklären.",
+                    "updated": 1681839760368
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Take a look at the LAN Network Node page for an example.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве примера посмотрите на страницу LAN Network Node.",
+                    "updated": 1670680001482
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Beispiel dafür finden Sie auf der Seite LAN-Netzwerkknoten (LAN Network Node).",
+                    "updated": 1681839785606
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Notice that after the definition of the block, we write the title of the section as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что после определения блока мы пишем заголовок раздела следующим образом:",
+                    "updated": 1670680010938
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass wir nach der Definition des Blocks den Titel des Abschnitts schreiben:",
+                    "updated": 1681839804376
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "Node Type + Configuration"
+        },
+        {
+            "style": "Text",
+            "text": "Following the earlier example, that would be:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следуя предыдущему примеру, это будет:",
+                    "updated": 1670680024738
+                },
+                {
+                    "language": "DE",
+                    "text": "In Anlehnung an das vorangegangene Beispiel wäre dies der Fall:",
+                    "updated": 1681839815707
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "LAN Network Node Configuration"
+        },
+        {
+            "style": "Text",
+            "text": "We use a title to separate the two sections or blocks on the page, pretty much in the same way we use titles elsewhere. Notice that the title must be inside the Configuring  block so that the title is included as well if we ever wish to include this block on another page.",
+            "updated": 1642951199442,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы используем заголовок для разделения двух разделов или блоков на странице, практически так же, как мы используем заголовки в других местах. Обратите внимание, что заголовок должен находиться внутри блока Configuring, чтобы заголовок был включен, если мы захотим включить этот блок на другой странице.",
+                    "updated": 1670680051787
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir verwenden einen Titel, um die beiden Abschnitte oder Blöcke auf der Seite zu trennen, so wie wir auch sonst Titel verwenden. Beachten Sie, dass der Titel innerhalb des Configuring-Blocks stehen muss, damit der Titel auch enthalten ist, wenn wir diesen Block auf einer anderen Seite einfügen wollen.",
+                    "updated": 1681839823132
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Also notice that we don't use a title after the definition of the Content block. It is simply unnecessary, and the page reads better without one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Также обратите внимание, что мы не используем заголовок после определения блока Content. Он просто не нужен, и страница лучше читается без него.",
+                    "updated": 1670680064962
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie auch, dass wir nach der Definition des Inhaltsblocks keinen Titel verwenden. Er ist einfach unnötig, und die Seite liest sich ohne ihn besser.",
+                    "updated": 1681839836659
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Auto-generated Information",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Автоматически генерируемая информация",
+                    "updated": 1670680081866
+                },
+                {
+                    "language": "DE",
+                    "text": "Automatisch generierte Informationen",
+                    "updated": 1681839852837
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Wherever the content you write ends, the system includes several automatically-generated sections. Take a look at this type of content just so that you notice that you don't need to manually include in your writeups any of the details the system generates automatically.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Там, где заканчивается написанный вами контент, система включает несколько автоматически сгенерированных разделов. Посмотрите на этот тип контента, чтобы вы заметили, что вам не нужно вручную включать в свои записи какие-либо детали, которые система генерирует автоматически.",
+                    "updated": 1670680100423
+                },
+                {
+                    "language": "DE",
+                    "text": "An den Stellen, an denen der von Ihnen geschriebene Inhalt endet, fügt das System mehrere automatisch generierte Abschnitte ein. Werfen Sie einen Blick auf diese Art von Inhalt, damit Sie sehen, dass Sie keine der vom System automatisch generierten Details manuell in Ihre Texte einfügen müssen.",
+                    "updated": 1681839859628
+                }
+            ]
+        }
+    ]
+}

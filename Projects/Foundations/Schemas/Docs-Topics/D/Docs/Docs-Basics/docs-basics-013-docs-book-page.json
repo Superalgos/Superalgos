@@ -3,8 +3,8 @@
     "pageNumber": 13,
     "type": "Docs Book Page",
     "definition": {
-        "text": "A book is a collection of topics, each representing a chapter in the book.",
-        "updated": 1613756750385,
+        "text": "A book is a collection of topics, each representing a chapter in the book. The purpose of a book is to offer a compendium of information optimized for linear reading, from start to end, usually covering an entire Project.",
+        "updated": 1643046016794,
         "translations": [
             {
                 "language": "DE",
@@ -13,8 +13,13 @@
             },
             {
                 "language": "RU",
-                "text": "Книга - это набор тем, каждая из которых представляет собой главу в книге.",
-                "updated": 1638464848191
+                "text": "Книга - это собрание тем, каждая из которых представляет собой главу в книге. Цель книги - предложить сборник информации, оптимизированный для линейного чтения, от начала до конца, обычно охватывающий весь проект.",
+                "updated": 1647781391414
+            },
+            {
+                "language": "TR",
+                "text": "Bir kitap, her biri kitaptaki bir bölümü temsil eden bir konular topluluğudur. Bir kitabın amacı, genellikle tüm bir Projeyi ( Project ) kapsayan, baştan sona doğrusal okuma için optimize edilmiş bir bilgi özeti sunmaktır.",
+                "updated": 1652646539026
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Книга - это страница сама по себе. На странице представлен список тем, каждая из которых составляет главу в книге.",
                     "updated": 1638464892604
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kitap kendi içinde bir sayfadır. Sayfa, her biri kitapta bir bölüm oluşturan konuların bir listesini içerir.",
+                    "updated": 1652646581115
                 }
             ]
         }

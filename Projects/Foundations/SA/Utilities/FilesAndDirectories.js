@@ -4,8 +4,9 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
         getDirectories: getDirectories,
         getAllFilesInDirectoryAndSubdirectories: getAllFilesInDirectoryAndSubdirectories,
         pathFromDate: pathFromDate,
-        pathFromDatetime: pathFromDatetime, 
-        mkDirByPathSync: mkDirByPathSync
+        pathFromDatetime: pathFromDatetime,
+        mkDirByPathSync: mkDirByPathSync,
+        createNewDir: createNewDir
     }
 
     return thisObject
@@ -56,22 +57,24 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
     }
 
     function pathFromDate(timestamp) {
-        
+
         let file = { date: new Date(timestamp) }
-        
+
+        console.log('this is our converted timestamp', file, 'this is our timestamp', timestamp)
+
         file.year = file.date.getUTCFullYear()
         file.month = file.date.getUTCMonth() + 1
         file.day = file.date.getUTCDate()
-        
+
         return file.year + '/' +
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.day, 2)
     }
 
     function pathFromDatetime(timestamp) {
-        
+
         let file = { date: new Date(timestamp) }
-        
+
         file.year = file.date.getUTCFullYear()
         file.month = file.date.getUTCMonth() + 1
         file.day = file.date.getUTCDate()
@@ -85,8 +88,9 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
             SA.projects.foundations.utilities.miscellaneousFunctions.pad(file.minute, 2)
     }
 
-    /* Function to create folders of missing folders at any path. */
     function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
+        /* Function to create folders of missing folders at any path. */
+        /* If the directory is not being created, check that you are including a / at the end of the path */
         const path = SA.nodeModules.path
 
         targetDir = targetDir.substring(0, targetDir.lastIndexOf('/') + 1);
@@ -118,5 +122,15 @@ exports.newFoundationsUtilitiesFilesAndDirectories = function () {
 
             return curDir;
         }, initDir);
+    }
+
+    function createNewDir(path) {
+        try {
+            SA.nodeModules.fs.mkdirSync(path, { recursive: true })
+        } catch (err) {
+            if (err.message.indexOf('file already exists') < 0) {
+                throw (err)
+            }
+        }
     }
 }

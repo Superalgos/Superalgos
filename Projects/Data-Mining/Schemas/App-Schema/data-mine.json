@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "iconProject": "Foundations",
@@ -14,6 +15,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Sensor Bot",
+            "translationKey": "add.sensorBot",
             "relatedUiObject": "Sensor Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -22,6 +24,7 @@
         {
             "action": "Add UI Object",
             "label": "Add API Data Fetcher Bot",
+            "translationKey": "add.fetcherBot",
             "relatedUiObject": "API Data Fetcher Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -30,6 +33,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Indicator Bot",
+            "translationKey": "add.indicatorBot",
             "relatedUiObject": "Indicator Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -37,7 +41,17 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Study Bot",
+            "translationKey": "add.studyBot",
+            "relatedUiObject": "Study Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Plotter",
+            "translationKey": "add.plotter",
             "relatedUiObject": "Plotter",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
@@ -48,7 +62,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -79,6 +95,11 @@
             "name": "indicatorBots",
             "type": "array",
             "childType": "Indicator Bot"
+        },
+        {
+            "name": "studyBots",
+            "type": "array",
+            "childType": "Study Bot"
         },
         {
             "name": "plotters",

@@ -3,116 +3,428 @@
     "pageNumber": "4",
     "type": "Bittrex Global Listing Requirements",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "Write a summary for this topic page.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu konu sayfası için bir özet yazın.",
+                "updated": 1647012358562
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Themenseite.\n",
+                "updated": 1682448873843
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Listing Requirements",
-            "updated": 1628515483720
+            "updated": 1628515483720,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme Gereksinimleri",
+                    "updated": 1647012384333
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen für die Auflistung",
+                    "updated": 1682448900748
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Exchange name: Use the official, most common name of the exchange; the same you used in the name of the page."
+            "text": "Exchange name: Use the official, most common name of the exchange; the same you used in the name of the page.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Borsa adı: Borsanın resmi, en yaygın adını kullanın; sayfa adında kullandığınızla aynı.",
+                    "updated": 1647012392026
+                },
+                {
+                    "language": "DE",
+                    "text": "Name der Börse: Verwenden Sie den offiziellen, gebräuchlichsten Namen der Börse, den Sie auch im Namen der Seite verwendet haben.",
+                    "updated": 1682448909522
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research."
+            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "CMC sıralaması: Borsanın araştırma günü itibariyle sıralamadaki konumu.",
+                    "updated": 1647012400991
+                },
+                {
+                    "language": "DE",
+                    "text": "CMC-Rangliste: Die Position der Börse in der Rangliste am Tag der Recherche.",
+                    "updated": 1682448923067
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Exchange home page: Edit the string below with the name of the exchange and the URL (without the protocol). Test the link and make sure it works.",
-            "updated": 1628513218161
+            "updated": 1628513218161,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange ana sayfası: Aşağıdaki dizeyi, exchange'in adı ve URL'si (protokol olmadan) ile düzenleyin. Bağlantıyı test edin ve çalıştığından emin olun.",
+                    "updated": 1647012415799
+                },
+                {
+                    "language": "DE",
+                    "text": "Homepage der Börse: Ändern Sie die Zeichenfolge unten mit dem Namen der Börse und der URL (ohne Protokoll). Testen Sie den Link und stellen Sie sicher, dass er funktioniert.",
+                    "updated": 1682448930100
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "Exchange URL->exchangeURL.com"
+            "text": "Exchange URL->exchangeURL.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Değişim URL'si->exchangeURL.com",
+                    "updated": 1654395091559,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Listing requirements page: Edit the string below with the URL (without the protocol) of the page where you got the core of the information in this report. Test the link and make sure it works.",
-            "updated": 1628513207300
+            "updated": 1628513207300,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Liste gereksinimleri sayfası: Aşağıdaki dizeyi, bu rapordaki bilgilerin özünü aldığınız sayfanın URL'si (protokol olmadan) ile düzenleyin. Bağlantıyı test edin ve çalıştığından emin olun.",
+                    "updated": 1647012434079
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite mit den Auflistungsanforderungen: Ändern Sie die Zeichenfolge unten mit der URL (ohne Protokoll) der Seite, von der Sie die wichtigsten Informationen in diesem Bericht erhalten haben. Testen Sie den Link und stellen Sie sicher, dass er funktioniert.",
+                    "updated": 1682448939914
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "Listing requirements->pageURL.com"
+            "text": "Listing requirements->pageURL.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme gereksinimleri->pageURL.com",
+                    "updated": 1654395097231,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Listing request form page: Edit the string below with the URL (without the protocol) of the page (or online form) the project should use to request the listing of the token. Test the link and make sure it works.",
-            "updated": 1628513198400
+            "updated": 1628513198400,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Liste istek formu sayfası: Aşağıdaki dizeyi, projenin belirteç listesini istemek için kullanması gereken sayfanın (veya çevrimiçi formun) URL'si (protokol olmadan) ile düzenleyin. Bağlantıyı test edin ve çalıştığından emin olun.",
+                    "updated": 1647012446790
+                },
+                {
+                    "language": "DE",
+                    "text": "Seite für das Antragsformular für die Auflistung: Ändern Sie die nachstehende Zeichenfolge mit der URL (ohne Protokoll) der Seite (oder des Online-Formulars), die das Projekt verwenden soll, um die Auflistung des Tokens anzufordern. Testen Sie den Link und stellen Sie sicher, dass er funktioniert.",
+                    "updated": 1682448952650
+                }
+            ]
         },
         {
             "style": "Link",
-            "text": "Listing request form->pageURL.com"
+            "text": "Listing request form->pageURL.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme talep formu->pageURL.com",
+                    "updated": 1654395103037,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible."
+            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "BEP 20 BSC belirteçlerini listeleyebilir: Bazı borsalar Binance Akıllı Zincirinde belirteçleri listeleyemeyebilir. Belirteci listelemenin teknik olarak mümkün olup olmadığını öğrendiğinizden emin olun.",
+                    "updated": 1647012494226
+                },
+                {
+                    "language": "DE",
+                    "text": "Kann BEP 20 BSC-Token auflisten: Einige Börsen sind möglicherweise nicht in der Lage, Token in der Binance Smart Chain zu listen. Stellen Sie sicher, dass Sie herausfinden, ob die Auflistung des Tokens technisch möglich ist.",
+                    "updated": 1682448961853
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case."
+            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Listeleme ücreti: Borsalar genellikle yeni paraları listelemek için ücret alır. Ücreti girin ve özel durumumuzla ilgili olabilecek tüm yorumları, istisnaları veya ayrıntıları ekleyin.",
+                    "updated": 1647012505941
+                },
+                {
+                    "language": "DE",
+                    "text": "Auflistungsgebühr: Börsen erheben in der Regel Gebühren für die Auflistung neuer Münzen. Geben Sie die Gebühr an und fügen Sie alle Kommentare, Ausnahmen oder Details hinzu, die für unseren speziellen Fall relevant sein könnten.",
+                    "updated": 1682448975925
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist."
+            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Güvenlik depozitosu: Bazı borsalar, listeleme tamamlandıktan sonra projeye iade edilmek üzere bir güvenlik teminatı gerektirir. Varsa, bu tür gereksinimlerin ayrıntılarını açıklayın.",
+                    "updated": 1647012515698
+                },
+                {
+                    "language": "DE",
+                    "text": "Kaution: Einige Börsen verlangen eine Kaution, die nach Abschluss des Angebots an das Projekt zurückzuzahlen ist. Beschreiben Sie die Einzelheiten solcher Anforderungen, falls sie bestehen.",
+                    "updated": 1682448984389
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words."
+            "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hacim gereksinimleri: Borsalar, işlem ücretlerini tahsil etme işindedir, bu nedenle, genellikle, bu tür belirteçlerin belirli bir ticaret hacmi oluşturacağını anlayarak, çekişe sahip belirteçleri listelemeyi beklerler. Bazı borsaların beklenen hacimle ilgili özel gereksinimleri vardır. Borsa kesin bir hacim gerektiriyorsa, bunu sayılarla girin. Aksi takdirde, bekleneni kelimelerle açıklayın.",
+                    "updated": 1647012524373
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen an das Volumen: Da Börsen Transaktionsgebühren erheben, erwarten sie in der Regel, dass Token, die eine gewisse Zugkraft haben, in die Liste aufgenommen werden, wobei sie davon ausgehen, dass diese Token ein bestimmtes Handelsvolumen generieren. Einige Börsen haben spezifische Anforderungen an das erwartete Volumen. Wenn die Börse ein genaues Volumen verlangt, geben Sie es in Zahlen an. Andernfalls beschreiben Sie in Worten, was erwartet wird.",
+                    "updated": 1682448996956
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard."
+            "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa oluşturma gereksinimleri: Çoğu zaman borsalar, projelerin sipariş defterinin her iki tarafında token için likiditeyi garanti etmesini bekler. Bazen belirli piyasa yapıcıları işe almak için projelere ihtiyaç duyarlar veya projeye sorunla nasıl başa çıkacaklarını sorarlar. Borsanın bu konuda neler beklediğini açıklayın.",
+                    "updated": 1647012547432
+                },
+                {
+                    "language": "DE",
+                    "text": "Market-Making-Anforderungen: Häufig erwarten die Börsen, dass die Projekte die Liquidität für den Token auf beiden Seiten des Orderbuchs gewährleisten. Manchmal verlangen sie von den Projekten, dass sie spezielle Market-Maker engagieren, oder sie fragen das Projekt, wie sie mit dem Thema umgehen werden. Erläutern Sie, was die Börse in dieser Hinsicht erwartet.",
+                    "updated": 1682449009019
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard."
+            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Borsa kullanıcıları gereksinimi: Bazı exchange'ler, projenin belirli sayıda kullanıcıyı exchange'e yönlendirmesini gerektirir. Bu konuda mevcut olabilecek gereksinimleri açıklayın.",
+                    "updated": 1647012560436
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen an die Benutzer der Börse: Einige Börsen verlangen, dass das Projekt eine bestimmte Anzahl von Benutzern in die Börse bringt. Beschreiben Sie etwaige diesbezügliche Anforderungen.",
+                    "updated": 1682449020443
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard."
+            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk listeleme için mevcut çiftler: Bazı borsalar, çiftlerin sayısını ve hatta ilk listelemeler için kullanılabilecek kesin fiyat varlıklarını sınırlar. Değişimin bu konuda ne gerektirdiğini veya teklif ettiğini açıklayın.",
+                    "updated": 1647012569543
+                },
+                {
+                    "language": "DE",
+                    "text": "Für die Erstnotierung verfügbare Paare: Einige Börsen beschränken die Anzahl der Paare oder sogar die genauen Kurswerte, die für die Erstnotierung verwendet werden können. Geben Sie an, was die Börse in dieser Hinsicht verlangt oder anbietet.",
+                    "updated": 1682449030883
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Waiting period: Most exchanges have a queue of listing requests and they may be able to estimate how long it takes to process. If there is information in this regard, include it here. The exchange may not announce what the estimate is, but you may deduce it or find out in community chats, forums, etc. Do your research."
+            "text": "Waiting period: Most exchanges have a queue of listing requests and they may be able to estimate how long it takes to process. If there is information in this regard, include it here. The exchange may not announce what the estimate is, but you may deduce it or find out in community chats, forums, etc. Do your research.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bekleme süresi: Çoğu borsanın bir listeleme talepleri kuyruğu vardır ve işlemenin ne kadar süreceğini tahmin edebilirler. Bu konuda bilgi varsa buraya ekleyin. Borsa tahminin ne olduğunu açıklamayabilir, ancak bunu çıkarabilir veya topluluk sohbetlerinde, forumlarda vb. öğrenebilirsiniz. Araştırmanızı yapın.",
+                    "updated": 1647012578675
+                },
+                {
+                    "language": "DE",
+                    "text": "Wartezeit: Die meisten Börsen haben eine Warteschlange von Eintragungsanträgen und können möglicherweise abschätzen, wie lange die Bearbeitung dauert. Wenn es diesbezügliche Informationen gibt, geben Sie sie hier an. Die Börse gibt den geschätzten Wert vielleicht nicht bekannt, aber Sie können ihn ableiten oder in Community-Chats, Foren usw. herausfinden. Stellen Sie Nachforschungen an.",
+                    "updated": 1682449044971
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\"."
+            "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüzel kişilik: Bazı borsalar, projenin bir tüzel kişilik (vakıf, şirket vb.) tarafından temsil edilmesini gerektirebilir. Bu durumda, \"Evet\" yazın ve gereksinimin ne olduğunu açıklayın. Böyle bir gereklilik yoksa, \"Hayır\" girin.",
+                    "updated": 1647012599266
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtsträger: Manche Börsen verlangen, dass das Projekt durch eine juristische Person (Stiftung, Unternehmen usw.) vertreten wird. Wenn dies der Fall ist, geben Sie \"Ja\" an und beschreiben Sie, was die Anforderung ist. Ist dies nicht der Fall, geben Sie \"Nein\" an.",
+                    "updated": 1682449057210
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\"."
+            "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hukuki görüş: Bazı borsalar, projenin bir \"hukuki görüş mektubu\" şeklinde yasal tavsiye almasını veya çoğu zaman belirtecin doğası hakkında, özellikle belirtecin bir menkul kıymet olup olmadığını belirlemek için bu tür bir araç almasını gerektirebilir. ya da değil. Bu durumda, \"Evet\" yazın ve gereksinimin ne olduğunu açıklayın. Böyle bir gereklilik yoksa, \"Hayır\" girin.",
+                    "updated": 1647012608385
+                },
+                {
+                    "language": "DE",
+                    "text": "Rechtsgutachten: Einige Börsen können verlangen, dass das Projekt eine Rechtsberatung in Form eines \"Rechtsgutachtens\" oder eines ähnlichen Instruments einholt, meist über die Art des Tokens, insbesondere um festzustellen, ob der Token ein Wertpapier ist oder nicht. Wenn dies der Fall ist, geben Sie \"Ja\" an und beschreiben Sie, wie die Anforderung lautet. Besteht kein solches Erfordernis, geben Sie \"Nein\" an.",
+                    "updated": 1682449065570
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it."
+            "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Seçim süreci: Bazı borsalar, hangi belirteçlerin listeleneceğini seçmek için karar verme sürecinin doğasını açıklar. Bazıları topluluklarının katılımını, bir oylama sürecini veya benzeri şeyleri içerir. Bu konuda herhangi bir bilgi varsa, sürecin nasıl olduğunu açıklayın.",
+                    "updated": 1647012617845
+                },
+                {
+                    "language": "DE",
+                    "text": "Auswahlverfahren: Einige Börsen beschreiben die Art des Entscheidungsprozesses zur Auswahl der Token, die in die Liste aufgenommen werden sollen. Einige beziehen die Beteiligung ihrer Gemeinschaft, ein Abstimmungsverfahren oder Ähnliches ein. Beschreiben Sie, wie der Prozess aussieht, wenn es Informationen darüber gibt.",
+                    "updated": 1682449078484
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here."
+            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Araştırmacının yorumları: Bu listede yer almayan listeleme süreciyle ilgili önemli bir bilgi fark ederseniz, buraya ekleyin.",
+                    "updated": 1647012626476
+                },
+                {
+                    "language": "DE",
+                    "text": "Anmerkungen des Entwicklers: Wenn Ihnen wichtige Informationen für die Auflistung auffallen, die in dieser Liste nicht enthalten sind, geben Sie sie hier an.",
+                    "updated": 1682449116462
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's Github.com Username: This helps track the author of each research contribution."
+            "text": "Researcher's Github.com Username: This helps track the author of each research contribution.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Araştırmacının Github.com Kullanıcı Adı: Bu, her araştırma katkısının yazarının izlenmesine yardımcı olur.",
+                    "updated": 1647012650815
+                },
+                {
+                    "language": "DE",
+                    "text": "Github.com-Benutzername des Entwicklers: Dies hilft, den Autor jedes Forschungsbeitrags zu finden.",
+                    "updated": 1682449129292
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's Telegram Username: Same as above."
+            "text": "Researcher's Telegram Username: Same as above.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Araştırmacının Telgraf Kullanıcı Adı: Yukarıdakiyle aynı.",
+                    "updated": 1647012663903
+                },
+                {
+                    "language": "DE",
+                    "text": "Telegrammbenutzername des Entwicklers: siehe oben",
+                    "updated": 1682449151247
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated."
+            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Son revizyon tarihi: Bu rapor arada bir güncellenebilir. Raporun en son ne zaman güncellendiğini not etmek için bu alanı kullanın.",
+                    "updated": 1647012672898
+                },
+                {
+                    "language": "DE",
+                    "text": "Datum der letzten Überarbeitung: Dieser Bericht kann von Zeit zu Zeit aktualisiert werden. Vermerken Sie in diesem Feld, wann der Bericht zuletzt aktualisiert wurde.",
+                    "updated": 1682449159615
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Negotiation"
+            "text": "Negotiation",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Müzakere",
+                    "updated": 1647012680085
+                },
+                {
+                    "language": "DE",
+                    "text": "Verhandlung",
+                    "updated": 1682449164963
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "List what progress has been made in the ongoing negotiation."
+            "text": "List what progress has been made in the ongoing negotiation.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Devam eden müzakerede hangi ilerlemelerin kaydedildiğini listeleyin.",
+                    "updated": 1647012687002
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie an, welche Fortschritte bei den laufenden Verhandlungen erzielt wurden.",
+                    "updated": 1682449175038
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,243 @@
+{
+    "type": "Liquidity Programs",
+    "definition": {
+        "text": "Liquidity Programs reward the provision of liquidity for the Superalgos Token on decentralized exchanges. Providing liquidity is a valuable contribution to the community. It supports the token's reputation and price stability.",
+        "updated": 1644161784628,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Liquidity Programs belohnen die Bereitstellung von Liquidität für das Superalgos Token auf dezentralisierten Börsen. Das Bereitstellen von Liquidität ist ein wertvoller Beitrag zur Community. Es unterstützt die Reputation und die Preisstabilität des Superalgos Tokens.",
+                "updated": 1644742104131
+            },
+            {
+                "language": "RU",
+                "text": "Liquidity Programs вознаграждают за предоставление ликвидности для токена Superalgos на децентрализованных биржах. Предоставление ликвидности - это ценный вклад в сообщество. Это поддерживает репутацию токена и стабильность цены.",
+                "updated": 1645181350236
+            },
+            {
+                "language": "TR",
+                "text": "Likidite Programları, merkezi olmayan borsalarda Superalgos Token için likidite sağlanmasını ödüllendirir. Likidite sağlamak, topluluğa değerli bir katkıdır. Token'ın itibarını ve fiyat istikrarını destekler.",
+                "updated": 1672155119605
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Decentralized exchanges allow to provide liquidity to the Superalgos Token. The token is paired into a liquidity pool with another asset. This enables interested buyers to trade the paired tokens against each other.",
+            "updated": 1644171631261,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dezentralisierte Börsen ermöglichen es, Liquidität für das Superalgos Token bereitzustellen. Dort wird ein Liquidity Pool mit dem Token und einem weiteren Asset gebildet. Dies ermöglicht es interessierten Käufern, die Token im Pool zu handeln.",
+                    "updated": 1644742304728
+                },
+                {
+                    "language": "RU",
+                    "text": "Децентрализованные биржи позволяют обеспечить ликвидность токена Superalgos. Токен объединяется в пул ликвидности с другим активом. Это позволяет заинтересованным покупателям торговать парными токенами друг с другом.",
+                    "updated": 1645181361633
+                },
+                {
+                    "language": "TR",
+                    "text": "Merkezi olmayan borsalar Superalgos Token'a likidite sağlamaya izin verir. Token, başka bir varlıkla bir likidite havuzunda eşleştirilir. Bu, ilgilenen alıcıların eşleştirilmiş tokenleri birbirlerine karşı takas etmelerini sağlar.",
+                    "updated": 1672155193658
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Community currently rewards these liquidity pools on BNB Smart Chain (BSC):",
+            "updated": 1664309599264,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Community belohnt derzeit folgende Liquidity Pools auf der BNB Smart Chain (BSC): ",
+                    "updated": 1664309655284
+                },
+                {
+                    "language": "RU",
+                    "text": "В настоящее время сообщество вознаграждает эти пулы ликвидности на Binance Smart Chain (BSC):",
+                    "updated": 1645181381304
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk ( Community ) şu anda bu likidite havuzlarını BNB Smart Chain (BSC) üzerinden ödüllendirmektedir:",
+                    "updated": 1672155469931
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "SA / BTCB",
+            "updated": 1644162660188
+        },
+        {
+            "style": "List",
+            "text": "SA / BNB",
+            "updated": 1644162667432
+        },
+        {
+            "style": "List",
+            "text": "SA / BUSD",
+            "updated": 1644162681048
+        },
+        {
+            "style": "List",
+            "text": "SA / ETH"
+        },
+        {
+            "style": "Block",
+            "text": "Supported Exchanges",
+            "updated": 1644173526229
+        },
+        {
+            "style": "Text",
+            "text": "Liquidity pools at these decentralized exchanges are currently rewarded:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auf diesen dezentralisierten Börsen bestehen Liquidity Pools, die im Rahmen des Programms belohnt werden:",
+                    "updated": 1644742373495
+                },
+                {
+                    "language": "RU",
+                    "text": "Пулы ликвидности на этих децентрализованных биржах в настоящее время получают вознаграждение:",
+                    "updated": 1645181391490
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu merkezi olmayan borsalardaki likidite havuzları şu anda ödüllendirilmektedir:",
+                    "updated": 1672155551805
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "PancakeSwap->https://pancakeswap.finance/liquidity",
+            "updated": 1644163639293
+        },
+        {
+            "style": "Link",
+            "text": "Biswap->https://exchange.biswap.org/#/pool"
+        },
+        {
+            "style": "Link",
+            "text": "1inch->https://app.1inch.io/#/56/dao/pools",
+            "updated": 1644163906206
+        },
+        {
+            "style": "Important",
+            "text": "Only PancakeSwap holds liquidity pools for all supported assets. On Biswap, you will find a pool for SA/BNB, while 1inch holds a SA/BTCB pool.",
+            "updated": 1644170864286,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nur auf PancakeSwap existieren Liquidity Pools für alle unterstützten Assets. Auf Biswap gibt es einen Pool für SA/BNB, während auf 1inch ein SA/BTCB-Pool zu finden ist.",
+                    "updated": 1644742434058
+                },
+                {
+                    "language": "RU",
+                    "text": "Только PancakeSwap содержит пулы ликвидности для всех поддерживаемых активов. На Biswap вы найдете пул для SA/BNB, а на 1inch - пул для SA/BTCB.",
+                    "updated": 1645181409146
+                },
+                {
+                    "language": "TR",
+                    "text": "Yalnızca PancakeSwap, desteklenen tüm varlıklar için likidite havuzlarına sahiptir. Biswap'ta SA/BNB için bir havuz bulacaksınız, 1inch ise bir SA/BTCB havuzuna sahiptir.",
+                    "updated": 1672155611800
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "General Information"
+        },
+        {
+            "style": "Success",
+            "text": "If the Superalgos Token is not automatically found at the exchange of your choice, you can add it by using its token addresses: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) or 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH)",
+            "updated": 1664113978301,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn das Superalgos Token auf der gewählten Börse nicht automatisch gefunden wird, kann es über seine Token-Adresse hinzugefügt werden: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) oder 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH).",
+                    "updated": 1664114950793
+                },
+                {
+                    "language": "RU",
+                    "text": "Если токен Superalgos не находится автоматически на выбранной вами бирже, вы можете добавить его, используя адрес токена: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
+                    "updated": 1645181427494
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Token seçtiğiniz borsada otomatik olarak bulunmazsa, token adreslerini kullanarak ekleyebilirsiniz: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd (BSC) veya 0xc17272c3e15074c55b810bceba02ba0c4481cd79 (ETH)",
+                    "updated": 1672155834247
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For providing liquidity, you are rewarded with tokens from a Liquidity Rewards Pool. There is a decicated Rewards Pool for every combination of asset and exchange supported in the Program. The share of reward tokens you receive from the Rewards Pool is proportional to the share you are holding of the Liquidity Pool for the asset.",
+            "updated": 1648994786586,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für die Bereitstellung von Liquidität werden Sie mit Tokens aus einem Liquidity Rewards Pool belohnt. Es besteht ein separater Rewards Pool für jede unterstützte Kombination von Asset und Börse im Liquidity Program. Der Anteil der Token, die Sie aus dem Rewards Pool erhalten, ist proportional zu Ihrem Anteil am Liquidity Pool des jeweiligen Assets.",
+                    "updated": 1648996491183
+                },
+                {
+                    "language": "RU",
+                    "text": "За обеспечение ликвидности вы получаете вознаграждение в виде токенов из пула Liquidity Rewards Pool. Для каждого актива, поддерживаемого программой, существует свой отдельный пул вознаграждений. Доля токенов, которые вы получаете из пула вознаграждений, пропорциональна доле, которую вы держите в пуле ликвидности для данного актива.",
+                    "updated": 1645181527307
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite sağladığınız için, Likidite Ödülleri Havuzundan ( Rewards Pool )tokenlerle ödüllendirilirsiniz. Programda desteklenen her varlık ve borsa kombinasyonu için belirlenmiş bir Ödül Havuzu ( Rewards Pool ) bulunmaktadır. Ödül Havuzundan ( Rewards Pool ) aldığınız ödül tokenlarının payı, varlık için Likidite Havuzunda ( Liquidity Pool ) sahip olduğunuz pay ile orantılıdır.",
+                    "updated": 1672156365460
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Click \"Add Liquidity Program\" and spawn one Liquidity Program node for each asset (BTCB, BNB...) you have pooled at supported exchanges. If you hold the same asset at multiple exchanges, spawn one node for each asset/exchange combination.",
+            "updated": 1648994890471,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Add Liquidity Program\" und fügen Sie eine Liquidity Program Node für jedes Asset hinzu (BTCB, BNB...), über das Sie auf einer unterstützten Börse Liquidität für das Superalgos Token bereitstellen. Falls Sie dasselbe Asset auf mehreren Börsen halten, legen Sie auch für jede Börse eine separate Node an.",
+                    "updated": 1648996624630
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите \"Add Liquidity Program\" и создайте по одному узлу Liquidity Program для каждого актива (BTCB, BNB...), которые вы объединили в пулы на поддерживаемых биржах.",
+                    "updated": 1645181547434
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Likidite Programı Ekle \" (\"Add Liquidity Program\") ye tıklayın ve desteklenen borsalarda havuza koyduğunuz her varlık (BTCB, BNB...) için bir Likidite Programı düğümü ( Liquidity Program node ) oluşturun. Aynı varlığı birden fazla borsada tutuyorsanız, her varlık/borsa kombinasyonu için bir düğüm oluşturun.",
+                    "updated": 1672156928493
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Liquidity Programs do not require Token Power.",
+            "updated": 1644174080247,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Liquidity Programs benötigen keine Token Power.",
+                    "updated": 1644743005307
+                },
+                {
+                    "language": "RU",
+                    "text": "Программы ликвидности не требуют наличия Token Power.",
+                    "updated": 1645181560343
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite Programları Token Gücü ( Token Power ) gerektirmez.",
+                    "updated": 1672156970604
+                }
+            ]
+        }
+    ]
+}

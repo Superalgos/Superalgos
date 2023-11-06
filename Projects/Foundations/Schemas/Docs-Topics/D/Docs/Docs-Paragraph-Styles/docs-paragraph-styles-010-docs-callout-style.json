@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Выноска используется для привлечения внимания читателей.",
                 "updated": 1638533855788
+            },
+            {
+                "language": "TR",
+                "text": "Okuyucuların dikkatini çekmek için bir belirtme paragrafı kullanılır.",
+                "updated": 1652385121894
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Все, что вы вводите при редактировании выноски, будет отображаться как в примере ниже.",
                     "updated": 1638533879303
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir belirtme çizgisini düzenlerken yazdığınız her şey aşağıdaki örnekte olduğu gibi işlenecektir.",
+                    "updated": 1652385147377
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638533891166
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652385154701
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Это абзац с выноской.",
                     "updated": 1638533905201
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bir açıklama paragrafıdır.",
+                    "updated": 1652385165033
                 }
             ]
         }

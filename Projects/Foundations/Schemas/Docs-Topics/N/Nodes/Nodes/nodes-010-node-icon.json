@@ -4,12 +4,46 @@
     "type": "Node Icon",
     "definition": {
         "text": "Each Node must have a icon, that is the one that represents the Node at the Desing Space.",
-        "updated": 1609237637368
+        "updated": 1609237637368,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Каждый узел должен иметь иконку, которая представляет узел в Design Space.",
+                "updated": 1640356659778
+            },
+            {
+                "language": "TR",
+                "text": "Her Düğümün ( Node ) Tasarım Alanındaki Düğümü ( Node ) temsil eden bir simgeye sahip olması gerekir.",
+                "updated": 1652901953564
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knoten (Node) muss ein Icon haben, das den Knoten im Desing Space repräsentiert.",
+                "updated": 1689422403577
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1640356669892
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1652901973480
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689422415233
+                }
+            ]
         }
     ]
 }

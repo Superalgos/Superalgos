@@ -1,0 +1,34 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 45,
+    "type": "Superalgos Review - Mdoubles First Superalgos Review",
+    "definition": {
+        "text": "My first impression of Superalgos:\nI like the fact that Superalgos runs on my premises and all actions take place in my Superalgos folder. I found it easy to install and set up following the instructions. I also took a look at the code and it seems well structured and easy to understand.\n \nI'm not sure I like the visual scripting environment. So far I've spent a lot of time just learning the GUI without understanding much what's happening in the background. I find the visual representation of the nodes too detailed. Nodes are sometimes very distant and the relationship between nodes is not always clear to me. The hierarchies also seem to be too deep, I have the feeling that things could be organized more flatly. I was having trouble creating references through the GUI.\n\nThe Next button at the end of tutorials is not doing anything (I am on Chrome Version 102.0.5005.61, Windows 10 Pro 19044.1706).",
+        "updated": 1653859933669,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Mein erster Eindruck von Superalgos: Mir gefällt die Tatsache, dass Superalgos in meinen Räumlichkeiten läuft und alle Aktionen in meinem Superalgos-Ordner stattfinden. Ich fand es einfach zu installieren und einzurichten, indem ich den Anweisungen folgte. Ich habe auch einen Blick auf den Code geworfen und er scheint gut strukturiert und leicht zu verstehen zu sein. Ich bin mir nicht sicher, ob mir die visuelle Skripting-Umgebung gefällt. Bisher habe ich viel Zeit damit verbracht, die grafische Benutzeroberfläche zu erlernen, ohne viel von dem zu verstehen, was im Hintergrund passiert. Ich finde die visuelle Darstellung der Knoten zu detailliert. Die Knoten sind manchmal sehr weit voneinander entfernt und die Beziehung zwischen den Knoten ist mir nicht immer klar. Die Hierarchien scheinen auch zu tief zu sein, ich habe das Gefühl, dass die Dinge flacher organisiert werden könnten. Ich hatte Schwierigkeiten, über die grafische Benutzeroberfläche Verweise zu erstellen. Die Schaltfläche \"Weiter\" am Ende von Tutorials bewirkt nichts (ich verwende Chrome Version 102.0.5005.61, Windows 10 Pro 19044.1706).",
+                "updated": 1687641760339
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos hakkındaki ilk izlenimim: Superalgos'un benim tesislerimde çalışması ve tüm işlemlerin Superalgos klasörümde gerçekleşmesi hoşuma gitti. Talimatları izleyerek kurulumu ve ayarlamayı kolay buldum. Ayrıca koda da bir göz attım ve iyi yapılandırılmış ve anlaşılması kolay görünüyor.\n \nGörsel komut dosyası ortamını sevdiğimden emin değilim. Şimdiye kadar arka planda neler olduğunu pek anlamadan sadece GUI'yi öğrenmek için çok zaman harcadım. Düğümlerin görsel temsilini çok ayrıntılı buluyorum. Düğümler bazen çok uzak ve düğümler arasındaki ilişki benim için her zaman net değil. Hiyerarşiler de çok derin görünüyor, işlerin daha düz bir şekilde organize edilebileceğini hissediyorum. GUI aracılığıyla referans oluştururken sorun yaşıyordum.\n\nEğitimlerin sonundaki İleri düğmesi hiçbir şey yapmıyor (Chrome Sürüm 102.0.5005.61, Windows 10 Pro 19044.1706 kullanıyorum).",
+                "updated": 1696017547729
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1687641781600
+                }
+            ]
+        }
+    ]
+}

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Mit dieser Node können Benutzer einen Verweis(reference) auf eine API Map definieren. Wenn der Bot ausgeführt wird, verwendet er die referenzierte API Map, um Daten aus der API zu extrahieren.",
                 "updated": 1639495580426
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğüm, kullanıcıların bir API Haritasına referans tanımlamasına olanak tanır. Bot çalıştırıldığında, API'den veri almak için başvurulan API Haritasını kullanacaktır.",
+                "updated": 1654391262784
             }
         ]
     },
@@ -24,13 +29,19 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Чтобы этот узел был правильно установлен и была установлена ​​ссылка на API Data Mine с помощью процедуры Install New Market, Data Mine и API Data Map должны иметь точно такое же свойство конфигурации codeName, в противном случае этот узел будет создан, но Вам придется установить ссылку вручную.",
+                    "text": "Чтобы этот узел был правильно установлен и была установлена ​​ссылка на API Data Mine с помощью процедуры Install New Market, Data Mine и API Data Map должны иметь точно такое же свойство конфигурации codeName, в противном случае этот узел будет создан, но вам придется установить ссылку вручную.",
                     "updated": 1638627386496
                 },
                 {
                     "language": "DE",
                     "text": "Damit diese Node korrekt installiert und ein Verweis auf die API Data Mine mit der Prozedur \"Install New Market\" hergestellt werden kann, müssen sowohl die Data Mine als auch die API Data Map genau die gleiche config property codeName (Konfigurationseigenschaft Code Name) haben. Andernfalls wird diese Node zwar erstellt, aber Sie müssen den Verweis manuell herstellen.",
                     "updated": 1639495749093
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümün doğru bir şekilde kurulması ve Yeni Market Yükle prosedürü kullanılarak API Veri Madeni'ne bir referans oluşturulması için, hem Veri Madeni hem de API Veri Haritası'nın tam olarak aynı yapılandırma özelliği codeName'e sahip olması gerekir, aksi takdirde bu düğüm oluşturulur ancak referansı manuel olarak oluşturmanız gerekir.",
+                    "updated": 1654391269074,
+                    "style": "Important"
                 }
             ]
         },
@@ -47,6 +58,12 @@
                     "language": "DE",
                     "text": "Eine ausführlichere Beschreibung der API Map finden Sie auf der Seite API Map.",
                     "updated": 1639495776478
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritasının ne olduğuna dair daha derin bir açıklama için lütfen API Haritası sayfasına bakın.",
+                    "updated": 1654391275140,
+                    "style": "Text"
                 }
             ]
         }

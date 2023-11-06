@@ -1,0 +1,145 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 13,
+    "type": "TRIX Indicator",
+    "definition": {
+        "text": "The Triple Exponential Average (TRIX) indicator is a momentum oscillator used to identify oversold and overbought markets.",
+        "updated": 1648532805465,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der TRIX Indikator (Triple Exponential Average) ist ein Momentum Oszillator, der dazu dient, überverkaufte und überkaufte Märkte zu identifizieren.",
+                "updated": 1671639987309
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "TRIX the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "TRIX die Charts",
+                    "updated": 1671640026998
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, this indicator calculates a triple exponential moving average (EMA) of the log of the price input over a period of time. This produces a percentage change in a moving average that has been smoothed exponentially three times. It produces signals similar in nature to the Moving Average Convergence-Divergence (MACD) indicator.",
+            "updated": 1648532264167,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia berechnet dieser Indikator einen dreifachen exponentiellen gleitenden Durchschnitt (EMA) des Logarithmus des Preisinputs über einen bestimmten Zeitraum. Dies ergibt eine prozentuale Veränderung eines gleitenden Durchschnitts, der dreimal exponentiell geglättet wurde. Er erzeugt Signale, die dem Indikator Moving Average Convergence-Divergence (MACD) ähneln.",
+                    "updated": 1671640103116
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671640340828
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Excellent filter of market noise and can identify oversold and overbought markets",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hervorragende Filterung von Marktstörungen und Erkennung von überverkauften und überkauften Märkten",
+                    "updated": 1671640142136
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Can be considered as a leading indicator",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kann als Frühindikator betrachtet werden",
+                    "updated": 1671640170555
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "TRIX(investopedia)->www.investopedia.com/terms/t/trix.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-TRIX-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the TRIX can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"TRIX\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des TRIX können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"TRIX\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671640420026
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-TRIX-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "TRIX Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "TRIX Produkte & Eigenschaften",
+                    "updated": 1671640437419
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| TRIX | trix | value, signal |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| TRIX | trix | value, signal |",
+                    "updated": 1671640451552
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671640475983
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the TRIX value crosses above the signal line when below zero:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der TRIX Wert die Signallinie überschreitet, wenn er unter Null liegt:",
+                    "updated": 1671640511229
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.trix.value > chart.at01hs.trix.signal && chart.at01hs.trix.value < 0"
+        }
+    ]
+}

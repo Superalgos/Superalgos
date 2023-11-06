@@ -2,7 +2,19 @@
     "type": "Users' Formula and Code Examples",
     "definition": {
         "text": "This book compiles user implementations of ideas for formulas and code in the definition of Trading Systems.",
-        "updated": 1615909555497
+        "updated": 1615909555497,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В этой книге собраны пользовательские реализации идей формул и кода в определении торговых систем.",
+                "updated": 1645086157053
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Buch werden von Anwendern umgesetzte Ideen für Formeln und Code zur Definition von Trading Systems zusammengestellt.",
+                "updated": 1650664061204
+            }
+        ]
     },
     "paragraphs": [
         {

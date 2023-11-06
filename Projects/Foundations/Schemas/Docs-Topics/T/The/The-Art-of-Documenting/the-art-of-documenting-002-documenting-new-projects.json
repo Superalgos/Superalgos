@@ -1,0 +1,144 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "2",
+    "type": "Documenting New Projects",
+    "definition": {
+        "text": "Producing original documentation of new features or entirely new projects is a bit challenging. It requires a good understanding of the Docs infrastructure, and of how the existing documentation is built.",
+        "updated": 1642949576428,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Создание оригинальной документации по новым функциям или совершенно новым проектам является несколько сложной задачей. Это требует хорошего понимания инфраструктуры Docs и того, как создается существующая документация.",
+                "updated": 1670678404818
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Interview the Developers",
+            "updated": 1642949596712,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Интервью с  разработчиками",
+                    "updated": 1670678523260
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The first requirement is to fully understand what the new project or feature is about. The best approach is to interview the developers involved while recording the session on video.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первое требование - полностью понять, что представляет собой новый проект или функция. Лучший подход - это интервью с разработчиками, записывая сессию на видео.",
+                    "updated": 1670678452419
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The developers should explain the new features conceptually, explain how things work, and even demo the features in a dedicated workspace. Make sure you cover what each node in each of the new hierarchies represents and how they work, as you will need to produce individual definition pages for each node.",
+            "updated": 1642949648818,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчики должны концептуально объяснить новые возможности, объяснить, как все работает, и даже продемонстрировать возможности в специальном рабочем пространстве. Обязательно расскажите о том, что представляет собой каждый узел в каждой из новых иерархий и как они работают, поскольку для каждого узла вам потребуется создать отдельные страницы определений.",
+                    "updated": 1670678475733
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Schedule as many interviews as required. Complex functionality may require several sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запланируйте столько собеседований, сколько потребуется. Для сложной функциональности может потребоваться несколько сеансов.",
+                    "updated": 1670678489642
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The video recordings will help you go back and review everything that was discussed. This is crucial, as you will probably not understand all the details during the live session, and will likely need to mature the concepts as you write.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Видеозаписи помогут вам вернуться и просмотреть все, что обсуждалось. Это очень важно, поскольку вы, вероятно, не поймете всех деталей во время живой сессии, и вам, скорее всего, придется дорабатывать концепции в процессе составления текста.",
+                    "updated": 1670678587684
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Also, you may contribute the video material to the Superalgos Youtube Channel, or publish the content on your channel too.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Также вы можете внести видеоматериалы на Youtube-канал Superalgos или опубликовать их на своем канале.",
+                    "updated": 1670678597956
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Start With Definitions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начните с определений",
+                    "updated": 1670678611857
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The very first writeups you will produce are the pages corresponding to each new node type involved. We call these the Definition Pages, as each page defines precisely what each node represents, how it works, and how it relates to other nodes.",
+            "updated": 1642949725862,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Самые первые записи, которые вы создадите, - это страницы, соответствующие каждому новому типу узлов. Мы называем их страницами определений (Definition Pages), поскольку каждая страница точно определяет, что представляет собой каждый узел, как он работает и как связан с другими узлами.",
+                    "updated": 1670678650329
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "It may not be apparent why you should start with definitions, but I assure you it's crucial, mainly for two reasons!",
+            "updated": 1642949745894,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может быть, не совсем понятно, почему вы должны начинать с определений, но я уверяю вас, что это крайне важно, в основном по двум причинам!",
+                    "updated": 1670678667019
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Writing the definition of each node will help you understand each piece of the puzzle in sufficient detail so that you may grasp all the nuance in the overall behavior of the hierarchy. This level of understanding is crucial to figuring out what is the best way to explain the whole project or feature.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Составление определения каждого узла поможет вам понять каждый кусочек головоломки достаточно подробно, чтобы вы могли уловить все нюансы в общем поведении иерархии. Этот уровень понимания крайне важен для выяснения того, как лучше всего объяснить весь проект или функцию.",
+                    "updated": 1670678696715
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Pretty much like each node in a hierarchy is a piece in a puzzle of the new project or feature, each definition page is a piece in the puzzle of the documentation. In other words, a documentation Topic is comprised mostly of Definition Pages. I will expand on this later on.",
+            "updated": 1642949791650,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подобно тому, как каждый узел в иерархии является частью головоломки нового проекта или функции, каждая страница определения является частью головоломки документации. Другими словами, тема документации состоит в основном из страниц определений. Позже я расскажу об этом подробнее.",
+                    "updated": 1670678724682
+                }
+            ]
+        }
+    ]
+}

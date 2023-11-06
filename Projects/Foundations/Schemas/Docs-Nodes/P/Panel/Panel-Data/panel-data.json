@@ -1,7 +1,19 @@
 {
     "type": "Panel Data",
     "definition": {
-        "text": "A panel data node represents a data field to be plotted on the plotter panel."
+        "text": "A panel data node represents a data field to be plotted on the plotter panel.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Panel Data представляет поле данных, которое должно быть выведено на панель плоттера.",
+                "updated": 1645169459796
+            },
+            {
+                "language": "TR",
+                "text": "Panel veri düğümü, çizici panelinde çizilecek bir veri alanını temsil eder.",
+                "updated": 1672259823258
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +22,19 @@
         },
         {
             "style": "Text",
-            "text": "The system renders a panel featuring a centered, single-column vertical arrangement of data, with a label and a data field right below it. The label of each data field on the panel is given&mdash;by default&mdash;by the label set for each panel data node."
+            "text": "The system renders a panel featuring a centered, single-column vertical arrangement of data, with a label and a data field right below it. The label of each data field on the panel is given&mdash;by default&mdash;by the label set for each panel data node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система отображает панель с центрированным, одноколоночным вертикальным расположением данных, с меткой и полем данных прямо под ней. Метка каждого поля данных на панели по умолчанию задается меткой, установленной для каждого узла данных панели.",
+                    "updated": 1645169473875
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, ortalanmış, tek sütunlu dikey veri düzenlemesi içeren bir panel oluşturur ve bunun hemen altında bir etiket ve bir veri alanı bulunur. Paneldeki her bir veri alanının etiketi -varsayılan olarak- her bir panel veri düğümü için ayarlanan etiket tarafından verilir.",
+                    "updated": 1672259886370
+                }
+            ]
         },
         {
             "style": "Block",
@@ -19,20 +43,68 @@
         {
             "style": "Title",
             "text": "Panel Data Configuration",
-            "updated": 1609860920089
+            "updated": 1609860920089,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Panel Data",
+                    "updated": 1645169488131
+                },
+                {
+                    "language": "TR",
+                    "text": "Panel Veri Yapılandırması (Panel Data Configuration)",
+                    "updated": 1672259924583
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609860933462
+            "updated": 1609860933462,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1645169495360
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1672259951501
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "valueDecimals sets the number of decimals to be shown on the corresponding data field."
+            "text": "valueDecimals sets the number of decimals to be shown on the corresponding data field.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "valueDecimals устанавливает количество десятичных знаков, которые будут отображаться в соответствующем поле данных.",
+                    "updated": 1645169506310
+                },
+                {
+                    "language": "TR",
+                    "text": "valueDecimals ilgili veri alanında gösterilecek ondalık sayısını ayarlar.",
+                    "updated": 1672259992405
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "labelPosition and valuePosition represent the vertical distance of the corresponding fields to the top margin of the panel."
+            "text": "labelPosition and valuePosition represent the vertical distance of the corresponding fields to the top margin of the panel.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "labelPosition и valuePosition представляют собой вертикальное расстояние соответствующих полей до верхнего края панели.",
+                    "updated": 1645169513701
+                },
+                {
+                    "language": "TR",
+                    "text": "labelPosition ve valuePosition ilgili alanların panelin üst kenar boşluğuna olan dikey mesafesini temsil eder.",
+                    "updated": 1672260057539
+                }
+            ]
         }
     ]
 }

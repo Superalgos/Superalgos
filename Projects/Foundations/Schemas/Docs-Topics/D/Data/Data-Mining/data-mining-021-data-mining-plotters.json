@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Плоттеры читают продукты данных, созданные ботами, и наносят на экран определенные координатные точки, чтобы использовать их в качестве вершин для многоугольников, которым назначаются стили для создания графических представлений базовых данных.",
                 "updated": 1639724065813
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çiziciler, botlar tarafından oluşturulan veri ürünlerini okur ve bunları, temel alınan verilerin grafik temsillerini oluşturmak üzere stiller atanan çokgenler için tepe noktaları olarak kullanmak üzere belirli koordinat noktalarını eşler.",
+                "updated": 1645973647620
             }
         ]
     },
@@ -45,7 +50,14 @@
         {
             "style": "Title",
             "text": "Plotter Module",
-            "updated": 1611431881154
+            "updated": 1611431881154,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çizici Modülü",
+                    "updated": 1645973677280
+                }
+            ]
         },
         {
             "style": "Include",

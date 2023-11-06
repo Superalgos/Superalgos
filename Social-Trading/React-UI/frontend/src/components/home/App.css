@@ -1,0 +1,13 @@
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-height: 100vh;
+}
+
+.appContainer {
+}
+
+.middleSection {
+    width: 40rem;
+}

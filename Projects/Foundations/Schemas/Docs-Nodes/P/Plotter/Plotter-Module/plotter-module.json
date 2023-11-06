@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Plotter Module - это устройство внутри плоттера, которое содержит определения для создания визуализации для определения продукта.",
                 "updated": 1639724113668
+            },
+            {
+                "language": "TR",
+                "text": "Bir çizici modülü, ürün tanımı için görselleştirme oluşturmak üzere tanımları içeren çizici içindeki bir cihazdır.",
+                "updated": 1674139530733
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Один плоттер может иметь несколько модулей. Различные модули могут использоваться для построения графиков для каждого продукта бота или в соответствии с предполагаемой схемой использования.",
                     "updated": 1639724162840
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek bir çizici birkaç modüle sahip olabilir. Botun her bir ürününü çizmek için farklı modüller kullanılabilir veya beklenen kullanım modeline en uygun şekilde kullanılabilir.",
+                    "updated": 1674139635360
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Чтобы бот мог использовать плоттер, соответствующее определение продукта Product Definition должно установить связь с модулем плоттера, созданным для интерпретации набора данных.",
                     "updated": 1639724227656
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir botun çizici kullanabilmesi için, ilgili Ürün Tanımının ( Product Definition ) veri kümesini yorumlamak üzere oluşturulmuş çizici modülü ile referans kurması gerekir.",
+                    "updated": 1674139874462
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Конфигурация Plotter Module",
                     "updated": 1639724245315
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizici Modülü Yapılandırması (Plotter Module Configuration)",
+                    "updated": 1674139943886
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639724252178
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674139980511
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "codeName - это имя, используемое в коде для обозначения модуля.",
                     "updated": 1639724265790
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName kod içinde modüle atıfta bulunmak için kullanılan addır.",
+                    "updated": 1674140040576
                 }
             ]
         },
@@ -115,18 +145,28 @@
                     "language": "RU",
                     "text": "isLegacy является истинным (true) для модулей плоттеров, разработанных полностью на JavaScript, и является ложным или не отображается в конфигурации для плоттеров, построенных с использованием инструментов, представленных в иерархии Data Mine.",
                     "updated": 1639724369231
+                },
+                {
+                    "language": "TR",
+                    "text": "isLegacy tamamen JavaScript ile geliştirilen çizici modülleri için doğrudur ve veri madeni hiyerarşisinde yer alan araçlarla oluşturulan çiziciler için yanlıştır veya yapılandırmada gösterilmez.",
+                    "updated": 1674140153023
                 }
             ]
         },
         {
             "style": "List",
-            "text": "<code class=\"docs-code\">icon</code> is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
-            "updated": 1636672891580,
+            "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default icon is used. Possible values are...",
+            "updated": 1647934253343,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "icon - это имя изображения, иллюстрирующего соответствующий слой на панели слоев Layers Panel. В случае если значок не указан, используется иконка по умолчанию. Возможными значениями являются...",
-                    "updated": 1639724415741
+                    "text": "icon - это имя изображения, иллюстрирующего соответствующий слой на панели слоев. Если значок не указан, используется значок по умолчанию. Возможные значения...",
+                    "updated": 1661275622519
+                },
+                {
+                    "language": "TR",
+                    "text": "simgesi, Katmanlar Panelinde ilgili katmanı gösteren görüntünün adıdır. Simge belirtilmediği takdirde, varsayılan simge kullanılır. Olası değerler şunlardır...",
+                    "updated": 1674140190952
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "RU",
                     "text": "Можно также добавлять пользовательские изображения. Для этого:",
                     "updated": 1639724436480
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel resimler de eklenebilir. Bunu yapmak için:",
+                    "updated": 1674140318592
                 }
             ]
         },
@@ -165,6 +210,11 @@
                     "language": "RU",
                     "text": "1. Назовите изображение в следующем формате: image-name.png;",
                     "updated": 1639724449960
+                },
+                {
+                    "language": "TR",
+                    "text": "1.  Görüntüyü aşağıdaki formatta adlandırın: image-name.png;",
+                    "updated": 1674140367290
                 }
             ]
         },
@@ -182,6 +232,11 @@
                     "language": "RU",
                     "text": "2. Поместите изображения в папку WebServer\\Images\\Icons;",
                     "updated": 1639724474141
+                },
+                {
+                    "language": "TR",
+                    "text": "2. Görüntüleri WebServer\\Images\\Icons klasörüne yerleştirin;",
+                    "updated": 1674140409856
                 }
             ]
         },
@@ -199,6 +254,11 @@
                     "language": "RU",
                     "text": "3. В конфигурации модуля используйте имя как есть (например: \"icon\": \"image-name\")",
                     "updated": 1639724498949
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Modülün yapılandırmasında, adı olduğu gibi kullanın (örneğin: \"icon\": \"image-name\")",
+                    "updated": 1674140446935
                 }
             ]
         }

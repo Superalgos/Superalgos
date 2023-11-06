@@ -1,0 +1,198 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 30,
+    "type": "Tutorial Step - A Book on Tutorials",
+    "definition": {
+        "text": "Congratulations! You reached the end of another tutorial! I hope you feel that you're starting to grasp how Superalgos works!",
+        "updated": 1617034361694,
+        "icon": {
+            "name": "scripts-library",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Congratulazioni! Sei alla fine di un altro tutorial! Spero che ormai tu abbia un'idea di come funziona Superalgos!",
+                "updated": 1619638188232,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Felicidades! ¡Has llegado al final de otro tutorial! ¡Espero que sientas que estás empezando a comprender cómo funciona Superalgos!",
+                "updated": 1675454730971,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Herzlichen Glückwunsch! Du hast das Ende eines weiteren Tutorials erreicht! Ich hoffe, du hast das Gefühl, dass du langsam verstehst, wie Superalgos funktioniert!",
+                "updated": 1635151990380
+            },
+            {
+                "language": "TR",
+                "text": "Tebrikler! Bir eğitimin daha sonuna geldiniz! Umarım Superalgos'un nasıl çalıştığını kavramaya başladığınızı hissediyorsunuzdur!",
+                "updated": 1640003125242
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляем! Вы дошли до конца очередного урока! Надеюсь, вы чувствуете, что начинаете понимать, как работает Superalgos!",
+                "updated": 1640163997856
+            },
+            {
+                "language": "ID",
+                "text": "Selamat! kamu telah menyelesaikan akhir dari sebuah tutorial lainnya! Aku harap kamu merasakan cara kerja Superalgos!",
+                "updated": 1669154778545
+            },
+            {
+                "language": "NL",
+                "text": "Gefeliciteerd! Je hebt het einde van een andere zelfstudie bereikt! Ik hoop dat je voelt dat je begint te begrijpen hoe Superalgos werkt!",
+                "updated": 1669750574143
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's talk about what comes next! The page I just opened is the First Steps Tutorials book. From now on, you're free to choose what tutorials to do next!",
+            "updated": 1617034497284,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Parliamo di cosa verrà dopo! La pagina che ho aperto è il libro First Step Tutorials. D'ora in poi sei libero di scegliere che tutorial fare!",
+                    "updated": 1619638242869,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hablemos de lo que viene después! La página que acabo de abrir es First Steps Tutorials Book. ¡A partir de ahora, puedes elegir qué tutoriales deseas hacer!",
+                    "updated": 1675454742486,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns darüber reden, was als nächstes kommt! Die Seite, die ich gerade aufgeschlagen habe, ist das Buch First Steps Tutorials. Von nun an kannst du frei wählen, welche Tutorials du als nächstes machen willst!",
+                    "updated": 1635151996002
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan sonrasınıda konuşalım! Az önce açtığım sayfa İlk Adımlar Öğreticiler kitabı ( First Steps Tutorials ). Şu andan itibaren, bir sonraki öğreticileri seçmekte özgürsünüz!",
+                    "updated": 1640003188497
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поговорим о том, что будет дальше! Страница, которую я только что открыл, - это книга First Steps Tutorials. С этого момента вы можете сами выбирать, какими учебниками заниматься дальше!",
+                    "updated": 1640164185796
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita bicara tentang apa yang akan terjadi selanjutnya! Halaman yang baru saja aku buka adalah buku Tutorial Langkah Pertama. mulai sekarang, kamu bebas memilih tutorial apa yang akan dilakukan selanjutnya!",
+                    "updated": 1669154785908
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het hebben over wat daarna komt! De pagina die ik zojuist heb geopend is het First Step Tutorials boek. Vanaf nu ben je vrij om te kiezen welke zelfstudies je hierna wilt doen!",
+                    "updated": 1669750645294
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Take a look at the list of tutorials available on each of the Native Workspaces. The proposed sequence is recommended, but it's up to you!",
+            "updated": 1688056219873,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Native Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
+                    "updated": 1619638304612,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Echa un vistazo a la lista de tutoriales disponibles en cada uno de los Native Workspaces y elige cuál quieres hacer a continuación.",
+                    "updated": 1675454759941,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich die Liste der Tutorials an, die auf den einzelnen Native Workspaces verfügbar sind, und wählen Sie aus, welches Sie als nächstes machen wollen!",
+                    "updated": 1635152004196
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanlarının ( Native Workspace ) her birinde bulunan eğitim listesine bir göz atın ve bir sonraki adımda hangisini yapacağınızı seçin!",
+                    "updated": 1640003237540
+                },
+                {
+                    "language": "RU",
+                    "text": "Просмотрите список учебных пособий, доступных на каждом из рабочих пространств плагинов (Native Workspaces), и выберите, каким из них заняться в следующий раз!",
+                    "updated": 1640164219826
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah daftar tutorial yang tersedia di masing-masing Native Workspace dan pilih yang mana untuk dilakukan selanjutnya!",
+                    "updated": 1669154793859
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk de lijst met beschikbare zelfstudies op elk van de Native Workspaces en kies welke je hierna wilt doen!",
+                    "updated": 1669750692446
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To participate in the next Airdrop and Governance in general, get started by loading the following:",
+            "updated": 1630945286991,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ci vediamo al prossimo tutorial!",
+                    "updated": 1619638313318,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para participar en el próximo Airdrop y en la Gobernanza en general, empieza por cargar lo siguiente:",
+                    "updated": 1675454775084,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um am nächsten Airdrop und an der Governance im Allgemeinen teilzunehmen, laden Sie einfach die folgenden Dateien:",
+                    "updated": 1635152010580
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki Airdrop'a ve genel olarak Yönetişime katılmak için aşağıdakileri yükleyerek başlayın:",
+                    "updated": 1640003385936
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы принять участие в следующем Airdrop и в управлении (Governance) в целом , начните с загрузки следующего:",
+                    "updated": 1640164274970
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk berpartisipasi dalam Airdrop dan Governance umum lanjutan, mulailah dengan memuat yang berikut:",
+                    "updated": 1669154802327
+                },
+                {
+                    "language": "NL",
+                    "text": "Om deel te nemen aan de volgende Airdrop en Governance in het algemeen, begint u door het volgende te laden:",
+                    "updated": 1669750709173
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Token Distribution Superalgos Governance Workspace",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Token Dağıtımı Superalgos Yönetişim Çalışma Alanı",
+                    "updated": 1654393929016,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

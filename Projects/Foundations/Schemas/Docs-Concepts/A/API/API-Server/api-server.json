@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Это сервер (обычно работающий в Интернете), который предоставляет программный доступ к своим ресурсам. Это позволяет алгоритмам получать доступ к этим ресурсам. Когда эти ресурсы являются данными, это позволяет любому получить эти данные, выполнив предопределенные запросы к серверу API.",
                 "updated": 1638278431997
+            },
+            {
+                "language": "TR",
+                "text": "Kaynaklarına programlı erişim sağlayan (genellikle İnternette çalışan) bir sunucudur. Bu, algoritmaların bu kaynaklara erişmesini sağlar. Bu kaynaklar veri olduğunda, herkesin API Sunucusundan, önceden tanımlanmış sorgular yürüterek bu verileri almasına izin verir.",
+                "updated": 1656947305910
+            },
+            {
+                "language": "DE",
+                "text": "Es handelt sich um einen Server (der in der Regel im Internet läuft), der programmatischen Zugang zu seinen Ressourcen bietet. Dies ermöglicht Algorithmen den Zugriff auf diese Ressourcen. Wenn es sich bei diesen Ressourcen um Daten handelt, kann jeder diese Daten abrufen, indem er vordefinierte Abfragen an den API-Server stellt.",
+                "updated": 1682019170825
             }
         ]
     },
@@ -20,6 +30,17 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638278449911
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390558476,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Textabschnitt, um in den Bearbeitungsmodus zu gelangen und diesen text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1682019244068
                 }
             ]
         }

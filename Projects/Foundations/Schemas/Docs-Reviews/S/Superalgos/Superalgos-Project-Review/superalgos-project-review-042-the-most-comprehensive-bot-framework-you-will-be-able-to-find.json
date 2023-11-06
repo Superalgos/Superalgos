@@ -1,0 +1,34 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 42,
+    "type": "The most comprehensive bot framework you will be able to find",
+    "definition": {
+        "text": "This will blow you away with what you can do with it. Expect a bit of a learning curve, but once you get into it there's no stopping you",
+        "updated": 1642772222781,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es wird Sie umhauen, was Sie damit alles machen können. Rechnen Sie mit einer gewissen Lernkurve, aber wenn Sie einmal drin sind, gibt es kein Halten mehr.",
+                "updated": 1687641510952
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos ile yapabilecekleriniz sizi şaşırtacak. Biraz öğrenme süreciniz olacak ama bir kez içine girdiğinizde kendinizi durduramazsınız",
+                "updated": 1696017267275
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1687641522983
+                }
+            ]
+        }
+    ]
+}

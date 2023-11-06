@@ -18,6 +18,21 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Datenspeicherknoten für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636469629780
+            },
+            {
+                "language": "TR",
+                "text": "İlgili Borsa ( Market ) için Veri Depolama ( Data Storage ) düğümlerinin başarıyla oluşturulduğunu doğrulayın.",
+                "updated": 1642160301351
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что узлы Data Storage для соответствующего Market были успешно созданы.",
+                "updated": 1643091232090
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Data Storage knooppunten voor de overeenkomstige Market met succes zijn gemaakt.",
+                "updated": 1676126217482
             }
         ]
     },
@@ -35,6 +50,21 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636469658454
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki veri yapılarını bulun:",
+                    "updated": 1642160677378
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1643091238108
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676126428187
                 }
             ]
         },
@@ -51,6 +81,21 @@
                     "language": "DE",
                     "text": "Ein Knoten Market Data Products unter Data Mines Data, mit einem Knoten Data Mine Products  für jede Data Mine  im Arbeitsbereich.",
                     "updated": 1636469847598
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanındaki her Veri Madeni ( Data mine ) için bir Veri Madeni Ürünleri ( Data mine Products ) düğümü ile Veri Madeni Verileri ( Data Mines Data ) altındaki bir Borsa Veri Ürünleri ( Market Data Products )  düğümü.",
+                    "updated": 1642161841489
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Market Data Products в разделе Data Mines Data, с узлом Data Mine Products для каждого Data Mine в рабочем пространстве.",
+                    "updated": 1643091251687
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt Market Data Products onder Data Mines Data, met een knooppunt Data Mine Products voor elke Data Mine in de werkruimte.",
+                    "updated": 1676126460761
                 }
             ]
         },
@@ -67,6 +112,21 @@
                     "language": "DE",
                     "text": "Ein Knoten Market Trading Products unter Trading Mines Data, mit einer Trading Session Reference für jede Handelssitzung in den Test- und Produktionsumgebungen.",
                     "updated": 1636469864913
+                },
+                {
+                    "language": "TR",
+                    "text": "Test ve üretim ortamlarındaki her bir ticaret oturumu için bir Ticaret Oturumu Referansı ( Trading Session Reference ) ile Ticaret Maden Verileri ( Trading Mines Data ) altındaki bir Borsa Ticaret Ürünleri ( Market Trading Products ) düğümü.",
+                    "updated": 1642162046060
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Market Trading Products в разделе Trading Mines Data с ссылкой на торговую сессию для каждой торговой сессии в тестовых и производственных окружениях.",
+                    "updated": 1643091279396
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Market Trading Products node onder Trading Mines Data, met een Trading Session Reference voor elke handelssessie in de test- en productieomgevingen.",
+                    "updated": 1676126506936
                 }
             ]
         }

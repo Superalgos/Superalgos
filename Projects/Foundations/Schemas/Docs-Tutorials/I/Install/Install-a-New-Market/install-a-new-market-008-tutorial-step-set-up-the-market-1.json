@@ -19,6 +19,21 @@
                 "language": "DE",
                 "text": "Fügen Sie einen neuen Market knoten hinzu, indem Sie die Option Market hinzufügen im Menü wählen.\n",
                 "updated": 1635829868443
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Menüdeki borsa ( Market ) Ekle seçeneğini kullanarak yeni bir borsa ( add Market ) düğümü ekleyin.",
+                "updated": 1642145216720
+            },
+            {
+                "language": "RU",
+                "text": "Добавьте новый узел Market, используя опцию Add Market в меню.",
+                "updated": 1643090486611
+            },
+            {
+                "language": "NL",
+                "text": "Voeg een nieuw Market toe met behulp van de optie Add Market in het menu.",
+                "updated": 1676124236790
             }
         ]
     },
@@ -38,6 +53,21 @@
                     "language": "DE",
                     "text": "Ein Market knoten sollte mit zwei Ablegern hinzugefügt werden: einem Market Base Asset und einem Market Quoted Asset.",
                     "updated": 1635830106575
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: İki kollu bir borsa düğümü eklenmelidir: bir piyasa temelli varlık ( Market Base Asset ) ve bir piyasada kote varlık ( Market Quoted Asset ).",
+                    "updated": 1642145422430
+                },
+                {
+                    "language": "RU",
+                    "text": "Необходимо добавить узел Market с двумя потомками: Market Base Asset и Market Quoted Asset.",
+                    "updated": 1643090499296
+                },
+                {
+                    "language": "NL",
+                    "text": "Er moet een Market knooppunt worden toegevoegd met twee nakomelingen: een Market Base Asset en een Market Quoted Asset knooppunt.",
+                    "updated": 1676124320486
                 }
             ]
         },
@@ -47,14 +77,29 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Antes de continuar, asegúrate de cuál es la base y cuál es el asset cotizado en la cotización de el exchange. Por lo general, el asset base es el primero en el nombre del par, pero esto no se aplica en todos los exchanges, así que esté atento.",
-                    "updated": 1629165598676,
+                    "text": "Antes de continuar, asegúrate de cuál es la base y cuál es el asset cotizado en la cotización de el exchange. Por lo general, el asset base es el primero en el nombre del par, pero esto no se aplica en todos los exchanges, así que permanece atento.",
+                    "updated": 1682426413836,
                     "style": "Important"
                 },
                 {
                     "language": "DE",
                     "text": "Bevor Sie fortfahren, vergewissern Sie sich, welches der Basiswert und welches der börsennotierte Vermögenswert in der Börsennotierung ist. In der Regel ist der Basiswert der erste im Namen des Paares, aber das wird nicht an jeder Börse durchgesetzt, also seien Sie wachsam.",
                     "updated": 1635830457846
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Devam etmeden önce, hangisinin dayanak varlık ve hangisinin borsada listelenen varlık olduğundan emin olun. Tipik olarak, dayanak varlık çiftin adında ilk sırada yer alır, ancak bu her borsada uygulanmaz, bu nedenle dikkatli olun.",
+                    "updated": 1642147508299
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем продолжить, убедитесь, какой актив является базовым, а какой - котируемым в листинге биржи. Обычно базовый актив является первым в названии пары, но это соблюдается не на всех биржах, поэтому будьте внимательны.",
+                    "updated": 1643090522027
+                },
+                {
+                    "language": "NL",
+                    "text": "Voordat u doorgaat, moet u controleren wat de base is en wat de quoted token is in de notering van het tokenpaar. Gewoonlijk is het base token de eerste in de naam van het paar, maar dit wordt niet bij elke uitwisseling afgedwongen, dus wees waakzaam.",
+                    "updated": 1676124437438
                 }
             ]
         }

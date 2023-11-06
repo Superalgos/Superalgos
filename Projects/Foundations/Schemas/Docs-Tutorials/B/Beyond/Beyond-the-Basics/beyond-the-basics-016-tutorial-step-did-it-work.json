@@ -4,11 +4,11 @@
     "type": "Tutorial Step - Did It Work?",
     "definition": {
         "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below!",
+        "updated": 1616875304376,
         "icon": {
             "name": "Docs\\docs-action-edit-paragraph",
             "project": "Foundations"
         },
-        "updated": 1616875304376,
         "translations": [
             {
                 "language": "IT",
@@ -26,6 +26,26 @@
                 "language": "DE",
                 "text": "Wenn Sie den Befehl richtig ausgeführt haben, sollten Sie eine neue Seite mit dem von Ihnen festgelegten Titel, einer Aufforderung zum Schreiben einer Zusammenfassung und weiteren Anweisungen unten erhalten!",
                 "updated": 1635148788232
+            },
+            {
+                "language": "RU",
+                "text": "Если вы не перепутали команду, вы должны получить новую страницу с заданным вами заголовком, приглашением написать краткое изложение и дальнейшими инструкциями ниже!",
+                "updated": 1640159615603
+            },
+            {
+                "language": "TR",
+                "text": "Komutu yanlış yazmadıysanız, belirlediğiniz başlığı, bir özet yazma daveti ve aşağıda daha fazla talimat içeren yeni bir sayfa görmelisiniz!",
+                "updated": 1640555422367
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu menulis perintah dengan benar, kamu seharusnya mendapatkan halaman baru dengan title yang sudah kamu buat, undangan untuk menulis ringkasan, dan instruksi lebih lanjut di bawah ini!",
+                "updated": 1668788793657
+            },
+            {
+                "language": "NL",
+                "text": "Als je de opdracht niet hebt verknoeid, zou je een nieuwe pagina moeten krijgen met de titel die je hebt ingesteld, een uitnodiging om een samenvatting te schrijven en meer instructies hieronder!",
+                "updated": 1669747383619
             }
         ]
     },
@@ -51,6 +71,26 @@
                     "language": "DE",
                     "text": "Wenn Sie eine Fehlermeldung erhalten haben, lesen Sie sie und beheben Sie das Problem! Es handelt sich wahrscheinlich um einen Fehler in der Syntax des Befehls. Sie können jederzeit einen Schritt zurückgehen, um den ursprünglichen Befehl wiederherzustellen!",
                     "updated": 1635148795437
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы получили сообщение об ошибке, прочитайте его и устраните проблему! Скорее всего, дело в синтаксисе команды. Вы всегда можете вернуться на шаг назад, чтобы восстановить исходную команду!",
+                    "updated": 1640159633942
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir hata mesajı aldıysanız, okumalı ve sorunu çözmelisiniz! Komuttaki sözdizimi ile ilgili olabilir. Orijinal komutu tekrar bulabilmek için her zaman bir adım geri gidebilirsiniz! (Previous tuşunu kullanarak)",
+                    "updated": 1640555518049
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika mendapati pesan kesalahan, baca itu dan perbaiki masalahnya! Itu sepertinya syntax diperintah. Kamu mungkin selalu kembali untuk memulihkan perintah aslinya!",
+                    "updated": 1668788800884
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u een foutmelding krijgt, lees deze dan en los het probleem op! Het gaat waarschijnlijk om de syntaxis in de opdracht. U kunt altijd een stap teruggaan om de oorspronkelijke opdracht te herstellen!",
+                    "updated": 1669747407564
                 }
             ]
         },
@@ -75,6 +115,53 @@
                     "language": "DE",
                     "text": "Im nächsten Schritt werden wir analysieren, wie der Befehl funktioniert!",
                     "updated": 1635148801960
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем шаге мы проанализируем, как работает эта команда!",
+                    "updated": 1640159648023
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz!",
+                    "updated": 1640555531810
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada step selanjutnya, kita akan mempelajari bagaimana perintah itu bekerja!",
+                    "updated": 1668788824996
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende stap analyseren we hoe de opdracht werkt!",
+                    "updated": 1669747419933
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you are using the Packaged or Docker installations, keep hitting Next and ignoring the instructions that are not available for your version of the software.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Paketlenmiş veya Docker kurulumlarını kullanıyorsanız, İleri'ye basmaya devam edin ve yazılım sürümünüz için mevcut olmayan talimatları göz ardı edin.",
+                    "updated": 1654393916499,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menggunakan Instalasi Packaged atau Docker, tetap lanjutkan Next dan abaikan instruksi yang tidak tersedia pada versi software kamu.",
+                    "updated": 1668788835411
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u de Packaged- of Docker-installaties gebruikt, blijf dan op Next drukken en negeer de instructies die niet beschikbaar zijn voor uw versie van de software.",
+                    "updated": 1669747435196
+                },
+                {
+                    "language": "ES",
+                    "text": "Si estás utilizando las instalaciones Packaged o Docker, sigue pulsando Next e ignora las instrucciones que no estén disponibles para tu versión del software.",
+                    "updated": 1675452531031
                 }
             ]
         }

@@ -4,13 +4,47 @@
     "type": "Superalgos Review - Awesoume",
     "definition": {
         "text": "This app is awesome",
-        "updated": 1630679798352
+        "updated": 1630679798352,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это приложение потрясающее",
+                "updated": 1640414317915
+            },
+            {
+                "language": "TR",
+                "text": "Bu uygulama harika",
+                "updated": 1669311034572
+            },
+            {
+                "language": "DE",
+                "text": "Diese App ist großartig",
+                "updated": 1686342619238
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Like Homer S. said after years in trying to do money easily with an app without success, i will do money with this app and easely",
-            "updated": 1630679991179
+            "updated": 1630679991179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как сказал Гомер С., после многих лет безуспешных попыток легко делать деньги с помощью приложения, я буду делать деньги с помощью этого приложения и легко.",
+                    "updated": 1640414342645
+                },
+                {
+                    "language": "TR",
+                    "text": "Homer S.'nin dediği gibi, yıllarca bir uygulama ile kolayca para kazanmaya çalışıp başarılı olamadıktan sonra, bu uygulama ile kolayca para kazanacağım.",
+                    "updated": 1669311069912
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Homer S. schon sagte, nachdem ich jahrelang erfolglos versucht habe, mit einer App Geld zu verdienen, werde ich mit dieser App Geld verdienen und zwar ganz einfach.",
+                    "updated": 1686342632190
+                }
+            ]
         },
         {
             "style": "Text",

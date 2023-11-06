@@ -18,6 +18,21 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Data Tasks Aufgaben für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636356364788
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İlgili borsa ( Market ) için Veri Görevlerinin ( Data Tasks ) başarıyla oluşturulduğunu doğrulayın.",
+                "updated": 1642152451470
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что задачи Data Tasks для соответствующего рынка (Market) были успешно созданы.",
+                "updated": 1643090766160
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Data Tasks taken voor de overeenkomstige Market met succes zijn gemaakt.",
+                "updated": 1676125483228
             }
         ]
     },
@@ -35,6 +50,21 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636356678861
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki veri yapılarını bulun:",
+                    "updated": 1642152481709
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1643090773502
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676125496240
                 }
             ]
         },
@@ -51,6 +81,21 @@
                     "language": "DE",
                     "text": "Ein Market Data Tasks Knoten für den neuen Markt.",
                     "updated": 1636356689571
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni borsa için bir borsa Veri Görevleri ( Market Data Tasks ) düğümü.",
+                    "updated": 1642152543036
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Market Data Tasks для нового рынка.",
+                    "updated": 1643090784230
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt Market Data Tasks voor de nieuwe markt.",
+                    "updated": 1676125510675
                 }
             ]
         },
@@ -67,6 +112,21 @@
                     "language": "DE",
                     "text": "Ein Data Mine Tasks Knoten für jeden im Workspace enthaltene Data Mine.",
                     "updated": 1636356757955
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanında ( Workspace ) bulunan her Veri Madeni ( Data Mine ) için bir Veri Madeni Görevleri düğümü ( Data Mine Tasks node ).",
+                    "updated": 1642152647406
+                },
+                {
+                    "language": "RU",
+                    "text": "Один узел Data Mine Tasks для каждого Data Mine, включенного в рабочее пространство.",
+                    "updated": 1643090800726
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Data Mine Tasks knooppunt voor elke Data Mine die is opgenomen in de Workspace.",
+                    "updated": 1676125542803
                 }
             ]
         },
@@ -83,6 +143,21 @@
                     "language": "DE",
                     "text": "Ein Task Manager pro Data Mine und ein Task für jeden Bot, der in jedem Datenmine definiert ist.",
                     "updated": 1636356814073
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Veri Madeni ( Data Mine ) için bir Görev Yöneticisi ( Task Manager ) ve her veri madeninde tanımlanan her bot için bir Görev.",
+                    "updated": 1642152734166
+                },
+                {
+                    "language": "RU",
+                    "text": "Один Task Manager (Менеджер задач) для каждого Data Mine и одна задача (Task) для каждого бота, определенного в каждом Data Mine.",
+                    "updated": 1643090852174
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Task Manager per Data Mine en één Task voor elke bot die in elke datamijn is gedefinieerd.",
+                    "updated": 1676125595258
                 }
             ]
         }

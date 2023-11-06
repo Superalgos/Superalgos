@@ -20,6 +20,21 @@
                 "language": "DE",
                 "text": "Bearbeiten Sie die Konfiguration aller neuen Vermögenswerte, die in dem Ticker aufgenommen werden sollen (wie von der Börse aufgelistet), in der Eigenschaft codeName.",
                 "updated": 1635742495525
+            },
+            {
+                "language": "TR",
+                "text": "Özet: codeName özelliğinde (değişim tarafından listelendiği gibi) ticker'a dahil edilecek tüm yeni varlıkların yapılandırmasını düzenleyin.",
+                "updated": 1642085731875
+            },
+            {
+                "language": "RU",
+                "text": "Отредактируйте конфигурацию каждого из новых активов, указав тикер (как указано на бирже) в свойстве codeName.",
+                "updated": 1643090342706
+            },
+            {
+                "language": "NL",
+                "text": "Bewerk de configuratie van elk van de nieuwe tokens door de afkorting in te voeren (zoals vermeld door het handelsplatform) in de eigenschap codeName.",
+                "updated": 1676121035263
             }
         ]
     },
@@ -33,6 +48,16 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1635742555141
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1642085749932
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1643090349356
                 }
             ]
         },
@@ -54,6 +79,21 @@
                     "language": "DE",
                     "text": "Wenn das Symbol für die konfigurierten Vermögenswerte in der Bildbibliothek vorhanden ist, wird das Standardsymbol automatisch ersetzt.",
                     "updated": 1635742650600
+                },
+                {
+                    "language": "TR",
+                    "text": " Not: Yapılandırılan varlıkların simgesi görüntü kitaplığında varsa, varsayılan simge otomatik olarak değiştirilir.",
+                    "updated": 1642085926380
+                },
+                {
+                    "language": "RU",
+                    "text": "Если значок для настроенных активов существует в библиотеке изображений, значок по умолчанию заменяется автоматически.",
+                    "updated": 1643090361608
+                },
+                {
+                    "language": "NL",
+                    "text": "Als het pictogram voor de geconfigureerde token aanwezig is in de afbeeldingenbibliotheek, wordt het standaardpictogram automatisch vervangen.",
+                    "updated": 1676121070323
                 }
             ]
         }

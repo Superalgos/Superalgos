@@ -1,7 +1,6 @@
 function newGovernanceFunctionLibraryVotingProgram() {
     let thisObject = {
-        calculate: calculate,
-        installMissingVotes: installMissingVotes
+        calculate: calculate
     }
     const MAX_GENERATIONS = 3
 
@@ -33,7 +32,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             resetVotes(assetsNode)
         }
 
-        /* Reset Votes at Features */
+        /* Reset Votes at Positions */
         for (let i = 0; i < positions.length; i++) {
             let positionsNode = positions[i]
             resetVotes(positionsNode)
@@ -321,6 +320,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     at their config, and check that all percentages don't add more than 100.
                     */
                     let totalPercentage = 0
+                    let totalAmount = 0
                     let totalNodesWithoutPercentage = 0
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
@@ -330,12 +330,14 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
-                                }
+                                }  
                             }
                                 break
                             case 'array': {
@@ -345,9 +347,11 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                            totalPercentage = totalPercentage + percentage
+                                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            totalAmount = totalAmount + config.value
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            totalPercentage = totalPercentage + config.value
                                         } else {
                                             totalNodesWithoutPercentage++
                                         }
@@ -359,7 +363,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     }
                     if (totalPercentage > 100) {
                         node.payload.uiObject.setErrorMessage(
-                            'Voting Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            'Voting Power Switching Error. Total Percentage of children nodes is grater than 100.',
                             UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                         )
                         return
@@ -367,6 +371,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     let defaultPercentage = 0
                     if (totalNodesWithoutPercentage > 0) {
                         defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                    }
+                    /* If configured Amounts exceed the available Votes, determine the share by which requests need to be reduced.
+                    Store the Votes remaining for distribution via percentages after all amount requests have been served in percentagePower. */
+                    let percentagePower = 0
+                    let amountShare = 1
+                    if (totalAmount > votes && totalAmount > 0) {
+                        amountShare = votes / totalAmount
+                    } else {
+                        percentagePower = votes - totalAmount
                     }
                     /*
                     Here we do the actual distribution.
@@ -379,14 +392,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
                                     currentProgramNode,
                                     childNode,
-                                    votes * percentage / 100,
+                                    distributionAmount,
                                     percentage,
                                     generation,
                                     userProfile
@@ -400,14 +422,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                        let distributionAmount = 0
+                                        let percentage = 0
+                                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            distributionAmount = config.value * amountShare
+                                            percentage = "fixed"
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            distributionAmount = percentagePower * config.value / 100
+                                            percentage = config.value
+                                        } else {
+                                            distributionAmount = percentagePower * defaultPercentage / 100
                                             percentage = defaultPercentage
                                         }
                                         distributeProgramPower(
                                             currentProgramNode,
                                             childNode,
-                                            votes * percentage / 100,
+                                            distributionAmount,
                                             percentage,
                                             generation,
                                             userProfile
@@ -433,11 +464,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             if (node.type === 'Voting Program') {
                 drawProgram(node, userProfile)
 
-                if (percentage !== undefined) {
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                    )
-                }
+                UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, undefined)
                 return
             }
             if (node.type === 'User Profile Vote') {
@@ -485,13 +512,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
             node.payload.uiObject.setValue(votesText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-            if (percentage !== undefined) {
-                node.payload.uiObject.percentageAngleOffset = 180
-                node.payload.uiObject.percentageAtAngle = true
-                node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                )
-            }
+            UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
 
 
             function drawUserNode(node, votes, percentage) {
@@ -504,18 +525,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                     node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power', UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-                    node.payload.uiObject.percentageAngleOffset = 180
-                    node.payload.uiObject.percentageAtAngle = true
-
-                    node.payload.uiObject.setPercentage(percentage,
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                    )
+                    UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
 
                         node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+                    } else {
+                        node.payload.uiObject.resetStatus()
                     }
                 }
             }
@@ -536,140 +554,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                 node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming Voting Power' + ' + ' + reputationPowerText + ' Reputation Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
-        }
-    }
-
-    function installMissingVotes(node, rootNodes) {
-        if (node.payload === undefined) { return }
-        if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage(
-                'To install votes you need a Reference Parent',
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
-            return
-        }
-        scanNodeBranch(node, node.payload.referenceParent)
-
-        function scanNodeBranch(originNode, destinationNode) {
-            if (
-                destinationNode.type === 'Pool' ||
-                destinationNode.type === 'Asset' ||
-                destinationNode.type === 'Feature' ||
-                destinationNode.type === 'Position'
-            ) {
-                originNode.name = destinationNode.name + ' ' + destinationNode.type + ' ' + ' Vote'
-            } else {
-                originNode.name = destinationNode.name
-            }
-
-            let schemaDocument = getSchemaDocument(destinationNode)
-            if (schemaDocument === undefined) { return }
-
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
-
-                    switch (property.type) {
-                        case 'node': {
-
-                            let destinationNodeChild = destinationNode[property.name]
-
-                            let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
-
-                            if (originNodeChild === undefined) {
-                                originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
-                            }
-                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
-                            scanNodeBranch(originNodeChild, destinationNodeChild)
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = destinationNode[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-
-                                    let destinationNodeChild = propertyArray[m]
-
-                                    let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
-
-                                    if (originNodeChild === undefined) {
-                                        originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
-                                    }
-                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
-                                    scanNodeBranch(originNodeChild, destinationNodeChild)
-                                }
-                            }
-                            break
-                        }
-                    }
-                }
-            }
-        }
-
-        function getOriginNodeChildType(destinationNode) {
-            let originNodeType
-
-            switch (destinationNode.type) {
-                case 'Pool Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Asset Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Feature Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Position Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Pool': {
-                    originNodeType = 'Pool Weight Vote'
-                    break
-                }
-                case 'Asset': {
-                    originNodeType = 'Asset Weight Vote'
-                    break
-                }
-                case 'Feature': {
-                    originNodeType = 'Feature Weight Vote'
-                    break
-                }
-                case 'Position': {
-                    originNodeType = 'Position Weight Vote'
-                    break
-                }
-                case 'Asset Claims Folder': {
-                    originNodeType = 'Claim Votes Switch'
-                    break
-                }
-                case 'Asset Contribution Claim': {
-                    originNodeType = 'Asset Claim Vote'
-                    break
-                }
-                case 'Feature Claims Folder': {
-                    originNodeType = 'Claim Votes Switch'
-                    break
-                }
-                case 'Feature Contribution Claim': {
-                    originNodeType = 'Feature Claim Vote'
-                    break
-                }
-                case 'Position Claims Folder': {
-                    originNodeType = 'Claim Votes Switch'
-                    break
-                }
-                case 'Position Contribution Claim': {
-                    originNodeType = 'Position Claim Vote'
-                    break
-                }
-            }
-            return originNodeType
         }
     }
 }

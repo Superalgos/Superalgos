@@ -20,25 +20,55 @@
                 "language": "RU",
                 "text": "Программа поддержки Support Program работает почти так же, как и реферальная программа Referral Program, только вы указываете, какие сообщества Community Mods вам нравятся больше всего!",
                 "updated": 1639052784452
+            },
+            {
+                "language": "DE",
+                "text": "Das Support Program funktioniert so ähnlich wie das Referral Program, nur dass Sie angeben, wer Ihre lieblings Community Mods sind!",
+                "updated": 1640081563583
+            },
+            {
+                "language": "TR",
+                "text": "Destek Programı, Referans Programına (Referral Program) benzer şekilde çalışır, sadece en sevdiğiniz Topluluk Modlarının (Community Mods) kim olduğunu beyan edersiniz!",
+                "updated": 1645101833654
+            },
+            {
+                "language": "ID",
+                "text": "Support Program bekerja kurang lebih seperti Referral Program, hanya dengan menyatakan siapa Community Mods favoritmu!",
+                "updated": 1671544285875
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Add the Support Program and use User Supporter nodes to set up references to your favorite moderators! Their profiles are loaded already!",
-            "updated": 1630689768928,
+            "text": "Add the Support Program and use User Supporter nodes to set up references to your favorite moderators! Find their profiles in the workspace!",
+            "updated": 1660644415120,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Añade el Support Program and use los nodos User Supporter para configurar referencias a tus moderadores favoritos! ",
-                    "updated": 1630898198979,
+                    "text": "Añade el programa de apoyo y utiliza los nodos de apoyo de usuario para establecer referencias a tus moderadores favoritos. Encuentra sus perfiles en el espacio de trabajo. ",
+                    "updated": 1682521891252,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
                     "text": "Добавьте программу Support Program и используйте узлы User Supporter, чтобы настроить ссылки на ваших любимых модераторов! Их профили уже загружены!",
                     "updated": 1639052832419
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie das Support Program hinzu und verwenden Sie den User Supporter Knoten, um Verweise auf Ihre Lieblingsmoderatoren einzurichten! Ihre Profile sind bereits geladen!",
+                    "updated": 1640081606209
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek Programını (Support Program) ekleyin ve favori moderatörlerinize referanslar ayarlamak için Kullanıcı Destekçi (User Supporter) düğümlerini kullanın! Profilleri zaten yüklendi!",
+                    "updated": 1645101890575
+                },
+                {
+                    "language": "ID",
+                    "text": "Tambahkan Support Program dan gunakan node User Supporter untuk mengatur referensi ke moderator favoritmu! Temukan profilnya di workspace!",
+                    "updated": 1671544292628
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "language": "RU",
                     "text": "Хотя сообщество всегда готово помочь с типичными вопросами, для оказания эффективной поддержки требуется определенный уровень опыта и знаний. Вот почему за это отвечают избранные сообщества Community Mods! Участие в этой программе - лучший способ поблагодарить людей, которые бескорыстно помогают другим!",
                     "updated": 1639052947238
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl die Community immer bereit ist, bei typischen Fragen zu helfen, braucht es ein gewisses Maß an Erfahrung und Wissen, um effektive Unterstützung zu leisten. Aus diesem Grund sind ausgewählte Community Mods dafür zuständig! Die Teilnahme an diesem Programm ist der beste Weg, sich bei den Leuten zu bedanken, die anderen selbstlos helfen!",
+                    "updated": 1640081621732
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk tipik sorularda her zaman yardıma hazır olsa da, etkili destek sağlamak için belirli bir düzeyde deneyim ve bilgi gerekir. Bundan belirli Topluluk Modları sorumludur! Bu programa katılmak, başkalarına özverili bir şekilde yardım eden insanlara teşekkür etmenin en iyi yoludur!",
+                    "updated": 1645101931074
+                },
+                {
+                    "language": "ID",
+                    "text": "Meskipun Community selalu siap membantu dengan pertanyaan umum, dperlukan tingkat pengalaman dan pengetahuan tertentu untuk memberikan dukungan yang efektif. Inilah sebabnya mengapa Community Mods yang bertanggung jawab! Berpartisipasi dalam program ini adalah cara terbaik untuk berterima kasih kepada orang-orang yang tanpa pamrih membantu orang lain!",
+                    "updated": 1671544307259
                 }
             ]
         }

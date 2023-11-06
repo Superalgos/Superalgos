@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Tokens Bonus - это награда, которую вы получаете за участие в программе, которая является мотивированной. Участие в этих программах желательно, поскольку они способствуют укреплению связей в сообществе, развивают здоровые социальные отношения или поощряют конкретную динамику сотрудничества. Именно по этим причинам участие поощряется.",
                 "updated": 1639127462366
+            },
+            {
+                "language": "TR",
+                "text": "Jeton Bonusu, teşvik edilen bir programa katıldığınız için elde ettiğiniz bir ödüldür. Topluluk ( Community ) bağlarını güçlendirdiği, sağlıklı sosyal ilişkiler geliştirdiği veya belirli işbirlikçi dinamikleri teşvik ettiği için bu programlarda yer almak arzu edilir. Katılımın teşvik edilmesi bu nedenlerledir.",
+                "updated": 1640035169272
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Программы с Tokens Bonus имеют связанный бонусный пул Bonus Pool в разделе Governance Programs иерархии Superalgos Pools. Эти пулы используются специально для распределения токенов для этих стимулов.",
                     "updated": 1639127617144
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Bonusu içeren programların, Superalgos Havuzları (Superalgos Pools) hiyerarşisinin Yönetim Programları bölümünde tanımlanan bir Bonus Havuzu (Bonus Pool) vardır. Bu havuzlar, özellikle bu teşvikler için token tahsis etmek için kullanılır.",
+                    "updated": 1645085163716
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "RU",
                     "text": "Tokens Bonus, который вы можете получить в любой программе, прямо пропорционален Token Power, который вы вкладываете в указанную программу. То есть, чем больше токенов вы вложите в программу стимулирования, тем больше токенов вы получите из соответствующего пула.",
                     "updated": 1639127692135
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir programdan alabileceğiniz Jeton Bonusu, söz konusu programa sürdüğünüz Token Gücü (Token Power) ile Doğrudan Orantıdadır (Direct Proportion). Yani, teşvik edilmiş bir programa ne kadar çok Jeton Gücü tahsis ederseniz, ilgili havuzdan o kadar fazla jeton alırsınız.",
+                    "updated": 1645085303629
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Расчет",
                     "updated": 1639127700832
+                },
+                {
+                    "language": "TR",
+                    "text": "Hesaplama",
+                    "updated": 1645085317182
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Расчет бонуса токенов является прямым правилом трех:",
                     "updated": 1639127720484
+                },
+                {
+                    "language": "TR",
+                    "text": "Jeton Bonusu şu şekilde hesaplanır:",
+                    "updated": 1645085431434
                 }
             ]
         },

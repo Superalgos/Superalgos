@@ -1,0 +1,166 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 10,
+    "type": "Elder's Force Index Indicator",
+    "definition": {
+        "text": "Elder's Force Index measures the direction and extent of price change, and the trading volume over a specific period of time to display the power of bulls or bears in that timeframe.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индекс силы Элдера измеряет направление и степень изменения цены, а также объем торгов за определенный период времени, чтобы показать силу быков или медведей на данном временном интервале.",
+                "updated": 1647352583189
+            },
+            {
+                "language": "DE",
+                "text": "Der Elder's Force Index misst die Richtung und das Ausmaß der Preisveränderung sowie das Handelsvolumen über einen bestimmten Zeitraum, um die Macht der Bullen oder Bären in diesem Zeitrahmen anzuzeigen.",
+                "updated": 1671549620225
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Elder's Force Index On the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индекс силы Элдера на графиках",
+                    "updated": 1647352599994
+                },
+                {
+                    "language": "DE",
+                    "text": "Elder's Force Index auf den Charts",
+                    "updated": 1671549661805
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia, Dr Alexander Elder created this indicator, taking the three elements of trading force (direction and extent of price change, and Volume) and combined it with a moving average to accurately measure significant changes in the market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia, доктор Александр Элдер создал этот индикатор, взяв три элемента торговой составляющей силы (направление и степень изменения цены, а также объем) и объединив их со скользящей средней для точного измерения значительных изменений на рынке.",
+                    "updated": 1647352705642
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut investopedia hat Dr. Alexander Elder diesen Indikator entwickelt, indem er die drei Elemente der Handelskraft (Richtung und Ausmaß der Preisveränderung und Volumen) mit einem gleitenden Durchschnitt kombiniert hat, um signifikante Veränderungen auf dem Markt genau zu messen.",
+                    "updated": 1671549690748
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Since the Force Index combines volume and price, it is very good at showing the strength of a trend. When th eindex hits a new high, a given uptrend is likely to continue. The same is said for new lows and downtrends. A flattening force index is also an important situaion; it means the change in prices is not supported by either rising or declining volume, and that the trend is likely to reverse.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку индекс силы объединяет объем и цену, он очень хорошо показывает силу тренда. Когда индекс достигает нового максимума, данный восходящий тренд, скорее всего, продолжится. То же самое можно сказать о новых минимумах и нисходящих трендах. Индекс плоской силы также является важной ситуацией; он означает, что изменение цен не поддерживается ни растущим, ни снижающимся объемом, и что тенденция, скорее всего, развернется.",
+                    "updated": 1647352757099
+                },
+                {
+                    "language": "DE",
+                    "text": "Da der Force Index Volumen und Preis kombiniert, ist er sehr gut geeignet, die Stärke eines Trends anzuzeigen. Wenn der Index einen neuen Höchststand erreicht, ist es wahrscheinlich, dass ein bestimmter Aufwärtstrend anhält. Das Gleiche gilt für neue Tiefststände und Abwärtstrends. Ein abflachender Kraftindex ist ebenfalls eine wichtige Lage; er bedeutet, dass die Preisänderung weder durch steigendes noch durch fallendes Volumen unterstützt wird und dass sich der Trend wahrscheinlich umkehren wird.",
+                    "updated": 1671549892734
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Force Index(investopedia)->www.investopedia.com/articles/trading/03/031203.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-EFI-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the EFI can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Elder\" Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры EFI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе \"Elder\" Product Definition.",
+                    "updated": 1647352774224
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des EFI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Elder\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671549958675
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-EFI-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "EFI Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства EFI",
+                    "updated": 1647352793603
+                },
+                {
+                    "language": "DE",
+                    "text": "EFI Produkte & Eigenschaften",
+                    "updated": 1671549979384
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| ElderForceInd | efi | value |",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Product Setting | Product Variable | Properties |\n| ElderForceInd | efi | значение |",
+                    "updated": 1647352808139
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| ElderForceInd | efi | value |",
+                    "updated": 1671549996922
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1647352816985
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671550014873
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the EFI value rises above -50:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем входа в сделку, когда значение EFI поднимается выше -50:",
+                    "updated": 1647352832737
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der EFI Wert über -50 steigt:",
+                    "updated": 1671550041546
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.efi.previous.value < -50 && chart.at15min.efi.value > -50"
+        }
+    ]
+}

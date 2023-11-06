@@ -14,6 +14,26 @@
                 "text": "Die Layer im Simulationsobjekte Layer-Manager enthalten visuelle Darstellungen der Daten, aus denen die Simulationen bestehen.",
                 "updated": 1623014535902,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Слои в менеджере слоев Simulation Objects содержат визуальные представления данных, из которых состоят симуляции.",
+                "updated": 1640546939644
+            },
+            {
+                "language": "TR",
+                "text": "Simülasyon Nesneleri katman yöneticisindeki katmanlar, simülasyonları oluşturan verilerin görsel temsillerini içerir.",
+                "updated": 1642169694588
+            },
+            {
+                "language": "ID",
+                "text": "Layers pada layer manager di Simulation Objects berfitur pada representasi visual dari data yang membentuk simulasi.",
+                "updated": 1673881633623
+            },
+            {
+                "language": "ES",
+                "text": "Las capas del gestor de capas Simulation Objects presentan representaciones visuales de los datos que componen las simulaciones.",
+                "updated": 1675466660540
             }
         ]
     },
@@ -27,6 +47,26 @@
                     "text": "Mit anderen Worten: Jeder dieser Layer rendert Grafiken über die Charts, die uns helfen, die Vorgänge während einer Trading Session zu visualisieren und somit besser zu verstehen.",
                     "updated": 1623014566732,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Другими словами, каждый из этих слоев отображает графические изображения на графиках, которые помогают нам визуализировать - а значит, лучше понять - то, что происходит во время торговой сессии.",
+                    "updated": 1640546987970
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, bu katmanların her biri, bir ticaret seansı sırasında neler olduğunu görselleştirmemize - dolayısıyla daha iyi anlamamıza - yardımcı olan grafikler üzerinde işaretler oluşturur.",
+                    "updated": 1642169734920
+                },
+                {
+                    "language": "ID",
+                    "text": "Dengan kata lain, masing-masing layer ini merender grafik di atas chart yang membantu kita memvisualisasikan—oleh karena itu, lebih memahami—apa yang terjadi selama trading session.",
+                    "updated": 1673881640485
+                },
+                {
+                    "language": "ES",
+                    "text": "En otras palabras, cada una de estas capas representa dibujos sobre los gráficos que nos ayudan a visualizar -y, por tanto, a comprender mejor- lo que ocurre durante una sesión de trading.",
+                    "updated": 1675466378019
                 }
             ]
         },
@@ -39,6 +79,26 @@
                     "text": "Jeder Layer kann Plotter Panels enthalten, die normalerweise die harten Daten anzeigen, die mit dem Konzept verbunden sind, das durch den jeweiligen Layer dargestellt wird.",
                     "updated": 1623014589613,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый слой может иметь панели плоттера, которые обычно отображают сложные данные, связанные с концепцией, представленной конкретным слоем.",
+                    "updated": 1640547067597
+                },
+                {
+                    "language": "TR",
+                    "text": "Her katman, genellikle belirli bir katman tarafından temsil edilen konseptle ilişkili sabit verileri görüntüleyen çizici panellere sahip olabilir.",
+                    "updated": 1642169749931
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap layer dapat menampilkan panel plotter yang biasanya menampilkan hard data yang terkait dengan konsep yang diwakili oleh layer tertentu.",
+                    "updated": 1673881647083
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada capa puede presentar paneles de gráficos que suelen mostrar los datos duros asociados al concepto representado por la capa en particular.",
+                    "updated": 1675466438192
                 }
             ]
         },
@@ -51,6 +111,26 @@
                     "text": "Beachte, dass die Daten im Plotter Panel nur dann sichtbar werden, wenn der Mauszeiger innerhalb der vom Objekt umschlossenen Kerzen liegt.",
                     "updated": 1623014615169,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что данные на панели становятся видимыми только тогда, когда указатель мыши находится в пределах свечи, охваченной объектом.",
+                    "updated": 1640628266138
+                },
+                {
+                    "language": "TR",
+                    "text": "Paneldeki verilerin yalnızca farenin imleci açılan plotter'a ait mumların içindeyken nasıl görünür hale geldiğine dikkat edin.",
+                    "updated": 1642169809850
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana data di panel menjadi terlihat hanya ketika pointer mouse terletak di dalam candle yang diterima oleh objek.",
+                    "updated": 1673881653845
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa cómo los datos del panel sólo se hacen visibles cuando el puntero del ratón se sitúa dentro de las velas engullidas por el objeto.",
+                    "updated": 1675466452908
                 }
             ]
         }

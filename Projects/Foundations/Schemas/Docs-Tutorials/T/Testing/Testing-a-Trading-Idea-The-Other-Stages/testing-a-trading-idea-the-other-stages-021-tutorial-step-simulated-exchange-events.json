@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Dieser Abschnitt der Definitionen bietet ein weiteres Beispiel für eine granulare Steuerung auf der Ebene des Auftrags, in diesem Fall mit Auswirkungen auf die Simulation von Aufträgen!",
                 "updated": 1639398995547
+            },
+            {
+                "language": "TR",
+                "text": "Tanımların bu bölümü, sipariş düzeyinde, siparişlerin simülasyonu üzerinde etkisi olan başka bir ayrıntılı kontrol örneği sağlar!",
+                "updated": 1641746962222
+            },
+            {
+                "language": "RU",
+                "text": "Этот раздел определений предлагает еще один пример гранулярного контроля на уровне ордера, в данном случае оказывая влияние на то, как симулируются ордера!",
+                "updated": 1642941186548
+            },
+            {
+                "language": "ES",
+                "text": "Esta sección de las definiciones ofrece otro ejemplo de control granular a nivel de la orden, que en este caso afecta a cómo se simulan las órdenes.",
+                "updated": 1680806047226
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Diese Definitionen setzen - sofern sie verwendet werden - die Slippage - und \" Fee Structure Trading Parameters \" auf der Ebene der Handelssitzung außer Kraft, die alle Aufträge gleichermaßen betreffen. Beachten Sie, dass es einen Knoten gibt, der sogar definieren kann, wie das Füllen von Aufträgen simuliert werden soll! Wenn nicht definiert ist, wie der einzelne Auftrag simuliert werden soll, bleiben die Parameter auf Sitzungsebene relevant.",
                     "updated": 1639399006456
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tanımlar (kullanılırsa) işlem seansı düzeyinde tüm emirleri eşit olarak etkileyen Kayma ( Slippage ),Ücret Yapısı ( Fee Structure ) ve Ticaret Parametrelerini ( Trading Parameters ) geçersiz kılar. Siparişlerin doldurulmasının nasıl simüle edileceğini bile tanımlayabilecek bir düğüm olduğuna dikkat edin! Bireysel siparişin nasıl simüle edileceğine dair bir tanım yoksa, oturum düzeyindeki parametreler alakalı kalır.",
+                    "updated": 1641746978745
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти определения - если они используются - переопределяют торговые параметры Slippage и Fee Structure на уровне торговой сессии, которые одинаково влияют на все ордера. Обратите внимание, что есть узел, который может даже определять, как симулировать исполнение ордеров! Если нет определения того, как симулировать индивидуальный ордер, параметры на уровне сессии остаются актуальными.",
+                    "updated": 1642941222102
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas definiciones -si se utilizan- anulan los Slippage y los Fee Structure Trading Parameters a nivel de la sesión de trading, que afectan a todas las órdenes por igual. ¡Observa que hay un nodo que puede incluso definir cómo simular el llenado de las órdenes! Si no se define cómo simular la orden individual, los parámetros a nivel de sesión siguen siendo relevantes.",
+                    "updated": 1680806211345
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Vorläufig werden wir diese Simulationsparameter auf granularer Ebene nicht verwenden, löschen Sie also den Knoten für simulierte Börsenereignisse!",
                     "updated": 1639399012312
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdilik, bu simülasyon parametrelerini ayrıntılı bir düzeyde kullanmayacağız, bu nedenle simüle edilmiş borsa olayları için düğümü silin!",
+                    "updated": 1641746990580
+                },
+                {
+                    "language": "RU",
+                    "text": "На данный момент мы не собираемся использовать эти параметры симуляции на гранулярном уровне, поэтому удалите узел Simulated Exchange Events!",
+                    "updated": 1642941285684
+                },
+                {
+                    "language": "ES",
+                    "text": "Por el momento, no vamos a utilizar estos parámetros de simulación a nivel granular, así que adelante, elimina el nodo de eventos de intercambio simulados.",
+                    "updated": 1680806258522
                 }
             ]
         }

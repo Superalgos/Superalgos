@@ -29,8 +29,23 @@
             },
             {
                 "language": "TR",
-                "text": "Bir düğüm menüsünde sol taraftaki öğreler, çoğu düğüm için ortaktır. Ancak sağ taraftak öğeler düğüm tipine özeldir!",
-                "updated": 1636699172648
+                "text": "Bir düğümün menüsünde sol taraftaki öğeler çoğu düğüm için ortaktır. Ancak sağ taraftaki öğeler düğüm tipine özeldir!",
+                "updated": 1670337600881
+            },
+            {
+                "language": "RU",
+                "text": "Левая часть меню узла является общей для большинства узлов. Однако правая часть меню зависит от типа узла!",
+                "updated": 1640858911184
+            },
+            {
+                "language": "ID",
+                "text": "Sisi kiri menu node adalah umum untuk sebagian besar nodes. Sisi kanan, bagaimanapun, khusus untuk jenis node!",
+                "updated": 1641094441266
+            },
+            {
+                "language": "NL",
+                "text": "De linkerkant van het menu van een knooppunt is voor de meeste knooppunten hetzelfde. De rechterkant is echter specifiek voor het type knooppunt!",
+                "updated": 1668334093695
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Sol tarafa yakından bakalım!",
                     "updated": 1636699207312
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте внимательно посмотрим на левую сторону!",
+                    "updated": 1640858921506
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita perhatikan sisi kiri!",
+                    "updated": 1641094461776
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we de linkerkant eens goed bekijken!",
+                    "updated": 1668334106496
                 }
             ]
         },
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "Tasarım alanı, düğümlerin, düğüm menüsünden kontrol edebileceğiniz belirli düzenleme özelliklerini bünyesinde barındıran, kendi kendini organize eden bir çalışma alanı paradigması altında işlev görür.",
                     "updated": 1636699360931
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство проектирования функционирует в парадигме самоорганизующегося рабочего пространства, в котором узлы стремятся найти свое место, руководствуясь определенными свойствами расположения, которыми можно управлять из меню узла.",
+                    "updated": 1640858950813
+                },
+                {
+                    "language": "ID",
+                    "text": "Design Space berfungsi di bawah paradigma workspace yang mengatur diri sendiri di mana node cenderung menemukan tempat mereka dipandu oleh properti pengaturan tertentu yang dapat kamu kontrol dari menu node.",
+                    "updated": 1641094540436
+                },
+                {
+                    "language": "NL",
+                    "text": "De ontwerpruimte functioneert onder het paradigma van een zelforganiserende werkruimte waarin knooppunten de neiging hebben om hun plaats te vinden, begeleid door bepaalde instellingen die u vanuit het menu van het knooppunt kunt regelen.",
+                    "updated": 1668334152870
                 }
             ]
         },
@@ -116,8 +161,23 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Oturum Temel Varlık ( Session Base Asset ) düğümünün sol üst köşesindeki sabitle düğmesini tıklayarak düğümü uzağa sürükleyin ve bırakın! Şimdi başka bir düğümü sabitlemeden sürükleyip bırakın. Farkı gördünüz mü?",
-                    "updated": 1636699433193
+                    "text": "Oturum Temel Varlık ( Session Base Asset ) düğümünün sol üst köşesindeki sabitle düğmesini (ok simgesi) tıklayarak düğümü uzağa sürükleyin ve bırakın! Şimdi başka bir düğümü sabitlemeden sürükleyip bırakın. Farkı gördünüz mü?",
+                    "updated": 1670337690185
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите на кнопку с булавкой в левом верхнем углу узла Session Base Asset. Теперь перетащите узел в сторону и отпустите его! Теперь перетащите и отпустите любой другой узел, не закрепляя его. Видите разницу?",
+                    "updated": 1640858976607
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik tombol pin di sudut kiri atas Session Base Asset node. Sekarang seret node itu dan lepaskan! Sekarang seret dan lepaskan node lain tanpa menyematkannya. Lihat perbedaannya?",
+                    "updated": 1641094609476
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op de pin-knop in de linkerbovenhoek van het Session Base Asset knooppunt. Sleep nu het knooppunt weg en laat het los! Sleep nu een ander knooppunt en laat het los zonder het vast te pinnen. Zie het verschil?",
+                    "updated": 1668334190435
                 }
             ]
         }

@@ -6,8 +6,18 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Action - это то, что пользователи системы могут запускать через пользовательский интерфейс, обычно щелкая элемент меню узла. Действия также могут запускаться другими действиями, позволяющими повторно использовать набор функций, которые будут доступны пользователям Пространства дизайна. После запуска действие выполняет предопределенный код.",
+                "text": "Action - это то, что пользователи системы могут запускать через пользовательский интерфейс, обычно щелкая элемент меню узла. Действия также могут запускаться другими действиями, позволяющими повторно использовать набор функций, которые будут доступны пользователям Пространства проектирования. После запуска действие выполняет предопределенный код.",
                 "updated": 1638278322545
+            },
+            {
+                "language": "TR",
+                "text": "Eylem, sistem kullanıcılarının kullanıcı arayüzü ( UI ) aracılığıyla, genellikle bir Düğümün Menü Öğesine ( Menu Item of a Node ) tıklayarak tetikleyebilecekleri bir şeydir. Eylemler başka eylemler tarafından da tetiklenebilir ve böylece Tasarım Alanı ( Design Space ) kullanıcılarına yeniden kullanılabilir bir dizi işlevsellik sunulabilir. Eylem tetiklendiğinde önceden tanımlanmış kodu çalıştırır.",
+                "updated": 1671993616610
+            },
+            {
+                "language": "DE",
+                "text": "Eine Aktion ist etwas, dass die Benutzer des Systems über die Benutzeroberfläche (UI) auslösen können, in der Regel durch Klicken auf einen Menüpunkt (Menu Item) eines Knotens (Node). Aktionen können auch durch andere Aktionen ausgelöst werden, so dass den Benutzern des Design Space ein wiederverwendbarer Satz von Funktionen zur Verfügung steht. Sobald die Aktion ausgelöst wird, führt sie vordefinierten Code aus.",
+                "updated": 1682018617537
             }
         ]
     },
@@ -20,6 +30,17 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638278353123
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390571100,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Textabschnitt, um in den Bearbeitungsmodus zu gelangen und diesen text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie den Befehl docs.save verwenden, um Ihre Änderungen zu speichern und den Befehl app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1682018874224
                 }
             ]
         }

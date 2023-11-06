@@ -1,0 +1,60 @@
+/*
+Typography {
+    font-size: 1rem !important;
+}
+*/
+
+.sidebar {
+    position: relative;
+    margin-top: .5rem;
+}
+
+.sidebarMini .MuiButton-startIcon { /*centers the icons when collapse*/
+    margin-right: 0;
+    margin-left: 0;
+    min-height: 1.563rem;
+    align-items: center;
+}
+
+.MuiDrawer-paper { /*remove the line on the right in the containers*/
+    border-right: 0 !important;
+}
+
+.sidebarMini .sidebarProfileCard .avatar {
+    padding-left: 20px;
+}
+
+.sidebarMini {
+}
+
+.sidebarContainer {
+    align-items: flex-start !important;
+}
+
+.sidebarMiniContainer {
+    margin-top: 40px;
+}
+
+
+.sidebarProfileCard {
+    width: 100%;
+    width: -moz-available; /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+
+    display: flex;
+    flex-direction: row;
+    min-height: 64px;
+    position: absolute;
+    bottom: 0;
+}
+
+.sidebarProfileCardContent {
+    padding: 0.5rem !important;
+}
+
+.avatar {
+    align-self: center;
+    height: 3rem !important;
+    width: 3rem !important;
+    margin: 0 0.2rem;
+}

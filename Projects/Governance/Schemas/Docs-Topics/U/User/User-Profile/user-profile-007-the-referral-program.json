@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Ayúdanos a correr la voz a cerca de Superalgos!",
                 "updated": 1633543506732
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos'u duyurmamıza yardım edin!",
+                "updated": 1646302261142
             }
         ]
     },
@@ -26,7 +31,14 @@
         {
             "style": "Title",
             "text": "Your Referrers",
-            "updated": 1630495480122
+            "updated": 1630495480122,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sizi Yönlendirenler",
+                    "updated": 1646302303944
+                }
+            ]
         },
         {
             "style": "Include",

@@ -4,12 +4,46 @@
     "type": "Exchange Asset - Probit",
     "definition": {
         "text": "Probit Exchange (www.probit.com) describes itself as a global coin-to-coin cryptocurrency exchange. ProBit Exchange only lists what it deems to be 'qualified and deserving' cryptocurrency projects. ProBit Exchange reportedly has an order matching speed of over 1.5 million orders per second and a customizable user interface. In addition, ProBit Exchange claims to provide users with the option of a hardware security key in addition to 2 Factor Authentication.",
-        "updated": 1628185936318
+        "updated": 1628185936318,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Probit Exchange (www.probit.com) описывает себя как глобальную криптовалютную биржу, работающую по принципу \"монета к монете\". ProBit Exchange размещает только те криптовалютные проекты, которые она считает \"квалифицированными и достойными\". Сообщается, что скорость обработки ордеров на ProBit Exchange составляет более 1,5 миллиона ордеров в секунду, а пользовательский интерфейс является настраиваемым. Кроме того, ProBit Exchange утверждает, что предоставляет пользователям возможность использования аппаратного ключа безопасности в дополнение к двухфакторной аутентификации.",
+                "updated": 1645626738167
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Probit Exchange (www.probit.com), kendisini küresel bir madeni paradan madeni paraya kripto para birimi değişimi olarak tanımlar. ProBit Exchange, yalnızca 'nitelikli ve hak eden' kripto para projelerini listeler. ProBit Exchange'in saniyede 1,5 milyonun üzerinde sipariş eşleştirme hızına ve özelleştirilebilir bir kullanıcı arayüzüne sahip olduğu bildiriliyor. Ayrıca ProBit Exchange, kullanıcılara 2 Faktörlü Kimlik Doğrulamaya ek olarak bir donanım güvenlik anahtarı seçeneği sunduğunu iddia ediyor.",
+                "updated": 1646307150838
+            },
+            {
+                "language": "DE",
+                "text": "Probit Exchange (www.probit.com) beschreibt sich selbst als eine globale Coin-to-Coin-Kryptowährungsbörse. ProBit Exchange listet nur Kryptowährungsprojekte auf, die es für \"qualifiziert und wertvoll\" hält. ProBit Exchange hat Berichten zufolge eine Auftragsabgleichsgeschwindigkeit von über 1,5 Millionen Aufträgen pro Sekunde und eine anpassbare Benutzeroberfläche. Darüber hinaus kann ProBit Exchange den Benutzern neben der 2-Faktor-Authentifizierung, auch die Möglichkeit eines Hardware-Sicherheitsschlüssels anbieten. ",
+                "updated": 1676913011793
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1645626745250
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
+                    "updated": 1646307176555
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Text um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie den Befehl docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Hauptrepository zu senden.",
+                    "updated": 1676913081757
+                }
+            ]
         }
     ]
 }

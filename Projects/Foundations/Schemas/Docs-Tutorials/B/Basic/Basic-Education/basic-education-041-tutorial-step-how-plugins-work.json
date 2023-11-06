@@ -12,14 +12,14 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Cerca il nodo Plugin Trading Systems e espandilo! Vedrai un nodo Plugin File chiamato Masters-Lightning-Strike...",
-                "updated": 1619554497047,
+                "text": "Trova il nodo Plugin Trading Systems all'interno del progetto Algorithmic Trading ed espandilo! Nota il nodo File plug-in denominato Masters-Lightning-Strike...",
+                "updated": 1666640187144,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Encuentra el nodo Plugin Trading Systemsy y expandelo! Nota el nodo del archivo Plugin llamado Masters-Lightning-Strike...",
-                "updated": 1626641150426,
+                "text": "Encuentra el nodo Plugin Trading Systems dentro del proyecto Algorithmic Trading y ¡expándelo! Observa el nodo Plugin File llamado Masters-Lightning-Strike...",
+                "updated": 1675377584892,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Algorithmic Trading düğümünün  içindeki Trading System düğümünü bulun ve genişletin.Masters-Lightning-Strike adlı Eklenti Dosyası ( Plugin File ) düğümüne dikkat edin...",
                 "updated": 1639809090671
+            },
+            {
+                "language": "RU",
+                "text": "Найдите узел Plugin Trading Systems внутри проекта Algorithmic Trading и разверните его! Обратите внимание на узел Plugin File с именем Masters-Lightning-Strike...",
+                "updated": 1640873339208
+            },
+            {
+                "language": "ID",
+                "text": "Temukan node Plugin Trading Systems di dalam Algorithmic Trading project dan perluas! Perhatikan node File Plugin bernama Masters-Lightning-Strike...",
+                "updated": 1645035775451
+            },
+            {
+                "language": "NL",
+                "text": "Zoek het knooppunt Plugin Trading Systems in het Algorithmic Trading project en vouw het uit! Let op het Plugin File knooppunt met de naam Masters-Lightning-Strike...",
+                "updated": 1669546138706
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Lightning Strike, Hoş Geldiniz eğitimi sırasında oynadığınız demo Ticaret Sistemidir. Bu çalışma alanına bir eklenti olarak yerleştirilmiştir!",
                     "updated": 1639809134459
+                },
+                {
+                    "language": "RU",
+                    "text": "Lightning Strike - это демонстрационная торговая система, с которой вы играли во время ознакомительного урока. Она была размещена в качестве плагина в этом рабочем пространстве!",
+                    "updated": 1640873381518
+                },
+                {
+                    "language": "ID",
+                    "text": "Lightning Strike adalah demo Trading System yang telah kamu mainkan selama Welcome tutorial. Telah ditempatkan sebagai plugin di workspace ini!",
+                    "updated": 1645035830494
+                },
+                {
+                    "language": "NL",
+                    "text": "Lightning Strike is het demo Trading System waarmee je hebt gespeeld tijdens de Welkome tutorial. Het is als plugin in deze werkruimte geplaatst!",
+                    "updated": 1669546184519
                 }
             ]
         },
@@ -77,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sige la línea de puntos naranja hacia abajo hasta que encuentre el nodo al que se conecta. Usa el truco del teclado Ctrl + flechas para ir más rápido!",
-                    "updated": 1626642159336,
+                    "text": "Sige la línea de puntos naranja hacia abajo hasta que encuentre el nodo al que se conecta. Usa el truco del teclado Ctrl + Flechas para ir más rápido!",
+                    "updated": 1675377628371,
                     "style": "Callout"
                 },
                 {
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Bağlandığı düğümü bulana kadar turuncu noktalı çizgiyi aşağı doğru takip edin! Daha hızlı gitmek için Ctrl + oklarını kullanın!",
                     "updated": 1639809189331
+                },
+                {
+                    "language": "RU",
+                    "text": "Следуйте по оранжевой пунктирной линии вниз, пока не найдете узел, с которым она соединяется! Используйте клавиатурный трюк Ctrl + стрелки, чтобы идти быстрее!",
+                    "updated": 1640873402729
+                },
+                {
+                    "language": "ID",
+                    "text": "Ikuti garis putus-putus oranye ke bawah sampai kamu menemukan node yang terhubung dengannya! Gunakan trik keyboard Ctrl + panah untuk lebih cepat!",
+                    "updated": 1645035901896
+                },
+                {
+                    "language": "NL",
+                    "text": "Volg de oranje stippellijn naar beneden tot je het knooppunt vindt waarmee het verbinding maakt! Gebruik de toetsenbordtruc <kbd>Ctrl</kbd> + pijlen om sneller te gaan!",
+                    "updated": 1669546217598
                 }
             ]
         },
@@ -106,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eso es! Encontraste el nodo Lightning Strike Trading System. Si lo arrastras hacia un lado, encontrarás el nodo Plugin File Position debajo.",
-                    "updated": 1626642259700,
+                    "text": "¡Eso es! Has encontrado el nodo Lightning Strike Trading System. Si lo arrastras hacia un lado, encontrarás el nodo Plugin File Position debajo.",
+                    "updated": 1675377644936,
                     "style": "Text"
                 },
                 {
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Bu kadar! Lightning Strike Trading System düğümünü buldunuz. Yan tarafa sürüklerseniz, aşağıda Eklenti Dosya Konumu ( Plugin File Position ) düğümünü bulacaksınız.",
                     "updated": 1639812130557
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот и все! Вы нашли узел торговой системы Lightning Strike. Если вы перетащите его в сторону, то ниже вы найдете узел Plugin File Position.",
+                    "updated": 1640873457847
+                },
+                {
+                    "language": "ID",
+                    "text": "Itu dia! Kamu menemukan node Lightning Strike Trading System. Jika kamu menyeretnya ke samping, kamu akan menemukan node Plugin File Position di bawah ini.",
+                    "updated": 1645035965821
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is het! Je hebt het Lightning Strike Trading System knooppunt gevonden. Als u het opzij sleept, vindt u het knooppunt Plugin File Position hieronder.",
+                    "updated": 1669546264240
                 }
             ]
         }

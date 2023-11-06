@@ -4,25 +4,105 @@
     "type": "TS LF Trading Bot Warning - Simulating - Slippage Added",
     "definition": {
         "text": "Slippage was calculated based on the Trading Parameters and added to the Order Rate to calculate the Actual Rate. Slippage was added because the order is a Market Buy Order.",
-        "updated": 1611923342547
+        "updated": 1611923342547,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Проскальзывание было рассчитано на основе торговых параметров и добавлено к Order Rate для расчета Actual Rate. Проскальзывание было добавлено, поскольку ордер является рыночным ордером на покупку.",
+                "updated": 1645630273077
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Slippage, Ticaret Parametrelerine ( Trading Parameters ) göre hesaplandı ve Gerçek Oranı ( Actual Rate ) hesaplamak için Emir Oranına ( Order Rate ) eklendi. Emir Piyasa Alım Emri ( Market Sell Order ) olduğu için ( Slippage ) eklendi.",
+                "updated": 1647172363395
+            },
+            {
+                "language": "DE",
+                "text": "Slippage wurde auf der Grundlage der Handelsparameter (Trading Parameters) berechnet und zur Orderrate (Order Rate) addiert, um die tatsächliche Rate (Actual Rate) zu berechnen. Slippage wurde hinzugefügt, weil es sich bei der Order um eine Market Buy Order handelt.",
+                "updated": 1681145788480
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611923351551
+            "updated": 1611923351551,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645630278916
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681145807865
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Slippage Added"
+            "text": "Slippage Added",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавлено проскальзывание",
+                    "updated": 1645630284725
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Slippage Eklendi",
+                    "updated": 1647172403120
+                },
+                {
+                    "language": "DE",
+                    "text": "Slippage hinzugefügt",
+                    "updated": 1681145883252
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645630289361
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik Bilgisi",
+                    "updated": 1647172420035
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681145916396
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630294348
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
+                    "updated": 1647172429998
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681145923464
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -34,15 +114,61 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630308108
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha Fazlasını Öğrenin",
+                    "updated": 1647172478441
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681145956516
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630316381
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
+                    "updated": 1647172489487
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite:",
+                    "updated": 1681145964983
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Simulating Sync With the Exchange"
+            "text": "Simulating Sync With the Exchange",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
+                    "updated": 1647172497219
+                },
+                {
+                    "language": "DE",
+                    "text": "Synchronisierung mit der Börse simulieren (Simulating Sync With the Exchange)",
+                    "updated": 1681146036075
+                }
+            ]
         },
         {
             "style": "List",

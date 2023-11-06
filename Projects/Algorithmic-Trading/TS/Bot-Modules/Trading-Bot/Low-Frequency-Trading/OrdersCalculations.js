@@ -18,6 +18,7 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
     let tradingEngine
     let tradingSystem
     let sessionParameters
+    let exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config
 
     return thisObject
 
@@ -34,7 +35,11 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
     }
 
     async function actualSizeCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
-        /* 
+        /* April 2022 - A NOTE ON THE COMMENT BELOW:
+        Actually there are exchanges where is possible to trade inverse, usually on swap/perpetuals pairs.
+        It means that the following is not strictly true any more */
+
+        /*
         When we submit the order to the exchange, we do it specifying the order size
         in Base Asset. It is mandatory to be in Base Asset as per CCXT Library API and
         probably as per the Exchange API too. 
@@ -56,7 +61,33 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
 
         if ( order.amount !== undefined) {
             /* We receive the actual size from the exchange at the order.amount field. */
-            tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount
+            // ORIGINAL tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount // Left just in case .. 
+            
+            // Here we check if the market is inverse 
+            // Example BTC/USD:BTC -> Calcs must be made for baseAsset in this case because
+            // the contract is an inverse contract and is settled in base currency
+            // If the market is spot or linear then baseAsset is equal to order.amount
+
+            if (exchangeConfig.options !== undefined) {
+                if (exchangeConfig.options.defaultType !== undefined) {
+                    defaultType = exchangeConfig.options.defaultType
+    
+                    if (defaultType == 'inverse') {
+                        tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount / order.average
+                        
+                    } else {
+                        tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount
+                        
+                    } 
+                }
+            }  else {tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount}
+
+
+            // Uncomment when debugging
+            // SA.logger.info('The order placed in OrdersCalculation is:')
+            // SA.logger.info(order)
+
+
         }
 
         recalculateActualSize()
@@ -122,12 +153,50 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
             We will use the average whenever is available. As of today it is not 100% clear when this is
             available, but it seems sometimes it is not. In those cases we use the price.
             */
-            tradingEngineOrder.orderStatistics.actualRate.value = order.average
+            // ORIGINAL tradingEngineOrder.orderStatistics.actualRate.value = order.average
+
+            // Here we check if the market is inverse 
+            // Example BTC/USD:BTC -> Calcs must be made for baseAsset in this case because
+            // the contract is an inverse contract and is settled in base currency
+            
+            if (exchangeConfig.options !== undefined) {
+                if (exchangeConfig.options.defaultType !== undefined) {
+                    defaultType = exchangeConfig.options.defaultType
+    
+                    if (defaultType == 'inverse') {
+                        tradingEngineOrder.orderStatistics.actualRate.value = order.amount / order.average
+                        
+                    } else {
+                        tradingEngineOrder.orderStatistics.actualRate.value = order.average
+                        
+                    } 
+                }
+            }  else {tradingEngineOrder.orderStatistics.actualRate.value = order.average}
+
+
+
         } else if (order.price !== undefined) {
             /*
             We use the order.price when the average is not available.
             */
-            tradingEngineOrder.orderStatistics.actualRate.value = order.price
+            // ORIGINAL tradingEngineOrder.orderStatistics.actualRate.value = order.price
+
+
+            if (exchangeConfig.options !== undefined) {
+                if (exchangeConfig.options.defaultType !== undefined) {
+                    defaultType = exchangeConfig.options.defaultType
+    
+                    if (defaultType == 'inverse') {
+                        tradingEngineOrder.orderStatistics.actualRate.value = order.amount / order.price
+                        // SA.logger.info('ORDER AMOUNT/AVERAGE CALCS: ' + tradingEngineOrder.orderBaseAsset.actualSize.value)
+                    } else {
+                        tradingEngineOrder.orderStatistics.actualRate.value = order.price
+                        // SA.logger.info('STD CALCS: ' + tradingEngineOrder.orderBaseAsset.actualSize.value)
+                    } 
+                }
+            }  else {tradingEngineOrder.orderStatistics.actualRate.value = order.price}
+
+
         }
 
         tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)

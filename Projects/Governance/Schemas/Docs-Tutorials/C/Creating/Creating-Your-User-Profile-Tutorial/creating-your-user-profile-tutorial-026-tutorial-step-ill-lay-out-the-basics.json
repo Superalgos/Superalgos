@@ -25,6 +25,16 @@
                 "language": "RU",
                 "text": "Все программы Community Building Programs имеют два встроенных типа стимулов: Tokens Bonus и Tokens Awarded, присуждаемые программой.",
                 "updated": 1639049840996
+            },
+            {
+                "language": "DE",
+                "text": "Alle Community Building Programs haben zwei Arten von Anreizen eingebaut: einen Token Bonus und Token Awarded , die durch das Programm vergeben werden.",
+                "updated": 1640079170047
+            },
+            {
+                "language": "ID",
+                "text": "Semua Community Building Programs memiliki dua tipe insentif bawaan: Tokens Bonus, dan Tokens Awarded dari program.",
+                "updated": 1671445105430
             }
         ]
     },
@@ -49,6 +59,16 @@
                     "language": "RU",
                     "text": "В общих чертах, как это работает:",
                     "updated": 1639049852150
+                },
+                {
+                    "language": "DE",
+                    "text": "Allgemein ausgedrückt, funktioniert es folgendermaßen:",
+                    "updated": 1640079181134
+                },
+                {
+                    "language": "ID",
+                    "text": "Secara umum, begini cara kerjanya:",
+                    "updated": 1671445112134
                 }
             ]
         },
@@ -71,6 +91,16 @@
                     "language": "RU",
                     "text": "Tokens Bonus: Это стимул к участию в программе. Вы зарабатываете эти токены, просто выполняя правила участия.",
                     "updated": 1639049883391
+                },
+                {
+                    "language": "DE",
+                    "text": "Tokens Bonus: Ist ein Anreiz zur Teilnahme am Programm. Sie erhalten diese Token, indem Sie einfach die Teilnahmebedingungen erfüllen.",
+                    "updated": 1640079202239
+                },
+                {
+                    "language": "ID",
+                    "text": "Tokens Bonus: Ini adalah insentif untuk berpartisipasi dalam program ini. Kamu mendapatkan token ini hanya dengan memenuhi aturan partisipasi.",
+                    "updated": 1671445124693
                 }
             ]
         },
@@ -94,6 +124,16 @@
                     "language": "RU",
                     "text": "Tokens Awarded: Эти программы стимулируют желаемое поведение. Если вы конструктивно участвуете в сообществе Community, то заработаете больше токенов!",
                     "updated": 1639049924634
+                },
+                {
+                    "language": "DE",
+                    "text": "Tokens Awarded: Diese Programme bieten Anreize für erwünschte Verhaltensweisen. Wenn Sie sich konstruktiv an der Community beteiligen, verdienen Sie mehr Token!",
+                    "updated": 1640079219700
+                },
+                {
+                    "language": "ID",
+                    "text": "Tokens Awarded: Program-program ini mendorong perilaku yang diinginkan. Jika kamu berpartisipasi secara konstruktif dalam Komunitas, kamu akan mendapatkan lebih banyak token!",
+                    "updated": 1671445133789
                 }
             ]
         },
@@ -117,6 +157,16 @@
                     "language": "RU",
                     "text": "Что интересно в этих программах, так это то, что они вознаграждают за цепочки сотрудничества! Давайте исследуем эту концепцию в рамках реферальной программы Referral Program!",
                     "updated": 1639049949974
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Interessante an diesen Programmen ist, dass sie Ketten von Kooperationen belohnen! Lassen Sie uns dieses Konzept im Rahmen des Empfehlungsprogramms ( Referral Program ) erkunden!",
+                    "updated": 1640079259917
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagian yang menarik dari program-program ini yaitu bahwa program-program ini menghargai rantai kolaborasi! Mari eksplorasi konsep ini dalam Referral Program!",
+                    "updated": 1671445188490
                 }
             ]
         }

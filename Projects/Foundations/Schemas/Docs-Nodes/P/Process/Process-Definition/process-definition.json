@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Process Definition группирует все определения, необходимые для функционирования процесса. Процесс с Multi-Time-Frame-Market имеет дело с таймфреймами от одного часа и более. Процесс с Multi-Time-Frame-Daily имеет дело с таймфреймами от 45 минут и ниже.",
                 "updated": 1639658616328
+            },
+            {
+                "language": "TR",
+                "text": "Süreç tanımı düğümü, bir sürecin çalışması için gereken tüm tanımları gruplar. Çoklu Zaman Dilimi-Piyasa Süreci ( Multi-Time-Frame-Market Process ) bir saat ve üzeri zaman dilimleriyle ilgilenir. Çoklu Zaman Dilimi-Günlük Süreci ( Multi-Time-Frame-Daily Process ) 45 dakika ve altındaki zaman dilimleriyle ilgilenir.",
+                "updated": 1674757698155
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Как указывалось выше, у большинства ботов, в частности индикаторов, есть два разных процесса. Причина в том, что с разными структурами данных нужно обращаться по-разному. Процесс Multi-Time-Frame-Daily обрабатывает ежедневные файлы, а процесс Multi-Time-Frame-Market обрабатывает файлы рынка.",
                     "updated": 1639659148180
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda ima edildiği gibi, çoğu botun - özellikle de göstergelerin - iki farklı süreci vardır. Bunun nedeni, farklı veri yapılarının farklı şekillerde ele alınması gerekliliğidir. Multi-Time-Frame-Daily süreci günlük dosyaları işlerken, Multi-Time-Frame-Market süreci piyasa dosyalarını işler.",
+                    "updated": 1674757729591
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Процесс Multi-Time-Frame-Market имеет дело с таймфреймами от одного часа и выше. Поскольку эти таймфреймы производят относительно небольшое количество записей, процесс создает один единственный файл для каждого временного интервала, охватывающего всю историю рынка - отсюда и название Multi-Time-Frame-Market.",
                     "updated": 1639659227260
+                },
+                {
+                    "language": "TR",
+                    "text": "Multi-Time-Frame-Market süreci bir saat ve üzeri zaman dilimleriyle ilgilenir. Bu zaman dilimleri nispeten az sayıda kayıt ürettiğinden, süreç tüm piyasa geçmişini kapsayan her zaman dilimi için tek bir dosya oluşturur; bu nedenle Çoklu Zaman Dilimi-Piyasası ( Multi-Time-Frame-Market ) olarak adlandırılır.",
+                    "updated": 1674757765763
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "С другой стороны, процесс Multi-Time-Frame-Daily имеет дело с таймфреймами менее одного часа. Эти таймфреймы создают огромное количество записей, поэтому соответствующие данные должны быть фрагментированы в несколько файлов. Процесс Multi-Time-Frame-Daily создает один файл в день для каждого временного интервала - отсюда и название Multi-Time-Frame-Daily.",
                     "updated": 1639659322360
+                },
+                {
+                    "language": "TR",
+                    "text": "Öte yandan, Çoklu Zaman Dilimi-Günlük ( Multi-Time-Frame-Daily ) işlemi bir saatin altındaki zaman dilimleriyle ilgilenir. Bu zaman dilimleri çok sayıda kayıt üretir, bu nedenle ilgili verilerin birden fazla dosyada parçalanması gerekir. Multi-Time-Frame-Daily işlemi her zaman dilimi için günde bir dosya oluşturur; Multi-Time-Frame-Daily adı da buradan gelmektedir.",
+                    "updated": 1674757788957
                 }
             ]
         },
@@ -56,22 +76,28 @@
                     "language": "RU",
                     "text": "Способ структурирования наборов данных каждым из процессов определяется соответствующими определениями наборов данных.",
                     "updated": 1639659400254
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümelerinin her bir süreç tarafından yapılandırılma şekli, ilgili veri kümesi tanımları tarafından belirlenir.",
+                    "updated": 1674757833362
                 }
             ]
         },
         {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Process Definition Configuration",
-            "updated": 1609786986097,
+            "style": "Warning",
+            "text": "When editing process definitions, pay attention to running tasks using these. For modifications to be effective, you have to stop/start the concerned tasks",
+            "updated": 1655560153623,
             "translations": [
                 {
                     "language": "RU",
                     "text": "Конфигурация Process Definition",
                     "updated": 1639659414296
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem tanımlarını düzenlerken, bunları kullanan çalışan görevlere dikkat edin. Değişikliklerin etkili olabilmesi için ilgili görevleri durdurmanız/başlatmanız gerekir.",
+                    "updated": 1674757896200
                 }
             ]
         },
@@ -84,6 +110,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639659421728
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674757939719
                 }
             ]
         },
@@ -95,6 +126,11 @@
                     "language": "RU",
                     "text": "codeName - это имя процесса, используемое в коде системы.",
                     "updated": 1639659435204
+                },
+                {
+                    "language": "TR",
+                    "text": "codeName sistemin kodu içinde kullanılan sürecin adıdır.",
+                    "updated": 1674757916449
                 }
             ]
         }

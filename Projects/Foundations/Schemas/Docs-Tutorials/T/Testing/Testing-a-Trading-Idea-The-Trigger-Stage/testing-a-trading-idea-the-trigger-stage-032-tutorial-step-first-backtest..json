@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Nachdem wir nun diese grundlegenden Definitionen festgelegt haben, können wir einen ersten Backtest durchführen.",
                 "updated": 1639265981764
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда у нас есть эти основные определения, мы можем провести первый бэктест.",
+                "updated": 1640946438270
+            },
+            {
+                "language": "TR",
+                "text": "Artık temel tanımları oluşturduğumuza göre, ilk geriye dönük testi yapabiliriz.",
+                "updated": 1641655073364
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que ya tenemos estas definiciones básicas, podemos hacer un primer backtest.",
+                "updated": 1677101363664
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Wir sind noch nicht so weit, die Idee zu testen, da wir nur die Ereignisse Trigger on und Trigger off definiert haben. Wir wollen nur sicherstellen, dass wir die richtigen Definitionen haben.",
                     "updated": 1639265995934
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы еще не готовы проверить эту идею, так как определили только события срабатывания и выключения. Мы просто хотим убедиться в правильности наших определений.",
+                    "updated": 1640946516170
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece Trigger on ve Trigger off olaylarını tanımladığımız için tüm ticaret fikrini test etmeye henüz hazır değiliz. Sadece doğru tanımlara sahip olduğumuzdan emin olmak istiyoruz.",
+                    "updated": 1669582628705
+                },
+                {
+                    "language": "ES",
+                    "text": "No estamos listos para probar la idea, ya que sólo hemos definido los eventos de trigger on y trigger off. Sólo queremos asegurarnos de que las definiciones son correctas.",
+                    "updated": 1677101438186
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Obwohl die Strategie später eine Logik für den 1H-Chart enthalten wird, beziehen sich die aktuellen Definitionen nur auf den 24H-Chart.",
                     "updated": 1639266008422
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя стратегия в конечном итоге будет включать логику, относящуюся к часовому графику, текущие определения касаются только 24-х часового графика.",
+                    "updated": 1640947061172
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji daha sonra 1H grafiği için bir mantık içerecek olsa da, mevcut tanımlar yalnızca 24h grafiği ile ilgilidir.",
+                    "updated": 1641655099074
+                },
+                {
+                    "language": "ES",
+                    "text": "Aunque la estrategia eventualmente incluirá lógica relacionada con el gráfico de 1H, las definiciones actuales sólo involucran el gráfico de 24H.",
+                    "updated": 1677101448331
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Wir werden eine Backtesting-Sitzung zwischen dem 1. Januar und dem 1. Oktober 2020 auf dem 24-Stunden-Zeitrahmen durchführen. Schauen Sie sich die Parameter Time Range und Time Frame an und vergewissern Sie sich, dass sie mit den obigen Angaben übereinstimmen!",
                     "updated": 1639266019938
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы проведем бэктестинг с 1 января по 1 октября 2020 года на 24-х часовом таймфрейме. Посмотрите на параметры Time Range и Time Frame и убедитесь, что они соответствуют вышеуказанным!",
+                    "updated": 1640947050891
+                },
+                {
+                    "language": "TR",
+                    "text": "1 Ocak ile 1 Ekim 2020 arasında 24 saatlik zaman diliminde bir geriye dönük test oturumu gerçekleştireceğiz. Zaman Aralığı ( Time Range ) ve Zaman Çerçevesi ( Time Frame ) parametrelerine bir göz atın ve yukarıdakilerle eşleştiğinden emin olun!",
+                    "updated": 1641655130777
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a ejecutar una sesión de backtesting entre el 1 de enero y el 1 de octubre de 2020, en el marco de tiempo de 24H. Echa un vistazo a los parámetros Time Range y Time Frame y asegúrate de que coinciden con los anteriores.",
+                    "updated": 1677101454374
                 }
             ]
         }

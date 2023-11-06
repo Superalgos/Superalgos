@@ -1,0 +1,163 @@
+[
+    {
+        "name": "Algorithmic-Trading",
+        "propertyName": "algorithmicTrading",
+        "systemMenu": []
+    },
+    {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "systemMenu": []
+    },
+    {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "systemMenu": []
+    },
+    {
+        "name": "Machine-Learning",
+        "propertyName": "machineLearning",
+        "systemMenu": []
+        
+    },
+    {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "systemMenu": []
+    },
+    {
+        "name": "Foundations",
+        "propertyName": "foundations",
+        "systemMenu": []
+    },
+    {
+        "name": "Data-Mining",
+        "propertyName": "dataMining",
+        "systemMenu": []
+    },
+    {
+        "name": "Community-Plugins",
+        "propertyName": "communityPlugins",
+        "systemMenu": []
+    },
+    {
+        "name": "Ethereum",
+        "propertyName": "ethereum",
+        "systemMenu": []
+    },
+    {
+        "name": "TensorFlow",
+        "propertyName": "tensorflow",
+        "systemMenu": []
+    },
+    {
+        "name": "Education",
+        "propertyName": "education",
+        "systemMenu": []
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "systemMenu": []
+    },
+    {
+        "name": "Network",
+        "propertyName": "network",
+        "systemMenu": []
+    },
+    {
+        "name": "Social-Trading",
+        "propertyName": "socialTrading",
+        "systemMenu": []
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "systemMenu": []
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "systemMenu": []
+    },
+    {
+        "name": "Workspaces",
+        "translationKey": "nav.workspaces.title",
+        "propertyName": "workspaces",
+        "systemMenu": [
+            {
+                "label": "User Workspaces",
+                "translationKey": "nav.workspaces.user",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["user"]
+                },
+                "order": 1
+            },
+            {
+                "label": "Native Workspaces",
+                "translationKey": "nav.workspaces.native",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["plugin"]
+                },
+                "order": 2
+            },
+            {
+                "label": "Collapse All Root Nodes",
+                "translationKey": "nav.workspaces.collapseNodes",
+                "action": {
+                    "name": "collapseAllRootNodes"
+                },
+                "order": 3
+            },
+            {
+                "label": "Undo/Redo",
+                "translationKey": "nav.workspaces.undoRedo",
+                "submenuConstructorFunction": {
+                    "name": "undoRedoSubmenu"
+                },
+                "order": 4
+            },
+            {
+                "label": "Save Workspace",
+                "translationKey": "nav.workspaces.save",
+                "action": {
+                    "name": "saveWorkspace"
+                },
+                "order": 5
+            }
+        ]
+    },
+    {
+        "name": "Contributions",
+        "translationKey": "nav.contributions.title",
+        "propertyName": "contributions",
+        "systemMenu": [
+            {
+                "label": "Contribute all changes",
+                "translationKey": "nav.contributions.contribute",
+                "action": {
+                    "name": "contributeAll"
+                },
+                "order": 1
+            },
+            {
+                "label": "Update App",
+                "translationKey": "nav.contributions.update",
+                "action": {
+                    "name": "update"
+                },
+                "order": 2
+            },
+            {
+                "label": "Reset Local Repository",
+                "translationKey": "nav.contributions.reset",
+                "action": {
+                    "name": "reset"
+                },
+                "order": 3
+            }
+        ]
+    }
+]

@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken!",
                 "updated": 1639266038745
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем мы приступим к выполнению первого бэктеста, я должен отметить кое-что очень важное!",
+                "updated": 1640947107238
+            },
+            {
+                "language": "TR",
+                "text": "Bu ilk geriye dönük testi yapmadan önce çok önemli bir şey söylemem gerekiyor!",
+                "updated": 1641655156458
+            },
+            {
+                "language": "ES",
+                "text": "Antes de empezar a realizar este primer backtest, ¡tengo que mencionar algo de gran importancia!",
+                "updated": 1677101483953
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Backtesting ist eine Wissenschaft für sich! Es gibt ganze Bücher, die allein über Backtesting geschrieben wurden. Es ist ein tiefgründiges und komplexes Thema, vor allem weil Menschen, die Strategien entwerfen und testen, dazu neigen, Verzerrungen einzuführen, die zu einer Überanpassung führen können, d. h. die Regeln des Handelssystems an den Datensatz anzupassen, um gute Backtesting-Ergebnisse zu erzielen. Superalgos bietet Werkzeuge zur flexiblen Handhabung des Datensatzes, um diesen nicht zu verderben, wie z. B. den Zeitbereichsparameter, der es ermöglicht, den Datensatz nach Bedarf aufzuteilen oder mehrere Sitzungen parallel einzurichten und auszuführen. Wir werden dieses Thema jedoch nicht in diesem Tutorial behandeln! Der Schwerpunkt liegt derzeit auf der Definition einer Handelsidee und nicht auf dem Backtesting an sich.",
                     "updated": 1639266092831
+                },
+                {
+                    "language": "RU",
+                    "text": "Бэктестинг - это целая наука! Об одном только бэктестинге написаны целые книги. Это глубокая и сложная тема, главным образом потому, что люди, разрабатывающие и тестирующие стратегии, склонны вносить предубеждения, которые могут привести к чрезмерной подгонке, то есть корректировке правил торговой системы в соответствии с набором данных в стремлении получить хорошие результаты бэктестинга. Superalgos предлагает инструменты для гибкой работы с набором данных, чтобы не испортить его, например, параметр временного диапазона, который позволяет разделить набор данных по мере необходимости, или настроить и запустить несколько сессий параллельно. Тем не менее, в этом учебнике мы не будем рассматривать эту тему! В настоящее время основное внимание уделяется созданию определений торговой идеи, а не бэктестингу как таковому.",
+                    "updated": 1640947217804
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye dönük test (Backtesting) başlı başına bir bilimdir! Sadece geriye dönük test (Backtesting) hakkında yazılmış onlarca kitaplar var. Bu derin ve karmaşık bir konudur çünkü stratejileri tasarlayan ve test eden insanlar aşırı uyuma, yani iyi geriye dönük test sonuçları elde etme arayışında ticaret sisteminin kurallarını veri setine uyacak şekilde ayarlamaya yol açabilecek önyargılar ortaya koymaya eğilimlidir.Superalgos, veri setinin bozulmasını önlemek için veri setini esnek bir şekilde ele almak üzere, veri setini gerektiği gibi bölmeye veya paralel olarak birden fazla oturum kurmaya ve çalıştırmaya olanak tanıyan zaman aralığı parametresi gibi araçlar sunar. Ancak, bu derste bu konuyu ele almayacağız! Odak noktamız, kendi başına geriye dönük test yapmak değil, bir ticaret fikrinin tanımlarını oluşturmaktır.",
+                    "updated": 1669583342982
+                },
+                {
+                    "language": "ES",
+                    "text": "El backtesting es una ciencia en sí misma. Hay libros enteros escritos sólo sobre backtesting. Es un tema profundo y complejo, principalmente porque los humanos que diseñan y prueban estrategias son propensos a introducir sesgos que pueden llevar a sobreajustar, es decir, ajustar las reglas del sistema de trading para que encajen con el conjunto de datos en la búsqueda de obtener buenos resultados en el backtesting. Superalgos ofrece herramientas para manejar con flexibilidad el conjunto de datos y evitar estropearlo, como el parámetro de rango temporal que permite dividir el conjunto de datos según sea necesario, o configurar y ejecutar varias sesiones en paralelo. Dicho esto, ¡no vamos a tratar este tema en este tutorial! El enfoque actual es la creación de las definiciones de una idea de trading, no el backtesting per se.",
+                    "updated": 1677101555211
                 }
             ]
         }

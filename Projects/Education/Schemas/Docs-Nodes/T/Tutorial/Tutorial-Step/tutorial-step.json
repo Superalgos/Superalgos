@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Öğretici adım, bir öğreticinin alt düğümleri olmayan , bir düğüm tür olabilir. Bu nedenle, hiyerarşideki en küçük bilgi birimidir.",
                 "updated": 1639142857774
+            },
+            {
+                "language": "DE",
+                "text": "Ein Tutorial Step (Schritt) ist eine Art von Knoten innerhalb eines Lernprogramms, der keine Nachkommen haben kann. Als solcher ist er die kleinste Informationseinheit in der Hierarchie.",
+                "updated": 1674918053483
             }
         ]
     },
@@ -28,7 +33,19 @@
         {
             "style": "Title",
             "text": "Tutorial Step Configuration",
-            "updated": 1609706397520
+            "updated": 1609706397520,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Öğretici Adım Yapılandırması",
+                    "updated": 1652016115644
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorial Step Konfiguration",
+                    "updated": 1674917817099
+                }
+            ]
         },
         {
             "style": "Note",
@@ -39,6 +56,16 @@
                     "language": "ES",
                     "text": "La configuración básica del nodo del paso del tutorial es la misma que la del nodo Tutorial. Consulte este último, por favor.",
                     "updated": 1636719782428
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Öğretici ( Tutorial ) adım düğümünün temel yapılandırması, Eğitim düğümü ile aynıdır. İkincisine bakın, lütfen.",
+                    "updated": 1652016179524
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Grundkonfiguration des Knotens tutorial step (Schritt) ist die gleiche wie die des Knotens Tutorial . Beziehen Sie sich bitte auf letzteren.",
+                    "updated": 1674918035206
                 }
             ]
         },
@@ -50,13 +77,30 @@
                     "language": "ES",
                     "text": "Además de la configuración básica, los nodos de pasos del tutorial cuentan con una gran colección de recursos que le permite manipular la interfaz de usuario y los nodos reales de muchas formas.",
                     "updated": 1636719820832
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel yapılandırmaya ek olarak, öğretici adım düğümleri, kullanıcı arabirimini ve gerçek düğümleri birçok şekilde değiştirmenize olanak tanıyan geniş bir kaynak koleksiyonuna sahiptir.",
+                    "updated": 1652016190427
+                },
+                {
+                    "language": "DE",
+                    "text": "Zusätzlich zur Grundkonfiguration bietet der tutorial step Knoten eine große Sammlung von Ressourcen, mit denen Sie die Benutzeroberfläche und die eigentlichen Knoten auf vielfältige Weise manipulieren können.",
+                    "updated": 1674918146511
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Navigation",
-            "updated": 1609706308531
+            "updated": 1609706308531,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Navigasyon",
+                    "updated": 1652016202084
+                }
+            ]
         },
         {
             "style": "Text",
@@ -66,6 +110,16 @@
                     "language": "ES",
                     "text": "La configuración de una referencia a cualquier nodo en el espacio de trabajo y el uso del siguiente parámetro hace que el paso se cargue junto al nodo al que se hace referencia.",
                     "updated": 1636719856418
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanındaki herhangi bir düğüme referans ayarlamak ve aşağıdaki parametreyi kullanmak referans alınan düğümün yanındaki adım yükünü yapar.",
+                    "updated": 1652016209837
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Verweis auf einen beliebigen Knoten im Arbeitsbereich einrichten und den folgenden Parameter verwenden, wird der step (Schritt) neben dem referenzierten Knoten geladen.",
+                    "updated": 1674918224124
                 }
             ]
         },
@@ -76,7 +130,19 @@
         {
             "style": "Subtitle",
             "text": "Messages",
-            "updated": 1613846598199
+            "updated": 1613846598199,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mesajlar",
+                    "updated": 1652016296830
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachrichten",
+                    "updated": 1674918243751
+                }
+            ]
         },
         {
             "style": "Text",
@@ -86,6 +152,16 @@
                     "language": "ES",
                     "text": "Configurar una referencia a cualquier nodo en el espacio de trabajo y usar los siguientes parámetros permite colocar diferentes tipos de mensajes en el nodo referenciado.",
                     "updated": 1636719884062
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanındaki herhangi bir düğüme bir referans ayarlamak ve aşağıdaki parametreleri kullanmak, referans verilen düğüme farklı türde mesajların yerleştirilmesine izin verir.",
+                    "updated": 1652016305470
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Einrichten eines Verweises auf einen beliebigen Knoten im Arbeitsbereich und die Verwendung der unten aufgeführten Parameter ermöglicht es, verschiedene Arten von Nachrichten auf dem referenzierten Knoten zu platzieren.",
+                    "updated": 1674918272320
                 }
             ]
         },
@@ -97,7 +173,19 @@
         {
             "style": "Subtitle",
             "text": "Centering and Zooming Into a Time Machine",
-            "updated": 1609706456866
+            "updated": 1609706456866,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir Zaman Makinesinde Merkezleme ve Yakınlaştırma",
+                    "updated": 1652016317886
+                },
+                {
+                    "language": "DE",
+                    "text": "Zentrieren und Zoomen in einer Time Machine (Zeitmaschine)",
+                    "updated": 1674918633584
+                }
+            ]
         },
         {
             "style": "Text",
@@ -108,6 +196,16 @@
                     "language": "ES",
                     "text": "Configurar una referencia a un nodo de máquina del tiempo en la jerarquía del  Charting Space mientras se utiliza el siguiente parámetro provoca lo siguiente:",
                     "updated": 1636719950843
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki parametreyi kullanırken Grafik Alanı ( Charting Space ) hiyerarşisinde bir zaman makinesi düğümüne referans ayarlamak aşağıdakilere neden olur:",
+                    "updated": 1652016350065
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Verweis auf einen time machine Knoten in der Charting Space Hierarchie einrichten und dabei den unten aufgeführten Parameter verwenden, führt dies zu folgendem Problem:",
+                    "updated": 1674918796042
                 }
             ]
         },
@@ -119,6 +217,16 @@
                     "language": "ES",
                     "text": "La ventana gráfica del espacio de gráficos está centrada en la máquina del tiempo referenciada.",
                     "updated": 1636719973599
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı görünüm penceresi, başvurulan zaman makinesinde ortalanır.",
+                    "updated": 1652016358339
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ansichtsfenster (viewport) des Diagrammbereichs wird auf die referenzierte Zeitmaschine (time machine) zentriert.",
+                    "updated": 1674918902295
                 }
             ]
         },
@@ -130,6 +238,16 @@
                     "language": "ES",
                     "text": "La máquina del tiempo se ajusta para adaptarse a la relación de aspecto de la pantalla.",
                     "updated": 1636719989566
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman makinesi ekranın en boy oranına uyacak şekilde ayarlanır.",
+                    "updated": 1652016365843
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Zeitmaschine (time machine) wird an das Seitenverhältnis des Bildschirms angepasst.",
+                    "updated": 1674918954196
                 }
             ]
         },
@@ -141,6 +259,16 @@
                     "language": "ES",
                     "text": "La ventana gráfica se acerca a la máquina del tiempo.",
                     "updated": 1636720005080
+                },
+                {
+                    "language": "TR",
+                    "text": "Görüntü alanı, zaman makinesine yakınlaşır.",
+                    "updated": 1652016378094
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ansichtsfenster zoomt in die Zeitmaschine.",
+                    "updated": 1674918999010
                 }
             ]
         },
@@ -151,7 +279,19 @@
         {
             "style": "Subtitle",
             "text": "Pressing Keys When on a Time Machine",
-            "updated": 1609706492050
+            "updated": 1609706492050,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Zaman Makinesinde Tuşlara Basmak",
+                    "updated": 1652016697947
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken von Tasten in einer Time Machine (Zeitmaschine)",
+                    "updated": 1674919097967
+                }
+            ]
         },
         {
             "style": "Text",
@@ -162,6 +302,16 @@
                     "language": "ES",
                     "text": "La configuración de una referencia a un nodo de la máquina del tiempo en la jerarquía del espacio de gráficos y el uso de los siguientes parámetros permite replicar la pulsación de combinaciones de teclas relevantes en una máquina del tiempo.",
                     "updated": 1636720030872
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı hiyerarşisinde bir zaman makinesi düğümüne bir referans ayarlamak ve aşağıdaki parametreleri kullanmak, bir zaman makinesindeyken ilgili tuş kombinasyonlarına basılmasının çoğaltılmasına izin verir.",
+                    "updated": 1652016706837
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Einrichtung eines Verweises auf einen (time machine node) Zeitmaschinenknoten in der Hierarchie des Diagrammbereichs und die Verwendung der nachstehenden Parameter ermöglichen es, das Drücken der entsprechenden Tastenkombinationen zu reproduzieren, wenn man sich auf einer Zeitmaschine befindet.",
+                    "updated": 1674919189895
                 }
             ]
         },
@@ -172,7 +322,19 @@
         },
         {
             "style": "List",
-            "text": "shiftKey, ctrlKey, and metaKey (Mac OS equivalent to Control) may be true or false."
+            "text": "shiftKey, ctrlKey, and metaKey (Mac OS equivalent to Control) may be true or false.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "shiftKey, ctrlKey ve metaKey (Mac OS'de Control'e eşdeğer) doğru veya yanlış olabilir.",
+                    "updated": 1652016729875
+                },
+                {
+                    "language": "DE",
+                    "text": "shiftKey, ctrlKey und metaKey (Mac OS-Äquivalent zu Control) können true oder false sein.",
+                    "updated": 1674919263918
+                }
+            ]
         },
         {
             "style": "List",
@@ -182,6 +344,16 @@
                     "language": "ES",
                     "text": "La clave puede ser cualquier letra o número.",
                     "updated": 1636720046853
+                },
+                {
+                    "language": "TR",
+                    "text": "anahtar herhangi bir harf veya sayı olabilir.",
+                    "updated": 1652016740112
+                },
+                {
+                    "language": "DE",
+                    "text": "Taste kann ein beliebiger Buchstabe oder eine Zahl sein.",
+                    "updated": 1674919284034
                 }
             ]
         },
@@ -194,6 +366,16 @@
                     "language": "ES",
                     "text": "Pressing Keys on the Design Space (Pulsando teclas en el espacio de diseño)",
                     "updated": 1636723423034
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanındaki Tuşlara Basmak",
+                    "updated": 1652016749335
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken von Tasten auf dem Design Space",
+                    "updated": 1674919346164
                 }
             ]
         },
@@ -206,6 +388,16 @@
                     "language": "ES",
                     "text": "También es posible presionar cualquier combinación de teclas dentro del Design Space. El formato funciona igual que el anterior, pero la pulsación de la tecla se producirá dentro del contexto del espacio de diseño.",
                     "updated": 1636723494988
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı ( Design Space ) içinde herhangi bir tuş kombinasyonuna basmak da mümkündür. Biçim, yukarıdakiyle aynı şekilde çalışır, ancak tuşa basma, tasarım alanı bağlamında gerçekleşir.",
+                    "updated": 1652016817731
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist auch möglich, eine beliebige Tastenkombination innerhalb des Design Space (Designbereichs) zu drücken. Das Format ist dasselbe wie oben, aber der Tastendruck erfolgt im Kontext des design space.",
+                    "updated": 1674919501565
                 }
             ]
         },
@@ -227,6 +419,16 @@
                     "language": "ES",
                     "text": "Toggling Map View (Alternar vista del mapa)",
                     "updated": 1636723537130
+                },
+                {
+                    "language": "TR",
+                    "text": "Harita Görünümünü Değiştirme",
+                    "updated": 1652016867970
+                },
+                {
+                    "language": "DE",
+                    "text": "Umschalten der Map View (Kartenansicht)",
+                    "updated": 1674919583241
                 }
             ]
         },
@@ -238,6 +440,16 @@
                     "language": "ES",
                     "text": "Para cambiar entre la vista normal y la vista de mapa, puede utilizar la siguiente configuración.",
                     "updated": 1636723564528
+                },
+                {
+                    "language": "TR",
+                    "text": "Normal ve harita görünümü arasında geçiş yapmak için aşağıdaki konfigürasyonu kullanabilirsiniz.",
+                    "updated": 1652016871453
+                },
+                {
+                    "language": "DE",
+                    "text": "Um zwischen der normalen Ansicht und der Kartenansicht zu wechseln, können Sie die folgende Konfiguration verwenden.",
+                    "updated": 1674919619234
                 }
             ]
         },
@@ -249,15 +461,43 @@
         {
             "style": "Text",
             "text": "Valid options are:",
-            "updated": 1620867068878
+            "updated": 1620867068878,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geçerli seçenekler şunlardır:",
+                    "updated": 1652016879057
+                },
+                {
+                    "language": "DE",
+                    "text": "Gültige Optionen sind:",
+                    "updated": 1674919642199
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "\"On\""
+            "text": "\"On\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Açık\"",
+                    "updated": 1654390501400,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "\"Off\""
+            "text": "\"Off\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "\"Kapalı\"",
+                    "updated": 1654390507044,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Note",
@@ -268,6 +508,16 @@
                     "language": "ES",
                     "text": "Cuando esta configuración está activa dentro de un paso del tutorial, el usuario no podrá cambiar entre vistas manualmente.",
                     "updated": 1636723585752
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu yapılandırma bir eğitim adımında etkin olduğunda, kullanıcı görünümler arasında manuel olarak geçiş yapamaz.",
+                    "updated": 1652016886755
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn diese Konfiguration innerhalb eines Lernschritts aktiv ist, kann der Benutzer nicht manuell zwischen den Ansichten wechseln.",
+                    "updated": 1674919669830
                 }
             ]
         },
@@ -279,6 +529,16 @@
                     "language": "ES",
                     "text": "Changing Node's Configurations (Cambiando las configuraciones del nodo",
                     "updated": 1636723622329
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün Yapılandırmalarını Değiştirme",
+                    "updated": 1652016894122
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern von Knotenkonfigurationen",
+                    "updated": 1674919990099
                 }
             ]
         },
@@ -291,6 +551,16 @@
                     "language": "ES",
                     "text": "La propiedad batchConfigChangesReferenceParent aLe permite editar la configuración de un nodo referenciado y su descendencia.",
                     "updated": 1636723673596
+                },
+                {
+                    "language": "TR",
+                    "text": "BatchConfigChangesReferenceParent özelliği, başvurulan bir düğümün ve bunların yavrularının yapılandırmasını düzenlemenize olanak tanır.",
+                    "updated": 1652016901878
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit der Eigenschaft batchConfigChangesReferenceParent können Sie die Konfiguration eines referenzierten Knotens und seiner Nachkommen bearbeiten.",
+                    "updated": 1674920034158
                 }
             ]
         },
@@ -302,6 +572,16 @@
                     "language": "ES",
                     "text": "El siguiente ejemplo cambia la configuración de los tres nodos de escala diferentes bajo una máquina del tiempo. En este caso, la máquina del tiempo es el nodo referenciado. el nodePath es la ruta del nodo cuya configuración debe cambiarse en relación con el referenceParent, y el parámetro de propiedades es la configuración real que se va a establecer.",
                     "updated": 1636723752011
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnek, bir zaman makinesi altındaki üç farklı ölçek düğümünün konfigürasyonunu değiştirir. Bu durumda, zaman makinesi başvurulan düğümdür, nodePath, konfigürasyonu ReferenceParent'e göre değiştirilmesi gereken düğümün yoludur ve özellikler parametresi, ayarlanacak gerçek konfigürasyondur.",
+                    "updated": 1652016909952
+                },
+                {
+                    "language": "DE",
+                    "text": "Das folgende Beispiel ändert die Konfiguration der drei verschiedenen Skalierungsknoten unter einer Zeitmaschine (time machine). In diesem Fall ist die Zeitmaschine (time machine) der referenzierte Knoten, der nodePath ist der Pfad des Knotens, dessen Konfiguration relativ zum referenceParent geändert werden muss, und der properties-Parameter ist die eigentliche Konfiguration, die festgelegt werden soll.",
+                    "updated": 1674920173378
                 }
             ]
         },
@@ -319,6 +599,16 @@
                     "language": "ES",
                     "text": "Un caso de uso típico de este recurso es cuando desea llevar al usuario a un punto específico en un gráfico, pero puede usarse para cualquier otro caso que requiera manipular las configuraciones del nodo.",
                     "updated": 1636723793997
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu kaynak için tipik bir kullanım durumu, kullanıcıya bir grafikte belirli bir noktaya getirmek istediğiniz zamandır, ancak bu, düğüm yapılandırmalarının manipüle edilmesini gerektiren başka herhangi bir durum için kullanılabilir.",
+                    "updated": 1652016930858
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein typischer Anwendungsfall für diese Ressource ist, wenn Sie den Benutzer zu einem bestimmten Punkt in einem Diagramm bringen wollen, aber sie kann auch für jeden anderen Fall verwendet werden, der eine Manipulation der Knotenkonfigurationen erfordert.",
+                    "updated": 1674920266569
                 }
             ]
         }

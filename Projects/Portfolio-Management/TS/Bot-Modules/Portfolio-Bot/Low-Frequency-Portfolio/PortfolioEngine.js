@@ -5,13 +5,14 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
     */
 
     let thisObject = {
-        mantain: mantain,
+        maintain: maintain,
         reset: reset,
         getNodeById: getNodeById,
         cloneValues: cloneValues,
         setCurrentCandle: setCurrentCandle,
         setCurrentCycle: setCurrentCycle,
         initializeNode: initializeNode,
+        updateExchangeAssets: updateExchangeAssets,
         initialize: initialize,
         finalize: finalize
     }
@@ -19,6 +20,7 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
     let portfolioEngine
     let sessionParameters
     let nodesMap = new Map()
+    let exchangeAPIModuleObject
 
     return thisObject
 
@@ -36,6 +38,9 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
              */
             initializeNode(portfolioEngine)
         }
+
+        exchangeAPIModuleObject = TS.projects.portfolioManagement.botModules.exchangeAPI.newPortfolioManagementBotModulesExchangeAPI(processIndex)
+        exchangeAPIModuleObject.initialize()
     }
 
     function finalize() {
@@ -44,7 +49,53 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
         nodesMap = undefined
     }
 
-    function mantain() {
+    async function updateExchangeAssets() {
+
+        switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
+            case 'Live Portfolio Session': {
+                await fetchBalancesFromExchange()
+                break
+            }
+            case 'Backtesting Portfolio Session': {
+                simulateBalancesFromExchange()
+                break
+            }
+        }
+
+        async function fetchBalancesFromExchange() {
+            /*
+            Iterate the assets list and fetch for each one of them, their balance from the exchange.
+            Then put the values into the right place at the Portfolio Engine.
+            */
+            let balances = await exchangeAPIModuleObject.fetchAllBalances()
+            if (balances !== undefined && balances !== false) {
+                for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
+
+                    let managedAssetCodeName = sessionParameters.managedAssets.managedAssets[i].referenceParent.config.codeName
+
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].value = managedAssetCodeName
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetFreeBalance.value = balances[managedAssetCodeName].free
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetLockedBalance.value = balances[managedAssetCodeName].used
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetTotalBalance.value = balances[managedAssetCodeName].total
+
+                    if (portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetInitialBalance.value === undefined) {
+                        portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetInitialBalance.value = balances[managedAssetCodeName].total
+                    }
+                }
+            }
+        }
+
+        function simulateBalancesFromExchange() {
+            /*
+            To simulate exchange balances, we will need to start with the initialBalance configured for each
+            asset at the session parameters, and then look at the Trading Engine of each of the bots which 
+            are trading each of these assets, and use the information there to simulate what the balance at the
+            exchange would be at any point in time.
+            */
+        }
+    }
+
+    function maintain() {
     }
 
     function reset() {

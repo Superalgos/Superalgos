@@ -4,7 +4,24 @@
     "type": "CoinGecko API Map and Mine",
     "definition": {
         "text": "This API Map and Data Mine taps into the CoinGecko API to pull statistics about the current assets being used from the CoinGecko API.",
-        "updated": 1622686884874
+        "updated": 1622686884874,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu API Haritası ( API Map ) ve Veri Madeni ( Data Mine ), CoinGecko API'sinden kullanılan mevcut varlıklarla ilgili istatistikleri almak için CoinGecko API'sinden yararlanır.",
+                "updated": 1644591160754
+            },
+            {
+                "language": "RU",
+                "text": "Эта API Map and Data Mine подключается к API CoinGecko, чтобы получить статистику о текущих используемых активах из API CoinGecko.",
+                "updated": 1645606866075
+            },
+            {
+                "language": "DE",
+                "text": "Diese API Map und Data Mine greift auf die CoinGecko API zu, um Statistiken über die aktuellen assets zu erhalten, die von der CoinGecko API verwendet werden.",
+                "updated": 1681756789329
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,7 +32,24 @@
         {
             "style": "Success",
             "text": "Additional collaborators are welcome!",
-            "updated": 1622686914590
+            "updated": 1622686914590,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ek ortak çalışanlar kabul edilir!",
+                    "updated": 1644591182015
+                },
+                {
+                    "language": "RU",
+                    "text": "Дополнительные соавторы приветствуются!",
+                    "updated": 1645606901219
+                },
+                {
+                    "language": "DE",
+                    "text": "Weitere Mitglieder sind willkommen!",
+                    "updated": 1681756842682
+                }
+            ]
         }
     ]
 }

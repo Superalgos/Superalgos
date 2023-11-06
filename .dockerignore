@@ -3,6 +3,9 @@
 **/Log-Files
 **/My-Log-Files
 **/My-Workspaces
+**/My-Social-Trading-Data
+**/My-Network-Nodes-Data
+
 debug.log
 
 *.db

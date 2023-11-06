@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Lassen Sie uns eine kurze Wiederholung der Syntax machen! Ich werde das so lange vorantreiben, bis Sie es gelernt haben!",
                 "updated": 1639261940684
+            },
+            {
+                "language": "RU",
+                "text": "Давайте сделаем краткий обзор по поводу синтаксиса! Я буду нажимать на это, пока вы не выучите его!",
+                "updated": 1640934919218
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sözdiziminin hızlı bir incelemesini yapalım! Bunu öğrenene kadar seni zorlamaya devam edeceğim!",
+                "updated": 1641652670265
+            },
+            {
+                "language": "ES",
+                "text": "¡Hagamos una rápida recapitulación sobre el asunto de la sintaxis! ¡Insistiré en esto hasta que lo aprendas!",
+                "updated": 1675622116991
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "ERSTENS: Der Zeitrahmen! (d.h.: chart.at24hs)",
                     "updated": 1639261971493
+                },
+                {
+                    "language": "RU",
+                    "text": "ПЕРВОЕ: Таймфрейм! (т.е.: chart.at24hs)",
+                    "updated": 1640934952946
+                },
+                {
+                    "language": "TR",
+                    "text": "BİR: Zaman çerçevesi! Örnek : (i.e.: chart.at24hs)",
+                    "updated": 1641652684413
+                },
+                {
+                    "language": "ES",
+                    "text": "PRIMERO: ¡El marco de tiempo! ( ej.: chart.at24hs)",
+                    "updated": 1675622138004
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "ZWEITENS: Jedes Segment der Anweisung wird durch Punkte getrennt! (z.B.: like.this)",
                     "updated": 1639261992571
+                },
+                {
+                    "language": "RU",
+                    "text": "ВТОРОЕ: Каждый сегмент инструкции отделяется точками! (т.е.: kak.etot)",
+                    "updated": 1640935018728
+                },
+                {
+                    "language": "TR",
+                    "text": "İKİ: Talimatın her bölümü noktalarla ayrılmıştır! Örnek : (i.e.: like.this)",
+                    "updated": 1641652701967
+                },
+                {
+                    "language": "ES",
+                    "text": "¡SEGUNDO: Cada segmento de la instrucción está separada por puntos! (ej.: like.this)",
+                    "updated": 1675622159095
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "DRITTENS: Produktname und Eigenschaftsname werden durch den verwendeten Indikator bestimmt. Sie müssen sie nicht auswendig lernen, denn Sie können sie aus den Dokumenten kopieren und einfügen, wenn Sie sie brauchen!",
                     "updated": 1639262007009
+                },
+                {
+                    "language": "RU",
+                    "text": "ТРЕТЬЕ: Название продукта и название свойства определяются используемым вами индикатором. Нет необходимости запоминать их, так как вы можете скопировать и вставить их из документации, когда они вам понадобят��я!",
+                    "updated": 1640935061782
+                },
+                {
+                    "language": "TR",
+                    "text": "ÜÇ: Ürün adı ve özellik adı kullanılan gösterge ile belirlenir. İhtiyaç duyduğunuzda belgelerden kopyalayıp yapıştırabileceğiniz için bunları ezberlemenize gerek yok!",
+                    "updated": 1641652714645
+                },
+                {
+                    "language": "ES",
+                    "text": "TERCERO: El nombre del producto y el nombre de la propiedad están determinados por el indicador que estés utilizando. No es necesario memorizarlos, ya que puede copiarlos y pegarlos de los documentos cuando los necesites.",
+                    "updated": 1675622184524
                 }
             ]
         },
@@ -59,6 +119,21 @@
                     "language": "DE",
                     "text": "VIERTENS: Zusammengesetzte Wörter im Produkt- und Eigenschaftsnamen werden in Kleinbuchstaben geschrieben, d. h. das erste Wort wird klein geschrieben, die restlichen Wörter werden groß geschrieben!  (zumBeispielWieDiesHier)",
                     "updated": 1639262054728
+                },
+                {
+                    "language": "RU",
+                    "text": "ЧЕТВЕРТОЕ: составные слова в названии продукта и свойства пишутся в верхнем регистре, то есть в целом, с первым словом в нижнем регистре, а остальные слова - с заглавной буквы! (пример: forExampleLikeThis)",
+                    "updated": 1640935146758
+                },
+                {
+                    "language": "TR",
+                    "text": "DÖRT: Ürün ve özellik adlarındaki birleşik sözcükler küçük harflerle yazılır, geri kalan kelimeler büyük harfle yazılır! Örnek : (forExampleLikeThis)",
+                    "updated": 1641652726899
+                },
+                {
+                    "language": "ES",
+                    "text": "CUARTO: ¡Las palabras compuestas en el nombre del producto y de la propiedad se escriben en camel case, es decir, en conjunto, con la primera palabra en minúscula y el resto de las palabras en mayúscula! ( forExampleLikeThis)",
+                    "updated": 1675622232889
                 }
             ]
         }

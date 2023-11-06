@@ -1,0 +1,50 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 12,
+    "type": "Connecting to a Network Node",
+    "definition": {
+        "text": "All of the trading signal mechanics discussed in previous pages run on top of the Superalgos peer to peer network. ",
+        "updated": 1642820141066,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Все механизмы торговых сигналов, рассмотренные на предыдущих страницах, работают на базе одноранговой сети Superalgos.",
+                "updated": 1645626310374
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki sayfalarda tartışılan tüm ticaret sinyal mekaniği, Superalgos eşler arası ağ üzerinde çalışır.",
+                "updated": 1646300647855
+            },
+            {
+                "language": "DE",
+                "text": "Alle Handelssignal-Mechanismen, die auf den vorherigen Seiten besprochen wurden, laufen über das Superalgos Peer-to-Peer-Netzwerk.",
+                "updated": 1674678997130
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Consequently it is important to note that, at the current stage of development, it is necessary to run your own network node to begin accessing the network. As the network grows and nodes are added, it will not be necessary for every individual to run their own node.",
+            "updated": 1642820132645,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому важно отметить, что на данном этапе развития для получения доступа к сети необходимо запустить свой собственный узел. По мере развития сети и добавления узлов, каждому человеку не нужно будет запускать свой узел.",
+                    "updated": 1645626325726
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonuç olarak, geliştirmenin şu andaki aşamasında, ağa erişmeye başlamak için kendi ağ düğümünüzü çalıştırmanız gerektiğini belirtmek önemlidir. Ağ büyüdükçe ve düğümler eklendikçe, her bireyin kendi düğümünü çalıştırması gerekli olmayacak.",
+                    "updated": 1646300695690
+                },
+                {
+                    "language": "DE",
+                    "text": "Daher ist es wichtig, darauf hinzuweisen, dass es im derzeitigen Entwicklungsstadium notwendig ist, einen eigenen Netzknoten zu betreiben, um Zugang zum Netz zu erhalten. Wenn das Netz wächst und weitere Knoten hinzukommen, wird es nicht für jede Person notwendig sein, einen eigenen Knoten zu betreiben.",
+                    "updated": 1674679008292
+                }
+            ]
+        }
+    ]
+}

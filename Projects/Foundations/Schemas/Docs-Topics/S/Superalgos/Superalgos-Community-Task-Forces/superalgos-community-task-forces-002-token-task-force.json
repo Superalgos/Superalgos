@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "La misión del Token Task Force es realizar el máximo potencial del Superalgos SA Token.",
                 "updated": 1637160957992
+            },
+            {
+                "language": "RU",
+                "text": "Миссия Token Task Force заключается в реализации максимального потенциала токена Superalgos SA Token.",
+                "updated": 1640353983781
+            },
+            {
+                "language": "DE",
+                "text": "Die Aufgabe der Token-Task-Force besteht darin, das maximale Potenzial des Superalgos SA Token auszuschöpfen.  ",
+                "updated": 1687466383106
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "ES",
                     "text": "El Superalgos SA Token es la columna vertebral del proyecto y el principal recurso disponible para incentivar las contribuciones. Como tal, es de suma importancia que se asignen recursos suficientes para desarrollar el ecosistema del token.",
                     "updated": 1637161052701
+                },
+                {
+                    "language": "RU",
+                    "text": "Токен Superalgos SA является основой проекта и основным ресурсом, доступным для стимулирования вкладов. Поэтому крайне важно, чтобы на развитие экосистемы токенов выделялось достаточно ресурсов.",
+                    "updated": 1640354014694
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Superalgos SA Token ist das Rückgrat des Projekts und die wichtigste verfügbare Ressource, um Anreize für Beiträge zu schaffen. Daher ist es von größter Bedeutung, dass ausreichende Ressourcen für die Entwicklung des Token-Ökosystems bereitgestellt werden.  ",
+                    "updated": 1687466395762
                 }
             ]
         },
@@ -34,6 +54,16 @@
                     "language": "ES",
                     "text": "Join the Task Force  ( Únase al grupo de trabajo)",
                     "updated": 1637161081095
+                },
+                {
+                    "language": "RU",
+                    "text": "Присоединяйтесь к рабочей группе",
+                    "updated": 1640354027717
+                },
+                {
+                    "language": "DE",
+                    "text": "Beitritt zur Task Force ",
+                    "updated": 1686514136741
                 }
             ]
         },
@@ -46,6 +76,16 @@
                     "language": "ES",
                     "text": "El grupo de trabajo se reúne en el Token Group. Para unirse a la fuerza de trabajo, unirse al grupo!",
                     "updated": 1637161155470
+                },
+                {
+                    "language": "RU",
+                    "text": "Целевая группа собирается в группе Token Group. Чтобы влиться в состав рабочей группы, присоединяйтесь к группе!",
+                    "updated": 1640354107980
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Task Force trifft sich in der Token-Gruppe. Um der Arbeitsgruppe beizutreten, treten Sie der Gruppe bei!  ",
+                    "updated": 1687466426626
                 }
             ]
         },
@@ -58,13 +98,35 @@
                     "language": "ES",
                     "text": "El foco actual del Token Task Force es lograr listar Superalgos SA Token en tantos exchanges como sea posible.",
                     "updated": 1637161225370
+                },
+                {
+                    "language": "RU",
+                    "text": "В настоящее время Token Task Force сосредоточена на том, чтобы Superalgos SA Token был зарегистрирован на как можно большем количестве бирж.",
+                    "updated": 1640354177311
+                },
+                {
+                    "language": "DE",
+                    "text": "Der derzeitige Schwerpunkt der Token Task Force ist es, den Superalgos SA Token an so vielen Börsen wie möglich zu notieren.  ",
+                    "updated": 1687466438626
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Current Tasks",
-            "updated": 1618852117253
+            "updated": 1618852117253,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущие задачи",
+                    "updated": 1640354187872
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktuelle Aufgaben ",
+                    "updated": 1687466448674
+                }
+            ]
         },
         {
             "style": "List",

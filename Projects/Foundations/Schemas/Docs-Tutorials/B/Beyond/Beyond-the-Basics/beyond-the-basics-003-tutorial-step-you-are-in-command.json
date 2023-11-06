@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Dokümanlar'daki arama kutusu olan arkadaşım hakkında konuşalım. Biraz çifte hayatı var: hem araştırıyor hem de emrediyor!",
                 "updated": 1639861462859
+            },
+            {
+                "language": "RU",
+                "text": "Давайте поговорим о моем друге, поисковой строке во вкладке Docs. У нее немного двойная жизнь: она не только ищет, но и командует!",
+                "updated": 1645269354466
+            },
+            {
+                "language": "ID",
+                "text": "Mari bicarakan temanku ini si search box di Docs. Dia seperti mempunyai dua kepribadian yaitu bisa mencari sekaligus sebagai tempat untuk perintah!",
+                "updated": 1667873279089
+            },
+            {
+                "language": "NL",
+                "text": "Laten we het hebben over mijn vriendin, het zoekvak in Docs. Ze heeft een beetje een dubbelleven: ze zoekt, maar beveelt ook!",
+                "updated": 1669573180004
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Yani arama kutusu aynı zamanda bir komut satırı arayüzüdür! Geçerli komut listesi şunlarla ilgilidir:",
                     "updated": 1639861481713
+                },
+                {
+                    "language": "RU",
+                    "text": "То есть, окно поиска - это еще и интерфейс командной строки! Текущий список команд включает в себя:",
+                    "updated": 1640154364407
+                },
+                {
+                    "language": "ID",
+                    "text": "Maksudku search box juga bisa dimasukkan antarmuka baris perintah! List penggunaan perintah yang berkenaan yaitu:",
+                    "updated": 1667871505137
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik bedoel, het zoekvak is ook een opdrachtregelinterface! De huidige lijst met commando's heeft te maken met:",
+                    "updated": 1669573197769
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Dokümanların üretilmesi ve düzenlenmesi.",
                     "updated": 1639861494950
+                },
+                {
+                    "language": "RU",
+                    "text": "Производство и редактирование документов.",
+                    "updated": 1640154376361
+                },
+                {
+                    "language": "ID",
+                    "text": "Produksi dan Editing Docs.",
+                    "updated": 1667871452628
+                },
+                {
+                    "language": "NL",
+                    "text": "Docs maken en bewerken.",
+                    "updated": 1669573215436
                 }
             ]
         },
@@ -99,8 +144,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Obteniendo actualizaciones.",
-                    "updated": 1628113492383,
+                    "text": "Obtener actualizaciones.",
+                    "updated": 1675449252516,
                     "style": "List"
                 },
                 {
@@ -112,6 +157,21 @@
                     "language": "TR",
                     "text": "Güncellemelerin alınması.",
                     "updated": 1639861514290
+                },
+                {
+                    "language": "RU",
+                    "text": "Получение обновлений.",
+                    "updated": 1640154387384
+                },
+                {
+                    "language": "ID",
+                    "text": "Mendapatkan update.",
+                    "updated": 1667871468099
+                },
+                {
+                    "language": "NL",
+                    "text": "Updates krijgen.",
+                    "updated": 1669573227220
                 }
             ]
         },
@@ -128,8 +188,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Contribuir con trabajo al proyecto.",
-                    "updated": 1628113514180,
+                    "text": "Contribuir tu trabajo realizado al proyecto.",
+                    "updated": 1675449326663,
                     "style": "List"
                 },
                 {
@@ -141,6 +201,21 @@
                     "language": "TR",
                     "text": "Projeye katkı sağlamak.",
                     "updated": 1639861525708
+                },
+                {
+                    "language": "RU",
+                    "text": "Внесение вклада в проект.",
+                    "updated": 1640154397107
+                },
+                {
+                    "language": "ID",
+                    "text": "Berkontribusi kedalam proyek.",
+                    "updated": 1667871483820
+                },
+                {
+                    "language": "NL",
+                    "text": "Meewerken aan het project.",
+                    "updated": 1669573237620
                 }
             ]
         },
@@ -170,6 +245,21 @@
                     "language": "TR",
                     "text": "İkisini içeren pratik bir örnek üzerinde çalışalım! Size dokümanları nasıl düzenleyeceğinizi ve birkaç komut kullanarak nasıl katkıda bulunacağınızı öğreteceğim!",
                     "updated": 1639861545268
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поработаем над практическим примером, в котором задействованы эти два аспекта! Я научу вас, как редактировать документы и как вносить вклад, используя пару команд!",
+                    "updated": 1640154428249
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita ke contoh praktek yang mempelajari keduanya yaitu cara mengedit Docs, dan bagaimana untuk berkontribusi, menggunakan beberapa perintah!",
+                    "updated": 1667871428913
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we aan een praktisch voorbeeld werken waarbij deze twee betrokken zijn! Ik zal je leren hoe je de documenten kunt bewerken en hoe je kunt bijdragen, met behulp van een paar commando's!",
+                    "updated": 1669573265963
                 }
             ]
         },
@@ -186,8 +276,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea!",
-                    "updated": 1628113581278,
+                    "text": "Prepararé los siguientes pasos con una pequeña historia... ¡Espero que te guste la idea!",
+                    "updated": 1675449337367,
                     "style": "Text"
                 },
                 {
@@ -199,6 +289,21 @@
                     "language": "TR",
                     "text": "Sonraki birkaç adımı küçük bir hikayeyle hazırlayacağım... Umarım fikri beğenirsiniz!",
                     "updated": 1639861563729
+                },
+                {
+                    "language": "RU",
+                    "text": "Я изложу следующие несколько шагов с помощью небольшой истории... Надеюсь, вам понравится идея!",
+                    "updated": 1640154447255
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku coba gunakan narasi cerita pada step berikutnya... Semoga kamu suka ide ini!",
+                    "updated": 1667871575241
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal de volgende paar stappen opzetten met een klein verhaal... Ik hoop dat je het idee leuk vindt!",
+                    "updated": 1669573279044
                 }
             ]
         }

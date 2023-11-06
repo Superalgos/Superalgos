@@ -1,7 +1,58 @@
 {
     "type": "Dynamic Indicators",
     "definition": {
-        "text": ""
+        "text": "",
+        "translations": [ ]
     },
-    "paragraphs": []
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A dynamic indicator is an indicator you define with a formula that is going to be calculated before the execution of the a cycle of the trading bot, directly at the trading bot process. This is in contrast to regular indicators that are pre-calculated in their own task / process, as part of a data mining operation. ",
+            "updated": 1648909571989,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dinamik bir gösterge, ticaret botunun bir döngüsünün yürütülmesinden önce, doğrudan ticaret botu sürecinde hesaplanacak bir formülle tanımladığınız bir göstergedir. Bu, bir veri madenciliği işleminin parçası olarak kendi görevlerinde / süreçlerinde önceden hesaplanan normal göstergelerin tersidir.",
+                    "updated": 1654391978345,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Dynamic Indicators are defined at the trading system level, and they are a very simple concept, just a formula that you can write, accessing from there any information on the existing data structures (tradingEngine, tradingSystem, sessionParameters, charts) and calculating anything you want with that. The results of your calculations can then be used in conditions and formulas at any point of your trading system. You might define as many Dynamic Indicators as you need.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dinamik Göstergeler ticaret sistemi düzeyinde tanımlanır ve çok basit bir kavramdır, sadece yazabileceğiniz bir formüldür, oradan mevcut veri yapıları (tradingEngine, tradingSystem, sessionParameters, grafikler) hakkındaki herhangi bir bilgiye erişir ve bununla istediğiniz her şeyi hesaplar. Hesaplamalarınızın sonuçları daha sonra ticaret sisteminizin herhangi bir noktasındaki koşullarda ve formüllerde kullanılabilir. İhtiyaç duyduğunuz kadar Dinamik Gösterge tanımlayabilirsiniz.",
+                    "updated": 1654391983821,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "After Dynamic Indicators are calculated, then the Trading System is run and they all calculated values are gone. When the trading bot runs again, the same process is executed, again and again.  ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dinamik Göstergeler hesaplandıktan sonra, Ticaret Sistemi çalıştırılır ve hesaplanan tüm değerler kaybolur. Ticaret botu tekrar çalıştığında, aynı işlem tekrar tekrar yürütülür.",
+                    "updated": 1654391989716,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Dynamic Indicators are also useful when you want to test new indicators ideas without having to go through the process of creating an indicator inside a Data Mine. Data Mine indicators have the advantage that they can be plotted (if you create a plotter for them) and their output can be consumed by other indicators or trading systems / strategies.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dinamik Göstergeler, bir Veri Madeni içinde bir gösterge oluşturma sürecinden geçmek zorunda kalmadan yeni gösterge fikirlerini test etmek istediğinizde de kullanışlıdır. Veri Madeni göstergeleri, çizilebilmeleri (onlar için bir çizici oluşturursanız) ve çıktılarının diğer göstergeler veya ticaret sistemleri / stratejileri tarafından tüketilebilmesi avantajına sahiptir.",
+                    "updated": 1654391995088,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
 }

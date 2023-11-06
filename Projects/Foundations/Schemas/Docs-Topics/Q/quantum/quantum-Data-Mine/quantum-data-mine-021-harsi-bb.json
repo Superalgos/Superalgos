@@ -1,0 +1,131 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 21,
+    "type": "HARSI-BB",
+    "definition": {
+        "text": "This script, originally made by javabgar on TradingView, translates the Heikin Ashi Candles over to an RSI oscillator, and includes Bollinger Bands to show clear trends in the market.",
+        "updated": 1661142181959,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieses Skript, das ursprünglich von javabgar auf TradingView erstellt wurde, übersetzt die Heikin Ashi Kerzen in einen RSI Oszillator und enthält Bollinger Bänder, um klare Markttrends anzuzeigen.",
+                "updated": 1671696900283
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "HARSI-BB On the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "HARSI-BB Auf den Charts",
+                    "updated": 1671696924066
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The HARSI-BB indicator uses the RSI as it's basis to show strength in a price trend. It then calculates the standard deviation to create a Bollinger Band style plot around the RSI values. ",
+            "updated": 1661142267102,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der HARSI-BB Indikator verwendet den RSI als Grundlage, um die Stärke eines Preistrends anzuzeigen. Er berechnet dann die Standardabweichung, um ein Bollinger Band ähnliches Diagramm um die RSI Werte zu erstellen.",
+                    "updated": 1671696964575
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Buy and Sell zones are then set up at the 30 and 70 lines respectively. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Kauf- und Verkaufszonen werden dann an der 30- bzw. 70-Linie eingerichtet.",
+                    "updated": 1671696986243
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A Heikin Ashi style histogram is then plotted using the RSI function as an input. This provides a potential buy/sell signal when the candles enter the respective zones.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anschließend wird ein Histogramm im Stil von Heikin Ashi gezeichnet, wobei die RSI Funktion als Eingabe dient. Dies liefert ein potenzielles Kauf-/Verkaufssignal, wenn die Kerzen in die entsprechenden Zonen eintreten.",
+                    "updated": 1671697013198
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-harsi-bb-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the HARSI-BB can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"HARSI-BB\" Product Definition.",
+            "updated": 1661142278633,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der HARSI-BB können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"HARSI-BB\" Product Definition suchen und öffnen.",
+                    "updated": 1671697072119
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-harsi-bb-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "HARSI Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "HARSI Produkte & Eigenschaften",
+                    "updated": 1671697088372
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| HARSI-BB | harsi-bb | rsi, HaOpen, HaClose, HaMax, HaMin, avg, upper1, upper2, lower1, lower2 |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| HARSI-BB | harsi-bb | rsi, HaOpen, HaClose, HaMax, HaMin, avg, upper1, upper2, lower1, lower2 |",
+                    "updated": 1671697108495
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671697130958
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the HA histogram enters the buy zone at 30 and then leaves it again:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn das HA Histogramm bei 30 in die Kaufzone eintritt und sie dann wieder verlässt:",
+                    "updated": 1671697159999
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.harsi-bb.previous.HaClose < 30 && chart.at15min.harsi-bb.HaClose > 0"
+        }
+    ]
+}

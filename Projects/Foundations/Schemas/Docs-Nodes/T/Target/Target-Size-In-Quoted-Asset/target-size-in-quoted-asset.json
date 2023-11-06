@@ -1,7 +1,19 @@
 {
     "type": "Target Size In Quoted Asset",
     "definition": {
-        "text": "Target size in quoted asset is used to define the size of the position, denominating it in the quoted asset."
+        "text": "Target size in quoted asset is used to define the size of the position, denominating it in the quoted asset.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Target Size In Quoted Asset используется для определения размера позиции, выраженного в котируемом активе.",
+                "updated": 1639823036847
+            },
+            {
+                "language": "TR",
+                "text": "Kote varlıkta hedef büyüklük, pozisyonun büyüklüğünü tanımlamak için kullanılır ve kote varlık cinsinden ifade edilir.",
+                "updated": 1655194848220
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +22,35 @@
         },
         {
             "style": "Text",
-            "text": "If you prefer to define the size of the position denominated in the quoted asset, then use this node and delete the target size in base asset node."
+            "text": "If you prefer to define the size of the position denominated in the quoted asset, then use this node and delete the target size in base asset node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы предпочитаете определять размер позиции, выраженной в котируемом активе, то используйте этот узел и удалите целевой размер в узле базового актива.",
+                    "updated": 1639823076998
+                },
+                {
+                    "language": "TR",
+                    "text": "Kote edilen varlık cinsinden pozisyonun boyutunu tanımlamayı tercih ederseniz, bu düğümü kullanın ve temel varlık düğümündeki hedef büyüklüğü (Target Size In Base Asset) silin.",
+                    "updated": 1655194953648
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Make sure you read the definition of the target size in base asset node to get the proper context for this definition."
+            "text": "Make sure you read the definition of the target size in base asset node to get the proper context for this definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обязательно прочитайте определение целевого размера в узле базовых активов, чтобы определить для этого правильный контекст.",
+                    "updated": 1639823159942
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tanımla ilgili optimum şartları elde etmek için temel varlık düğümündeki hedef boyut tanımını okuduğunuzdan emin olun.",
+                    "updated": 1655195022298
+                }
+            ]
         }
     ]
 }

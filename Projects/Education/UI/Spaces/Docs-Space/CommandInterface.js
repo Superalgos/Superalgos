@@ -43,7 +43,7 @@ function newFoundationsDocsCommmandInterface() {
             }
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
@@ -114,7 +114,7 @@ function newFoundationsDocsCommmandInterface() {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.CUSTOM_OK_RESPONSE.result) {
-                    if (data.message.summary.changes + data.message.summary.deletions + data.message.summary.insertions > 0) {
+                    if (data.message.reposUpdated === true) {
                         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Update Done - New Version Found')
                     } else {
                         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'App Message - Update Done - Already Up-To-Date')

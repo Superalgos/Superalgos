@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Здесь вы можете оставить свои отзывы и впечатления о проекте, чтобы другие могли их найти и прочитать.",
                 "updated": 1638553648223
+            },
+            {
+                "language": "TR",
+                "text": "Burası, başkalarının bulması ve okuması için proje hakkındaki geri bildirimlerinizi ve izlenimlerinizi bırakabileceğiniz yerdir.",
+                "updated": 1654419683323
+            },
+            {
+                "language": "DE",
+                "text": "Hier können Sie Ihr Feedback und Ihre Eindrücke über das Projekt hinterlassen, damit andere es finden und lesen können.",
+                "updated": 1685387499363
             }
         ]
     },
@@ -23,6 +33,17 @@
                     "language": "RU",
                     "text": "После того, как вы создадите свою собственную страницу отзыва как часть этой коллекции, вы сможете со временем редактировать ее и добавлять дополнительную информацию по мере развития вашего опыта работы с системой. Так что не волнуйтесь, прямо сейчас вы можете просто написать свои первые впечатления. Вы всегда сможете вернуться и дополнить свою страницу.",
                     "updated": 1638554113545
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu koleksiyonun bir parçası olarak kendi inceleme sayfanızı oluşturduktan sonra, zaman içinde düzenleyebilecek ve sistemle ilgili deneyiminiz geliştikçe daha fazla bilgi ekleyebileceksiniz. Yani, endişelenmeyin şu anda sadece ilk izlenimlerinizi yazabilirsiniz. Her zaman geri gelebilecek ve sayfanızı genişletebileceksiniz.",
+                    "updated": 1654419690477,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachdem Sie Ihre eigene Bewertungsseite als Teil dieser Sammlung erstellt haben, können Sie sie im Laufe der Zeit bearbeiten und weitere Informationen hinzufügen, je nachdem, wie sich Ihre Erfahrungen mit dem System entwickeln. Machen Sie sich also keine Sorgen, im Moment können Sie nur Ihre ersten Eindrücke schreiben. Sie können immer wieder zurückkommen und Ihre Seite erweitern.",
+                    "updated": 1685387516140
                 }
             ]
         },
@@ -35,6 +56,17 @@
                     "language": "RU",
                     "text": " Как добавить свой собственный отзыв",
                     "updated": 1638554011559
+                },
+                {
+                    "language": "TR",
+                    "text": "Kendi İncelemenizi nasıl eklersiniz",
+                    "updated": 1654419698195,
+                    "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Sie Ihre eigene Rezension hinzufügen",
+                    "updated": 1685387536213
                 }
             ]
         },
@@ -46,6 +78,17 @@
                     "language": "RU",
                     "text": "Чтобы добавить свою собственную страницу обзора проекта Superalgos Project, скопируйте и вставьте следующий код в строку поиска:",
                     "updated": 1638554154090
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Projesi ile ilgili kendi inceleme sayfanızı eklemek için aşağıdaki kodu kopyalayıp arama çubuğuna yapıştırın:",
+                    "updated": 1654419705824,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Ihre eigene Bewertungsseite des Superalgos-Projekts hinzuzufügen, kopieren Sie den folgenden Code und fügen Sie ihn in die Suchleiste ein:",
+                    "updated": 1685387544235
                 }
             ]
         },
@@ -69,6 +112,12 @@
                     "language": "RU",
                     "text": "YOUR REVIEW TITLE: Замените этот замещающий текст коротким заголовком для своей страницы обзора.",
                     "updated": 1638554248518
+                },
+                {
+                    "language": "TR",
+                    "text": "İNCELEME BAŞLIĞINIZ: İnceleme Sayfanızın kısa başlığı için bu yer tutucu metni değiştirin.",
+                    "updated": 1654419713503,
+                    "style": "List"
                 }
             ]
         },
@@ -81,6 +130,17 @@
                     "language": "RU",
                     "text": "Вам необходимо подписать свою страницу отзыва Review Page . В поле \"en\" текста введите свое имя пользователя Github.com. Это необходимо для добавления обзора в следующий выпуск Superalgos.",
                     "updated": 1638554375962
+                },
+                {
+                    "language": "TR",
+                    "text": "İnceleme Sayfanızı imzalamanız gerekmektedir. Metnin en başına Github.com kullanıcı adınızı yazın. İncelemenin Superalgos'un bir sonraki sürümüne eklenebilmesi için bunun mevcut olması gerekir.",
+                    "updated": 1654419720434,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen Ihre Review-Seite signieren. Geben Sie am Ende des Textes Ihren Github.com-Benutzernamen ein. Dieser muss vorhanden sein, damit die Rezension zur nächsten Version von Superalgos hinzugefügt werden kann.",
+                    "updated": 1685387557939
                 }
             ]
         },
@@ -92,6 +152,17 @@
                     "language": "RU",
                     "text": "Ваш отзыв будет добавлен в основной репозиторий после того, как вы отправите его в качестве вклада. Для этого необходимо выполнить:",
                     "updated": 1638554403365
+                },
+                {
+                    "language": "TR",
+                    "text": "İncelemeniz, katkı olarak gönderdiğinizde ana depoyla birleştirilecektir. Bunun için yürütmeniz gerekir:",
+                    "updated": 1654419729029,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre Rezension wird in das Haupt-Repository aufgenommen, sobald Sie sie als Beitrag einsenden. Dazu müssen Sie den Vorgang ausführen:",
+                    "updated": 1685387567172
                 }
             ]
         },

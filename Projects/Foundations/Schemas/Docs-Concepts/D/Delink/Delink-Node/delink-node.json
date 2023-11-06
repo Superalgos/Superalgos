@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Удаляет ссылку, которая могла существовать между узлами.",
                 "updated": 1638282887048
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm ile ikinci bir düğüm arasında var olabilecek referansı kaldırır.",
+                "updated": 1654390982947
+            },
+            {
+                "language": "DE",
+                "text": "Entfernt den Verweis, der möglicherweise zwischen dem Knoten und einem zweiten Knoten bestanden hat.",
+                "updated": 1696955464452
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638282899444
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654390988584,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1696955464609,
+                    "style": "Text"
                 }
             ]
         }

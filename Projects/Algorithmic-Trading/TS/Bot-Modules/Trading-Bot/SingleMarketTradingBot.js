@@ -87,7 +87,7 @@
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] run -> loop -> Waiting for " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run.")
 
-                        console.log(new Date().toISOString() + " " + pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName, 20) + " " + pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
+                        SA.logger.info(pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName, 20) + " " + pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
                             + " Waiting for " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run. ");
 
                         nextWaitTime = 'Waiting for Session';
@@ -98,6 +98,7 @@
                     /* We will prepare first the infrastructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
 
                     let processExecutionEvents
+                    let processTradingSignals
                     let userBot;
                     let processFramework;
                     let statusDependencies;
@@ -174,7 +175,7 @@
                                                 return
                                             }
 
-                                            initializeStatusDependencies();
+                                            initializeProcessTradingSignals();
                                             return;
                                         }
                                         case TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -210,6 +211,117 @@
                         } catch (err) {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] run -> loop -> startProcessExecutionEvents -> err = " + err.stack);
+                            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                            return
+                        }
+                    }
+
+                    function initializeProcessTradingSignals() {
+                        try {
+                            processTradingSignals = TS.projects.foundations.processModules.processTradingSignals.newFoundationsProcessModulesProcessTradingSignals(processIndex)
+                            processTradingSignals.initialize(onInizialized);
+
+                            function onInizialized(err) {
+                                try {
+                                    switch (err.result) {
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] run -> loop -> initializeProcessTradingSignals -> onInizialized -> Execution finished well.");
+                                            startProcessTradingSignals()
+                                            return;
+                                        }
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] run -> loop -> initializeProcessTradingSignals -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> initializeProcessTradingSignals -> onInizialized -> Operation Failed. Aborting the process.");
+                                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                            return
+                                        }
+                                        default: {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> initializeProcessTradingSignals -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> initializeProcessTradingSignals -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] run -> loop -> initializeProcessTradingSignals -> onInizialized -> err = " + err.stack);
+                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] run -> loop -> initializeProcessTradingSignals -> err = " + err.stack);
+                            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                            return
+                        }
+                    }
+
+                    function startProcessTradingSignals() {
+                        try {
+                            processTradingSignals.start(onStarted);
+
+                            function onStarted(err) {
+                                try {
+                                    switch (err.result) {
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] run -> loop -> startProcessTradingSignals -> onStarted -> Execution finished well.");
+
+                                            if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
+                                                loopControl()
+                                                return
+                                            }
+
+                                            initializeStatusDependencies();
+                                            return;
+                                        }
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] run -> loop -> startProcessTradingSignals -> onStarted -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> startProcessTradingSignals -> onStarted -> Operation Failed. Aborting the process.");
+                                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                            return
+                                        }
+                                        default: {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> startProcessTradingSignals -> onStarted -> Unhandled err.result received. -> err.result = " + err.result);
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> startProcessTradingSignals -> onStarted -> Unhandled err.result received. -> err = " + err.message);
+                                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] run -> loop -> startProcessTradingSignals -> onStarted -> err = " + err.stack);
+                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] run -> loop -> startProcessTradingSignals -> err = " + err.stack);
                             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                             return
@@ -434,7 +546,7 @@
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[INFO] run -> loop -> finishProcessExecutionEvents -> onFinished -> Execution finished well.");
                                             nextWaitTime = 'Normal';
-                                            loopControl(nextWaitTime);
+                                            finishProcessTradingSignals();
                                             return;
                                         }
                                         case TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -470,6 +582,62 @@
                         } catch (err) {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] run -> loop -> finishProcessExecutionEvents -> err = " + err.stack);
+                            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                            return
+                        }
+                    }
+
+                    function finishProcessTradingSignals() {
+                        try {
+                            processTradingSignals.finish(onFinished);
+
+                            function onFinished(err) {
+                                try {
+                                    processTradingSignals.finalize()
+                                    processTradingSignals = undefined
+
+                                    switch (err.result) {
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] run -> loop -> finishProcessTradingSignals -> onFinished -> Execution finished well.");
+                                            nextWaitTime = 'Normal';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] run -> loop -> finishProcessTradingSignals -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                            nextWaitTime = 'Retry';
+                                            loopControl(nextWaitTime);
+                                            return;
+                                        }
+                                        case TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> finishProcessTradingSignals -> onFinished -> Operation Failed. Aborting the process.");
+                                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                            return
+                                        }
+                                        default: {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> finishProcessTradingSignals -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] run -> loop -> finishProcessTradingSignals -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+                                            TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] run -> loop -> finishProcessTradingSignals -> onFinished -> err = " + err.stack);
+                                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
+                                    return
+                                }
+                            }
+                        } catch (err) {
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] run -> loop -> finishProcessTradingSignals -> err = " + err.stack);
                             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.foundations.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                             return
@@ -514,7 +682,10 @@
                                     break
                                 case 'Normal': {
                                     let waitTime
-                                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true) {
+                                    if (
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true ||
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_TRADING_SIGNAL_TO_ARRIVE === true
+                                    ) {
                                         waitTime = 0
                                     } else {
                                         switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {

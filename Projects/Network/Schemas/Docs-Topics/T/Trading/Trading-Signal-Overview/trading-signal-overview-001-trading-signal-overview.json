@@ -1,0 +1,117 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 1,
+    "type": "Trading Signal Overview",
+    "definition": {
+        "text": "Trading signals are the lifeblood of the Superalgos trading network. They allow the sharing of trading intelligence across the community in an extremely powerful and flexible fashion. ",
+        "updated": 1642463037757,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговые сигналы являются жизненной силой торговой сети Superalgos. Они позволяют обмениваться торговыми данными между членами сообщества чрезвычайно мощным и гибким способом.",
+                "updated": 1645623350482
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret ( Trading ) sinyalleri, Superalgos ticaret ağının can damarıdır. Ticaret istihbaratının topluluk genelinde son derece güçlü ve esnek bir şekilde paylaşılmasına izin verirler.",
+                "updated": 1646296280645
+            },
+            {
+                "language": "DE",
+                "text": "Handels (Trading) -Signale sind das Lebenselixier des Superalgos-Handelsnetzwerks. Sie ermöglichen den Austausch von Trading-Intelligenz innerhalb der Community in einer extrem leistungsstarken und flexiblen Art und Weise.",
+                "updated": 1674676624241
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To begin conceptualizing trading signals you can imagine sending and receiving packages from your friends or family. When you open packages like this you are excited to see what they have sent you. Sending and receiving trading signals is very similar!",
+            "updated": 1642463029210,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы понять, что такое торговые сигналы, вы можете представить, как вы отправляете и получаете посылки от своих друзей или родственников. Когда вы открываете такие посылки, вам не терпится увидеть, что они вам прислали. Отправка и получение торговых сигналов очень похожи!",
+                    "updated": 1645623406081
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sinyallerini kavramsallaştırmaya başlamak için arkadaşlarınızdan veya ailenizden paketler gönderip almayı hayal edebilirsiniz. Bunun gibi paketleri açtığınızda size ne gönderdiklerini görmek sizi heyecanlandırıyor. Ticaret sinyalleri göndermek ve almak buna çok benzer!",
+                    "updated": 1646296376673
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mit der Erklärung von Handelssignalen zu beginnen, stellen Sie sich vor, dass Sie Pakete von Ihren Freunden oder Ihrer Familie erhalten und versenden. Wenn Sie solche Pakete öffnen, freuen Sie sich darauf, zu sehen, was sie Ihnen geschickt haben. Das Versenden und Empfangen von Handelssignalen ist sehr ähnlich!",
+                    "updated": 1674676642091
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Packages can hold a whole assortment of goodies like treats, gifts, etc.  Trading signals are just as flexible as placing things in a cardboard box.  A signal provider can choose to share any kind of information coming out of a trading strategy, trading engine, or indicator calculations, just to name a few!  This flexibility means that, unlike conventional signal providing services, the trading signals themselves can grow and adjust with the needs of both signal providers and signal recipients.  We’ll get more into just how flexible signals really are in a bit.  But before that, let’s talk a bit more about how signals can be used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В посылках может храниться целый ассортимент лакомств, таких как угощения, подарки и т.д. Торговые сигналы являются столь же гибкими, как и размещение вещей в картонной коробке. Поставщик сигналов может выбрать для обмена любую информацию, поступающую от торговой стратегии, торгового механизма или расчетов индикаторов, и это только некоторые из них! Такая гибкость означает, что, в отличие от обычных сервисов по предоставлению сигналов, сами торговые сигналы могут расти и корректироваться в зависимости от потребностей как поставщиков сигналов, так и их получателей. О том, насколько гибкими на самом деле являются сигналы, мы расскажем чуть позже. Но прежде давайте поговорим о том, как можно использовать сигналы.",
+                    "updated": 1645623489515
+                },
+                {
+                    "language": "TR",
+                    "text": "Paketler, ikramlar, hediyeler vb. gibi çok çeşitli güzellikleri barındırabilir. Ticaret sinyalleri, eşyaları bir karton kutuya yerleştirmek kadar esnektir. Bir sinyal sağlayıcı, bir ticaret stratejisinden, ticaret motorundan veya gösterge hesaplamalarından çıkan her türlü bilgiyi paylaşmayı seçebilir, bunlardan sadece birkaçını sayabiliriz! Bu esneklik, geleneksel sinyal sağlama hizmetlerinden farklı olarak, ticaret sinyallerinin kendilerinin büyüyebileceği ve hem sinyal sağlayıcıların hem de sinyal alıcılarının ihtiyaçlarına göre ayarlanabileceği anlamına gelir. Sinyallerin gerçekte ne kadar esnek olduğuna birazdan daha fazla gireceğiz. Ama ondan önce, sinyallerin nasıl kullanılabileceği hakkında biraz daha konuşalım.",
+                    "updated": 1646296573277
+                },
+                {
+                    "language": "DE",
+                    "text": "Pakete können ein ganzes Sortiment an Leckereien wie Süßigkeiten, Geschenke usw. enthalten. Handels (Trading) -signale sind genauso flexibel, wie Dinge in einen Karton zu packen. Ein Signalanbieter kann jede Art von Information weitergeben, die aus einer Handelsstrategie, einer Handelsmaschine oder einer Indikatorberechnung stammt, um nur einige zu nennen! Diese Flexibilität bedeutet, dass die Handelssignale selbst im Gegensatz zu konventionellen Signaldiensten mit den Bedürfnissen der Signalanbieter und Signalempfänger wachsen und sich anpassen können. Wie flexibel Signale wirklich sind, werden wir gleich noch genauer erläutern. Doch zuvor wollen wir noch ein wenig darüber sprechen, wie Signale genutzt werden können.",
+                    "updated": 1674676681013
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "As mentioned before, trading signals are in essence packages of trading intelligence.  Things like take position rates, stop loss parameters, or any other information can be sent by signal providers in order to be helpful to other traders.  Because signals can have such a wide array of information in them, Superalgos does not force the recipient of a signal to use it in any particular way. Receiving a signal is like taking a package off of your front porch and looking through it to find what is useful for you.  You can think of signals as simply resources available to be consumed by your trading systems and bots.  ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как уже говорилось, торговые сигналы - это, по сути, пакеты торгового интеллекта. Такие вещи, как ставки на взятие позиции, параметры стоп-лосса или любая другая информация, могут быть отправлены поставщиками сигналов, чтобы быть полезными для других трейдеров. Поскольку сигналы могут содержать такой широкий спектр информации, Superalgos не заставляет получателя сигнала использовать его каким-то определенным образом. Получение сигнала - это как взять посылку с крыльца и просмотреть ее в поисках полезного для себя. Вы можете рассматривать сигналы как просто ресурсы, доступные для потребления вашими торговыми системами и ботами.",
+                    "updated": 1645623578051
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce de belirtildiği gibi, ticaret sinyalleri özünde ticaret zekası paketleridir. Pozisyon alma oranları, zararı durdurma parametreleri veya diğer bilgiler gibi şeyler, diğer tüccarlara yardımcı olmak için sinyal sağlayıcılar tarafından gönderilebilir. Sinyaller çok geniş bir bilgi dizisine sahip olabileceğinden, Superalgos bir sinyalin alıcısını onu herhangi bir şekilde kullanmaya zorlamaz. Bir sinyal almak, ön verandanızdan bir paket alıp sizin için neyin yararlı olduğunu bulmak için ona bakmak gibidir. Sinyalleri, ticaret sistemleriniz ve botlarınız tarafından tüketilebilecek basit kaynaklar olarak düşünebilirsiniz.",
+                    "updated": 1646296636101
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie bereits erwähnt, sind Handelssignale im Wesentlichen Pakete mit Handelsinformationen. Dinge wie Take-Position-Raten, Stop-Loss-Parameter oder andere Informationen können von Signalanbietern gesendet werden, um für andere Händler hilfreich zu sein. Da Signale ein so breites Spektrum an Informationen enthalten können, zwingt Superalgos den Empfänger eines Signals nicht dazu, es auf eine bestimmte Art zu nutzen. Der Empfang eines Signals ist so, als ob Sie ein Paket von Ihrer Veranda nehmen und es durchsehen, um das zu finden, was für Sie nützlich ist. Sie können die Signale einfach als Ressourcen betrachten, die von Ihren Handelssystemen und Bots genutzt werden können.",
+                    "updated": 1674676692622
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For example, let’s say a provider sends a signal that contains the following information: when a position is opened or closed, what rate the position was opened or closed at, and the stop loss for the position.  Within your trading system, you can do any number of things with this signal information.  You could take this signal and hook it directly up to a trading bot to open and close exactly at the same time and rate as the signal provider.  Or you could check the signal for when a position is opened and then make a decision to actually open a position based on other indicators or trading logic held within your own trading strategy. Or you could open a position based on the signal but calculate your own rate.  Signal information does not force your bots to do anything, it is completely up to you how the signal is interpreted!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, допустим, поставщик посылает сигнал, который содержит следующую информацию: когда позиция была открыта или закрыта, по какой ставке позиция была открыта или закрыта, а также стоп-лосс для позиции. В рамках вашей торговой системы вы можете сделать с этой сигнальной информацией любое количество вещей. Вы можете взять этот сигнал и подключить его непосредственно к торговому боту, чтобы он открывал и закрывал позиции точно в то же время и по той же ставке, что и поставщик сигнала. Или вы можете проверить сигнал на момент открытия позиции, а затем принять решение об открытии позиции на основе других индикаторов или торговой логики, заложенной в вашей собственной торговой стратегии. Или вы можете открыть позицию на основе сигнала, но рассчитать свой собственный курс. Информация о сигнале не заставляет ваших ботов что-либо делать, интерпретация сигнала полностью зависит от вас!",
+                    "updated": 1645623629544
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, bir sağlayıcının şu bilgileri içeren bir sinyal gönderdiğini varsayalım: bir pozisyon açıldığında veya kapatıldığında, pozisyonun hangi oranda açıldığı veya kapatıldığı ve pozisyon için stop loss. Alım satım sisteminizde bu sinyal bilgileriyle istediğiniz kadar şey yapabilirsiniz. Bu sinyali alabilir ve sinyal sağlayıcı ile tam olarak aynı anda açılıp kapanması ve oranlanması için doğrudan bir ticaret botuna bağlayabilirsiniz. Veya bir pozisyonun ne zaman açıldığını gösteren sinyali kontrol edebilir ve ardından diğer göstergelere veya kendi alım satım stratejiniz dahilinde tutulan alım satım mantığına dayalı olarak bir pozisyon açmaya karar verebilirsiniz. Veya sinyale göre bir pozisyon açabilir, ancak kendi oranınızı hesaplayabilirsiniz. Sinyal bilgisi botlarınızı bir şey yapmaya zorlamaz, sinyalin nasıl yorumlanacağı tamamen size kalmış!",
+                    "updated": 1646296716071
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, ein Anbieter sendet ein Signal, das die folgenden Informationen enthält: wann eine Position eröffnet oder geschlossen wurde, zu welchem Kurs die Position eröffnet oder geschlossen wurde und den Stop-Loss für die Position. Innerhalb Ihres Handelssystems können Sie mit diesen Signalen eine ganze Reihe von Dingen tun. Sie können dieses Signal direkt mit einem Handelsroboter verbinden, der die Position genau zur gleichen Zeit und zum gleichen Kurs wie der Signalanbieter öffnet und schließt. Sie könnten das Signal daraufhin überprüfen, wann eine Position eröffnet wird, und dann auf der Grundlage anderer Indikatoren oder der Handelslogik Ihrer eigenen Handelsstrategie die Entscheidung treffen, eine Position zu eröffnen. Außerdem können Sie eine Position auf der Grundlage des Signals eröffnen, aber Ihren eigenen Kurs berechnen. Die Informationen des Signals zwingen Ihre Bots nicht dazu, irgendetwas zu tun, es liegt ganz bei Ihnen, wie das Signal interpretiert wird!",
+                    "updated": 1674755622576
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

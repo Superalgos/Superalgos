@@ -2,12 +2,37 @@
     "type": "Data Label",
     "definition": {
         "text": "A single individual Output Label.",
-        "updated": 1615896281923
+        "updated": 1615896281923,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отдельная индивидуальная выходная метка (Output Label).",
+                "updated": 1645247247990
+            },
+            {
+                "language": "TR",
+                "text": "Tek bir bireysel Çıktı Etiketi.",
+                "updated": 1654396926422
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
+                    "updated": 1645247255450
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654396933643,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

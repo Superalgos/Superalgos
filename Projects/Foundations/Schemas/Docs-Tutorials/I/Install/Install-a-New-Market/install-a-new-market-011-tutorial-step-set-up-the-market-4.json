@@ -12,13 +12,28 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Etiqueta el Market con los nombres de ticker correspondientes a el Market Base Asset ay el Market Quoted Asset, al igual que la lista de exchange.",
-                "updated": 1629247010585
+                "text": "Etiqueta el Market con los nombres de ticker correspondientes a el Market Base Asset y el Market Quoted Asset, al igual que la lista de exchange.",
+                "updated": 1682427458073
             },
             {
                 "language": "DE",
                 "text": "Beschriften Sie den Market mit den Tickernamen, die dem Market Base Asset und dem Market Quoted Asset entsprechen, genau wie bei der Börsennotierung.",
                 "updated": 1636093674049
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Borsayı ( Market ), tıpkı hisse senedi listeleme için yaptığınız gibi, Borsa Temel Varlığına ( Market Base Asset ) ve Piyasa Kote Varlığına ( Market Quoted Asset ) karşılık gelen hisse senedi adlarıyla etiketleyin.",
+                "updated": 1642149245712
+            },
+            {
+                "language": "RU",
+                "text": "Пометьте Market тикерными именами, соответствующими Market Base Asset и Market Quoted Asset, подобно биржевому листингу.",
+                "updated": 1643090585605
+            },
+            {
+                "language": "NL",
+                "text": "Label de Market met het tokenpaar die overeenkomen met de Market Base Asset en de Market Quoted Asset, zoals geregistreerd bij het handelsplatform.",
+                "updated": 1676124853436
             }
         ]
     },
@@ -37,6 +52,21 @@
                     "language": "DE",
                     "text": "Zum Beispiel: ETH/USDT",
                     "updated": 1636093747607
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Not: Örneğin: ETH/USDT.",
+                    "updated": 1642149266099
+                },
+                {
+                    "language": "RU",
+                    "text": "Например: ETH/USDT.",
+                    "updated": 1643090594424
+                },
+                {
+                    "language": "NL",
+                    "text": "Bijvoorbeeld: ETH/USDT.",
+                    "updated": 1676124876905
                 }
             ]
         },
@@ -53,6 +83,21 @@
                     "language": "DE",
                     "text": "Ein aufgeräumter Workspace mit den richtigen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung großer Vorgänge und der Beherrschung der Komplexität. Diese Bezeichnungen können von anderen Knoten verwendet werden!",
                     "updated": 1636093838222
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Önemli düğümler için uygun etiketlerle düzenli bir çalışma alanı ( Workspace ) sağlamak, büyük operasyonların yönetilmesine ve karmaşıklığın yönetilmesine yardımcı olur. Bu etiketler diğer düğümler tarafından kullanılabilir!",
+                    "updated": 1642150737186
+                },
+                {
+                    "language": "RU",
+                    "text": "Поддержание опрятного рабочего пространства с соответствующими метками для значимых узлов помогает в управлении большими операциями и администрировании сложностей. Эти метки могут быть использованы другими узлами!",
+                    "updated": 1643090610545
+                },
+                {
+                    "language": "NL",
+                    "text": "Een opgeruimde Workspace met de juiste labels voor belangrijke knooppunten helpt bij het beheren van grote bewerkingen en het beheren van complexiteit. Deze labels kunnen door andere nodes worden gebruikt!",
+                    "updated": 1676124900957
                 }
             ]
         }

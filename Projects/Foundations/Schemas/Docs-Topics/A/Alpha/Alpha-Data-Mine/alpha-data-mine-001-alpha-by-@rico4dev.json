@@ -1,25 +1,84 @@
 {
     "topic": "Alpha Data Mine",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Alpha By @rico4dev",
     "definition": {
         "text": "The set of indicators built in the Alpha data mine include Average True Range (ATR), Rate of Change (ROC), and Stochastic.",
-        "updated": 1611684891911
+        "updated": 1611684891911,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zu den in der Alpha-Datenmine erstellten Indikatoren gehören Average True Range (ATR), Rate of Change (ROC) und Stochastic.",
+                "updated": 1641914227904
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Alfa veri madeninde oluşturulan göstergeler arasında Ortalama Gerçek Aralık (ATR), Değişim Oranı (ROC) ve Stokastik bulunur.",
+                "updated": 1643291932952
+            },
+            {
+                "language": "RU",
+                "text": "Набор индикаторов, встроенных в иточник данных Alpha, включает в себя Average True Range (ATR), Rate of Change (ROC) и Stochastic.",
+                "updated": 1643347978835
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Alpha data mine is brought to you by...",
-            "updated": 1611764233624
+            "updated": 1611764233624,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Alpha-Datenmine wird Ihnen präsentiert von...",
+                    "updated": 1641914238756
+                },
+                {
+                    "language": "TR",
+                    "text": "Alfa veri madeni tarafından sizlere sunulmuştur...",
+                    "updated": 1643291944607
+                },
+                {
+                    "language": "RU",
+                    "text": "Источник данных Alpha предоставил вам...",
+                    "updated": 1643348028717
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "@rico4dev->github.com/rico4dev",
-            "updated": 1611684986550
+            "updated": 1611684986550,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "@rico4dev->github.com/rico4dev",
+                    "updated": 1654392717892,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Collaborate with this data mine and report issues directly at the contributor’s repository."
+            "text": "Collaborate with this data mine and report issues directly at the contributor’s repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Arbeiten Sie mit dieser Datenmine zusammen und melden Sie Probleme direkt an das Repository der Mitwirkenden.",
+                    "updated": 1641914649557
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu veri madeni ile işbirliği yapın ve sorunları doğrudan katkıda bulunanlar havuzuna bildirin.",
+                    "updated": 1643291957268
+                },
+                {
+                    "language": "RU",
+                    "text": "Сотрудничайте с этим источником данных и сообщайте о проблемах непосредственно в репозитории разработчика.",
+                    "updated": 1643348053257
+                }
+            ]
         }
     ]
 }

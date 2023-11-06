@@ -4,13 +4,182 @@
     "type": "Volume Weighted Moving Average",
     "definition": {
         "text": "The Volume-Weighted Moving Average (VWMA) emphasizes volume by weighing prices based on the amount of trading activity in a given period of time. In periods of low market volume, the SMA and the VWMA are close in value. The indicator can be used to identify and trade trends.",
-        "updated": 1622696264788
+        "updated": 1622696264788,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Скользящая средняя, взвешенная по объему (Volume-Weighted Moving Average, VWMA) подчеркивает объем, взвешивая цены на основе объема торговой активности за определенный период времени. В периоды низкого объема рынка SMA и VWMA близки по значению. Индикатор можно использовать для выявления и торговли трендами.",
+                "updated": 1645610897473
+            },
+            {
+                "language": "DE",
+                "text": "Der volumengewichtete gleitende Durchschnitt (VWMA) hebt das Volumen hervor, indem er die Preise auf der Grundlage der Handelsaktivität in einem bestimmten Zeitraum gewichtet. In Zeiten geringen Marktvolumens liegen der SMA und der VWMA im Wert nahe beieinander. Der Indikator kann verwendet werden, um Trends zu erkennen und zu handeln.",
+                "updated": 1647934752292
+            },
+            {
+                "language": "TR",
+                "text": "Hacim Ağırlıklı Hareketli Ortalama (VWMA), belirli bir zaman dilimindeki alım satım faaliyeti miktarına göre fiyatları tartarak hacmi vurgular. Piyasa hacminin düşük olduğu dönemlerde, SMA ve VWMA birbirine yakın değerdedir. Gösterge, trendleri belirlemek ve ticaret yapmak için kullanılabilir.",
+                "updated": 1697835253995
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645610903009
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-VWMA.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Volume Weighted Moving Average indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’VWMA’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Период расчета индикатора Volume Weighted Moving Average можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization под продуктом 'VWMA' Product Definition.",
+                    "updated": 1645610920050
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Berechnung des Volume Weighted Moving Average Indikators kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter  ’VWMA’ Product Definition suchen und öffnen.",
+                    "updated": 1647934853144
+                },
+                {
+                    "language": "TR",
+                    "text": "Hacim Ağırlıklı Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'VWMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835284806
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-VWMA-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645610926477
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1647934888477
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835293378
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645610931992
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1647934897259
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835296311
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volume Weighted Moving Average | VWMA | vwma |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volume Weighted Moving Average | VWMA | vwma |\n",
+                    "updated": 1647934931514
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645610938217
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1647934962038
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835301022
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The VWMA indicator could be used to generate a buy signal when a candle closes above the VWMA:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор VWMA можно использовать для генерации сигнала на покупку, когда свеча закрывается выше VWMA:",
+                    "updated": 1645610945639
+                },
+                {
+                    "language": "DE",
+                    "text": "Der VWMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des VWMA schließt:",
+                    "updated": 1647934981008
+                },
+                {
+                    "language": "TR",
+                    "text": "VWMA göstergesi, bir mum VWMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697835304618
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.VWMA.vwma",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1647935001057
+                }
+            ]
         },
         {
             "style": "Link",

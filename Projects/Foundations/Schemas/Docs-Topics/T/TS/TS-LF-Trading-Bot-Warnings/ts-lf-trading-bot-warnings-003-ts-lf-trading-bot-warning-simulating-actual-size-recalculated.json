@@ -4,25 +4,110 @@
     "type": "TS LF Trading Bot Warning - Simulating - Actual Size Recalculated",
     "definition": {
         "text": "The Actual Size was recalculated because the Actual Rate is different than the Order Rate.",
-        "updated": 1611817875294
+        "updated": 1611817875294,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Actual Size был пересчитан, потому что Actual Rate отличается от Order Rate.",
+                "updated": 1645629968495
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gerçek Oran ( Actual Rate ), Emir Oranından ( Order Rate ) farklı olduğu için Gerçek Boyut ( Actual Rate ) yeniden hesaplandı.",
+                "updated": 1647171227928
+            },
+            {
+                "language": "DE",
+                "text": "Die tatsächliche Größe (Actual Size) wurde neu berechnet, weil der tatsächliche Satz (Actual Rate) sich vom Auftragssatz (Order Rate) unterscheidet.",
+                "updated": 1681145451235
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611922824768
+            "updated": 1611922824768,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не является ошибкой и может быть нормальным поведением. Торговый бот создал это предупреждение, чтобы сообщить вам, что это произошло, чтобы вы могли отследить все детали сделки, если вам это понадобится. На этой странице представлена информация, которая должна помочь вам понять контекст предупреждения.",
+                    "updated": 1645629979719
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Ticaret botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar.",
+                    "updated": 1647171274542
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681145478316
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Actual Size Recalculated"
+            "text": "Actual Size Recalculated",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Actual Size пересчитан",
+                    "updated": 1645629989822
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Gerçek Boyut ( Actual Size ) Yeniden Hesaplandı",
+                    "updated": 1647171314204
+                },
+                {
+                    "language": "DE",
+                    "text": "Tatsächliche Größe (Actual Size) neu berechnet",
+                    "updated": 1681145488853
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Контекстная информация",
+                    "updated": 1645629999575
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik Bilgisi",
+                    "updated": 1647171349898
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681145495763
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены значения переменных, относящихся к предупреждению на момент его создания. Они могут оказаться полезными для понимания того, что произошло.",
+                    "updated": 1645630004506
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
+                    "updated": 1647171368077
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681145503951
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -30,12 +115,46 @@
         },
         {
             "style": "Title",
-            "text": "Function Involved"
+            "text": "Function Involved",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вовлеченная функция",
+                    "updated": 1645630015127
+                },
+                {
+                    "language": "TR",
+                    "text": "İlgili Fonksiyon",
+                    "updated": 1647171388458
+                },
+                {
+                    "language": "DE",
+                    "text": "Betroffene Funktion",
+                    "updated": 1681145521713
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This warning was triggered at the Recalculate Actual Size Function within the LF Trading Bot.",
-            "updated": 1611818476005
+            "updated": 1611818476005,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это предупреждение было вызвано функцией Recalculate Actual Size Function в LF Trading Bot.",
+                    "updated": 1645630021714
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu uyarı, LF Ticaret Botu ( LF Trading Bot ) içindeki Gerçek Boyutu ( Actual Size ) Yeniden Hesapla İşlevinde tetiklendi.",
+                    "updated": 1647171427063
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Warnung wurde durch die Funktion \"Recalculate Actual Size\" (Actual Size) im LF Trading Bot ausgelöst.",
+                    "updated": 1681145535814
+                }
+            ]
         },
         {
             "style": "Include",
@@ -44,15 +163,61 @@
         },
         {
             "style": "Title",
-            "text": "Learn More"
+            "text": "Learn More",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнать больше",
+                    "updated": 1645630029795
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha Fazlasını Öğrenin",
+                    "updated": 1647171454166
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681145568905
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To learn more about this topic, please read the following page:"
+            "text": "To learn more about this topic, please read the following page:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать больше об этой теме, прочтите следующую страницу:",
+                    "updated": 1645630036546
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konu hakkında daha fazla bilgi için lütfen aşağıdaki sayfayı okuyun:",
+                    "updated": 1647171462646
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite: ",
+                    "updated": 1681145559015
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Simulating Sync With the Exchange"
+            "text": "Simulating Sync With the Exchange",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
+                    "updated": 1647171488647
+                },
+                {
+                    "language": "DE",
+                    "text": "Synchronisierung mit Exchange simulieren (Simulating Sync With the Exchange)",
+                    "updated": 1681145550384
+                }
+            ]
         },
         {
             "style": "Text",

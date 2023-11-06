@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Этот тип ошибки означает, что свойство в конфигурации узла Node ожидается, но не было найдено там. Чтобы избежать ошибок этого типа, проверьте конфигурацию узла и добавьте недостающее свойство.",
                 "updated": 1638553317334
+            },
+            {
+                "language": "DE",
+                "text": "Diese Art von Fehler bedeutet, dass eine Eigenschaft in der Konfiguration eines Nodes erwartet, aber dort nicht gefunden wurde. Um diese Art von Fehlern zu vermeiden, überprüfen Sie die Konfiguration des Nodes und fügen Sie die fehlende Eigenschaft hinzu.",
+                "updated": 1645478433142
+            },
+            {
+                "language": "TR",
+                "text": "Bu tür bir hata, bir düğümün yapılandırmasındaki bir özelliğin beklendiği ancak orada bulunmadığı anlamına gelir. Bu tür hatalardan kaçınmak için düğümün yapılandırmasını kontrol edin ve eksik özelliği ekleyin.",
+                "updated": 1652297151551
             }
         ]
     },
@@ -22,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1638553331760
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652297120828
                 }
             ]
         }

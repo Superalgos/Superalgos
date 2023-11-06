@@ -13,10 +13,10 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Raise Event Rules",
-            "relatedUiObject": "Raise Event Rules",
+            "label": "Add Set Event Rules",
+            "relatedUiObject": "Set Event Rules",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "raiseEventRules",
+            "propertyToCheckFor": "setEventRules",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -35,7 +35,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio System->"
+        "compatibleTypes": "->Managed Session Reference->"
     },
     "childrenNodesProperties": [
         {
@@ -44,9 +44,9 @@
             "childType": "Confirm Event Rules"
         },
         {
-            "name": "raiseEventRules",
+            "name": "setEventRules",
             "type": "node",
-            "childType": "Raise Event Rules"
+            "childType": "Set Event Rules"
         }
     ],
     "propertyNameAtParent": "eventsManager"

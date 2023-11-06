@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Rest of the Crew!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bot-layers"
+            "name": "Layer/bot-layers",
+            "project": "Foundations"
         },
         "text": "The rest of the layers are virtually self-explanatory once you understand the standard workings... so, I'll be brief!",
         "translations": [
@@ -13,6 +13,26 @@
                 "language": "DE",
                 "text": "Der Rest der Ebenen ist praktisch selbsterklärend, wenn man die Standardfunktionen verstanden hat... ich werde mich also kurz fassen!",
                 "updated": 1639145988511
+            },
+            {
+                "language": "RU",
+                "text": "Остальные слои практически не требуют пояснений, как только вы поймете стандартную схему работы... поэтому я буду краток!",
+                "updated": 1640631657429
+            },
+            {
+                "language": "TR",
+                "text": "Standart işleyişi anladığınızda, katmanların geri kalanı neredeyse kendi kendini açıklayıcıdır... o yüzden kısa keseceğim!",
+                "updated": 1642518394960
+            },
+            {
+                "language": "ID",
+                "text": "Layer lainnya sudah cukup jelas setelah kamu memahami cara kerja standarnya... jadi, aku akan menjelaskannya secara singkat saja!",
+                "updated": 1674104741593
+            },
+            {
+                "language": "ES",
+                "text": "El resto de las capas son prácticamente autoexplicativas una vez que se entiende el funcionamiento estándar... así que, ¡seré breve!",
+                "updated": 1675468865885
             }
         ]
     },
@@ -26,6 +46,26 @@
                     "language": "DE",
                     "text": "Status: für Knoten, die einen haben!",
                     "updated": 1639145997582
+                },
+                {
+                    "language": "RU",
+                    "text": "Status: для узлов, у которых он есть!",
+                    "updated": 1640631674856
+                },
+                {
+                    "language": "TR",
+                    "text": "Status: Bir tane olan düğümler için!",
+                    "updated": 1642518430187
+                },
+                {
+                    "language": "ID",
+                    "text": "Status: untuk node yang memilikinya!",
+                    "updated": 1674104777275
+                },
+                {
+                    "language": "ES",
+                    "text": "Estado: para los nodos que tienen uno.",
+                    "updated": 1675468885024
                 }
             ]
         },
@@ -38,6 +78,26 @@
                     "language": "DE",
                     "text": "Progress: Fortschritt für Knoten, die eine Fortschrittsanzeige haben können!",
                     "updated": 1639146022770
+                },
+                {
+                    "language": "RU",
+                    "text": "Progress: для узлов, которые могут содержать индикацию прогресса!",
+                    "updated": 1640631688274
+                },
+                {
+                    "language": "TR",
+                    "text": "Progress: İlerleme belirtisi gösterebilecek düğümler için!",
+                    "updated": 1642518469644
+                },
+                {
+                    "language": "ID",
+                    "text": "Progress: untuk node yang mungkin menampilkan indikasi kemajuan!",
+                    "updated": 1674104788504
+                },
+                {
+                    "language": "ES",
+                    "text": "Progreso: para los nodos que pueden presentar una indicación de progreso.",
+                    "updated": 1675468893729
                 }
             ]
         },
@@ -50,6 +110,26 @@
                     "language": "DE",
                     "text": "Running:  für Knoten, die zu bestimmten Zeitpunkten ausgewertet werden!",
                     "updated": 1639146027793
+                },
+                {
+                    "language": "RU",
+                    "text": "Running: для узлов, которые вычисляются в определенные моменты времени!",
+                    "updated": 1640631706806
+                },
+                {
+                    "language": "TR",
+                    "text": "Running: Zaman içinde belirli noktalarda değerlendirilen düğümler için!",
+                    "updated": 1642518493741
+                },
+                {
+                    "language": "ID",
+                    "text": "Running: untuk node yang dievaluasi pada titik waktu tertentu!",
+                    "updated": 1674104798817
+                },
+                {
+                    "language": "ES",
+                    "text": "En ejecución: para los nodos que se evalúan en determinados momentos.",
+                    "updated": 1675468901191
                 }
             ]
         },
@@ -62,6 +142,26 @@
                     "language": "DE",
                     "text": "Announcements:  für Ankündigungen, die im Trading System eingestellt sind, derzeit über Telegram!",
                     "updated": 1639146037820
+                },
+                {
+                    "language": "RU",
+                    "text": "Announcements: для уведомлений, установленных в торговой системе, в настоящее время транслируется через Telegram!",
+                    "updated": 1640631735981
+                },
+                {
+                    "language": "TR",
+                    "text": "Announcements: Şu anda Telegram üzerinden yayınlanan ticaret sisteminde kurulan duyurular için!",
+                    "updated": 1642518509730
+                },
+                {
+                    "language": "ID",
+                    "text": "Announcements: untuk pengumuman yang dipasang di trading system, yang saat ini disiarkan melalui Telegram!",
+                    "updated": 1674104810269
+                },
+                {
+                    "language": "ES",
+                    "text": "Anuncios: para anuncios establecidos en el sistema de trading, ¡actualmente emitidos a través de Telegram!",
+                    "updated": 1675468917204
                 }
             ]
         },
@@ -74,6 +174,26 @@
                     "language": "DE",
                     "text": "Warnings: wenn etwas Ungewöhnliches passiert, aber nicht als Fehler angesehen wird! Ein ausführlicher Modus, wenn man so will.",
                     "updated": 1639146046558
+                },
+                {
+                    "language": "RU",
+                    "text": "Warnings: когда происходит что-то необычное, но это не считается ошибкой! Это, если хотите, более подробный режим.",
+                    "updated": 1640631774014
+                },
+                {
+                    "language": "TR",
+                    "text": "Warnings: Olağandışı bir şey olduğunda, ancak bir hata olarak kabul edilmediğinde!",
+                    "updated": 1642518535066
+                },
+                {
+                    "language": "ID",
+                    "text": "Warnings: ketika sesuatu yang tidak biasa terjadi tetapi tidak dianggap sebagai kesalahan! sebuah mode verbose, jika kamu mau.",
+                    "updated": 1674104823073
+                },
+                {
+                    "language": "ES",
+                    "text": "Advertencias: ¡cuando ocurre algo inusual pero no se considera un error! Un modo verboso, por así decirlo.",
+                    "updated": 1675468928646
                 }
             ]
         },
@@ -86,6 +206,26 @@
                     "language": "DE",
                     "text": "System Info: kann auf vielen Knotenpunkten angezeigt werden, eine Art ausführlicher Modus.",
                     "updated": 1639146061686
+                },
+                {
+                    "language": "RU",
+                    "text": "Warnings: когда происходит что-то необычное, но это не считается ошибкой! Это, так сказать, подробный режим.",
+                    "updated": 1640631851496
+                },
+                {
+                    "language": "TR",
+                    "text": "System Info: bir tür ayrıntılı mod gibi birçok düğümde görüntülenebilir.",
+                    "updated": 1642518560613
+                },
+                {
+                    "language": "ID",
+                    "text": "System Info: dapat ditampilkan di banyak node, seperti mode verbose.",
+                    "updated": 1674104833800
+                },
+                {
+                    "language": "ES",
+                    "text": "Información del sistema: puede mostrarse en muchos nodos, algo así como un modo verboso.",
+                    "updated": 1675468938864
                 }
             ]
         }

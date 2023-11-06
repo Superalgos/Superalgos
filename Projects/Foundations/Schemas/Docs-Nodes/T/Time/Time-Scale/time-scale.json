@@ -71,12 +71,12 @@
         },
         {
             "style": "Text",
-            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, in both, or none (manual mode).",
+            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Native Workspaces. The scale may be automatic in its minimum value, in its maximum value, in both, or none (manual mode).",
             "updated": 1616506577511,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Plugin Workspaces. Шкала может быть автоматической с минимальным значением, максимальным значением, с обоими значениями или без (ручной режим).",
+                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Native Workspaces. Шкала может быть автоматической с минимальным значением, максимальным значением, с обоими значениями или без (ручной режим).",
                     "updated": 1639379000530
                 }
             ]

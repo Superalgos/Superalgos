@@ -1,0 +1,27 @@
+{
+    "type": "P2P Network",
+    "definition": {
+        "text": "Write the definition for this Node.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu Düğüm için tanımı yazın.",
+                "updated": 1654395836533
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654395843280,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

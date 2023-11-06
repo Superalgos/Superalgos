@@ -1,13 +1,23 @@
 {
     "type": "Current Workspace",
     "definition": {
-        "text": "The Current Workspace is the Workspace currently loaded in the UI. It may be either a User Workspace or a Plugin Workspace.",
+        "text": "The Current Workspace is the Workspace currently loaded in the UI. It may be either a User Workspace or a Native Workspace.",
         "updated": 1629993045840,
         "translations": [
             {
                 "language": "RU",
-                "text": "Current Workspace - это рабочая область Workspace, загруженная в данный момент в пользовательский интерфейс UI. Это может быть рабочая область пользователя или рабочая область плагина Plugin Workspace.",
+                "text": "Current Workspace - это рабочее пространство Workspace, загруженное в данный момент в пользовательский интерфейс UI. Это может быть рабочее пространство пользователя или рабочее пространство плагина Native Workspace.",
                 "updated": 1638281407653
+            },
+            {
+                "language": "TR",
+                "text": "Geçerli Çalışma Alanı, kullanıcı arayüzünde ( UI ) o anda yüklü olan Çalışma Alanıdır ( Workspace ). Bir Kullanıcı Çalışma Alanı ( User Workspace ) ya da Eklenti Çalışma Alanı ( Native Workspace ) olabilir.",
+                "updated": 1671644479143
+            },
+            {
+                "language": "DE",
+                "text": "Der aktuelle Arbeitsbereich ist der derzeit in der Benutzeroberfläche geladene Arbeitsbereich. Es kann entweder ein Benutzerarbeitsbereich oder ein nativer Arbeitsbereich sein.",
+                "updated": 1696955462171
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638281450230
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390917384,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955462312,
+                    "style": "Text"
                 }
             ]
         }

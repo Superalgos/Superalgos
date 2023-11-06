@@ -4,37 +4,109 @@
     "type": "Choppy - quantum Indicator",
     "definition": {
         "text": "The indicator produces a volatiliy signal and is based on the indicator originally written by TradingRush channel on YouTube.",
-        "updated": 1611662439678
+        "updated": 1611662439678,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает сигнал волатильности и основан на индикаторе, первоначально написанном каналом TradingRush на YouTube.",
+                "updated": 1646899157347
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator erzeugt ein Volatilitätssignal und basiert auf dem Indikator, der ursprünglich vom TradingRush channel auf YouTube geschrieben wurde.",
+                "updated": 1671463419710
+            }
+        ]
     },
     "paragraphs": [
-		{
+        {
             "style": "Title",
             "text": "Choppy On the Charts",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Choppy на графиках",
+                    "updated": 1646899175906
+                },
+                {
+                    "language": "DE",
+                    "text": "Choppy auf den Charts",
+                    "updated": 1671463449749
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Choppy indicator has three components. When price movement is good, the Choppy indicator will show green bars. When the movement is very good, the bar will indicate dark green. If the movement is choppy, there will be no colored bars.",
-            "updated": 1611662450791
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Choppy состоит из трех компонентов. Когда движение цены хорошее, индикатор Choppy будет показывать зеленые бары. Когда движение очень хорошее, столбики будут темно-зелеными. Если движение неровное, цветные столбики будут отсутствовать.",
+                    "updated": 1646899204536
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Choppy Indikator besteht aus drei Komponenten. Wenn die Kursbewegung gut ist, zeigt der Choppy-Indikator grüne Balken an. Wenn die Bewegung sehr gut ist, wird der Balken dunkelgrün angezeigt. Wenn die Bewegung abgehackt ist, gibt es keine farbigen Balken.",
+                    "updated": 1671463494628
+                }
+            ]
         },
-		{
+        {
             "style": "Text",
             "text": "The line plot will increase for each green bar printed, indicating a moving market. The value of the line is between 0-100. Please not that this does not indicate the direction of the price movment, only that the market is trending.",
-            "updated": 1611662450791
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "График линии будет увеличиваться для каждого напечатанного зеленого бара, указывая на движущийся рынок. Значение линии находится в диапазоне 0-100. Пожалуйста, обратите внимание, что это не указывает на направление движения цены, а только на то, что рынок находится в тренде.",
+                    "updated": 1646899219295
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Liniendiagramm wird mit jedem grünen Balken größer, was auf einen sich bewegenden Markt hinweist. Der Wert der Linie liegt zwischen 0-100. Bitte beachten Sie, dass dies nicht die Richtung der Preisbewegung anzeigt, sondern nur, dass sich der Markt im Trend befindet.",
+                    "updated": 1671463519132
+                }
+            ]
         },
-		{
+        {
             "style": "Text",
             "text": "When the line breaks through the printed bars, this indicates a strong trend, and a possible buy/sell signal.",
-            "updated": 1611662450791
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда линия пробивает напечатанные бары, это указывает на сильный тренд и возможный сигнал на покупку/продажу.",
+                    "updated": 1646899228743
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Linie die gedruckten Balken durchbricht, deutet dies auf einen starken Trend und ein mögliches Kauf-/Verkaufssignal hin.",
+                    "updated": 1671463540030
+                }
+            ]
         },
-		{
+        {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/quantum-Choppy-on-the-chart.png",
             "updated": 1636853769
         },
-		{
+        {
             "style": "Text",
-            "text": "To change the parameters needed for the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Choppy\" Product Definition. Changing the variable \"line\" adjusts the buy signal threshold line and defaults to 50. The Original default value on TradingRush was 20."
+            "text": "To change the parameters needed for the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Choppy\" Product Definition. Changing the variable \"line\" adjusts the buy signal threshold line and defaults to 50. The Original default value on TradingRush was 20.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить параметры, необходимые для расчета, в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе \"Choppy\" Product Definition. Изменение переменной \"line\" настраивает пороговую линию сигнала на покупку и по умолчанию составляет 50. Первоначальное значение по умолчанию на TradingRush было 20.",
+                    "updated": 1646899247445
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die für die Berechnung benötigten Parameter an Ihre Bedürfnisse anzupassen, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter  \"Choppy\" Product Definition. Durch Ändern der Variable \"line\" wird die Schwellenwertlinie für das Kaufsignal angepasst und standardmäßig auf 50 gesetzt. Der ursprüngliche Standardwert bei TradingRush war 20.",
+                    "updated": 1671463624290
+                }
+            ]
         },
         {
             "style": "Png",
@@ -43,41 +115,132 @@
         },
         {
             "style": "Title",
-            "text": "Choppy Products & Properties"
+            "text": "Choppy Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Choppy",
+                    "updated": 1646899261624
+                },
+                {
+                    "language": "DE",
+                    "text": "Choppy Produkte & Eigenschaften",
+                    "updated": 1671463651146
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Setting | Product Variable | Properties |\n| Choppy | Choppy | threshold, maProperty, graph |",
-            "updated": 1611662546677
-        },       
+            "updated": 1611662546677,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Choppy | Choppy | threshold, maProperty, graph |",
+                    "updated": 1671463669612
+                }
+            ]
+        },
         {
             "style": "Text",
             "text": "The property functions are as follows:",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функции свойств следующие:",
+                    "updated": 1646899270933
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaftsfunktionen sind wie folgt:",
+                    "updated": 1671463689674
+                }
+            ]
         },
         {
             "style": "List",
             "text": "maProperty: the value of the histogram bar. Possible values are, from order of consolidation to trending;  Choppy, Slower, Slow, Up",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maProperty: значение столбика гистограммы. Возможные значения: от порядка консолидации к тренду; Choppy, Slower, Slow, Up",
+                    "updated": 1646899288945
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>maProperty:</b> der Wert des Histogrammbalkens. Mögliche Werte sind, von der Reihenfolge der Konsolidierung bis zur Tendenz; Choppy, Slower, Slow, Up",
+                    "updated": 1671463790859
+                }
+            ]
         },
         {
             "style": "List",
             "text": "graph: the value of the plotted graph",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "graph: значение построенного графа",
+                    "updated": 1646899321282
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>graph:</b> der Wert des gezeichneten Kurve",
+                    "updated": 1671463896020
+                }
+            ]
         },
         {
             "style": "List",
             "text": "threshold: the value where the trend graph becomes stronger than the histogram bar.",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "threshold: значение, при котором график тренда становится сильнее полосы гистограммы.",
+                    "updated": 1646899338295
+                },
+                {
+                    "language": "DE",
+                    "text": "<b>threshold:</b> der Wert, bei dem die Trendkurve stärker wird als der Histogrammbalken.",
+                    "updated": 1671463935442
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1646899344806
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671463950195
+                }
+            ]
         },
-		{
+        {
             "style": "Text",
-            "text": "A simple strategy can be built by entering a trade when the threshold rises above the histogram size."
+            "text": "A simple strategy can be built by entering a trade when the threshold rises above the histogram size.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем входа в сделку, когда порог поднимается выше размера гистограммы.",
+                    "updated": 1646899357034
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem ein Handel eingegangen wird, wenn der Schwellenwert über die Histogrammgröße ansteigt.",
+                    "updated": 1671463966300
+                }
+            ]
         },
         {
             "style": "Javascript",

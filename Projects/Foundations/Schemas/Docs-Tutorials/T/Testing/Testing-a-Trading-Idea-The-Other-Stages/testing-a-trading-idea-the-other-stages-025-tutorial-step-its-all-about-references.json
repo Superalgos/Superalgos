@@ -14,6 +14,21 @@
                 "language": "DE",
                 "text": "Wissen Sie noch, was Referenzen sind und wie man sie herstellt? Schauen Sie sich das Video für eine kurze Auffrischung an!",
                 "updated": 1639399298946
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Referansların ne olduğunu ve nasıl yapılacağını hatırlıyor musunuz? Hızlı bir tazeleme için videoyu izleyin!",
+                "updated": 1641747204968
+            },
+            {
+                "language": "RU",
+                "text": "Помните ли вы, что такое ссылки и как их устанавливать? Посмотрите видео, чтобы быстро вспомнить!",
+                "updated": 1642941580015
+            },
+            {
+                "language": "ES",
+                "text": "¿Recuerdas qué son las referencias y cómo establecerlas? Mira el vídeo para refrescar la memoria.",
+                "updated": 1680808408190
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Referenzen sind ein wichtiges Konzept in Superalgos, da sie Informationen über Knoten und Hierarchien hinweg in Beziehung setzen!",
                     "updated": 1639399310342
+                },
+                {
+                    "language": "TR",
+                    "text": "Referanslar ( References ), bilgileri düğümler ve hiyerarşiler arasında ilişkilendirdikleri için Superalgos'ta önemli bir kavramdır!",
+                    "updated": 1641747215209
+                },
+                {
+                    "language": "RU",
+                    "text": "Ссылки - важнейшее понятие в Superalgos, поскольку они связывают информацию между узлами и иерархиями!",
+                    "updated": 1642941594159
+                },
+                {
+                    "language": "ES",
+                    "text": "References son un concepto crucial en Superalgos, ya que relacionan información entre nodos y jerarquías.",
+                    "updated": 1680808437259
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Sie müssen eine Referenz vom Knoten Market Sell Order im Handelssystem zum Knoten Market Sell Order #1 Market Order in der Hierarchie der Trading Engine herstellen! Machen Sie weiter! Tun Sie es!",
                     "updated": 1639399322670
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki Piyasa Satış Emri ( Market Sell Order )  düğümünden, ticaret motoru hiyerarşisindeki Piyasa Satış Emri ( Market Sell Order ) # 1  Piyasa Emri ( Market Order ) düğümüne bir referans oluşturmalısınız! Devam et ve yap!",
+                    "updated": 1641747230202
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны установить ссылку от узла Market Sell Order в торговой системе на этот узел Market Sell Order #1 Market Order в иерархии Trading Engine! Вперед! Сделайте это!",
+                    "updated": 1642941625279
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Debes establecer una referencia del nodo de Market Sell Order en el Trading System a este nodo de Market Sell Order #1 en la jerarquía del Trading Engine! ¡Adelante! ¡Hazlo!",
+                    "updated": 1680808848107
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Ich gebe Ihnen im nächsten Schritt ein paar Tipps, wenn Sie nicht sicher sind, wie Sie vorgehen sollen!",
                     "updated": 1639399331508
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunu nasıl yapacağınızdan emin değilseniz, bir sonraki adımda size birkaç ipucu vereceğim!",
+                    "updated": 1641747239642
+                },
+                {
+                    "language": "RU",
+                    "text": "Я дам вам пару советов на следующем этапе, если вы не уверены, как это сделать!",
+                    "updated": 1642941634867
+                },
+                {
+                    "language": "ES",
+                    "text": "Te daré un par de consejos sobre el siguiente paso si no estás seguro de cómo hacerlo.",
+                    "updated": 1680808873890
                 }
             ]
         }

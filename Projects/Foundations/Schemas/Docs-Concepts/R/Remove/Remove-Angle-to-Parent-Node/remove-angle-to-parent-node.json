@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Вращательная симметрия отключена, и узел может принимать любое положение. Линия соединения с родителем желтого цвета.",
                 "updated": 1638288776383
+            },
+            {
+                "language": "TR",
+                "text": "Dönme simetrisi devre dışıdır ve düğüm herhangi bir pozisyon alabilir. Ana düğümle olan bağlantı hattı sarıdır.",
+                "updated": 1668000649157
+            },
+            {
+                "language": "DE",
+                "text": "Die Rotationssymmetrie ist deaktiviert und der Knoten kann eine beliebige Position einnehmen. Die Verbindungslinie zu seinem Elternteil ist gelb.",
+                "updated": 1698005681962
             }
         ]
     },
@@ -20,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638288792117
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1698005692450
                 }
             ]
         }

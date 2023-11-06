@@ -1,0 +1,294 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": "10",
+    "type": "Stochastic Divergence",
+    "definition": {
+        "text": "The Stochastic Oscillator - this indicator analyses highs and lows of a 14 period Stochastic Oscillator indicator with smoothing values K and D set to 3. The 'slow line', D is then compared to the price action and produces any divergence data found.",
+        "updated": 1647897876302,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Stochastik-Oszillator - dieser Indikator analysiert die Höchst- und Tiefstwerte eines 14-Perioden-Stochastik-Oszillator-Indikators, wobei die Glättungswerte K und D auf 3 gesetzt werden. Die \"langsame Linie\", D, wird dann mit der Preisaktion verglichen und liefert alle gefundenen Divergenzdaten.",
+                "updated": 1673470808679
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Stochastic Oscillator Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastische Oszillator-Divergenz in den Charts",
+                    "updated": 1673470829703
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Preis mit dem Preis vergleichen zu müssen. Das Momentum ist eine Untersuchung der Stärke der Kursbewegung, bei der geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673470906373
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen Indikator und Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673471144219
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Understanding momentum - (investopedia)->www.investopedia.com/trading/trading-divergence-and-understanding-momentum/#toc-momentum-divergence"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an.",
+                    "updated": 1673471150266
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator bildet ein höheres Tief, während die Kursbewegung ein niedrigeres Tief bildet.",
+                    "updated": 1673471392875
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673471404580
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673471432164
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish Continuation (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673471443545
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-Stoch-1.png"
+        },
+        {
+            "style": "Text",
+            "text": "Above: a bearish divergence(leftmost, red), and two bullish divergences (green).",
+            "updated": 1647897923258,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Oben: eine bearish Divergenz (ganz links, rot) und zwei bullish Divergenzen (grün).",
+                    "updated": 1673471457331
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Klinger Oscillator Divergence’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinders, die Pivot-Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Klinger Oscillator Divergence\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673471488510
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
+        },
+        {
+            "style": "Note",
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Genauigkeit höher ist, je größer die Pivot-Länge, und dementsprechend auch die Verzögerung bei der Bestätigung des Pivot-Hochs/Tiefs.",
+                    "updated": 1673471659132
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Stochastic Divergence’ Procedure Initialization.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Divergenzerkennung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"Stochastic Divergence\" Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673471754551
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-2.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Stochastic Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Stochastic’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Länge des stochastischen Oszillators kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Stochastic\" Procedure Loop suchen und öffnen.",
+                    "updated": 1673471787752
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1673471812989
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Möglichkeiten stehen zur Auswahl:",
+                    "updated": 1673471818218
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| StochDiv | stochDiv | status, strength, divPerc |",
+            "updated": 1667785851220,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| StochDiv | stochDiv | status, strength, divPerc |",
+                    "updated": 1673472050473
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten zurück: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673472219535
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten zurück: schwach, mittel, stark",
+                    "updated": 1673472230086
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673472242096
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673472254489
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.stochDiv.status == \"bullish\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.stochDiv.strength == \"strong\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.stochDiv.divPerc > 20"
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, find a suitable Stochastic Oscillator value to enter the trade after the divergence is found, for example, stochastic > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten Wert für den Stochastik-Oszillator finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673472181373
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673472203647
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

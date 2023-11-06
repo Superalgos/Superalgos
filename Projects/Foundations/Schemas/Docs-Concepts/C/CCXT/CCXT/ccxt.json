@@ -13,6 +13,16 @@
                 "language": "RU",
                 "text": "CCXT - популярная библиотека с открытым исходным кодом, цель которой - стандартизировать API криптобирж, чтобы облегчить разработчикам торговых ботов доступ к криптобиржам.",
                 "updated": 1638280629384
+            },
+            {
+                "language": "TR",
+                "text": "CCXT, ticaret botları geliştiricilerinin kripto borsalarına erişimini kolaylaştırmak için kripto borsaları API'lerini ( APIs ) standartlaştırmayı amaçlayan popüler bir açık kaynak kütüphanesidir.",
+                "updated": 1671644837617
+            },
+            {
+                "language": "DE",
+                "text": "CCXT ist eine beliebte Open-Source-Bibliothek, die darauf abzielt, die APIs von Kryptobörsen zu standardisieren, um den Entwicklern von Trading Bots den Zugang zu Kryptobörsen zu erleichtern.",
+                "updated": 1696955460145
             }
         ]
     },
@@ -31,6 +41,18 @@
                     "language": "RU",
                     "text": "Superalgos использует эту библиотеку для получения одноминутных свечей с бирж в качестве необработанной информации, которая позже строит остальные индикаторы. Он также использует его для размещения заказов от LF Trading Bot.",
                     "updated": 1638280662878
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos bu kütüphaneyi borsalardan bir dakikalık mumları ham bilgi olarak almak için kullanır ve daha sonra göstergelerin geri kalanını cadı ile oluşturur. Ayrıca LF Ticaret Botundan ( LF Trading Bot ) sipariş vermek için de kullanır.",
+                    "updated": 1671644865464,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos verwendet diese Bibliothek, um Ein-Minuten-Kerzen von den Börsen als Rohdaten abzurufen, aus denen später der Rest der Indikatoren erstellt wird. Er verwendet sie auch, um Aufträge vom LF Trading Bot zu platzieren.",
+                    "updated": 1696955460380,
+                    "style": "Text"
                 }
             ]
         }

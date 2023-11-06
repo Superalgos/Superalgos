@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Бот для низкочастотной торговли - это реализация торгового бота на Trading Mine, специализирующегося на выполнении стратегий для временных интервалов от 1 минуты и выше.",
                 "updated": 1638285494165
+            },
+            {
+                "language": "TR",
+                "text": "Düşük Frekanslı Ticaret Botu ( Trading Bot ), 1 dakika ve üzeri zaman dilimleri için stratejiler yürütme konusunda uzmanlaşmış bir Ticaret Botunun ( Trading Bot ) Ustaları Ticaret Madeni'nde ( Trading Mine ) bir uygulamadır.",
+                "updated": 1670251625512
+            },
+            {
+                "language": "DE",
+                "text": "Der Low Frequency Trading Bot ist eine Implementierung des Masters Trading Mine eines Trading Bot, der auf die Ausführung von Strategien für Zeitrahmen von 1 Minute und mehr spezialisiert ist.",
+                "updated": 1696955470437
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638285533806
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654391190453,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955470642,
+                    "style": "Text"
                 }
             ]
         }

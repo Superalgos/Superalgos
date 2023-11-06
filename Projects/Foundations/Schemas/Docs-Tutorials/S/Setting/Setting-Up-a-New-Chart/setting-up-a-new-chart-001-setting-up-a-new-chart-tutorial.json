@@ -1,6 +1,6 @@
 {
     "tutorial": "Setting Up a New Chart",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "Setting Up a New Chart Tutorial",
     "definition": {
         "text": "This Tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
@@ -15,6 +15,16 @@
                 "language": "RU",
                 "text": "В этом Tutorial рассматриваются основные внутренние механизмы работы с Charting Space чтобы помочь вам научиться создавать собственные пользовательские графики.",
                 "updated": 1637912833054
+            },
+            {
+                "language": "TR",
+                "text": "Bu öğretici ( Tutorial ), kendi özel çizelgelerinizi nasıl oluşturacağınızı öğrenebilmeniz için Grafik Alanının ( Charting Space ) temel işlevleri konusunda size yol gösterecektir.",
+                "updated": 1642518148260
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial muestra el funcionamiento básico del Espacio de Gráficos para ayudarte a crear tus propios gráficos personalizados.",
+                "updated": 1682429028099
             }
         ]
     },
@@ -33,13 +43,32 @@
                     "language": "RU",
                     "text": "Об этом учебнике",
                     "updated": 1637912854224
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Eğitim Hakkında",
+                    "updated": 1654394090632,
+                    "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1682429041673
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Custom Charts Tutorials Plugin Workspace.",
-            "updated": 1622013786721
+            "text": "Workspace: Custom Charts Tutorials Native Workspace.",
+            "updated": 1622013786721,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı: Özel Grafikler Öğreticiler Eklenti Çalışma Alanı.",
+                    "updated": 1654394097446,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
@@ -50,6 +79,12 @@
                     "language": "DE",
                     "text": "Betreuer: @harrellbm (Telegram, and Discord).",
                     "updated": 1637608124979
+                },
+                {
+                    "language": "TR",
+                    "text": "Bakımcı: @harrellbm (Telegram ve Discord).",
+                    "updated": 1654394103571,
+                    "style": "List"
                 }
             ]
         }

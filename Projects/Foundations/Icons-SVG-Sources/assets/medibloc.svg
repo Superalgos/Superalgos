@@ -1,29 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   width="512"
-   height="512"
-   viewBox="0 0 512 512"
-   version="1.1"
-   id="svg5115"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs5119" />
-  <g
-     fill="none"
-     fill-rule="evenodd"
-     id="g5113"
-     transform="scale(16)">
-    <circle
-       cx="16"
-       cy="16"
-       r="16"
-       fill="#00b0ff"
-       id="circle5109" />
-    <path
-       fill="#ffffff"
-       fill-rule="nonzero"
-       d="m 24,12.061 v 8.915 l -2.536,1.48 v -5.95 L 16,19.776 10.536,16.503 v 5.953 L 8,20.976 V 12.06 l 8,4.805 8,-4.805 z m -7.97,11.117 2.34,-1.399 2.31,1.399 -4.65,2.822 -4.648,-2.822 2.31,-1.399 2.339,1.399 z M 20.65,8.822 18.339,10.221 16,8.822 13.661,10.221 11.351,8.822 16,6 Z"
-       id="path5111" />
-  </g>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M256 0V512C114.615 512 0 397.385 0 256C0 114.615 114.615 0 256 0Z" fill="#0295AA"/>
+<path d="M256 512V0C397.385 0 512 114.615 512 256C512 397.385 397.385 512 256 512Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 415.709L256.48 416L330.88 370.848L293.92 348.464L256.488 370.843L256 370.551V415.709ZM256 316.416L343.424 264.096V359.296L384 335.616V192.976V192.96L256 269.84V316.416ZM256 141.152L256 141.152L293.424 163.536L330.4 141.152L256 96L256 96V141.152Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256 96L181.616 141.152L218.576 163.536L256 141.152V96ZM256 269.84L128 192.96V335.616L168.576 359.296V264.048L256 316.416V269.84ZM256 370.551L219.072 348.464L182.112 370.848L256 415.709V370.551Z" fill="#E6EAEA"/>
 </svg>

@@ -18,6 +18,26 @@
                 "language": "DE",
                 "text": "Trading Systeme sind das Herz und die Seele des systematischen Handels, da sie den größten Teil der Handelsintelligenz konzentrieren.",
                 "updated": 1639147113112
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret ( Trading ) sistemleri, ticaret zekasının en büyük kısmınına yoğunlaştırdıkları için sistematik ticaretin kalbi ve ruhudur.",
+                "updated": 1640690643269
+            },
+            {
+                "language": "RU",
+                "text": "Торговые системы - это сердце и душа систематизированной торговли, поскольку в них сосредоточена самая большая часть торгового интеллекта.",
+                "updated": 1640878649264
+            },
+            {
+                "language": "NL",
+                "text": "Trading systems vormen het hart en de ziel van systematische handel, omdat ze het grootste deel van de handelsinformatie concentreren.",
+                "updated": 1670790743266
+            },
+            {
+                "language": "ID",
+                "text": "Trading System adalah hati dan jiwa dari trading sistematis, karena mereka memusatkan bagian terbesar dari trading intelligence.",
+                "updated": 1674498560253
             }
         ]
     },
@@ -28,13 +48,33 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El resto de la infraestructura integrada en Superalgos: minería y visualización de datos, el trading bot y trading engine, el diseñador de estrategia visual y el depurador, todos tienen una participación significativa en el pastel de inteligencia, pero es justo argumentar que fue desarrollado para respaldar el diseño, las pruebas y la implementación de sistemas de trading.",
-                    "updated": 1629587395422
+                    "text": "El resto de la infraestructura integrada en Superalgos: minería y visualización de datos, el Trading Bot y Trading Engine, el diseñador de estrategia visual y el depurador, todos tienen una participación significativa en el pastel de inteligencia, pero es justo argumentar que fue desarrollado para respaldar el diseño, las pruebas y la implementación de sistemas de trading.",
+                    "updated": 1675618700078
                 },
                 {
                     "language": "DE",
                     "text": "Der Rest der in Superalgos eingebauten Infrastruktur - Data Mining und Visualisierung, der Trading Bot und die Trading Engine, der visuelle Strategiedesigner und Debugger - haben alle einen bedeutenden Anteil am Intelligenz Kreis, aber man kann mit Fug und Recht behaupten, dass sie entwickelt wurden, um das Design, das Testen und den Einsatz von Trading Systemen zu unterstützen!",
                     "updated": 1639147244565
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta yerleşik altyapının geri kalanı (veri madenciliği ve görselleştirme, ticaret botu ve ticaret motoru, görsel strateji tasarımcısı ve hata ayıklayıcı) istihbarat pastasında önemli bir hakka sahiptir, ancak bunun tasarımı desteklemek,ticaret sistemlerinin test edilmesi ve konuşlandırılması için geliştirildiğini iddia etmek adil olur!",
+                    "updated": 1640691683945
+                },
+                {
+                    "language": "RU",
+                    "text": "Остальная инфраструктура, встроенная в Superalgos - поиск и визуализация данных, торговый бот и торговый движок, визуальный конструктор стратегий и отладчик - все они имеют значительную долю в интеллектуальном пироге, но справедливо будет утверждать, что они были разработаны для поддержки проектирования, тестирования и развертывания торговых систем!",
+                    "updated": 1640878693629
+                },
+                {
+                    "language": "NL",
+                    "text": "De rest van de infrastructuur die in Superalgos is ingebouwd - datamining en visualisatie, de handelsbot en handelsengine, de visuele strategieontwerper en debugger - hebben allemaal een aanzienlijk aandeel in de intelligentietaart, maar het is redelijk om te beweren dat het is ontwikkeld om het ontwerp te ondersteunen, testen en inzetten van handelssystemen!",
+                    "updated": 1670790783520
+                },
+                {
+                    "language": "ID",
+                    "text": "Infrastruktur lainnya yang dibangun ke dalam Superalgos—data mining dan visualisasi data, bot trading dan trading engine, visual strategy designer and debugger—semuanya memiliki ekuitas yang signifikan dalam bagian intelligence, tapi wajar untuk berargumen bahwa itu dikembangkan untuk mendukung desain, testing, dan men-deploy trading sistem!",
+                    "updated": 1674498568130
                 }
             ]
         },
@@ -51,6 +91,26 @@
                     "language": "DE",
                     "text": "In diesem ersten Tutorial wird erklärt, wie Superalgos ein Trading System anzeigt und behandelt. In den weiteren Tutorials der Serie lernen Sie, wie man sie baut!",
                     "updated": 1639147247333
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu ilk öğretici, Superalgos'un bir Ticaret Sistemini ( Trading System ) nasıl görüntülediğini ve işlediğini açıklar. Serideki diğer öğreticiler size bunları nasıl oluşturacağınızı öğretir!",
+                    "updated": 1640692121876
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом первом уроке описывается, как Superalgos рассматривает и обрабатывает торговую систему (Trading System). Остальные уроки в этой серии научат вас, как их создавать!",
+                    "updated": 1640878743357
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze eerste tutorial legt uit hoe Superalgos een Trading System bekijkt en behandelt. De rest van de zelfstudies in de serie leren je hoe je ze kunt bouwen!",
+                    "updated": 1670790811136
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial pertama ini menjelaskan bagaimana Superalgos melihat dan menangani Trading System. Tutorial lainnya dalam seri ini mengajarkan kamu cara membuatnya!",
+                    "updated": 1674498575155
                 }
             ]
         }

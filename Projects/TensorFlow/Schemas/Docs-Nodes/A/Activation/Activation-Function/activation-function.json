@@ -2,17 +2,55 @@
     "type": "Activation Function",
     "definition": {
         "text": "A function (for example, ReLU or sigmoid) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer.",
-        "updated": 1613243485558
+        "updated": 1613243485558,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Функция (например, ReLU или сигмоид), которая принимает взвешенную сумму всех входов предыдущего слоя, а затем генерирует и передает выходное значение (обычно нелинейное) на следующий слой.",
+                "updated": 1645195218348
+            },
+            {
+                "language": "TR",
+                "text": "Bir önceki katmandan gelen tüm girdilerin ağırlıklı toplamını alan ve daha sonra bir çıktı değeri (genellikle doğrusal olmayan) üreten ve bir sonraki katmana ileten bir işlev (örneğin, ReLU veya sigmoid).",
+                "updated": 1654396600684
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Activation function to use. If unspecified, no activation is applied.",
-            "updated": 1613243465795
+            "updated": 1613243465795,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используемая функция активации. Если не указано, активация не применяется.",
+                    "updated": 1645195228058
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanılacak aktivasyon fonksiyonu. Belirtilmemişse, hiçbir aktivasyon uygulanmaz.",
+                    "updated": 1654396607433,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Possible Values"
+            "text": "Possible Values",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения",
+                    "updated": 1645195234013
+                },
+                {
+                    "language": "TR",
+                    "text": "Olası Değerler",
+                    "updated": 1654396614886,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Javascript",

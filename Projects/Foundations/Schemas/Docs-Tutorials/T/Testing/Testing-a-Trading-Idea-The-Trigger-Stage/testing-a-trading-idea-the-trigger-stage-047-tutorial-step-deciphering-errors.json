@@ -1,0 +1,144 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 47,
+    "type": "Tutorial Step - Deciphering Errors",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "Can not read property \"direction\" of undefined. What is that all about?",
+        "updated": 1617191618477,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Eigenschaft \"direction\" von undefined kann nicht gelesen werden. Was hat es damit auf sich?",
+                "updated": 1639267819848
+            },
+            {
+                "language": "TR",
+                "text": "Tanımsız \"direction\" özelliği okunamıyor. Bu da ne demek oluyor?",
+                "updated": 1669587571172
+            },
+            {
+                "language": "RU",
+                "text": "Не удается прочитать свойство \"direction\" из undefined. Что это значит?",
+                "updated": 1642657452627
+            },
+            {
+                "language": "ES",
+                "text": "No se puede leer la propiedad \"direction\" de undefined. ¿De qué se trata?",
+                "updated": 1677104976375
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the proper procedure to unpack an error message and understand what it is about:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist das richtige Verfahren, um eine Fehlermeldung auszupacken und zu verstehen, worum es geht:",
+                    "updated": 1639267831451
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, bir hata mesajını açmak ve ne hakkında olduğunu anlamak için doğru prosedürdür:",
+                    "updated": 1641660828758
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот правильная процедура, позволяющая разобрать сообщение об ошибке и понять, о чем оно:",
+                    "updated": 1642657538082
+                },
+                {
+                    "language": "ES",
+                    "text": "Este es el procedimiento adecuado para desglosar un mensaje de error y entender de qué se trata:",
+                    "updated": 1677105001496
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You know when the error happened: keep that in mind, as the error is solely related to the candle where it happened!",
+            "updated": 1612639274562,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie wissen, wann der Fehler aufgetreten ist: Merken Sie sich das, denn der Fehler bezieht sich ausschließlich auf die Kerze, an der er aufgetreten ist!",
+                    "updated": 1639267839307
+                },
+                {
+                    "language": "TR",
+                    "text": "Hatanın ne zaman oluştuğunu biliyorsan: Bunu not et, çünkü hata sadece oluştuğu mumla ilgilidir!",
+                    "updated": 1641660848667
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы знаете, когда произошла ошибка: имейте это в виду, поскольку ошибка связана исключительно со свечой, на которой она произошла!",
+                    "updated": 1642657559780
+                },
+                {
+                    "language": "ES",
+                    "text": "Sabes cuándo se ha producido el error: tenlo en cuenta, ya que el error está relacionado únicamente con la vela en la que se ha producido.",
+                    "updated": 1677105040604
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You know which node caused the error: it is likely the definition in the node that caused the error, either in the code of the associated Javascript Code node, the Formula, or the configuration.",
+            "updated": 1622487845254,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie wissen, welcher Knoten den Fehler verursacht hat: Es ist wahrscheinlich die Definition in dem Knoten, der den Fehler verursacht hat, entweder im Code des zugehörigen Javascript Code Knotens, der Formel ( Formula ) oder der Konfiguration.",
+                    "updated": 1639267871676
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi düğümün hataya neden olduğunu biliyorsan: Hataya neden olan, muhtemelen düğümdeki tanımdır, ya ilişkili Javascript kod ( Javascript Code ) düğümünün kodunda, yada formül ( Formula ) yapılandırmasında.",
+                    "updated": 1641660904827
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы знаете, какой узел вызвал ошибку: скорее всего, это определение в узле, который вызвал ошибку, либо в коде связанного узла Javascript Code, либо в Formula, либо в конфигурации.",
+                    "updated": 1642657600623
+                },
+                {
+                    "language": "ES",
+                    "text": "Sabes qué nodo causó el error: es probable que sea la definición en el nodo que causó el error, ya sea en el código del nodo Javascript Code asociado, la Fórmula o la configuración.",
+                    "updated": 1677105049250
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You know the error message: read it carefully and make the connection with the two previous clues!",
+            "updated": 1612639305533,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie kennen die Fehlermeldung: Lesen Sie sie aufmerksam und stellen Sie die Verbindung zu den beiden vorherigen Hinweisen her!",
+                    "updated": 1639267879588
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata mesajını biliyorsan: Dikkatlice okuyun ve önceki iki ipucuyla bağlantı kurun!",
+                    "updated": 1641660940687
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы знаете сообщение об ошибке: прочитайте его внимательно и установите связь с двумя предыдущими подсказками!",
+                    "updated": 1642657620714
+                },
+                {
+                    "language": "ES",
+                    "text": "Conoces el mensaje de error: ¡léelo atentamente y establece la conexión con las dos pistas anteriores!",
+                    "updated": 1677105056086
+                }
+            ]
+        }
+    ]
+}

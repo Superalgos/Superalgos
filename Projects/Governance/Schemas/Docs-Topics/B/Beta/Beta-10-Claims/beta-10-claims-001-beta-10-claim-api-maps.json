@@ -4,57 +4,213 @@
     "type": "Beta 10 Claim - API Maps",
     "definition": {
         "text": "The new API Maps and Data Fetcher Bots allow users to map any API and mine data without coding, while the new User Defined Code node enables developers to bypass hard framework definitions.",
-        "updated": 1628248752870
+        "updated": 1628248752870,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Yeni API Haritaları ve Veri Alıcı Botları, kullanıcıların herhangi bir API'yi eşlemelerine ve veri madenciliğine izin verirken, yeni Kullanıcı Tanımlı Kod ( User Defined Code ) düğümü, geliştiricilerin sabit çerçeve tanımlarını atlamasını sağlar.",
+                "updated": 1647083525953
+            },
+            {
+                "language": "DE",
+                "text": "Mit den neuen API Maps und Data Fetcher Bots können Benutzer jede API abbilden und Daten ohne Programmierung auswerten, während der neue User Defined Code-Knoten (User Defined Code) Entwicklern ermöglicht, harte Framework-Definitionen zu umgehen.",
+                "updated": 1691357990032
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "API Maps and Data Fetcher Bots",
-            "updated": 1628248811396
+            "updated": 1628248811396,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Haritaları ve Veri Alıcı Botları",
+                    "updated": 1647083551820
+                },
+                {
+                    "language": "DE",
+                    "text": "API-Karten und Datenabruf-Bots",
+                    "updated": 1691358039964
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An API Map hierarchy represents the mapping of an API so that it can be consumed by bots within Superalgos. You may create API Maps and contribute them as Plugins, or you may use the maps community members have built."
+            "text": "An API Map hierarchy represents the mapping of an API so that it can be consumed by bots within Superalgos. You may create API Maps and contribute them as Plugins, or you may use the maps community members have built.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir API Haritası ( API Map ) hiyerarşisi, bir API'nin Superalgos içindeki botlar tarafından tüketilebilmesi için eşlenmesini temsil eder. API Haritaları oluşturabilir ve bunlara Eklentiler ( Plugins ) olarak katkıda bulunabilir veya topluluk üyelerinin oluşturduğu haritaları kullanabilirsiniz.",
+                    "updated": 1647083608508
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine API Map Hierarchie stellt das Mapping einer API dar, so dass sie von Bots innerhalb von Superalgos konsumiert werden kann. Sie können API-Maps erstellen und als Plugins beisteuern, oder Sie können die Maps verwenden, die Mitglieder der Community erstellt haben.",
+                    "updated": 1691358053548
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "API Maps are used by API Data Fetcher Bots to request and save the data from an API. Data Fetcher Bots run like any other Superalgos bot, under a Task node, and tasks are created automatically during the Install Market process provided there is a Data Mine with the corresponding definitions present in the Workspace."
+            "text": "API Maps are used by API Data Fetcher Bots to request and save the data from an API. Data Fetcher Bots run like any other Superalgos bot, under a Task node, and tasks are created automatically during the Install Market process provided there is a Data Mine with the corresponding definitions present in the Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Haritaları, API Veri Alıcısı Botları tarafından bir API'den veri istemek ve kaydetmek için kullanılır. Veri Alıcı Botları, diğer herhangi bir Superalgos botu gibi, bir Görev ( Task ) düğümü altında çalışır ve Çalışma Alanında ( Workspace ) karşılık gelen tanımlara sahip bir Veri Madeni ( Data Mine ) olması koşuluyla, Pazarı Yükleme işlemi sırasında görevler otomatik olarak oluşturulur.",
+                    "updated": 1647083750098
+                },
+                {
+                    "language": "DE",
+                    "text": "API Maps werden von API Data Fetcher Bots verwendet, um die Daten von einer API anzufordern und zu speichern. Data Fetcher Bots laufen wie jeder andere Superalgos-Bot unter einem Task -Knoten, und Aufgaben werden automatisch während des Install Market-Prozesses erstellt, sofern eine Data Mine mit den entsprechenden Definitionen im Workspace vorhanden ist.",
+                    "updated": 1691358063732
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This new feature opens up the Superalgos game massively, as it allows both coders and non-developers to connect to their favorite sources of data, bringing an almost unlimited wealth of intelligence into the system."
+            "text": "This new feature opens up the Superalgos game massively, as it allows both coders and non-developers to connect to their favorite sources of data, bringing an almost unlimited wealth of intelligence into the system.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Bu yeni özellik, hem kodlayıcıların hem de geliştirici olmayanların en sevdikleri veri kaynaklarına bağlanmasına izin vererek, sisteme neredeyse sınırsız bir zeka zenginliği getirdiği için Superalgos oyununu büyük ölçüde açar.",
+                    "updated": 1647083794523
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese neue Funktion öffnet das Superalgos-Spiel massiv, da sie es sowohl Programmierern als auch Nicht-Entwicklern ermöglicht, sich mit ihren bevorzugten Datenquellen zu verbinden und so eine nahezu unbegrenzte Fülle an Informationen in das System zu bringen.",
+                    "updated": 1691358074629
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "At this point, only public APIs are supported."
+            "text": "At this point, only public APIs are supported.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu noktada yalnızca genel API'ler ( APIs ) desteklenir.",
+                    "updated": 1647084431802
+                },
+                {
+                    "language": "DE",
+                    "text": "Gegenwärtig werden nur öffentliche APIs unterstützt.",
+                    "updated": 1691358083560
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An API Data Fetcher Bot is a new type of bot that can fetch data from any API on the internet as long as it is provided with an API Map at runtime. An API Data Fetcher Bots is similar to a Sensor Bot. The most important difference is that you don’t need to code anything to get one up and running. All you need to do is point it to the required API Map!"
+            "text": "An API Data Fetcher Bot is a new type of bot that can fetch data from any API on the internet as long as it is provided with an API Map at runtime. An API Data Fetcher Bots is similar to a Sensor Bot. The most important difference is that you don’t need to code anything to get one up and running. All you need to do is point it to the required API Map!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "API Veri Alıcı Botu ( API Data Fetcher Bot ), çalışma zamanında bir API Haritası sağlandığı sürece internetteki herhangi bir API'den veri alabilen yeni bir bot türüdür. API Veri Alıcı Botları, Sensör Botuna ( Sensor Bot ) benzer. En önemli fark, birini çalıştırmak için hiçbir şey kodlamanıza gerek olmamasıdır. Tek yapmanız gereken onu gerekli API Haritasına ( API Map ) yönlendirmek!",
+                    "updated": 1647084613931
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein API Data Fetcher Bot ist eine neue Art von Bot, der Daten von jeder beliebigen API im Internet abrufen kann, solange er zur Laufzeit mit einer API Map versehen ist. Ein API Data Fetcher Bots ist ähnlich wie ein Sensor Bot. Der wichtigste Unterschied ist, dass Sie nichts programmieren müssen, um ihn zum Laufen zu bringen. Alles, was Sie tun müssen, ist, ihn auf die erforderliche API Map zu verweisen!",
+                    "updated": 1691358094710
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Workflow"
+            "text": "Workflow",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İş akışı",
+                    "updated": 1647084644621
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeitsablauf",
+                    "updated": 1691358852189
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The data you may bring into Superalgos from any API on the Internet goes into the same workflow you are already familiar with."
+            "text": "The data you may bring into Superalgos from any API on the Internet goes into the same workflow you are already familiar with.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İnternetteki herhangi bir API'den Superalgos'a getirebileceğiniz veriler, halihazırda aşina olduğunuz aynı iş akışına girer.",
+                    "updated": 1647084681727
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Daten, die Sie von einer beliebigen API aus dem Internet in Superalgos einbringen, werden in denselben Arbeitsablauf integriert, mit dem Sie bereits vertraut sind.",
+                    "updated": 1691358860188
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This means that the data is written in JSON files, which may be read by Plotters to produce graphical representations over the charts, and can be accessed from within Trading Systems, pretty much like with data output by indicators. Needless to say, the data may be further processed by indicators too!"
+            "text": "This means that the data is written in JSON files, which may be read by Plotters to produce graphical representations over the charts, and can be accessed from within Trading Systems, pretty much like with data output by indicators. Needless to say, the data may be further processed by indicators too!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu, verilerin, çizelgeler üzerinde grafiksel temsiller üretmek için Plotters tarafından okunabilen ve hemen hemen göstergeler tarafından veri çıkışında olduğu gibi Ticaret Sistemlerinden erişilebilen JSON dosyalarına yazıldığı anlamına gelir. Söylemeye gerek yok, veriler ayrıca göstergeler tarafından da işlenebilir!",
+                    "updated": 1647084716742
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass die Daten in JSON-Dateien geschrieben werden, die von Plottern gelesen werden können, um grafische Darstellungen über die Charts zu erzeugen, und auf die von Handelssystemen aus zugegriffen werden kann, ganz ähnlich wie bei der Datenausgabe von Indikatoren. Natürlich können die Daten auch von Indikatoren weiterverarbeitet werden!",
+                    "updated": 1691358870133
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Messari and CoinGecko Implementation"
+            "text": "Messari and CoinGecko Implementation",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Messari ve CoinGecko Uygulaması",
+                    "updated": 1647084740847
+                },
+                {
+                    "language": "DE",
+                    "text": "Messari und CoinGecko Implementierung",
+                    "updated": 1691358878782
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These are the first two implementations of API Maps and the corresponding Data Fetcher Bots, enabling Superalgos users to fetch News and Asset Metrics data from Messari v1 API and providing access to Coin data from CoinGeko v3 API."
+            "text": "These are the first two implementations of API Maps and the corresponding Data Fetcher Bots, enabling Superalgos users to fetch News and Asset Metrics data from Messari v1 API and providing access to Coin data from CoinGeko v3 API.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bunlar, Superalgos kullanıcılarının Messari v1 API'sinden Haber ve Varlık Metrikleri ( Asset Metrics ) verilerini almasına ve CoinGeko v3 API'sinden Coin verilerine erişim sağlamasına olanak tanıyan API Haritalarının ve ilgili Veri Alıcı Botlarının ilk iki uygulamasıdır.",
+                    "updated": 1647084796727
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies sind die ersten beiden Implementierungen von API Maps und den dazugehörigen Data Fetcher Bots, die es Superalgos-Benutzern ermöglichen, News- und Asset Metrics Daten von der Messari v1 API abzurufen und Zugang zu Coin-Daten von der CoinGeko v3 API zu erhalten.",
+                    "updated": 1691358891918
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Both implementations are limited to few endpoints each. We hope users will complete the mapping to all interesting endpoints!"
+            "text": "Both implementations are limited to few endpoints each. We hope users will complete the mapping to all interesting endpoints!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Her iki uygulama da her biri birkaç uç noktayla sınırlıdır. Kullanıcıların tüm ilginç uç noktalara eşleştirmeyi tamamlayacağını umuyoruz!",
+                    "updated": 1647084839043
+                },
+                {
+                    "language": "DE",
+                    "text": "Beide Implementierungen sind jeweils auf wenige Endpunkte beschränkt. Wir hoffen, dass die Nutzer die Zuordnung zu allen interessanten Endpunkten vervollständigen werden!",
+                    "updated": 1691358903237
+                }
+            ]
         }
     ]
 }

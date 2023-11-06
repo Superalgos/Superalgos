@@ -443,7 +443,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                 if (property.config.isString === true) {
                     fileContent = fileContent + propertySeparator + '"' + element[property.config.codeName] + '"'
                 } else {
-                    fileContent = fileContent + propertySeparator + element[property.config.codeName]
+                    fileContent = fileContent + propertySeparator + JSON.stringify(element[property.config.codeName])
                 }
                 propertySeparator = ","
             }
@@ -481,20 +481,67 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
             let outputElement = {}                  // This will be the object that we will eventually save.
             let outputElementAverage = {}           // We will use this object to help us aggregate values by calculating an average.
             /*
+            Check that the record properties for this element have a valid aggreagation method before we begin
+            */
+            checkAggregationMethods()
+
+            function checkAggregationMethods() {
+                // Throw an error if a record property does not have a supported aggregation method. Excluding begin and end
+                for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                    let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
+                    let name = property.config.codeName
+                    let method = property.config.aggregationMethod
+                    if (name == 'begin' ||
+                        name == 'end' ||
+                        method == 'First' ||
+                        method == 'Last' ||
+                        method == 'Min'  ||
+                        method == 'Max'  ||
+                        method == 'Sum'  ||
+                        method == 'Avg'  ||
+                        method == 'Concat') { 
+                        continue 
+                    } else {
+                        let errMessage
+                        if (method === undefined ) {
+                            errMessage = "No aggregation method defined!\n" +
+                                         "Please add an aggregationMethod config property to the record property node of: " +
+                                         " this process.\n" +
+                                         property.config.codeName +
+                                        "Accepted aggregation methods are: First, Last, Min, Max, Sum, Avg, Concat"
+                        } else {
+                                    errMessage = "unsupported aggregation method -> " + property.config.aggregationMethod +
+                                    " in record property: " + property.config.codeName
+                                }
+                        SA.logger.error(errMessage)
+                        throw new Error(errMessage)            
+                    }
+                }
+            }
+
+            /*
             Set the output element the default values for each of it's properties.
             */
             for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                 let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
 
-                if (property.config.isString === true || property.config.isDate === true) {
+                if (property.config.isString === true) {
+                    outputElement[property.config.codeName] = ""          // Default Value to String
+                } 
+                else if (property.config.isDate === true) {
                     outputElement[property.config.codeName] = ""            // Default Value
-                } else {
-                    outputElement[property.config.codeName] = 0             // Default Value
-                }
-                if (property.config.isBoolean === true) {
+                } 
+                else if (property.config.isBoolean === true) {
                     outputElement[property.config.codeName] = false         // Default Value
                 }
+                else if (property.config.isArray === true) {
+                    outputElement[property.config.codeName] = []            // Default Value
+                }
+                else {
+                    outputElement[property.config.codeName] = 0             // Default Value
+                }
             }
+            
             /*
             Setting the begin and end for this element.
             */
@@ -561,6 +608,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                     aggregationMethodMax()
                     aggregationMethodSum()
                     aggregationMethodAvg()
+                    aggregationMethodConcat()
 
                     saveElement = true
 
@@ -603,9 +651,13 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                         */
                         for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                             let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
-                            if (property.config.aggregationMethod === 'Min' || saveElement === false) {
-                                if (outputElement[property.config.codeName] === 0) { // Set initial value if default value is present
-                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                            if (property.config.aggregationMethod === 'Min') {
+                                if (saveElement === false) {
+                                    if (outputElement[property.config.codeName] === 0) { // Set initial value if default value is present
+                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                    } else if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
+                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                    }
                                 } else if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
                                 }
@@ -657,6 +709,18 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
                                 outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
 
                                 outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
+                            }
+                        }
+                    }
+
+                    function aggregationMethodConcat() {
+                        /*
+                        This is the Concat type of aggregation.
+                        */
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
+                            if (property.config.aggregationMethod === 'Concat') {
+                                outputElement[property.config.codeName] = outputElement[property.config.codeName].concat(record.map.get(property.config.codeName))
                             }
                         }
                     }

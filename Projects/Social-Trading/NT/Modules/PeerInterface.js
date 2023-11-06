@@ -1,11 +1,7 @@
 exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesPeerInterface() {
     /*
-    This module represents the Interface the Network Node have 
-    with other Network Nodes connected to it. 
-    
-    This interface is one layer above the communication protocol interface
-    where actual messages are received through, like for instance the
-    websockets interface.
+    This module represents the Interface of this Network Service where 
+    we process messages comming from other Network Nodes.
     */
     let thisObject = {
         messageReceived: messageReceived,
@@ -19,21 +15,14 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
     }
 
-    function initialize() {
+    async function initialize() {
 
     }
-    
-    async function messageReceived(message) {
-        let messageHeader
-        try {
-            messageHeader = JSON.parse(message)
-        } catch (err) {
-            let response = {
-                result: 'Error',
-                message: 'Peer Interface message Not Correct JSON Format.'
-            }
-            return response
-        }
+
+    async function messageReceived(
+        messageHeader,
+        connectedUserProfiles
+    ) {
 
         if (messageHeader.requestType === undefined) {
             let response = {
@@ -53,7 +42,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
         switch (messageHeader.requestType) {
             case 'Event': {
-                return await eventReceived(messageHeader.eventMessage)
+                return await eventReceived(
+                    messageHeader.eventMessage,
+                    messageHeader.signature,
+                    connectedUserProfiles
+                )
             }
             case 'Query': {
                 let response = {
@@ -65,26 +58,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         }
     }
 
-    async function eventReceived(eventMessage) {
-        /*
-        We expect here a JSON string with some or all of the following properties:
-
-        {
-            "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "eventType": 10, 
-            "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "timestamp": 124234234234,
-            "botAsset": "BTC",
-            "botExchange": "Binance",
-            "botEnabled": true
-        }
-        */
-
+    async function eventReceived(
+        eventMessage,
+        signature,
+        connectedUserProfiles
+    ) {
         let eventReceived
         try {
             eventReceived = JSON.parse(eventMessage)
@@ -109,10 +87,46 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         We will not accept events that have already been processed.
         */
 
-        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Warning',
                 message: 'Peer Interface Event Already Exists.'
+            }
+            return response
+        }
+        /*
+        We are going to validate the Signature of this event.
+        */
+        let response = SA.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
+        if (response !== undefined) { return response }
+        /*
+        At the Peer Interface, events are received from another Network Node. 
+        We get the Social Entity in this case, to know who is following it.
+        */
+        let socialEntityId
+        let socialEntity
+        if (eventReceived.originSocialPersonaId !== undefined) {
+            socialEntityId = eventReceived.originSocialPersonaId
+            socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+        }
+        if (eventReceived.originSocialTradingBotId !== undefined) {
+            socialEntityId = eventReceived.originSocialTradingBotId
+            socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
+        }
+        /*
+        We wiil check that the Social Entity exists.
+        */
+        if (socialEntityId === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity Id Undefined.'
+            }
+            return response
+        }
+        if (socialEntity === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity Undefined.'
             }
             return response
         }
@@ -122,13 +136,23 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         try {
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
-            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
-            NT.projects.network.globals.memory.arrays.EVENTS.push(event)
+            event.run()
+
+            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            console.log('pushing new event in client interface')
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(event)
 
             let response = {
                 result: 'Ok',
                 message: 'Peer Interface Event Processed.'
             }
+
+            event.finalize()
+            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
+                connectedUserProfiles,
+                socialEntity
+            )
             return response
 
         } catch (err) {
@@ -137,7 +161,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                console.log('[ERROR] Peer Interface -> err.stack = ' + err.stack)
+                SA.logger.error('Peer Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

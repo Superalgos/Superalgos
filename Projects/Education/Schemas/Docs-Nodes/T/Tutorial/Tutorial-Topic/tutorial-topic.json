@@ -12,6 +12,16 @@
                 "language": "ES",
                 "text": "Un tema de tutorial es un dispositivo organizativo que ayuda a mantener los nodos de los pasos del tutorial organizados en una jerarquía lógica por temas y subtemas.",
                 "updated": 1636724199296
+            },
+            {
+                "language": "TR",
+                "text": "Öğretici konusu, konulara ve alt konulara göre mantıksal bir hiyerarşide düzenlenmiş öğretici adım düğümlerinin tutulmasına yardımcı olan bir kuruluş aygıtıdır.",
+                "updated": 1652017128447
+            },
+            {
+                "language": "DE",
+                "text": "Ein Tutorial Thema (topic) ist ein Organisationsmittel, das hilft, die Knoten der Tutorial Schritte in einer logischen Hierarchie nach Themen und Unterthemen zu ordnen.",
+                "updated": 1674920431300
             }
         ]
     },
@@ -28,6 +38,16 @@
                     "language": "ES",
                     "text": "Tópicos de Tutorial puede estar anidado dentro de otros temas de tutoriales en niveles ilimitados, y cada nivel puede incluir varios pasos de tutorial.",
                     "updated": 1636724273370
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici ( Tutorial ) konuları, diğer eğitim konularının içinde sınırsız düzeyde iç içe olabilir ve her düzeyde birden fazla eğitim adımı bulunabilir.",
+                    "updated": 1652017181732
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorial themen können in unbegrenzten Ebenen in andere Tutorialthemen verschachtelt werden, und jede Ebene kann mehrere Tutorialschritte enthalten.",
+                    "updated": 1674920589421
                 }
             ]
         },
@@ -44,6 +64,16 @@
                     "language": "ES",
                     "text": "Tutorial Topic Configuration  ( configuración del tópico de tutorial)",
                     "updated": 1636724300562
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici Konu Yapılandırması",
+                    "updated": 1652017189071
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorial Thema (topic) Konfiguration",
+                    "updated": 1674920639307
                 }
             ]
         },
@@ -56,6 +86,16 @@
                     "language": "ES",
                     "text": "La configuración del nodo del tema del tutorial es la misma que la del nodo Tutorial . Consulte este último, por favor.",
                     "updated": 1636724347225
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Öğretici konu düğümünün yapılandırması Öğretici ( Tutorial ) düğümü ile aynıdır. İkincisine bakın, lütfen.",
+                    "updated": 1652017204769
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Konfiguration des Tutorial-topic Knotens ist die gleiche wie die des Tutorial Knotens. Beziehen Sie sich bitte auf letzteren.",
+                    "updated": 1674920737056
                 }
             ]
         }

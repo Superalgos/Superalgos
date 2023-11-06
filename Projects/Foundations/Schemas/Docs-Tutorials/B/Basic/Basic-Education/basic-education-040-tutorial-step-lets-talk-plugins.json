@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Plugins son estructuras de datos que se envían con el sistema y que puede llamar a cualquier espacio de trabajo utilizando la jerarquía de Plugins.",
-                "updated": 1626622977338,
+                "text": "Los Plugins son estructuras de datos que se envían con el sistema y que puede llamar a cualquier espacio de trabajo utilizando la jerarquía de Plugins.",
+                "updated": 1675377516565,
                 "style": "Definition"
             },
             {
@@ -31,13 +31,28 @@
                 "language": "TR",
                 "text": "Eklentiler ( Plugins ) , sistemle birlikte gelen ve Eklentiler hiyerarşisini ( Plugins Hierrarchy ) kullanarak herhangi bir çalışma alanına çağırabileceğiniz veri yapılarıdır.",
                 "updated": 1639767098656
+            },
+            {
+                "language": "RU",
+                "text": "Плагины (Plugins) - это структуры данных, которые поставляются вместе с системой и которые вы можете вызывать в любом рабочем пространстве с помощью иерархии Plugins.",
+                "updated": 1640873263568
+            },
+            {
+                "language": "ID",
+                "text": "Plugin adalah struktur data yang dikirimkan bersama sistem dan kamu dapat memanggil ke workspace manapun menggunakan Plugins hierarchy.",
+                "updated": 1645035554043
+            },
+            {
+                "language": "NL",
+                "text": "Plugins zijn gegevensstructuren die bij het systeem worden geleverd en die u kunt aanroepen in elke werkruimte met behulp van de Plugins hiërarchie.",
+                "updated": 1669545883008
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Plugins are data structures meant to be reused. That is why they ship as plugins, so that you may place them on any workspace.",
+            "text": "Plugins are data structures that are meant to be reused. That is why they ship as plugins, so that you may place them on any workspace.",
             "updated": 1615917170964,
             "translations": [
                 {
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Plugins son estructuras de datos destinadas a ser reutilizadas. Es por eso que se envían como plugins, para que puedas colocarlos en cualquier Workspace.",
-                    "updated": 1626620113069,
+                    "text": "Los Plugins son estructuras de datos destinadas a ser reutilizadas. Es por eso que se envían como plugins, para que puedas colocarlos en cualquier Workspace.",
+                    "updated": 1675377521792,
                     "style": "Text"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Eklentiler ( Plugins ), yeniden kullanılması amaçlanan veri yapılarıdır. Bu nedenle, herhangi bir çalışma alanına yerleştirebilmeniz için eklenti olarak menüde yer alırlar.",
                     "updated": 1639767154794
+                },
+                {
+                    "language": "RU",
+                    "text": "Плагины - это структуры данных, предназначенные для повторного использования. Именно поэтому они поставляются в виде плагинов, чтобы вы могли разместить их на любом рабочем пространстве.",
+                    "updated": 1640873283703
+                },
+                {
+                    "language": "ID",
+                    "text": "Plugin adalah struktur data yang dimaksudkan untuk digunakan kembali. Itulah sebabnya dikirim sebagai plugin, sehingga kamu dapat menempatkannya di workspace manapun.",
+                    "updated": 1645035650373
+                },
+                {
+                    "language": "NL",
+                    "text": "Plugins zijn datastructuren die bedoeld zijn om hergebruikt te worden. Daarom worden ze geleverd als plugins, zodat u ze op elke werkruimte kunt plaatsen.",
+                    "updated": 1669545908504
                 }
             ]
         },
@@ -89,24 +119,39 @@
                     "language": "TR",
                     "text": "Plugins düğümünü genişletin!",
                     "updated": 1639767179987
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Plugins!",
+                    "updated": 1640873292273
+                },
+                {
+                    "language": "ID",
+                    "text": "Perluas node Plugin!",
+                    "updated": 1645035669748
+                },
+                {
+                    "language": "NL",
+                    "text": "Vouw het knooppunt Plugins uit!",
+                    "updated": 1669545927685
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "As you can tell from the structure of the hierarchy, there are several types of plugins! They ship as JSON files, sorted by type in the plugins folder. Check it out!",
-            "updated": 1615917052972,
+            "text": "As you can tell from the structure of the hierarchy, there are several types of plugins! They ship as JSON files, sorted by Project and type in the plugins folder. Check it out!",
+            "updated": 1649174495914,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Come vedi dalla struttura della gerarchia, ci sono diversi tipi di plugins! Sono salvati in appositi files JSON in una cartella di riferimento. Dai un'occhiata!",
-                    "updated": 1619554435988,
+                    "text": "Come puoi vedere dalla struttura della gerarchia, ci sono diversi tipi di plugin! Vengono spediti come file JSON, ordinati per Project e scritti nella cartella dei plugin.",
+                    "updated": 1666640107286,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Como puede deducirse de la estructura de la jerarquía, existen varios tipos de plugins! Se envían como archivos JSON, ordenados por tipo en la carpeta de plugins. ¡Échale un vistazo!",
-                    "updated": 1626619903123,
+                    "text": "Como se puede deducir de la estructura de la jerarquía, ¡hay varios tipos de Plugins! Se envían como archivos JSON, ordenados por proyecto y tipo en la carpeta de plugins. ¡Compruébalo!",
+                    "updated": 1675377553724,
                     "style": "Text"
                 },
                 {
@@ -116,15 +161,30 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hiyerarşinin yapısından da anlayabileceğiniz gibi, çeşitli eklenti türleri vardır! Eklentiler klasöründe türe göre sıralanmış JSON dosyaları olarak bulunurlar. Eklentiler düğümünü keşfetmekten çekinme!",
-                    "updated": 1639767248787
+                    "text": "Hiyerarşinin yapısından da anlayabileceğiniz gibi, çeşitli eklenti türleri vardır! Eklentiler klasöründe Proje ve türe göre sıralanmış JSON dosyaları olarak gönderilirler. Bir göz atın!",
+                    "updated": 1666103751444
+                },
+                {
+                    "language": "RU",
+                    "text": "Как видно из структуры иерархии, существует несколько типов плагинов! Они поставляются в виде JSON файлов, отсортированных по проекту и типу в папке plugins. Проверьте это!",
+                    "updated": 1661377667089
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu tahu dari struktur hierarki, ada beberapa jenis plugin! Mereka mengirim sebagai file JSON, diurutkan berdasarkan jenis di folder plugin. Coba lihat!",
+                    "updated": 1645035703122
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoals je kunt zien aan de structuur van de hiërarchie, zijn er verschillende soorten plugins! Ze worden verzonden als JSON-bestanden, gesorteerd op Project en type in de map plugins. Ga het maar eens bekijken!",
+                    "updated": 1669546014089
                 }
             ]
         },
         {
             "style": "Json",
-            "text": "\\Projects\\Foundations\\Plugins",
-            "updated": 1615916283983
+            "text": "\\Plugins",
+            "updated": 1649174519153
         },
         {
             "style": "Text",

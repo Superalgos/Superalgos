@@ -18,6 +18,21 @@
                 "language": "DE",
                 "text": "Vergewissern Sie sich, dass die erstellten Zeitmaschinen in der Diagrammfläche angezeigt werden....",
                 "updated": 1636470446401
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Oluşturulan zaman makinelerinin grafik alanında görünüp görünmediğini kontrol edin...",
+                "updated": 1642163970972
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что созданные машины времени отображаются в пространстве графиков... вы должны найти...",
+                "updated": 1643091443206
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de gemaakte tijdmachines verschijnen in de grafiek... je zou moeten vinden...",
+                "updated": 1676128758362
             }
         ]
     },
@@ -28,13 +43,28 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Un Time Machine para cada Trading Session crada en el Testing Trading Tasks.",
-                    "updated": 1629251649077
+                    "text": "Un Time Machine para cada Trading Session crado en el Testing Trading Tasks.",
+                    "updated": 1682428211473
                 },
                 {
                     "language": "DE",
                     "text": "Eine Time Machine für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
                     "updated": 1636470668493
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme'de ( Testing Trading Tasks ) oluşturulan her ticaret seansı için bir Zaman Makinesi ( Time Machine ).",
+                    "updated": 1642164032106
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Machine для каждой торговой сессии, созданной в Testing Trading Tasks.",
+                    "updated": 1643091471855
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Time Machine voor elke handelssessie die is gemaakt in de Testing Trading Tasks.",
+                    "updated": 1676128785682
                 }
             ]
         },
@@ -51,6 +81,21 @@
                     "language": "DE",
                     "text": "Eine Time Machine für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
                     "updated": 1636470688537
+                },
+                {
+                    "language": "TR",
+                    "text": "Üretim Ticareti Görevlerinde ( Production Trading Tasks ) oluşturulan her ticaret seansı için bir Zaman Makinesi ( Time Machine ).",
+                    "updated": 1642164108788
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Machine для каждой торговой сессии, созданной в Production Trading Tasks.",
+                    "updated": 1643091492506
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Time Machine voor elke handelssessie die is gemaakt in de Production Trading Tasks.",
+                    "updated": 1676128818770
                 }
             ]
         },
@@ -67,6 +112,21 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über ein Diagramm, um zu sehen, welche Crypto Exchange und welchen Market es enthält.",
                     "updated": 1636470700735
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Hangi Crypto Exchange ve borsa'nın ( Market ) içerdiğini görmek için farenizi bir grafiğin üzerine getirin.",
+                    "updated": 1642164209250
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор мыши на график, чтобы узнать, какая криптовалютная биржа (Crypto Exchange) и рынок (Market) на нем представлены.",
+                    "updated": 1643091519022
+                },
+                {
+                    "language": "NL",
+                    "text": "Beweeg uw muis over een grafiek om te zien welke Crypto Exchange en Market het biedt.",
+                    "updated": 1676128849763
                 }
             ]
         }

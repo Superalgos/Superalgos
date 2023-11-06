@@ -34,6 +34,11 @@
                     "language": "RU",
                     "text": "Узел сеанса бэктестирования должен ссылаться на торговую систему, чтобы получить доступ к торговой логике, которая будет применяться во время сеанса. Другие соображения, касающиеся сеанса, исходят из набора прикрепленных к нему параметров.",
                     "updated": 1638643925683
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye dönük test oturumu düğümü, oturum sırasında uygulanacak ticaret mantığına erişim kazanmak için bir ticaret sistemine başvurmalıdır. Oturumu çerçeveleyen diğer hususlar, ona ekli parametreler kümesinden gelir.",
+                    "updated": 1652795236870
                 }
             ]
         },
@@ -50,6 +55,11 @@
                     "language": "RU",
                     "text": "Запуск Backtesting Session",
                     "updated": 1638643943360
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye Dönük Test Oturumu Çalıştırma",
+                    "updated": 1652795252439
                 }
             ]
         },
@@ -61,6 +71,11 @@
                     "language": "RU",
                     "text": "Перед тем, как вы начнете сеанс бэктестинга, необходимо запустить соответствующую задачу, так как именно эта задача запускает экземпляр торгового бота. После запуска экземпляра торгового бота выберите в меню пункт «Run», чтобы начать сеанс.",
                     "updated": 1638643976853
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir geriye dönük test oturumu başlatmadan önce, ticaret botu örneğini çalıştıran görev olduğu için ilgili görevin çalışıyor olması gerekir. Ticaret botu örneği çalıştığında, oturumu başlatmak için menüden Çalıştır'ı seçin.",
+                    "updated": 1652795287906
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "RU",
                     "text": "Через несколько секунд под узлом сеанса появится буквальное указание хода вычислений, отображающее дату, которая в данный момент обрабатывается. Как только расчет завершен, сеанс останавливается, и дата под узлом сеанса исчезает.",
                     "updated": 1638644056346
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç saniye sonra, oturum düğümünün altında, o anda işlenmekte olan tarihi gösteren, hesaplamaların ilerleyişinin gerçek bir göstergesi belirir. Hesaplama bittiğinde, oturum durur ve oturum düğümünün altındaki tarih kaybolur.",
+                    "updated": 1652795307445
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Чтобы остановить сеанс тестирования на истории, выберите в меню «Stop».",
                     "updated": 1638644089501
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye dönük test oturumunu durdurmak için menüden Durdur'u seçin.",
+                    "updated": 1652795316852
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "RU",
                     "text": "Конфигурация Backtesting Session",
                     "updated": 1638644109598
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri Test Oturumu Yapılandırması",
+                    "updated": 1652795326567
                 }
             ]
         },
@@ -110,6 +140,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638644117846
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1652795340040
                 }
             ]
         },
@@ -122,6 +157,11 @@
                     "language": "RU",
                     "text": "folderName позволяет задать значимое имя для папки, в которой хранятся продукты данных и журналы, созданные сеансом. Если оставить поле пустым, система присвоит папкам имена с идентификатором сеанса. Это может быть удобно, если вы собираетесь ознакомиться с необработанными данными, сгенерированными в ходе сеанса, так как в противном случае папку было бы трудно идентифицировать.",
                     "updated": 1638644170782
+                },
+                {
+                    "language": "TR",
+                    "text": "folderName, oturum tarafından oluşturulan veri ürünlerinin ve günlüklerin depolandığı klasöre önemli bir ad ayarlamanıza olanak tanır. Boş bırakılırsa, sistem klasörleri oturum kimliğiyle adlandırır. Bu, oturum tarafından oluşturulan ham verilere başvurmayı düşündüğünüzde kullanışlı olabilir, aksi takdirde klasörün tanımlanması zor olacaktır.",
+                    "updated": 1652795357020
                 }
             ]
         },

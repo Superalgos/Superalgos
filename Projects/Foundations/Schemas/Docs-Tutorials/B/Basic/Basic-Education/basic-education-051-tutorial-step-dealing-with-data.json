@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ì dati che hai scaricato dagli exchange e processato con gli indicatori è disponibile ovunque e accessibile da ogni workspace e strategia.",
-                "updated": 1619591708965,
+                "text": "Ì dati che hai scaricato dagli Exchange e processato con gli indicatori sono disponibile ovunque e accessibili da ogni workspace e strategia.",
+                "updated": 1666641813490,
                 "style": "Definition"
             },
             {
@@ -31,36 +31,66 @@
                 "language": "TR",
                 "text": "Borsalardan indirdiğiniz ve göstergelerle işlediğiniz verilere herhangi bir çalışma alanından ve stratejiden erişilebilirsiniz. Yani çalışma alanını değiştrisenizde yeni alanınızda daha önce indirilmiş bu verileri kullanırsınız. Her çalışma alanı için tekrardan indirmenize gerek yoktur..",
                 "updated": 1639825082061
+            },
+            {
+                "language": "RU",
+                "text": "Данные, которые вы загружаете с бирж и обрабатываете с помощью индикаторов, доступны повсеместно, из любого рабочего пространства и стратегии.",
+                "updated": 1640875700028
+            },
+            {
+                "language": "ID",
+                "text": "Data yang kamu unduh dari exchanges dan diproses dengan indikator tersedia yang bisa diterapin kesemuanya, dapat diakses dari workspace mana saja dan strategi apa pun.",
+                "updated": 1645560911998
+            },
+            {
+                "language": "NL",
+                "text": "De gegevens die u downloadt van handelsplatformen en verwerkt met indicatoren, zijn over de hele linie beschikbaar en toegankelijk vanuit elke werkruimte en strategie.",
+                "updated": 1669548849943
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Data is stored on disk under the Data-Storage folder and is organized by Project, Data Mine, bot, and Market. It doesn't matter what workspace you used to mine the data or process indicators.",
+            "text": "Data is stored on disk under the ./Platform/My-Data-Storage folder and is organized by Project, Data Mine, bot, and Market. It doesn't matter what workspace you used to mine the data or process indicators.",
             "updated": 1616175467234,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "I dati sono salvati nella cartella Data-Storage e organizzati per Progetto, Data Mine, Bot e Market. Non importa quale workspace hai usato per estrarre dati o processare indicatori.",
+                    "text": "I dati sono salvati nella cartella ./Platform/My-Data-Storage e organizzati per Progetto, Data Mine, Bot e Market. Non importa quale workspace hai usato per estrarre dati o processare indicatori.",
                     "updated": 1619591759698,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Los datos se almacenan en el disco en la carpeta Data-Storage y están organizados por Project, Data Mine, bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
-                    "updated": 1628017724144,
+                    "text": "Los datos se almacenan en el disco en la carpeta./Platform/My-Data-Storage y están organizados por Project, Data Mine, Bot y Market. No importa qué Worksapce hayas utilizado para minar los datos o los indicadores de proceso.",
+                    "updated": 1675378363165,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Die Daten werden auf der Festplatte im Ordner Data-Storage gespeichert und sind nach Project, Data Mine, Bot und Market geordnet. Es spielt keine Rolle, in welchem Workspace Sie die Daten gewonnen oder die Indikatoren verarbeitet haben.",
+                    "text": "Die Daten werden auf der Festplatte im Ordner ./Platform/My-Data-Storage gespeichert und sind nach Project, Data Mine, Bot und Market geordnet. Es spielt keine Rolle, in welchem Workspace Sie die Daten gewonnen oder die Indikatoren verarbeitet haben.",
                     "updated": 1634589981672
                 },
                 {
                     "language": "TR",
-                    "text": "Veriler, Data-Storage klasörü altında diske depolanır ve Project, Data Mine, bot ve Market tarafından düzenlenir. Verileri veya süreç göstergelerini çıkarmak için hangi çalışma alanını kullandığınızın bir önemi yoktur.",
+                    "text": "Veriler, ./Platform/My-Data-Storage klasörü altında diske depolanır ve Project, Data Mine, bot ve Market tarafından düzenlenir. Verileri veya süreç göstergelerini çıkarmak için hangi çalışma alanını kullandığınızın bir önemi yoktur.",
                     "updated": 1639825127007
+                },
+                {
+                    "language": "RU",
+                    "text": "Данные хранятся на диске в папке ./Platform/My-Data-Storage и организованы по категориям Project, Data Mine, bot и Market. Не имеет значения, какое рабочее пространство вы использовали для добычи данных или обработки индикаторов.",
+                    "updated": 1640875728180
+                },
+                {
+                    "language": "ID",
+                    "text": "Data disimpan dalam disk di bawah ./Platform/My-Data-Storage folder dan diatur oleh Project, Data Mine, bot, dan Market. Tidak masalah workspace apa yang kamu gunakan untuk menambang data atau memproses indikator.",
+                    "updated": 1645560987710
+                },
+                {
+                    "language": "NL",
+                    "text": "Gegevens worden opgeslagen in de map./Platform/My-Data-Storage en zijn geordend op Project, Data Mine, bot en Market. Het maakt niet uit welke werkruimte u hebt gebruikt om de gegevens te downloaden of procesindicatoren te verwerken.",
+                    "updated": 1669548956221
                 }
             ]
         },
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "Herhangi bir borsadan çektiğiniz verilerin hepis tüm çalışma alanlarında mevcuttur, böylece ne yapıyor olursanız olun aynı veri kaynaklarıyla çalışabilirsiniz.",
                     "updated": 1639825202230
+                },
+                {
+                    "language": "RU",
+                    "text": "Все данные доступны для всех рабочих пространств, поэтому вы можете работать с одними и теми же источниками данных независимо от того, что вы делаете.",
+                    "updated": 1640875743084
+                },
+                {
+                    "language": "ID",
+                    "text": "Semua data tersedia untuk semua workspaces, sehingga kamu dapat bekerja dengan sumber data yang sama terlepas dari apa yang kamu lakukan.",
+                    "updated": 1645561018358
+                },
+                {
+                    "language": "NL",
+                    "text": "Alle gegevens zijn beschikbaar voor alle werkruimten, zodat u ongeacht wat u doet met dezelfde gegevensbronnen kunt werken.",
+                    "updated": 1669548974961
                 }
             ]
         },
@@ -105,8 +150,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos!",
-                    "updated": 1628019703596,
+                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utiliza tu sistema de archivos!",
+                    "updated": 1675378375629,
                     "style": "Success"
                 },
                 {
@@ -118,6 +163,21 @@
                     "language": "TR",
                     "text": "Uygulamada yerleşik veri yönetimi yoktur. Bunun yerine dosya sisteminizi kullanın!",
                     "updated": 1639825229337
+                },
+                {
+                    "language": "RU",
+                    "text": "В приложении нет встроенного управления данными. Вместо этого используйте файловую систему!",
+                    "updated": 1640875757997
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada data-management bawaan didalam aplikasi. Gunakan sistem file kamu sebagai gantinya!",
+                    "updated": 1645561065959
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is geen ingebouwd gegevensbeheer in de app. Gebruik in plaats daarvan uw bestandssysteem!",
+                    "updated": 1669548991033
                 }
             ]
         }

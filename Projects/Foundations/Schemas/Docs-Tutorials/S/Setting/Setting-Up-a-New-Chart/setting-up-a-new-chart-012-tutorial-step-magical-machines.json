@@ -5,7 +5,7 @@
     "definition": {
         "text": "You've seen these portals to another dimension before! Now let's take a closer look at the magical Time Machine.",
         "icon": {
-            "name": "Time/time-machine",
+            "name": "time-machine",
             "project": "Foundations"
         },
         "updated": 1628359226218,
@@ -24,19 +24,24 @@
                 "language": "DE",
                 "text": "Du hast diese Portale in eine andere Dimension schon einmal gesehen! Jetzt wollen wir uns die magische Time Machine genauer ansehen.",
                 "updated": 1639102802329
+            },
+            {
+                "language": "TR",
+                "text": "Bu portalları zaten başka bir boyutta gördünüz! Şimdi büyülü Zaman Makinesi'ne ( Time Machine ) daha yakından bakalım.",
+                "updated": 1642583621863
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You might have noticed each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely.",
-            "updated": 1628359250494,
+            "text": "You may have noticed that each control panel has a Time Machine associated with it. You've already seen time machines in previous tutorials. But today we're going to be working with them much more closely.",
+            "updated": 1682430357310,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Es posible que hayas notado que cada panel tiene una Time Machine adjunto a. Ya te has encontrado con máquinas del tiempo en tutoriales anteriores. Pero hoy vamos a trabajar mucho más con ellas.",
-                    "updated": 1628645255596
+                    "text": "Te habrás dado cuenta de que cada panel de control tiene una Máquina del Tiempo asociada. Ya has visto máquinas del tiempo en tutoriales anteriores. Pero hoy vamos a estar trabajando con ellos mucho más de cerca.",
+                    "updated": 1682430394186
                 },
                 {
                     "language": "RU",
@@ -47,28 +52,11 @@
                     "language": "DE",
                     "text": "Sie haben vielleicht bemerkt, dass jedes Dashboard mit einer Time Machine verbunden ist. Zeitmaschinen haben Sie bereits in früheren Tutorials kennengelernt. Aber heute werden wir viel intensiver mit ihnen arbeiten.",
                     "updated": 1639102892584
-                }
-            ]
-        },
-        {
-            "style": "Callout",
-            "text": "Take a minute and read their documentation page to get a better idea of what they do.",
-            "updated": 1628360126413,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Tómate un minuto y lea su página de documentación para tener una mejor idea de lo que hacen.",
-                    "updated": 1628645275989
                 },
                 {
-                    "language": "RU",
-                    "text": "Потратьте минуту и прочитайте страницу их документации, чтобы получить лучшее представление о том, что они делают.",
-                    "updated": 1637937914380
-                },
-                {
-                    "language": "DE",
-                    "text": "Nehmen Sie sich eine Minute Zeit und lesen Sie die Dokumentationsseite, um eine bessere Vorstellung davon zu bekommen, was sie tun.",
-                    "updated": 1639102947175
+                    "language": "TR",
+                    "text": "Her gösterge panosunun kendisine bağlı bir Zaman Makinesi ( Time Machine ) olduğunu fark etmiş olabilirsiniz. Daha önceki derslerde zaman makineleriyle zaten karşılaşmıştınız. Ama bugün onlarla çok daha yakın çalışacağız.",
+                    "updated": 1642583712773
                 }
             ]
         }

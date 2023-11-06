@@ -2,12 +2,32 @@
     "type": "Backend",
     "definition": {
         "text": "TensorFlow.js support multiple different backends that implement tensor storage and mathematical operations. At any given time, only one backend is active. Most of the time, TensorFlow.js will automatically choose the best backend for you given the current Execution Environment.",
-        "updated": 1613059266937
+        "updated": 1613059266937,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "TensorFlow.js поддерживает несколько различных бэкендов, реализующих хранение тензоров и математические операции. В каждый момент времени активен только один бэкенд. В большинстве случаев TensorFlow.js автоматически выбирает лучший бэкенд для вас, учитывая текущую среду выполнения.",
+                "updated": 1645084424049
+            },
+            {
+                "language": "TR",
+                "text": "TensorFlow.js, tensör depolama ve matematiksel işlemleri uygulayan birden fazla farklı arka ucu destekler. Herhangi bir zamanda, yalnızca bir arka uç etkindir. Çoğu zaman, TensorFlow.js mevcut Yürütme Ortamı göz önüne alındığında sizin için en iyi arka ucu otomatik olarak seçecektir.",
+                "updated": 1654396586744
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654396594286,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

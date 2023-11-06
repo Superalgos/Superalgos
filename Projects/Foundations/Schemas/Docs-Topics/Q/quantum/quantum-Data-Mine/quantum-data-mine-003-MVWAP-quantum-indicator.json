@@ -4,17 +4,53 @@
     "type": "Moving Volume Average Price (MVWAP) - quantum Indicator",
     "definition": {
         "text": "Produce the average price of a set time period, taking into account the volume of trade over the same period of time",
-        "updated": 1636853769
+        "updated": 1636853769,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вывести среднюю цену за определенный период времени, принимая во внимание объем торгов за тот же период времени",
+                "updated": 1646898387396
+            },
+            {
+                "language": "DE",
+                "text": "Ermittlung des Durchschnittspreises eines bestimmten Zeitraums unter Berücksichtigung des Handelsvolumens im selben Zeitraum",
+                "updated": 1671698014295
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Moving VWAP On the Charts",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перемещение VWAP на графиках",
+                    "updated": 1646898413045
+                },
+                {
+                    "language": "DE",
+                    "text": "Moving VWAP auf den Charts",
+                    "updated": 1671698188623
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The moving VWAP takes into account the volume of trade over a set period of time. Unlike the standard VWAP, the value is never reset for each trading day, hence why it is called “moving”. There are 5 MVWAP of differing periods produced by this data mine."
+            "text": "The moving VWAP takes into account the volume of trade over a set period of time. Unlike the standard VWAP, the value is never reset for each trading day, hence why it is called “moving”. There are 5 MVWAP of differing periods produced by this data mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скользящий VWAP учитывает объем торговли за определенный период времени. В отличие от стандартного VWAP, значение никогда не обнуляется для каждого торгового дня, поэтому он и называется \"скользящим\". Существует 5 MVWAP различных периодов, созданных этим источником данных.",
+                    "updated": 1646898448041
+                },
+                {
+                    "language": "DE",
+                    "text": "Der gleitende VWAP berücksichtigt das Handelsvolumen während eines bestimmten Zeitraums. Im Gegensatz zum Standard VWAP wird der Wert nicht für jeden Handelstag zurückgesetzt, weshalb er auch \"gleitend\" genannt wird. Es gibt 5 MVWAP mit unterschiedlichen Zeiträumen, die aus dieser Datenmine stammen.",
+                    "updated": 1671698203270
+                }
+            ]
         },
         {
             "style": "Png",
@@ -23,11 +59,35 @@
         },
         {
             "style": "Text",
-            "text": "There are five MVWAPs produced by this indicator, with the following periods: 5, 10, 20, 50, 100."
+            "text": "There are five MVWAPs produced by this indicator, with the following periods: 5, 10, 20, 50, 100.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует пять MVWAP, созданных по этому показателю, со следующими периодами: 5, 10, 20, 50, 100.",
+                    "updated": 1646898463346
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt fünf MVWAPs, die durch diesen Indikator erzeugt werden, mit den folgenden Zeiträumen: 5, 10, 20, 50, 100.",
+                    "updated": 1671698212929
+                }
+            ]
         },
-		{
+        {
             "style": "Text",
-            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “MVWAP” Product Definition."
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “MVWAP” Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить параметры, необходимые для расчета в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом \"MVWAP\" Product Definition.",
+                    "updated": 1646898481144
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die für die Berechnung benötigten Parameter nach Ihren Bedürfnissen zu ändern, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter “MVWAP” Product Definition.",
+                    "updated": 1671698224501
+                }
+            ]
         },
         {
             "style": "Png",
@@ -36,25 +96,80 @@
         },
         {
             "style": "Title",
-            "text": "MVWAP Products & Properties"
+            "text": "MVWAP Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства MVWAP",
+                    "updated": 1646898492550
+                },
+                {
+                    "language": "DE",
+                    "text": "MVWAP Produkte & Eigenschaften",
+                    "updated": 1671698232445
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are five properties available:"
+            "text": "There are five properties available:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеется пять свойств:",
+                    "updated": 1646898519342
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind fünf Eigenschaften verfügbar:",
+                    "updated": 1671698240799
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| MVWAP | MVWAP | mvwap1, mvwap2, mvwap3, mvwap4, mvwap5 |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| MVWAP | MVWAP | mvwap1, mvwap2, mvwap3, mvwap4, mvwap5 |",
+                    "updated": 1671698252500
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1646898526864
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671698261004
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A basic strategy can be built by looking for a short period VWAP crossing above a longer one:"
+            "text": "A basic strategy can be built by looking for a short period VWAP crossing above a longer one:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Базовая стратегия может быть построена путем поиска пересечения VWAP короткого периода над более длинным периодом:",
+                    "updated": 1646898537622
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine grundlegende Strategie kann auf der Suche nach einem VWAP für einen kurzen Zeitraum, der einen längeren Zeitraum übersteigt, entwickelt werden:",
+                    "updated": 1671698271984
+                }
+            ]
         },
         {
             "style": "Javascript",

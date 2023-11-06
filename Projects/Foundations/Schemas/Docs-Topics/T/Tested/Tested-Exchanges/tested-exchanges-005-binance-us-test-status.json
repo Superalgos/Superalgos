@@ -4,37 +4,156 @@
     "type": "Binance-US Test Status",
     "definition": {
         "text": "Binance US is tested for data mining and live trading",
-        "updated": 1616241967855
+        "updated": 1616241967855,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Binance US тестируется на предмет добычи данных и торговли в реальном времени",
+                "updated": 1646900877331
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Binance US, veri madenciliği ve canlı ticaret için test edildi",
+                "updated": 1650570907973
+            },
+            {
+                "language": "DE",
+                "text": "Binance US wird für Data Mining und Live-Handel getestet",
+                "updated": 1690356718433
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646900883497
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650570919890
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690356726353
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified",
-            "updated": 1616241978955
+            "updated": 1616241978955,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена",
+                    "updated": 1646900927015
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı",
+                    "updated": 1650570923503
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft",
+                    "updated": 1690356734151
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting on Genuary 2020",
-            "updated": 1615210971704
+            "updated": 1615210971704,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Начиная с января 2020 года",
+                    "updated": 1646900942351
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Geçmişi: Ocak 2020'den Başlıyor",
+                    "updated": 1650570931126
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Ab Genuary 2020",
+                    "updated": 1690356740510
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified",
-            "updated": 1616241962902
+            "updated": 1616241962902,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность запуска стратегий в режиме реальной торговли была проверена",
+                    "updated": 1646900953558
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı",
+                    "updated": 1650570937602
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability): Ja. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde überprüft",
+                    "updated": 1690356748942
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
-            "updated": 1615205045729
+            "updated": 1615205045729,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Добыча необработанных данных может быть медленной из-за ограничений обмена на их API, которые ограничивают количество данных, которые могут быть запрошены через Rest API.",
+                    "updated": 1646900969320
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Rest API aracılığıyla istenebilecek veri sayısını sınırlayan API'lerindeki değişim kısıtlamaları nedeniyle Ham Veri madenciliği yavaş olabilir",
+                    "updated": 1650570944208
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Die Gewinnung von Rohdaten (Raw Data) kann aufgrund von Austauschbeschränkungen für ihre API, die die Anzahl der über die Rest-API abrufbaren Daten begrenzen, langsam sein",
+                    "updated": 1690356756919
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646900975036
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650570959554
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690356763495
+                }
+            ]
         },
         {
             "style": "Json",

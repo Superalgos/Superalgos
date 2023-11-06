@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wählen Sie Bedingung hinzufügen (Add Condition) im Menü der Situation und fügen Sie den Code in den Javascript-Code Knoten ein!",
                 "updated": 1639265553683
+            },
+            {
+                "language": "RU",
+                "text": "Выберите Add Condition в меню Situation и вставьте код в узел Javascript Code!",
+                "updated": 1640944500478
+            },
+            {
+                "language": "TR",
+                "text": "Durum (situation) menüsünde Koşul Ekle'yi ( Condition  )  seçin ve kodu Javascript kod ( Javascript Code )  düğümüne yapıştırın!",
+                "updated": 1641654388262
+            },
+            {
+                "language": "ES",
+                "text": "¡Selecciona \" Add Condition \" en el menú de la situación y pega el código en el nodo Javascript Code!",
+                "updated": 1677100572375
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "language": "DE",
                     "text": "Beschriften Sie den Bedingungsknoten 24H Not Side und beschriften Sie die Situation als Downtrend, um die Dinge ordentlich zu halten!",
                     "updated": 1639265564098
+                },
+                {
+                    "language": "RU",
+                    "text": "Пометьте узел условий 24H Not Side и обозначьте ситуацию как Downtrend, чтобы все было аккуратно!",
+                    "updated": 1640944515440
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşulların düğümünü 24H Yan değil (Not Side) olarak ve işleri düzenli tutmak için durumu bir düşüş trendi (Downtrend) olarak etiketleyin!",
+                    "updated": 1669579870798
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Etiqueta el nodo de condición \"24H Not Side\" y etiqueta la situación como \"Downtrend\" para mantener las cosas ordenadas!",
+                    "updated": 1677100603665
                 }
             ]
         },
@@ -41,6 +71,21 @@
                     "language": "DE",
                     "text": "Wir hätten die beiden Bedingungen auch in eine einzige schreiben können, indem wir den Operator && verwenden. Warum das keine gute Idee ist, erkläre ich Ihnen im nächsten Schritt!",
                     "updated": 1639265579723
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы могли бы написать два условия в одном, используя оператор &&. Я расскажу вам, почему это не очень хорошая идея на следующем шаге!",
+                    "updated": 1640944527436
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ayrıca bu iki koşulu \"&&\" imlecini kullanarak tek bir koşulda yazabilirdik. Ancak bu iyi bir fikir değildir, Neden iyi bir fikir olmadığını bir sonraki adımda açıklayacağım!",
+                    "updated": 1669579953764
+                },
+                {
+                    "language": "ES",
+                    "text": "Podríamos haber optado por escribir las dos condiciones en una utilizando el operador &&. Te diré por qué no es una buena idea en el siguiente paso.",
+                    "updated": 1677100640351
                 }
             ]
         }

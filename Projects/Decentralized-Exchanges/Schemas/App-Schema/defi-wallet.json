@@ -1,0 +1,102 @@
+{
+    "type": "DeFi Wallet",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Create New Wallet",
+            "label": "Create New Wallet",
+            "translationKey": "create.newWallet",
+            "iconPathOn": "test-entity",
+            "iconPathOff": "test-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Import Wallet from Mnemonic",
+            "label": "Import Existing Wallet from Mnemonic",
+            "translationKey": "import.existing.wallet.mnemonic",
+            "iconPathOn": "test-entity",
+            "iconPathOff": "test-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Import Wallet from Private Key",
+            "label": "Import Existing Wallet from Private Key",
+            "translationKey": "import.existing.wallet.privateKey",
+            "iconPathOn": "test-entity",
+            "iconPathOff": "test-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokens",
+            "label": "Add Tokens",
+            "translationKey": "add.tokens",
+            "relatedUiObject": "Tokens",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "swapPairs",
+            "label": "Add Swap Pairs",
+            "translationKey": "add.swapPairs",
+            "relatedUiObject": "Swap Pairs",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{  \n\"address\": \"wallet_address\",  \n\"mnemonic\": \"wallet_mnemonic_phrase\",  \n\"privateKey\": \"wallet_private_key\",  \n\"publicKey\": \"wallet_public_key\"\n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Decentralized Exchange->"
+    },
+    "propertyNameAtParent": "defiWallet",
+    "childrenNodesProperties": [
+        {
+            "name": "tokens",
+            "type": "node",
+            "childType": "Tokens",
+            "autoAdd": true
+        },
+        {
+            "name": "swapPairs",
+            "type": "node",
+            "childType": "Swap Pairs",
+            "autoAdd": true
+        }
+    ],
+    "isPersonalData": true
+}

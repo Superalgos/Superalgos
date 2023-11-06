@@ -1,0 +1,196 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Repository Branches",
+    "definition": {
+        "text": "The Superalgos repository features two main branches: master and develop.",
+        "updated": 1636912658939,
+        "icon": {
+            "name": "github",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La repository di Superalgos ha tree branches principali: master, develop e quella che cerchiamo noi, plugins-docs.",
+                "updated": 1619633110033,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "L'entrepôt Superalgos comporte trois sections principales : master, develop, et celle que nous recherchons, plugins-docs.",
+                "updated": 1623952696128,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El repositorio de Superalgos presenta dos ramas principales: Master y Develop.",
+                "updated": 1667508718420,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos-Repository hat zwei Hauptzweige: master und develop.",
+                "updated": 1638832363730,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Репозиторий Superalgos имеет две основные ветви: Master и Develop.",
+                "updated": 1662032270767
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos deposu iki ana dala sahiptir: Master ve Develop.",
+                "updated": 1639942169332
+            },
+            {
+                "language": "NL",
+                "text": "De Superalgos-repository heeft twee hoofd branches: Master en Develop.",
+                "updated": 1669573989936
+            },
+            {
+                "language": "PL",
+                "text": "Repozytorium Superalgos posiada dwie główne gałęzie: master i develop.",
+                "updated": 1674835421245
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Master branch: features the stable version of the software. Never submit contributions to this branch!",
+            "updated": 1687889225296,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Master Branch: ospita l'ultima versione stabile del software. Non mandare mai contributi a questo branch!",
+                    "updated": 1619633296240,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Branche Master: Features la version stable du logiciel. Ne soumettez jamais de contributions à cette branche !",
+                    "updated": 1623952911737,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Master Branch: contiene la versión estable del software. ¡Nunca envíes contribuciones a esta rama! ",
+                    "updated": 1667508817851,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Master Branch: Enthält die stabile Version der Software. Reichen Sie niemals Beiträge für diesen Zweig ein!",
+                    "updated": 1634821032083,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Ветка Master: содержит стабильную версию программного обеспечения. Никогда не вносите вклад в эту ветку!",
+                    "updated": 1662032257468
+                },
+                {
+                    "language": "TR",
+                    "text": "Master Dalı: Yazılımın kararlı sürümünü içerir. Bu dala asla katkı göndermeyin!",
+                    "updated": 1665961671895
+                },
+                {
+                    "language": "NL",
+                    "text": "Master Branch: beschikt over de stabiele versie van de software. Dien nooit bijdragen in voor deze branch!",
+                    "updated": 1669573978054
+                },
+                {
+                    "language": "PL",
+                    "text": "Gałąź Master: zawiera stabilną wersję oprogramowania. Nigdy nie wysyłaj swoich zmian do tej gałęzi!",
+                    "updated": 1674835463118
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Develop branch: features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
+            "updated": 1687889230928,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Develop Branch: contiene la versione attualmente in sviluppo. Manda qui i contributi riguardanti la codebase.",
+                    "updated": 1619633304194,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Branche Develop : Features la version en cours de développement., pour soumettre des contributions de code affectant la base de code.",
+                    "updated": 1623953015534,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Develop Branch: presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten a la base de código, traducciones, mejoras en los Docs, Tutoriales y Plugins como Data Mine, Trading System, etc.",
+                    "updated": 1667508980371,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis, Übersetzungen,Verbesserungen der Docs, Tutorials, plugins sowie Data-Mines, trading systems und so weiter betreffen.",
+                    "updated": 1638831914823,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Ветка Develop: содержит версию, находящуюся в разработке. Вносите свой вклад в код, влияющий на кодовую базу, переводы, улучшения в документации, учебники и плагины, такие как шахты данных, торговые системы и так далее!",
+                    "updated": 1662032234549
+                },
+                {
+                    "language": "TR",
+                    "text": "Develop Dalı: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
+                    "updated": 1665961827703
+                },
+                {
+                    "language": "NL",
+                    "text": "Develop Branch: bevat de versie die momenteel in ontwikkeling is. Dien bijdragen in van code die van invloed is op de codebase, vertalingen, verbeteringen in de Docs, zelfstudies en plugins zoals data mines, trading systems, enzovoort!",
+                    "updated": 1669574061328
+                },
+                {
+                    "language": "PL",
+                    "text": "Gałąź Develop: zawiera wersję, która jest obecnie rozwijana. Możesz do niej wysyłać zmiany kodu, tłumaczenia, poprawki w Dokumentach, samouczki i wtyczki takie jak Data Mine, Trading System i tak dalej!",
+                    "updated": 1674835607292
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "Ignore the instructions to switch branches of the next few steps if you are not using the Contributors installation. Just click Next to continue.",
+            "updated": 1649176508369,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Contributors kurulumunu kullanmıyorsanız, sonraki birkaç adımdaki dal değiştirme talimatlarını dikkate almayın. Devam etmek için İleri'ye tıklayın.",
+                    "updated": 1654394226195,
+                    "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не используете установку Contributors, проигнорируйте инструкции по переключению ветвей на следующих нескольких шагах. Просто нажмите кнопку Далее, чтобы продолжить.",
+                    "updated": 1662032297873
+                },
+                {
+                    "language": "ES",
+                    "text": "Ignora las instrucciones para cambiar de rama de los siguientes pasos si no está utilizando la instalación de Contributors. Simplemente haga clic en Next para continuar.",
+                    "updated": 1675206618380
+                },
+                {
+                    "language": "NL",
+                    "text": "Negeer de instructies om van branche te wisselen in de volgende paar stappen als u de Contributors-installatie niet gebruikt. Klik gewoon op Next om door te gaan.",
+                    "updated": 1669574092281
+                },
+                {
+                    "language": "PL",
+                    "text": "Zignoruj instrukcje dotyczące przełączania gałęzi w następnych kilku krokach, jeśli nie używasz instalacji Contributors. Po prostu kliknij Next, aby kontynuować.",
+                    "updated": 1674835625254
+                }
+            ]
+        }
+    ]
+}

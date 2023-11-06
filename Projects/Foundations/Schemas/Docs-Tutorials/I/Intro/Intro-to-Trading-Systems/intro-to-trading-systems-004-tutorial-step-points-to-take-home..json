@@ -18,6 +18,26 @@
                 "language": "DE",
                 "text": "In der vorangegangenen Lektüre haben wir einige wichtige Dinge gelernt: mehrere Strategien, einzelne Positionen und Vorrang.",
                 "updated": 1639147424807
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki okumada bazı temel dersler vardı: çoklu stratejiler, tek pozisyonlar ve öncelik.",
+                "updated": 1640695041498
+            },
+            {
+                "language": "RU",
+                "text": "В предыдущем материале есть несколько ключевых выводов: разнообразные стратегии, одиночные позиции и приоритет.",
+                "updated": 1640878901439
+            },
+            {
+                "language": "NL",
+                "text": "Er zijn enkele belangrijke lessen uit de vorige lessen: meerdere strategieën, enkele posities en voorrang.",
+                "updated": 1670791109319
+            },
+            {
+                "language": "ID",
+                "text": "Ada beberapa kunci ilmu dalam bacaan sebelumnya: multiple strategies, single positions, and precedence.",
+                "updated": 1674499366546
             }
         ]
     },
@@ -35,6 +55,26 @@
                     "language": "DE",
                     "text": "Machen wir uns ein paar Notizen für das, was jetzt kommt:",
                     "updated": 1639147454816
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan sonra ne olacağına dair bazı zihinsel notlar alalım:",
+                    "updated": 1640695075073
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте сделаем несколько мысленных заметок для того, что будет дальше:",
+                    "updated": 1640878912690
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we wat mentale aantekeningen maken voor wat daarna komt:",
+                    "updated": 1670791122126
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita ambil beberapa catatan mental untuk apa yang akan terjadi selanjutnya:",
+                    "updated": 1674499373652
                 }
             ]
         },
@@ -44,13 +84,33 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pueden coexistir múltiples estrategias dentro de un sistema trading, tantas como desees.",
-                    "updated": 1629588192365
+                    "text": "Pueden coexistir múltiples estrategias dentro de un Trading System, tantas como desees.",
+                    "updated": 1675618840134
                 },
                 {
                     "language": "DE",
                     "text": "In einem Trading System können mehrere Strategien nebeneinander bestehen - so viele, wie Sie möchten.",
                     "updated": 1639147465524
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sisteminde birden fazla strateji bir arada bulunabilir - istediğiniz kadar.",
+                    "updated": 1640695353160
+                },
+                {
+                    "language": "RU",
+                    "text": "В рамках торговой системы могут сосуществовать несколько стратегий - столько, сколько вы пожелаете.",
+                    "updated": 1640878924519
+                },
+                {
+                    "language": "NL",
+                    "text": "Binnen een handelssysteem kunnen meerdere strategieën naast elkaar bestaan - zoveel als u wilt.",
+                    "updated": 1670791138537
+                },
+                {
+                    "language": "ID",
+                    "text": "Beberapa strategi dapat hidup berdampingan dalam trading system— sebanyak yang kamu inginkan.",
+                    "updated": 1674499381587
                 }
             ]
         },
@@ -67,6 +127,26 @@
                     "language": "DE",
                     "text": "Es ist jedoch nur eine aktive Strategie mit einer offenen Position zu einem bestimmten Zeitpunkt erlaubt.",
                     "updated": 1639147472356
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir anda bir açık pozisyona sahip yalnızca bir aktif stratejiye izin verilir.",
+                    "updated": 1640695386636
+                },
+                {
+                    "language": "RU",
+                    "text": "Разрешается только одна активная стратегия с одной открытой позицией в произвольный момент времени.",
+                    "updated": 1640879010551
+                },
+                {
+                    "language": "NL",
+                    "text": "Slechts één actieve strategie met één openstaande positie op een bepaald moment is toegestaan.",
+                    "updated": 1670791155456
+                },
+                {
+                    "language": "ID",
+                    "text": "Hanya diperbolehkan satu strategi aktif dengan satu open posisi pada saat tertentu.",
+                    "updated": 1674499388513
                 }
             ]
         },
@@ -83,6 +163,26 @@
                     "language": "DE",
                     "text": "Der Vorrang ergibt sich aus der Reihenfolge, in der die Strategien um den Knoten Trading System herum definiert sind. Sie können die Reihenfolge natürlich ändern!",
                     "updated": 1639147480926
+                },
+                {
+                    "language": "TR",
+                    "text": "Öncelik, Ticaret Sistemi ( Trading System ) düğümü etrafında stratejilerin tanımlandığı sırayla verilir. Elbette sırayı değiştirebilirsin!",
+                    "updated": 1640695499601
+                },
+                {
+                    "language": "RU",
+                    "text": "Приоритет отдается порядку, в котором стратегии определены вокруг узла Trading System. Вы конечно же можете изменить этот порядок!",
+                    "updated": 1640879040636
+                },
+                {
+                    "language": "NL",
+                    "text": "Voorrang wordt gegeven door de volgorde waarin strategieën worden gedefinieerd rond het handelssysteemknooppunt. U kunt de volgorde natuurlijk wijzigen!",
+                    "updated": 1670791178053
+                },
+                {
+                    "language": "ID",
+                    "text": "Precedence diberikan berdasarkan urutan strategi yang ditentukan di sekitar node Trading System. Kamu mungkin ingin mengubah urutannya, tentu saja!",
+                    "updated": 1674499395754
                 }
             ]
         },
@@ -99,6 +199,26 @@
                     "language": "DE",
                     "text": "Sie fragen sich wahrscheinlich, warum? Klingen diese Regeln willkürlich? Das sind sie, und zwar aus gutem Grund!",
                     "updated": 1639147490934
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Muhtemelen nedenini soruyorsundur? Bu kurallar, keyfi mi? İyi bir sebepten dolayı öyle!",
+                    "updated": 1640695584520
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы, наверное, спрашиваете, почему? Неужели эти правила звучат произвольно? Так и есть, и на то есть веские причины!",
+                    "updated": 1640879082478
+                },
+                {
+                    "language": "NL",
+                    "text": "U vraagt zich waarschijnlijk af waarom? Klinken deze regels willekeurig? Dat zijn ze, met een goede reden!",
+                    "updated": 1670791191695
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin bertanya mengapa? Apakah aturan ini terdengar sewenang-wenang? Sebenarnya mereka, untuk alasan yang baik!",
+                    "updated": 1674499403451
                 }
             ]
         }

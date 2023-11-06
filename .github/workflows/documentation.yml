@@ -1,0 +1,50 @@
+name: Publish stand-alone documentation
+
+on: 
+  push:
+    branches:
+      - feature/exporting-docs
+
+jobs:
+  build:
+    if: github.repository != 'superalgos/superalgos'
+    name: Build documentation
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - run: rm -f package-lock.json
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install --omit=optional
+    - name: Preparation
+      id: prep
+      run: node export-docs -l=_site -r=Superalgos
+    - name: Build artifact
+      uses: actions/upload-pages-artifact@v1
+
+  deploy:
+    if: github.repository != 'superalgos/superalgos'
+    name: Deploy documentation
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+

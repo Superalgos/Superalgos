@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wir werden einen einzigen Ausführungsalgorithmus verwenden, der 100 % der zuvor definierten Größe verarbeitet! Zeit, ein wenig über Aufträge zu lernen!",
                 "updated": 1639398581888
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceden tanımlanmış boyutun %100'ünü işleyen tek bir yürütme algoritması kullanacağız! Görevler hakkında biraz bilgi edinme zamanı!",
+                "updated": 1641746660738
+            },
+            {
+                "language": "RU",
+                "text": "Мы будем использовать алгоритм однократного выполнения, обрабатывающий 100% размера, который мы определили ранее! Пора узнать немного об ордерах!",
+                "updated": 1642779802597
+            },
+            {
+                "language": "ES",
+                "text": "Utilizaremos un algoritmo de ejecución única que maneja el 100% del tamaño que hemos definido antes. ¡Es hora de aprender un poco sobre órdenes!",
+                "updated": 1680805627556
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Die Funktionsweise von Aufträgen ist sehr umfangreich! Wir werden in einem Tutorial, das sich mit den Feinheiten der Auftragsausführung beschäftigt, ins Detail gehen. Aber für den Moment wollen wir es einfach halten:",
                     "updated": 1639398594569
+                },
+                {
+                    "language": "TR",
+                    "text": "Siparişlerin işlevselliği çok geniştir! Sipariş yürütmenin nüanslarına odaklanan bir eğitimin ayrıntılarına gireceğiz. Ama şimdilik, basit tutalım:",
+                    "updated": 1641746670862
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует довольно много подробностей о том, как работают ордера! Мы разберемся в деталях в учебном пособии, посвященном нюансам исполнения ордеров. Но пока мы будем действовать просто:",
+                    "updated": 1642779940621
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hay bastante profundidad en el tema de cómo funcionan las órdenes! Entraremos en detalles en un tutorial centrado en los matices de la ejecución de órdenes. Pero por el momento, vamos a mantenerlo simple:",
+                    "updated": 1680805678091
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Eine Market-Sell-Order ist eine an die Börse gesendete Anweisung zum Verkauf des Basiswertes, die sofort zu den aktuellen Marktpreisen ausgeführt wird.",
                     "updated": 1639398605166
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa satış emri (market sell order), dayanak varlığı satmak için borsaya gönderilen ve cari piyasa fiyatından anında gerçekleştirilen bir talimattır.",
+                    "updated": 1641746682586
+                },
+                {
+                    "language": "RU",
+                    "text": "Рыночный ордер на продажу - это распоряжение, отправленное на биржу для продажи базового актива с целью немедленного исполнения по текущим рыночным ценам.",
+                    "updated": 1642779952405
+                },
+                {
+                    "language": "ES",
+                    "text": "Una orden de venta a mercado es una instrucción enviada a la bolsa para vender el activo base, para su ejecución inmediata a los precios de mercado actuales.",
+                    "updated": 1680805698323
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Konfiguration des Verkaufsauftrags!",
                     "updated": 1639398611453
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Satış emrinin (sell order) yapılandırmasını kontrol edin!",
+                    "updated": 1641746691682
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте конфигурацию ордера на продажу!",
+                    "updated": 1642779960795
+                },
+                {
+                    "language": "ES",
+                    "text": "Comprueba la configuración de la orden de venta.",
+                    "updated": 1680805728630
                 }
             ]
         }

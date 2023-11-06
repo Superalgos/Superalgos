@@ -1,0 +1,508 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": "9",
+    "type": "Klinger Oscillator Divergence",
+    "definition": {
+        "text": "The Klinger Oscillator Divergence - this indicator analyses highs and lows of a 34 and 55 period Klinger Volume Oscillator indicator and compares it to the price action and produces any divergence data found.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Дивергенция осциллятора Клингера - этот индикатор анализирует максимумы и минимумы индикатора Klinger Volume Oscillator с периодами 34 и 55, сравнивает их с ценовым действием и выдает любые найденные данные о дивергенции.",
+                "updated": 1647359124955
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Klinger Oscillator Divergence ( Sapması ) - bu gösterge, 34 ve 55 dönemlik bir Klinger Volume Oscillator göstergesinin en yüksek, en düşük seviyelerini analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan herhangi bir sapma verisini üretir.",
+                "updated": 1647718469441
+            },
+            {
+                "language": "DE",
+                "text": "Der Klinger Oszillator Divergenz - dieser Indikator analysiert die Höchst- und Tiefstwerte eines 34- und 55-periodischen Klinger Volume Oscillator Indikators, vergleicht sie mit dem aktuellen Kurs und gibt alle gefundenen Divergenzdaten aus.",
+                "updated": 1673460662416
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Klinger Oscillator Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дивергенция осциллятора Клингера на графиках",
+                    "updated": 1647359132137
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Klinger Oscillator Divergence ( Sapması )",
+                    "updated": 1647718479100
+                },
+                {
+                    "language": "DE",
+                    "text": "Klinger Oszillator Divergenz in den Charts",
+                    "updated": 1673460703964
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового движения и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового движения, он просто проверяет, согласны или не согласны цена и моментум.",
+                    "updated": 1647359156405
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647718493320
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Kurs mit dem Kurs vergleichen zu müssen. Das Momentum ist eine Untersuchung zur Stärke der Kursbewegung, bei der geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673460985301
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться ��есколько различных моделей.",
+                    "updated": 1647359168824
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647718502073
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen Indikator und Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673461203333
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Understanding momentum - (investopedia)->www.investopedia.com/trading/trading-divergence-and-understanding-momentum/#toc-momentum-divergence"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
+                    "updated": 1647359176341
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647718515813
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1673461233282
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычий (сплошная зеленая линия): индикатор моментума формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
+                    "updated": 1647359186061
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647718526775
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator bildet ein höheres Tief, während die Kursbewegung ein niedrigeres Tief bildet.",
+                    "updated": 1673461276177
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежий (сплошная красная линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
+                    "updated": 1647359194668
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647718537766
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673461309641
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое бычье продолжение (пунктирная зеленая линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
+                    "updated": 1647359203689
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647718546929
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673461437050
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое медвежье продолжение (пунктирная красная линия): индикатор моментума формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
+                    "updated": 1647359214630
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647718557127
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish Continuation (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673461379051
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-KVO-2.png"
+        },
+        {
+            "style": "Text",
+            "text": "Above: a bullish divergence(leftmost, green), and an bearish divergence (rightmost, red).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выше: бычья дивергенция (крайний левый, зеленый) и медвежья дивергенция (крайний правый, красный).",
+                    "updated": 1647359223764
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: bir yükseliş sapma (en sol, yeşil) ve bir düşüş sapma (en sağ, kırmızı).",
+                    "updated": 1647718570414
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: eine bullish Divergenz (ganz links, grün) und eine bearish Divergenz (ganz rechts, rot).",
+                    "updated": 1673461488945
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Klinger Oscillator Divergence’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину детектора дивергенции, длину разворота, а также порог для сильных и слабых дивергенций можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Klinger Oscillator Divergence' Procedure Loop.",
+                    "updated": 1647359281914
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'Klinger Oscillator Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647718580635
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinders, die Pivot-Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Klinger Oscillator Divergence\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673461689766
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
+        },
+        {
+            "style": "Note",
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
+                    "updated": 1647359293907
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
+                    "updated": 1647718590826
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Genauigkeit höher ist, je größer die Pivot-Länge, und dementsprechend auch die Verzögerung bei der Bestätigung des Pivot-Hochs/Tiefs.",
+                    "updated": 1673461973858
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Klinger Oscillator Divergence’ Procedure Initialization.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Верхний и нижний срез для определения дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Klinger Oscillator Divergence' Procedure Initialization.",
+                    "updated": 1647359313012
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında 'Klinger Oscillator Divergence' Prosedür Başlatma altında ( Procedure Initialization ) bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647718600867
+                },
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Divergenzerfassung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"Klinger Oscillator Divergence\" Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673462216658
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-2.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Klinger Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Klinger Oscillator’ Procedure Loop.",
+            "updated": 1646113199651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину осциллятора Клингера можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Klinger Oscillator' Procedure Loop.",
+                    "updated": 1647359346790
+                },
+                {
+                    "language": "TR",
+                    "text": "Klinger Osilatörünün uzunluğu, 'Klinger Oscillator' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
+                    "updated": 1647718614467
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Klinger-Oszillators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Klinger Oscillator\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673463104235
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1647359352954
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün ve Özellikleri",
+                    "updated": 1647718625065
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1673463116438
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1647359358681
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişmek mümkündür:",
+                    "updated": 1647718633361
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Möglichkeiten stehen zur Auswahl:",
+                    "updated": 1673463305604
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| kvoDiv | kvoDiv | status, strength, divPerc |",
+            "updated": 1667785843250,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| kvo-Div | kvoDiv | durum, güç, divPerc |",
+                    "updated": 1647718655306
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| kvoDiv | kvoDiv | status, strength, divPerc |",
+                    "updated": 1673463326556
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "status: возвращает строку со следующими возможными значениями: бычий (\"bullish\"), медвежий (\"bearish\"), бычье продолжение (\"bull continuation\"), медвежье продолжение (\"bear continuation\").",
+                    "updated": 1647359396521
+                },
+                {
+                    "language": "TR",
+                    "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647718666258
+                },
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten zurück: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673463363647
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "strength: возвращает строку со следующими возможными значениями: слабый (\"weak\"), средний (\"medium\"), сильный (\"strong\").",
+                    "updated": 1647359407497
+                },
+                {
+                    "language": "TR",
+                    "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647718677957
+                },
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten zurück: schwach, mittel, stark",
+                    "updated": 1673463374519
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
+                    "updated": 1647359416739
+                },
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647718686190
+                },
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673463385505
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1647359422230
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647718696916
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673463394561
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.kvoDiv.status == \"bullish\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.kvoDiv.strength == \"strong\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.kvoDiv.divPerc > 20"
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, find a suitable Klinger Oscillator value to enter the trade after the divergence is found, for example, ko > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы повысить точность подтверждения, найдите подходящее значение осциллятора Клингера для входа в сделку после обнаружения дивергенции, например, ko > 50 после обнаружения бычьей дивергенции.",
+                    "updated": 1647359459345
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek için uygun bir Klinger Osilatör değeri bulun, örneğin, bir yükseliş tespitinden sonra ko > 50.",
+                    "updated": 1647718708890
+                },
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten Wert für den Klinger-Oszillator finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673463488704
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673463511045
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

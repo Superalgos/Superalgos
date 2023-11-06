@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Dies ist der Knoten, zu dem Sie den Bezug herstellen müssen: Market Buy Order #1.",
                 "updated": 1639418046336
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, referansı oluşturmanız gereken düğümdür: Piyasa Satın Alma Emri #1 ( Market Buy Order ).",
+                "updated": 1641797215998
+            },
+            {
+                "language": "RU",
+                "text": "Это узел, на который нужно создать ссылку: Market Buy Order #1.",
+                "updated": 1642943426217
+            },
+            {
+                "language": "ES",
+                "text": "Este es el nodo al que tiene que crear la referencia: Market Buy Order #1.",
+                "updated": 1681054562804
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Merken Sie sich die Tricks für die Reise!",
                     "updated": 1639418054977
+                },
+                {
+                    "language": "TR",
+                    "text": "Yolculuk için püf noktalarını ezberleyin!",
+                    "updated": 1641797228941
+                },
+                {
+                    "language": "RU",
+                    "text": "Запомните эти приемы на время поездки!",
+                    "updated": 1642943479371
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Recuerda los trucos para el viaje!",
+                    "updated": 1681054576369
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Verwenden Sie die Karte des design space so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
                     "updated": 1639418065682
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümden düğüme yolunuzu bulmak için tasarım alanı haritasını gerektiği kadar kullanın.",
+                    "updated": 1641797241902
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте карту пространства проектирования столько раз, сколько потребуется, чтобы найти путь от узла к узлу.",
+                    "updated": 1642943491857
+                },
+                {
+                    "language": "ES",
+                    "text": "Utiliza el mapa del espacio de diseño tantas veces como sea necesario para encontrar el camino de un nodo a otro.",
+                    "updated": 1681055112780
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Pinnen Sie den Knoten, den Sie im design space verschieben wollen, an, so dass Sie ihn an jedem beliebigen Punkt loslassen können, um die design space map auf Richtungen zu überprüfen.",
                     "updated": 1639418074198
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı haritasındaki yönü kontrol etmek için herhangi bir noktada serbest bırakabilmeniz için tasarım alanında taşınacak düğümü sabitleyin.",
+                    "updated": 1641797251031
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел, который вы собираетесь перемещать по пространству проектирования, так, чтобы вы могли опустить его в любой момент, чтобы проверить карту пространства проектирования на предмет направления.",
+                    "updated": 1642943509915
+                },
+                {
+                    "language": "ES",
+                    "text": "Fija el nodo que vas a mover a través del espacio de diseño, de modo que puedas soltarlo en cualquier punto para comprobar las direcciones en el mapa del espacio de diseño.",
+                    "updated": 1681055128367
                 }
             ]
         },
@@ -58,6 +118,21 @@
                     "language": "DE",
                     "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
                     "updated": 1639418096221
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın kullanın. Düğmeleri basılı tutun ve düğüm uçsun!",
+                    "updated": 1641797264584
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте клавиши Ctrl / Command + стрелки для перетаскивания узла по экрану после щелчка по нему мышью. Удерживайте клавиши нажатыми, и узел полетит!",
+                    "updated": 1642943539688
+                },
+                {
+                    "language": "ES",
+                    "text": "Usa Ctrl / Command + arrow keys para arrastrar el nodo por la pantalla después de hacer clic en él con el ratón. Mantén pulsadas las teclas y el nodo volará.",
+                    "updated": 1681055211281
                 }
             ]
         },
@@ -69,6 +144,21 @@
                     "language": "DE",
                     "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
                     "updated": 1639418109161
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra sabitlemeyi kapatın.",
+                    "updated": 1641797272808
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
+                    "updated": 1642943548964
+                },
+                {
+                    "language": "ES",
+                    "text": "Retira el pin una vez establecida la referencia para que el nodo vuelva a su sitio.",
+                    "updated": 1681055235585
                 }
             ]
         }

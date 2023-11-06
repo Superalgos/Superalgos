@@ -1,0 +1,134 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 17,
+    "type": "Coppock Curve Indicator",
+    "definition": {
+        "text": "The Coppock Curve is a long-term price momentum indicator used primarily to recognize major downturns and upturns in an asset.",
+        "updated": 1653352265377,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Coppock Kurve ist ein langfristiger Kursmomentum Indikator, der in erster Linie dazu dient, größere Abschwünge und Aufschwünge bei einem Vermögenswert zu erkennen.",
+                "updated": 1671643156345
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Coppock Curve on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Coppock Curve auf den Charts",
+                    "updated": 1671643192475
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia: The Coppock formula was introduced in Barron's in 1962 by Edwin Coppock. It is calculated as a 10 period weighted moving average of the sum of the 14 period rate of change and the 11 period rate of change for the index. It is also known as the \"Coppock Guide.\"",
+            "updated": 1653351972855,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Die Coppock Formel wurde 1962 von Edwin Coppock in Barron's eingeführt. Sie wird als gewichteter gleitender Durchschnitt über 10 Perioden aus der Summe der Änderungsrate über 14 Perioden und der Änderungsrate über 11 Perioden für den Index berechnet. Sie ist auch unter dem Namen \"Coppock Guide\" bekannt.",
+                    "updated": 1671643226070
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671643248349
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A reading above zero on the indicator signals a buy, while a drop below zero is a sell signal.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Indikatorwert über Null ist ein Kaufsignal, während ein Rückgang unter Null ein Verkaufssignal ist.",
+                    "updated": 1671643268941
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Coppock Curve (investopedia)->www.investopedia.com/terms/c/coppockcurve.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-coppock-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Coppock Curve indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Coppock Curve\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Coppock Curve Indikators können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Coppock Curve\" Product Definition suchen und öffnen.",
+                    "updated": 1671643336232
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-coppock-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Coppock Curve Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Coppock Curve Produkte & Eigenschaften",
+                    "updated": 1671643362934
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Coppock Curve | coppock | value |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Coppock Curve | coppock | value |",
+                    "updated": 1671643380251
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671643396851
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the coppock value crosses above the zero line upwards:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn der Coppock Wert die Nulllinie nach oben überschreitet:",
+                    "updated": 1671643420747
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.coppock.value > 0 && chart.at01hs.coppock.previous.value < 0"
+        }
+    ]
+}

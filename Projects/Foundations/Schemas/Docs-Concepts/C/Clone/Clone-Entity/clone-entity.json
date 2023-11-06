@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Скачивает файл JSON, содержащий информацию, аналогичную резервной копии. Основное отличие состоит в том, что эта функция создана для облегчения создания идентичных копий любой конкретной структуры узлов или полной иерархии. Используйте эту функцию, чтобы ускорить рабочий процесс, когда вам нужно копировать узлы, например, для создания нескольких сеансов тестирования. Загруженный файл называется Clone, за которым следует имя узла, который вы клонируете.",
                 "updated": 1638280838359
+            },
+            {
+                "language": "TR",
+                "text": "Yedeklemeye benzer bilgiler içeren bir JSON dosyası indirir. Temel fark, bu özelliğin herhangi bir düğüm yapısının veya tam bir hiyerarşinin özdeş kopyalarının üretilmesini kolaylaştırmak için oluşturulmuş olmasıdır. Bu özelliği, örneğin birden fazla test oturumu oluşturmak için düğümleri çoğaltmanız gerektiğinde iş sürecinizi hızlandırmak için kullanın. İndirilen dosyanın adı Clone'dur ve ardından klonladığınız düğümün adı gelir.",
+                "updated": 1654390874200
+            },
+            {
+                "language": "DE",
+                "text": "Lädt eine JSON-Datei herunter, die ähnliche Informationen wie ein Backup enthält. Der Hauptunterschied besteht darin, dass diese Funktion die Erstellung identischer Kopien einer bestimmten Struktur von Knoten oder einer vollständigen Hierarchie erleichtert. Verwenden Sie diese Funktion, um Ihren Arbeitsprozess zu beschleunigen, wenn Sie Knoten replizieren müssen, um zum Beispiel mehrere Testsitzungen zu erstellen. Die heruntergeladene Datei trägt den Namen Clone, gefolgt vom Namen des Knotens, den Sie klonen.",
+                "updated": 1696955460899
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638280854499
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654390881451,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1696955461135,
+                    "style": "Text"
                 }
             ]
         }

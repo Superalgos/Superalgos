@@ -4,41 +4,115 @@
     "type": "Assets Hierarchy",
     "definition": {
         "text": "Projects may produce definitions at the atomic level, specifying each asset that is or needs to be created and maintained.",
-        "updated": 1624720456614
+        "updated": 1624720456614,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Projeler, oluşturulması ve sürdürülmesi gereken veya olması gereken her varlığı belirterek atomik düzeyde tanımlar üretebilir.",
+                "updated": 1646740361762
+            },
+            {
+                "language": "ES",
+                "text": "Los proyectos pueden producir definiciones a nivel atómico, especificando cada activo que es o necesita ser creado y mantenido.",
+                "updated": 1682595587134
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Include",
             "text": "Governance->Node->Assets->Definition",
-            "updated": 1624720546750
+            "updated": 1624720546750,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Assets->Definition",
+                    "updated": 1654395338554,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Assets->Content"
+            "text": "Governance->Node->Assets->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Assets->Content",
+                    "updated": 1654395345656,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Asset Class Nodes"
+            "text": "Asset Class Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlık Sınıfı Düğümleri",
+                    "updated": 1646740386318
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Asset Class->Definition"
+            "text": "Governance->Node->Asset Class->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Asset Class->Definition",
+                    "updated": 1654395351436,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Asset Class->Content"
+            "text": "Governance->Node->Asset Class->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Asset Class->Content",
+                    "updated": 1654395357800,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Asset Nodes"
+            "text": "Asset Nodes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlık Düğümleri",
+                    "updated": 1646740400965
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Asset->Definition"
+            "text": "Governance->Node->Asset->Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Asset->Definition",
+                    "updated": 1654395363566,
+                    "style": "Include"
+                }
+            ]
         },
         {
             "style": "Include",
-            "text": "Governance->Node->Asset->Content"
+            "text": "Governance->Node->Asset->Content",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Governance->Node->Asset->Content",
+                    "updated": 1654395370120,
+                    "style": "Include"
+                }
+            ]
         }
     ]
 }

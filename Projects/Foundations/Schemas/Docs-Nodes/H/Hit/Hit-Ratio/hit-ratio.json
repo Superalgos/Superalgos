@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Hit Ratio - это процент позиций, которые закрылись с прибыльно, в контексте родительского узла.",
                 "updated": 1638967831345
+            },
+            {
+                "language": "TR",
+                "text": "İsabet oranı, ana düğüm bağlamında pozitif bir kar kaybıyla kapanan pozisyonların yüzdesidir.",
+                "updated": 1654419383957
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "RU",
                     "text": "Коэффициент попадания получается путем умножения количества попаданий на 100 и деления его на количество позиций: hit ratio = hits * 100 / positions (коэффициент попадания = попадания * 100 / позиции).",
                     "updated": 1638968023940
+                },
+                {
+                    "language": "TR",
+                    "text": "İsabet oranı, isabet sayısının 100 ile çarpılıp pozisyon sayısına bölünmesiyle elde edilir: isabet oranı = isabet * 100 / pozisyonlar.",
+                    "updated": 1654419390390,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +51,12 @@
                     "language": "RU",
                     "text": "Конфигурация Hit Ratio",
                     "updated": 1638968039373
+                },
+                {
+                    "language": "TR",
+                    "text": "İsabet Oranı Yapılandırması",
+                    "updated": 1654419396342,
+                    "style": "Title"
                 }
             ]
         },
@@ -52,6 +69,12 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638968046998
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1654419403097,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -64,6 +87,12 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638968057158
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1654419408949,
+                    "style": "List"
                 }
             ]
         }

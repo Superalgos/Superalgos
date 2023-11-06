@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Программа голосования - это сердце и душа управления, поскольку она позволяет вам отдавать различные типы голосов. Вы можете решить, что стимулировать, взвесив Pools, Assets, Features и Positions. Вы также можете оценивать и поддерживать заявления о взносах Contribution Claims и передавать право голоса Voting Power другим пользователям.",
                 "updated": 1639029722546
+            },
+            {
+                "language": "TR",
+                "text": "Oylama Programı, (Voting Program), çeşitli türlerde oy vermenizi sağladığı için yönetimin kalbi ve ruhudur. Neyi teşvik edeceğinize, Havuzları (Pools), Varlıkları (Assets), Özellikleri (Features) ve Pozisyonları (Positions) tartarak karar verebilirsiniz. Ayrıca Katkı İddialarını (Contribution Claims) değerlendirebilir, destekleyebilir ve Oylama Gücünü diğer kullanıcılara aktarabilirsiniz.",
+                "updated": 1645182213674
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Функции программы голосования позволяют отдавать голоса трех разных категорий:",
                     "updated": 1638986630462
+                },
+                {
+                    "language": "TR",
+                    "text": "Oylama Programındaki özellikler, üç farklı kategoride oy vermenizi sağlar:",
+                    "updated": 1645182912981
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "RU",
                     "text": "Claim Votes: используйте Claim Votes, чтобы поддержать утверждения других пользователей, чтобы они могли получить заслуженное вознаграждение за свой вклад. Существует три типа узлов голосования за претензию, а именно: голосование за ресурс Asset Claim Vote, голосование за функцию Feature Claim Vote и голосование за позицию Position Claim Vote.",
                     "updated": 1638987918385
+                },
+                {
+                    "language": "TR",
+                    "text": "Oyları Talep Edin (Claim Votes): Katkılarından dolayı hak ettikleri ödülleri alabilmeleri ve diğer kullanıcıların iddialarını desteklemek için Talep Oylarını kullanın. Varlık Talebi Oyu (Asset Claim Vote), Özellik Talebi Oyu (Feature Claim Vote) ve Pozisyon Talebi Oyu (Position Claim Vote) düğümleri olmak üzere üç tür talep oyu düğümü vardır.",
+                    "updated": 1645182355182
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "RU",
                     "text": "Weight Votes: используйте Weight Votes, чтобы повлиять на то, какие области проекта следует стимулировать. Существует четыре типа голосов по весу, а именно: голосование по весу пула Pool Weight Vote, голосование по весу ресурса Asset Weight Vote, голосование по весу функции Feature Weight Vote и голосование по весу позиции Position Weight Vote.",
                     "updated": 1638987907146
+                },
+                {
+                    "language": "TR",
+                    "text": "Weight Votes (Ağırlık Oyları): Projenin hangi alanlarının teşvik edilmesi gerektiğini etkilemek için Ağırlık Oylarını kullanın. Havuz Ağırlığı Oyu (Pool Weight Vote), Varlık Ağırlığı Oyu (Asset Weight Vote), Özellik Ağırlığı Oyu (Feature Weight Vote) ve Konum Ağırlığı Oyu (Position Weight Vote) düğümleri olmak üzere dört tür ağırlık oyu vardır.",
+                    "updated": 1645182463365
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "RU",
                     "text": "User Profile Votes: используйте User Profile Vote, чтобы передать право голоса Voting Power другим пользователям.",
                     "updated": 1638988047324
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profili Oyları User Profile Votes): Oylama Gücünü (Voting Power) diğer kullanıcılara aktarmak için bir Kullanıcı Profili Oyu kullanın.",
+                    "updated": 1645182509102
                 }
             ]
         },
@@ -125,6 +150,11 @@
                     "language": "RU",
                     "text": "Существует узел переключения голосов Votes Switch верхнего уровня, который позволяет создавать несколько других переключателей, каждый из которых связан с различными типами голосов, описанными выше:",
                     "updated": 1638989315266
+                },
+                {
+                    "language": "TR",
+                    "text": "Her biri yukarıda açıklanan farklı oy türleriyle ilişkilendirilmiş birkaç başka anahtarın oluşturulmasına izin veren üst düzey bir Oy Anahtarı düğümü (Votes Switch) vardır:",
+                    "updated": 1645182952202
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "RU",
                     "text": "Эти переключатели управляют Voting Power, могут использоваться в качестве организационных устройств, могут порождать различные типы голосов и могут помочь вам легко отобразить целые структуры данных. Подробности читайте на странице каждого переключателя!",
                     "updated": 1638989401423
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu anahtarlar Oylama Gücü (Voting Power) akışını kontrol eden organizasyonel cihazlar olarak kullanılabilir, farklı oy türlerini ortaya çıkarabilir ve tüm veri yapılarını kolayca eşlemenize yardımcı olabilir. Ayrıntılara her anahtarın yardım sayfasında bulabilirsiniz!",
+                    "updated": 1645183040742
                 }
             ]
         },
@@ -171,6 +206,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638989332033
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1645183052338
                 }
             ]
         }

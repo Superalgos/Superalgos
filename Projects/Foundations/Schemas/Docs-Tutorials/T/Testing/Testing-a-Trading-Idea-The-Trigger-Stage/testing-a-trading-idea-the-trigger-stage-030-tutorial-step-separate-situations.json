@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Stellen Sie es sich so vor: Wir haben zwei verschiedene Marktsituationen identifiziert, die diese Idee entkräften würden!",
                 "updated": 1639265844556
+            },
+            {
+                "language": "RU",
+                "text": "Подумайте об этом так: мы выявили две различные ситуации на рынке, которые бы опровергли эту идею!",
+                "updated": 1640944912603
+            },
+            {
+                "language": "TR",
+                "text": "Bunu şu şekilde düşünün: Bu fikri geçersiz kılacak iki farklı piyasa durumu belirledik!",
+                "updated": 1641654716343
+            },
+            {
+                "language": "ES",
+                "text": "Piénsalo así: ¡hemos identificado dos situaciones de mercado diferentes que invalidarían esta idea!",
+                "updated": 1677101116580
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Wir werden jede Bedingung in einer separaten Situation einrichten!",
                     "updated": 1639265851505
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы установим каждое условие в отдельной ситуации!",
+                    "updated": 1640944924998
+                },
+                {
+                    "language": "TR",
+                    "text": "Her koşulu farklı durumda ayarlayacağız!",
+                    "updated": 1641654763863
+                },
+                {
+                    "language": "ES",
+                    "text": "Estableceremos cada condición en una situación distinta.",
+                    "updated": 1677101130072
                 }
             ]
         },
@@ -38,6 +68,21 @@
                     "language": "DE",
                     "text": "Richten Sie die erste Bedingung in der bestehenden Situation und die zweite Bedingung in einer neuen Situation ein (fügen Sie eine Situation über das Menü des Trigger Off Event hinzu).",
                     "updated": 1639265871809
+                },
+                {
+                    "language": "RU",
+                    "text": "Установите первое условие в существующей ситуации, а второе условие - в новой ситуации (добавьте ситуацию с помощью меню события Trigger Off Event).",
+                    "updated": 1640944944838
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk koşulu mevcut durumda ve ikinci koşulu yeni bir durumda ayarlayın ( Trigger Off Event ) menüsü aracılığıyla bir durum ( Situation ) ekleyin.",
+                    "updated": 1641654775591
+                },
+                {
+                    "language": "ES",
+                    "text": "Coloca la primera condición en la situación existente, y la segunda condición en una nueva situación (añade una Situation utilizando el menú del Trigger Off Event).",
+                    "updated": 1677101197747
                 }
             ]
         },

@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "İkinci örneği deneyelim!",
                 "updated": 1639603129746
+            },
+            {
+                "language": "RU",
+                "text": "Я же говорил вам, что собираюсь довести эту тему до ума! Давайте попробуем второй пример!",
+                "updated": 1640870858272
+            },
+            {
+                "language": "ID",
+                "text": "Sudah kubilang aku akan menjelaskan topik ini! Mari kita coba contoh kedua!",
+                "updated": 1644951377689
+            },
+            {
+                "language": "NL",
+                "text": "Ik zei toch dat ik op dit onderwerp ging hameren! Laten we het tweede voorbeeld proberen!",
+                "updated": 1669544365942
             }
         ]
     },
@@ -48,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Realiza una copia de seguridad del sistema Lightning Strike trading! Restaura la copia de seguridad sin eliminar el original. Luego, repite la operación de restauración, pero primero elimine el sistema trading original.",
-                    "updated": 1626614976596,
+                    "text": "¡Realiza una copia de seguridad del sistema Lightning Strike trading! Restaura la copia de seguridad sin eliminar el original. Luego, repite la operación de restauración, pero primero elimina el Trading System original.",
+                    "updated": 1675377066807,
                     "style": "Callout"
                 },
                 {
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Lightning Strike Trading System düğümünün yedeğini alın! Orijinali silmeden yedeği geri yükleyin. Ardından geri yükleme işlemini tekrarlayın, ancak önce orijinal ticaret sistemini silin!",
                     "updated": 1639603462583
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию торговой системы Lightning Strike! Восстановите резервную копию, не удаляя оригинал. Затем повторите операцию восстановления, но сначала удалите оригинальную торговую систему!",
+                    "updated": 1640870878407
+                },
+                {
+                    "language": "ID",
+                    "text": "Ambil cadangan Lightning Strike trading system! Kembalikan cadangan tanpa menghapus yang asli. Kemudian ulangi operasi pemulihan tetapi hapus trading system asli terlebih dahulu!",
+                    "updated": 1644951447502
+                },
+                {
+                    "language": "NL",
+                    "text": "Maak een back-up van het Lightning Strike handelssysteem! Herstel de back-up zonder het origineel te verwijderen. Herhaal vervolgens de herstelbewerking maar verwijder eerst het originele handelssysteem!",
+                    "updated": 1669544394033
                 }
             ]
         },
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "İkinci durumda (orjinal düğümü silip düğümü geri yüklediğinizde) gelen referansların ( Incoming references ) nasıl korunduğunu gözlemleyin!",
                     "updated": 1639603967310
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте, как сохраняются входящие ссылки, только во втором случае!",
+                    "updated": 1640870935829
+                },
+                {
+                    "language": "ID",
+                    "text": "Verifikasi bagaimana incoming references dijaga hanya dalam kasus kedua!",
+                    "updated": 1644951500416
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer alleen in het tweede geval hoe de inkomende referenties worden bewaard!",
+                    "updated": 1669544412558
                 }
             ]
         },
@@ -105,8 +150,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Recuerde que, para conservar las referencias entrantes, debe eliminar la estructura original de los nodos antes de restaurar la copia de seguridad.",
-                    "updated": 1626615070797,
+                    "text": "Recuerda que, para conservar las referencias entrantes, debes eliminar la estructura original de los nodos antes de restaurar la copia de seguridad.",
+                    "updated": 1675377083860,
                     "style": "Success"
                 },
                 {
@@ -118,6 +163,21 @@
                     "language": "TR",
                     "text": "Unutmayın, gelen referansların korunması için yedeği geri yüklemeden önce düğümlerin orijinal yapısını silmeniz gerekir!",
                     "updated": 1639603997353
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что для сохранения входящих ссылок необходимо удалить исходную структуру узлов перед восстановлением резервной копии!",
+                    "updated": 1640870949480
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingatlah bahwa, agar incoming references dijaga, kamu harus menghapus struktur node asli sebelum mengembalikan cadangan!",
+                    "updated": 1644951546081
+                },
+                {
+                    "language": "NL",
+                    "text": "Onthoud dat u, om inkomende referenties te behouden, de oorspronkelijke structuur van knooppunten moet verwijderen voordat u de back-up herstelt!",
+                    "updated": 1669544434495
                 }
             ]
         }

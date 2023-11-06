@@ -4,44 +4,197 @@
     "type": "Bitstamp Test Status",
     "definition": {
         "text": "Bitstamp is fully tested for data mining and trading.",
-        "updated": 1615141847424
+        "updated": 1615141847424,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bitstamp полностью протестирован для добычи данных и торговли.",
+                "updated": 1646902637534
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bitstamp, veri madenciliği ve ticareti için tamamen test edilmiştir.",
+                "updated": 1650571762964
+            },
+            {
+                "language": "DE",
+                "text": "Bitstamp ist vollständig für Data Mining und Handel getestet.",
+                "updated": 1690357484617
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902644269
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571771842
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357490881
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability [*]: Yes."
+            "text": "1-min OHLCVs Capability [*]: Yes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV [*]: Да.",
+                    "updated": 1646902674114
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği [*]: Evet.",
+                    "updated": 1650571799135
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit [*]: Ja.",
+                    "updated": 1690357497620
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Starting on September 2017.",
-            "updated": 1615142912901
+            "updated": 1615142912901,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Начиная с сентября 2017 года.",
+                    "updated": 1646902682997
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Eylül 2017'den itibaren.",
+                    "updated": 1650571811753
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Beginnend im September 2017.",
+                    "updated": 1690357503905
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Yes.",
-            "updated": 1615143016205
+            "updated": 1615143016205,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли [**]: Да.",
+                    "updated": 1646902689415
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Evet.",
+                    "updated": 1650571822243
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability)[**]: Ja.",
+                    "updated": 1690357513400
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Fully tested. ",
-            "updated": 1615142951363
+            "updated": 1615142951363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Полностью протестирован.",
+                    "updated": 1646902696663
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Tamamen test edilmiştir.",
+                    "updated": 1650571851719
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Vollständig getestet.",
+                    "updated": 1690357520329
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified."
+            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "[*] Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902709372
+                },
+                {
+                    "language": "TR",
+                    "text": "[*] Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650571864986
+                },
+                {
+                    "language": "DE",
+                    "text": "[*] Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357528113
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has been verified."
+            "text": "[**] The ability to run strategies in live-trading mode has been verified.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "[**] Возможность запуска стратегий в режиме реальной торговли была проверена.",
+                    "updated": 1646902719562
+                },
+                {
+                    "language": "TR",
+                    "text": "[**] Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
+                    "updated": 1650571874160
+                },
+                {
+                    "language": "DE",
+                    "text": "[**] Die Fähigkeit, Strategien im Live-Handel auszuführen, wurde überprüft.",
+                    "updated": 1690357537768
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902725399
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571784585
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357544273
+                }
+            ]
         },
         {
             "style": "Json",

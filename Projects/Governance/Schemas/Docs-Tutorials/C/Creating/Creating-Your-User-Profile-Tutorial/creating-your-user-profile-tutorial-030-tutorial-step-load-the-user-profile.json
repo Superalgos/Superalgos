@@ -3,8 +3,8 @@
     "pageNumber": 30,
     "type": "Tutorial Step - Load the User Profile",
     "definition": {
-        "text": "Do you know who your referrer is? Does your referrer have a User Profile? How do you find and load the right profile?",
-        "updated": 1630928366458,
+        "text": "Use the search box to find the profile you are looking for! Go to the Workspace tab and find the User Profile node matching the name you searched for!",
+        "updated": 1660646345682,
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
@@ -12,69 +12,113 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Sabes quién es tu referente? ¿Su referente tiene un perfil de usuario? ¿Cómo encuentra y carga el perfil correcto? ¡Todas esas son buenas preguntas!",
-                "updated": 1630896021100,
+                "text": "Utilice el cuadro de búsqueda para encontrar el perfil que busca. Vaya a la pestaña Espacio de trabajo y busque el nodo Perfil de usuario que coincida con el nombre que ha buscado. ",
+                "updated": 1682521134676,
                 "style": "Definition"
             },
             {
                 "language": "RU",
                 "text": "Вы знаете, кто ваш реферер? У вашего реферера есть профиль пользователя User Profile? Как найти и загрузить нужный профиль?",
                 "updated": 1639050613920
+            },
+            {
+                "language": "DE",
+                "text": "Wissen Sie, wer Ihr Empfehler ist? Hat Ihr Referrer ein Benutzerprofil? Wie können Sie das richtige Profil finden und laden?",
+                "updated": 1640079953874
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Yönlendirenin kim olduğunu biliyor musun? Yönlendiren kişinin Kullanıcı Profili (User Profile) var mı? Doğru profili nasıl bulur ve yüklersiniz?",
+                "updated": 1645092385492
+            },
+            {
+                "language": "ID",
+                "text": "Gunakan box pencarian untuk menemukan profil yang kamu cari! Pergi ke tab Workspace dan temukan node User Profile yang sama dengan nama yang kamu cari!",
+                "updated": 1671528150953
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Follow the guide on the right to find the answers!",
-            "updated": 1630678762493,
+            "text": "Make sure you find an actual User Profile node, and not any other kind of node, and click on it!",
+            "updated": 1660646418044,
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "¡Siga la guía para encontrar las respuestas!",
-                    "updated": 1630896102098,
-                    "style": "Callout"
+                    "language": "ID",
+                    "text": "Pastikan kamu menemukan node User Profile yang sebenarnya, dan bukan jenis node lainnya, dan klik di atasnya!",
+                    "updated": 1671528158112
                 },
                 {
-                    "language": "RU",
-                    "text": "Следуйте инструкциям справа, чтобы найти ответы!",
-                    "updated": 1639050647971
+                    "language": "ES",
+                    "text": "Asegúrate de encontrar un nodo de perfil de usuario real, y no cualquier otro tipo de nodo, y haz clic en él.",
+                    "updated": 1682521149810
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "I brought you to the Dummy profile mentioned in the guide to make it easier for you!",
-            "updated": 1630678841266,
+            "text": "If you can't find the profile you're looking for, you may need to add it manually to the workspace. If that is the case, please refer to the Load a User Profile page in the Docs!",
+            "updated": 1660643096627,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Te traje al perfil ficticio mencionado en la guía para que te sea más fácil!",
-                    "updated": 1630896053331,
+                    "text": "Si no encuentras el perfil que buscas, puede que tengas que añadirlo manualmente al área de trabajo. ¡En ese caso, consulte la página Cargar un perfil de usuario en Docs!",
+                    "updated": 1682521173668,
                     "style": "Note"
                 },
                 {
                     "language": "RU",
                     "text": "Я привел вас к профилю Dummy profile, упомянутому в руководстве, чтобы вам было проще!",
                     "updated": 1639050685885
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe Sie zu dem in der Anleitung erwähnten Dummy-Profil geführt, um es Ihnen leichter zu machen!",
+                    "updated": 1640079967268
+                },
+                {
+                    "language": "TR",
+                    "text": "İşinizi kolaylaştırmak için sizi rehberde bahsedilen Dummy profiline getirdim!",
+                    "updated": 1645092431093
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu tidak memenukan profil yang kamu cari, kamu harus menambahkannya secara manual ke workspace. Jika itu kasusnya, silahkan lihat halaman Load a User Profile di Docs!",
+                    "updated": 1671528164608
                 }
             ]
         },
         {
-            "style": "Success",
-            "text": "By the way, notice that the profiles of Community Mods and Core Team members are loaded already!",
-            "updated": 1630925877917,
+            "style": "Text",
+            "text": "New profiles are added to the governance Native Workspace before each distribution event.",
+            "updated": 1660643324416,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Core Team ya están cargados.",
-                    "updated": 1630896089076,
+                    "text": "Los nuevos perfiles se añaden al Native Workspace de gobierno antes de cada evento de distribución.",
+                    "updated": 1682521246636,
                     "style": "Success"
                 },
                 {
                     "language": "RU",
-                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Core Team уже загружены!",
+                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Founding Team уже загружены!",
                     "updated": 1639050725765
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachte übrigens, dass die Profile von Community Mods und Founding Team Mitgliedern bereits geladen sind!",
+                    "updated": 1640079976555
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu arada, Topluluk Modlarının (Community Mods) ve Çekirdek Ekip (Founding Team) üyelerinin profillerinin zaten yüklenmiş olduğuna dikkat edin!",
+                    "updated": 1645092477222
+                },
+                {
+                    "language": "ID",
+                    "text": "Profil baru akan ditambahkan ke governance Native Workspaces ebelum tiap event distribusi.",
+                    "updated": 1671528173184
                 }
             ]
         }

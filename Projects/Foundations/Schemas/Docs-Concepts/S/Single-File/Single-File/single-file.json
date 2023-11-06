@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот набор данных Dataset содержит только один файл со всеми данными.",
                 "updated": 1638297980615
+            },
+            {
+                "language": "TR",
+                "text": "Bu Veri Kümesi ( Dataset ) , içindeki tüm verilerle birlikte yalnızca bir dosya içerir.",
+                "updated": 1666902349451
             }
         ]
     },

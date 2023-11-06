@@ -1,0 +1,45 @@
+{
+    "type": "Founding Team",
+    "definition": {
+        "text": "The Founding Team is the group of people tasked with bootstrapping the Superalgos Project. Their mission is do what it takes for the project to succeed.",
+        "updated": 1630928152385,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Founding Team - это группа людей, которым поручено запустить проект Superalgos. Их миссия - делать все, что нужно для успеха проекта.",
+                "updated": 1638281221178
+            },
+            {
+                "language": "TR",
+                "text": "Çekirdek Ekip, Superalgos Projesini ( Superalgos Project ) başlatmakla görevli kişilerden oluşan gruptur. Görevleri, projenin başarılı olması için ne gerekiyorsa yapmaktır.",
+                "updated": 1670332115984
+            },
+            {
+                "language": "DE",
+                "text": "Das Gründungsteam ist die Gruppe von Personen, die mit dem Aufbau des Superalgos-Projekts ( Superalgos Project ) beauftragt ist. Ihre Aufgabe ist es, alles zu tun, was nötig ist, um das Projekt zum Erfolg zu führen.",
+                "updated": 1696955468475
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "Meet the Founding Team->superalgos.org/about-team.shtml",
+            "updated": 1630928203131,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çekirdek Ekip ile Tanışın->superalgos.org/about-team.shtml",
+                    "updated": 1654390905109,
+                    "style": "Link"
+                },
+                {
+                    "language": "DE",
+                    "text": "Treffen Sie das Gründungsteam->superalgos.org/about-team.shtml",
+                    "updated": 1696955468633,
+                    "style": "Link"
+                }
+            ]
+        }
+    ]
+}

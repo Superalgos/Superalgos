@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Wir haben bisher noch nicht über die Positionsgröße gesprochen, da es bei der Prüfung der Handelsidee nur um die Messung der Trefferquote geht.",
                 "updated": 1639397325564
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret fikrini test etmek tamamen isabet oranını ölçmekle ilgili olduğundan, pozisyon boyutu hakkında henüz konuşmadık.",
+                "updated": 1641668386952
+            },
+            {
+                "language": "RU",
+                "text": "До сих пор мы не обсуждали размер позиции, поскольку целью тестирования торговой идеи является только измерение коэффициента попадания.",
+                "updated": 1642777189592
+            },
+            {
+                "language": "ES",
+                "text": "No hemos discutido el tamaño de la posición hasta ahora, ya que la intención de la prueba de idea de comercio es medir sólo la proporción de aciertos.",
+                "updated": 1680704900461
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Aus demselben Grund werden wir an dieser Stelle auch keine weiteren Überlegungen anstellen. Wir heben uns einige Überlegungen dazu auf, wenn wir den Ausführungsalgorithmus und die Aufträge definieren.<br/><br/>Ich habe Sie soeben zur Definition Trading Parameters der Handelssitzung gebracht, damit Sie überprüfen können, wie die initialBalance definiert ist!",
                     "updated": 1639397665806
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı nedenden dolayı, burada başka bir değerlendirme yapmayacağız. Yürütme algoritmasını ve emirleri tanımlarken bazı hususları kaydedeceğiz.<br/><br/>İlk Bakiyenin nasıl tanımlandığını kontrol edebilmeniz için sizi ticaret seansının İşlem Parametrelerini tanımlamaya getirdim!",
+                    "updated": 1641668527834
+                },
+                {
+                    "language": "RU",
+                    "text": "По этой же причине мы не будем вдаваться в дальнейшие рассуждения на данном этапе. Мы прибережем несколько мыслей на этот счет для того, чтобы определить алгоритм исполнения и ордера. Я только что привел вас к определению торговых параметров торговой сессии (Trading Parameters), чтобы вы могли проверить, как определяется начальный баланс (InitialBalance)!",
+                    "updated": 1642777258366
+                },
+                {
+                    "language": "ES",
+                    "text": "Por la misma razón, no vamos a entrar en más consideraciones en este punto. Guardaremos algunas reflexiones al respecto para cuando definamos el algoritmo de ejecución y las órdenes. ¡Acabo de llevarte a la definición de Trading Parameters de la sesión de negociación para que compruebes cómo se define el initialBalance!",
+                    "updated": 1680705114892
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Prüfen Sie die Konfiguration von Session Base Asset und Session Quoted Asset!",
                     "updated": 1639397471112
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturum Temel Varlığı ( Session Base Asset  ) ve Oturum Koteli Varlığı ( Session Quoted Asset ) yapılandırmasını kontrol edin!",
+                    "updated": 1641668549088
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте конфигурацию Session Base Asset и Session Quoted Asset!",
+                    "updated": 1642777271099
+                },
+                {
+                    "language": "ES",
+                    "text": "Compruebe la Session Base Asset y la Session Quoted Asset. ",
+                    "updated": 1680705224639
                 }
             ]
         }

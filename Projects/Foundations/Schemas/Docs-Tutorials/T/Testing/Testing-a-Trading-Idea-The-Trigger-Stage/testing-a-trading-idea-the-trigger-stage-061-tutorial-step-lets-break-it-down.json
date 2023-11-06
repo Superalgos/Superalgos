@@ -1,0 +1,131 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": "61",
+    "type": "Tutorial Step - Let's Break It Down!",
+    "definition": {
+        "text": "We will go through the statement step and step and put it into proper syntax!",
+        "icon": {
+            "name": "condition",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen!",
+                "updated": 1639389564281
+            },
+            {
+                "language": "TR",
+                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimini yazacağız!",
+                "updated": 1669664712041
+            },
+            {
+                "language": "RU",
+                "text": "Мы пройдем пошагово через утверждение и приведем его к правильному синтаксису!",
+                "updated": 1642660856072
+            },
+            {
+                "language": "ES",
+                "text": "¡Repasaremos la declaración paso a paso y la pondremos en la sintaxis adecuada!",
+                "updated": 1679100426499
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Remember, time goes first: in the 1H chart! ",
+            "updated": 1610470932699,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm!",
+                    "updated": 1639389574772
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, zaman her zaman önce yazılır: 1H zaman diliminde!",
+                    "updated": 1669664770192
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, время идет первым: в графике 1H!",
+                    "updated": 1642660878963
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda, el tiempo va primero: ¡en el gráfico 1H!",
+                    "updated": 1679100443404
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs."
+        },
+        {
+            "style": "List",
+            "text": "The close of the candle is lesser than: ",
+            "updated": 1610470968732,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Schluss der Kerze ist kleiner als:",
+                    "updated": 1639389583113
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumun kapanışı şundan daha azdır:",
+                    "updated": 1641663552553
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрытие свечи меньше, чем:",
+                    "updated": 1642660897026
+                },
+                {
+                    "language": "ES",
+                    "text": "El cierre de la vela es menor que:",
+                    "updated": 1679100452125
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close <"
+        },
+        {
+            "style": "List",
+            "text": "The moving average minus the deviation, with a time frame defined for every statement:",
+            "updated": 1610471073502,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der gleitende Durchschnitt minus die Abweichung, wobei für jede Anweisung ein Zeitrahmen definiert wird:",
+                    "updated": 1639389589076
+                },
+                {
+                    "language": "RU",
+                    "text": "Скользящая средняя минус отклонение, с таймфреймом, определенным для каждого показания:",
+                    "updated": 1642660947764
+                },
+                {
+                    "language": "TR",
+                    "text": "Hareketli ortalama ( movingAverage ) - sapma ( deviation ), her ifade için zaman dilimini ilave etmeyi unutmayın:",
+                    "updated": 1669664892158,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "La media móvil menos la desviación, con un marco temporal definido para cada declaración:",
+                    "updated": 1679100459422
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.bollingerBand.movingAverage - \nchart.at01hs.bollingerBand.deviation",
+            "updated": 1610471042788
+        }
+    ]
+}

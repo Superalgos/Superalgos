@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Default Market - это рынок, на который ссылаются узлы Market Data Tasks, Market Trading Tasks, Market Learning Tasks, из которых происходит определенная задача Task. Trading Bot, работающий внутри этой задачи Task, будет считать этот рынок своим рынком по умолчанию.",
                 "updated": 1638282676171
+            },
+            {
+                "language": "TR",
+                "text": "Varsayılan Piyasa, belirli bir Görevin ( Task ) içinden çıktığı Piyasa Veri Görevleri ( Market Data Tasks ), Piyasa Ticaret Görevleri ( Market Trading Tasks ), Piyasa Öğrenme Görevleri ( Market Learning Tasks ) düğümleri tarafından referans verilen piyasadır. Bu Görevin ( Task ) içinde çalışan Ticaret Botu ( Trading Bot ), bu referans piyasayı Varsayılan Piyasa olarak kabul edecektir.",
+                "updated": 1671219871221
+            },
+            {
+                "language": "DE",
+                "text": "Der Standardmarkt ist derjenige, auf den die Knoten der Marktdaten-Tasks ( Market Data Tasks ), Markthandels-Tasks ( Market Trading Tasks ) und Market Learning Tasks verweisen, von denen ein bestimmter Task abstammt. Der Handelsroboter, der innerhalb dieser Aufgabe läuft, betrachtet diesen Referenzmarkt als seinen Standardmarkt.",
+                "updated": 1696955463666
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638282694875
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390965389,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955463918,
+                    "style": "Text"
                 }
             ]
         }

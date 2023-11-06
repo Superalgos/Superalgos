@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Understanding Objects Data",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-warning"
+            "name": "Bullet/bullet-warning",
+            "project": "Foundations"
         },
         "text": "The data available in Simulation Objects represent the state of affairs at the moment the object is closed, or at the current time if it hasn't closed yet!",
         "translations": [
@@ -13,6 +13,26 @@
                 "language": "DE",
                 "text": "Die in den Simulationsobjekten verfügbaren Daten stellen den Stand der Dinge in dem Moment dar, in dem das Objekt geschlossen wird, oder zum aktuellen Zeitpunkt, wenn es noch nicht geschlossen wurde!",
                 "updated": 1639144936223
+            },
+            {
+                "language": "RU",
+                "text": "Данные, доступные в объектах Simulation Objects, представляют собой состояние дел на момент закрытия объекта или в текущий момент времени, если он еще не закрылся!",
+                "updated": 1640630285533
+            },
+            {
+                "language": "TR",
+                "text": "Simülasyon Nesnelerinde bulunan veriler, nesnenin kapalı olduğu andaki veya henüz kapanmamışsa o andaki işlerin durumunu temsil eder!",
+                "updated": 1642503670183
+            },
+            {
+                "language": "ID",
+                "text": "Data yang tersedia di Simulation Objects mewakili keadaan saat objek ditutup, atau saat ini jika objek belum ditutup!",
+                "updated": 1673952020919
+            },
+            {
+                "language": "ES",
+                "text": "Los datos disponibles en los Simulation Objects representan el estado de las cosas en el momento en que se cierra el objeto, ¡o en el momento actual si aún no se ha cerrado!",
+                "updated": 1675467945898
             }
         ]
     },
@@ -25,6 +45,26 @@
                     "language": "DE",
                     "text": "Im Gegensatz dazu stellen die Ebenen in den Ebenenmanagern der Trading Engine und des Trading Systems den Wert der Knoten zum Zeitpunkt der vom Mauszeiger signalisierten Kerze dar.",
                     "updated": 1639144978881
+                },
+                {
+                    "language": "RU",
+                    "text": "В отличие от этого, слои в менеджерах слоев Trading Engine и Trading System представляют значение узлов на свече, о которой сигнализирует указатель мыши.",
+                    "updated": 1640630315927
+                },
+                {
+                    "language": "TR",
+                    "text": "Buna karşılık, Trading Engine ve Trading System katman yöneticilerindeki katmanlar, fare işaretçisi tarafından işaret edilen mumdaki düğümlerin değerini temsil eder.",
+                    "updated": 1642503860156
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebaliknya, layer di layer manager Trading Engine dan Trading System mewakili value node pada candle yang ditandai oleh mouse pointer.",
+                    "updated": 1673952027307
+                },
+                {
+                    "language": "ES",
+                    "text": "Por el contrario, las capas del Trading Engine y del Trading System representan el valor de los nodos en la vela señalada por el puntero del ratón.",
+                    "updated": 1675468012550
                 }
             ]
         },
@@ -36,6 +76,26 @@
                     "language": "DE",
                     "text": "Dies ist ein grundlegender Unterschied, den Sie verstehen müssen, da Sie sonst die von den Simulationsobjekten dargestellten Informationen falsch interpretieren könnten. Die wichtigsten Auswirkungen werde ich in den nächsten Schritten erläutern!",
                     "updated": 1639144983366
+                },
+                {
+                    "language": "RU",
+                    "text": "Это фундаментальное различие, которое вы должны понимать, поскольку в противном случае вы можете неправильно интерпретировать информацию, представленную объектами Simulation Objects. Я объясню наиболее важные последствия в следующих нескольких шагах!",
+                    "updated": 1640630343420
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, anlamanız gereken temel bir farktır, aksi takdirde Simulation Objects tarafından sunulan bilgileri yanlış yorumlayabilirsiniz. Önümüzdeki birkaç adımda en önemli sonuçları açıklayacağım!",
+                    "updated": 1642504035985
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah perbedaan mendasar yang harus kamu pahami, karena jika tidak, kamu mungkin salah menafsirkan informasi yang disajikan oleh Simulation Objects. Aku akan menjelaskan implikasi yang paling penting dalam beberapa langkah berikutnya!",
+                    "updated": 1673952033665
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es una diferencia fundamental que debes entender, ya que de lo contrario, puedes malinterpretar la información presentada por los Objetos de Simulación. ¡Explicaré las implicaciones más importantes en los próximos pasos!",
+                    "updated": 1675468036130
                 }
             ]
         }

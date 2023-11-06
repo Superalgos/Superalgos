@@ -14,6 +14,21 @@
                 "language": "DE",
                 "text": "Da Sie nun wissen, was Bedingungen und Situationen sind, stellen wir uns eine Frage: Wie definieren wir das Trigger On Event?",
                 "updated": 1639261814762
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете, что такое условия и ситуации, давайте зададимся вопросом: как определить событие Trigger On Event?",
+                "updated": 1640934692033
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Artık koşulların ve durumların ne olduğunu bildiğinize göre kendimize bir soru soralım: Olay Tetikleyiciyi (  Trigger On Event ) nasıl tanımlarız?",
+                "updated": 1641652500200
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que entiendes qué son las condiciones y las situaciones, vamos a plantear una pregunta: ¿cómo definimos el Trigger On Event?",
+                "updated": 1675621995864
             }
         ]
     },
@@ -26,6 +41,21 @@
                     "language": "DE",
                     "text": "Da das Trigger-On-Ereignis bestimmt, welche Strategie für den Handel ausgewählt wird, sollte die Definition des Kontextes unserer Hypothese der wichtigste Punkt sein, den es zu berücksichtigen gilt!",
                     "updated": 1639261844410
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку событие срабатывания определяет, какая стратегия будет выбрана для торговли, определение контекста нашей гипотезы должно быть главным!",
+                    "updated": 1640934710602
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleme olayı, ticaret için hangi stratejinin seçileceğini belirlediğinden, varsayımımızın içeriğini tanımlamak, dikkate alınması gereken en önemli nokta olmalıdır!",
+                    "updated": 1641652514067
+                },
+                {
+                    "language": "ES",
+                    "text": "Dado que el Trigger On Event determina qué estrategia se selecciona para operar, ¡la definición del contexto de nuestra hipótesis debería ser lo principal a tener en cuenta!",
+                    "updated": 1675622015413
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Die Strategie sollte handeln, wenn es einen Abwärtstrend im 24-Stunden-Zeitrahmen gibt.",
                     "updated": 1639261851598
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия должна торговать при наличии нисходящего тренда на 24-х часовом таймфрейме.",
+                    "updated": 1640934759648
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji, 24 saatlik zaman diliminde bir düşüş trendi olduğunda harekete geçmelidir.",
+                    "updated": 1641652526060
+                },
+                {
+                    "language": "ES",
+                    "text": "La estrategia debe operar cuando hay una tendencia bajista en el marco de tiempo de 24H.",
+                    "updated": 1675622024061
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Unsere Aufgabe ist es, eine Reihe von Bedingungen zu schreiben, die die Marktsituation eines Abwärtstrends im 24-Stunden-Chart mathematisch beschreiben!",
                     "updated": 1639261865002
+                },
+                {
+                    "language": "RU",
+                    "text": "Наша задача - написать набор условий, которые математически описывают рыночную ситуацию нисходящего тренда на 24-х часовом графике!",
+                    "updated": 1640934788611
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bizim işimiz, 24 saatlik grafikte bir düşüş trendinin piyasa durumunu matematiksel olarak tanımlayan bir dizi koşul yazmak!",
+                    "updated": 1641652551315
+                },
+                {
+                    "language": "ES",
+                    "text": "Nuestro trabajo es escribir un conjunto de condiciones que describan matemáticamente la situación de mercado de una tendencia bajista en el gráfico de 24H.",
+                    "updated": 1675622034357
                 }
             ]
         }

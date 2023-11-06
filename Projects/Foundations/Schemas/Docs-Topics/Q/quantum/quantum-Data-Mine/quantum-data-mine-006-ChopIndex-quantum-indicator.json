@@ -4,25 +4,73 @@
     "type": "Choppiness Index - quantum Indicator",
     "definition": {
         "text": "This indicator produces a volatility indicator that determines when the market is following a trend, or if the market is choppy and trading sideways.",
-        "updated": 1611662439678
+        "updated": 1611662439678,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор выдает показатель волатильности, который определяет, когда рынок следует за трендом, или если рынок неспокойный и торгуется в боковом направлении.",
+                "updated": 1646898939253
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt einen Volatilitätsindikator, der feststellt, ob der Markt einem Trend folgt oder ob der Markt unruhig ist und seitwärts handelt.",
+                "updated": 1671699568348
+            }
+        ]
     },
     "paragraphs": [
-		{
+        {
             "style": "Title",
             "text": "Choppiness Indicator On the Charts",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Choppiness на графиках",
+                    "updated": 1646898952322
+                },
+                {
+                    "language": "DE",
+                    "text": "Choppiness Indikator auf den Charts",
+                    "updated": 1671699598515
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Choppiness index indicator produces a value between 0-100. When the indicator is closer to 100, the market is choppy. Conversely, when the values are near 0, the market is in a directional trend.",
-            "updated": 1611662450791
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор Choppiness index выдает значение в диапазоне 0-100. Когда значение индикатора приближается к 100, на рынке царит суматоха. И наоборот, когда значения близки к 0, рынок находится в направленном тренде.",
+                    "updated": 1646898969639
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Choppiness-Index Indikator liefert einen Wert zwischen 0 und 100. Wenn der Indikator näher an 100 liegt, ist der Markt unruhig. Umgekehrt, wenn die Werte nahe 0 sind, befindet sich der Markt in einem direktionalen Trend.",
+                    "updated": 1671699669280
+                }
+            ]
         },
-		{
-			"style": "Text",
+        {
+            "style": "Text",
             "text": "The indicator is directionless, it does not show which way the trend is going, only if there is a trend or not.",
-            "updated": 1611662450791
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор не имеет направления, он не показывает, в какую сторону идет тренд, только наличие или отсутствие тренда.",
+                    "updated": 1646898978916
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator ist richtungslos, er zeigt nicht an, in welche Richtung der Trend geht, sondern nur, ob es einen Trend gibt oder nicht.",
+                    "updated": 1671699707974
+                }
+            ]
         },
-		{
+        {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/quantum-ChopIndex-on-the-chart.png",
             "updated": 1636853769
@@ -31,18 +79,42 @@
             "style": "Text",
             "text": ""
         },
-		{
+        {
             "style": "Text",
-            "text": "There are two locations to change the parameters for this indicator. To change the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Chop Index\" Product Definition. The parameter to change is on line 4, lengthTR. The default setting is 14."
+            "text": "There are two locations to change the parameters for this indicator. To change the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Chop Index\" Product Definition. The parameter to change is on line 4, lengthTR. The default setting is 14.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует два места для изменения параметров этого показателя. Чтобы изменить расчет в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop под определением продукта \"Chop Index\". Параметр, который необходимо изменить, находится в строке 4, lengthTR. По умолчанию параметр равен 14.",
+                    "updated": 1646899003257
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt zwei Stellen, an denen Sie die Parameter für diesen Indikator ändern können. Um die Berechnung an Ihre Bedürfnisse anzupassen, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Chop Index\" Product Definition. Der zu ändernde Parameter befindet sich in Zeile 4, lengthTR. Die Standardeinstellung ist 14.",
+                    "updated": 1671699763401
+                }
+            ]
         },
         {
             "style": "Png",
             "text": "PNGs/Foundations/Docs/indicators/quantum-ChopIndex-params.png",
             "updated": 1636853769
         },
-		{
+        {
             "style": "Text",
-            "text": "To change the plotting thresholds, navigate to the Data Building Procedure -> Procedure Initialization under \"Chop Index\" Product Definition. The parameters to change are on lines 12 and 13. The upperLine default is 61.8 and the lowerLine is set to 45 for the crypto market. It can be changed to the default fibonacci number of 38.2 if desired."
+            "text": "To change the plotting thresholds, navigate to the Data Building Procedure -> Procedure Initialization under \"Chop Index\" Product Definition. The parameters to change are on lines 12 and 13. The upperLine default is 61.8 and the lowerLine is set to 45 for the crypto market. It can be changed to the default fibonacci number of 38.2 if desired.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить пороги построения, перейдите в Data Building Procedure -> Procedure Initialization в разделе \"Chop Index\" Product Definition. Параметры для изменения находятся в строках 12 и 13. Верхняя линия по умолчанию равна 61,8, а нижняя линия установлена на 45 для криптовалютного рынка. При желании его можно изменить на число Фибоначчи по умолчанию 38,2.",
+                    "updated": 1646899027468
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Schwellenwerte für das Plotten zu ändern, navigieren Sie zu Data Building Procedure -> Procedure Initialization unter \"Chop Index\" Product Definition. Die zu ändernden Parameter befinden sich in den Zeilen 12 und 13. Der Standardwert für die upperLine ist 61.8 und die lowerLine ist für den Kryptomarkt auf 45 festgelegt. Sie kann auf Wunsch auf die Standard Fibonacci Zahl von 38.2 geändert werden.",
+                    "updated": 1671699936544
+                }
+            ]
         },
         {
             "style": "Png",
@@ -51,30 +123,85 @@
         },
         {
             "style": "Title",
-            "text": "Chop Index Products & Properties"
+            "text": "Chop Index Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Chop Index",
+                    "updated": 1646899035570
+                },
+                {
+                    "language": "DE",
+                    "text": "Chop Index Produkte & Eigenschaften",
+                    "updated": 1671699958488
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Setting | Product Variable | Properties |\n| Chop Index | Chop | Index, upperLine, lowerLine |",
-            "updated": 1611662546677
-        },       
+            "updated": 1611662546677,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Chop Index | Chop | Index, upperLine, lowerLine |",
+                    "updated": 1671699987860
+                }
+            ]
+        },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1646899042355
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671700001172
+                }
+            ]
         },
-		{
+        {
             "style": "Text",
-            "text": "A simple strategy can be built by entering a trade when the chop index falls below the lowerLine:"
+            "text": "A simple strategy can be built by entering a trade when the chop index falls below the lowerLine:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена путем входа в сделку, когда Chop Index опускается ниже нижней линии:",
+                    "updated": 1646899067457
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie besteht darin, in den Handel einzusteigen, wenn der Chop-Index unter die lowerLine fällt:",
+                    "updated": 1671700041799
+                }
+            ]
         },
         {
             "style": "Javascript",
             "text": "chart.at30min.Chop.Index < chart.at30min.Chop.lowerLine",
             "updated": 1611662656647
         },
-		{
+        {
             "style": "Text",
-            "text": "The exit could then be:"
+            "text": "The exit could then be:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для выхода можно использовать следующее:",
+                    "updated": 1646899132737
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ausgang könnte dann sein:",
+                    "updated": 1671700063350
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -83,7 +210,19 @@
         {
             "style": "Text",
             "text": "Keep in mind that the example strategies would need input from a directional indicator such as MACD, PSAR, or ADX to ensure you are entering the position in the intended direction.",
-            "updated": 1611662681719
+            "updated": 1611662681719,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имейте в виду, что приведенным в качестве примера стратегиям потребуются данные от индикатора направления, такого как MACD, PSAR или ADX, чтобы убедиться, что вы входите в позицию в намеченном направлении.",
+                    "updated": 1646899100752
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Beispielstrategien den Input eines Richtungsindikators wie MACD, PSAR oder ADX benötigen, um sicherzustellen, dass Sie die Position in der gewünschten Richtung eingehen.",
+                    "updated": 1671700084853
+                }
+            ]
         }
     ]
 }

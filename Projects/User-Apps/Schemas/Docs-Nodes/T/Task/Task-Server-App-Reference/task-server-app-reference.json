@@ -1,0 +1,50 @@
+{
+    "type": "Task Server App Reference",
+    "definition": {
+        "text": "The Task Server App Reference node holds the reference to a Task Server App node defined under a User Profile.",
+        "updated": 1644029524117,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Task Server App Reference содержит ссылку на узел Task Server App, определенный в профиле пользователя.",
+                "updated": 1645183674796
+            },
+            {
+                "language": "TR",
+                "text": "Görev Sunucusu Uygulama Referansı düğümü, Kullanıcı Profili (User Profile) altında tanımlanan Görev Sunucusu Uygulaması (Task Server App) düğümüne referansı tutar.",
+                "updated": 1666689784124
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Connecting to a Task Server App allows the current Task node to identify itself on the Superalgos Peer to Peer network.",
+            "updated": 1644029748910,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подключение к Task Server App позволяет текущему узлу Task идентифицировать себя в сети Superalgos Peer to Peer.",
+                    "updated": 1645183687408
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Görev Sunucusu Uygulamasına (Task Server App) bağlanmak, mevcut Görev (Task) düğümünün Superalgos Eşler Arası ağda kendisini tanımlamasına izin verir.",
+                    "updated": 1666689842311
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Each task that connects to the peer to peer network will need to have a unique identity defined using its own Task Server App node.",
+            "updated": 1647053723672,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eşler arası ağa bağlanan her görevin, kendi Görev Sunucusu Uygulaması (Task Server App) düğümü kullanılarak tanımlanmış benzersiz bir kimliği olması gerekir.",
+                    "updated": 1666689884239
+                }
+            ]
+        }
+    ]
+}

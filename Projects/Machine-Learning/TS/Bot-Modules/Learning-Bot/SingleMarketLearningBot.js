@@ -87,7 +87,7 @@
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] run -> loop -> Waiting for " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run.")
 
-                        console.log(new Date().toISOString() + " " + pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName, 20) + " " + pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
+                        SA.logger.info(pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName, 20) + " " + pad(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 30)
                             + " Waiting for " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type + " " + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + " to be run. ");
 
                         nextWaitTime = 'Waiting for Session';
@@ -514,7 +514,10 @@
                                     break
                                 case 'Normal': {
                                     let waitTime
-                                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true) {
+                                    if (
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_EXECUTION_FINISHED_EVENT === true ||
+                                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).WAIT_FOR_TRADING_SIGNAL_TO_ARRIVE === true
+                                        ) {
                                         waitTime = 0
                                     } else {
                                         switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {

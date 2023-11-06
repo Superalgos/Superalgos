@@ -26,6 +26,26 @@
                 "language": "DE",
                 "text": "Wenn alles gut gegangen ist, müssen Sie eine Bestätigung erhalten haben, dass der Beitragszweig(contributions-branch) geändert wurde! Großartig!",
                 "updated": 1638831999790
+            },
+            {
+                "language": "RU",
+                "text": "Если все прошло успешно, вы должны были получить подтверждение, что ветка вкладов (Contributions Branch) была изменена! Потрясающе!",
+                "updated": 1645269713366
+            },
+            {
+                "language": "TR",
+                "text": "Her şey yolunda gittiyse, Katkılar dalının ( Contributions Branch ) değiştirildiğine dair bir onay almış olmalısınız! Mükemmel!",
+                "updated": 1640417179001
+            },
+            {
+                "language": "ID",
+                "text": "Jika semua berjalan dengan baik, kamu seharusnya mendapat konfirmasi bahwa Contribution Branch telah berubah! Bagus!",
+                "updated": 1668504494023
+            },
+            {
+                "language": "NL",
+                "text": "Als alles goed is gegaan, moet u een bevestiging hebben gekregen dat de contributie bracnhe is gewijzigd! Geweldig!",
+                "updated": 1669574380143
             }
         ]
     },
@@ -43,14 +63,34 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El siguiente en la línea es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
-                    "updated": 1628122656402,
+                    "text": "El siguiente paso es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
+                    "updated": 1675451108732,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
                     "text": "Als nächstes steht der Wechsel des aktuellen Zweigs an, aber vorher müssen wir noch einige Prüfungen durchführen!",
                     "updated": 1634821735341
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующим на очереди будет переключение текущей ветви Current Branch, но сначала нам нужно выполнить несколько проверок!",
+                    "updated": 1640155640902
+                },
+                {
+                    "language": "TR",
+                    "text": "Sırada Current Branch'ı değiştirmek var, ancak önce bazı kontrolleri yapmamız gerekiyor!",
+                    "updated": 1640417207945
+                },
+                {
+                    "language": "ID",
+                    "text": "Selanjutnya baris berikutnya yaitu mengubah ke Branch yang sekarang, namun sebelum itu kita harus lakukan pengecekan!",
+                    "updated": 1668504485265
+                },
+                {
+                    "language": "NL",
+                    "text": "De volgende in de rij is het verwisselen van de huidige branche, maar we moeten eerst wat controles uitvoeren!",
+                    "updated": 1669574398340
                 }
             ]
         },
@@ -67,14 +107,34 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando cambias de rama, la app ejecuta una serie de comandos de Git que descargan el software de la rama plugins-docs de tu fork. ¡El software actual será reemplazado en tu disco!Deberás cerrar la app después de cambiar. ¡Veamos unas cosas antes de continuar!",
-                    "updated": 1628123112818,
+                    "text": "Cuando cambies de rama, la aplicación ejecutará una serie de comandos Git que descargarán el software de la rama \"Develop\" de tu ramificación (Fork). El software actual será reemplazado en tu disco. Por esta razón, tendrás que cerrar la aplicación después de cambiar. Pero vamos a discutir un par de cosas más antes de continuar.",
+                    "updated": 1675451174660,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
                     "text": "Wenn Sie den Zweig wechseln, wird die Anwendung eine Reihe von Git-Befehlen ausführen, die die Software aus dem develop-Zweig Ihres Forks herunterladen! Die aktuelle Software wird auf Ihrer Festplatte ersetzt! Aus diesem Grund müssen Sie die Anwendung nach dem Wechsel schließen. Aber lassen Sie uns noch ein paar Dinge besprechen, bevor Sie fortfahren!",
                     "updated": 1638832046326
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы переключаете ветку, приложение выполнит серию команд Git, которые загрузят программное обеспечение из ветки Develop вашего форка! Текущее программное обеспечение будет заменено на вашем диске! По этой причине вам нужно будет закрыть приложение после переключения. Но давайте обсудим еще несколько моментов, прежде чем вы продолжите!",
+                    "updated": 1640155669606
+                },
+                {
+                    "language": "TR",
+                    "text": "Dalları değiştirdiğinizde, uygulama yazılımı çatalınızın Geliştirme ( Develop ) dalından indirecek bir dizi Git komutu çalıştıracaktır! Mevcut yazılım diskinizde değiştirilecektir! Bu nedenle, geçiş yaptıktan sonra uygulamayı kapatmanız gerekecektir. Ama devam etmeden önce birkaç şey daha tartışalım!",
+                    "updated": 1640417255328
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu mengubah branches, aplikasi akan menjalankan rangkaian perintah Git yang mendownload software tambahan dari fork branch Develop kamu! Softwaremu akan tergantikan di diska mu! Dengan alasan itu kamu harus menutup aplikasi setelah berganti branch. Tapi kita diskusikan beberapa hal lain sebelum kamu memproses!",
+                    "updated": 1668504475503
+                },
+                {
+                    "language": "NL",
+                    "text": "Wanneer je van branche wisselt, voert de app een reeks Git-commando's uit die de software downloaden van de Develop-branche van je fork! De huidige software wordt op uw schijf vervangen! Om die reden moet u de app na het overschakelen sluiten. Maar laten we nog een paar dingen bespreken voordat u verder gaat!",
+                    "updated": 1669574437081
                 }
             ]
         }

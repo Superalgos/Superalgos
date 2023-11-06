@@ -2,13 +2,38 @@
     "type": "Embedding Layer",
     "definition": {
         "text": "Maps positive integers (indices) into dense vectors of fixed size. ",
-        "updated": 1613213823616
+        "updated": 1613213823616,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Переводит целые положительные числа (индексы) в плотные векторы фиксированного размера.",
+                "updated": 1645247642075
+            },
+            {
+                "language": "TR",
+                "text": "Pozitif tamsayıları (indisleri) sabit boyutlu yoğun vektörlere eşler.",
+                "updated": 1654397049777
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Example",
-            "updated": 1613213848804
+            "updated": 1613213848804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1645247649541
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek",
+                    "updated": 1654397055884,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -16,11 +41,37 @@
         },
         {
             "style": "Text",
-            "text": "Input shape:* 2D tensor with shape: [batchSize, sequenceLength]."
+            "text": "Input shape:* 2D tensor with shape: [batchSize, sequenceLength].",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Input shape:* Двумерный тензор с формой: [batchSize, sequenceLength].",
+                    "updated": 1645247678235
+                },
+                {
+                    "language": "TR",
+                    "text": "Girdi şekli:* Şekilli 2B tensör: [batchSize, sequenceLength].",
+                    "updated": 1654397062269,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Output shape:* 3D tensor with shape: [batchSize, sequenceLength, outputDim]."
+            "text": "Output shape:* 3D tensor with shape: [batchSize, sequenceLength, outputDim].",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Output shape:* Трехмерный тензор с формой: [batchSize, sequenceLength, outputDim].",
+                    "updated": 1645247688466
+                },
+                {
+                    "language": "TR",
+                    "text": "Çıktı şekli:* Şekilli 3B tensör: [batchSize, sequenceLength, outputDim].",
+                    "updated": 1654397068202,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

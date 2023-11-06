@@ -4,26 +4,61 @@
     "type": "TS LF Trading Bot Error - Maximum Balance Reached",
     "definition": {
         "text": "The Trading Session stopped because the maximum balance configured for the session was reached.",
-        "updated": 1611937963838
+        "updated": 1611937963838,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ticaret oturumu ( Trading Session ) oturum için yapılandırılan maksimum bakiyeye ulaşıldığından durduruldu.",
+                "updated": 1648065300930
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Session Base Asset and Session Quoted Asset Trading Parameters enable the setting of a maximumBalance. The parameter is optional. When you use it, the LF Trading Bot checks—for every candle during the Trading Session—that the balance has not reached the configured maximum. If it does, this error is triggered and the Trading Session stops immediately.",
-            "updated": 1611930588291
+            "updated": 1611930588291,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Temel Varlık Oturumu ( Session Base Asset ) ve Kote edilmiş varlık oturumu ( Session Quoted Asset ) Ticaret parametreleri oturumu ( Trading Parameters ) Ticaret Parametreleri maksimum Denge maximumBalance. ayarı yapılmasını sağlar Parametre isteğe bağlıdır. Kullandığınız zaman, Ticaret Botu, ( LF Trading Bot ) her mum için kontrol eder. Bakiyenin yapılandırılan maksimum değere ulaşmadığı Ticaret ( Trading ) Olursa bu hata tetiklenir ve hemen Ticaret oturumu ( Trading Session ) durur.",
+                    "updated": 1648579347709
+                }
+            ]
         },
         {
             "style": "Error",
-            "text": "Maximum Balance Reached"
+            "text": "Maximum Balance Reached",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Maksimum ( Balance ) Bakiyeye Ulaşıldı.",
+                    "updated": 1648066087601
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Context Info"
+            "text": "Context Info",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bağlam Bilgisi",
+                    "updated": 1648062150658
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When this error happened, some context information was preserved for you to analyze. Following is that info:",
-            "updated": 1611589752537
+            "updated": 1611589752537,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu hata oluştuğunda, analiz etmeniz için bazı bağlam bilgileri korunmuştur. Bu bilgi aşağıdadır:",
+                    "updated": 1648062202762
+                }
+            ]
         },
         {
             "style": "Placeholder",

@@ -1,0 +1,507 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": "7",
+    "type": "Awesome Oscillator Divergence",
+    "definition": {
+        "text": "The Awesome Oscillator Divergence - this indicator analyses highs and lows of a 5 and 34 period Awesome Oscillator indicator and compares it to the price action and produces any divergence data found.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Awesome Oscillator Divergence - этот индикатор анализирует максимумы и минимумы индикатора Awesome Oscillator с 5 и 34 периодами, сравнивает их с ценовым движением и выдает любые найденные расхождения.",
+                "updated": 1647358592175
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Awesome Oscillator Divergence ( Sapma ) - bu gösterge, 5 ve 34 dönemlik Awesome Oscillator göstergesinin en yüksek ve en düşük seviyelerini analiz eder ve bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
+                "updated": 1647717825241
+            },
+            {
+                "language": "DE",
+                "text": "Der Awesome Oscillator Divergence - dieser Indikator analysiert die Höchst- und Tiefstwerte eines Awesome Oszillator-Indikators mit 5 und 34 Perioden, vergleicht sie mit dem aktuellen Kurs und gibt alle gefundenen Divergenzdaten aus.",
+                "updated": 1673460753273
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Awesome Oscillator Divergence on the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дивергенция Awesome Oscillator на графиках",
+                    "updated": 1647358618320
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Awesome Oscillator Divergence ( Sapma )",
+                    "updated": 1647717859475
+                },
+                {
+                    "language": "DE",
+                    "text": "Awesome Oszillator Divergenz in den Charts",
+                    "updated": 1673443418161
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Momentum indicators are commonly used to smooth out the price action and give a clearer picture. They allow the trader to compare the indicator swings to price swings, rather than having to compare price to price. Momentum is a study of the strength of the price action, it simply checks whether the price and momentum agree or disagree.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia: Индикаторы моментума обычно используются для сглаживания ценового движения и получения более четкой картины. Они позволяют трейдеру сравнивать колебания индикатора с колебаниями цены, а не сравнивать цену с ценой. Моментум - это исследование силы ценового движения, он просто проверяет, согласны или не согласны цена и моментум.",
+                    "updated": 1647358638521
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
+                    "updated": 1647717873228
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Preis mit dem Preis vergleichen zu müssen. Das Momentum ist eine Untersuchung der Stärke der Kursbewegung, bei der einfach geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673443431667
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Disagreement between the indicator and price is called divergence, and it can have significant implications for trade management. The amount of agreement/disagreement is relative, so there can be several different patterns that develop in the relationship between price and the indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разногласия между индикатором и ценой называются дивергенцией, и они могут иметь значительные последствия для управления торговлей. Величина согласия/несогласия относительна, поэтому в отношениях между ценой и индикатором может развиваться несколько различных моделей.",
+                    "updated": 1647358656726
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
+                    "updated": 1647717884617
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen dem Indikator und dem Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673443447087
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Understanding momentum - (investopedia)->www.investopedia.com/trading/trading-divergence-and-understanding-momentum/#toc-momentum-divergence"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator shows four types of divergences, as well as an approximate strength prediction and percent value:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор показывает четыре типа дивергенций, а также приблизительный прогноз силы и процентное значение:",
+                    "updated": 1647358665164
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
+                    "updated": 1647717930873
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1673443468030
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bullish (Solid Green line): the momentum indicator makes a higher low, while the price action makes a lower low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычий (сплошная зеленая линия): индикатор моментума формирует более высокий минимум, в то время как ценовое действие формирует более низкий минимум.",
+                    "updated": 1647358674547
+                },
+                {
+                    "language": "TR",
+                    "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
+                    "updated": 1647717940235
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator markiert ein höheres Tief, während die Preisbewegung ein niedrigeres Tief markiert.",
+                    "updated": 1673443567357
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bearish (Solid Red line): the momentum indicator makes a lower high, while the price action makes a higher high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежий (сплошная красная линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий максимум.",
+                    "updated": 1647358683139
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
+                    "updated": 1647717950468
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Preisbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673443581639
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bullish Continuation(Dashed Green line): the momentum indicator makes a lower high, while the price action makes a higher low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое бычье продолжение (пунктирная зеленая линия): индикатор моментума формирует более низкий максимум, в то время как ценовое действие формирует более высокий минимум.",
+                    "updated": 1647358691331
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
+                    "updated": 1647717958513
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673443634060
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hidden Bearish Continuation(Dashed Red line): the momentum indicator makes a higher high, while the price action makes a lower high.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скрытое медвежье продолжение (пунктирная красная линия): индикатор моментума формирует более высокий максимум, в то время как ценовое действие формирует более низкий максимум.",
+                    "updated": 1647358701599
+                },
+                {
+                    "language": "TR",
+                    "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
+                    "updated": 1647717968187
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673443648342
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-AO-2.png"
+        },
+        {
+            "style": "Text",
+            "text": "Above: a bearish divergence(leftmost, red), two bullish divergences (green), and a bearing divergence on the right (red).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выше: медвежья дивергенция (крайняя слева, красная), две бычьи дивергенции (зеленые) и несущая дивергенция справа (красная).",
+                    "updated": 1647358715163
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıda: aşağı yönlü bir sapma (en solda, kırmızı), iki yükseliş yönü sapması (yeşil) ve sağda (kırmızı) bir yön sapması.",
+                    "updated": 1647717984707
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: eine bearish Divergenz (ganz links, rot), zwei bullish Divergenzen (grün) und eine bearing Divergenz rechts (rot).",
+                    "updated": 1673443743300
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The length of the divergence finder, the pivot length, as well as the threshold for strong and weak divergences can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Awesome Oscillator Divergence’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длина искателя дивергенции, длина точки разворота, а также порог для сильных и слабых дивергенций могут быть изменены путем нахождения и открытия Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Awesome Oscillator Divergence' Procedure Loop.",
+                    "updated": 1647358741249
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'Awesome Osilator Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647717994700
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinders, die Pivot Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Awesome Oscillator Divergence\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673443782522
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-1.png"
+        },
+        {
+            "style": "Note",
+            "text": "Keep in mind that the longer the pivot length, the greater the accuracy but the longer the lag for confirming the pivot peak/low.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что чем больше длина разворота, тем выше точность, но больше задержка для подтверждения пика/минимума разворота.",
+                    "updated": 1647358749742
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
+                    "updated": 1647718004382
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Genauigkeit umso größer ist, je länger die Pivot-Länge ist, aber je länger die Verzögerung bei der Bestätigung des Pivot-Höchst-/Tiefstwertes ist.",
+                    "updated": 1673443803422
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The upper and lower cutoff for divergence detection can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under ’Awesome Oscillator Divergence’ Procedure Initialization.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Верхний и нижний срез для определения дивергенции можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'Awesome Oscillator Divergence' Procedure Initialization.",
+                    "updated": 1647358764434
+                },
+                {
+                    "language": "TR",
+                    "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında 'Awesome Oscillator Divergence' Prosedür Başlatma ( Procedure Initialization ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647718013936
+                },
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Divergenzerkennung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"Awesome Oscillator Divergence\" Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673443821945
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-RSI-params-2.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the Awesome Oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Awesome Oscillator14’ Procedure Loop.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину Awesome Oscillator можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Awesome Oscillator14' Procedure Loop.",
+                    "updated": 1647358779810
+                },
+                {
+                    "language": "TR",
+                    "text": "Awesome Osilatörün uzunluğu, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında 'Awesome Oscillator14' Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
+                    "updated": 1647718027025
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Awesome Oszillator kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Awesome Oscillator14\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673443843586
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1647358787091
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürün ve Özellikler",
+                    "updated": 1647718039119
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1673443886484
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1647358794852
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişmek mümkündür:",
+                    "updated": 1647718047436
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1673443857005
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| aweDiv | aweDiv | status, strength, divPerc |",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| aweDiv | aweDiv | durum, güç, divPerc |",
+                    "updated": 1647718069322
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| aweDiv | aweDiv | status, strength, divPerc |",
+                    "updated": 1673443934030
+                }
+            ],
+            "updated": 1667785832633
+        },
+        {
+            "style": "List",
+            "text": "status: returns a string with the following possible values: bullish, bearish, bull continuation, bear continuation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "status: возвращает строку со следующими возможными значениями: бычий (\"bullish \"), медвежий (\"bearish \"), бычье продолжение (\"bull continuation\"), медвежье продолжение (\"bear continuation\").",
+                    "updated": 1647358820312
+                },
+                {
+                    "language": "TR",
+                    "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
+                    "updated": 1647718078294
+                },
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten zurück: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673444000684
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "strength: returns a string with the following possible values: weak, medium, strong",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "strength: возвращает строку со следующими возможными значениями: слабый (\"weak\"), средний (\"medium\"), сильный (\"strong\").",
+                    "updated": 1647358847614
+                },
+                {
+                    "language": "TR",
+                    "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
+                    "updated": 1647718086752
+                },
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten zurück: schwach, mittel, stark",
+                    "updated": 1673444010960
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "divPerc: returns a number that corresponds to the percent change between peaks or lows of an identified divergence",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "divPerc: возвращает число, соответствующее процентному изменению между пиками или минимумами идентифицированной дивергенции",
+                    "updated": 1647358855604
+                },
+                {
+                    "language": "TR",
+                    "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
+                    "updated": 1647718095308
+                },
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673444021555
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1647358860603
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647718103429
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673443946597
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.aweDiv.status == \"bullish\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.aweDiv.strength == \"strong\""
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.aweDiv.divPerc > 20"
+        },
+        {
+            "style": "Text",
+            "text": "To increase confirmation confidence, find a suitable Awesome Oscillator value to enter the trade after the divergence is found, for example, ao > 50 after a bullish detection.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы повысить уверенность подтверждения, найдите подходящее значение Awesome Oscillator для входа в сделку после обнаружения дивергенции, например, ao > 50 после обнаружения бычьей дивергенции.",
+                    "updated": 1647358876088
+                },
+                {
+                    "language": "TR",
+                    "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra işleme girmek için uygun bir Awesome Oscillator değeri bulun, örneğin, bir yükseliş tespitinden sonra ao > 50.",
+                    "updated": 1647718115396
+                },
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten Wert für den Awesome Oszillator finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673444102883
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673444065293
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

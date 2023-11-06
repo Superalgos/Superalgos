@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Dies wird schnell gehen, da wir ein paar Monate auf dem 24-Stunden-Zeitrahmen testen.",
                 "updated": 1639266116357
+            },
+            {
+                "language": "RU",
+                "text": "Это будет быстро, так как мы тестируем несколько месяцев на 24-х часовом таймфрейме.",
+                "updated": 1640947240983
+            },
+            {
+                "language": "TR",
+                "text": "24 saatlik zaman diliminde birkaç ayı test ettiğimiz için bu hızlı olacak.",
+                "updated": 1641655236795
+            },
+            {
+                "language": "ES",
+                "text": "Esto va a ser rápido ya que estamos probando unos pocos meses en el marco de tiempo de 24H.\n",
+                "updated": 1677101625047
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass die Ausführung einer Handelsaufgabe der Ausführung einer Datenaufgabe ähnelt. Der Unterschied besteht darin, dass Sie nach der Ausführung der Aufgabe auch die Handelssitzung ausführen müssen.",
                     "updated": 1639266129381
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что запуск торговой задачи аналогичен запуску задачи данных. Разница заключается в том, что после выполнения задачи вам также необходимо запустить торговую сессию.",
+                    "updated": 1640947269450
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret görevi (Trading Task) çalıştırmanın bir veri görevi (Data Task) çalıştırmaya benzediğini unutmayın. Aradaki fark, görevi (Task) çalıştırdıktan sonra Ticaret oturumunu da (Trading Session) çalıştırmanız gerektiğidir.",
+                    "updated": 1669583671775
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que ejecutar una tarea de trading es similar a ejecutar una tarea de datos. La diferencia es que después de ejecutar la tarea también es necesario ejecutar la sesión de trading.",
+                    "updated": 1677101636757
                 }
             ]
         },
@@ -37,6 +67,21 @@
                     "language": "DE",
                     "text": "Wählen Sie im Menü BB Breakdown Task die Option Run und dann im Menü Backtesting Session die Option  Run .",
                     "updated": 1639266181462
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Run в меню BB Breakdown Task, а затем выберите Run в меню Backtesting Session.",
+                    "updated": 1640947287475
+                },
+                {
+                    "language": "TR",
+                    "text": "BB Breakdown Görevi ( Task ) menüsünden Çalıştır'ı (run) seçin, ardından Geri Test Oturumu ( Backtesting Session ) menüsünden Çalıştır'ı (run) seçin.",
+                    "updated": 1641655276568
+                },
+                {
+                    "language": "ES",
+                    "text": "Selecciona Run en el menú BB Breakdown Task y luego selecciona Run en el menú Backtesting Session.",
+                    "updated": 1677101646183
                 }
             ]
         },
@@ -48,6 +93,21 @@
                     "language": "DE",
                     "text": "Wenn die Fortschrittsanzeige der Handelsprozessinstanz die 100 %-Marke erreicht, beenden Sie die Aufgabe und klicken Sie auf Weiter.",
                     "updated": 1639266190443
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда уведомление о ходе выполнения экземпляра торгового процесса (Trading Process Instance) достигнет отметки 100%, остановите задачу и нажмите кнопку Next.",
+                    "updated": 1640947346784
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Süreci Örneğinin (Trading Process Instance)  ilerleme bildirimi %100 işaretine ulaştığında, görevi durdurun ve Next'e tıklayın.",
+                    "updated": 1669583952370
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando el aviso de progreso de la Instancia del Proceso de Trading llegue a la marca del 100%, detenga la tarea y haga clic en Next.",
+                    "updated": 1677101662915
                 }
             ]
         }

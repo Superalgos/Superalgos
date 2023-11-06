@@ -3,8 +3,8 @@
     "pageNumber": 12,
     "type": "Tutorial Step - Pump that Heartbeat!",
     "definition": {
-        "text": "Now let’s configure the Profile Constructor so that we may later build the profile!",
-        "updated": 1630658339365,
+        "text": "Let’s configure the Profile Constructor to build your profile! Click Configure on the menu and enter your GitHub username!",
+        "updated": 1660585607977,
         "icon": {
             "name": "configuration",
             "project": "Governance"
@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
-                "updated": 1630887647502,
+                "text": "Vamos a configurar el Constructor de perfiles para crear tu perfil. Haz clic en Configurar en el menú e introduce tu nombre de usuario de GitHub.",
+                "updated": 1682520145883,
                 "style": "Definition"
             },
             {
@@ -25,47 +25,34 @@
                 "language": "RU",
                 "text": "Теперь давайте настроим конструктор профиля Profile Constructor, чтобы позже мы могли создать профиль!",
                 "updated": 1639047103215
+            },
+            {
+                "language": "DE",
+                "text": "Lassen Sie uns nun den Profile Constructor konfigurieren, damit wir später das Profil erstellen können!",
+                "updated": 1640073101123
+            },
+            {
+                "language": "ID",
+                "text": "Mari mengkonfigurasi Profile Constructor untuk membuat profil kamu! Klik Configure pada menu dan memasukkan username Github!",
+                "updated": 1670853558907
             }
         ]
     },
     "paragraphs": [
-        {
-            "style": "Callout",
-            "text": "Click the configuration option and enter your GitHub username like this:",
-            "updated": 1629553104003,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Has clic en la opción de configuración e ingrese su nombre de usuario de GitHub así:",
-                    "updated": 1630888170425,
-                    "style": "Callout"
-                },
-                {
-                    "language": "TR",
-                    "text": "Yapılandırma seçeneğini tıklayın ve GitHub kullanıcı adınızı şu şekilde girin:",
-                    "updated": 1637242376080
-                },
-                {
-                    "language": "RU",
-                    "text": "Щелкните параметр configure и введите свое имя пользователя GitHub следующим образом:",
-                    "updated": 1639067323180
-                }
-            ]
-        },
         {
             "style": "Json",
             "text": "{\n\"githubUsername\": \"My-Awesome-Username\"\n\"mnemonic\": \"\"\n}",
             "updated": 1629706380660
         },
         {
-            "style": "Text",
-            "text": "If you want to link an existing address, type its twelve-word mnemonic in the mnemonic property. Leave the property blank to generate a new address! You will delete this sensitive info later on. The info will not leave your computer and will not be saved to disk.",
-            "updated": 1631547921782,
+            "style": "Success",
+            "text": "If you want to link an existing address, type its twelve-word mnemonic in the mnemonic property. Leave it blank to generate a new address! The info will not leave your computer, will not be saved to disk, and you will delete it before we finish.",
+            "updated": 1660585744897,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Escribe tu mnemónico de doce palabras en la propiedad mnemotécnica. ¡Deja la propiedad en blanco para generar una nueva dirección! Eliminarás esta información confidencial más adelante, no saldrá de tu computadora y no se guardará en el disco.",
-                    "updated": 1632012849405,
+                    "text": "Si quieres vincular una dirección existente, escribe tu mnemónico de doce palabras en la propiedad mnemónico. Déjalo en blanco para generar una nueva dirección. La información no saldrá de tu ordenador, no se guardará en el disco y la borrarás antes de que terminemos. ",
+                    "updated": 1682520224775,
                     "style": "Text"
                 },
                 {
@@ -77,6 +64,16 @@
                     "language": "RU",
                     "text": "Если вы хотите связать существующий адрес, введите его мнемонику из двенадцати слов в свойстве mnemonic. Оставьте поле пустым, чтобы сгенерировать новый адрес! Позже вы удалите эту конфиденциальную информацию. Информация не уйдет с вашего компьютера и не будет сохранена на диске.",
                     "updated": 1639047208191
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine bestehende Adresse verknüpfen möchten, geben Sie die zwölf Wörter der Mnemonik in die Eigenschaft mnemonic ein. Lassen Sie die Eigenschaft leer, um eine neue Adresse zu erzeugen! Sie werden diese sensiblen Daten später löschen. Die Daten verlassen Ihren Computer nicht und werden nicht auf der Festplatte gespeichert.",
+                    "updated": 1640073154326
+                },
+                {
+                    "language": "ID",
+                    "text": "JIka kamu mau mentautkan alamat yang telah kamu punya, tuliskan mnemonik dua belas kata pada properti mnemonic. Biarkan kosong untuk  menghasilkan alamat baru! Infonya tidak akan meninggalkan komputer-mu, tidak akan tersimpan dalam diskamu, dan kamu akan menghapusnya nanti sebelum kita selesai.",
+                    "updated": 1670853566841
                 }
             ]
         },

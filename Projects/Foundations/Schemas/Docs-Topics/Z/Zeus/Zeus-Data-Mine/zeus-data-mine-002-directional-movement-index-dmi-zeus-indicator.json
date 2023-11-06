@@ -4,17 +4,48 @@
     "type": "Directional Movement Index (DMI) - Zeus Indicator",
     "definition": {
         "text": "Measure the strength and direction.",
-        "updated": 1611673209800
+        "updated": 1611673209800,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Messen Sie die Stärke und Richtung.",
+                "updated": 1671200918881
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Directional Movement Index (DMI) on the Charts",
-            "updated": 1611673222345
+            "updated": 1611673222345,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Yönlü Hareket Endeksi (DMI)",
+                    "updated": 1647087005280
+                },
+                {
+                    "language": "DE",
+                    "text": "Directional Movement Index (DMI) auf den Charts",
+                    "updated": 1671200964217
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, the DMI is an indicator that can “measure the strength and direction of a price movement so traders may avoid false signals. The DMI is two different standard indicators, one negative and one positive, that are plotted as lines on the same chart. A third line, the average directional index, or ADX, is non-directional but shows movement strength.”"
+            "text": "According to Investopedia, the DMI is an indicator that can “measure the strength and direction of a price movement so traders may avoid false signals. The DMI is two different standard indicators, one negative and one positive, that are plotted as lines on the same chart. A third line, the average directional index, or ADX, is non-directional but shows movement strength.”",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre DMI, \"tacirlerin yanlış ( false ) sinyallerden kaçınması için fiyat hareketinin gücünü ve yönünü ölçebilen bir göstergedir. DMI, aynı grafikte çizgiler olarak çizilen biri negatif ve biri pozitif olmak üzere iki farklı standart göstergedir. Üçüncü bir satır, ortalama yön indeksi veya ADX, yönsüzdür ancak hareket gücünü gösterir.",
+                    "updated": 1647087079271
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia ist der DMI ein Indikator, der \"die Stärke und Richtung einer Kursbewegung messen kann, damit Händler falsche Signale vermeiden können. Der DMI besteht aus zwei verschiedenen Standardindikatoren, einem negativen und einem positiven, die als Linien auf demselben Diagramm dargestellt werden. Eine dritte Linie, der Average Directional Index (ADX), ist nicht richtungsabhängig, zeigt aber die Stärke der Bewegung an.\"",
+                    "updated": 1671201362715
+                }
+            ]
         },
         {
             "style": "Png",
@@ -23,23 +54,83 @@
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “The ADX is used to indicate market direction, the existence or nonexistence of a trend and market momentum. Market direction is determined by the levels of the +DI and -DI. If +DI is the higher number, market direction is up; if -DI is the greater number, market direction is down. The ADX indicator, which varies in value from zero to 100, is the primary momentum indicator. A value over 20 indicates the existence of a trend; a value over 40 indicates a strong trend.”"
+            "text": "According to Investopedia, “The ADX is used to indicate market direction, the existence or nonexistence of a trend and market momentum. Market direction is determined by the levels of the +DI and -DI. If +DI is the higher number, market direction is up; if -DI is the greater number, market direction is down. The ADX indicator, which varies in value from zero to 100, is the primary momentum indicator. A value over 20 indicates the existence of a trend; a value over 40 indicates a strong trend.”",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, “ADX, piyasa yönünü, bir trendin varlığını veya yokluğunu ve piyasa momentumunu belirtmek için kullanılır. Piyasa yönü, +DI ve -DI seviyeleri tarafından belirlenir. +DI daha yüksek sayıysa, piyasa yönü yukarıdır; -DI daha büyük sayıysa, Market yönü aşağıdır. Değeri sıfırdan 100'e kadar değişen ADX göstergesi birincil momentum göstergesidir. 20'nin üzerindeki bir değer, bir trendin varlığını gösterir; 40'ın üzerindeki bir değer, güçlü bir eğilimi gösterir.”",
+                    "updated": 1647087159234
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia \"wird der ADX verwendet, um die Marktrichtung, das Vorhandensein oder Nichtvorhandensein eines Trends und die Marktdynamik anzuzeigen. Die Marktrichtung wird durch die Werte von +DI und -DI bestimmt. Wenn der +DI höher ist, ist die Marktrichtung nach oben gerichtet; wenn der -DI höher ist, ist die Marktrichtung nach unten gerichtet. Der ADX Indikator, dessen Wert zwischen null und 100 variiert, ist der wichtigste Momentum-Indikator. Ein Wert über 20 deutet auf das Vorhandensein eines Trends hin, ein Wert über 40 auf einen starken Trend.",
+                    "updated": 1671201449819
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Standard parameters:"
+            "text": "Standard parameters:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Standart parametreler:",
+                    "updated": 1647087178254
+                },
+                {
+                    "language": "DE",
+                    "text": "Standardparameter:",
+                    "updated": 1671201481530
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for DI Length = 14"
+            "text": "Value for DI Length = 14",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "DI Uzunluğu için Değer = 14",
+                    "updated": 1647087187394
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für DI Length = 14",
+                    "updated": 1671201582626
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for ADX Smoothing = 14"
+            "text": "Value for ADX Smoothing = 14",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "ADX Düzeltme değeri = 14",
+                    "updated": 1647087197501
+                },
+                {
+                    "language": "DE",
+                    "text": "Wert für ADX Smoothing = 14",
+                    "updated": 1671201593066
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I made it easy to change the parameters needed for the calculation as per your needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “DMI Directional Movement” Product Definition."
+            "text": "I made it easy to change the parameters needed for the calculation as per your needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “DMI Directional Movement” Product Definition.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hesaplama için gerekli parametreleri ihtiyaçlarınıza göre değiştirmeyi kolaylaştırdım. Javascript Kodunu ( Javascript Code ) “DMI Yönlü Hareket” Ürün Tanımı ( Product Definition ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulun ve açın.",
+                    "updated": 1647090382438
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe es Ihnen leicht gemacht, die für die Berechnung benötigten Parameter nach Ihren Bedürfnissen zu ändern. Suchen und öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"DMI Directional Movement\" Product Definition.",
+                    "updated": 1671201684400
+                }
+            ]
         },
         {
             "style": "Png",
@@ -48,24 +139,84 @@
         },
         {
             "style": "Title",
-            "text": "Directional Movement Index (DMI) Products & Properties"
+            "text": "Directional Movement Index (DMI) Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yönlü Hareket İndeksi (DMI) Ürünleri ve Özellikleri",
+                    "updated": 1647090414469
+                },
+                {
+                    "language": "DE",
+                    "text": "Directional Movement Index (DMI) Produkte und Eigenschaften",
+                    "updated": 1671201727180
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three properties available:"
+            "text": "There are three properties available:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mevcut üç özellik vardır:",
+                    "updated": 1647090423538
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind drei Eigenschaften verfügbar:",
+                    "updated": 1671201824209
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| DMI | DMI | plusDI, minusDI, adx |",
-            "updated": 1611673388901
+            "updated": 1611673388901,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| DMI | DMI | plusDI, minusDI, adx |",
+                    "updated": 1647090458586
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| DMI | DMI | plusDI, minusDI, adx |",
+                    "updated": 1671201854488
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647090493653
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671201878886
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Basic strategies can be built by checking if plusDI is greater than minusDI:"
+            "text": "Basic strategies can be built by checking if plusDI is greater than minusDI:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "PlusDI'nin eksiden büyük olup olmadığı kontrol edilerek temel stratejiler oluşturulabilir:",
+                    "updated": 1647090513312
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Strategien können erstellt werden, indem geprüft wird, ob plusDI größer ist als minusDI:",
+                    "updated": 1671201916619
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -74,7 +225,19 @@
         },
         {
             "style": "Text",
-            "text": "There is no clear trend."
+            "text": "There is no clear trend.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Net bir eğilim yok.",
+                    "updated": 1647090525522
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt keinen eindeutigen Trend.",
+                    "updated": 1671201958795
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -83,7 +246,14 @@
         },
         {
             "style": "Text",
-            "text": "Trend is up."
+            "text": "Trend is up.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eğilim yukarı.",
+                    "updated": 1647090541368
+                }
+            ]
         }
     ]
 }

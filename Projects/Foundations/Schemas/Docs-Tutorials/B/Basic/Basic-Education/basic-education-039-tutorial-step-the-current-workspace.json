@@ -3,7 +3,7 @@
     "pageNumber": 39,
     "type": "Tutorial Step - The Current Workspace",
     "definition": {
-        "text": "The current workspace is the User Workspace or the Plugin Workspace you are using at any point.",
+        "text": "The current workspace is the User Workspace or the Native Workspace you are using at any point.",
         "icon": {
             "name": "workspace",
             "project": "Foundations"
@@ -12,25 +12,40 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il workspace corrente è quello in uso in un dato momento.",
-                "updated": 1619553876743,
+                "text": "Il workspace corrente è lo User Workspace o il Native Workspace in uso al momento.",
+                "updated": 1666639905870,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "El espacio de trabajo actual es el User Workspace que estés utilizando en cualquier momento.",
-                "updated": 1626621294273,
+                "text": "El espacio de trabajo actual es el espacio de trabajo de usuario o el espacio de trabajo de plugin que estés utilizando en cualquier momento.",
+                "updated": 1675377464308,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Der aktuelle Workspace ist der User Workspace oder der Plugin Workspace, den Sie gerade verwenden.",
+                "text": "Der aktuelle Workspace ist der User Workspace oder der Native Workspace, den Sie gerade verwenden.",
                 "updated": 1634587888849
             },
             {
                 "language": "TR",
-                "text": "Şu anki çalışma alanı, herhangi bir noktada kullandığınız Kullanıcı Çalışma Alanı ( User Workspace ) veya Eklenti Çalışma Alanıdır ( Plugin Workspace ).\n",
+                "text": "Şu anki çalışma alanı, herhangi bir noktada kullandığınız Kullanıcı Çalışma Alanı ( User Workspace ) veya Eklenti Çalışma Alanıdır ( Native Workspace ).\n",
                 "updated": 1639766680038
+            },
+            {
+                "language": "RU",
+                "text": "Текущее рабочее пространство - это рабочее пространство пользователя (User Workspace) или рабочее пространство плагина (Native Workspace), которое вы используете в данный момент.",
+                "updated": 1640873140025
+            },
+            {
+                "language": "ID",
+                "text": "Workspace saat ini adalah User Workspace atau Native Workspace yang kamu gunakan kapan saja.",
+                "updated": 1645034616173
+            },
+            {
+                "language": "NL",
+                "text": "De huidige werkruimte is de User Workspace of de Native Workspace die u op enig moment gebruikt.",
+                "updated": 1669545656096
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Uygulamayı kapatıp yeniden başlatırsanız veya kullanıcı arayüzünü ( UI ) yenilerseniz, sistem en son kullanımda olan çalışma alanını yükler.",
                     "updated": 1639766730029
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы закрываете и перезапускаете приложение или обновляете пользовательский интерфейс, система загружает рабочее пространство, которое использовалось в последний раз.",
+                    "updated": 1640873164889
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menutup dan me-restart aplikasi, atau menyegarkan UI, sistem memuat workspace yang terakhir digunakan.",
+                    "updated": 1645034652877
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u de app sluit en opnieuw start of de UI vernieuwt, laadt het systeem de werkruimte die het laatst in gebruik was.",
+                    "updated": 1669545681058
                 }
             ]
         },
@@ -71,8 +101,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai al menù del nodo Workspace, fai doppio click sul label Getting Started e cambia il nome del workspace in \"Basic Education\".",
-                    "updated": 1619553975961,
+                    "text": "Vai al menù del nodo Workspace, fai doppio click sull'etichetta Getting Started e cambia il nome del workspace in \"Basic Education\".",
+                    "updated": 1666639957957,
                     "style": "Callout"
                 },
                 {
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Workspace düğümünün menüsünü açın, \"Gettşing Started Tutorial\" etiketine çift tıklayın ve \"Basic Education\" olarak değiştirin.",
                     "updated": 1639766836285
+                },
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню узла Workspace, дважды щелкните по ярлыку \"Getting Started Tutorials\" и измените его на \"Basic Education\".",
+                    "updated": 1640873189495
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses menu node Workspace, klik dua kali pada label \"Getting Started Tutorials\" dan ubah menjadi \"Basic Education\".",
+                    "updated": 1645034772611
+                },
+                {
+                    "language": "NL",
+                    "text": "Open het menu van het Workspace Node, dubbelklik op het label \"Getting Started Tutorials\" en wijzig dit in \"Basic Education\".",
+                    "updated": 1669545708960
                 }
             ]
         },
@@ -119,18 +164,33 @@
                     "language": "TR",
                     "text": "Ve bu tuş kombinasyonunu kullanarak çalışma alanınızı kaydedin:  Ctrl + Shift + Alt + Key-S",
                     "updated": 1639766873790
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь нажмите Ctrl + Shift + Alt + Key-S",
+                    "updated": 1640873199684
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang tekan Ctrl + Shift + Alt + Key-S",
+                    "updated": 1645034781934
+                },
+                {
+                    "language": "NL",
+                    "text": "Druk nu op Ctrl + Shift + Alt + <kbd>Toets-S</kbd>",
+                    "updated": 1669545762147
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
-            "updated": 1622635421285,
+            "text": "Go to the Platform/My-Workspaces folder to verify the new file is there. Find it on the menu too!",
+            "updated": 1687799579776,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Hai creato un workspace! Vai alla cartella My-Workspaces e verifica che il nuovo file sia là.",
-                    "updated": 1619554083035,
+                    "text": "Vai alla cartella My-Workspaces per verificare che il nuovo file sia lì. Trovalo anche nel menù degli spazi di lavoro",
+                    "updated": 1666640010928,
                     "style": "Success"
                 },
                 {
@@ -148,6 +208,21 @@
                     "language": "TR",
                     "text": "Yeni dosyanın orada olduğunu doğrulamak için Dosya gezgininizde Superalgos klasörünün altında, az önce verdilen yolu kontrol edin. ",
                     "updated": 1639766984680
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в папку My-Workspaces, чтобы убедиться, что новый файл находится там. Найдите его также на вкладке Workspaces!",
+                    "updated": 1640873230589
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka folder My-Workspaces untuk memverifikasi file baru apakah ada di sana. Temukan di workspaces tab juga!",
+                    "updated": 1645034841207
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de map My-Workspaces om te controleren of het nieuwe bestand aanwezig is. Je zult het ook vinden op het tabblad workspaces!",
+                    "updated": 1669545815696
                 }
             ]
         }

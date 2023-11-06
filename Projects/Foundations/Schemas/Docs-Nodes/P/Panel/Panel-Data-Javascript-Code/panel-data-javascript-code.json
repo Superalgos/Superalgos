@@ -1,0 +1,57 @@
+{
+    "type": "Panel Data Javascript Code",
+    "definition": {
+        "text": "This node holds valid JavaScript code to output specific text colors, sizes and opacities for the plotter panel of an indicator."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "This node is generally used to change the color of the panel text to match the indicator plotter.",
+            "updated": 1665980092758
+        },
+        {
+            "style": "Important",
+            "text": "This node cannot be used if the \"Text Style\" node is attached to the Panel Data node. It is intended to replace and extend it's functionality!",
+            "updated": 1665982995752
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Panel Data Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The table below shows all the configuration items that must be present to output a valid configuration to display on the panel:"
+        },
+        {
+            "style": "Table",
+            "text": "| Item | Description |\n| labelText | Defines the label text of the data |\n| textColor | Defines the color of the data's label text |\n| valueColor | Defines the color of the data's value |\n| textSize | Defines the text size of the data's label |\n| valueFontSize | Defines the text size of the data's value |\n| textOpacity | Defines the opacity of the data's label text |\n| valueOpacity | Defines the opacity of the data's value |",
+            "updated": 1681261149878
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "The example below uses the trend value from the record data from an EMA indicator to determine how the data is displayed on the panel. This example is taken from the Keltner Baseline Indicator in the Trends data mine:",
+            "updated": 1665980791789
+        },
+        {
+            "style": "Javascript",
+            "text": "if (record.trend == 1) {\n    textColor = UI_COLOR.DARK\n    valueColor = UI_COLOR.TURQUOISE\n    textSize = 16\n    valueFontSize = 16\n    textOpacity = \"1\"\n    valueOpacity = \"1\"\n} else if (record.trend == -1) {\n    textColor = UI_COLOR.DARK\n    valueColor = UI_COLOR.PINK\n    textSize = 16\n    valueFontSize = 16\n    textOpacity = \"1\"\n    valueOpacity = \"1\"\n} else {\n    textColor = UI_COLOR.DARK\n    valueColor = UI_COLOR.GREY\n    textSize = 16\n    valueFontSize = 16\n    textOpacity = \"1\"\n    valueOpacity = \"1\"\n}",
+            "updated": 1665980540236
+        }
+    ]
+}

@@ -4,17 +4,53 @@
     "type": "Wave Trend - Zeus Indicator",
     "definition": {
         "text": "The Wave Trend indicator identifies market trends through an oscillator.",
-        "updated": 1611674538550
+        "updated": 1611674538550,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Dalga Trendi göstergesi, bir osilatör aracılığıyla Market eğilimlerini tanımlar.",
+                "updated": 1647091301216
+            },
+            {
+                "language": "DE",
+                "text": "Der Wave Trend Indikator identifiziert Markttrends durch einen Oszillator.",
+                "updated": 1671204789071
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Wave Trend On the Charts",
-            "updated": 1611674553354
+            "updated": 1611674553354,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Dalga Trendi",
+                    "updated": 1647091318199
+                },
+                {
+                    "language": "DE",
+                    "text": "Wave Trend auf den Charts",
+                    "updated": 1671204835699
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Wave Trend Oscillator is a port of a famous TS/MT indicator and all credits go to Lazy Bear who coded this indicator for tradingview in 2014."
+            "text": "Wave Trend Oscillator is a port of a famous TS/MT indicator and all credits go to Lazy Bear who coded this indicator for tradingview in 2014.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Wave Trend Osilatörü, ünlü bir TS/MT göstergesinin limanıdır ve tüm krediler, bu göstergeyi 2014'te ticaret görünümü için kodlayan Tembel Ayı'ya gider.",
+                    "updated": 1647091363820
+                },
+                {
+                    "language": "DE",
+                    "text": "Wave Trend Oscillator ist eine Portierung eines berühmten TS/MT-Indikators und alle Credits gehen an Lazy Bear, der diesen Indikator für Tradingview im Jahr 2014 codiert hat.",
+                    "updated": 1671204960825
+                }
+            ]
         },
         {
             "style": "Png",
@@ -27,39 +63,147 @@
         },
         {
             "style": "Text",
-            "text": "When plotted, the Wave Trend indicator appears similar to RSI or MACD but has a fixed range from -100 to 100 and is composed of 2 lines, the Wave Trend line and a Signal line. The histogram is the difference between the two lines. When the Wave Trend is above the overbought band (blue horizontal fixed lines) and crosses down the Signal line, it is usually a good SELL signal. Similarly, if the Wave Trend crosses above the Signal line when below the oversold band (yellow horizontal fixed line), it is a good BUY signal. This oscillator is also used to spot divergences."
+            "text": "When plotted, the Wave Trend indicator appears similar to RSI or MACD but has a fixed range from -100 to 100 and is composed of 2 lines, the Wave Trend line and a Signal line. The histogram is the difference between the two lines. When the Wave Trend is above the overbought band (blue horizontal fixed lines) and crosses down the Signal line, it is usually a good SELL signal. Similarly, if the Wave Trend crosses above the Signal line when below the oversold band (yellow horizontal fixed line), it is a good BUY signal. This oscillator is also used to spot divergences.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşaretlendiğinde, Dalga Eğilimi göstergesi RSI veya MACD'ye benzer görünür ancak -100 ile 100 arasında sabit bir aralığa sahiptir ve Dalga Eğilimi çizgisi ve Sinyal çizgisi olmak üzere 2 çizgiden oluşur. Histogram, iki çizgi arasındaki farktır. Dalga Trendi aşırı alım bandının (mavi yatay sabit çizgiler) üzerindeyse ve Sinyal çizgisini geçtiğinde, bu genellikle iyi bir SAT sinyalidir. Benzer şekilde, Dalga Trendi aşırı satım bandının (sarı yatay sabit çizgi) altındayken Sinyal çizgisinin üzerine çıkarsa, bu iyi bir AL sinyalidir. Bu osilatör, sapmaları tespit etmek için de kullanılır.",
+                    "updated": 1647091397763
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wave Trend-Indikator sieht ähnlich aus wie der RSI oder der MACD, hat aber einen festen Bereich von -100 bis 100 und besteht aus zwei Linien, der Wave Trend-Linie und einer Signallinie. Das Histogramm ist die Differenz zwischen den beiden Linien. Wenn der Wellentrend oberhalb des überkauften Bereichs (blaue horizontale feste Linien) liegt und die Signallinie nach unten kreuzt, ist dies in der Regel ein gutes VERKAUFSSIGNAL. Ähnlich verhält es sich, wenn der Wave Trend oberhalb der Signal-Linie kreuzt, wenn er unterhalb des überverkauften Bereichs (gelbe horizontale feste Linie) liegt, ist dies ein gutes KAUF-Signal. Dieser Oszillator wird auch verwendet, um Divergenzen zu erkennen.",
+                    "updated": 1671205026713
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Standard values for the indicator are:"
+            "text": "Standard values for the indicator are:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gösterge için standart değerler şunlardır:",
+                    "updated": 1647091412490
+                },
+                {
+                    "language": "DE",
+                    "text": "Standardwerte für den Indikator sind:",
+                    "updated": 1671205290544
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Channel Length is 10"
+            "text": "Value for Channel Length is 10",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kanal Uzunluğu Değeri 10'dur",
+                    "updated": 1647091431862
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert für die Channel Length beträgt 10",
+                    "updated": 1671205299072
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Average Length is 21"
+            "text": "Value for Average Length is 21",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ortalama Uzunluk Değeri 21",
+                    "updated": 1647091442276
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert für die Average Length ist 21",
+                    "updated": 1671205308815
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for First Overbought Level is 60"
+            "text": "Value for First Overbought Level is 60",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Aşırı Alış Seviyesi Değeri 60",
+                    "updated": 1647091450799
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert für First Overbought Level ist 60",
+                    "updated": 1671205320476
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Second Overbought Level is 53"
+            "text": "Value for Second Overbought Level is 53",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İkinci Aşırı Alış Seviyesi Değeri 53",
+                    "updated": 1647091458261
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert für Second Overbought Level ist 53",
+                    "updated": 1671205335747
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for First Oversold Level is -60"
+            "text": "Value for First Oversold Level is -60",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlk Aşırı Satış Seviyesi Değeri -60",
+                    "updated": 1647091465914
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert für First Oversold Level ist -60",
+                    "updated": 1671205347307
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Value for Second Oversold Level is -53"
+            "text": "Value for Second Oversold Level is -53",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İkinci Aşırı Satış Seviyesi Değeri -53",
+                    "updated": 1647091473344
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert für Second Oversold Level ist -53",
+                    "updated": 1671205355735
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I made it easy to change the parameters needed for the calculation as per users’ needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under Wavetrend Product Definition"
+            "text": "I made it easy to change the parameters needed for the calculation as per users’ needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under Wavetrend Product Definition",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hesaplama için gerekli parametreleri ihtiyaçlarınıza göre değiştirmeyi kolaylaştırdım. Javascript Kodunu ( Javascript Code ) “DMI Yönlü Hareket” Ürün Tanımı ( Product Definition ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulun ve açın.",
+                    "updated": 1647091486167
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe es einfach gemacht, die für die Berechnung benötigten Parameter nach den Bedürfnissen der Benutzer zu ändern. Suchen und öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter Wavetrend Product Definition",
+                    "updated": 1671205438196
+                }
+            ]
         },
         {
             "style": "Png",
@@ -68,24 +212,84 @@
         },
         {
             "style": "Title",
-            "text": "Wave Trend Products & Properties"
+            "text": "Wave Trend Products & Properties",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Wave Trend Ürünleri ve Özellikleri",
+                    "updated": 1647091506100
+                },
+                {
+                    "language": "DE",
+                    "text": "Wave Trend Produkte & Eigenschaften",
+                    "updated": 1671205466453
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are two properties available:"
+            "text": "There are two properties available:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mevcut iki özellik vardır:",
+                    "updated": 1647091513894
+                },
+                {
+                    "language": "DE",
+                    "text": "Es sind zwei Eigenschaften verfügbar:",
+                    "updated": 1671205494224
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Wave Trend | waveTrend | waveTrend, waveTrendSignal |",
-            "updated": 1611674698843
+            "updated": 1611674698843,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Wave Trendi | dalgaTrend | waveTrend, waveTrendSignal |",
+                    "updated": 1647091561330
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Wave Trend | waveTrend | waveTrend, waveTrendSignal |",
+                    "updated": 1671205529748
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1647091573204
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671205550102
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Basic strategies may be built using the crossings between waveTrend value and waveTrendSignal:"
+            "text": "Basic strategies may be built using the crossings between waveTrend value and waveTrendSignal:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "waveTrend değeri ve waveTrendSignal arasındaki geçişler kullanılarak temel stratejiler oluşturulabilir:",
+                    "updated": 1647091591402
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Strategien können unter Verwendung der Kreuzungen zwischen waveTrend Wert und waveTrendSignal erstellt werden:",
+                    "updated": 1671205583626
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -95,7 +299,19 @@
         {
             "style": "Text",
             "text": "A signal to buy.",
-            "updated": 1611674734279
+            "updated": 1611674734279,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Satın alma sinyali.",
+                    "updated": 1647091607872
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Signal zum Kauf.",
+                    "updated": 1671205610005
+                }
+            ]
         },
         {
             "style": "Text",

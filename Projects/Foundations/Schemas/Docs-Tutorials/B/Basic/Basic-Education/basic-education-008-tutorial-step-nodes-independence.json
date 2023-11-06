@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Farklı alt düğümlerin açı ayarının ana düğüme göre nasıl değiştirdiğinize ve her birinin yeni ayara diğerlerinden bağımsız olarak nasıl tepki verdiğine dikkat edin!",
                 "updated": 1636746759816
+            },
+            {
+                "language": "RU",
+                "text": "Обратите внимание, как вы изменили настройку Angle to Parent для других родственных узлов, и каждый из них отреагировал на новую настройку независимо от остальных!",
+                "updated": 1640866233003
+            },
+            {
+                "language": "ID",
+                "text": "Perhatikan bagaimana kamu mengubah pengaturan Angle to Parent pada saudaranya yang berbeda dan masing-masing dari mereka bereaksi terhadap pengaturan baru secara independen dari lainnya!",
+                "updated": 1643473666384
+            },
+            {
+                "language": "NL",
+                "text": "Merk op hoe u de instelling Angle to Parent de verschillende sub-knooppunten heeft gewijzigd en elk van hen reageerde onafhankelijk van de rest op de nieuwe instelling!",
+                "updated": 1668335546731
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Düğümler menüsünden her bir düğümün konumunu kontrol edersiniz. Ne ana düğüm ne de alt düğümlerin konumu etkileyemez... bu harika istisna dışında:",
                     "updated": 1636746814955
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы управляете положением каждого узла из меню узла. Ни родительский узел, ни его родственные узлы не могут влиять на положение... за исключением этого замечательного исключения:",
+                    "updated": 1640866220921
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mengontrol posisi setiap node dari node menu. Tidak pada node parent atau saudaranya akan mempengaruhi posisinya... simpan untuk pengecualian ini:",
+                    "updated": 1643337481989
+                },
+                {
+                    "language": "NL",
+                    "text": "U bepaalt de positie van elk knooppunt vanuit het menu van het knooppunt. Niet het bovenliggende knooppunt, geen enkel sub-knooppunt kan de positie beïnvloeden ... behalve deze coole uitzondering:",
+                    "updated": 1668335597969
                 }
             ]
         },
@@ -89,6 +119,21 @@
                     "language": "TR",
                     "text": "Lightning Strike Backtesting Oturumuna gidin ve menünün sağ tarafından Kayıp Çocukları Ekle'yi ( Add Missing Children ) seçin!",
                     "updated": 1636746977214
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в сессию бэктестинга Lightning Strike и в правой части меню выберите Add Missing Children!",
+                    "updated": 1640866284989
+                },
+                {
+                    "language": "ID",
+                    "text": "Buka Sesi  Lightning Strike Backtesting Session dan pilih Add Missing Children dari sisi kanan menu!",
+                    "updated": 1643337417067
+                },
+                {
+                    "language": "NL",
+                    "text": "Ga naar de Lightning Strike Backtesting sessie en selecteer <i>Add Missing Children</i> aan de rechterkant van het menu!",
+                    "updated": 1668335652286
                 }
             ]
         },
@@ -118,6 +163,21 @@
                     "language": "TR",
                     "text": "Sosyal Botlar ( Social Bots ) düğümünün, ana düğüm ayarını en yakın kardeşinden nasıl devraldığına dikkat edin!",
                     "updated": 1636747051481
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что узел Social Bots унаследовал параметр Angle to Parent от своего ближайшего родственника!",
+                    "updated": 1640866319931
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana node Social Bots mewarisi pengaturan Angle to Parent dari saudara terdekatnya!",
+                    "updated": 1643337468265
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe het knooppunt Social Bots de instelling Angle to Parent heeft geërfd van zijn naaste sub-knooppunt!",
+                    "updated": 1668335717733
                 }
             ]
         },

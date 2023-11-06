@@ -1,0 +1,153 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 18,
+    "type": "Quantitative Qualitative Estimation",
+    "definition": {
+        "text": "The Quantitative Qualitative Estimation (QQE) is is derived from Wilder's famous Relative Strength Index (RSI). In essence, the QQE is a heavily smoothed RSI.",
+        "updated": 1655081893649,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Quantitative Qualitative Estimation (QQE) ist eine Ableitung des berühmten Relative Strength Index (RSI) von Wilder. Im Wesentlichen ist der QQE ein stark geglätteter RSI.",
+                "updated": 1671695133756
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "QQE on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "QQE auf den Charts",
+                    "updated": 1671695156379
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The QQE indicator features the standard RSI, the heavily smoothed fast value, and the slow trailing line which is smoothed again and multiplied by the Fibonacci number of 4.236.",
+            "updated": 1659415543253,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der QQE Indikator enthält den Standard RSI, den stark geglätteten schnellen Wert und die langsame nachziehende linie, die wiederum geglättet und mit der Fibonacci-Zahl von 4,236 multipliziert wird.",
+                    "updated": 1671695311991
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671695341028
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A reading above 50 on the indicator indicates a bullish market, while a drop below 50 is a bearish market.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Indikatorwert über 50 deutet auf einen Aufwärtsmarkt hin, während ein Rückgang unter 50 einen Abwärtsmarkt bedeutet.",
+                    "updated": 1671695358970
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Oversold and overbought areas operate similarly to the RSI; 70 is overbought and 30 is oversold.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überkaufte und überverkaufte Bereiche funktionieren ähnlich wie der RSI; 70 ist überkauft und 30 ist überverkauft.",
+                    "updated": 1671695392900
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Divergences can be used to try and predict potential trend reversals.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anhand von Divergenzen kann versucht werden, potenzielle Trendumkehrungen vorherzusagen.",
+                    "updated": 1671695412813
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-on-the-chart.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the QQE indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"QQE\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des QQE Indikators können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"QQE\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671695462225
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-qqe-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "QQE Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "QQE Produkte & Eigenschaften",
+                    "updated": 1671695487423
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| QQE | qqe | fast, slow, rsi |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| QQE | qqe | fast, slow, rsi |",
+                    "updated": 1671695507594
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671695522902
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the qqe fast value crosses above the slow value while under the 50 line:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der schnelle Wert des qqe den langsamen Wert übersteigt und gleichzeitig unter der 50er Linie liegt:",
+                    "updated": 1671695548055
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.qqe.fast > chart.at01hs.qqe.slow && chart.at01hs.qqe.previous.fast < chart.at01hs.qqe.previous.slow && chart.at01hs.qqe.fast < 50",
+            "updated": 1655081973704
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "1",
+    "type": "Undulated by @quantum8",
+    "definition": {
+        "text": "The Undulated Data Mine features a collection of lesser known oscillators and momentum based indicators. These indicators can help identify potential upward or downward price swings in the market. The parameters of each indicator can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Undulated:",
+            "updated": 1663909242960
+        },
+        {
+            "style": "List",
+            "text": "1.) DIDI"
+        },
+        {
+            "style": "List",
+            "text": "2) PPO",
+            "updated": 1660519312143
+        },
+        {
+            "style": "List",
+            "text": "3) GAPO",
+            "updated": 1660521079954
+        },
+        {
+            "style": "List",
+            "text": "4) Qstick",
+            "updated": 1660521962615
+        },
+        {
+            "style": "List",
+            "text": "5) T3 Velocity"
+        },
+        {
+            "style": "List",
+            "text": "6) Trend Confirmation Index"
+        },
+        {
+            "style": "List",
+            "text": "7) Rahul Mohinder Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "8) Recursive Median"
+        },
+        {
+            "style": "List",
+            "text": "9) Fisher Ribbons"
+        },
+        {
+            "style": "List",
+            "text": "10) AK MACD BB"
+        },
+        {
+            "style": "List",
+            "text": "11) Hurst Channel Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "12) LW Proxy"
+        },
+        {
+            "style": "List",
+            "text": "13) TDFI"
+        },
+        {
+            "style": "List",
+            "text": "14) Banker Fund Flow"
+        },
+        {
+            "style": "List",
+            "text": "15) SMI FMI"
+        },
+        {
+            "style": "List",
+            "text": "16) HLC Trend"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

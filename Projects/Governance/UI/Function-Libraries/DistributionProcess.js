@@ -21,11 +21,11 @@ function newGovernanceFunctionLibraryDistributionProcess() {
 
     function calculate() {
 
-        let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
-        let features = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
-        let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
-        let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let pools = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
+        let features = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
+        let assets = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
+        let positions = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
+        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         Here we are going to read the amount of tokens at the blockchain
         and make a first round of distribution so that they can reach 
@@ -110,28 +110,19 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
-        Run the Liquidity Program: One per SA Token Market
+        Run the Bitcoin Factory Computing Program
+        */
+        UI.projects.governance.functionLibraries.computingProgram.calculate(
+            pools,
+            userProfiles
+        )
+        /*
+        Run the Liquidity Program: One per SA Token Market and Exchange if contract address defined in SaToken.js
         */
         UI.projects.governance.functionLibraries.liquidityProgram.calculate(
             pools,
-            userProfiles,
-            'BTCB'
-        )
-        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
-            pools,
-            userProfiles,
-            'BNB'
-        )
-        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
-            pools,
-            userProfiles,
-            'BUSD'
-        )
-        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
-            pools,
-            userProfiles,
-            'ETH'
-        )
+            userProfiles
+        )                    
         /*
         Run the Claims Program
         */

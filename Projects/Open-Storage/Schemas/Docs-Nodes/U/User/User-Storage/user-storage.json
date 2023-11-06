@@ -1,0 +1,47 @@
+{
+    "type": "User Storage",
+    "definition": {
+        "text": "The User Storage hierarchy stores the definitions for all available Open Storage associated with the current User Profile.",
+        "updated": 1643397850275,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Kullanıcı Depolama hiyerarşisi, geçerli Kullanıcı Profili ile ilişkili tüm mevcut Açık Depolama için tanımları depolar.",
+                "updated": 1654396058240
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643398042723
+        },
+        {
+            "style": "Text",
+            "text": "Open Storage locations defined under this hierarchy are used to store data in order to be accessible by users of the Superalgos Peer to Peer network.",
+            "updated": 1643398089359,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu hiyerarşi altında tanımlanan Açık Depolama konumları, Superalgos Eşler Arası ağ kullanıcıları tarafından erişilebilmesi amacıyla veri depolamak için kullanılır.",
+                    "updated": 1654396064278,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The first and primary use of this open storage is to host the content of Trading Signals in an open and accesible location.",
+            "updated": 1643398120075,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu açık depolamanın ilk ve birincil kullanımı, Alım Satım Sinyallerinin içeriğini açık ve erişilebilir bir konumda barındırmaktır.",
+                    "updated": 1654396070481,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

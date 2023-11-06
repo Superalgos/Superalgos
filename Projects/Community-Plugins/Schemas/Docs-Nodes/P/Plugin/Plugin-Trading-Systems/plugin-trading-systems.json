@@ -7,13 +7,45 @@
                 "language": "ES",
                 "text": "El nodo plugin data mines presenta las definiciones de minas de datos que se incluirán como plugins ien la corriente workspace.",
                 "updated": 1628044185215
+            },
+            {
+                "language": "RU",
+                "text": "Узел Plugin Trading Systems содержит определения источников данных, которые должны быть включены в качестве подключаемых в текущее рабочее пространство.",
+                "updated": 1645165991505
+            },
+            {
+                "language": "TR",
+                "text": "Eklenti veri mayınları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek veri mayınlarının tanımlarını içerir.",
+                "updated": 1651952208442
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin data mines enthält die Definitionen von Datenminen, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639549128
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1645165996995
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1651952218653
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf <i>Edit</i>, um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1674639582977
+                }
+            ]
         }
     ]
 }

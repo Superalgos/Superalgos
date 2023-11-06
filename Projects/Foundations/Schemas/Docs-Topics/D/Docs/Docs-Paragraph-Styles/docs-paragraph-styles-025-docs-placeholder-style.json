@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Заполнитель используется для отображения информации, поступающей из документов и внешнего источника вне документов, например пользовательского интерфейса UI в целом, клиента Client или TS. Это механизм используется, например, для отображения сообщений об ошибках или значений на странице документов Docs Page.",
                 "updated": 1638545861525
+            },
+            {
+                "language": "TR",
+                "text": "Yer tutucu, genel olarak kullanıcı arayüzü ( UI ) İstemci ( Client ) veya ( TS ) Task Server gibi dokümanlar dışındaki harici bir kaynaktan gelen bilgileri işlemek için kullanılır. Örneğin bir Dokümanlar Sayfasının ( Docs Page ) içindeki hata mesajlarını veya değerleri görüntülemek için kullanılan mekanizmadır.",
+                "updated": 1652388579117
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Когда документы открываются из узла в пользовательском интерфейсе, отображающем сообщение об ошибке, предупреждении или информации, документы имеют возможность отображать еще более подробную информацию об этом событии. Способ состоит в том, чтобы получить объект-заполнитель с различными свойствами, например, errorMessage, errorStack и другими.",
                     "updated": 1638545980386
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar, kullanıcı Arayüzünde ( UI ) bir Hata, Uyarı veya Bilgi mesajı görüntüleyen bir düğümden açıldığında, Dokümanlar bu olay hakkında daha ayrıntılı bilgi görüntüleme olanağına sahiptir. Bunun yolu, örneğin errorMessage, errorStack ve potansiyel olarak diğerleri gibi farklı özelliklere sahip bir Yer Tutucu Nesnesi almaktır.",
+                    "updated": 1652388697916
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Если вы создаете заполнитель на открываемой странице с текстовым значением, соответствующим любому из свойств этого объекта, содержимое этого свойства будет отображаться в абзаце заполнителя.",
                     "updated": 1638546015047
+                },
+                {
+                    "language": "TR",
+                    "text": "Açılacak sayfada, bu nesne özelliklerinden herhangi biriyle eşleşen bir metin değeriyle bir yer tutucu oluşturursanız, bu özelliğin içeriği yer tutucu paragrafında görüntülenir.",
+                    "updated": 1652388732555
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638546028782
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1652388741061
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Заполнитель для свойства errorMessage",
                     "updated": 1638546043999
+                },
+                {
+                    "language": "TR",
+                    "text": "errorMessage özelliği için yer tutucu",
+                    "updated": 1652388775172
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "RU",
                     "text": "Если страница просматривается без доступного объекта-заполнителя, на ней будет просто отображаться имя свойства, определенное для нее.",
                     "updated": 1638546112177
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfa Yer Tutucu nesnesi kullanılabilir olmadan görüntülenirse, yalnızca kendisi için tanımlanan özellik adını görüntüler.",
+                    "updated": 1652388802495
                 }
             ]
         }

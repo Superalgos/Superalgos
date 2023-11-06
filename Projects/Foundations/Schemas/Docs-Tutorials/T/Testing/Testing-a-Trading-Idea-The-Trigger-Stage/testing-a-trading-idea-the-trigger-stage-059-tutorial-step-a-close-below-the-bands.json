@@ -1,0 +1,88 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 59,
+    "type": "Tutorial Step - A Close Below the Bands?",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
+        },
+        "text": "How do we describe a candle closing below the lower band? Let's see how the lower band is described!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wie beschreibt man eine Kerze, die unterhalb des unteren Bandes schließt? Schauen wir uns an, wie das untere Band beschrieben wird!",
+                "updated": 1639389314889
+            },
+            {
+                "language": "TR",
+                "text": "Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
+                "updated": 1669663888636
+            },
+            {
+                "language": "RU",
+                "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса!",
+                "updated": 1642660544027
+            },
+            {
+                "language": "ES",
+                "text": "¿Cómo se describe una vela que cierra por debajo de la banda inferior? ¡Veamos cómo se describe la banda inferior!",
+                "updated": 1679100311513
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The description of the Bollinger Bands explains that the upper and lower bands are located two standard deviations above and below the moving average (MA) respectively. We know the MA, as is offered in the movingAverage property. The standard deviation is offered in the standardDeviation property.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der Beschreibung der Bollinger Bänder wird erklärt, dass sich das obere und das untere Band jeweils zwei Standardabweichungen über bzw. unter dem gleitenden Durchschnitt (MA) befinden. Wir kennen den MA, wie er in der Eigenschaft movingAverage angeboten wird. Die Standardabweichung wird in der Eigenschaft  standardDeviation angeboten.",
+                    "updated": 1639389399902
+                },
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantları, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altındaki iki standart sapmadan oluşur. MA movingAverage 'dır. Standart sapma, standardDeviation olarak tanımlanır.",
+                    "updated": 1669664049840
+                },
+                {
+                    "language": "RU",
+                    "text": "Описание полос Боллинджера объясняет, что верхняя и нижняя полосы расположены на два стандартных отклонения выше и ниже скользящей средней (MA) соответственно. Мы знаем MA, которая предлагается в свойстве movingAverage. Стандартное отклонение предлагается в свойстве standardDeviation.",
+                    "updated": 1642660569247
+                },
+                {
+                    "language": "ES",
+                    "text": "La descripción de las Bandas de Bollinger explica que las bandas superior e inferior están situadas dos desviaciones estándar por encima y por debajo de la media móvil (MA) respectivamente. Conocemos la media móvil (MA), ya que se ofrece en la propiedad movingAverage. La desviación estándar se ofrece en la propiedad standardDeviation.",
+                    "updated": 1679100303542
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The lower band is located two standard deviations below the MA. Then the lower band equals the MA minus the standard deviation times two.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das untere Band befindet sich zwei Standardabweichungen unterhalb des MA. Dann ist das untere Band gleich dem MA minus der Standardabweichung mal zwei.",
+                    "updated": 1639389325538
+                },
+                {
+                    "language": "TR",
+                    "text": "alt bant, MA'nın altında K kadar standart sapmadır. Yani alt bant, MA - Standart sapma'ya eşittir.",
+                    "updated": 1669664487496
+                },
+                {
+                    "language": "RU",
+                    "text": "Нижняя полоса располагается на два стандартных отклонения ниже МА. Тогда нижняя полоса равна МА минус стандартное отклонение, умноженное на два.",
+                    "updated": 1642660586039
+                },
+                {
+                    "language": "ES",
+                    "text": "La banda inferior se sitúa dos desviaciones estándar por debajo de la MA. Entonces la banda inferior es igual a la MA menos la desviación estándar multiplicada por dos.",
+                    "updated": 1679100292087
+                }
+            ]
+        }
+    ]
+}

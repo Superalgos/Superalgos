@@ -1,0 +1,21 @@
+{
+    "type": "Trading Strategy Signals",
+    "definition": {
+        "text": "The Trading Strategy Signals node houses the definitions for all the individual signal elements coming out of the signal provider's Trading System.",
+        "updated": 1644031133736,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Ticaret Stratejisi Sinyalleri düğümü, sinyal sağlayıcının Ticaret Sisteminden çıkan tüm bireysel sinyal öğelerinin tanımlarını barındırır.",
+                "updated": 1654398034727
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644031149374
+        }
+    ]
+}

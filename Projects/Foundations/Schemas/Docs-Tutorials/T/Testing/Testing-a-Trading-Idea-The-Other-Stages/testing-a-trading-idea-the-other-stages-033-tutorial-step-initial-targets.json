@@ -13,6 +13,21 @@
                 "language": "DE",
                 "text": "Für den Zielkurs können wir das gleiche Prinzip wie zuvor verwenden: chart.at01hs.candle.close Verwenden Sie es für die Formel!",
                 "updated": 1639417705751
+            },
+            {
+                "language": "TR",
+                "text": "Hedef rota için öncekiyle aynı prensibi kullanabiliriz: chart.at01hs.candle.close Bunu formül için kullanın!",
+                "updated": 1641796160591
+            },
+            {
+                "language": "RU",
+                "text": "Для целевой ставки мы можем использовать тот же пр��нцип, что и ранее: chart.at01hs.candle.close Используйте его для формулы!",
+                "updated": 1642942168972
+            },
+            {
+                "language": "ES",
+                "text": "Para el Target Rate, podemos utilizar el mismo principio que antes: chart.at01hs.candle.close ¡Úsalo para la fórmula!",
+                "updated": 1681053373122
             }
         ]
     },
@@ -25,6 +40,21 @@
                     "language": "DE",
                     "text": "Für die Zielgröße sollten wir Folgendes berücksichtigen:",
                     "updated": 1639417713974
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef boyut için aşağıdakileri göz önünde bulundurmalıyız:",
+                    "updated": 1641796211941
+                },
+                {
+                    "language": "RU",
+                    "text": "При определении размера цели следует учитывать следующее:",
+                    "updated": 1642942176659
+                },
+                {
+                    "language": "ES",
+                    "text": "Para el Target Size, debemos tener en cuenta lo siguiente:",
+                    "updated": 1681053419620
                 }
             ]
         },
@@ -36,6 +66,21 @@
                     "language": "DE",
                     "text": "Wir möchten alle USDT verwenden, die wir bei der Eröffnung der Position erhalten haben.",
                     "updated": 1639417720483
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyonu açtığımızda aldığımız USDT'nin tamamını kullanmak istiyoruz.",
+                    "updated": 1641796223546
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы хотим использовать все USDT, которые мы получили при входе в позицию.",
+                    "updated": 1642942183872
+                },
+                {
+                    "language": "ES",
+                    "text": "Deseamos utilizar todos los USDT que obtuvimos al entrar en la posición.",
+                    "updated": 1681053445174
                 }
             ]
         },
@@ -47,6 +92,21 @@
                     "language": "DE",
                     "text": "Die Börse erhebt Gebühren, indem sie von dem Vermögenswert, den wir bei einer bestimmten Transaktion erhalten, etwas abzieht.",
                     "updated": 1639417728078
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa, belirli bir işlem sırasında aldığımız varlıktan komisyon alır.",
+                    "updated": 1641796233444
+                },
+                {
+                    "language": "RU",
+                    "text": "Биржа взимает комиссию, вычитая из актива, который мы получаем по любой конкретной сделке.",
+                    "updated": 1642942196054
+                },
+                {
+                    "language": "ES",
+                    "text": "El exchange cobra comisiones restando del activo que obtenemos en una transacción determinada.",
+                    "updated": 1681053494680
                 }
             ]
         },
@@ -58,6 +118,21 @@
                     "language": "DE",
                     "text": "Berücksichtigen Sie die oben genannten Punkte und besuchen Sie die Trading Engine. Suchen Sie die Knoten, die die benötigten Informationen speichern, und versuchen Sie, eine Formel für die Zielgröße zu finden!",
                     "updated": 1639417738121
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki noktaları aklınızda bulundurun ve ticaret motorunu ( Trading Engine ) ziyaret edin. İhtiyacınız olan bilgiyi depolayan düğümleri bulun ve hedef boyut için bir formül bulmaya çalışın!",
+                    "updated": 1641796243258
+                },
+                {
+                    "language": "RU",
+                    "text": "Рассмотрите вышеизложенное и посетите Trading Engine. Найдите узлы, хранящие нужную нам информацию, и попробуйте придумать формулу для целевого размера!",
+                    "updated": 1642942230872
+                },
+                {
+                    "language": "ES",
+                    "text": "Considere lo anterior y haga una visita al Trading Engine. Busca los nodos que almacenan la información que necesitamos e intenta llegar a una fórmula para el tamaño target.",
+                    "updated": 1681053521867
                 }
             ]
         }

@@ -1,0 +1,120 @@
+#topMenu {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    z-index: 1;
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    letter-spacing: 0.2px;
+}
+
+#workspace-title {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color:#FFF;
+    padding: 8px 10px;
+    background-image: radial-gradient(rgba(0,0,0,0.7) 40%, rgba(0,0,0,0));
+}
+
+nav li {
+    position: relative;
+    display: block;
+    opacity: 1;
+    cursor: pointer;
+}
+
+nav > ul > li > a{
+    background:rgb(0, 0, 0, 0);
+}
+
+nav > ul > li > ul > li a{
+    background:rgb(0, 0, 0, 0.5);
+}
+
+nav li > ul {
+    padding: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+nav > ul {
+    margin: 0;
+    display:flex;
+}
+
+nav > ul > li {
+    pointer-events: all;
+    opacity: 1;
+    text-decoration: underline;
+}
+
+ul li a {
+    white-space: nowrap;
+    display: block;
+}
+   
+li:hover > ul {
+    pointer-events: initial;
+}
+
+li:hover > ul > li,
+ul:hover > li {
+    opacity: 1;
+}
+
+nav > ul > li li ul {
+    transform: translateX(100%);
+    top: 0;
+    right: 0;
+}
+
+nav {
+    width: 80%;
+    margin: auto;
+}
+
+nav a {
+    background:rgb(0, 0, 0, 0.5);
+    color:#FFF;
+    height: 38px;
+    margin: 0px 3px 3px 0px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: 0.1s;
+}
+
+nav a:hover {
+    background:rgb(2 149 170);
+    transition: 0.1s;
+}
+
+nav > ul > li > ul > li {
+    transition: opacity 0.1s;
+    opacity: 0;
+}
+
+li > ul > li > ul > li {
+    transition: opacity 0.1s;
+    opacity: 0;
+}
+
+.label {
+    height: 20px;
+    margin: 0px 3px 3px 0px;
+    padding: 3px 10px;
+    background:rgb(0, 0, 0, 0.5);
+    color: rgb(200 200 200);
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-style: italic;
+    cursor: default;
+}

@@ -4,37 +4,156 @@
     "type": "Bittrex Test Status",
     "definition": {
         "text": "Bittrex passed all tests.",
-        "updated": 1637964636009
+        "updated": 1637964636009,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bittrex прошла все тесты.",
+                "updated": 1646902563857
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bittrex tüm testleri geçti.",
+                "updated": 1650571504799
+            },
+            {
+                "language": "DE",
+                "text": "Bittrex hat alle Tests bestanden.",
+                "updated": 1690357413313
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902570381
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571510716
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357422032
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1634135432569
+            "updated": 1634135432569,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Возможность получения исторических данных для целей бэктестинга была проверена.",
+                    "updated": 1646902593472
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
+                    "updated": 1650571530067
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357430009
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Tested from 2020-01-01",
-            "updated": 1634135568527
+            "updated": 1634135568527,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Проверено с 2020-01-01",
+                    "updated": 1646902603200
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: 2020-01-01'den itibaren test edildi",
+                    "updated": 1650571543017
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Getestet vom 2020-01-01",
+                    "updated": 1690357439592
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability [**]: Yes. The ability to run strategies in live-trading mode has been verified.",
-            "updated": 1637964666144
+            "updated": 1637964666144,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли [**]: Да. Возможность запуска стратегий в режиме реальной торговли была проверена.",
+                    "updated": 1646902611519
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği [**]: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
+                    "updated": 1650571554803
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability)[**]: Ja. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde überprüft.",
+                    "updated": 1690357447713
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: KYC needed before using the platform. Google Authenticator needed to create API keys",
-            "updated": 1637964814435
+            "updated": 1637964814435,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Перед использованием платформы необходимо провести KYC. Google Authenticator необходим для создания ключей API",
+                    "updated": 1646902621184
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Platformu kullanmadan önce KYC gerekli. API anahtarları oluşturmak için Google Authenticator gerekli",
+                    "updated": 1650571565525
+                },
+                {
+                    "language": "DE",
+                    "text": "Kommentare: KYC vor der Nutzung der Plattform erforderlich. Google Authenticator erforderlich, um API-Schlüssel zu erstellen",
+                    "updated": 1690357455921
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902627453
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650571574922
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357463969
+                }
+            ]
         },
         {
             "style": "Json",

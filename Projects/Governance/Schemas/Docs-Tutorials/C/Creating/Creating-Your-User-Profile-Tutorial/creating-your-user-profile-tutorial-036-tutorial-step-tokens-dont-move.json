@@ -19,6 +19,21 @@
                 "language": "RU",
                 "text": "Когда мы говорим о потоках Token Power Flows, важно уточнить, что токены никуда не денутся! Это  течет Token Power!",
                 "updated": 1639052530492
+            },
+            {
+                "language": "DE",
+                "text": "Wenn wir über Token Power Flows sprechen, ist es wichtig klarzustellen, dass Token nirgendwo hingehen! Es ist Token Power, die fließt!",
+                "updated": 1640081480599
+            },
+            {
+                "language": "TR",
+                "text": "Token Power Flows'dan bahsederken, jetonlarınızın hiçbir yere gitmediğini söyleyelim. Giden sadece Token Gücünüzdür!",
+                "updated": 1645101621540
+            },
+            {
+                "language": "ID",
+                "text": "Saat kita berbicara Token Power Flows, penting untuk mengklarifikasi bahwa token tidak ke mana-mana! Kekuatan Tokenlah yang mengalir!",
+                "updated": 1671543851019
             }
         ]
     },
@@ -37,23 +52,53 @@
                     "language": "RU",
                     "text": "Токены в вашем адресе управления Governance Address никогда не покидают ваш адрес! Нет никаких затрат на участие в управлении! Баланс в вашем адресе наделяет ваш профиль пользователя абстракцией Token Power, и именно эта абстракция течет вниз по иерархии, а не фактические токены.",
                     "updated": 1639052656259
+                },
+                {
+                    "language": "DE",
+                    "text": "Token in Ihrer Governance-Adresse verlassen niemals Ihre Adresse! Es gibt keine Kosten für die Teilnahme an der Governance! Das Guthaben in Ihrer Adresse verleiht Ihrem Benutzerprofil Token Power, und es ist diese Abstraktion, die in der Hierarchie nach unten fließt, nicht die tatsächlichen Token.",
+                    "updated": 1640081494857
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresinizdeki jetonlar adresinizden asla kaybolmaz! Yönetime katılmanın sıfır maliyeti vardır! Adresinizdeki bakiye, Kullanıcı Profilinize Token Gücü verir ve hiyerarşide aşağı doğru akan gerçek Tokenler değil, bu tokenlerden gelen gücünüzdür.",
+                    "updated": 1645101689739
+                },
+                {
+                    "language": "ID",
+                    "text": "Token yang ada pada Governance Address kamu tidak pernah pindah keluar! Tidak ada biaya untuk berpartisipasi dalam governance! Saldo pada alamat kamu memberikan Token Power ke User Profile kamu, dan abstraksi inilah yang mengalir ke bawah hierarki, bukan token yang sebenarnya.",
+                    "updated": 1671543857245
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Remind me to show you how to play with Token Power Flows before we wrap up the tutorial! But let's get back to Community Building Programs before we lose our way!",
-            "updated": 1630933419243,
+            "text": "I'll show you how to play with Token Power Flows before we wrap up the tutorial! Let's now get back to the Community Building Programs!",
+            "updated": 1660644278837,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Recuérdame que te muestre icomo jugar con Token Power Flows antes de que embalemos el tutorial! Pero regresemos a Community Building Programs antes de que perdamos el rumbo!",
-                    "updated": 1633296908255
+                    "text": "Te mostraré cómo jugar con los Token Power Flows antes de terminar el tutorial. ¡Volvamos ahora a los Community Building Programs! ",
+                    "updated": 1682521846104
                 },
                 {
                     "language": "RU",
                     "text": "Напомните мне показать вам, как играть с Token Power Flows, прежде чем мы завершим урок! Но давайте вернемся к программам Community Building Programs, пока мы не заблудились!",
                     "updated": 1639052702735
+                },
+                {
+                    "language": "DE",
+                    "text": "Erinnern Sie mich daran, Ihnen zu zeigen, wie Sie mit Token Power Flows spielen können, bevor wir das Tutorial abschließen! Aber lassen Sie uns zu den Community Building Programs zurückkehren, bevor wir uns verirren!",
+                    "updated": 1640081505208
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiyi tamamlamadan önce Token Power Flows ile nasıl oynanacağını göstermemi bana hatırlat! Ama yolumuzu kaybetmeden önce Topluluk Oluşturma Programlarına (Community Building Programs) geri dönelim!",
+                    "updated": 1645101763408
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan memperlihatkanmu bagaimana bermain dengan Token Power Flows sebelum kita mengakhiri tutorialnya! Sekarang mari kita kembali ke Community Building Programs!",
+                    "updated": 1671543863416
                 }
             ]
         }

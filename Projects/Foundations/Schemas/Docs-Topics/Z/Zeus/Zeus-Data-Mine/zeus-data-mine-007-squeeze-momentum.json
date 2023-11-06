@@ -1,0 +1,162 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 7,
+    "type": "Squeeze Momentum",
+    "definition": {
+        "text": "Show periods when volatility increases or decreases",
+        "updated": 1659619526532,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zeigt die Zeiträume an, in denen die Volatilität zunimmt oder abnimmt.",
+                "updated": 1671207542675
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "The Squeeze Momentum Indicator",
+            "updated": 1656585906947,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Squeeze Momentum Indikator",
+                    "updated": 1671207596501
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to atas.net, the indicator was created by John Carter. The Squeeze Momentum shows periods when volatility increases or decreases, in other words, when the market goes from the trend into flat movement and vice versa.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nach Angaben von atas.net wurde der Indikator von John Carter entwickelt. Der Squeeze Momentum zeigt Perioden an, in denen die Volatilität zunimmt oder abnimmt, mit anderen Worten, wenn der Markt vom Trend in eine flache Bewegung übergeht und umgekehrt.",
+                    "updated": 1671207644472
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The market consolidates 80% of time and only 20% of time it moves in a certain direction. It is true for any time-frame. There is always a breakout after the flat movement (especially if it lasts long enough). Traders like to trade such breakouts very much because these breakouts are often followed by a strong and lengthy trend movement, on which they can make money.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Markt konsolidiert sich in 80 % der Fälle, und nur in 20 % der Fälle bewegt er sich in eine bestimmte Richtung. Das gilt für jeden Zeitrahmen. Nach einer flachen Bewegung kommt es immer zu einem Ausbruch (vor allem, wenn er lange genug anhält). Händler handeln sehr gerne mit solchen Ausbrüchen, weil diesen Ausbrüchen oft eine starke und lang anhaltende Trendbewegung folgt, mit der sie Geld verdienen können.",
+                    "updated": 1671207702305
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/sqzmom.png"
+        },
+        {
+            "style": "Text",
+            "text": "It is also very important for traders to understand the current market state because different types of trades work differently in the trend and flat.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist auch sehr wichtig für Händler, den aktuellen Marktzustand zu verstehen, weil verschiedene Arten von Geschäften im Trend und in der Flaute unterschiedlich funktionieren.",
+                    "updated": 1671207802339
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For example, a trader can confidently buy on a new high during a trend market (how to identify a trend day). However, if he buys on a new high during a flat, he will be losing his capital.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "So kann ein Händler zum Beispiel getrost bei einem neuen Hoch während eines Trendmarktes kaufen (wie man einen Trendtag erkennt). Kauft er jedoch bei einem neuen Hoch während einer Flaute, wird er sein Kapital verlieren.",
+                    "updated": 1671207880907
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Similarly, it is dangerous to short new highs during an obvious bullish trend. Despite the fact that SM is a technical indicator, it is not lagging and can give a warning about a price reversal.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ebenso ist es gefährlich, während eines offensichtlichen Aufwärtstrends auf neue Höchststände zu setzen. Obwohl es sich beim SM um einen technischen Indikator handelt, ist er nicht nachlaufend und kann eine Warnung vor einer Kursumkehr geben.",
+                    "updated": 1671207910458
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The indicator is composed with 3 panels in the chart showing Bolling Bands & Keltner Channels value with the relative histogram value.",
+            "updated": 1656586276109,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Indikator besteht aus 3 Feldern im Diagramm, die den Wert der Bolling Bänder und Keltner Kanäle sowie den relativen Histogrammwert anzeigen.",
+                    "updated": 1671207934094
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Squeeze Momentum combines two indicators – Bollinger Bands with 20/2 settings and Keltner channel with 20/1.5 settings – and helps to find consolidation periods, after which a breakout may take place and the trend price movement may start.",
+            "updated": 1656586508360,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Squeeze Momentum kombiniert zwei Indikatoren - Bollinger Bands mit 20/2 Einstellungen und Keltner-Kanal mit 20/1,5 Einstellungen - und hilft, Konsolidierungsperioden zu finden, nach denen ein Ausbruch stattfinden und die Trendpreisbewegung beginnen kann.",
+                    "updated": 1671207959045
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "SQZMOM Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "SQZMOM Produkte & Eigenschaften",
+                    "updated": 1671208004045
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "|Product Variable|Properties |\n|SQZMOM|upperBB, lowerBB, basisBB, upperKC, lowerKC, basisKC|",
+            "updated": 1656586362395,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "|Produktvariable |Eigenschaften |\n|SQZMOM|upperBB, lowerBB, basisBB, upperKC, lowerKC, basisKC|",
+                    "updated": 1671208030820
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671208050726
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "chart.at15min.sqzmom.lowerBB > chart.at15min.sqzmom.lowerKC"
+        },
+        {
+            "style": "Text",
+            "text": "Check if lower Bollinger Band is greater than the Kelten Channel Band",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prüft, ob das untere Bollinger Band größer ist als das Kelten Channel Band",
+                    "updated": 1671208095978
+                }
+            ]
+        }
+    ]
+}

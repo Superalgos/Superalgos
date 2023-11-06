@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "При выборе параметра замораживания цепные соединения узла с его родителем и потомком замораживаются. Соединительные линии станут синими. Если вы заморозите головной узел иерархии, то вся иерархия будет заморожена. Замораживание структур узлов эффективно только тогда, когда узлы свободны, то есть когда на них не влияют настройки угла или расстояния, и они откреплены.\n. В таких случаях замораживание высвобождает ресурсы ЦП, поскольку система перестает вычислять положение и статус узла.",
                 "updated": 1638283461834
+            },
+            {
+                "language": "TR",
+                "text": "Dondur seçeneğine tıklandığında düğümün ana düğüm ve yavru düğümleri ile olan zincir bağlantıları dondurulur. Bağlantı çizgileri maviye döner. Bir hiyerarşinin ana düğümünü dondurursanız, tüm hiyerarşi dondurulur. Düğüm yapılarının dondurulması yalnızca düğümler gevşek olduğunda, yani açı veya mesafe ayarlarından etkilenmediğinde ve sabitlenmediğinde etkilidir. Bu gibi durumlarda, dondurma işlemi CPU kaynaklarını serbest bırakır, çünkü sistem düğümlerin konumlarını ve durumlarını hesaplamayı durdurur.",
+                "updated": 1670782110547
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie auf die Option Einfrieren klicken, werden die Kettenverbindungen des Knotens mit seinen Eltern und Nachkommen eingefroren. Die Verbindungslinien werden blau. Wenn Sie den Kopfknoten einer Hierarchie einfrieren, wird die gesamte Hierarchie eingefroren. Das Einfrieren von Knotenstrukturen ist nur dann wirksam, wenn die Knoten lose sind, d. h. wenn sie nicht durch Winkel- oder Abstandseinstellungen beeinflusst werden und nicht verankert sind. In solchen Fällen werden durch das Einfrieren CPU-Ressourcen freigesetzt, da das System die Berechnung der Positionen und des Status der Knoten einstellt.",
+                "updated": 1696955468820
             }
         ]
     },
@@ -20,6 +30,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638283474382
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1654391127106,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1696955469074,
+                    "style": "Text"
                 }
             ]
         }

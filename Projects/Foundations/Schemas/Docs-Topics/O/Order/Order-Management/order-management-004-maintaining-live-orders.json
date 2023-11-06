@@ -4,34 +4,118 @@
     "type": "Maintaining Live Orders",
     "definition": {
         "text": "Orders at the exchange are monitored on every execution to discover the size filled, rates, and other exchange events. Also, the trading bot synchronizes Superalgos with the real transactional information handled by the exchange.",
-        "updated": 1610220454133
+        "updated": 1610220454133,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ордера (Orders) на бирже отслеживаются при каждом их исполнении, чтобы узнать размер исполненного ордера, курсы и другие события на бирже. Кроме того, торговый бот синхронизирует Superalgos с реальной транзакционной информацией, обрабатываемой биржей.",
+                "updated": 1640185717408
+            },
+            {
+                "language": "DE",
+                "text": "Aufträge (Orders) an der Börse werden bei jeder Ausführung überwacht, um die gefüllte Größe, Kurse und andere Börsenereignisse zu ermitteln. Außerdem synchronisiert der Trading Bot Superalgos mit den realen Transaktionsinformationen der Börse.",
+                "updated": 1679593506474
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "As hinted in the Overview of the Management Issue page, there are two different paths for maintaining orders. The pages in this section describe the maintenance of real orders sent to the exchange, as opposed to simulated orders that live within Superalgos only.",
-            "updated": 1610220513296
+            "updated": 1610220513296,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как намекалось на странице Overview of the Management Issue, существует два различных пути для ведения ордеров. Страницы этого раздела описывают ведение реальных ордеров, отправляемых на биржу, в отличие от симулированных ордеров, которые живут только в Superalgos.",
+                    "updated": 1640185801118
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie auf der Seite Überblick über die Verwaltungsausgabe (Overview of the Management Issue) angedeutet, gibt es zwei verschiedene Wege für die Pflege von Aufträgen. Die Seiten in diesem Abschnitt beschreiben die Pflege von realen Aufträgen, die an die Börse gesendet werden, im Gegensatz zu simulierten Aufträgen, die nur in Superalgos leben.",
+                    "updated": 1679593577285
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The maintenance of orders involves a series of tasks that deal with three main concerns:"
+            "text": "The maintenance of orders involves a series of tasks that deal with three main concerns:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ведение ордеров включает в себя ряд задач, которые касаются трех основных проблем:",
+                    "updated": 1640185836428
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Aufrechterhaltung von Aufträgen umfasst eine Reihe von Aufgaben, die sich mit drei Hauptanliegen befassen:",
+                    "updated": 1679593601234
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Checking the orders at the exchange, mainly to find out whether they have been filled or not, what size of the order was filled, and at what rate. We also need to know if the order has been arbitrarily canceled, either by the user or the exchange itself."
+            "text": "Checking the orders at the exchange, mainly to find out whether they have been filled or not, what size of the order was filled, and at what rate. We also need to know if the order has been arbitrarily canceled, either by the user or the exchange itself.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка ордеров на бирже, в основном для того, чтобы узнать, были ли они исполнены или нет, какой размер ордера был исполнен и по какому курсу. Нам также нужно знать, не был ли ордер произвольно отменен либо пользователем, либо самой биржей.",
+                    "updated": 1640185862740
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfung der Aufträge an der Börse, vor allem um herauszufinden, ob sie ausgeführt wurden oder nicht, in welchem Umfang und zu welchem Kurs. Wir müssen auch wissen, ob der Auftrag willkürlich storniert wurde, entweder durch den Benutzer oder die Börse selbst.",
+                    "updated": 1679593631222
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Synchronizing the information existing in Superalgos with the actual happenings at the exchange. The original information Superalgos has about orders derive from definitions, but what happens at the exchange is what truly matters."
+            "text": "Synchronizing the information existing in Superalgos with the actual happenings at the exchange. The original information Superalgos has about orders derive from definitions, but what happens at the exchange is what truly matters.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синхронизация информации, имеющейся в Superalgos, с фактическими событиями на бирже. Исходная информация Superalgos об ордерах берется из определений, но то, что происходит на бирже, - вот что действительно важно.",
+                    "updated": 1640185905787
+                },
+                {
+                    "language": "DE",
+                    "text": "Synchronisierung der in Superalgos vorhandenen Informationen mit den tatsächlichen Geschehnissen an der Börse. Die ursprünglichen Informationen, die Superalgos über die Aufträge hat, stammen aus den Definitionen, aber das, was an der Börse passiert, ist das, was wirklich zählt. Stornierung der Aufträge, wenn die Definitionen des Handelssystems dies anzeigen.",
+                    "updated": 1679593654371
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Cancelling orders whenever the trading system’s definitions indicate so."
+            "text": "Cancelling orders whenever the trading system’s definitions indicate so.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отмена ордеров всякий раз, когда на это указывают определения торговой системы.",
+                    "updated": 1640185923288
+                },
+                {
+                    "language": "DE",
+                    "text": "Stornierung von Aufträgen, wenn die Definitionen des Handelssystems dies vorsehen.",
+                    "updated": 1679593721496
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "It is highly recommended to read these pages and compare with the simulated version of order maintenance. The comparison will greatly help you understand the differences between backtesting or paper trading and live trading sessions.",
-            "updated": 1610220471695
+            "updated": 1610220471695,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настоятельно рекомендуется прочитать эти страницы и сравнить с симулированной версией ведения ордеров. Сравнение очень поможет вам понять различия между бэктестингом или бумажной торговлей и реальными торговыми сессиями.",
+                    "updated": 1640185957868
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist sehr empfehlenswert, diese Seiten zu lesen und mit der simulierten Version der Auftragsverwaltung zu vergleichen. Der Vergleich wird Ihnen sehr helfen, die Unterschiede zwischen Backtesting oder Papierhandel und Live-Handelssitzungen zu verstehen.",
+                    "updated": 1679593682983
+                }
+            ]
         }
     ]
 }

@@ -67,6 +67,10 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
         tradingEngine.tradingCurrent.tradingEpisode.serialNumber.value = 1
         tradingEngine.tradingCurrent.tradingEpisode.identifier.value = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngine.tradingCurrent.tradingEpisode.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+
+        /* Set the value of the Base Asset and Quoted Asset */
+        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.value = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.value = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
     }
 
     function updateExitType(exitType) {
@@ -82,7 +86,7 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
     }
 
     function resetEpisode() {
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.learningEpisode)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.learningEpisode)
     }
 
     function updateEnds() {

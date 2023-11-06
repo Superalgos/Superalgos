@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Стиль текста - это стиль, используемый для содержимого без применения какого-либо определенного стиля.",
                 "updated": 1638467012753
+            },
+            {
+                "language": "TR",
+                "text": "Metin stili, belirli bir stil uygulanmadan içerik için kullanılan stildir.",
+                "updated": 1652383965137
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Когда вы редактируете набор абзацев в текстовом стиле, все, что вы вводите, будет отображаться как часть абзаца. Чего вы не можете сделать, так это встроить html в текст, потому что он будет отброшен. Создавая новые абзацы во время редактирования, вы эффективно создаете отдельные абзацы вне режима редактирования. Позже вы можете изменить индивидуальный стиль каждого абзаца на любой из доступных стилей.",
                     "updated": 1638467056986
+                },
+                {
+                    "language": "TR",
+                    "text": "Metin stilinde ayarlanmış bir paragrafı düzenlediğinizde, yazdığınız her şey paragrafın bir parçası olarak işlenecektir. Yapamayacağınız şey, html'yi metnin içine gömmektir, çünkü atılacaktır. Düzenleme sırasında yeni paragraflar oluşturarak, düzenleme modundan etkin bir şekilde ayrı paragraflar oluşturabilirsiniz. Daha sonra mevcut stillerden herhangi biri için her paragrafın bireysel stilini değiştirebilirsiniz.",
+                    "updated": 1652384026320
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638467070179
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652384049630
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "RU",
                     "text": "Это абзац в текстовом стиле.",
                     "updated": 1638467087843
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu metin stilinde bir paragraftır.",
+                    "updated": 1652384081939
                 }
             ]
         }

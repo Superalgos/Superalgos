@@ -4,27 +4,87 @@
     "type": "BTC-USDT - Weak-hands Buster - WHB",
     "definition": {
         "text": "A trading system based on the break down of the Bollinger Bands idea, designed to accumulate Bitcoin, targeting major downward market moves.",
-        "updated": 1611675437927
+        "updated": 1611675437927,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bollinger Bantları fikrinin bozulmasına dayanan, Bitcoin biriktirmek için tasarlanan ve büyük aşağı yönlü piyasa hareketlerini hedefleyen bir ticaret sistemi.",
+                "updated": 1644667425354
+            },
+            {
+                "language": "DE",
+                "text": "Ein Handelssystem, das auf der Durchbrechung der Bollinger-Bänder basiert und darauf ausgelegt ist, Bitcoin zu akkumulieren und auf größere Abwärtsbewegungen des Marktes zu setzen.",
+                "updated": 1651089387915
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Weak-hands Buster was released in the Superalgos Community Telegram group in August 2019 and has been trading live since. An evolution of the system is currently available as version 2. This page explains the trading system and analyzes its performance.",
-            "updated": 1611675468833
+            "updated": 1611675468833,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Weak-hands Buster, Ağustos 2019'da Superalgos Community Telegram grubunda piyasaya sürüldü ve o zamandan beri canlı ticaret yapıyor. Sistemin bir evrimi şu anda sürüm 2 olarak mevcuttur. Bu sayfa ticaret sistemini açıklar ve performansını analiz eder.",
+                    "updated": 1644668536800
+                },
+                {
+                    "language": "DE",
+                    "text": "Weak-hands Buster wurde im August 2019 in der Superalgos Community Telegram Gruppe veröffentlicht und ist seitdem im Live-Handel. Eine Weiterentwicklung des Systems ist derzeit als Version 2 verfügbar. Diese Seite erklärt das Handelssystem und analysiert seine Performance.",
+                    "updated": 1651089419065
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Since the release of this strategy, the structure of the BTC-USDT market changed dramatically, rendering this Trading System unusable. The issue is that the system implements rigid volatility filters. The current environment shows much higher volatility than in the past, preventing the strategies from trading. At this point, you may use this system as a demo only, backtesting ranges before 2021. If you wish to experiment and revise this system, you may try removing the volatility filters and implementing new ones, if desired.",
-            "updated": 1622379090325
+            "updated": 1622379090325,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu stratejinin yayınlanmasından bu yana, BTC-USDT piyasasının yapısı önemli ölçüde değişti ve bu Ticaret Sistemini ( Trading System ) kullanılamaz hale getirdi. Sorun, sistemin katı oynaklık filtreleri uygulamasıdır. Mevcut ortam, geçmişe göre çok daha yüksek oynaklık göstererek stratejilerin ticaret yapmasını engelliyor. Bu noktada, bu sistemi yalnızca demo olarak kullanabilirsiniz, 2021 öncesi aralıkları geriye dönük test edebilirsiniz. Bu sistemi denemek ve revize etmek isterseniz, volatilite filtrelerini kaldırmayı ve istenirse yenilerini uygulamayı deneyebilirsiniz.",
+                    "updated": 1644668452710
+                },
+                {
+                    "language": "DE",
+                    "text": "Seit der Veröffentlichung dieser Strategie hat sich die Struktur des BTC-USDT-Marktes dramatisch verändert, was dieses Handelssystem unbrauchbar gemacht hat. Das Problem ist, dass das System strenge Volatilitätsfilter einsetzt. Das aktuelle Umfeld zeigt eine viel höhere Volatilität als in der Vergangenheit, wodurch die Strategien nicht handeln können. Zum jetzigen Zeitpunkt können Sie dieses System nur als Demo verwenden und Backtesting-Bereiche vor 2021 testen. Wenn Sie mit diesem System experimentieren und es überarbeiten möchten, können Sie versuchen, die Volatilitätsfilter zu entfernen und neue zu implementieren, falls gewünscht.",
+                    "updated": 1651089605786
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading system conforms to the Superalgos Trading Protocol, therefore, it may function as a fully automated trading system. People not interested in trading automation may still obtain the strategy’s rules (situations, conditions, and formulas) from the design space and use the set of rules as they see fit."
+            "text": "The trading system conforms to the Superalgos Trading Protocol, therefore, it may function as a fully automated trading system. People not interested in trading automation may still obtain the strategy’s rules (situations, conditions, and formulas) from the design space and use the set of rules as they see fit.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemi Superalgos Ticaret Protokolüne uygundur, bu nedenle tam otomatik bir ticaret sistemi olarak işlev görebilir. Ticaret otomasyonu ile ilgilenmeyen kişiler yine de stratejinin kurallarını (durumlar, koşullar ve formüller) tasarım alanından alabilir ve uygun gördükleri şekilde kurallar dizisini kullanabilirler.",
+                    "updated": 1644668489990
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Handelssystem entspricht dem Superalgos Trading Protocol und kann daher wie ein vollautomatisches Handelssystem funktionieren. Personen, die nicht an einer Automatisierung des Handels interessiert sind, können die Regeln der Strategie (Situationen, Bedingungen und Formeln) aus dem Design Space beziehen und das Regelwerk nach eigenem Ermessen nutzen.",
+                    "updated": 1651089636037
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Weak-hands Buster v2 is available on the Weak-Hands-Buster v2.json plugin workspace shipping with Superalgos.",
-            "updated": 1611675482499
+            "text": "Weak-hands Buster v2 is available on the Weak-Hands-Buster v2.json Native Workspaces hipping with Superalgos.",
+            "updated": 1611675482499,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Not: Weak-hands Buster v2, Superalgos ile birlikte gelen Weak-Hands-Buster v2.json eklenti çalışma alanında mevcuttur.",
+                    "updated": 1644668509103
+                },
+                {
+                    "language": "DE",
+                    "text": "Weak-hands Buster v2 ist im Weak-Hands-Buster v2.json Native Workspace verfügbar, der mit Superalgos ausgeliefert wird.",
+                    "updated": 1651089666181
+                }
+            ]
         },
         {
             "style": "Include",
@@ -34,149 +94,554 @@
         {
             "style": "Title",
             "text": "WHB V.2 Performance in Backtests (Binance)",
-            "updated": 1611676505532
+            "updated": 1611676505532,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geriye Dönük Testlerde WHB V.2 Performansı (Binance)",
+                    "updated": 1644668598662
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following was the performance in backtests at the time of publishing:"
+            "text": "The following was the performance in backtests at the time of publishing:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakiler, yayınlanma sırasındaki geriye dönük testlerdeki performanstı:",
+                    "updated": 1644668623508
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Zeitpunkt der Veröffentlichung war die Performance in Backtests wie folgt:",
+                    "updated": 1651089797014
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Details | Jan 2018 - Mar 2020 | 2020 Jan-Mar | 2019 | 2018 |\n| Trades: | 24 | 2 | 9 | 13 |\n| Hits: | 19 | 1 | 8 | 10 |\n| Fails: | 5 | 1 | 1 | 3 |\n| Hit Ratio: | 79 % | 50 % | 89 % | 77 % |\n| ROI: | 2,662 % | 75 % | 142 % | 551 % |",
-            "updated": 1611676638676
+            "updated": 1611676638676,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ayrıntılar | Ocak 2018 - Mart 2020 | 2020 Ocak-Mart | 2019 | 2018 |\n| Ticaret: | 24 | 2 | 9 | 13 |\n| Hit: | 19 | 1 | 8 | 10 |\n| Başarısız: | 5 | 1 | 1 | 3 |\n| İsabet Oranı: | %79 | %50 | %89 | %77 |\n| yatırım getirisi: | 2,662 % | %75 | 142 % | 551 % |",
+                    "updated": 1644668643729
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Notes on Backtests Performance",
-            "updated": 1611676669651
+            "updated": 1611676669651,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Backtests Performansına İlişkin Notlar",
+                    "updated": 1644668661135
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen zur Backtest-Performance",
+                    "updated": 1651089816334
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The table above shows the results for different periods tested independently."
+            "text": "The table above shows the results for different periods tested independently.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki tablo, bağımsız olarak test edilen farklı dönemler için sonuçları göstermektedir.",
+                    "updated": 1644668674723
+                },
+                {
+                    "language": "DE",
+                    "text": "Die obige Tabelle zeigt die Ergebnisse für verschiedene, unabhängig voneinander getestete Zeiträume.",
+                    "updated": 1651089838860
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Each backtest starts with an initial capital. With the default configuration, the system reinvests accumulated profits on every trade (positionSize = balanceBaseAsset)."
+            "text": "Each backtest starts with an initial capital. With the default configuration, the system reinvests accumulated profits on every trade (positionSize = balanceBaseAsset).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Her geriye dönük test bir başlangıç sermayesi ile başlar. Varsayılan yapılandırmayla, sistem her işlemde birikmiş kârı yeniden yatırır (positionSize = BalanceBaseAsset).",
+                    "updated": 1644668704674
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Backtest beginnt mit einem Anfangskapital. Bei der Standardkonfiguration reinvestiert das System die aufgelaufenen Gewinne bei jedem Handel (positionSize = balanceBaseAsset).",
+                    "updated": 1651089873941
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "ROI is calculated over the initial capital for each backtest, and the result is rounded to the closest integer."
+            "text": "ROI is calculated over the initial capital for each backtest, and the result is rounded to the closest integer.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "ROI, her geriye dönük test için başlangıç sermayesi üzerinden hesaplanır ve sonuç en yakın tam sayıya yuvarlanır.",
+                    "updated": 1644668729212
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Kapitalrendite wird für jeden Backtest über das Anfangskapital berechnet, und das Ergebnis wird auf die nächste ganze Zahl gerundet.",
+                    "updated": 1651089889210
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Because the system reinvests accumulated profits, the sum of ROI in different periods is not the same as ROI for all periods run in one single test (first column)."
+            "text": "Because the system reinvests accumulated profits, the sum of ROI in different periods is not the same as ROI for all periods run in one single test (first column).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sistem birikmiş karları yeniden yatırdığı için, farklı dönemlerdeki ROI'nin toplamı, tek bir testte yürütülen tüm dönemler için ROI ile aynı değildir (ilk sütun).",
+                    "updated": 1644668778697
+                },
+                {
+                    "language": "DE",
+                    "text": "Da das System die aufgelaufenen Gewinne reinvestiert, ist die Summe der ROI in verschiedenen Perioden nicht identisch mit der ROI für alle Perioden, die in einem einzigen Test ausgeführt wurden (erste Spalte).",
+                    "updated": 1651089920956
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Assumptions"
+            "text": "Assumptions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varsayımlar (Assumptions)",
+                    "updated": 1644668808768
+                },
+                {
+                    "language": "DE",
+                    "text": "Annahmen",
+                    "updated": 1651089936052
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Slippage: 0.1 % in all orders."
+            "text": "Slippage: 0.1 % in all orders.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kayma: Tüm siparişlerde %0,1.",
+                    "updated": 1644668839544
+                },
+                {
+                    "language": "DE",
+                    "text": "Slippage: 0.1 % bei allen Aufträgen.",
+                    "updated": 1651089972010
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Fees: 0.1 % in all orders."
+            "text": "Fees: 0.1 % in all orders.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ücretler: Tüm siparişlerde %0,1.",
+                    "updated": 1644668848811
+                },
+                {
+                    "language": "DE",
+                    "text": "Fees: 0.1 % bei allen Aufträgen.",
+                    "updated": 1651089980927
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Technical Sheet"
+            "text": "Technical Sheet",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Teknik döküman",
+                    "updated": 1644669114062
+                },
+                {
+                    "language": "DE",
+                    "text": "Technisches Datenblatt",
+                    "updated": 1651090010196
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Market"
+            "text": "Market",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pazar",
+                    "updated": 1644669119944
+                },
+                {
+                    "language": "DE",
+                    "text": "Markt",
+                    "updated": 1651090015503
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "USDT-BTC, with BTC as the base asset."
+            "text": "USDT-BTC, with BTC as the base asset.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "USDT-BTC, temel varlık olarak BTC ile.",
+                    "updated": 1644669142579
+                },
+                {
+                    "language": "DE",
+                    "text": "USDT-BTC, mit BTC als base asset.",
+                    "updated": 1651090028097
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Strategy Goal"
+            "text": "Strategy Goal",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji Hedefi",
+                    "updated": 1644669156731
+                },
+                {
+                    "language": "DE",
+                    "text": "Ziel der Strategie",
+                    "updated": 1651090045966
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Accumulate bitcoin during bear markets and/or consolidation periods, with a conservative approach to minimize risk."
+            "text": "Accumulate bitcoin during bear markets and/or consolidation periods, with a conservative approach to minimize risk.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Riski en aza indirmek için muhafazakar bir yaklaşımla, ayı piyasaları ve/veya konsolidasyon dönemlerinde bitcoin biriktirin.",
+                    "updated": 1644669178354
+                },
+                {
+                    "language": "DE",
+                    "text": "Akkumulieren von Bitcoin während Bärenmärkten und/oder Konsolidierungsphasen mit einem konservativen Ansatz, um das Risiko zu minimieren.",
+                    "updated": 1651090107417
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Approach"
+            "text": "Approach",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yaklaşım",
+                    "updated": 1644669197608
+                },
+                {
+                    "language": "DE",
+                    "text": "Ansatz",
+                    "updated": 1651090123374
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Split the goal into two fundamental notions:"
+            "text": "Split the goal into two fundamental notions:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hedefi iki temel kavrama bölün:",
+                    "updated": 1644669277787
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ziel ist in zwei grundlegende Begriffe aufzuteilen:",
+                    "updated": 1651090177789
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Focus on potentially big market moves: The strategy is optimized for major trend reversals resulting in long bear markets. Significant consolidations during bull markets are targetted as well.",
-            "updated": 1611676774411
+            "updated": 1611676774411,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Potansiyel olarak büyük piyasa hareketlerine odaklanın: Strateji, uzun ayı piyasalarına yol açan büyük trend tersine dönüşler için optimize edilmiştir. Boğa piyasaları sırasında da önemli konsolidasyonlar hedefleniyor.",
+                    "updated": 1644669318014
+                },
+                {
+                    "language": "DE",
+                    "text": "Konzentration auf potenziell große Marktbewegungen: Die Strategie ist für große Trendumkehrungen optimiert, die zu langen Bärenmärkten führen. Signifikante Konsolidierungen während Bullenmärkten werden ebenfalls ins Visier genommen.",
+                    "updated": 1651090294329
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Take the clearest and most promising opportunities only: Pass on everything else to avoid fails and preserve capital.",
-            "updated": 1611676784702
+            "updated": 1611676784702,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yalnızca en net ve en umut verici fırsatları alın: Başarısızlıkları önlemek ve sermayeyi korumak için diğer her şeyi aktarın.",
+                    "updated": 1644669382462
+                },
+                {
+                    "language": "DE",
+                    "text": "Nur die klarsten und vielversprechendsten Gelegenheiten wahrnehmen: Auf alles verzichten, um Fehlschläge zu vermeiden und das Kapital zu erhalten.",
+                    "updated": 1651090370021
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trading Idea"
+            "text": "Trading Idea",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticaret Fikri",
+                    "updated": 1644669397170
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsidee",
+                    "updated": 1651090416548
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The main trading idea is to identify short-term reversals as well as continuations and deepening of trends marked by a break down of the Bollinger Bands (BB) on the 1-hour chart, using the Percentage Bandwidth (%B) indicator, the Bollinger Bands Moving Average (BB MA) and the Bollinger Band deviation to assess momentum and volatility, optimize the take position event, and filter out late entries."
+            "text": "The main trading idea is to identify short-term reversals as well as continuations and deepening of trends marked by a break down of the Bollinger Bands (BB) on the 1-hour chart, using the Percentage Bandwidth (%B) indicator, the Bollinger Bands Moving Average (BB MA) and the Bollinger Band deviation to assess momentum and volatility, optimize the take position event, and filter out late entries.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ana ticaret fikri, Bollinger Bant Genişliği Yüzdesi (%B) göstergesini, Bollinger'i kullanarak 1 saatlik grafikte Bollinger Bantlarının (BB) bir dökümü ile işaretlenen trendlerin kısa vadeli geri dönüşlerini ve devamını ve derinleşmesini belirlemektir. Momentum ve oynaklığı değerlendirmek, pozisyon alma olayını optimize etmek ve geç girişleri filtrelemek için Hareketli Ortalama Bantları (BB MA) ve Bollinger Bandı sapması.",
+                    "updated": 1644669407720
+                },
+                {
+                    "language": "DE",
+                    "text": "Die wichtigste Handelsidee besteht darin, kurzfristige Umkehrungen sowie Fortsetzungen und Vertiefungen von Trends zu erkennen, die durch einen Durchbruch der Bollinger Bands (BB) auf dem 1-Stunden-Chart gekennzeichnet sind. Dabei werden der Indikator für die prozentuale Bandbreite (%B), der gleitende Durchschnitt der Bollinger Bands (BB MA) und die Bollinger-Band-Abweichung verwendet, um das Momentum und die Volatilität einzuschätzen, das Take-Position-Ereignis zu optimieren und späte Einstiege herauszufiltern.",
+                    "updated": 1651090473065
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Implementation"
+            "text": "Implementation",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Uygulama",
+                    "updated": 1644669450226
+                },
+                {
+                    "language": "DE",
+                    "text": "Implementierung",
+                    "updated": 1651090496812
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The original system is dissected in a Coinmonks article: How to Increase your Bitcoin Holdings in a Bear Market. Version 2 maintains the trading idea and the take position event almost intact."
+            "text": "The original system is dissected in a Coinmonks article: How to Increase your Bitcoin Holdings in a Bear Market. Version 2 maintains the trading idea and the take position event almost intact.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Orijinal sistem bir Coinmonks makalesinde incelenmiştir: Bir Ayı Piyasasında Bitcoin Holdinglerinizi Nasıl Artırırsınız. Sürüm 2, ticaret fikrini ve pozisyon alma olayını neredeyse bozulmadan korur.",
+                    "updated": 1644669453458
+                },
+                {
+                    "language": "DE",
+                    "text": "Das ursprüngliche System wird in einem Coinmonks-Artikel seziert: Wie Sie Ihre Bitcoin-Bestände in einem Bärenmarkt erhöhen. Version 2 behält die Handelsidee und das Ereignis der Positionsübernahme fast unverändert bei.",
+                    "updated": 1651090521169
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Position Size"
+            "text": "Position Size",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Boyutu",
+                    "updated": 1644669470132
+                },
+                {
+                    "language": "DE",
+                    "text": "Positionsgrösse",
+                    "updated": 1651090537385
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any. You may change this formula as you see fit."
+            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any. You may change this formula as you see fit.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "positionSize, varsayılan olarak BalanceBaseAsset'e ayarlanmıştır. Bu, işlem sisteminin tüm bakiyeyle, yani işlem seansının temel varlık parametresinin yapılandırmasında tanımlandığı gibi başlangıç Bakiyesi artı varsa tüm birikmiş karlarla pozisyon aldığı anlamına gelir. Bu formülü uygun gördüğünüz gibi değiştirebilirsiniz.",
+                    "updated": 1644669498778
+                },
+                {
+                    "language": "DE",
+                    "text": "Die positionSize ist standardmäßig auf balanceBaseAsset eingestellt. Das bedeutet, dass das Handelssystem Positionen mit dem gesamten Guthaben einnimmt, d.h. dem initialen Guthaben, wie es in der Konfiguration des Basis-Asset-Parameters der Handelssitzung definiert ist, zuzüglich aller kumulierten Gewinne, falls vorhanden. Sie können diese Formel nach eigenem Ermessen ändern.",
+                    "updated": 1651090579383
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Please take enough time to consider the implications of the above statement and make your own judgment about what setting may be appropriate for you.",
-            "updated": 1611676831315
+            "updated": 1611676831315,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önemli: Lütfen yukarıdaki ifadenin sonuçlarını değerlendirmek için yeterli zaman ayırın ve sizin için hangi ayarın uygun olabileceği konusunda kendi kararınızı verin.",
+                    "updated": 1644669534709
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte nehmen Sie sich ausreichend Zeit, um die Auswirkungen der obigen Aussage zu bedenken und sich ein eigenes Urteil darüber zu bilden, welche Einstellung für Sie angemessen sein könnte.",
+                    "updated": 1651090600974
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trading Frequency"
+            "text": "Trading Frequency",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İşlem Sıklığı",
+                    "updated": 1644669551545
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsfrequenz",
+                    "updated": 1651090612434
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The strategy is designed with the one-hour time frame as the main decision-making instance, meaning that it makes trigger and take position decisions upon the closing of the one-hour candle."
+            "text": "The strategy is designed with the one-hour time frame as the main decision-making instance, meaning that it makes trigger and take position decisions upon the closing of the one-hour candle.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji, ana karar verme örneği olarak bir saatlik zaman çerçevesi ile tasarlanmıştır, yani bir saatlik mumun kapanması üzerine tetikleme yapar ve pozisyon kararları alır.",
+                    "updated": 1644669565999
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Strategie wurde mit dem Timeframe von einer Stunde als Hauptentscheidungsinstanz entwickelt, was bedeutet, dass sie Trigger- und Positionsentscheidungen beim Schließen der Ein-Stunden-Kerze trifft.",
+                    "updated": 1651090770162
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "That said, when running live on Superalgos, it should be run on the one-minute time frame to allow it to react fast to market moves when evaluating take profit and stop loss targets."
+            "text": "That said, when running live on Superalgos, it should be run on the one-minute time frame to allow it to react fast to market moves when evaluating take profit and stop loss targets.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, Superalgos'ta canlı yayınlanırken, kâr al ve zararı durdur hedeflerini değerlendirirken piyasa hareketlerine hızlı tepki vermesine izin vermek için bir dakikalık zaman çerçevesinde çalıştırılmalıdır.",
+                    "updated": 1644669576375
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Superalgos im Live-Betrieb einsetzen, sollten Sie es auf dem einminütigen Zeitrahmen laufen lassen, damit es bei der Bewertung von Take-Profit- und Stop-Loss-Zielen schnell auf Marktbewegungen reagieren kann.",
+                    "updated": 1651090826112
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Because the strategy is rather conservative in its design, it doesn’t trade every opportunity that may occur. Instead, the strategy is quite selective and trades only the most promising ones."
+            "text": "Because the strategy is rather conservative in its design, it doesn’t trade every opportunity that may occur. Instead, the strategy is quite selective and trades only the most promising ones.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Strateji, tasarımında oldukça tutucu olduğundan, ortaya çıkabilecek her fırsatı takas etmez. Bunun yerine, strateji oldukça seçicidir ve yalnızca en umut verici olanlarla işlem yapar.",
+                    "updated": 1644669647606
+                },
+                {
+                    "language": "DE",
+                    "text": "Da die Strategie eher konservativ angelegt ist, handelt sie nicht mit jeder sich bietenden Gelegenheit. Stattdessen ist die Strategie recht selektiv und handelt nur mit den vielversprechendsten Gelegenheiten.",
+                    "updated": 1651090866999
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a consequence, and as you may infer from the number of trades in the backtesting report above and the live trading performance of WHB V1 described below, the strategy performs an average of about one trade per month."
+            "text": "As a consequence, and as you may infer from the number of trades in the backtesting report above and the live trading performance of WHB V1 described below, the strategy performs an average of about one trade per month.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sonuç olarak ve yukarıdaki geriye dönük test raporundaki işlem sayısından ve aşağıda açıklanan WHB V1'in canlı işlem performansından çıkarabileceğiniz gibi, strateji ayda ortalama yaklaşık bir işlem gerçekleştirir.",
+                    "updated": 1644669707366
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Sie aus der Anzahl der Trades im obigen Backtesting-Bericht und der unten beschriebenen Live-Handelsperformance von WHB V1 ersehen können, führt die Strategie daher im Durchschnitt etwa einen Trade pro Monat durch.",
+                    "updated": 1651090898199
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Required Bots"
+            "text": "Required Bots",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gerekli Botlar",
+                    "updated": 1644669759857
+                },
+                {
+                    "language": "DE",
+                    "text": "Benötigte Bots",
+                    "updated": 1651090905926
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following bots must be running and up to date to run paper trading, forward testing, and live trading sessions:"
+            "text": "The following bots must be running and up to date to run paper trading, forward testing, and live trading sessions:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kağıt ticareti, ileriye dönük testler ve canlı ticaret oturumları yürütmek için aşağıdaki botların çalışıyor ve güncel olması gerekir:",
+                    "updated": 1644669805345
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Bots müssen laufen und auf dem neuesten Stand sein, um den Papierhandel, Forward-Tests und Live-Handelssitzungen durchzuführen:",
+                    "updated": 1651090931172
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Candles Data Mine:",
-            "updated": 1622559175746
+            "updated": 1622559175746,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mumlar Veri Madeni ( Candles Data Mine ):",
+                    "updated": 1644669849053
+                }
+            ]
         },
         {
             "style": "List",
@@ -184,65 +649,195 @@
         },
         {
             "style": "List",
-            "text": "Candles & Volumes"
+            "text": "Candles & Volumes",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mumlar ve Hacimler (Candles & Volumes)",
+                    "updated": 1644670362236
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Bollinger Data Mine:"
+            "text": "Bollinger Data Mine:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Veri Madeni (Bollinger Data Mine):",
+                    "updated": 1644669921066
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bollinger Bands & Percentage Bandwith"
+            "text": "Bollinger Bands & Percentage Bandwith",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Bantları ve Bant Genişliği Yüzdesi",
+                    "updated": 1644670354319
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bollinger Channels & SubChannels"
+            "text": "Bollinger Channels & SubChannels",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bollinger Kanalları ve alt Kanallar",
+                    "updated": 1644670367421
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Sparta Data Mine:"
+            "text": "Sparta Data Mine:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sparta Veri Madeni:(Sparta Data Mine):",
+                    "updated": 1644670387321
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "EMA (Popular)"
+            "text": "EMA (Popular)",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "EMA (Popüler)",
+                    "updated": 1644670404927
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Changes on WHB V.2"
+            "text": "Changes on WHB V.2",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "WHB V.2'deki Değişiklikler",
+                    "updated": 1644670417207
+                },
+                {
+                    "language": "DE",
+                    "text": "Änderungen an WHB V.2",
+                    "updated": 1651090953767
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The two different situations making up the take position event were split into two separate strategies operating under the same trading system. This means that take profit and stop targets may be managed separately for each take position situation. This is the first case of two complementary strategies running under the same trading system."
+            "text": "The two different situations making up the take position event were split into two separate strategies operating under the same trading system. This means that take profit and stop targets may be managed separately for each take position situation. This is the first case of two complementary strategies running under the same trading system.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyon alma olayını oluşturan iki farklı durum, aynı ticaret sistemi altında çalışan iki ayrı stratejiye bölündü. Bu, kar al ve dur hedeflerinin her pozisyon alma durumu için ayrı ayrı yönetilebileceği anlamına gelir. Bu, aynı ticaret sistemi altında çalışan iki tamamlayıcı stratejinin ilk örneğidir.",
+                    "updated": 1644670435422
+                },
+                {
+                    "language": "DE",
+                    "text": "Die beiden unterschiedlichen Situationen, die das Take-Position-Ereignis ausmachen, wurden in zwei separate Strategien aufgeteilt, die mit demselben Handelssystem arbeiten. Das bedeutet, dass die Take-Profit- und Stop-Ziele für jede Take-Position-Situation separat verwaltet werden können. Dies ist der erste Fall von zwei komplementären Strategien, die unter demselben Handelssystem laufen.",
+                    "updated": 1651091000440
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "An additional condition was implemented at the take position event of each strategy so that each specializes in two different volatility ranges. The Xtreme strategy works best in extreme volatility situations (e.g. ATH period in late 2017 and early 2018). The Steep strategy works best in normal (by BTC standards) volatility situations."
+            "text": "An additional condition was implemented at the take position event of each strategy so that each specializes in two different volatility ranges. The Xtreme strategy works best in extreme volatility situations (e.g. ATH period in late 2017 and early 2018). The Steep strategy works best in normal (by BTC standards) volatility situations.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Her stratejinin pozisyon alma olayında, her birinin iki farklı oynaklık aralığında uzmanlaşması için ek bir koşul uygulandı. Xtreme stratejisi, aşırı oynaklık durumlarında en iyi sonucu verir (ör. 2017'nin sonları ve 2018'in başlarındaki ATH dönemi). Steep stratejisi, normal (BTC standartlarına göre) oynaklık durumlarında en iyi sonucu verir.",
+                    "updated": 1644670455087
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine zusätzliche Bedingung wurde beim Take-Position-Ereignis jeder Strategie implementiert, sodass sich jede auf zwei verschiedene Volatilitätsbereiche spezialisiert. Die Xtreme-Strategie funktioniert am besten in Situationen extremer Volatilität (z. B. ATH-Periode Ende 2017 und Anfang 2018). Die Steep-Strategie funktioniert am besten in normalen (nach BTC-Standards) Volatilitätssituationen.",
+                    "updated": 1651091055634
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Management of take profit implemented originally was greatly improved for the Steep strategy, with a few simple additions and checks on the conditions that determine the events that switch phases."
+            "text": "Management of take profit implemented originally was greatly improved for the Steep strategy, with a few simple additions and checks on the conditions that determine the events that switch phases.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Başlangıçta uygulanan kar al yönetimi, aşama değiştiren olayları belirleyen koşullar üzerinde birkaç basit ekleme ve kontrol ile Steep stratejisi için büyük ölçüde iyileştirildi.",
+                    "updated": 1644670472256
+                },
+                {
+                    "language": "DE",
+                    "text": "Das ursprünglich implementierte Management der Gewinnmitnahme wurde für die Steep-Strategie durch einige einfache Ergänzungen und Überprüfungen der Bedingungen, die die Ereignisse für den Phasenwechsel bestimmen, erheblich verbessert.",
+                    "updated": 1651091089491
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The trailing stop for the Steep strategy was raised from 5 to 5.25% above the 20 MA. The trailing was delayed to kick-in only after the market has dropped 5%. The initial stop target remains the same at 3%."
+            "text": "The trailing stop for the Steep strategy was raised from 5 to 5.25% above the 20 MA. The trailing was delayed to kick-in only after the market has dropped 5%. The initial stop target remains the same at 3%.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Steep stratejisi için takip eden stop, 20 MA'nın %5'ten %5,25'ine yükseltildi. Takip, ancak pazar %5 düştükten sonra devreye girmek için ertelendi. İlk durdurma hedefi %3 ile aynı kalır.",
+                    "updated": 1644670490274
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trailing-Stop für die Steep-Strategie wurde von 5 auf 5,25 % über dem 20 MA angehoben. Der Trailing-Stopp wurde verschoben und greift erst, wenn der Markt um 5 % gefallen ist. Das anfängliche Stoppziel bleibt unverändert bei 3 %.",
+                    "updated": 1651091171892
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Original WHB Live Performance"
+            "text": "Original WHB Live Performance",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Orijinal WHB Canlı Performans",
+                    "updated": 1644670524569
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Details | Sep 2019 - Mar 2020 |\n| Trades: | 7 |\n| Hits: | 4 |\n| Fails: | 3 |\n| Hit Ratio: | 57% |\n| ROI: | 76% |",
-            "updated": 1611676965907
+            "updated": 1611676965907,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "| Ayrıntılar | Eylül 2019 - Mart 2020 |\n| Ticaret: | 7 |\n| Hit: | 4 |\n| Başarısız: | 3 |\n| İsabet Oranı: | %57 |\n| yatırım getirisi: | %76 |",
+                    "updated": 1644670622361
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Original WHB Main Live Trades",
-            "updated": 1611676994942
+            "updated": 1611676994942,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Orijinal WHB Ana Canlı Ticaret",
+                    "updated": 1644670642855
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Sep 2019"
+            "text": "Sep 2019",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eylül 2019",
+                    "updated": 1644670653899
+                }
+            ]
         },
         {
             "style": "Png",
@@ -251,7 +846,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Nov 2019"
+            "text": "Nov 2019",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kasım 2019",
+                    "updated": 1644670681833
+                }
+            ]
         },
         {
             "style": "Png",
@@ -261,7 +863,14 @@
         {
             "style": "Subtitle",
             "text": "Mar 2020",
-            "updated": 1611677186600
+            "updated": 1611677186600,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Mart 2020",
+                    "updated": 1644670696885
+                }
+            ]
         },
         {
             "style": "Png",
@@ -270,7 +879,19 @@
         },
         {
             "style": "Title",
-            "text": "Warning and Disclaimer"
+            "text": "Warning and Disclaimer",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Uyarı ve Sorumluluk Reddi",
+                    "updated": 1644670709536
+                },
+                {
+                    "language": "DE",
+                    "text": "Warnung und Haftungsausschluss",
+                    "updated": 1651091200877
+                }
+            ]
         },
         {
             "style": "Include",

@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Возможно, вы помните этот вопрос из приветственного урока. Вы торгуете на binance.com или binance.us?",
                 "updated": 1637915646125
+            },
+            {
+                "language": "TR",
+                "text": "Bu soruyu Hoş Geldiniz Eğitimi'nden hatırlayabilirsiniz. Binance.com'da mı yoksa binance.us'ta mı işlem yapıyorsunuz?",
+                "updated": 1642518585809
             }
         ]
     },
@@ -35,8 +40,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Este espacio de trabajo fue construido usando binance.com. Si ese es su intercambio, continúe y omita este paso. Sin embargo, si sus datos están almacenados en binance.us, deberá realizar un ajuste rápido.",
-                    "updated": 1628639619761
+                    "text": "Este espacio de trabajo fue construido usando binance.com. Si ese es su intercambio, continúa y omite este paso. Sin embargo, si tus datos están almacenados en binance.us, deberás realizar un ajuste rápido.",
+                    "updated": 1682429707520
                 },
                 {
                     "language": "DE",
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Это рабочее пространство было построено с использованием binance.com. Если это ваш обмен, продолжайте и пропустите этот шаг. Однако, если ваши данные хранятся на binance.us вам нужно будет сделать одну быструю настройку.",
                     "updated": 1637915731066
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çalışma alanı binance.com ile oluşturulmuştur. Bu sizin borsanızsa, bu adımı atlayabilirsiniz. Ancak verileriniz binance.us'da saklanıyorsa hızlı bir düzenleme yapmanız gerekir.",
+                    "updated": 1642518617071
                 }
             ]
         },
@@ -57,8 +67,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Configure el nodo Binance a tu izquierda.",
-                    "updated": 1628639643918
+                    "text": "Configura el nodo Binance a tu izquierda.",
+                    "updated": 1682429714571
                 },
                 {
                     "language": "DE",
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Настройте узел Binance слева от вас.",
                     "updated": 1637915753924
+                },
+                {
+                    "language": "TR",
+                    "text": "Binance düğümünü solunuzda yapılandırın.",
+                    "updated": 1642518632696
                 }
             ]
         },
@@ -79,8 +94,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Open la configuración y cambiar la codeName a binanceus. Mueva el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente.",
-                    "updated": 1628639735404
+                    "text": "Open la configuración y cambia la codeName a binanceus. Mueve el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente.",
+                    "updated": 1682429776307
                 },
                 {
                     "language": "DE",
@@ -91,6 +106,11 @@
                     "language": "RU",
                     "text": "Откройте конфигурацию и измените CodeName на binanceus. Выведите указатель мыши из пузырька конфигурации, и он автоматически закроется и сохранится.",
                     "updated": 1637915859838
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmayı açın ve Kod Adını ( codeName ) binance.us olarak değiştirin. Fare imlecinizi yapılandırma balonunun dışına getirin, otomatik olarak kapanacak ve kaydedilecektir.",
+                    "updated": 1642518644650
                 }
             ]
         },
@@ -101,8 +121,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Clic en Edit de la etiqueta del nodo a leer Binanceus.",
-                    "updated": 1628639820319
+                    "text": "Edita la etiqueta del nodo para que diga Binanceus.",
+                    "updated": 1682429905059
                 },
                 {
                     "language": "DE",
@@ -113,6 +133,11 @@
                     "language": "RU",
                     "text": "Отредактируйте метку узла так, чтобы она читалась как Binanceus.",
                     "updated": 1637915855217
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm etiketini Binanceus'u okuyacak şekilde değiştirin.",
+                    "updated": 1642518659762
                 }
             ]
         }

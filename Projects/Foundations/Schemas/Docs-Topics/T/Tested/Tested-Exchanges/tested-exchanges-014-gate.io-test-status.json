@@ -1,0 +1,164 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 14,
+    "type": "Gate.io Test Status",
+    "definition": {
+        "text": "Passed Live Trading Test but Gate.io doesn't support Market Orders",
+        "updated": 1636810465259,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Прошел тест реальной торговли, но Gate.io не поддерживает рыночные ордера",
+                "updated": 1646903016398
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı İşlem Testini geçti ancak Gate.io, Piyasa Emirlerini desteklemiyor",
+                "updated": 1650572216998
+            },
+            {
+                "language": "DE",
+                "text": "Live Trading Test bestanden, aber Gate.io unterstützt keine Market Order",
+                "updated": 1690357762873
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1636811142009,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646903022741
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650572223225
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357769249
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes",
+            "updated": 1636811644277,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да",
+                    "updated": 1646903057039
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet",
+                    "updated": 1650572231489
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja",
+                    "updated": 1690357777621
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Market History: From August 2020",
+            "updated": 1636811635789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: С августа 2020 года",
+                    "updated": 1646903062841
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Ağustos 2020'den itibaren",
+                    "updated": 1650572244997
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Ab August 2020",
+                    "updated": 1690357784369
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes The ability to create and cancel limit orders in a live-trading mode has been verified. ",
+            "updated": 1640456367362,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность создания и отмены лимитных ордеров в режиме реальной торговли была проверена.",
+                    "updated": 1646903076458
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet Canlı alım satım modunda limit emir oluşturma ve iptal etme özelliği doğrulandı.",
+                    "updated": 1650572261876
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading-Fähigkeit (Trading Capability): Ja Die Fähigkeit, Limit-Orders im Live-Handel zu erstellen und zu stornieren, wurde überprüft.",
+                    "updated": 1690357792096
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Comments: Gate.io doesn't support Market Orders",
+            "updated": 1640456380804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Gate.io не поддерживает рыночные ордера",
+                    "updated": 1646903086026
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Gate.io, Market Emirlerini desteklemiyor",
+                    "updated": 1650572284156
+                },
+                {
+                    "language": "DE",
+                    "text": "Kommentare: Gate.io unterstützt keine Market Orders",
+                    "updated": 1690357798593
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646903093946
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650572290391
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357806161
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"gateio\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicSpotGetCurrencyPairs\",\n            \"firstId\": \"f\",\n            \"requiredCredentials\": \"apiKey,secret\"\n        }\n    ]\n}",
+            "updated": 1640466675579
+        }
+    ]
+}

@@ -4,13 +4,42 @@
     "type": "Sparta By @julian-molina",
     "definition": {
         "text": "The set of indicators built in the Sparta data mine include Simple Moving Average (SMA), Exponential Moving Average (EMA), Relative Strength Index (RSI), and Moving Average convergence Divergence (MACD).",
-        "updated": 1611685345604
+        "updated": 1611685345604,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Набор индикаторов, построенных в источнике данных Sparta, включает простую скользящую среднюю (SMA), экспоненциальную скользящую среднюю (EMA), индекс относительной силы (RSI) и дивергенцию схождения скользящих средних (MACD).",
+                "updated": 1643529332850
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sparta veri madeninde yerleşik göstergeler seti, Basit Hareketli Ortalama (SMA), Üstel Hareketli Ortalama (EMA), Göreceli Güç Endeksi (RSI) ve Hareketli Ortalama yakınsama Iraksama'yı (MACD) içerir.",
+                "updated": 1650619901605
+            },
+            {
+                "language": "DE",
+                "text": "Zu den in der Sparta Datenmine erstellten Indikatoren gehören Simple Moving Average (SMA), Exponential Moving Average (EMA), Relative Strength Index (RSI) und Moving Average Convergence Divergence (MACD).",
+                "updated": 1671031995912
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Sparta data mine is brought to you by...",
-            "updated": 1611685372883
+            "updated": 1611685372883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Источник данных Sparta предоставлена вам...",
+                    "updated": 1643529351836
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Sparta Datenmine wird Ihnen präsentiert von...",
+                    "updated": 1671032007581
+                }
+            ]
         },
         {
             "style": "Link",
@@ -19,7 +48,24 @@
         },
         {
             "style": "Success",
-            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сотрудничайте по улучшению этого источника данных и сообщайте о проблемах непосредственно в хранилище Superalgos.",
+                    "updated": 1643529449557
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu veri madeni ile işbirliği yapın ve sorunları doğrudan Superalgos deposunda bildirin.",
+                    "updated": 1650619976043
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeiten Sie mit dieser Datenmine und melden Sie Probleme direkt an das Superalgos Repository.",
+                    "updated": 1671032143677
+                }
+            ]
         }
     ]
 }

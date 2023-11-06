@@ -1,0 +1,402 @@
+{
+    "type": "Dependency Filter",
+    "definition": {
+        "text": "The Dependency Filter is a mechanism that analyzes the code of all conditions, formulas and Study Bots in order to get from the code which data dependencies need to be loaded at the bot once ran.",
+        "updated": 1646057284735,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Фильтр зависимостей (Dependency Filter) - это механизм, который анализирует код всех условий, формул и ботов Study Bot, чтобы получить из кода, какие зависимости данных должны быть загружены в бот после запуска.",
+                "updated": 1647355857011
+            },
+            {
+                "language": "TR",
+                "text": "Bağımlılık Filtresi, çalıştırıldığında hangi veri bağımlılıklarının bota yüklenmesi gerektiğini koddan almak için tüm koşulların, formüllerin ve Çalışma Botlarının kodunu analiz eden bir mekanizmadır.",
+                "updated": 1654390994290
+            },
+            {
+                "language": "DE",
+                "text": "Der Dependency Filter ist ein Mechanismus, der den Code aller Bedingungen, Formeln und Study Bots analysiert, um aus dem Code herauszufinden, welche Datenabhängigkeiten bei der Ausführung des Bots geladen werden müssen.",
+                "updated": 1696955464798
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Explanation",
+            "updated": 1646057319208
+        },
+        {
+            "style": "Subtitle",
+            "text": "What is the Dependency Filter?",
+            "updated": 1646057384029,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что такое фильтр зависимостей?",
+                    "updated": 1647355871611
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılık Filtresi nedir?",
+                    "updated": 1654391000493,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was ist der Abhängigkeitsfilter?",
+                    "updated": 1696955465017,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Dependency Filter is a mechanism that analyzes the code of all conditions, formulas and Study Bots in order to get from the code which data dependencies need to be loaded at the bot once ran. The procedure scans every line of code in search for the exchange, market or chart objects and once it finds them, it then breaks it down to understand which product will be needed for the bot. These filters are needed in order to prevent the bot to load all dependency files at all time frames when at the code many of these files are evidently not used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фильтр зависимостей - это механизм, который анализирует код всех условий, формул и ботов Study Bot, чтобы получить из кода, какие зависимости данных необходимо загрузить в бота после запуска. Процедура сканирует каждую строку кода в поисках объектов биржи, рынка или графика и, найдя их, разбивает на части, чтобы понять, какой продукт понадобится боту. Эти фильтры нужны для того, чтобы бот не загружал все файлы зависимостей на всех временных интервалах, когда в коде многие из этих файлов, очевидно, не используются.",
+                    "updated": 1647355921910
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılık Filtresi, çalıştırıldığında hangi veri bağımlılıklarının bota yüklenmesi gerektiğini koddan almak için tüm koşulların, formüllerin ve Çalışma Botlarının kodunu analiz eden bir mekanizmadır. Prosedür, borsa, piyasa veya grafik nesnelerini aramak için her kod satırını tarar ve bunları bulduktan sonra, bot için hangi ürünün gerekli olacağını anlamak için kodu parçalar. Bu filtreler, kodda bu dosyaların çoğu açıkça kullanılmadığında botun tüm bağımlılık dosyalarını her zaman diliminde yüklemesini önlemek için gereklidir.",
+                    "updated": 1654391007785,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Dependency Filter ist ein Mechanismus, der den Code aller Bedingungen, Formeln und Study Bots analysiert, um aus dem Code herauszufinden, welche Datenabhängigkeiten bei der Ausführung des Bots geladen werden müssen. Die Prozedur scannt jede Codezeile auf der Suche nach Börsen-, Markt- oder Chart-Objekten und sobald sie diese gefunden hat, wird sie aufgeschlüsselt, um zu verstehen, welches Produkt für den Bot benötigt wird. Diese Filter werden benötigt, um zu verhindern, dass der Bot alle Abhängigkeitsdateien zu allen Zeitpunkten lädt, obwohl viele dieser Dateien im Code offensichtlich nicht verwendet werden.",
+                    "updated": 1696955465165,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A Dependency Filter is a list of Indicators and Studies a Strategy depends on, that is later used to filter out all the other indicators and studies the Trading Bot depends on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фильтр зависимостей - это список индикаторов и исследований, от которых зависит стратегия, который впоследствии используется для фильтрации всех других индикаторов и исследований, от которых зависит торговый бот.",
+                    "updated": 1647355935033
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağımlılık Filtresi, bir Stratejinin ( Strategy ) bağlı olduğu Göstergelerin ve Çalışmaların bir listesidir ve daha sonra Ticaret Botunun ( Trading Bot ) bağlı olduğu diğer tüm göstergeleri ve çalışmaları filtrelemek için kullanılır.",
+                    "updated": 1671217736521,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Abhängigkeitsfilter ist eine Liste von Indikatoren und Studien, von denen eine Strategy abhängt, und die später verwendet wird, um alle anderen Indikatoren und Studien herauszufiltern, von denen der Trading Bot abhängt.",
+                    "updated": 1696955465394,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The function will scan a node branch, most likely a Trading System, looking into the code property of each node. It will analyze it's content and try to make a list of all indicators and studies mentioned at the code text and at which time frames they are mentioned.",
+            "updated": 1646056524485,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функция сканирует ветвь узлов, скорее всего, торговую систему, просматривая свойство кода каждого узла. Она анализирует его содержимое и пытается составить список всех индикаторов и исследований, упомянутых в тексте кода, и на каких таймфреймах они упоминаются.",
+                    "updated": 1647355966919
+                },
+                {
+                    "language": "TR",
+                    "text": "Fonksiyon, büyük olasılıkla bir Ticaret Sistemi ( Trading System ) olan bir düğüm dalını tarayacak ve her düğümün kod özelliğine bakacaktır. İçeriğini analiz edecek ve kod metninde bahsedilen tüm göstergelerin ve çalışmaların bir listesini ve hangi zaman dilimlerinde bahsedildiklerini yapmaya çalışacaktır.",
+                    "updated": 1671217821144,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktion scannt einen Knotenzweig, höchstwahrscheinlich ein Handelssystem ( Trading System ), und untersucht die Code-Eigenschaft jedes Knotens. Sie analysiert dessen Inhalt und versucht, eine Liste aller Indikatoren und Studien zu erstellen, die im Code-Text erwähnt werden und in welchen Zeitrahmen sie erwähnt werden.",
+                    "updated": 1696955465616,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It is important to note that all nodes that are not of the type Procedure Javascript, Javascript Code or Formula are going to be ignored.",
+            "updated": 1646056534040,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Важно отметить, что все узлы, которые не имеют типа Procedure Javascript, Javascript Code или Formula, будут проигнорированы.",
+                    "updated": 1647355978266
+                },
+                {
+                    "language": "TR",
+                    "text": "Procedure Javascript, Javascript Code veya Formula türünde olmayan tüm düğümlerin göz ardı edileceğini unutmamak önemlidir.",
+                    "updated": 1654391026650,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig zu beachten, dass alle Knoten, die nicht vom Typ Procedure Javascript, Javascript Code oder Formula sind, ignoriert werden.",
+                    "updated": 1696955465805,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1647355988470
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler",
+                    "updated": 1654391032270,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1696955465961,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "These are instructions that the Dependency Filter will recognize without any problems:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это инструкции, которые фильтр зависимостей распознает без проблем:",
+                    "updated": 1647355997289
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunlar, Bağımlılık Filtresinin herhangi bir sorun olmadan tanıyacağı talimatlardır:",
+                    "updated": 1654391037866,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies sind Anweisungen, die der Abhängigkeitsfilter ohne Probleme erkennt:",
+                    "updated": 1696955466072,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100 < 10",
+                    "updated": 1654391044225,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100 < 10",
+                    "updated": 1696955466213,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you removed spaces between instructions then the Dependency Filter might get confused and you will get an undefined value for the indicator you are trying to use.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы удалили пробелы между инструкциями, то фильтр зависимостей может запутаться, и вы получите неопределенное значение для индикатора, который вы пытаетесь использовать.",
+                    "updated": 1647356012833
+                },
+                {
+                    "language": "TR",
+                    "text": "Talimatlar arasındaki boşlukları kaldırırsanız Bağımlılık Filtresinin kafası karışabilir ve kullanmaya çalıştığınız gösterge için tanımlanmamış bir değer alırsınız.",
+                    "updated": 1654391050315,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Leerzeichen zwischen den Anweisungen entfernt haben, könnte der Abhängigkeitsfilter verwirrt werden und Sie erhalten einen undefinierten Wert für den Indikator, den Sie zu verwenden versuchen.",
+                    "updated": 1696955466448,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Advance Use",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предварительное использование",
+                    "updated": 1647356024399
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceden Kullanım",
+                    "updated": 1654391056540,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vorzeitige Verwendung",
+                    "updated": 1696955466637,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you are coding and dynamically picking the Base Asset, Quote Asset, or Time Frame, then there are a couple of tricks for you, because the Dependency Filters will not be able to guess which markets you will need at which time frame, there are a few tricks on how to influence the Dependency Filter.",
+            "updated": 1646056897508,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы кодируете и динамически выбираете базовый актив, котируемый актив или таймфрейм, то для вас есть пара приемов, поскольку фильтры зависимостей не смогут угадать, какие рынки вам нужны на каком таймфрейме, есть несколько приемов, как повлиять на фильтр зависимостей.",
+                    "updated": 1647356043986
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Varlığı ( Base Asset ), Fiyat Teklifi Varlığını ( Quote Asset ) veya Zaman Dilimini ( Time Frame ) kodluyor ve dinamik olarak seçiyorsanız, Bağımlılık Filtreleri hangi zaman diliminde hangi pazarlara ihtiyacınız olacağını tahmin edemeyeceğinden, Bağımlılık Filtresini nasıl etkileyeceğinize dair birkaç püf noktası vardır.",
+                    "updated": 1671218013966,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie kodieren und dynamisch den Basiswert ( Base Asset ), den Kurswert ( Quote Asset ) oder den Zeitrahmen ( Time Frame ) auswählen, gibt es ein paar Tricks für Sie. Da die Abhängigkeitsfilter nicht in der Lage sind, zu erraten, welche Märkte Sie in welchem Zeitrahmen benötigen, gibt es ein paar Tricks, wie Sie die Abhängigkeitsfilter beeinflussen können.",
+                    "updated": 1696955466731,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Inside a commented area of the code you can write something like this:",
+            "updated": 1646056993223,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Внутри закомментированной области кода вы можете написать что-то вроде этого:",
+                    "updated": 1647356056381
+                },
+                {
+                    "language": "TR",
+                    "text": "Kodun yorumlanmış bir alanının içine şöyle bir şey yazabilirsiniz:",
+                    "updated": 1654391068628,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In einem kommentierten Bereich des Codes können Sie etwas wie dieses schreiben:",
+                    "updated": 1696955467046,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
+                    "updated": 1654391074574,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
+                    "updated": 1696955467172,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The valid keyworks are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Действующими ключевыми словами являются:",
+                    "updated": 1647356065208
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli anahtar çalışmalar şunlardır:",
+                    "updated": 1654391080075,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die gültigen Schlüsselwörter sind:",
+                    "updated": 1696955467344,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "anyBaseAsset",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "anyBaseAsset",
+                    "updated": 1654391085670,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "anyBaseAsset",
+                    "updated": 1696955467438,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "anyQuotedAsset",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "anyQuotedAsset",
+                    "updated": 1654391091700,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "anyQuotedAsset",
+                    "updated": 1696955467547,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "atAnyTimeFrame",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "atAnyTimeFrame",
+                    "updated": 1654391097708,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "atAnyTimeFrame",
+                    "updated": 1696955467673,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

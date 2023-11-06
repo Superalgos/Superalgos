@@ -1,0 +1,55 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 40,
+    "type": "Superalgos Review - A data scientist's and trading newbie's perspective",
+    "definition": {
+        "text": "Short review",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Kısa inceleme",
+                "updated": 1670695686726
+            },
+            {
+                "language": "DE",
+                "text": "Kurzkritik",
+                "updated": 1687641123366
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While doing the tutorials I was very impressed about the flexibility and (apprently) endless possibilities that could be achieved by this tool. The idea and concept of the platform bought me in quite early.",
+            "updated": 1640888133148,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Eğitimleri yaparken, bu araçla elde edilebilecek esneklik ve (görünüşe göre) sonsuz olasılıklar beni çok etkiledi. Platformun fikri ve konsepti beni oldukça erken etkiledi.",
+                    "updated": 1670695741362
+                },
+                {
+                    "language": "DE",
+                    "text": "Während der Tutorials war ich sehr beeindruckt von der Flexibilität und den (scheinbar) unendlichen Möglichkeiten, die mit diesem Tool erreicht werden können. Die Idee und das Konzept der Plattform haben mich ziemlich schnell überzeugt.",
+                    "updated": 1687641141780
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "However, there are still many bugs and room for improvement. Especially for someone like me who isn't super firm in coding, contributing etc. For instance, I was writing a very detailed review, saved it with docs.save but in the end all was gone. Makes you furious. Nevertheless, looking forward to dig deeper and maybe help making the tool more accessible for noobs like me.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, hala birçok hata ve iyileştirme için yer var. Özellikle de benim gibi kodlama, katkıda bulunma vb. konularda çok sıkı olmayan biri için. Örneğin, çok ayrıntılı bir inceleme yazıyordum, docs.save ile kaydettim ama sonunda hepsi gitti. İnsanı öfkelendiriyor. Yine de, daha derine inmeyi ve belki de aracı benim gibi acemiler için daha erişilebilir hale getirmeye yardımcı olmayı dört gözle bekliyorum.",
+                    "updated": 1670695817889
+                },
+                {
+                    "language": "DE",
+                    "text": "Allerdings gibt es noch viele Fehler und Raum für Verbesserungen. Vor allem für jemanden wie mich, der sich nicht so gut mit Programmierung, Beiträgen usw. auskennt. Ich habe zum Beispiel einen sehr ausführlichen Bericht geschrieben, ihn mit docs.save gespeichert, aber am Ende war alles weg. Das macht einen wütend. Nichtsdestotrotz freue ich mich darauf, tiefer zu graben und vielleicht dabei zu helfen, das Tool für Neulinge wie mich zugänglicher zu machen.",
+                    "updated": 1687641167277
+                }
+            ]
+        }
+    ]
+}

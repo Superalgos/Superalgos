@@ -1,0 +1,149 @@
+{
+    "topic": "Divergences Data Mine",
+    "pageNumber": 13,
+    "type": "Know Sure Thing Oscillator",
+    "definition": {
+        "text": "The Know Sure Thing Oscillator indicator was developed by Martin Pring in 1992 to make rate of change readings easier for traders to interpret.",
+        "updated": 1652685074675,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Indikator Know Sure Thing Oszillator wurde 1992 von Martin Pring entwickelt, um Händlern die Interpretation von Veränderungsraten zu erleichtern.",
+                "updated": 1673645818115
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Know Sure Thing On the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Know Sure Thing Oszillator in den Charts",
+                    "updated": 1673645961027
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is an unbound momentum oscillator that uses the rate of change from four time periods, giving more weight to the longer time periods. The output value can then be used to gauge the bullish or bearish momentum of the asset's price. A Simple Moving Average is then taken of the output value to create a signal line. The indicator can be used in the following ways:",
+            "updated": 1652685082560,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei diesem Indikator handelt es sich um einen ungebundenen Momentum-Oszillator, der die Veränderungsrate von vier Zeiträumen verwendet, wobei den längeren Zeiträumen mehr Gewicht beigemessen wird. Der Ausgabewert kann dann verwendet werden, um das Aufwärts- oder Abwärtsmomentum des Preises, des Vermögenswertes zu messen. Aus dem Ausgabewert wird dann ein einfacher gleitender Durchschnitt gebildet, um eine Signallinie zu erstellen. Der Indikator kann auf folgende Weise verwendet werden:",
+                    "updated": 1673646029065
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Divergence or convergence",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Divergenz oder Konvergenz",
+                    "updated": 1673646048261
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Signal crossover",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Signalübergang",
+                    "updated": 1673646080226
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Zero crossover",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kreuzung Null",
+                    "updated": 1673646108805
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Know Sure Thing Oscillator(investopedia)->www.investopedia.com/terms/k/know-sure-thing-kst.asp"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-kst.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-kst-divergence.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the KST can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"KST\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der KST können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"KST\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1673645734350
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Divergences-kst-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Ultimate Oscillator Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ultimate Oszillator Produkte & Eigenschaften",
+                    "updated": 1673645744690
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| KST | kst | value, signal |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| KST | kst | value, signal |",
+                    "updated": 1673646165243
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673645751405
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the oscillator value crosses the signal line when below zero:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der Oszillatorwert die Signallinie kreuzt, wenn er unter Null liegt:",
+                    "updated": 1673645760127
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.kst.value < 0 && chart.at01hs.kst.previous.value < chart.at01hs.kst.previous.signal && chart.at01hs.kst.value > chart.at01hs.kst.signal"
+        }
+    ]
+}

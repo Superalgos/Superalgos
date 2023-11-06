@@ -4,37 +4,156 @@
     "type": "CoinbasePro Test Status",
     "definition": {
         "text": "Coinbase Pro is not fully tested for data mining nor for live trading.",
-        "updated": 1616005773803
+        "updated": 1616005773803,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Coinbase Pro не полностью протестирован ни для добычи данных, ни для торговли в реальном времени.",
+                "updated": 1646902738633
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Coinbase Pro, veri madenciliği veya canlı ticaret için tam olarak test edilmemiştir.",
+                "updated": 1650571911082
+            },
+            {
+                "language": "DE",
+                "text": "Coinbase Pro ist weder für Data Mining noch für den Live-Handel vollständig getestet.",
+                "updated": 1690357577609
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1615143100216
+            "updated": 1615143100216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646902746175
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650571926876
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357584457
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-min OHLCVs Capability: Yes. Backtesting and Paper trading are functional. The data mining process is extremely slow when retrieving full history due to API limits but it is adequate for live trading purposes.",
-            "updated": 1617935711274
+            "updated": 1617935711274,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Да. Резервное тестирование и бумажная торговля функционируют. Процесс поиска данных чрезвычайно медленный при получении полной истории из-за ограничений API, но он достаточен для целей реальной торговли.",
+                    "updated": 1646902792406
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test ve Kağıt ticareti işlevseldir. API limitleri nedeniyle tam geçmiş alınırken veri madenciliği süreci son derece yavaştır ancak canlı ticaret amaçları için yeterlidir.",
+                    "updated": 1650571920517
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Backtesting und Papierhandel sind möglich. Der Data-Mining-Prozess ist aufgrund der API-Beschränkungen extrem langsam, wenn es darum geht, die gesamte Historie abzurufen, aber für Live-Trading-Zwecke ist er ausreichend.",
+                    "updated": 1690357615441
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market History: Full extent is unknown, however the sensor bot start from 2021-05-01 even through set date is 2020-01-01",
-            "updated": 1634126300339
+            "updated": 1634126300339,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: Полный объем неизвестен, однако сенсорный бот начинает свою работу с 2021-05-01, даже если дата установки 2020-01-01",
+                    "updated": 1646902809456
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: Tam kapsam bilinmiyor, ancak sensör botu 2021-05-01'den ayarlanan tarih 2020-01-01'e kadar.",
+                    "updated": 1650571974569
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Der volle Umfang ist unbekannt, aber der Sensor-Bot beginnt am 2021-05-01, auch wenn der Stichtag der 2020-01-01 ist.",
+                    "updated": 1690357625017
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Capability: Partial. With a proper key configuration placing orders is possible. Currently, closing orders is not fully functional, so all types of trading strategies may not be fully functional.",
-            "updated": 1617935811860
+            "updated": 1617935811860,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Частичная. При правильной конфигурации ключей размещение ордеров возможно. В настоящее время закрытие ордеров не полностью функционально, поэтому все типы торговых стратегий могут быть не полностью функциональны.",
+                    "updated": 1646902822701
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Kısmi. Uygun bir anahtar konfigürasyonu ile sipariş vermek mümkündür. Şu anda, kapanış emirleri tam olarak işlevsel değildir, bu nedenle her türlü ticaret stratejisi tam olarak işlevsel olmayabilir.",
+                    "updated": 1650571985447
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsfähigkeit (Trading Capability): Teilweise. Mit der richtigen Tastenkonfiguration ist das Platzieren von Aufträgen möglich. Derzeit ist das Schließen von Aufträgen nicht voll funktionsfähig, so dass möglicherweise nicht alle Arten von Handelsstrategien voll funktionsfähig sind.",
+                    "updated": 1690357639410
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Comments: Raw Data fetching extremely slow due to API restrictions, see config.",
-            "updated": 1616005813658
+            "updated": 1616005813658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Получение необработанных данных происходит очень медленно из-за ограничений API, см. конфигурацию.",
+                    "updated": 1646902832289
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: API kısıtlamaları nedeniyle Ham Veriler son derece yavaş getiriliyor, bkz. config.",
+                    "updated": 1650571994178
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Rohdatenabruf (Raw Data fetching) aufgrund von API-Beschränkungen extrem langsam, siehe ",
+                    "updated": 1690357649320
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Exchange Configuration"
+            "text": "Exchange Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646902847765
+                },
+                {
+                    "language": "TR",
+                    "text": "Exchange Yapılandırması",
+                    "updated": 1650572002748
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der Exchange.",
+                    "updated": 1690357659393
+                }
+            ]
         },
         {
             "style": "Json",
@@ -43,7 +162,24 @@
         },
         {
             "style": "Title",
-            "text": "API Key Configuration"
+            "text": "API Key Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация ключа API",
+                    "updated": 1646902858351
+                },
+                {
+                    "language": "TR",
+                    "text": "API Key Yapılandırması",
+                    "updated": 1650572012786
+                },
+                {
+                    "language": "DE",
+                    "text": "API-Schlüssel-Konfiguration",
+                    "updated": 1690357669985
+                }
+            ]
         },
         {
             "style": "Json",

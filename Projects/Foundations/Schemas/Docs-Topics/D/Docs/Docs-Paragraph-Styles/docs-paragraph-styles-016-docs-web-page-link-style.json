@@ -1,6 +1,6 @@
 {
     "topic": "Docs Paragraph Styles",
-    "pageNumber": 16,
+    "pageNumber": "16",
     "type": "Docs Web Page Link Style",
     "definition": {
         "text": "Applying this style to a paragraph is the way to create a link to an external website.",
@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Применение этого стиля к абзацу - это способ создать ссылку на внешний веб-сайт.",
                 "updated": 1638540801018
+            },
+            {
+                "language": "TR",
+                "text": "Bu stili bir paragrafa uygulamak, harici bir web sitesine bağlantı oluşturmanın yoludur.",
+                "updated": 1652386303699
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Если вы хотите создать ссылку на внешний веб-сайт, необходимо соблюдать следующий синтаксис:",
                     "updated": 1638540845123
+                },
+                {
+                    "language": "TR",
+                    "text": "Harici bir web sitesine bağlantı oluşturmak istiyorsanız izlemeniz gereken belirli bir sözdizimi vardır. Sözdizimi:",
+                    "updated": 1652386326350
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1638540855547
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal:",
+                    "updated": 1652386340316
                 }
             ]
         },
@@ -71,12 +86,25 @@
                     "language": "RU",
                     "text": "создает следующую HTML-ссылку на главную страницу Google:",
                     "updated": 1638540872431
+                },
+                {
+                    "language": "TR",
+                    "text": "Google'ın ana sayfasına aşağıdaki html bağlantısını üretir:",
+                    "updated": 1652386357689
                 }
             ]
         },
         {
             "style": "Link",
-            "text": "Google->google.com"
+            "text": "Google->google.com",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Google->google.com",
+                    "updated": 1654393790433,
+                    "style": "Link"
+                }
+            ]
         },
         {
             "style": "Note",
@@ -91,6 +119,11 @@
                     "language": "RU",
                     "text": "Невозможно иметь какой-либо другой текст в том же абзаце.",
                     "updated": 1638540947173
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı paragrafta başka bir metin bulunması mümkün değildir.",
+                    "updated": 1652386376008
                 }
             ]
         },

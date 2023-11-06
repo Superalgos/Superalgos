@@ -4,13 +4,47 @@
     "type": "Superalgos Review - My first Superalgos review",
     "definition": {
         "text": "I'm just grinding the tutorials for now, can't wait to run some backtests. I'm impressed how complex but also easy to use this software is. As a developer i am also highly motivated to contribute to the project.",
-        "updated": 1633844141741
+        "updated": 1633844141741,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пока что я просто изучаю учебники, не терпится провести несколько бэктестов. Я впечатлен тем, насколько сложным и одновременно простым в использовании является это программное обеспечение. Как разработчик я также очень мотивирован внести свой вклад в проект.",
+                "updated": 1640418299472
+            },
+            {
+                "language": "TR",
+                "text": "Şimdilik öğreticileri öğütüyorum, bazı geriye dönük testler yapmak için sabırsızlanıyorum. Bu yazılımın ne kadar karmaşık ama aynı zamanda kullanımının kolay olduğundan etkilendim. Bir geliştirici olarak, projeye katkıda bulunmak için de oldukça motiveyim.",
+                "updated": 1669312471574
+            },
+            {
+                "language": "DE",
+                "text": "Ich lese im Moment nur die Tutorials und kann es kaum erwarten, einige Backtests durchzuführen. Ich bin beeindruckt, wie komplex, aber auch einfach zu bedienen diese Software ist. Als Entwickler bin ich auch hoch motiviert, zum Projekt beizutragen.",
+                "updated": 1687638998815
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Regards, ",
-            "updated": 1633844210344
+            "updated": 1633844210344,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С уважением,",
+                    "updated": 1640418308967
+                },
+                {
+                    "language": "TR",
+                    "text": "Saygılarımızla,",
+                    "updated": 1669312481928
+                },
+                {
+                    "language": "DE",
+                    "text": "Herzliche Grüße,",
+                    "updated": 1687638989574
+                }
+            ]
         },
         {
             "style": "Text",

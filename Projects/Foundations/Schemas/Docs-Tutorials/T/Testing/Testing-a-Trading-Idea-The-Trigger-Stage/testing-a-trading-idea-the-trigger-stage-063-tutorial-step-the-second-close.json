@@ -1,0 +1,114 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 63,
+    "type": "Tutorial Step - The Second Close",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "condition"
+        },
+        "text": "When we came up with the trading idea, we noticed that a single breakdown in the 1H chart would produce bad entries...",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Als wir die Handelsidee entwickelten, stellten wir fest, dass ein einziger Durchbruch im 1H-Chart zu schlechten Einstiegen führen würde...",
+                "updated": 1639389651959
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret fikrini ortaya attığımızda, 1H grafiğindeki tek bir arızanın kötü girişler üreteceğini fark ettik ...",
+                "updated": 1669665722912
+            },
+            {
+                "language": "RU",
+                "text": "Когда мы придумали эту торговую идею, мы заметили, что один пробой на графике 1H приводит к плохим входам...",
+                "updated": 1642661119724
+            },
+            {
+                "language": "ES",
+                "text": "Cuando se nos ocurrió la idea de trading, nos dimos cuenta de que una sola ruptura en el gráfico 1H produciría malas entradas...",
+                "updated": 1679100690828
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We decided that a first breakdown would be our signal, and that a second consecutive breakdown would be our confirmation.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir beschlossen, dass ein erster Durchbruch unser Signal und ein zweiter Durchbruch in Folge unsere Bestätigung sein würde.",
+                    "updated": 1639389661189
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk arızanın sinyalimiz olacağına ve ardından gerçekleşecek ikinci bir kırılmanın da teyidimiz olacağına karar verdik.",
+                    "updated": 1669665891106
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы решили, что первый пробой будет нашим сигналом, а второй последовательный пробой - подтверждением.",
+                    "updated": 1642661135251
+                },
+                {
+                    "language": "ES",
+                    "text": "Decidimos que una primera ruptura sería nuestra señal, y que una segunda ruptura consecutiva sería nuestra confirmación.",
+                    "updated": 1679100685511
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's refresh the concepts that will help us describe that situation! We are back on the Syntax Overview page. Please, read the section about the Previous Property!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns die Konzepte auffrischen, die uns helfen werden, diese Situation zu beschreiben! Wir sind zurück auf der Seite \"Syntax Overview\". Lesen Sie bitte den Abschnitt \"Previous Property\"!",
+                    "updated": 1639389935120
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu durumu tanımlamamıza yardımcı olacak kavramları tazeleyelim! \"Sözdizimine Genel Bakış\" ( Syntax Overview ) sayfasına geri döndük. Lütfen \"Önceki Özellik\"(Previous Property) bölümünü okuyunuz!",
+                    "updated": 1669665807837
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте освежим в памяти понятия, которые помогут нам описать эту ситуацию! Мы вернемся на страницу \"Syntax Overview\". Пожалуйста, прочитайте раздел о свойстве Previous!",
+                    "updated": 1642661231200
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a refrescar los conceptos que nos ayudarán a describir esa situación! Estamos de vuelta en la página de Sintaxis General. Por favor, ¡lee la sección sobre la Property Previous!",
+                    "updated": 1679100675372
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Can you write a second condition to finish the definition of the take position event?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Können Sie eine zweite Bedingung schreiben, um die Definition des Ereignisses \"Take Position\" abzuschließen?",
+                    "updated": 1639389769890
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Al olayının (Take poisiton Event ) tanımını tamamlamak için ikinci bir koşul yazabilir misiniz?",
+                    "updated": 1669665918600
+                },
+                {
+                    "language": "RU",
+                    "text": "Можете ли вы написать второе условие, чтобы завершить определение события занятия позиции?",
+                    "updated": 1642661273237
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes escribir una segunda condición para terminar la definición del evento de toma de posición?",
+                    "updated": 1679100663473
+                }
+            ]
+        }
+    ]
+}

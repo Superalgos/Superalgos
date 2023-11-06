@@ -1,13 +1,27 @@
 {
     "type": "User Keys",
     "definition": {
-        "text": "The user keys node groups the various exchange account keys the user may have under the corresponding account with the exchange."
+        "text": "The user keys node groups the various exchange account keys the user may have under the corresponding account with the exchange.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел User Keys группирует различные ключи учетных записей биржи, которые пользователь может иметь под соответствующей учетной записью на бирже.",
+                "updated": 1645180564000
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You may want to have multiple exchange account keys under the same User Account to trade, for instance, with different trading systems, or different kinds of trading sessions.",
-            "updated": 1609777414403
+            "updated": 1609777414403,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете захотеть иметь несколько ключей биржевого счета под одной учетной записью пользователя для торговли, например, с помощью различных торговых систем или различных видов торговых сессий.",
+                    "updated": 1645180575976
+                }
+            ]
         }
     ]
 }

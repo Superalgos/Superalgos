@@ -1,0 +1,140 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 16,
+    "type": "VADER Indicator",
+    "definition": {
+        "text": "The Volume Accelerated Directional Energy Ratio (VADER) makes use of price moves (displacement) and the associated volume (effort) to estimate the positive (buying) and negative (selling) \"energy\" behind the scenes, enabling traders to read the market action in more details and adjust their trading decisions accordingly.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Volume Accelerated Directional Energy Ratio (VADER) nutzt Preisbewegungen (Verschiebung) und das damit verbundene Volumen (Aufwand), um die positive (Kauf) und negative (Verkauf) \"Energie\" im Hintergrund abzuschätzen, so dass die Händler das Marktgeschehen detaillierter lesen und ihre Handelsentscheidungen entsprechend anpassen können.",
+                "updated": 1671642671970
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "VADER on the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "VADER auf den Charts",
+                    "updated": 1671642693030
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is a conversion from TradingView's RedK. RedK explains that a price move is a displacement level, and the associated volume is the effort behind the action. Combining these two values together, the displacement and the effort, yeilds the underlying energy of the move. When both values are high, the resulting energy behind the move is high.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator ist eine Umwandlung von TradingViews RedK. Die RedK erklärt, dass eine Kursbewegung ein Verschiebungsniveau ist und das zugehörige Volumen  den Aufwand hinter der Aktion darstellt. Kombiniert man diese beiden Werte, die Verschiebung und den Aufwand, erhält man die zugrunde liegende Energie der Bewegung. Wenn beide Werte hoch sind, ist die Energie, die hinter der Bewegung steht, hoch.",
+                    "updated": 1671642835370
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Key concepts:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671642862400
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "the main signal to look for is when the value crosses the zero line.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das wichtigste Signal ist, wenn der Wert die Nulllinie überschreitet.",
+                    "updated": 1671642877655
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "VADER provides a momentum value and should be used as a secondary indicator in combination with MACD, RSI, or other similar momentum indicators.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "VADER liefert einen Momentum Wert und sollte als sekundärer Indikator in Kombination mit MACD, RSI oder anderen ähnlichen Momentum Indikatoren verwendet werden.",
+                    "updated": 1671642913498
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vader.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the VADER indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"VADER\" Product Definition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des VADER Indikators können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"VADER\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671642980243
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-vader-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "VADER Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "VADER Produkte & Eigenschaften",
+                    "updated": 1671643005452
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| VADER | vader | value, vader, sentiment |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| VADER | vader | value, vader, sentiment |",
+                    "updated": 1671643021262
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671643035504
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the vader value crosses the zero value upwards:",
+            "updated": 1651231285780,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in einen Handel einsteigt, wenn der Vader Wert den Nullwert nach oben durchquert:",
+                    "updated": 1671643058823
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.vader.vader > 0 && chart.at01hs.vader.previous.vader < 0"
+        }
+    ]
+}

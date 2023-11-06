@@ -3,8 +3,8 @@
     "pageNumber": 22,
     "type": "Docs Block Style",
     "definition": {
-        "text": "Block paragraphs defines set of paragraphs that can be included from other pages. When you include a block by creating a Docs Include Style paragraph, you need to reference a Block paragraph created at the page that have the set of paragraphs to be included. A Block contains all the paragraph after itself until the next Block or the end of the page.",
-        "updated": 1638116268152,
+        "text": "Use block paragraphs to define blocks of content with any number of paragraphs. A block starts with the paragraph that is assigned the Docs Block Style and ends on the last paragraph before the next paragraph with a Docs Block Style, or where the page ends.",
+        "updated": 1642938399056,
         "translations": [
             {
                 "language": "DE",
@@ -13,16 +13,21 @@
             },
             {
                 "language": "RU",
-                "text": "Блок абзацев Block Paragraph определяет набор абзацев, которые могут быть включены с других страниц. Когда вы включаете блок, создавая абзац стиля Docs Include Style, вам необходимо ссылаться на абзац блока, созданный на странице, на которой есть набор абзацев для включения. Блок содержит весь абзац после себя до следующего блока или конца страницы.",
-                "updated": 1638544396175
+                "text": "Используйте блочные абзацы для определения блоков содержимого с любым количеством абзацев. Блок начинается с абзаца, которому присвоен стиль Docs Block Style, и заканчивается последним абзацем перед следующим абзацем со стилем Docs Block Style или местом окончания страницы.",
+                "updated": 1647784906947
+            },
+            {
+                "language": "TR",
+                "text": "İstediğiniz sayıda paragraf içeren içerik bloklarını tanımlamak için paragrafları engelle'yi kullanın. Blok, Dokümanlar Blok Stiline atanan paragrafla başlar ve Dokümanlar Blok Stiliyle sonraki paragraftan önceki son paragrafta veya sayfanın bittiği yerde sona erer.",
+                "updated": 1652387163248
             }
         ]
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "To correctly define an Block Paragraph, you need to follow the following syntax:",
-            "updated": 1633958247918,
+            "style": "Block",
+            "text": "Content",
+            "updated": 1642938781588,
             "translations": [
                 {
                     "language": "DE",
@@ -33,6 +38,93 @@
                     "language": "RU",
                     "text": "Чтобы правильно определить блок абзацев, вам необходимо следовать следующему синтаксису:",
                     "updated": 1638544350250
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To start a new block, write the name of the block in a new paragraph and apply the Docs Block Style.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы начать новый блок, напишите название блока в новом абзаце и примените стиль Docs Block Style.",
+                    "updated": 1647784924749
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir blok başlatmak için bloğun adını yeni bir paragrafa yazın ve Dokümanlar Blok Stilini uygulayın.",
+                    "updated": 1652389069687
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Once you apply the Docs Block Style, the paragraph seems to disappear. It doesn't though. What happens is that the paragraph gets assigned a CSS style that makes invisible the name you wrote, and displays a faint triangle pointing downwards that is highlighted upon mouseover. The triangle now marks the start of the block.",
+            "updated": 1642950503111,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После применения стиля Docs Block Style абзац, кажется, исчезает. Однако это не так. Происходит следующее: абзацу присваивается стиль CSS, который делает невидимым написанное вами название и отображает слабый треугольник, направленный вниз, который подсвечивается при наведении курсора мыши. Треугольник теперь обозначает начало блока.",
+                    "updated": 1647784946524
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Blok Stilini uyguladıktan sonra paragraf kayboluyor gibi görünüyor. Ama değil. Olan şey, paragrafa yazdığınız adı görünmez kılan bir CSS stili atanması ve fare imlecinin üzerine getirildiğinde vurgulanan aşağı doğru işaret eden soluk bir üçgen göstermesidir. Üçgen şimdi bloğun başlangıcını işaret ediyor.",
+                    "updated": 1652389111306
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To end a block, create a new block after it. If you don't, then the block ends wherever the page ends.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы завершить блок, создайте после него новый блок. Если этого не сделать, то блок закончится там, где закончится страница.",
+                    "updated": 1647784957835
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir bloğu sonlandırmak için, ondan sonra yeni bir blok oluşturun. Bunu yapmazsanız, blok sayfanın bittiği yerde sona erer.",
+                    "updated": 1652387192681
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Example",
+            "updated": 1642938594418
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1647784964354
+                },
+                {
+                    "language": "TR",
+                    "text": "Misal",
+                    "updated": 1652387205996
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "This example is set up as a block. Notice the dim triangle on the right-hand side of the page right above the Example title. Double click to the left of the triangle to select the hidden text. This is how you find the name of the block.",
+            "updated": 1642938905830,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот пример настроен как блок. Обратите внимание на тусклый треугольник в правой части страницы прямо над заголовком \"Пример\". Дважды щелкните слева от треугольника, чтобы выделить скрытый текст. Так вы найдете название блока.",
+                    "updated": 1647785034196
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu örnek, bir blok olarak ayarlanır. Sayfanın sağ tarafındaki Örnek başlığın hemen üstündeki loş üçgene dikkat edin. Gizli metni seçmek için üçgenin soluna çift tıklayın. Bloğun adını bu şekilde buluyorsunuz.",
+                    "updated": 1652387261478
                 }
             ]
         },
@@ -55,6 +147,11 @@
                     "language": "RU",
                     "text": "Name: Это относится к любому имени, которое вы хотели бы дать вновь созданному блоку. Имя должно быть уникальным на странице.",
                     "updated": 1638544436027
+                },
+                {
+                    "language": "TR",
+                    "text": "Block Name: Bu, yeni oluşturulan bloğa vermek istediğiniz herhangi bir adı ifade eder. Ad, sayfa içinde benzersiz olmalıdır.",
+                    "updated": 1652387303762
                 }
             ]
         }

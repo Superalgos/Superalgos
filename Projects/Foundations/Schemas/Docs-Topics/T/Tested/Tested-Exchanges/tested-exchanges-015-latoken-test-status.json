@@ -1,0 +1,164 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 15,
+    "type": "Latoken Test Status",
+    "definition": {
+        "text": "Passed Live Trading Test but limited Historical Data ",
+        "updated": 1636810465259,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Прошел тест живой торговли, но исторические данные ограничены",
+                "updated": 1646903108094
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Canlı Alım Satım Testinden Geçildi ancak Geçmiş Veriler Sınırlı",
+                "updated": 1650572322919
+            },
+            {
+                "language": "DE",
+                "text": "Bestandener Live-Handelstest (Live Trading Test), aber begrenzte historische Daten",
+                "updated": 1690357815987
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1636811142009,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сведения",
+                    "updated": 1646903115147
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1650572331307
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357821944
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: No. The ability to fetch historical data for backtesting purposes is not possible.",
+            "updated": 1636811644277,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутные свечи OHLCV: Нет. Возможность получения исторических данных для целей бэктестинга невозможна.",
+                    "updated": 1646903142421
+                },
+                {
+                    "language": "TR",
+                    "text": "1 dakikalık OHLCV Yeteneği: Hayır. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği mümkün değildir.",
+                    "updated": 1650572340263
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Nein. Die Möglichkeit, historische Daten für Backtesting-Zwecke abzurufen, ist nicht gegeben.",
+                    "updated": 1690357831016
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Market History: From that day you to start mining historical data",
+            "updated": 1636811635789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "История рынка: С этого же момента вы можете начать добывать исторические данные",
+                    "updated": 1646903171356
+                },
+                {
+                    "language": "TR",
+                    "text": "Market Geçmişi: O günden itibaren geçmiş verileri madenciliğe başlayacaksınız",
+                    "updated": 1650572352914
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Von diesem Tag an können Sie mit der Auswertung historischer Daten beginnen",
+                    "updated": 1690357837279
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes The ability to place market orders, create and cancel limit orders in a live-trading mode has been verified.",
+            "updated": 1636811869127,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможность торговли: Да. Возможность размещать рыночные ордера, создавать и отменять лимитные ордера в режиме реальной торговли была проверена.",
+                    "updated": 1646903183256
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Yeteneği: Evet Canlı alım satım modunda piyasa emirleri verme, limit emirleri oluşturma ve iptal etme yeteneği doğrulandı.",
+                    "updated": 1650572370075
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading-Fähigkeit (Trading Capability): Ja Die Fähigkeit, im Live-Handel Marktaufträge zu erteilen, Limitaufträge zu erstellen und zu stornieren, wurde überprüft.",
+                    "updated": 1690357852280
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining is limited to a few minutes due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
+            "updated": 1636812202662,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Комментарии: Поиск необработанных данных ограничен несколькими минутами из-за ограничений обмена на их API, которые ограничивают количество данных, которые можно запросить через Rest API.",
+                    "updated": 1646903194742
+                },
+                {
+                    "language": "TR",
+                    "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla talep edilebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle birkaç dakika ile sınırlıdır.",
+                    "updated": 1650572382677
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Die Gewinnung von Rohdaten (Raw Data) ist auf wenige Minuten beschränkt, da die Anzahl der Daten, die über die Rest-API angefordert werden können, durch die Austauschbeschränkungen der API begrenzt ist.",
+                    "updated": 1690357861873
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1646903202332
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1650572389285
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357869465
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"latoken\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1636811208143
+        }
+    ]
+}

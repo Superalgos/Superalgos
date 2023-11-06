@@ -1,7 +1,19 @@
 {
     "type": "Spaces",
     "definition": {
-        "text": "Spaces refers to the different types of spaces for which definitions exist in the form of hierarchies. At this stage, the node may spawn the Design Space and the Charting Space hierarchies."
+        "text": "Spaces refers to the different types of spaces for which definitions exist in the form of hierarchies. At this stage, the node may spawn the Design Space and the Charting Space hierarchies.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Spaces относится к различным типам пространств, для которых существуют определения в виде иерархий. На этом этапе узел может породить иерархии Design Space и Charting Space.",
+                "updated": 1645170380503
+            },
+            {
+                "language": "TR",
+                "text": "Alanlar, hiyerarşiler şeklinde tanımların mevcut olduğu farklı alan türlerini ifade eder. Bu aşamada, düğüm Tasarım Alanı ( Design Space ) ve Grafik Alanı ( Charting Space ) hiyerarşilerini ortaya çıkarabilir.",
+                "updated": 1666872398923
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +24,19 @@
         {
             "style": "Success",
             "text": "Use the menu to spawn new hierarchies.",
-            "updated": 1609702462116
+            "updated": 1609702462116,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте меню для создания новых иерархий.",
+                    "updated": 1645170386241
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni hiyerarşiler oluşturmak için menüyü kullanın.",
+                    "updated": 1666872450626
+                }
+            ]
         }
     ]
 }

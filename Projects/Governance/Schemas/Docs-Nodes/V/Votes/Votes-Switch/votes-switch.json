@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Votes Switch направляет полномочия голосования вниз по иерархии. Это переключатель верхнего уровня, используемый в качестве организационного устройства для создания и размещения других типов переключателей.",
                 "updated": 1639136378777
+            },
+            {
+                "language": "TR",
+                "text": "Oy Anahtarı düğümü Oylama Gücünü ( Voting Power ) hiyerarşide aşağıya doğru kanalize eder. Diğer anahtar türlerini ortaya çıkarmak ve düzenlemek için organizasyonel bir araç olarak kullanılan üst düzey bir anahtardır.",
+                "updated": 1671558642085
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Этот узел не может ссылаться на типы узлов “class” или “folder” в других иерархиях. Это просто организационное устройство.",
                     "updated": 1639136432510
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm diğer hiyerarşilerdeki \"sınıf\" veya \"klasör\" tipi düğümlere referans veremez. Sadece bir organizasyon aracıdır.",
+                    "updated": 1671558691058
                 }
             ]
         },

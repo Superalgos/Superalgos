@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Clones difieren de las copias de seguridad en que la función está diseñada para replicar estructuras de datos para que las copias se parezcan al original.",
-                "updated": 1626617648374,
+                "text": "Los Clones difieren de los Backups en que la función está diseñada para replicar estructuras de datos para que las copias se parezcan al original.",
+                "updated": 1675377178855,
                 "style": "Definition"
             },
             {
@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "Klonlar ( Clones ),veri yapılarını çoğaltmak üzere tasarlandığından, kopyaların orijinaline benzemesi açısından yedeklemelerden farklıdır.",
                 "updated": 1639734081761
+            },
+            {
+                "language": "RU",
+                "text": "Клоны (Clones) отличаются от резервных копий тем, что эта функция предназначена для дублирования структур данных таким образом, чтобы копии были похожи на оригинал.",
+                "updated": 1640871161447
+            },
+            {
+                "language": "ID",
+                "text": "Clones berbeda dari cadangan karena fitur ini dirancang untuk mereplikasi struktur data sehingga salinannya menyerupai aslinya.",
+                "updated": 1645032537742
+            },
+            {
+                "language": "NL",
+                "text": "Clones verschillen van back-ups doordat de functie is ontworpen om gegevensstructuren te repliceren, zodat de kopieën lijken op het origineel.",
+                "updated": 1669544812516
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Bu sayfayı dikkatlice okuyun....",
                     "updated": 1639734094007
+                },
+                {
+                    "language": "RU",
+                    "text": "Внимательно прочитайте эту страницу!",
+                    "updated": 1640871176011
+                },
+                {
+                    "language": "ID",
+                    "text": "Baca halaman ini dengan seksama!",
+                    "updated": 1645032555279
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees deze pagina goed!",
+                    "updated": 1669544823316
                 }
             ]
         },
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Özetle;",
                     "updated": 1639734110521
+                },
+                {
+                    "language": "RU",
+                    "text": "Подведем итоги:",
+                    "updated": 1640871203037
+                },
+                {
+                    "language": "ID",
+                    "text": "Kesimpulan:",
+                    "updated": 1645032582326
+                },
+                {
+                    "language": "NL",
+                    "text": "Samengevat:",
+                    "updated": 1669544835260
                 }
             ]
         },
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Klonlar, restorasyon sırasında orijinalin mevcut olup olmadığına bakılmaksızın aynı şekilde davranır.",
                     "updated": 1639734307024
+                },
+                {
+                    "language": "RU",
+                    "text": "Клоны ведут себя одинаково независимо от того, присутствует ли оригинал при восстановлении или нет.",
+                    "updated": 1640871216699
+                },
+                {
+                    "language": "ID",
+                    "text": "Clones berperilaku dengan cara yang sama apakah aslinya ada pada restorasi atau tidak.",
+                    "updated": 1645032619979
+                },
+                {
+                    "language": "NL",
+                    "text": "Clones gedragen zich op dezelfde manier, of het origineel nu aanwezig is bij het terugzetten of niet.",
+                    "updated": 1669544894029
                 }
             ]
         },
@@ -147,6 +207,21 @@
                     "language": "TR",
                     "text": "Gelen referanslar her zaman göz ardı edilir, iptal edilir.",
                     "updated": 1639734350993
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящие ссылки всегда отбрасываются.",
+                    "updated": 1640871225609
+                },
+                {
+                    "language": "ID",
+                    "text": "Referensi Incoming selalu dibuang.",
+                    "updated": 1645032707209
+                },
+                {
+                    "language": "NL",
+                    "text": "Inkomende referenties worden altijd weggegooid.",
+                    "updated": 1669544909320
                 }
             ]
         },
@@ -163,8 +238,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Siéntate libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos!",
-                    "updated": 1626617964519,
+                    "text": "Siéntete libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos!",
+                    "updated": 1675377210998,
                     "style": "Success"
                 },
                 {
@@ -176,6 +251,21 @@
                     "language": "TR",
                     "text": "Klonlar ( Clones ) özelliğini kendi başınıza test etmek için zaman ayırın! Lafı fazla uzatmadan diğer konulara geçelim!",
                     "updated": 1639734380620
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь потратить время на самостоятельное тестирование функции Clones! Мы переходим к другим темам без лишних слов!",
+                    "updated": 1640871251574
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk meluangkan waktu untuk menguji fitur Clones! Kita akan beralih ke topik lain tanpa basa-basi lagi!",
+                    "updated": 1645032739232
+                },
+                {
+                    "language": "NL",
+                    "text": "Neem gerust de tijd om de Clones functie zelf te testen! We gaan zonder verder oponthoud verder met andere onderwerpen!",
+                    "updated": 1669544935235
                 }
             ]
         }

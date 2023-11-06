@@ -3,6 +3,8 @@ function newCircularMenuItem() {
     const MODULE_NAME = 'Circular Menu Item'
 
     let thisObject = {
+        confirmationLabelTranslationKey: undefined,
+        translationKey: undefined,
         type: undefined,
         isDeployed: undefined,
         askConfirmation: undefined,
@@ -118,7 +120,17 @@ function newCircularMenuItem() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject + '", label: "' + thisObject.label + '"')
+            console.log(
+                '[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' +
+                thisObject.action +
+                '", relatedUiObject: "' +
+                thisObject.relatedUiObject +
+                '", label: "' +
+                thisObject.label +
+                '"'
+            )
+            console.log(thisObject.payload.node)
+            console.log(thisObject)
         }
 
         selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -218,15 +230,15 @@ function newCircularMenuItem() {
         if (thisObject.type === 'Icon Only') {
             switch (thisObject.ring) {
                 case 1: {
-                    radiusGrowthFactor = 5.5
+                    radiusGrowthFactor = 6.5
                     break
                 }
                 case 2: {
-                    radiusGrowthFactor = 4.0
+                    radiusGrowthFactor = 5.0
                     break
                 }
                 case 3: {
-                    radiusGrowthFactor = 3.0
+                    radiusGrowthFactor = 3.5
                     break
                 }
                 case 4: {
@@ -282,7 +294,7 @@ function newCircularMenuItem() {
 
     function containerPhysics() {
         if (thisObject.type === 'Icon & Text') {
-            thisObject.container.frame.width = 220 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
+            thisObject.container.frame.width = 237 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         } else {
             thisObject.container.frame.width = 50 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100
         }
@@ -304,11 +316,11 @@ function newCircularMenuItem() {
             ) && thisObject.secondaryAction !== undefined
         ) {
             if (thisObject.iconProject !== undefined) {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+                thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
             } else {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+                thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
             }
         } else {
 
@@ -317,26 +329,26 @@ function newCircularMenuItem() {
             */
 
             if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
+                thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
+                thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
             } else if (thisObject.relatedUiObject !== undefined && thisObject.iconProject === undefined) {
                 if (thisObject.relatedUiObjectProject !== undefined) {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
                 } else {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
                 }
             } else {
                 if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject !== undefined) {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOff)
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOff)
                 } else if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject === undefined) {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOn)
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOff)
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOn)
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.iconPathOff)
                 } else {
-                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
-                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOn = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
+                    thisObject.iconOff = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.icons[thisObject.actionStatus()])
                 }
             }
         }
@@ -365,7 +377,7 @@ function newCircularMenuItem() {
             }
 
             if (thisObject.label === undefined) {
-                thisObject.payload.uiObject.setInfoMessage(text)
+                thisObject.payload.uiObject.setQuickInfo(text)
             }
             isMouseOver = true
         } else {
@@ -376,6 +388,7 @@ function newCircularMenuItem() {
 
     function onMouseNotOver(point) {
         isMouseOver = false
+        thisObject.payload.uiObject.resetQuickInfo()
         MENU_ITEM_ON_FOCUS = undefined
     }
 
@@ -386,15 +399,19 @@ function newCircularMenuItem() {
             UI.projects.foundations.spaces.cockpitSpace.setStatus(label, 4, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
         }
 
-        onMouseClick()
+        onMouseClick(event, true)
     }
 
-    function onMouseClick() {
+    function onMouseClick(event, isInternal) {
         if (thisObject.isEnabled === false) { return }
+
+        if (isInternal === undefined) {
+            isInternal = false
+        }
 
         if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
-                executeAction()
+                executeAction(isInternal)
             } // Any click out of those states is ignored
         } else {
             /* Confirmation is needed */
@@ -406,7 +423,7 @@ function newCircularMenuItem() {
             }
             /* A Click during confirmation executes the pre-defined action. */
             if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
-                executeAction()
+                executeAction(isInternal)
                 if (thisObject.workDoneLabel !== undefined) {
                     setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                 } else {
@@ -416,10 +433,13 @@ function newCircularMenuItem() {
             }
         }
 
-        function executeAction() {
+        function executeAction(isInternal) {
             if (thisObject.action === "Open Menu") {
                 thisObject.toggleMenu()
                 return
+            }
+            if (isInternal === undefined) {
+                isInternal = false
             }
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_WAITING_CONFIRMATION) {
                 /* We need to execute the main Action */
@@ -436,8 +456,10 @@ function newCircularMenuItem() {
 
                 thisObject.actionFunction(
                     {
+                        isInternal: isInternal,
                         node: thisObject.payload.node,
                         name: thisObject.action,
+                        label: thisObject.label,
                         project: thisObject.actionProject,
                         relatedNodeType: thisObject.relatedUiObject,
                         relatedNodeProject: relatedNodeProject,
@@ -453,7 +475,16 @@ function newCircularMenuItem() {
                 }
 
                 /* Execute the action and wait for callbacks to update our status. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
+                thisObject.actionFunction(
+                    {
+                        isInternal: isInternal,
+                        node: thisObject.payload.node,
+                        name: thisObject.secondaryAction,
+                        project: thisObject.actionProject,
+                        relatedNodeType: thisObject.relatedUiObject,
+                        callBackFunction: onSecondaryCallBack
+                    }
+                )
                 return
             }
 
@@ -524,7 +555,7 @@ function newCircularMenuItem() {
             for (let i = 0; i < thisObject.circularMenu.menuItems.length; i++) {
                 if (thisObject.circularMenu.menuItems[i].menu !== undefined) {
                     if (thisObject.menu.container.id !== thisObject.circularMenu.menuItems[i].menu.container.id)
-                    thisObject.circularMenu.menuItems[i].menu.setMenuOpenState(false)
+                        thisObject.circularMenu.menuItems[i].menu.setMenuOpenState(false)
                 }
             }
         }
@@ -590,7 +621,7 @@ function newCircularMenuItem() {
         }
 
         if (thisObject.icon === undefined) {
-            thisObject.icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'missing-image')
+            thisObject.icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'missing-image')
         }
 
         if (thisObject.icon !== undefined) {
@@ -602,6 +633,10 @@ function newCircularMenuItem() {
         /* Menu Label */
         if (thisObject.type === 'Icon & Text') {
             label = labelToPrint
+            const translationKey = labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey
+            if(translationKey) {
+                label = findTranslation(translationKey)
+            }
             if (thisObject.shorcutNumber !== undefined) {
                 label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
             }

@@ -1,0 +1,39 @@
+{
+    "type": "P2P Network Node",
+    "definition": {
+        "text": "The P2P Network Node node defines a node to run on the Superalgos peer to peer network.",
+        "updated": 1647061315649,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "P2P Ağ Düğümü düğümü, Superalgos eşler arası ağ üzerinde çalışacak bir düğümü tanımlar.",
+                "updated": 1654395778800
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "codeName : The usual code name is \"P2P-Network-Node-1\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1654395784506,
+                    "style": "Text"
+                }
+            ],
+            "updated": 1665800632070
+        },
+        {
+            "style": "Text",
+            "text": "host : The usual host name is \"localhost\"",
+            "updated": 1665800660470
+        },
+        {
+            "style": "Text",
+            "text": "clientMinimunBalance : This is the minimum wallet SA balance required to connect to your network node",
+            "updated": 1665800802229
+        }
+    ]
+}

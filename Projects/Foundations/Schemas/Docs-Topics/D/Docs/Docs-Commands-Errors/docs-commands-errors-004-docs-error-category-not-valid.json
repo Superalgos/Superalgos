@@ -1,6 +1,6 @@
 {
     "topic": "Docs Commands Errors",
-    "pageNumber": 4,
+    "pageNumber": "4",
     "type": "Docs Error - Category Not Valid",
     "definition": {
         "text": "The category specified does not exist.",
@@ -15,13 +15,26 @@
                 "language": "RU",
                 "text": "Указанная категория не существует.",
                 "updated": 1638529325548
+            },
+            {
+                "language": "TR",
+                "text": "Belirtilen kategori mevcut değil.",
+                "updated": 1651994842333
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Anchor",
-            "text": "Anchor Category Not Valid"
+            "text": "Anchor Category Not Valid",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çapa Kategorisi Geçerli Değil",
+                    "updated": 1654393435134,
+                    "style": "Anchor"
+                }
+            ]
         },
         {
             "style": "Error",
@@ -32,6 +45,11 @@
                     "language": "DE",
                     "text": "Die von Ihnen angegebene Kategorie ist keine gültige Kategorie für die Docs Page Category.",
                     "updated": 1633896371408
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirttiğiniz kategori geçerli bir Dokümanlar Sayfası Kategorisi ( Docs Page Category ) değil.",
+                    "updated": 1651994939471
                 }
             ]
         },
@@ -49,6 +67,11 @@
                     "language": "RU",
                     "text": "Допустимые категории: Node, Concept, Topic, Tutorial и Review. Этот параметр чувствителен к регистру.",
                     "updated": 1638529385453
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli kategoriler şunlardır: Düğüm ( Node ) Kavram, Konu, Eğitim ( Tutorial ) ve inceleme. Bu parametre büyük/küçük harfe duyarlıdır.",
+                    "updated": 1651995322941
                 }
             ]
         },
@@ -66,30 +89,76 @@
                     "language": "RU",
                     "text": "Относится к",
                     "updated": 1638529412945
+                },
+                {
+                    "language": "TR",
+                    "text": "Şunlar için geçerlidir",
+                    "updated": 1654393441978,
+                    "style": "Title"
                 }
             ]
         },
         {
             "style": "List",
             "text": "Docs Goto Command",
-            "updated": 1609177229589
+            "updated": 1609177229589,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Goto Komutu",
+                    "updated": 1654393447613,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Add Command",
-            "updated": 1609180006853
+            "updated": 1609180006853,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Komut Ekle",
+                    "updated": 1654393453494,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654393459578,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Delete Command"
+            "text": "Docs Delete Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Silme Komutu",
+                    "updated": 1654393465728,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Repaginate Command"
+            "text": "Docs Repaginate Command",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docs Repaginate Komutu",
+                    "updated": 1654393471570,
+                    "style": "List"
+                }
+            ]
         }
     ]
 }

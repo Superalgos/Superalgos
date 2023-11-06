@@ -4,13 +4,47 @@
     "type": "Node Code",
     "definition": {
         "text": "Nodes might have code inside of them. When they do, they usually allow users to access and modify it via one of the Node Menu items. The code stored at a node is later used at Tasks or Bots during their processing.",
-        "updated": 1609236689695
+        "updated": 1609236689695,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Внутри узлов может находиться код. Если это так, они обычно позволяют пользователям получить доступ и изменить его через один из пунктов меню узла. Код, хранящийся в узле, позже используется в задачах или ботах во время их работы.",
+                "updated": 1640356282836
+            },
+            {
+                "language": "TR",
+                "text": "Düğümlerin içinde kod olabilir. Bunu yaptıklarında, genellikle kullanıcıların Düğüm Menü ( Node Menu ) öğelerinden biri aracılığıyla erişmesine ve değiştirmesine izin verirler. Bir düğümde depolanan kod daha sonra işlenirken Görevlerde veya Botlarda kullanılır.",
+                "updated": 1652805268080
+            },
+            {
+                "language": "DE",
+                "text": "In Knoten kann Code enthalten sein. Wenn dies der Fall ist, können die Benutzer in der Regel über einen der Knotenmenüpunkte (Node Menu) darauf zugreifen und ihn ändern. Der in einem Knoten gespeicherte Code wird später bei der Verarbeitung von Aufgaben oder Bots verwendet.",
+                "updated": 1689420240734
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Some types of nodes, might have code that defines their behaviour. The code can usually be accessed by users via the Edit menu item. When first created, the code of a Node is initialized with the initial value present at the Node's Definition Document. Some types of node represents Formulas and they hold code that defines those formulas at the Node Code.",
-            "updated": 1609246211297
+            "updated": 1609246211297,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Некоторые типы узлов могут иметь код, определяющий их поведение. Доступ к коду обычно осуществляется через пункт меню Edit. При первом создании код узла инициализируется начальным значением, присутствующим в документе определения узла. Некоторые типы узлов представляют формулы, и они содержат код, определяющий эти формулы в коде узла.",
+                    "updated": 1640356407180
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazı düğüm türleri, davranışlarını tanımlayan kodlara sahip olabilir. Koda genellikle kullanıcılar tarafından Düzenle menü öğesi aracılığıyla erişilebilir. İlk oluşturulduğunda, bir Düğümün kodu, Düğümün ( Node ) Tanım Belgesinde bulunan başlangıç değeriyle başlatılır. Bazı düğüm türleri Formülleri temsil eder ve bu formülleri tanımlayan kodu Düğüm ( Node ) Kodunda tutarlar.",
+                    "updated": 1652805516508
+                },
+                {
+                    "language": "DE",
+                    "text": "Einige Knotentypen können einen Code haben, der ihr Verhalten definiert. Auf diesen Code kann der Benutzer in der Regel über den Menüpunkt Bearbeiten zugreifen. Bei der ersten Erstellung wird der Code (Node) eines Knotens mit dem Anfangswert initialisiert, der im Definitionsdokument des Knotens (Node's) vorhanden ist. Einige Knotentypen stellen Formeln dar und enthalten den Code, der diese Formeln im Knotencode definiert.",
+                    "updated": 1689420249279
+                }
+            ]
         }
     ]
 }

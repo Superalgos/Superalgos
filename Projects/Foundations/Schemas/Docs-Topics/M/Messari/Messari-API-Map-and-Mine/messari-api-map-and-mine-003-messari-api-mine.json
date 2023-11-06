@@ -4,311 +4,1371 @@
     "type": "Messari API Mine",
     "definition": {
         "text": "This data mine processes data fetched from the Messsari API Map.",
-        "updated": 1623067039445
+        "updated": 1623067039445,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эта шахта данных обрабатывает данные, полученные из Messsari API Map.",
+                "updated": 1643528093561
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu veri madeni, Messsari API Haritasından alınan verileri işler.",
+                "updated": 1650625672519
+            },
+            {
+                "language": "DE",
+                "text": "Diese Datenmine verarbeitet Daten, die von der Messsari-API-Karte abgerufen werden.",
+                "updated": 1693334347082
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Bot Products"
+            "text": "Bot Products",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты бота",
+                    "updated": 1643528104189
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot Ürünleri",
+                    "updated": 1650625881407
+                },
+                {
+                    "language": "DE",
+                    "text": "Bot Produkte",
+                    "updated": 1693334354285
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Asset Metrics",
-            "updated": 1623067631138
+            "updated": 1623067631138,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlık Metrikleri",
+                    "updated": 1650625887831
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Saves raw API data into Superalgos compatible Multi-Time-Frame-Daily and Multi-Time-Frame-Market files."
+            "text": "Saves raw API data into Superalgos compatible Multi-Time-Frame-Daily and Multi-Time-Frame-Market files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет необработанные данные API в совместимые с Superalgos файлы Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
+                    "updated": 1643528116945
+                },
+                {
+                    "language": "TR",
+                    "text": "Ham API verilerini Superalgos uyumlu Çok Zamanlı Çerçeve Günlük ve Çok Zamanlı Çerçeve Pazarı dosyalarına kaydeder. ( Multi-Time-Frame-Daily and Multi-Time-Frame-Market )",
+                    "updated": 1650625937419
+                },
+                {
+                    "language": "DE",
+                    "text": "Speichert API-Rohdaten in Superalgos-kompatible Multi-Time-Frame-Daily und Multi-Time-Frame-Market Dateien.",
+                    "updated": 1693334479675
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The News, All-Time-High, Market Data, Supply, and Blockchain Stats indicator bots process this raw data into organized datasets listed below.",
-            "updated": 1624242648230
+            "updated": 1624242648230,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикаторные боты News, All-Time-High, Market Data, Supply и Blockchain Stats обрабатывают эти необработанные данные в упорядоченные наборы данных, перечисленные ниже.",
+                    "updated": 1643528196809
+                },
+                {
+                    "language": "TR",
+                    "text": "Haberler, Tüm Zamanların En Yüksek, Piyasa Verileri, Arz ve Blok Zinciri İstatistikleri gösterge botları, bu ham verileri aşağıda listelenen organize veri kümelerinde işler.",
+                    "updated": 1650626011179
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Indikator-Bots für Nachrichten, All-Time-High, Marktdaten (Market Data) Angebot und Blockchain-Statistiken verarbeiten diese Rohdaten zu den unten aufgeführten organisierten Datensätzen.",
+                    "updated": 1693334571675
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "News",
-            "updated": 1623067696301
+            "updated": 1623067696301,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Haberler",
+                    "updated": 1650626017538
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachrichten",
+                    "updated": 1693334579866
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Collects fetched news stories into a Single-File data type format."
+            "text": "Collects fetched news stories into a Single-File data type format.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Собирает собранные новостные материалы в формат данных типа Single-File.",
+                    "updated": 1643528209766
+                },
+                {
+                    "language": "TR",
+                    "text": "Getirilen haber öykülerini Tek Dosyalı bir veri türü biçiminde toplar.",
+                    "updated": 1650626038428
+                },
+                {
+                    "language": "DE",
+                    "text": "Sammelt die abgerufenen Nachrichten in einem Einzeldatei-Datenformat (Single-File).",
+                    "updated": 1693334660874
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528217761
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626044587
+                },
+                {
+                    "language": "DE",
+                    "text": "Verarbeitete Werte:",
+                    "updated": 1693334669874
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Timestamp: Date of news article.",
-            "updated": 1624240769484
+            "updated": 1624240769484,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Timestamp: Дата выхода статьи.",
+                    "updated": 1643528224567
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman damgası ( Timestamp ): Haber makalesinin tarihi.",
+                    "updated": 1650626069445
+                },
+                {
+                    "language": "DE",
+                    "text": "Timestamp: Datum des Nachrichtenartikels.",
+                    "updated": 1693334679899
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Record Id: Id of stored article.",
-            "updated": 1624240785646
+            "updated": 1624240785646,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Record Id: Id сохраненной статьи.",
+                    "updated": 1643528254606
+                },
+                {
+                    "language": "TR",
+                    "text": "Kayıt Kimliği: Depolanan makalenin kimliği.",
+                    "updated": 1650626076864
+                },
+                {
+                    "language": "DE",
+                    "text": "Record Id: Id des gespeicherten Artikels.",
+                    "updated": 1693334689003
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Author: Author of article.",
-            "updated": 1624240805619
+            "updated": 1624240805619,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Author: Автор статьи.",
+                    "updated": 1643528260376
+                },
+                {
+                    "language": "TR",
+                    "text": "Yazar: Makalenin yazarı.",
+                    "updated": 1650626083471
+                },
+                {
+                    "language": "DE",
+                    "text": "Author: Autor des Artikels.",
+                    "updated": 1693334696427
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Title: Title of article.",
-            "updated": 1624240813730
+            "updated": 1624240813730,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Title: Название статьи.",
+                    "updated": 1643528269000
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlık: Makalenin başlığı.",
+                    "updated": 1650626090730
+                },
+                {
+                    "language": "DE",
+                    "text": "Title: Titel des Artikels.",
+                    "updated": 1693334704174
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Content: Content of article.",
-            "updated": 1624240824784
+            "updated": 1624240824784,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Content: Содержание статьи.",
+                    "updated": 1643528274766
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik: Makalenin içeriği.",
+                    "updated": 1650626096655
+                },
+                {
+                    "language": "DE",
+                    "text": "Content: Inhalt des Artikels.",
+                    "updated": 1693334711687
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "All-Time-High",
-            "updated": 1623067732191
+            "updated": 1623067732191,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüm Zamanların En Yüksek Seviyesi",
+                    "updated": 1650626133991
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Saves all time high data for the all time high indicator."
+            "text": "Saves all time high data for the all time high indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет данные о всех временных максимумах для индикатора All Time High (исторический максимум).",
+                    "updated": 1643528498468
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm zamanların en yüksek göstergesi için tüm zamanların en yüksek verilerini kaydeder.",
+                    "updated": 1650626142465
+                },
+                {
+                    "language": "DE",
+                    "text": "Speichert alle Zeithöchstdaten für den Indikator \"Allzeithoch\".",
+                    "updated": 1693334729490
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528291951
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626149473
+                },
+                {
+                    "language": "DE",
+                    "text": "Verarbeitete Werte:",
+                    "updated": 1693334737566
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Date At: date of All Time High.",
-            "updated": 1624241332137
+            "updated": 1624241332137,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Date At: дата All Time High.",
+                    "updated": 1643528303641
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarih At: Tüm Zamanların En Yüksek tarihi.",
+                    "updated": 1650626176606
+                },
+                {
+                    "language": "DE",
+                    "text": "Date At: Datum des Allzeithochs.",
+                    "updated": 1693334748134
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Down: current percentage down from All Time High. ",
-            "updated": 1624241304869
+            "updated": 1624241304869,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Down: текущий процент снижения с All Time High.",
+                    "updated": 1643528357145
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Azaltma: Tüm Zamanların En Yüksek seviyesinden mevcut düşüş yüzdesi.",
+                    "updated": 1650626188974
+                },
+                {
+                    "language": "DE",
+                    "text": "Percent Down: aktueller prozentualer Rückgang vom Allzeithoch.",
+                    "updated": 1693334759522
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Days Since: days since All Time High.",
-            "updated": 1624241273440
+            "updated": 1624241273440,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Days Since: количество дней с момента All Time High.",
+                    "updated": 1643528452257
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Günler: Tüm Zamanların En Yüksekinden bu yana geçen gün sayısı.",
+                    "updated": 1650626198196
+                },
+                {
+                    "language": "DE",
+                    "text": "Days Since: Tage seit dem Allzeithoch.",
+                    "updated": 1693334788194
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Rate: price of All Time High.",
-            "updated": 1624241211105
+            "updated": 1624241211105,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Rate: цена All Time High.",
+                    "updated": 1643528466238
+                },
+                {
+                    "language": "TR",
+                    "text": "Oran: Tüm Zamanların En Yüksek fiyatı.",
+                    "updated": 1650626206386
+                },
+                {
+                    "language": "DE",
+                    "text": "Rate: Preis des Allzeithochs.",
+                    "updated": 1693334803082
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Begin: beginning of time frame watched.",
-            "updated": 1624241248025
+            "updated": 1624241248025,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало просмотренного периода.",
+                    "updated": 1643528484733
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650626217675
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin: Beginn des beobachteten Zeitrahmens.",
+                    "updated": 1693334813730
+                }
+            ]
         },
         {
             "style": "List",
             "text": "End: end of time frame watched.",
-            "updated": 1624241225641
+            "updated": 1624241225641,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: окончание срока наблюдения.",
+                    "updated": 1643528508066
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650626225624
+                },
+                {
+                    "language": "DE",
+                    "text": "End: Ende des beobachteten Zeitrahmens.",
+                    "updated": 1693334824378
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Market Data"
+            "text": "Market Data",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Piyasa verileri",
+                    "updated": 1650626249961
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktdaten",
+                    "updated": 1693334831378
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Saves a variety of market data for the current asset."
+            "text": "Saves a variety of market data for the current asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет различные рыночные данные для текущего актива.",
+                    "updated": 1643528515946
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut varlık için çeşitli piyasa verilerini kaydeder.",
+                    "updated": 1650626275867
+                },
+                {
+                    "language": "DE",
+                    "text": "Speichert eine Vielzahl von Marktdaten für die aktuelle Anlage.",
+                    "updated": 1693334838762
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528522083
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626282744
+                },
+                {
+                    "language": "DE",
+                    "text": "Verarbeitete Werte:",
+                    "updated": 1693334857531
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Change BTC Last 24 Hs: Percentage change in BTC last 24 hours.",
-            "updated": 1624241638719
+            "updated": 1624241638719,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Change BTC Last 24 Hs: Процентное изменение BTC за последние 24 часа.",
+                    "updated": 1643528529690
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Değişim BTC Son 24 Saat: BTC'deki son 24 saatteki yüzde değişim.",
+                    "updated": 1650626293445
+                },
+                {
+                    "language": "DE",
+                    "text": "Percent Change BTC Last 24 Hs: Prozentuale Veränderung des BTC in den letzten 24 Stunden.",
+                    "updated": 1693334874890
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Percent Change USD Last 24 Hs: Percentage change in USD last 24 hours.",
-            "updated": 1624241649011
+            "updated": 1624241649011,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Percent Change USD Last 24 Hs: Процентное изменение в USD за последние 24 часа.",
+                    "updated": 1643528540554
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde Değişim USD Son 24 Saat: USD cinsinden son 24 saatteki yüzde değişim.",
+                    "updated": 1650626299987
+                },
+                {
+                    "language": "DE",
+                    "text": "Percent Change USD Last 24 Hs: Prozentuale Veränderung des USD in den letzten 24 Stunden.",
+                    "updated": 1693334884675
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Real Volume Last 24 Hs: Filtered volume for the last 24 hours.",
-            "updated": 1624241668532
+            "updated": 1624241668532,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Real Volume Last 24 Hs: Отфильтрованный объем за последние 24 часа.",
+                    "updated": 1643528547579
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerçek Hacim Son 24 Saat: Son 24 saat için filtrelenmiş hacim.",
+                    "updated": 1650626307060
+                },
+                {
+                    "language": "DE",
+                    "text": "Real Volume Last 24 Hs: Gefiltertes Volumen für die letzten 24 Stunden.",
+                    "updated": 1693334892887
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Volume Last 24 Hs: Unfiltered volume for the last 24 hours.",
-            "updated": 1624241682794
+            "updated": 1624241682794,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Volume Last 24 Hs: Нефильтрованный объем за последние 24 часа.",
+                    "updated": 1643528555973
+                },
+                {
+                    "language": "TR",
+                    "text": "Hacim Son 24 Saat: Son 24 saat için filtrelenmemiş hacim.",
+                    "updated": 1650626322226
+                },
+                {
+                    "language": "DE",
+                    "text": "Volume Last 24 Hs: Ungefiltertes Volumen für die letzten 24 Stunden.",
+                    "updated": 1693334901307
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Price BTC: market price in BTC.",
-            "updated": 1624242008573
+            "updated": 1624242008573,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Price BTC: рыночная цена в BTC.",
+                    "updated": 1643528564281
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat BTC: BTC cinsinden piyasa fiyatı.",
+                    "updated": 1650626329683
+                },
+                {
+                    "language": "DE",
+                    "text": "Price BTC: Marktpreis in BTC.",
+                    "updated": 1693334908949
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Price USD: market price in USD.",
-            "updated": 1624242014651
+            "updated": 1624242014651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Price USD: рыночная цена в USD.",
+                    "updated": 1643528573732
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat USD: USD cinsinden piyasa fiyatı.",
+                    "updated": 1650626337607
+                },
+                {
+                    "language": "DE",
+                    "text": "Price USD: Marktpreis in USD.",
+                    "updated": 1693334915987
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Begin: beginning of time frame watched.",
-            "updated": 1624241567685
+            "updated": 1624241567685,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало просмотренного периода.",
+                    "updated": 1643528591155
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650626346427
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin: Beginn des beobachteten Zeitrahmens.",
+                    "updated": 1693334924355
+                }
+            ]
         },
         {
             "style": "List",
             "text": "End: end of time frame watched.",
-            "updated": 1624241578193
+            "updated": 1624241578193,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: конец наблюдаемого периода.",
+                    "updated": 1643528610675
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650626355317
+                },
+                {
+                    "language": "DE",
+                    "text": "End: Ende des beobachteten Zeitrahmens.",
+                    "updated": 1693334934620
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Supply",
-            "updated": 1623068607880
+            "updated": 1623068607880,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tedarik",
+                    "updated": 1650626752105
+                },
+                {
+                    "language": "DE",
+                    "text": "Angebot",
+                    "updated": 1693334942626
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Saves a variety of supply data for the current asset.",
-            "updated": 1623068637139
+            "updated": 1623068637139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет различные данные о поставках для текущего актива.",
+                    "updated": 1643528619418
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut varlık için çeşitli tedarik verilerini kaydeder.",
+                    "updated": 1650626768268
+                },
+                {
+                    "language": "DE",
+                    "text": "Speichert eine Vielzahl von Versorgungsdaten für die aktuelle Anlage.",
+                    "updated": 1693334949354
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528632560
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626774813
+                },
+                {
+                    "language": "DE",
+                    "text": "Verarbeitete Werte:",
+                    "updated": 1693334956718
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Stock to Flow: Stock to Flow is calculated by taking the Liquid Supply today and dividing by the projected 12month increase in Liquid Supply. This is essentially the inverse of Current Inflation. The value is null for assets with fixed or decreasing Liquid Supply.",
-            "updated": 1624242248604
+            "updated": 1624242248604,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Stock to Flow: Stock to Flow рассчитывается путем взятия сегодняшнего Liquid Supply и деления на прогнозируемый 12-месячный рост Liquid Supply. По сути, это обратная величина текущей инфляции Current Inflation. Значение равно нулю для активов с фиксированным или уменьшающимся запасом ликвидности.",
+                    "updated": 1643528685659
+                },
+                {
+                    "language": "TR",
+                    "text": "Stok Akışı: Stok Akışı, bugünkü Sıvı Arzını alarak ve Sıvı Arzında öngörülen 12 aylık artışa bölünerek hesaplanır. Bu, esasen Mevcut Enflasyonun tersidir. Sabit veya azalan Likit Arzı olan varlıklar için değer boştur.",
+                    "updated": 1650626788180
+                },
+                {
+                    "language": "DE",
+                    "text": "Stock to Flow: Stock to Flow wird berechnet, indem man den heutigen Bestand an liquiden Mitteln durch den prognostizierten 12-monatigen Anstieg des Bestands an liquiden Mitteln dividiert. Dies ist im Wesentlichen die Umkehrung der aktuellen Inflation. Bei Vermögenswerten mit festem oder abnehmendem Liquiditätsbestand ist der Wert null.",
+                    "updated": 1693334976250
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Circulating: Circulating Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal).",
-            "updated": 1624242227545
+            "updated": 1624242227545,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Circulating: Circulating Supply (Циркулирующее предложение) относится к токенам, которые существуют на цепи и которые, как известно, не обременены никакими контрактами (программными или юридическими).",
+                    "updated": 1643528722619
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolaşan: Dolaşan Tedarik, zincir üzerinde var olan ve herhangi bir sözleşme (programatik veya yasal) tarafından engellendiği bilinmeyen jetonları ifade eder.",
+                    "updated": 1650626798001
+                },
+                {
+                    "language": "DE",
+                    "text": "Circulating: Umlaufendes Angebot bezieht sich auf Token, die auf der Kette existieren und von denen nicht bekannt ist, dass sie durch irgendwelche Verträge (programmatisch oder rechtlich) belastet sind.",
+                    "updated": 1693334994050
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Liquid: Liquid Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal).",
-            "updated": 1624242205773
+            "updated": 1624242205773,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Liquid: Liquid Supply (Текущее предложение) относится к токенам, которые существуют на цепочке, и которые, как известно, не обременены никакими контрактами - ни программными, ни юридическими.",
+                    "updated": 1643528759470
+                },
+                {
+                    "language": "TR",
+                    "text": "Liquid: Liquid Supply, zincir üzerinde bulunan ve herhangi bir sözleşme (programatik veya yasal) tarafından engellendiği bilinmeyen tokenleri ifade eder.",
+                    "updated": 1650626810236
+                },
+                {
+                    "language": "DE",
+                    "text": "Liquid: Liquid Supply bezieht sich auf Token, die auf der Kette existieren und von denen nicht bekannt ist, dass sie durch irgendwelche Verträge (programmatisch oder rechtlich) belastet sind.",
+                    "updated": 1693335006875
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Plus 10 Issued Percent: The percent of the Year+10 supply that's currently liquid on the market today.",
-            "updated": 1624242154694
+            "updated": 1624242154694,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Plus 10 Issued Percent: Процент предложения \"Год+10\", который сегодня ликвиден на рынке.",
+                    "updated": 1643528772946
+                },
+                {
+                    "language": "TR",
+                    "text": "Artı 10 Çıkarılan Yüzde: Bugün piyasada şu anda likit olan Yıl+10 arzının yüzdesi.",
+                    "updated": 1650626828796
+                },
+                {
+                    "language": "DE",
+                    "text": "Plus 10 Issued Percent: Der prozentuale Anteil des Year+10-Angebots, der heute auf dem Markt liquide ist.",
+                    "updated": 1693335019964
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Y Plus 10: The expected supply 10 years from now.",
-            "updated": 1624242113724
+            "updated": 1624242113724,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Y Plus 10: Ожидаемое предложение через 10 лет.",
+                    "updated": 1643528780693
+                },
+                {
+                    "language": "TR",
+                    "text": "Y Plus 10: Bundan 10 yıl sonra beklenen arz.",
+                    "updated": 1650626836120
+                },
+                {
+                    "language": "DE",
+                    "text": "Y Plus 10: Das erwartete Angebot in 10 Jahren.",
+                    "updated": 1693335029243
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Y 2050 Percent Issued: The percentage of the Y2050 supply which has already been issued.",
-            "updated": 1624242089617
+            "updated": 1624242089617,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Y 2050 Percent Issued: Процент уже выпущенного объема предложения Y2050.",
+                    "updated": 1643528796367
+                },
+                {
+                    "language": "TR",
+                    "text": "Y 2050 Verilen Yüzde: Daha önce verilmiş olan Y2050 arzının yüzdesi.",
+                    "updated": 1650626849620
+                },
+                {
+                    "language": "DE",
+                    "text": "Y 2050 Percent Issued: Der Prozentsatz des Y2050-Angebots, der bereits ausgegeben wurde.",
+                    "updated": 1693335040234
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Y 2050: The expected supply on Jan 1 2050.",
-            "updated": 1624242070725
+            "updated": 1624242070725,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Y 2050: Ожидаемое предложение на 1 января 2050 года.",
+                    "updated": 1643528805292
+                },
+                {
+                    "language": "TR",
+                    "text": "Y 2050: 1 Ocak 2050'de beklenen arz.",
+                    "updated": 1650626857577
+                },
+                {
+                    "language": "DE",
+                    "text": "Y 2050: Das erwartete Angebot am 1. Januar 2050.",
+                    "updated": 1693335050653
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Begin: beginning of time frame watched."
+            "text": "Begin: beginning of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало просмотренного периода.",
+                    "updated": 1643528814468
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650626865067
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin: Beginn des beobachteten Zeitrahmens.",
+                    "updated": 1693335058458
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "End: end of time frame watched."
+            "text": "End: end of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: конец просмотренного периода.",
+                    "updated": 1643528825098
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650626872541
+                },
+                {
+                    "language": "DE",
+                    "text": "End: Ende des beobachteten Zeitrahmens.",
+                    "updated": 1693335067037
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Blockchain Stats"
+            "text": "Blockchain Stats",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Blockchain İstatistikleri",
+                    "updated": 1650626885182
+                },
+                {
+                    "language": "DE",
+                    "text": "Blockchain-Statistiken",
+                    "updated": 1693335074363
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Saves a variety of blockchain statistics data for the current asset.",
-            "updated": 1623068649438
+            "updated": 1623068649438,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохраняет различные данные статистики блокчейна для текущего актива.",
+                    "updated": 1643528832546
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut varlık için çeşitli blok zinciri istatistik verilerini kaydeder.",
+                    "updated": 1650626891785
+                },
+                {
+                    "language": "DE",
+                    "text": "Speichert eine Vielzahl von Blockchain-Statistikdaten für das aktuelle Asset.",
+                    "updated": 1693335226644
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Processed Values:"
+            "text": "Processed Values:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обработанные значения:",
+                    "updated": 1643528838655
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş Değerler:",
+                    "updated": 1650626898709
+                },
+                {
+                    "language": "DE",
+                    "text": "Verarbeitete Werte:",
+                    "updated": 1693335232683
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Supply Moved Off Chain: Amount of supply moved off chain for the last 24 hours.",
-            "updated": 1624244551956
+            "updated": 1624244551956,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Supply Moved Off Chain: Объем предложения, перемещенного из цепочки за последние 24 часа.",
+                    "updated": 1643528870432
+                },
+                {
+                    "language": "TR",
+                    "text": "Tedarik Zincirden Çıkarıldı: Son 24 saat içinde zincirden çıkarılan tedarik miktarı.",
+                    "updated": 1650626932516
+                },
+                {
+                    "language": "DE",
+                    "text": "Supply Moved Off Chain: Menge der in den letzten 24 Stunden aus der Kette entfernten Lieferungen.",
+                    "updated": 1693335243363
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Block Added: Count of block added for the last 24 hours.",
-            "updated": 1624244570277
+            "updated": 1624244570277,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Block Added: Количество добавленных блоков за последние 24 часа.Количество добавленных блоков за последние 24 часа.",
+                    "updated": 1643528877512
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenen Blok Sayısı: Son 24 saat için eklenen blok sayısı.",
+                    "updated": 1650626939325
+                },
+                {
+                    "language": "DE",
+                    "text": "Count of Block Added: Anzahl der in den letzten 24 Stunden hinzugefügten Blöcke.",
+                    "updated": 1693335252317
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Kilobytes Added: Amount of killobytes added to the chain for the last 24 hours.",
-            "updated": 1624244730899
+            "updated": 1624244730899,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Kilobytes Added: Количество килобайт, добавленных в цепочку за последние 24 часа.",
+                    "updated": 1643528886603
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenen Kilobayt: Son 24 saat içinde zincire eklenen killobayt miktarı.",
+                    "updated": 1650626946698
+                },
+                {
+                    "language": "DE",
+                    "text": "Kilobytes Added: Menge der in den letzten 24 Stunden zur Kette hinzugefügten Killobytes.",
+                    "updated": 1693335264522
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Average Difficulty: Average difficulty of mined blocks for the last 24 hours.",
-            "updated": 1624244692433
+            "updated": 1624244692433,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Average Difficulty: Средняя сложность добытых блоков за последние 24 часа.",
+                    "updated": 1643528893614
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortalama Zorluk: Son 24 saat için mayınlı blokların ortalama zorluğu.",
+                    "updated": 1650626954988
+                },
+                {
+                    "language": "DE",
+                    "text": "Average Difficulty: Durchschnittliche Schwierigkeit der abgebauten Blöcke in den letzten 24 Stunden.",
+                    "updated": 1693335276699
+                }
+            ]
         },
         {
             "style": "List",
             "text": "New Issuance: Amount of new issued coins for the last 24 hours.",
-            "updated": 1624244620831
+            "updated": 1624244620831,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "New Issuance: Количество новых выпущенных монет за последние 24 часа.",
+                    "updated": 1643528901372
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni İhraç: Son 24 saatte çıkarılan yeni madeni para miktarı.",
+                    "updated": 1650626962961
+                },
+                {
+                    "language": "DE",
+                    "text": "New Issuance: Anzahl der neu ausgegebenen Münzen in den letzten 24 Stunden.",
+                    "updated": 1693335287371
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Payments: Count of payments for the last 24 hours.",
-            "updated": 1624244507982
+            "updated": 1624244507982,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Payments: Количество платежей за последние 24 часа.",
+                    "updated": 1643528915049
+                },
+                {
+                    "language": "TR",
+                    "text": "Ödeme Sayısı: Son 24 saatteki ödeme sayısı.",
+                    "updated": 1650626984718
+                },
+                {
+                    "language": "DE",
+                    "text": "Count of Payments: Anzahl der Zahlungen in den letzten 24 Stunden.",
+                    "updated": 1693335302210
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Tx: Transaction count for the last 24 hours.",
-            "updated": 1624244487398
+            "updated": 1624244487398,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Tx: Количество транзакций за последние 24 часа.",
+                    "updated": 1643528922921
+                },
+                {
+                    "language": "TR",
+                    "text": "Tx Sayısı: Son 24 saatteki işlem sayısı.",
+                    "updated": 1650626993993
+                },
+                {
+                    "language": "DE",
+                    "text": "Count of Tx: Anzahl der Transaktionen in den letzten 24 Stunden.",
+                    "updated": 1693335311146
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Count of Active Addresses: Active addresses for the last 24 hours.",
-            "updated": 1624244461681
+            "updated": 1624244461681,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Count of Active Addresses: Активные адреса за последние 24 часа.",
+                    "updated": 1643528935092
+                },
+                {
+                    "language": "TR",
+                    "text": "Aktif Adres Sayısı: Son 24 saat için aktif adresler.",
+                    "updated": 1650627002947
+                },
+                {
+                    "language": "DE",
+                    "text": "Count of Active Addresses: Aktive Adressen in den letzten 24 Stunden.",
+                    "updated": 1693335318994
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Median Tx Fee: Median transaction fee for the last 24 hours.",
-            "updated": 1624244438804
+            "updated": 1624244438804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Median Tx Fee: Медианная комиссия за транзакцию за последние 24 часа.",
+                    "updated": 1643528943354
+                },
+                {
+                    "language": "TR",
+                    "text": "Medyan Tx Ücreti: Son 24 saat için medyan işlem ücreti.",
+                    "updated": 1650627013269
+                },
+                {
+                    "language": "DE",
+                    "text": "Median Tx Fee: Mittlere Transaktionsgebühr der letzten 24 Stunden.",
+                    "updated": 1693335327402
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Median Tx Value: Median transaction value for the last 24 hours.",
-            "updated": 1624244431209
+            "updated": 1624244431209,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Median Tx Value: Медианная стоимость сделки за последние 24 часа.",
+                    "updated": 1643528950079
+                },
+                {
+                    "language": "TR",
+                    "text": "Medyan Tx Değeri: Son 24 saat için medyan işlem değeri.",
+                    "updated": 1650627023889
+                },
+                {
+                    "language": "DE",
+                    "text": "Median Tx Value: Median des Transaktionswertes der letzten 24 Stunden.",
+                    "updated": 1693335337162
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Sum of Fees: Total of fees for the last 24 hours.",
-            "updated": 1624244409373
+            "updated": 1624244409373,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Sum of Fees: Общая сумма сборов за последние 24 часа.",
+                    "updated": 1643528957182
+                },
+                {
+                    "language": "TR",
+                    "text": "Ücret Toplamı: Son 24 saat için toplam ücret.",
+                    "updated": 1650627033459
+                },
+                {
+                    "language": "DE",
+                    "text": "Sum of Fees: Summe der Gebühren für die letzten 24 Stunden.",
+                    "updated": 1693335357650
+                }
+            ]
         },
         {
             "style": "List",
             "text": "NVT: NVT is computed by dividing the Network Value (= Market Value) by the total transactions volume in USD over the past 24 hours.",
-            "updated": 1624244424162
+            "updated": 1624244424162,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "NVT: NVT рассчитывается путем деления стоимости сети (= рыночной стоимости) на общий объем сделок в USD за последние 24 часа.",
+                    "updated": 1643528975774
+                },
+                {
+                    "language": "TR",
+                    "text": "NVT: NVT, Ağ Değerinin (= Piyasa Değeri) son 24 saat içinde USD cinsinden toplam işlem hacmine bölünmesiyle hesaplanır.",
+                    "updated": 1650627058211
+                },
+                {
+                    "language": "DE",
+                    "text": "NVT: Die NVT wird berechnet, indem der Netzwerkwert = Marktwert (Market Value) durch das gesamte Transaktionsvolumen in USD der letzten 24 Stunden dividiert wird.",
+                    "updated": 1693335396264
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Transaction Volume: Transaction volume for the last 24 hours.",
-            "updated": 1624244414022
+            "updated": 1624244414022,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Transaction Volume: Объем транзакций за последние 24 часа.",
+                    "updated": 1643528983395
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Hacmi: Son 24 saatteki işlem hacmi.",
+                    "updated": 1650627065434
+                },
+                {
+                    "language": "DE",
+                    "text": "Transaction Volume: Das Transaktionsvolumen der letzten 24 Stunden.",
+                    "updated": 1693335407242
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Begin: beginning of time frame watched."
+            "text": "Begin: beginning of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Begin: начало периода наблюдения.",
+                    "updated": 1643528993726
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç: izlenen zaman diliminin başlangıcı.",
+                    "updated": 1650627072211
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin: Beginn des beobachteten Zeitrahmens.",
+                    "updated": 1693335414698
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "End: end of time frame watched."
+            "text": "End: end of time frame watched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "End: конец наблюдаемого периода.",
+                    "updated": 1643529015834
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitiş: İzlenen zaman diliminin sonu.",
+                    "updated": 1650627078804
+                },
+                {
+                    "language": "DE",
+                    "text": "End: Ende des beobachteten Zeitrahmens.",
+                    "updated": 1693335428030
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Indicators"
+            "text": "Indicators",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикаторы",
+                    "updated": 1643529030318
+                },
+                {
+                    "language": "TR",
+                    "text": "İndikatörler ( Indicators i9",
+                    "updated": 1650627108781
+                },
+                {
+                    "language": "DE",
+                    "text": "Indikatoren",
+                    "updated": 1693335435907
+                }
+            ]
         },
         {
             "style": "List",
             "text": "All Time High - Messari API Indicator",
-            "updated": 1623068679468
+            "updated": 1623068679468,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tüm Zamanların En Yüksek Seviyesi - Messari API Göstergesi ( All Time High - Messari API Indicator )",
+                    "updated": 1650627118885
+                },
+                {
+                    "language": "DE",
+                    "text": "Allzeithoch - Messari API-Indikator (All Time High - Messari API Indicator)",
+                    "updated": 1693335458049
+                }
+            ]
         },
         {
             "style": "Title",

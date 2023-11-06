@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Некоторые узлы могут приобретать значение во время выполнения. Этот тип ошибки появляется, когда ожидается, что такой узел Node будет иметь какое-то значение, но его нет. Неопределенный означает отсутствие значения любого типа.",
                 "updated": 1638553197812
+            },
+            {
+                "language": "DE",
+                "text": "Einige Nodes können zur Laufzeit einen Wert erhalten. Diese Art von Fehler tritt auf, wenn von einem solchen Node ein Wert erwartet wird, er aber keinen hat. Undefiniert bedeutet, dass es überhaupt keinen Wert irgendeines Typs gibt.",
+                "updated": 1645478383177
+            },
+            {
+                "language": "TR",
+                "text": "Bazı düğümler çalışma zamanında bir değer alabilir. Bu tür bir hata, böyle bir düğümün bir değere sahip olması beklendiğinde ancak hiçbir değeri olmadığında ortaya çıkar. Tanımsız, hiçbir türden hiçbir değerin olmadığı anlamına gelir.",
+                "updated": 1652296605042
             }
         ]
     },
@@ -22,6 +32,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
                     "updated": 1638553212126
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından docs.save değişikliklerinizi kaydetmek ve app.contribute ana depoya göndermek için kullanabilirsiniz.",
+                    "updated": 1652296656611
                 }
             ]
         }

@@ -31,6 +31,21 @@
                 "language": "TR",
                 "text": "İşte çılgın kısım... Plugin File Position düğümü, eklentinin çalışma alanında nereye yerleştirileceğini belirler!",
                 "updated": 1639812420896
+            },
+            {
+                "language": "RU",
+                "text": "А вот и самое интересное... узел Plugin File Position определяет, в каком месте рабочего пространства размещается плагин!",
+                "updated": 1640873487187
+            },
+            {
+                "language": "ID",
+                "text": "Ini sedikit gila... node Plugin File Position menentukan di mana workspace plugin ditempatkan!",
+                "updated": 1645558221563
+            },
+            {
+                "language": "NL",
+                "text": "Dit is het gekke... het knooppunt Plugin File Position bepaalt waar in de werkruimte de plugin wordt geplaatst!",
+                "updated": 1669546318278
             }
         ]
     },
@@ -61,6 +76,21 @@
                     "language": "TR",
                     "text": "Bu nedenle, Plugin File Position düğümünün üstünde Trading System düğümünü buldunuz!",
                     "updated": 1639812506781
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот почему вы нашли узел Trading System поверх узла Plugin File Position!",
+                    "updated": 1640873508309
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah mengapa kamu menemukan node Trading System diatas dari node Plugin File Position!",
+                    "updated": 1645558282845
+                },
+                {
+                    "language": "NL",
+                    "text": "Daarom vond je het Trading System knooppunt bovenop het Plugin File Position knooppunt!",
+                    "updated": 1669546343573
                 }
             ]
         },
@@ -77,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el workspace!¡Plugins se cargan desde el archivo plugin cada vez que se carga el workspace!",
-                    "updated": 1626642734045,
+                    "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el Workspace!¡Los Plugins se cargan desde el archivo plugin cada vez que se carga el Workspace!",
+                    "updated": 1675377679469,
                     "style": "Success"
                 },
                 {
@@ -90,6 +120,21 @@
                     "language": "TR",
                     "text": "Trading System düğümünü sildiyseniz, çalışma alanını yeniden yüklediğinizde yeniden görünür! Çalışma alanı her yüklendiğinde eklentiler, eklenti dosyasından yüklenir!",
                     "updated": 1639813038452
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы удалите узел Trading System, он снова появится при следующей перезагрузке рабочего пространства! Плагины загружаются из файла плагинов при каждой загрузке рабочего пространства!",
+                    "updated": 1640873532831
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menghapus node Trading System, itu akan muncul lagi saat berikutnya kamu mereload workspace! Plugin dimuat dari file plugin setiap kali workspace dimuat!",
+                    "updated": 1645558356190
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je het Trading System knooppunt hebt verwijderd, zou het de volgende keer dat je de werkruimte opnieuw laadt, weer verschijnen! Elke keer dat de werkruimte wordt geladen, worden Plugins uit het plugin bestand geladen!",
+                    "updated": 1669546383015
                 }
             ]
         },
@@ -100,14 +145,14 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Prova, se vuoi! Puoi anche cancellare il nodo Trading System e aggiornare la pagina. Tieni a mente che per continuare da qui dovrai cercare il Basic Education Tutorial e cliccare Resume sul menù!",
-                    "updated": 1619554844566,
+                    "text": "Sentiti libero di provarlo! Se lo desideri, puoi eliminare il nodo Trading System e aggiornare la pagina. Tieni presente che dovrai trovare il Basic Education Tutorial e fare clic su Resume nel menu per continuare!",
+                    "updated": 1666640349163,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡No dudes en probarlo! Si lo desea, puedes eliminar el nodo Trading System y actualiza la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
-                    "updated": 1626642833516,
+                    "text": "¡No dudes en probarlo! Si lo deseas, puedes eliminar el nodo Trading System y actualizar la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
+                    "updated": 1675377698515,
                     "style": "Text"
                 },
                 {
@@ -119,6 +164,21 @@
                     "language": "TR",
                     "text": "Denemekten çekinmeyin! Dilerseniz Trading System düğümünü silebilir ve sayfayı yenileyebilirsiniz. Devam etmek için Temel Eğitim Öğreticisini ( Basic Education Tutorial ) bulmanız ve menüdeki Devam Et' tuşuna  tıklamanız gerekeceğini unutmayın!",
                     "updated": 1639813134383
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь опробовать его! При желании вы можете удалить узел Trading System и обновить страницу. Имейте в виду, что вам нужно будет найти учебник Basic Education Tutorial и нажать кнопку Resume в меню, чтобы продолжить!",
+                    "updated": 1640873592970
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan ragu untuk mencobanya! Jika demikian yang kamu inginkan, kamu dapat menghapus node Trading System dan merefresh halaman. Ingatlah bahwa kamu perlu menemukan Basic Education Tutorial dan klik Resume pada menu untuk melanjutkan!",
+                    "updated": 1645558474676
+                },
+                {
+                    "language": "NL",
+                    "text": "Probeer het gerust! Als u dat wilt, kunt u het Trading System knooppunt verwijderen en de pagina vernieuwen. Houd er rekening mee dat je de Basic Education Tutorial moet vinden en klik op Resume in het menu om door te gaan!",
+                    "updated": 1669546435913
                 }
             ]
         }

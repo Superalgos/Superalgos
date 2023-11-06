@@ -13,6 +13,31 @@
                 "language": "DE",
                 "text": "Wenn komplexe Handelslogik in mehrere Strategien aufgeteilt wird, haben Sie die Möglichkeit, die daraus resultierenden Trades unterschiedlich zu verwalten!",
                 "updated": 1639148239837
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Karmaşık işlem mantığını birden fazla stratejiye böldüğünüzde, ortaya çıkan işlemleri farklı şekilde yönetme fırsatı elde edersiniz!",
+                "updated": 1640782750024
+            },
+            {
+                "language": "RU",
+                "text": "Когда сложная торговая логика разделена на несколько стратегий, вы получаете возможность управлять результирующими сделками по-разному!",
+                "updated": 1640886130902
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer complexe handelslogica wordt opgesplitst in meerdere strategieën, krijgt u de mogelijkheid om de resulterende transacties anders te beheren!",
+                "updated": 1670792181283
+            },
+            {
+                "language": "ID",
+                "text": "Ketika logika trading yang rumit dibagi menjadi beberapa strategi, kamu mendapatkan kesempatan untuk mengelola trading yang dihasilkan secara berbeda!",
+                "updated": 1674626530866
+            },
+            {
+                "language": "ES",
+                "text": "Cuando una lógica de trading compleja se divide en múltiples estrategias, tienes la oportunidad de gestionar las operaciones resultantes de forma diferente.",
+                "updated": 1675619949061
             }
         ]
     },
@@ -25,6 +50,31 @@
                     "language": "DE",
                     "text": "Wir sind noch nicht darauf eingegangen, wie Strategien definiert werden, aber Sie wissen, dass Superalgos die Verwaltung von Take Profit- und Stop Loss-Zielen ermöglicht...",
                     "updated": 1639148246835
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejilerin nasıl tanımlandıklarına henüz girmedik, ancak Superalgos'un kar al (take profit) ve zararı durdur'u (stop loss) yönetmeye izin verdiğini biliyorsunuz...",
+                    "updated": 1640782959600
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы еще не рассмотрели, как определяются стратегии, но вы знаете, что Superalgos позволяет управлять целями тейк-профита и стоп-лосса...",
+                    "updated": 1640886143633
+                },
+                {
+                    "language": "NL",
+                    "text": "We zijn nog niet ingegaan op hoe strategieën worden gedefinieerd, maar u weet wel dat Superalgos het mogelijk maakt om de take profit- en stop loss-doelen te beheren...",
+                    "updated": 1670792199965
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita belum membahas bagaimana strategi didefinisikan, tetapi kamu tahu bahwa Superalgos memungkinkan pengelolaan target take profit dan stop loss...",
+                    "updated": 1674626537168
+                },
+                {
+                    "language": "ES",
+                    "text": "Todavía no hemos entrado en cómo se definen las estrategias, pero ya sabes que Superalgos permite gestionar los objetivos de Take Profit y Stop Loss...",
+                    "updated": 1675619971215
                 }
             ]
         },
@@ -36,6 +86,31 @@
                     "language": "DE",
                     "text": "Jede Strategie in einem Trading System kann ihre eigene Logik zur Verwaltung der Positionen haben!",
                     "updated": 1639148259702
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemindeki her stratejinin pozisyonları yönetmek için kendi mantığı olabilir!",
+                    "updated": 1640782988636
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая стратегия в торговой системе может иметь свою собственную логику управления позициями!",
+                    "updated": 1640886153976
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke strategie in een handelssysteem kan zijn eigen logica hebben voor het beheren van posities!",
+                    "updated": 1670792211479
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap strategi dalam trading system mungkin memiliki logikanya sendiri untuk mengelola positions!",
+                    "updated": 1674626544136
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada estrategia de un sistema de trading puede tener su propia lógica de gestión de las posiciones.",
+                    "updated": 1675619981236
                 }
             ]
         },
@@ -47,6 +122,31 @@
                     "language": "DE",
                     "text": "Wenn Sie mehrere Variationen der gleichen Logik verwenden, z.B. um eine Position zu übernehmen, dann müssen Sie wahrscheinlich auch mehrere Variationen für die Verwaltung der Position verwenden. Es ist einfacher und sauberer, beides in separaten Strategien zu tun.",
                     "updated": 1639148274175
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin bir pozisyon almak için aynı mantığın birden fazla varyasyonunu ele alıyorsanız, pozisyonu yönetmek için muhtemelen birden fazla varyasyonu ele almanız gerekecektir. Her ikisini de ayrı stratejilerde yapmak daha kolay ve daha temizdir.",
+                    "updated": 1640783017126
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы используете несколько вариантов одной и той же логики, например, для взятия позиции, то вам, скорее всего, потребуется несколько вариантов управления позицией. Проще и понятнее делать то и другое в отдельных стратегиях.",
+                    "updated": 1640886206840
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u meerdere variaties van dezelfde logica hanteert, bijvoorbeeld om een positie in te nemen, dan zult u waarschijnlijk meerdere variaties moeten verwerken om de positie te beheren. Het is gemakkelijker en duidelijker om beide in afzonderlijke strategieën te doen.",
+                    "updated": 1670792251826
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menangani multiple variasi dari logika yang sama misalnya, untuk mengambil posisi, kamu mungkin perlu menangani beberapa variasi untuk mengelola posisi tersebut. Lebih mudah dan lebih bersih untuk melakukan keduanya pada strategi terpisah.",
+                    "updated": 1674626553281
+                },
+                {
+                    "language": "ES",
+                    "text": "Si manejas múltiples variaciones de la misma lógica, por ejemplo, para tomar una posición, entonces es probable que necesites manejar múltiples variaciones para gestionar la posición. Es más fácil y limpio hacer ambas cosas en estrategias separadas.",
+                    "updated": 1675619998826
                 }
             ]
         }

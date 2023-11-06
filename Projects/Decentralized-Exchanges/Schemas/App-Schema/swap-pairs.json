@@ -1,0 +1,51 @@
+{
+    "type": "Swap Pairs",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Swap Pair",
+            "translationKey": "add.swapPair",
+            "relatedUiObject": "Swap Pair",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Add Missing Pairs",
+            "label": "Add Missing Swap Pairs",
+            "translationKey": "add.missing.swapPairs",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
+            "workDoneLabel": "Request Sent",
+            "relatedUiObject": "Swap Pair",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Defi Wallet->"
+    },
+    "propertyNameAtParent": "swapPairs",
+    "childrenNodesProperties": [
+        {
+            "name": "swapPair",
+            "type": "array",
+            "childType": "Swap Pair"
+        }
+    ]
+}

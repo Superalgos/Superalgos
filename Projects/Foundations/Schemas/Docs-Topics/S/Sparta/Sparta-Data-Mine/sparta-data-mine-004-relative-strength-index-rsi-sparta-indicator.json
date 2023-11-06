@@ -1,0 +1,249 @@
+{
+    "topic": "Sparta Data Mine",
+    "pageNumber": 4,
+    "type": "Relative Strength Index (RSI) - Sparta Indicator",
+    "definition": {
+        "text": "The indicator produces the standard 14 setting of the Relative Strength Index.",
+        "updated": 1611662214310,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает стандартную 14 настройку индекса относительной силы.",
+                "updated": 1643529696008
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge, Göreceli Güç Endeksi'nin standart 14 ayarını üretir.",
+                "updated": 1650620352877
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator gibt die 14 Standardeinstellungen des Relative Strength Index wieder.",
+                "updated": 1671034660484
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Relative Strength Index On the Charts",
+            "updated": 1611662231228,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индекс относительной силы на графиках",
+                    "updated": 1643529701306
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Göreceli Güç Endeksi",
+                    "updated": 1650620389146
+                },
+                {
+                    "language": "DE",
+                    "text": "Relative Strength Index auf den Charts",
+                    "updated": 1671034763717
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “The relative strength index (RSI) is a momentum indicator that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of a stock or other asset. The RSI is displayed as an oscillator (a line graph that moves between two extremes) and can have a reading from 0 to 100.”",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"индекс относительной силы (RSI) - это индикатор импульса, который измеряет величину последних изменений цены, чтобы оценить условия перекупленности или перепроданности цены акции или другого актива. RSI отображается в виде осциллятора (линейный график, который движется между двумя экстремумами) и может иметь показания от 0 до 100\".",
+                    "updated": 1643529711893
+                },
+                {
+                    "language": "TR",
+                    "text": "Investopedia'ya göre, “Göreceli güç endeksi (RSI), bir hisse senedi veya başka bir varlığın fiyatındaki aşırı alım veya aşırı satım koşullarını değerlendirmek için son fiyat değişikliklerinin büyüklüğünü ölçen bir momentum göstergesidir. RSI, bir osilatör (iki uç arasında hareket eden bir çizgi grafiği) olarak görüntülenir ve 0 ile 100 arasında bir okuma yapabilir.",
+                    "updated": 1650620399171
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia „ist der Relative Strength Index (RSI) ein Momentum-Indikator, der das Ausmaß der jüngsten Kursveränderungen misst, um überkaufte oder überverkaufte Bedingungen im Preis einer Aktie oder eines anderen Vermögenswerts zu bewerten. Der RSI wird als Oszillator angezeigt (ein Liniendiagramm, das sich zwischen zwei Extremen bewegt) und kann einen Wert zwischen 0 und 100 haben.\"",
+                    "updated": 1671034722430
+                }
+            ]
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Docs/indicators/sparta-bots-layers-00-RSI.gif",
+            "updated": 1611662270956
+        },
+        {
+            "style": "Text",
+            "text": "The chart for this indicator shows the RSI oscillating in a scale ranging from 0 at the bottom to 100 at the top. The bottom section of the chart shows a blue background covering the range from 0 to 20, also marked by a dotted line. When the RSI value falls below the 20 mark, the RSI line turns red, for easier visualization. Also in the bottom section, there is a second dotted line signaling the 30 mark.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На графике этого индикатора RSI колеблется в диапазоне от 0 в нижней части до 100 в верхней. Нижняя часть графика имеет синий фон, охватывающий диапазон от 0 до 20, также обозначенный пунктирной линией. Когда значение RSI опускается ниже отметки 20, линия RSI становится красной, что облегчает визуализацию. Также в нижней части находится вторая пунктирная линия, сигнализирующая о достижении отметки 30.",
+                    "updated": 1643529727723
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu göstergenin grafiği, altta 0 ile üstte 100 arasında değişen bir ölçekte salınan RSI'yi gösterir. Grafiğin alt kısmı, 0 ila 20 aralığını kapsayan ve yine noktalı bir çizgiyle işaretlenmiş mavi bir arka plan gösterir. RSI değeri 20 işaretinin altına düştüğünde, daha kolay görselleştirme için RSI çizgisi kırmızıya döner. Ayrıca alt kısımda, 30 işaretini gösteren ikinci bir noktalı çizgi vardır.",
+                    "updated": 1650620412030
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Diagramm für diesen Indikator zeigt den RSI in einer Skala, die von 0 unten bis 100 oben reicht. Der untere Teil des Diagramms ist blau unterlegt und deckt den Bereich von 0 bis 20 ab, der ebenfalls durch eine gepunktete Linie markiert ist. Wenn der RSI-Wert unter die 20er-Marke fällt, wird die RSI-Linie zur besseren Veranschaulichung rot. Ebenfalls im unteren Bereich befindet sich eine zweite gepunktete Linie, die die 30er-Marke anzeigt.",
+                    "updated": 1671034829778
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The equivalent (although reversed) effect is featured on the top half of the charts, with dotted lines signaling the 70 and 80 levels, and a blue background above 80.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Аналогичный (хотя и обратный) эффект наблюдается на верхней половине графиков, где пунктирные линии обозначают уровни 70 и 80, а синий фон - выше 80.",
+                    "updated": 1643529737304
+                },
+                {
+                    "language": "TR",
+                    "text": "Eşdeğer (ters olmasına rağmen) efekt, çizelgelerin üst yarısında, 70 ve 80 seviyelerini gösteren noktalı çizgiler ve 80'in üzerinde mavi bir arka plan ile gösterilir.",
+                    "updated": 1650620423026
+                },
+                {
+                    "language": "DE",
+                    "text": "Der gleiche (wenn auch umgekehrte) Effekt ist in der oberen Hälfte der Diagramme zu sehen, mit gepunkteten Linien, die die Werte 70 und 80 anzeigen, und einem blauen Hintergrund über 80.",
+                    "updated": 1671034866430
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There is also a dotted line at the 50 mark, signaling the median of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На отметке 50 также имеется пунктирная линия, обозначающая медиану графика.",
+                    "updated": 1643529744873
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca 50 işaretinde grafiğin medyanına işaret eden noktalı bir çizgi vardır.",
+                    "updated": 1650620434876
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei der 50er-Marke befindet sich außerdem eine gepunktete Linie, die den Median des Diagramms anzeigt.",
+                    "updated": 1671034895098
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For the time being, the chart is fixed on the screen and the user may not move it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данный момент график зафиксирован на экране, и пользователь не может его перемещать.",
+                    "updated": 1643529753154
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu an için grafik ekranda sabittir ve kullanıcı onu hareket ettiremez.",
+                    "updated": 1650620454787
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Diagramm ist vorerst auf dem Bildschirm fixiert und kann vom Benutzer nicht verschoben werden.",
+                    "updated": 1671034926731
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Relative Strength Index Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства Relative Strength Index",
+                    "updated": 1643529766948
+                },
+                {
+                    "language": "TR",
+                    "text": "Göreceli Güç Endeksi Ürünler ve Özellikler",
+                    "updated": 1650620462390
+                },
+                {
+                    "language": "DE",
+                    "text": "Relative Strength Index Produkte & Eigenschaften",
+                    "updated": 1671034968326
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The RSI product currently available uses the standard setting of 14 periods, and features a single property: rsi14.value",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеющийся в настоящее время продукт RSI использует стандартную настройку 14 периодов и имеет единственное свойство: rsi14.value",
+                    "updated": 1643529776027
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda mevcut olan RSI ürünü, 14 dönemlik standart ayarı kullanır ve tek bir özelliğe sahiptir: rsi14.value",
+                    "updated": 1650620474876
+                },
+                {
+                    "language": "DE",
+                    "text": "Das derzeit verfügbare RSI Produkt verwendet die Standardeinstellung von 14 Perioden und verfügt über eine einzige Eigenschaft: rsi14.value",
+                    "updated": 1671035038865
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643529783455
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1650620486175
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671035066705
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.rsi14.value >= 70",
+            "updated": 1611662294248
+        },
+        {
+            "style": "Text",
+            "text": "How’s the trend going at the 24-hours chart?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как развивается тренд на 24-часовом графике?",
+                    "updated": 1643529792313
+                },
+                {
+                    "language": "TR",
+                    "text": "24 saatlik grafikte trend nasıl gidiyor?",
+                    "updated": 1650620495898
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie sieht der Trend auf dem 24-Stunden-Chart aus?",
+                    "updated": 1671035105833
+                }
+            ]
+        }
+    ]
+}

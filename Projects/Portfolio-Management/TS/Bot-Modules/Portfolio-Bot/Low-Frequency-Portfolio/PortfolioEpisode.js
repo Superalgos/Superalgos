@@ -3,7 +3,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
     This module packages all functions related to Episodes.
     */
     let thisObject = {
-        mantain: mantain,
+        maintain: maintain,
         reset: reset,
         openEpisode: openEpisode,
         updateExitType: updateExitType,
@@ -31,7 +31,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
         sessionParameters = undefined
     }
 
-    function mantain() {
+    function maintain() {
         updateCounters()
         updateStatistics()
         updateEnds()
@@ -55,12 +55,12 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
         portfolioEngine.portfolioCurrent.portfolioEpisode.end.value = portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
 
         /* Getting the begin Balance from the session configuration */
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.beginBalance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.beginBalance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.beginBalance.value = 0 //sessionParameters.sessionBaseAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.beginBalance.value = 0 //sessionParameters.sessionQuotedAsset.config.initialBalance
 
         /* The current balance is also the begin balance, that is how this starts. */
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.balance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.balance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.balance.value = 0 //sessionParameters.sessionBaseAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.balance.value = 0 //sessionParameters.sessionQuotedAsset.config.initialBalance
 
         /* Recording the opening at the Portfolio Engine Data Structure */
         portfolioEngine.portfolioCurrent.portfolioEpisode.status.value = 'Open'
@@ -124,11 +124,11 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
             /* Updating Profit Loss */
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.profitLoss.value =
                 portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.balance.value -
-                sessionParameters.sessionBaseAsset.config.initialBalance
+                0 // sessionParameters.sessionBaseAsset.config.initialBalance
 
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.profitLoss.value =
                 portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.balance.value -
-                sessionParameters.sessionQuotedAsset.config.initialBalance
+                0 // sessionParameters.sessionQuotedAsset.config.initialBalance
 
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.profitLoss.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.profitLoss.value, 10)
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.profitLoss.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.profitLoss.value, 10)
@@ -262,6 +262,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
 
     function updateDistanceToPortfolioEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
+        /*
         if (
             portfolioEngine.portfolioCurrent.portfolioEpisode.distanceToPortfolioEvent.triggerOn.value > 0
         ) {
@@ -314,6 +315,6 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
             portfolioEngine.portfolioCurrent.portfolioEpisode.distanceToPortfolioEvent.closeOrder.value > 0
         ) {
             portfolioEngine.portfolioCurrent.portfolioEpisode.distanceToPortfolioEvent.closeOrder.value++
-        }
+        }*/
     }
 }

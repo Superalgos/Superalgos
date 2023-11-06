@@ -17,8 +17,13 @@
             },
             {
                 "language": "TR",
-                "text": "Topluluk veya Superalgos Topluluğu, Superalgos projesine katılan, projenin ilerlemesine aktif olarak katkıda bulunan veya Superalgos Ağı'nı pasif olarak kullanan kuruluşlar grubudur.",
-                "updated": 1639233811574
+                "text": "Superalgos Topluluğu, Superalgos projesine katılan, projenin ilerlemesine aktif olarak katkıda bulunan veya Superalgos Ağı'nı ( Superalgos Network ) kullanan kişi ve kuruluşlar grubudur.",
+                "updated": 1671993830881
+            },
+            {
+                "language": "DE",
+                "text": "Die Gemeinschaft oder Superalgos-Community ist die Gruppe von beteiligten Stellen, die am Superalgos-Projekt teilnehmen und entweder aktiv zur Weiterentwicklung des Projekts beitragen oder das Superalgos-Netzwerk passiv nutzen.",
+                "updated": 1696955461763
             }
         ]
     },
@@ -31,6 +36,18 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638281111417
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sol tıklayın ve Düzenle düğmesine basın. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
+                    "updated": 1654390899361,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der linken Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955461967,
+                    "style": "Text"
                 }
             ]
         }

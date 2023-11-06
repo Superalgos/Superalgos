@@ -1,0 +1,65 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "19",
+    "type": "MavilimW",
+    "definition": {
+        "text": "The MavilimW is a series of Weighted Moving Averages with lengths based on a Fibonacci sequence seeded by the initial two length values as specified in the parameters.",
+        "updated": 1673834509883
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MavilimW on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator can be used in the same manner as other moving averages."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-mavilimw.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| MavilimW | mavilimW | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under the \"MavilimW\" Procedure Loop.",
+            "updated": 1673834548751
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-mavilimw-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point for a trade could be when the price action rises above the moving average value:",
+            "updated": 1673835985540
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.mavilimW.previous.value > chart.at01hs.candle.previous.close && chart.at01hs.mavilimW.value < chart.at01hs.candle.close"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

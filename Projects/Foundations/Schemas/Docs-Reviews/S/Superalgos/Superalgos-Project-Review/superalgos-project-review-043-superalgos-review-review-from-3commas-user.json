@@ -1,0 +1,40 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 43,
+    "type": "Superalgos Review - Review from 3Commas user",
+    "definition": {
+        "text": "Superalgos has a lot more features compared to 3Commas \n",
+        "updated": 1651598478155,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Superalgos hat im Vergleich zu 3Commas viel mehr Funktionen",
+                "updated": 1687641566924
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, 3Commas'a kıyasla çok daha fazla özelliğe sahiptir",
+                "updated": 1696017293849
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "you can create bots with great features",
+            "updated": 1651598709522,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können Bots mit großartigen Funktionen erstellen",
+                    "updated": 1687641579751
+                },
+                {
+                    "language": "TR",
+                    "text": "harika özelliklere sahip botlar oluşturabilirsiniz",
+                    "updated": 1696017314786
+                }
+            ]
+        }
+    ]
+}

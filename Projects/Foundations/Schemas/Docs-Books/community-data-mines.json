@@ -13,48 +13,99 @@
                 "language": "TR",
                 "text": "Topluluk Veri Madenleri kitabı, Topluluk tarafından katkıda bulunulan veri madenlerinin ve göstergelerinin bir özetidir.",
                 "updated": 1639836670009
+            },
+            {
+                "language": "RU",
+                "text": "Книга \"Community Data Mines\" - это сборник иcточников данных и их показателей, предоставленных сообществом.",
+                "updated": 1645086028105
+            },
+            {
+                "language": "DE",
+                "text": "Das Buch \"Community Data Mines\" ist ein Kompendium der Data Mines und ihrer Indikatoren - von der Community zur Verfügung gestellt.",
+                "updated": 1650360272469
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Foundations->Topic->Alpha Data Mine",
-            "updated": 1611686360926
+            "text": "I->Foundations->Topic->Alpha Data Mine"
         },
         {
             "style": "Chapter",
-            "text": "II->Foundations->Topic->Buddha Data Mine->",
-            "updated": 1611686389041
+            "text": "II->Foundations->Topic->Buddha Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "III->Foundations->Topic->Heikin Data Mine->",
-            "updated": 1611686401703
+            "text": "III->Foundations->Topic->Delta Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "IV->Foundations->Topic->Masters Data Mine->",
-            "updated": 1611686401703
+            "text": "IV->Foundations->Topic->Heikin Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "V->Foundations->Topic->Sparta Data Mine->",
-            "updated": 1611686413735
+            "text": "V->Foundations->Topic->Masters Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VI->Foundations->Topic->Zeus Data Mine->",
-            "updated": 1611686424488
+            "text": "VI->Foundations->Topic->Omega One Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VII->Foundations->Topic->CoinGecko API Map and Mine->",
-            "updated": 1622690513016
+            "text": "VII->Foundations->Topic->Pluvtech Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VIII->Foundations->Topic->quantum Data Mine->"
+            "text": "VIII->Foundations->Topic->Polus Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Foundations->Topic->quantum Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "X->Foundations->Topic->Sparta Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XI->Foundations->Topic->Turtles Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XII->Foundations->Topic->Zeus Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XIII->Foundations->Topic->CoinGecko API Map and Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XIV->Foundations->Topic->Divergences Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XV->Foundations->Topic->Trends Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVI->Foundations->Topic->Pivots Data Mine->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVII->Foundations->Topic->API Data Mines->"
+        },
+        {
+            "style": "Chapter",
+            "text": "XVIII->Foundations->Topic->Undulated Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "XIX->Foundations->Topic->Volume Tools Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "XX->Foundations->Topic->Aggregated Data Mine->"
         }
     ]
 }

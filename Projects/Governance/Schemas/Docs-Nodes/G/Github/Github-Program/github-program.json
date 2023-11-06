@@ -13,6 +13,16 @@
                 "language": "RU",
                 "text": "Эта программа побуждает пользователей создать форк репозитория Superalgos, что является необходимым шагом для внесения своего вклада. Это также побуждает пользователей поставить звездочку и добавить репозиторий в список наблюдения, что помогает разработчикам находить проект при поиске на Github.com.",
                 "updated": 1638979847768
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Programm bietet Nutzern einen Anreiz, das Superalgos-Repository zu forken, ein notwendiger Schritt, um einen Beitrag zu leisten (contribute). Es bietet auch einen Anreiz für Nutzer, einen Stern zu vergeben und das Repository zu beobachten, was Entwicklern hilft, das Projekt bei der Suche auf Github.com zu finden.",
+                "updated": 1641768486881
+            },
+            {
+                "language": "TR",
+                "text": "Bu program, kullanıcıları, katkıda bulunmak için gerekli bir adım olan Superalgos deposunu çatallamaya teşvik eder. Ayrıca kullanıcıları Superalgos'a bir yıldız vermeye ve depoyu izlemeye teşvik eder, bu da geliştiricilerin Github.com'da arama yaparken projeyi bulmasına yardımcı olur.",
+                "updated": 1644481662277
             }
         ]
     },
@@ -36,6 +46,16 @@
                     "language": "RU",
                     "text": "Программа Github распределяет пул вознаграждений Rewards Pool, определенный в разделе Governance Programs > Onboarding Programs иерархии пулов Superalgos.",
                     "updated": 1638979968656
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Github Program verteilt den Rewards Pool, der unter dem Abschnitt Governance Programs > Onboarding Programs in der Superalgos Pool hierarchy definiert ist.",
+                    "updated": 1641768601946
+                },
+                {
+                    "language": "TR",
+                    "text": "Github Programı, Superalgos Pools hiyerarşisinin Governance Programs > Onboarding Programs bölümünde tanımlanan Rewards Pool'u dağıtır.",
+                    "updated": 1644481706835
                 }
             ]
         },
@@ -52,6 +72,16 @@
                     "language": "RU",
                     "text": "Создание программы Github Program и отправка вашего профиля пользователя User Profile - это все, что вам нужно сделать, чтобы принять участие в программе. Чтобы максимально увеличить количество полученных токенов, убедитесь, что вы создали форк репозитория, поставили звездочку и вы следите за репозиторием! Система выполняет автоматическую проверку Github.com и проверяет их существование в режиме реального времени.",
                     "updated": 1638980158208
+                },
+                {
+                    "language": "DE",
+                    "text": "Um am Github Program teilzunehmen, müssen Sie nur das Github Program starten und Ihr User Profile (Benutzerprofil) einreichen (contribute User Profile).  Um Ihre Tokens Belohnung zu maximieren, stellen Sie sicher, dass Sie einen Fork und einen Stern haben und das Repository beobachten! Das System überprüft automatisch und in Echtzeit die Existenz der Repositories auf Github.com.",
+                    "updated": 1641768690045
+                },
+                {
+                    "language": "TR",
+                    "text": "Github Programını oluşturmak ve Kullanıcı Profilinizi (User Profile) göndermek programa katılmak için yapmanız gereken tek şey. Ödüllü Jetonlarınızı (Tokens Awarded) en üst düzeye çıkarmak için, projeyi çatalladığınızdan, bir yıldız verdiğinizden ve depoyu izlediğinizden emin olun! Sistem Github.com üzerinde otomatik kontroller yapar ve gerçek zamanlı olarak varlığını doğrular.",
+                    "updated": 1644481809030
                 }
             ]
         },
@@ -69,6 +99,16 @@
                     "language": "RU",
                     "text": "Для каждого из этих стимулов существует ограничение в размере 1000 SA токенов. Это означает, что вы можете получить до 3000 SA токенов в качестве вознаграждения, если максимально увеличите свое участие.",
                     "updated": 1638980310876
+                },
+                {
+                    "language": "DE",
+                    "text": "Für jeden dieser Anreize gibt es eine Obergrenze von 1.000 SA. Das bedeutet, dass Sie bis zu 3.000 SA in Token erhalten können (Tokens Awarded), wenn Sie Ihre Teilnahme maximieren.",
+                    "updated": 1641768723743
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu teşviklerin her biri için 1.000 SA'lık bir üst sınır vardır. Bu, katılımınızı en üst düzeye çıkarırsanız, 3,000 SA'ya kadar ödül alabileceğiniz anlamına gelir.",
+                    "updated": 1644481884403
                 }
             ]
         },
@@ -85,6 +125,16 @@
                     "language": "RU",
                     "text": "В случае, если в пуле вознаграждений недостаточно токенов для покрытия каждого стимула до определенного предела для всех профилей пользователей, то каждый профиль получает равную долю для каждого из применимых стимулов.",
                     "updated": 1638980399506
+                },
+                {
+                    "language": "DE",
+                    "text": "Falls nicht genügend Token im Belohnungspool (Rewards Pool) vorhanden sind, um alle Anreize bis zur festgelegten Obergrenze für alle Benutzerprofile abzudecken, erhält jedes Profil einen gleichen Anteil für jeden der anwendbaren Anreize.",
+                    "updated": 1641768763512
+                },
+                {
+                    "language": "TR",
+                    "text": "Ödül Havuzunda (Reward Pol), tüm Kullanıcı Profilleri için tanımlanan üst sınıra kadar her bir teşviğe yetecek kadr jeton olmaması durumunda, her profil, geçerli teşviklerin her biri için eşit bir oransa SA Token alır.",
+                    "updated": 1644481954016
                 }
             ]
         },
@@ -104,6 +154,16 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638980412788
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1641768788568
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma",
+                    "updated": 1644481963749
                 }
             ]
         }

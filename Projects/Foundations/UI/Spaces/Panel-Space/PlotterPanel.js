@@ -24,6 +24,8 @@ function newPlotterPanel() {
     let upDownButton
     let panelNode
     let recordSet = new Map()
+    let configStyle
+
 
     return thisObject
 
@@ -80,12 +82,22 @@ function newPlotterPanel() {
     }
 
     function onRecordChange(pCurrentRecord) {
-        currentRecord = pCurrentRecord
 
-        if (currentRecord === undefined) {
-            recordSet = new Map()
+        if (currentRecord !== undefined && pCurrentRecord !== undefined) {
+            /*
+            We want to prevent pannels showing the last record which overlap / shadow all the others (think episodes in daily)
+            For that reason if we already have a record, we ignore the others.
+            */
             return
         }
+
+        currentRecord = pCurrentRecord
+        if (currentRecord === undefined) {
+            recordSet = new Map()
+            currentRecord = undefined
+            return
+        }
+
         if (currentRecord.index !== undefined) {
             /*
             There is a situation when we expect to receive many records
@@ -118,41 +130,54 @@ function newPlotterPanel() {
         if (currentRecord === undefined) { return }
         let record = currentRecord
 
-        /* First we execute code if provided. */
-        if (panelNode.plotterPanelJavascriptCode !== undefined) {
-            try {
-                eval(panelNode.plotterPanelJavascriptCode.code)
-            } catch (err) {
-                if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> err = ' + err.stack) }
-                if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> plotterPanelJavascriptCode.code = ' + panelNode.plotterPanelJavascriptCode.code) }
-            }
-        }
 
         /* Second we go through the panel data. */
         if (panelNode.panelData === undefined) { return }
         for (let i = 0; i < panelNode.panelData.length; i++) {
             let panelData = panelNode.panelData[i]
 
+            // These variables are declared for use with the below JavaScript code node (optional)
             let labelText = panelData.name
             let labelPosition = i * 10 + 12
             let valuePosition = i * 10 + 17
             let value = 'No value defined.'
-
-            if (valuePosition > 100) {
-                thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.25
+            let valueColor
+            let valueY
+            let textSize
+            let textColor
+            let textOpacity
+            let textY
+            let valueOpacity
+            let valueFontSize
+            
+            
+            /**If the Panel Data Javascript Code node is found we run the code found at that location now. */
+            if (panelData.panelDataJavascriptCode !== undefined) {
+                try {
+                    eval(panelData.panelDataJavascriptCode.code)
+                } catch (err) {
+                    if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> err = ' + err.stack) }
+                    if (ERROR_LOG === true) { logger.write('[ERROR] plotCurrentRecordData -> panelDataJavascriptCode.code = ' + panelData.panelDataJavascriptCode.code) }
+                }
             }
 
-            if (valuePosition > 125) {
-                thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.50
+            let chartingSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Charting Space')
+            if (chartingSpaceNode !== undefined) {
+                if (chartingSpaceNode.spaceStyle !== undefined) {
+                    configStyle = JSON.parse(chartingSpaceNode.spaceStyle.config)
+                }
+            } else {
+                configStyle = undefined
             }
 
-            if (valuePosition > 150) {
-                thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.75
-            }
 
-            if (valuePosition > 175) {
-                thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.00
-            }
+            if (valuePosition > 100) {thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.25}
+            
+            if (valuePosition > 125) {thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.50}
+
+            if (valuePosition > 150) {thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 1.75}
+
+            if (valuePosition > 175) {thisObject.container.frame.height = UI_PANEL.HEIGHT.NORMAL * 2.00}
 
             if (panelData.dataFormula !== undefined) {
                 try {
@@ -171,37 +196,72 @@ function newPlotterPanel() {
                 }
             }
 
+            // This is used to override the text output with desired text
             if (panelData.config.labelText !== undefined) {
                 labelText = panelData.config.labelText
             }
-
+            // This is used if the text and value y calculation
             if (panelData.config.labelPosition !== undefined) {
                 labelPosition = panelData.config.labelPosition
             }
-
+            // This is used if the text and value y calculation
             if (panelData.config.valuePosition !== undefined) {
                 valuePosition = panelData.config.valuePosition
             }
 
-            let opacity = '1.00'
-            let fontSize = 14
-            let paletteColor
+
+            switch (undefined) {
+                case (valueFontSize): {
+                    valueFontSize = 14
+                } 
+                case (textSize): {
+                    textSize = 14
+                } 
+                case (textColor): {
+                    if (configStyle === undefined || configStyle.indicatorFrameTextColor === undefined) {
+                        textColor = UI_COLOR.DARK
+                    } else {
+                        textColor = eval(configStyle.indicatorFrameTextColor)
+                    }
+                } 
+                case (valueColor): {
+                    valueColor = textColor
+                }
+                case (valueOpacity): {
+                    valueOpacity = '1'
+                }
+                case (textOpacity): {
+                    textOpacity = '1'
+                }
+                case (textY): {
+                    textY = UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor
+                } 
+                case (valueY): {
+                    valueY = UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor
+                } 
+            }
+
+
 
             if (panelData.textStyle !== undefined) {
-                if (panelData.textStyle.config.fontSize !== undefined) { fontSize = panelData.textStyle.config.fontSize }
-                if (panelData.textStyle.config.opacity !== undefined) { opacity = panelData.textStyle.config.opacity }
-                if (panelData.textStyle.config.paletteColor !== undefined) { paletteColor = eval(panelData.textStyle.config.paletteColor) }
+                if (panelData.textStyle.config.valueFontSize !== undefined) { valueFontSize = eval(panelData.textStyle.config.valueFontSize) }
+                if (panelData.textStyle.config.valueFontSize !== undefined) { textSize = eval(panelData.textStyle.config.valueFontSize) }
+                if (panelData.textStyle.config.opacity !== undefined) { textOpacity = eval(panelData.textStyle.config.opacity) }
+                if (panelData.textStyle.config.opacity !== undefined) { valueOpacity = eval(panelData.textStyle.config.opacity) }
+                if (panelData.textStyle.config.paletteColor !== undefined) { textColor = eval(panelData.textStyle.config.paletteColor) }
+                if (panelData.textStyle.config.paletteColor !== undefined) { valueColor = eval(panelData.textStyle.config.paletteColor) }
             }
+
 
             UI.projects.foundations.utilities.drawPrint.printLabel(
                 labelText,
                 X_AXIS_A,
                 undefined,
                 undefined,
-                UI_PANEL.HEIGHT.NORMAL * labelPosition / 100 / heightFactor,
-                '0.60',
-                undefined,
-                undefined,
+                textY,
+                textOpacity,
+                textSize,
+                textColor,
                 'Left',
                 thisObject.container,
                 thisObject.fitFunction
@@ -212,10 +272,10 @@ function newPlotterPanel() {
                 X_AXIS_A,
                 X_AXIS_B,
                 undefined,
-                UI_PANEL.HEIGHT.NORMAL * valuePosition / 100 / heightFactor,
-                opacity,
-                fontSize,
-                paletteColor,
+                valueY,
+                valueOpacity,
+                valueFontSize,
+                valueColor,
                 'Left Numbers at Right',
                 thisObject.container,
                 thisObject.fitFunction,

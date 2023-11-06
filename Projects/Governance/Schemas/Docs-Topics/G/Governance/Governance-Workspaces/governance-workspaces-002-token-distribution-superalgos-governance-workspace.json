@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Это основное рабочее пространство управления, в котором живут широкие определения проекта Superalgos Project.",
                 "updated": 1639027999638
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, geniş Superalgos Projesi ( Superalgos Project ) tanımlarının bulunduğu ana yönetim çalışma alanıdır.",
+                "updated": 1646307587566
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Руководства",
                     "updated": 1639028024429
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici",
+                    "updated": 1646307604705
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "ES",
                     "text": "Creating Your User Profile Tutorial   (Tutorial de creación de su perfil de usuario)",
                     "updated": 1637406504592
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profili Oluşturma Eğitimi ( Creating Your User Profile Tutorial )",
+                    "updated": 1646307649795
                 }
             ]
         },
@@ -51,22 +66,32 @@
                     "language": "RU",
                     "text": "Профили пользователей",
                     "updated": 1639028079124
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profilleri",
+                    "updated": 1646307676670
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Profiles of Core Team members and Community Mods.",
+            "text": "Profiles of Founding Team members and Community Mods.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pérfiles de los miembros del  Core Team ( equipo central) y Community Mods  (moderadores de la comunidad).",
+                    "text": "Pérfiles de los miembros del  Founding Team ( equipo central) y Community Mods  (moderadores de la comunidad).",
                     "updated": 1637406590297
                 },
                 {
                     "language": "RU",
-                    "text": "Профили основной команды Core Team и Community Mods.",
+                    "text": "Профили основной команды Founding Team и Community Mods.",
                     "updated": 1639028152519
+                },
+                {
+                    "language": "TR",
+                    "text": "Çekirdek Ekip ( Founding Team ) üyelerinin ve Topluluk Modlarının ( Community Mods ) profilleri.",
+                    "updated": 1646307726861
                 }
             ]
         },
@@ -78,6 +103,11 @@
                     "language": "RU",
                     "text": "Область определений ",
                     "updated": 1639028298849
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımların Kapsamı",
+                    "updated": 1646307774442
                 }
             ]
         },
@@ -95,12 +125,24 @@
                     "language": "RU",
                     "text": "В рабочем пространстве представлены определения, которые охватывают весь проект Superalgos Project.",
                     "updated": 1639028246534
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı, tüm Superalgos Projesi'ni ( Superalgos Project ) kapsayan tanımlar içerir.",
+                    "updated": 1646307815675
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Pools"
+            "text": "Pools",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Havuzlar",
+                    "updated": 1646307825603
+                }
+            ]
         },
         {
             "style": "List",
@@ -116,12 +158,24 @@
                     "language": "RU",
                     "text": "Иерархия Superalgos Pools",
                     "updated": 1639028316171
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Havuzları ( Superalgos Pools ) hiyerarşisi",
+                    "updated": 1646307855401
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Positions"
+            "text": "Positions",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Pozisyonlar",
+                    "updated": 1646308341897
+                }
+            ]
         },
         {
             "style": "List",
@@ -137,29 +191,46 @@
                     "language": "RU",
                     "text": "Superalgos Marketing (должности, связанные с маркетингом в рамках проекта),",
                     "updated": 1639028346035
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Marketing (proje çapında pazarlamayla ilgili pozisyonlar),",
+                    "updated": 1646308377146
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Superalgos (project-wide positions such as Community Mods, Core Team, or Business Lead).",
+            "text": "Superalgos (project-wide positions such as Community Mods, Founding Team, or Business Lead).",
             "updated": 1630576271333,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Superalgos (posiciones de todo el proyecto como Community Mods, Core Team, or Business Lead).",
+                    "text": "Superalgos (posiciones de todo el proyecto como Community Mods, Founding Team, or Business Lead).",
                     "updated": 1637406807754
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos (должности в рамках проекта, такие как Community Mods, Core Team или Business Lead).",
+                    "text": "Superalgos (должности в рамках проекта, такие как Community Mods, Founding Team или Business Lead).",
                     "updated": 1639028413313
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos (Topluluk Modları ( Community Mods ), Çekirdek Ekip ( Founding Team ) veya İş Lideri ( Business Lead ) gibi proje genelindeki pozisyonlar).",
+                    "updated": 1646308782577
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Features"
+            "text": "Features",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1646308815906
+                }
+            ]
         },
         {
             "style": "List",
@@ -175,12 +246,24 @@
                     "language": "RU",
                     "text": "Superalgos (функции всего проекта, такие как Charting Space, Visual Designer, интеграция Tensor Flow и т. д.).",
                     "updated": 1639028447144
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos (Grafik Alanı ( Charting Space ), Görsel Tasarımcı, Tensör Akışı entegrasyonu vb. gibi proje genelindeki özellikler).",
+                    "updated": 1646308847171
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Assets"
+            "text": "Assets",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Varlıklar",
+                    "updated": 1646308884977
+                }
+            ]
         },
         {
             "style": "List",
@@ -196,6 +279,11 @@
                     "language": "RU",
                     "text": "Superalgos Exchanges (активы, связанные с биржевыми листингами),",
                     "updated": 1639028471584
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Borsaları (borsa listeleriyle ilgili varlıklar),",
+                    "updated": 1646308918224
                 }
             ]
         },
@@ -213,36 +301,85 @@
                     "language": "RU",
                     "text": "Superalgos Marketing (активы, связанные с маркетингом в масштабах проекта),",
                     "updated": 1639028491683
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Pazarlama (proje çapında, pazarlamayla ilgili varlıklar),",
+                    "updated": 1646308927141
                 }
             ]
         },
         {
             "style": "List",
             "text": "Client,",
-            "updated": 1630576385365
+            "updated": 1630576385365,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İstemci ( Client ),",
+                    "updated": 1646309029272
+                }
+            ]
         },
         {
             "style": "List",
             "text": "UI,",
-            "updated": 1630576390127
+            "updated": 1630576390127,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Arayüzü ( UI ),",
+                    "updated": 1646309047240
+                }
+            ]
         },
         {
             "style": "List",
             "text": "TS,",
-            "updated": 1630576395166
+            "updated": 1630576395166,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "TS,",
+                    "updated": 1654395474300,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docker,"
+            "text": "Docker,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Docker,",
+                    "updated": 1654395480415,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Launch Scripts,"
+            "text": "Launch Scripts,",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Komut Dosyalarını Başlatma ( Launch Scripts ),",
+                    "updated": 1646309095252
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Root Directory.",
-            "updated": 1630576402835
+            "updated": 1630576402835,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Kök Dizin ( Root Directory ).",
+                    "updated": 1646309112663
+                }
+            ]
         },
         {
             "style": "Text",

@@ -4,7 +4,7 @@
         {
             "action": "Run All Project Data Tasks",
             "label": "Run All Project Data Tasks",
-            "translationKey": "task.all.project.dataTasks.run",
+            "translationKey": "task.all.project.data.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
             "confirmationLabelTranslationKey": "general.confirm.run",
@@ -16,7 +16,7 @@
         {
             "action": "Stop All Project Data Tasks",
             "label": "Stop All Project Data Tasks",
-            "translationKey": "task.all.project.dataTasks.stop",
+            "translationKey": "task.all.project.data.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
             "confirmationLabelTranslationKey": "general.confirm.stop",

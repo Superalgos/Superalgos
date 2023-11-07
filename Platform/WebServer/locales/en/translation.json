@@ -47,6 +47,7 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
+        "indicatorFunction": "Add Indicator Function",
         "taskManager": "Add Task Manager",
         "allTasks": "Add All Tasks",
         "botProducts": "Add Bot Products",
@@ -180,7 +181,12 @@
             "allDependencies": "Add All Data Dependencies",
             "botDependencies": "Add Bot Data Dependencies",
             "allProducts": "Add All Data Products",
-            "projectProducts": "Add Project Data Products"
+            "projectProducts": "Add Project Data Products",
+            "dataMines": "Add Data Mines Data",
+            "tradingMines": "Add Trading Mines Data",
+            "portfolioMines": "Add Portfolio Mines Data",
+            "learningMines": "Add Learning Mines Data",
+            "projectTasks": "Add Project Data Tasks"
         },
         "fetch": {
             "fromJavascriptCode": "Fetch from Javascript Code"
@@ -234,6 +240,12 @@
             "managers": {
                 "run": "Run All Task Managers",
                 "stop": "Stop All Task Managers"               
+            },
+            "project": {
+                "dataTasks": {
+                    "run": "Run All Project Data Tasks",
+                    "stop": "Stop All Project Data Tasks"
+                }
             }
         }
     }

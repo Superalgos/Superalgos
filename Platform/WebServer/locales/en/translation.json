@@ -47,11 +47,6 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
-        "market": {
-            "default": "Add Market",
-            "learningProducts": "Add Market Learning Products",
-            "learningTasks": "Add Market Learning Tasks"
-        },
         "asset": "Add Asset",
         "userAccount": "Add User Account",
         "indicatorFunction": "Add Indicator Function",
@@ -121,6 +116,13 @@
         "githubAPI": "Add GitHub API",
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
+        "market": {
+            "default": "Add Market",
+            "learningProducts": "Add Market Learning Products",
+            "tradingProducts": "Add Market Trading Products",
+            "tradingTasks": "Add Market Trading Tasks",
+            "learningTasks": "Add Market Learning Tasks"
+        },
         "missing":{
             "markets": "Add Missing Markets",
             "timeMachines": "Add Missing Time Machines",
@@ -203,6 +205,26 @@
         },
         "push": {
             "toJavascriptCode": "Push to Javascript Code"
+        },
+        "orders": {
+            "limit": {
+                "buy": "Add Limit Buy Orders",
+                "sell": "Add Limit Sell Orders"
+            },
+            "market": {
+                "buy": "Add Market Buy Orders",
+                "sell": "Add Market Sell Orders"
+            }
+        },
+        "order": {
+            "limit": {
+                "buy": "Add Limit Buy Order",
+                "sell": "Add Limit Sell Order"
+            },
+            "market": {
+                "buy": "Add Market Buy Order",
+                "sell": "Add Market Sell Order"
+            }
         }
     },
     "import": {
@@ -265,6 +287,10 @@
                 "learning": {
                     "run": "Run All Market Learning Tasks",
                     "stop": "Stop All Market Learning Tasks"
+                },
+                "trading": {
+                    "run": "Run All Market Trading Tasks",
+                    "stop": "Stop All Market Trading Tasks"
                 }
             }
         }

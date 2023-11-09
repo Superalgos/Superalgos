@@ -17,6 +17,7 @@
             "action": "Edit",
             "actionFunction": "uiObject.codeEditor.activate",
             "label": "Edit",
+            "translationKey": "general.edit",
             "iconPathOn": "javascript-code",
             "iconPathOff": "javascript-code"
         },
@@ -26,7 +27,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

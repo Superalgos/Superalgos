@@ -31,7 +31,8 @@
             "proceed": "Confirm to Proceed",
             "run": "Confirm to Run",
             "stop": "Confirm to Stop"
-        }
+        },
+        "updateCheck": "Check for Updates"
     },
     "docs": {
         "space": {
@@ -47,10 +48,12 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
+        "lanNetworkNode": "Add LAN Network Node",
         "timeFrameFilter": "Add Time Frames Filter",
         "formula": "Add Formula",
         "feature": "Add Feature",
         "asset": "Add Asset",
+        "label": "Add Label",
         "userAccount": "Add User Account",
         "indicatorFunction": "Add Indicator Function",
         "taskManager": "Add Task Manager",
@@ -70,7 +73,6 @@
         "procedureInitialization": "Add Procedure Initialization",
         "procedureLoop": "Add Procedure Loop",
         "layer": "Add Layer",
-        "layerFolder": "Add Layer Folder",
         "socialBots": "Add Social Bots",
         "sensorBot": "Add Sensor Bot",
         "studyBot": "Add Study Bot",
@@ -119,6 +121,16 @@
         "githubAPI": "Add GitHub API",
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
+        "layers": {
+            "folder": "Add Layer Folder",
+            "allMine": "Add All Mine Layers",
+            "bot": "Add Bot Layers",
+            "allPanels": "Add All Layer Panels",
+            "panel": "Add Layer Panel",
+            "polygon": "Add Layer Polygon",
+            "allPolygons": "Add All Layer Polygons"
+            
+        },
         "market": {
             "default": "Add Market",
             "learningProducts": "Add Market Learning Products",
@@ -155,6 +167,15 @@
             "swapPairs": "Add Missing Swap Pairs",
             "items": "Add Missing Items"
         },
+        "tasks": {
+            "default": "Add Tasks",
+            "data": "Add Data Tasks",
+            "learning": "Add Learning Tasks",
+            "testingTrading": "Add Testing Trading Tasks",
+            "productionTrading": "Add Production Trading Tasks",
+            "testingPortfolio": "Add Testing Portfolio Tasks",
+            "productionPortfolio": "Add Production Portfolio Tasks"
+        },
         "exchange": {
             "accounts": "Add Exchange Accounts",
             "assets": "Add Exchange Assets",
@@ -187,6 +208,7 @@
             "incoming": "Add Incoming Signals"
         },
         "data": {
+            "storage": "Add Data Storage",
             "marketTasks": "Add Market Data Tasks",
             "marketProducts": "Add Market Data Products",
             "dependency": "Add Data Dependency",

@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Layer Polygon",
+            "translationKey": "add.layer.polygon",
             "relatedUiObject": "Layer Polygon",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add All Layer Polygons",
             "label": "Add All Layer Polygons",
+            "translationKey": "add.layer.allPolygons",
             "relatedUiObject": "Layer Polygon",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -21,7 +23,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

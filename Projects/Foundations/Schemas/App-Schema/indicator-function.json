@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate"
@@ -13,6 +14,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "formula",
             "label": "Add Formula",
+            "translationKey": "add.formula",
             "relatedUiObject": "Formula",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,7 +25,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

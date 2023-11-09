@@ -4,6 +4,7 @@
         {
             "action": "Run Trading Session",
             "label": "Run",
+            "translationKey": "general.run",
             "workingLabel": "Run Request Sent",
             "workDoneLabel": "Session Running",
             "workFailedLabel": "Session Cannot be Run",
@@ -21,6 +22,7 @@
         {
             "action": "Resume Trading Session",
             "label": "Resume",
+            "translationKey": "general.resume",
             "workingLabel": "Resume Request Sent",
             "workDoneLabel": "Session Running",
             "workFailedLabel": "Session Cannot be Resumed",
@@ -38,6 +40,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -46,6 +49,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Social Bots",
+            "translationKey": "add.socialBots",
             "relatedUiObject": "Social Bots",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Social-Bots",
@@ -54,6 +58,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Trading Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -62,6 +67,7 @@
         {
             "action": "Switch To Live Trading",
             "label": "Switch To Live Trading",
+            "translationKey": "switch.to.liveTrading",
             "relatedUiObject": "Live Trading Session",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -71,7 +77,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

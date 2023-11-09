@@ -47,6 +47,9 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
+        "timeFrameFilter": "Add Time Frames Filter",
+        "formula": "Add Formula",
+        "feature": "Add Feature",
         "asset": "Add Asset",
         "userAccount": "Add User Account",
         "indicatorFunction": "Add Indicator Function",
@@ -225,6 +228,11 @@
                 "buy": "Add Market Buy Order",
                 "sell": "Add Market Sell Order"
             }
+        },
+        "image": {
+            "condition": "Add Image Condition",
+            "formula": "Add Image Formula",
+            "position": "Add Image Position"
         }
     },
     "import": {
@@ -240,7 +248,8 @@
     },
     "switch": {
         "to": {
-            "paperTrading": "Switch To Paper Trading"
+            "paperTrading": "Switch To Paper Trading",
+            "liveTrading": "Switch To Live Trading"
         }
     },
     "copy": {

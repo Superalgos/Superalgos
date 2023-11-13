@@ -123,6 +123,11 @@
         "githubAPI": "Add GitHub API",
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
+        "execution": {
+            "event": {
+                "started": "Add Execution Started Event"
+            }
+        },
         "project": {
             "learningProducts": "Add Project Learning Products"
         },
@@ -172,6 +177,21 @@
             "projects": "Add Missing Projects",
             "swapPairs": "Add Missing Swap Pairs",
             "items": "Add Missing Items"
+        },
+        "learning": {
+            "session": {
+                "back": "Add Back Learning Session",
+                "live": "Add Live Learning Session"
+            },
+            "mine": {
+                "products": "Add Learning Mine Products",
+                "allProducts": "Add All Learning Mine Products"
+            },
+            "project": {
+                "tasks": "Add Project Learning Tasks"
+            },
+            "system": "Add Learning System",
+            "engine": "Add Learning Engine"
         },
         "tasks": {
             "default": "Add Tasks",
@@ -314,6 +334,10 @@
                 "data": {
                     "run": "Run All Project Data Tasks",
                     "stop": "Stop All Project Data Tasks"
+                },
+                "learning": {
+                    "run": "Run All Project Learning Tasks",
+                    "stop": "Stop All Project Learning Tasks"
                 }
             },
             "market": {

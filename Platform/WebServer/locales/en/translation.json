@@ -48,6 +48,8 @@
         "marketPair": "Uninstall Pair (Market)"
     },
     "add": {
+        "userDefinedStatistic": "Add User Defined Statistic",
+        "userDefinedCounter": "Add User Defined Counter",
         "lanNetworkNode": "Add LAN Network Node",
         "timeFrameFilter": "Add Time Frames Filter",
         "formula": "Add Formula",
@@ -121,6 +123,9 @@
         "githubAPI": "Add GitHub API",
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
+        "project": {
+            "learningProducts": "Add Project Learning Products"
+        },
         "layers": {
             "folder": "Add Layer Folder",
             "allMine": "Add All Mine Layers",
@@ -150,6 +155,7 @@
             "learningMines": "Add Missing Learning Mines",
             "learningSystems": "Add Missing Learning Systems",
             "p2pNetworks": "Add Missing P2P Networks",
+            "parameters": "Add Missing Parameters",
             "pools": "Add Missing Pools",
             "portfolioEngines": "Add Missing Portfolio Engines",
             "portfolioMines": "Add Missing Portfolio Mines",

@@ -134,6 +134,7 @@
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
         "limitOrder": "Add Limit Order",
+        "marketOrder": "Add Market Order",
         "execution": {
             "event": {
                 "started": "Add Execution Started Event"
@@ -260,7 +261,9 @@
             "tradingMines": "Add Trading Mines Data",
             "portfolioMines": "Add Portfolio Mines Data",
             "learningMines": "Add Learning Mines Data",
-            "projectTasks": "Add Project Data Tasks"
+            "projectTasks": "Add Project Data Tasks",
+            "mineProducts": "Add Data Mine Products",
+            "allMineProducts": "Add All Data Mine Products"
         },
         "fetch": {
             "fromJavascriptCode": "Fetch from Javascript Code"

@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Data Mine Products",
+            "translationKey": "add.data.mineProducts",
             "relatedUiObject": "Data Mine Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,8 +13,10 @@
         {
             "action": "Add All Data Mine Products",
             "label": "Add All Data Mine Products",
+            "translationKey": "add.data.allMineProducts",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Data Mine Products",
             "actionFunction": "payload.executeAction",
@@ -22,6 +25,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Data Product",
+            "translationKey": "add.data.product",
             "relatedUiObject": "Data Product",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -32,7 +36,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

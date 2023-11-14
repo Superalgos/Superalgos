@@ -47,7 +47,17 @@
     "uninstall": {
         "marketPair": "Uninstall Pair (Market)"
     },
+    "sessions": {
+        "managed": {
+            "stop": "Stop Managed Sessions",
+            "run": "Run Managed Sessions"
+
+        }
+    },
     "add": {
+        "taskReference": "Add Task Reference",
+        "phase": "Add Phase",
+        "sessionReference": "Add Session Reference",
         "userDefinedStatistic": "Add User Defined Statistic",
         "userDefinedCounter": "Add User Defined Counter",
         "lanNetworkNode": "Add LAN Network Node",
@@ -336,6 +346,10 @@
     },
     "task": {
         "all": {
+            "managed": {
+                "run": "Run All Managed Tasks",
+                "stop": "Stop All Managed Tasks"               
+            },
             "managers": {
                 "run": "Run All Task Managers",
                 "stop": "Stop All Task Managers"               

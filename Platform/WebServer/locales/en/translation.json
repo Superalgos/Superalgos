@@ -123,6 +123,7 @@
         "githubAPI": "Add GitHub API",
         "web3API": "Add Web3 API",
         "apiAuthorizationKey": "Add API Authorization Key",
+        "limitOrder": "Add Limit Order",
         "execution": {
             "event": {
                 "started": "Add Execution Started Event"
@@ -275,7 +276,15 @@
             "market": {
                 "buy": "Add Market Buy Order",
                 "sell": "Add Market Sell Order"
+            },
+            "rate": "Add Order Rate",
+            "event": {
+                "create": "Add Create Order Event",
+                "cancel": "Add Cancel Order Event"
             }
+        },
+        "simulated": {
+            "events": "Add Simulated Events"
         },
         "image": {
             "condition": "Add Image Condition",
@@ -297,7 +306,8 @@
     "switch": {
         "to": {
             "paperTrading": "Switch To Paper Trading",
-            "liveTrading": "Switch To Live Trading"
+            "liveTrading": "Switch To Live Trading",
+            "forwardTesting": "Switch To Forward Testing"
         }
     },
     "copy": {

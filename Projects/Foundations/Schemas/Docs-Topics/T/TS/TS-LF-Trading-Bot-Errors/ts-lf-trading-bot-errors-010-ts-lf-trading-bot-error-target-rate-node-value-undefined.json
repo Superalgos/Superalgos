@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Hedef Oran ( Target Rate ) düğümünün değeri tanımsız olamaz.",
                 "updated": 1648244314109
+            },
+            {
+                "language": "DE",
+                "text": "Der Wert des Knotens Zielsatz (Target Rate) kann nicht undefiniert sein.",
+                "updated": 1700078032057
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Hedef Oran Düğüm Değeri Tanımsız. ( Target Rate Node Value Undefined )",
                     "updated": 1648244358886
+                },
+                {
+                    "language": "DE",
+                    "text": "Zielkurs Knotenwert Undefiniert (Target Rate Node Value Undefined)",
+                    "updated": 1700078040775
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Formülü ( Formula ) kontrol edin ve tekrar deneyin. Gerekli tüm düğümler tanımlanıncaya kadar oturum hatasız çalışmayacaktır.",
                     "updated": 1648244445808
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Formel (Formula) und versuchen Sie es erneut. Die Sitzung läuft erst dann fehlerfrei, wenn alle erforderlichen Knoten definiert sind.",
+                    "updated": 1700078055032
                 }
             ]
         }

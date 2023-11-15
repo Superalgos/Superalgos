@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir hedef oran ( Target Rate ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.\n",
                 "updated": 1648068761211
+            },
+            {
+                "language": "DE",
+                "text": "An dem Knoten, an dem der Fehler auftrat, wurde ein Zielkursknoten (Target Rate) erwartet, aber nicht gefunden.",
+                "updated": 1700077966713
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Ticaret Oturumu ( Trading Session ) Açık Aşama ( Open Stage ) Aşamayı Yönet ( Manage Stage ) ve Aşamayı Kapat ( Close Stage ) düğümleri olmadan çalışabilir. Ancak bir aşama varsa, içindeki gerekli düğümler uygun şekilde tanımlanmalıdır.",
                     "updated": 1648069247209
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Trading Session kann ohne die Knoten Open Stage, Manage Stage und Close Stage ablaufen. Wenn jedoch eine Phase vorhanden ist, müssen die erforderlichen Knoten darin ordnungsgemäß definiert sein.",
+                    "updated": 1700077977089
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Hedef Hız Düğümü Eksik ( Target Rate Node Missing )",
                     "updated": 1648069319266
+                },
+                {
+                    "language": "DE",
+                    "text": "Zielratenknoten fehlt (Target Rate Node Missing)",
+                    "updated": 1700077984856
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin. Gerekli tüm düğümler tanımlanıncaya kadar oturum hatasız çalışmayacaktır.",
                     "updated": 1648069356747
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut. Die Sitzung wird erst dann fehlerfrei laufen, wenn alle erforderlichen Knoten definiert sind.",
+                    "updated": 1700077992585
                 }
             ]
         }

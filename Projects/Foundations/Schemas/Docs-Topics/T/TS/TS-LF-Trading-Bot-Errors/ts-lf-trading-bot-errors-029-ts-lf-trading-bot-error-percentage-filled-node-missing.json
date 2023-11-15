@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Yüzde Doldurulmuş ( Percentage Filled ) bir düğüm bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648938500631
+            },
+            {
+                "language": "DE",
+                "text": "Ein Knoten \"Percentage Filled\" (Percentage Filled node) wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat.",
+                "updated": 1700082919143
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Yüzde Dolu Düğüm Eksik. ( Percentage Filled Node Missing )",
                     "updated": 1648938468728
+                },
+                {
+                    "language": "DE",
+                    "text": "Percentage Filled-Knoten fehlt (Percentage Filled Node Missing)",
+                    "updated": 1700082966752
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648938492045
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700082973591
                 }
             ]
         }

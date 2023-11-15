@@ -42,10 +42,12 @@
         }
     },
     "install": {
-        "marketPair": "Install Pair (Market)"
+        "marketPair": "Install Pair (Market)",
+        "market": "Install Market"
     },
     "uninstall": {
-        "marketPair": "Uninstall Pair (Market)"
+        "marketPair": "Uninstall Pair (Market)",
+        "market": "Uninstall Market"
     },
     "sessions": {
         "managed": {
@@ -55,6 +57,13 @@
         }
     },
     "add": {
+        "tradingMine": "Add Trading Mine",
+        "learningMine": "Add Learning Mine",
+        "templateScript": "Add Template Script",
+        "javascriptCode": "Add Javascript Code",
+        "quotedAsset": "Add Quoted Asset",
+        "baseAsset": "Add Base Asset",
+        "tradingSessionReference": "Add Trading Session Reference",
         "taskReference": "Add Task Reference",
         "phase": "Add Phase",
         "sessionReference": "Add Session Reference",
@@ -161,15 +170,18 @@
             "learningTasks": "Add Market Learning Tasks"
         },
         "missing":{
+            "sessions": "Add Missing Sessions",
             "markets": "Add Missing Markets",
             "timeMachines": "Add Missing Time Machines",
             "exchanges": "Add Missing Exchanges",
             "apiMaps": "Add Missing API Maps",
             "assets": "Add Missing Assets",
             "dataMines": "Add Missing Data Mines",
+            "dataMineTasks": "Add Missing Data Mine Tasks",
             "features": "Add Missing Features",
             "learningEngines": "Add Missing Learning Engines",
             "learningMines": "Add Missing Learning Mines",
+            "learningMineTasks": "Add Missing Learning Mine Tasks",
             "learningSystems": "Add Missing Learning Systems",
             "p2pNetworks": "Add Missing P2P Networks",
             "parameters": "Add Missing Parameters",
@@ -181,6 +193,7 @@
             "pluginTypes": "Add Missing Plugin Types",
             "tradingEngines": "Add Missing Trading Engines",
             "tradingMines": "Add Missing Trading Mines",
+            "tradingMineTasks": "Add Missing Trading Mine Tasks",
             "tradingSystems": "Add Missing Trading Systems",
             "tutorials": "Add Missing Tutorials",
             "tokens": "Add Missing Tokens",
@@ -192,6 +205,7 @@
         },
         "learning": {
             "session": {
+                "reference": "Add Learning Session Reference",
                 "back": "Add Back Learning Session",
                 "live": "Add Live Learning Session"
             },
@@ -209,6 +223,8 @@
             "default": "Add Tasks",
             "data": "Add Data Tasks",
             "learning": "Add Learning Tasks",
+            "learningMine": "Add Learning Mine Tasks",
+            "tradingMine": "Add Trading Mine Tasks",
             "testingTrading": "Add Testing Trading Tasks",
             "productionTrading": "Add Production Trading Tasks",
             "testingPortfolio": "Add Testing Portfolio Tasks",
@@ -258,6 +274,7 @@
             "allProducts": "Add All Data Products",
             "projectProducts": "Add Project Data Products",
             "dataMines": "Add Data Mines Data",
+            "mineTasks": "Add Data Mine Tasks",
             "tradingMines": "Add Trading Mines Data",
             "portfolioMines": "Add Portfolio Mines Data",
             "learningMines": "Add Learning Mines Data",
@@ -379,6 +396,20 @@
                 "trading": {
                     "run": "Run All Market Trading Tasks",
                     "stop": "Stop All Market Trading Tasks"
+                }
+            },
+            "mine": {
+                "data": {
+                    "run": "Run All Data Mine Tasks",
+                    "stop": "Stop All Data Mine Tasks"
+                },
+                "trading": {
+                    "run": "Run All Trading Mine Tasks",
+                    "stop": "Stop All Trading Mine Tasks"
+                },
+                "learning": {
+                    "run": "Run All Learning Mine Tasks",
+                    "stop": "Stop All Learning Mine Tasks"
                 }
             }
         }

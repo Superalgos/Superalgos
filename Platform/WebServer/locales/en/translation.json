@@ -57,6 +57,13 @@
         }
     },
     "add": {
+        "outputDataset": "Add Output Dataset",
+        "outputDatasetFolder": "Add Output Dataset Folder",
+        "network": "Add Network",
+        "cryptoEcosystem": "Add Crypto Ecosystem",
+        "apis": "Add APIs",
+        "apiMap": "Add API Map",
+        "periods": "Add Periods",
         "tradingMine": "Add Trading Mine",
         "learningMine": "Add Learning Mine",
         "templateScript": "Add Template Script",

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Aynı anda Temel Varlıkta Hedef Boyut ( Target Size In Base Asset ) ve Kote Varlıkta Hedef Boyut ( Target Size In Quoted Asset ) tanımlayamazsınız. İkisinden birini seçmeli ve kalanını silmelisiniz.",
                 "updated": 1648649845299
+            },
+            {
+                "language": "DE",
+                "text": "Sie können nicht gleichzeitig eine Zielgröße in Basisanlage (Target Size In Base Asset) und eine Zielgröße in notierter Anlage (Target Size In Quoted Asset) definieren. Sie müssen eine der beiden auswählen und die andere löschen.",
+                "updated": 1700078126329
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Yalnızca Bir Hedef Boyutuna ( Target Size ) İzin Verilir.",
                     "updated": 1648649908858
+                },
+                {
+                    "language": "DE",
+                    "text": "Nur eine Zielgröße (Target Size) erlaubt",
+                    "updated": 1700078135178
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Düğümlerden birini silin ve tekrar deneyin.",
                     "updated": 1648649957835
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie einen der Knoten und versuchen Sie es erneut.",
+                    "updated": 1700078143019
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir değişim kimliği ( Exchange Id ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648673194546
+            },
+            {
+                "language": "DE",
+                "text": "Ein Exchange Id -Knoten wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat.",
+                "updated": 1700081314405
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Değişim kimliği Düğümü Eksik. ( Exchange Id Node Missing )",
                     "updated": 1648673223015
+                },
+                {
+                    "language": "DE",
+                    "text": "Exchange Id Node fehlt (Exchange Id Node Missing)",
+                    "updated": 1700081359886
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648673250257
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700081369542
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Hedef Boyutunun ( Target Size ) değeri tanımsız olamaz.",
                 "updated": 1648650070834
+            },
+            {
+                "language": "DE",
+                "text": "Der Wert der Zielgröße (Target Size) kann nicht undefiniert sein.",
+                "updated": 1700078185305
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Error",
             "text": "Target Size Value Undefined",
-            "updated": 1611597396791
+            "updated": 1611597396791,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zielgrößenwert undefiniert (Target Size Value Undefined)",
+                    "updated": 1700078202905
+                }
+            ]
         },
         {
             "style": "Success",
@@ -28,6 +40,11 @@
                     "language": "TR",
                     "text": "Formülü ( Formula ) kontrol edin ve tekrar deneyin. Gerekli tüm düğümler tanımlanıncaya kadar oturum hatasız çalışmayacaktır.",
                     "updated": 1648650155987
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Formel (Formula) und versuchen Sie es erneut. Die Sitzung läuft erst dann fehlerfrei, wenn alle erforderlichen Knoten definiert sind.",
+                    "updated": 1700078229657
                 }
             ]
         }

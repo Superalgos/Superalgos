@@ -59,6 +59,11 @@
         }
     },
     "add": {
+        "scriptsLibrary": "Add Scripts Library",
+        "superAction": "Add Super Action",
+        "timeFramesFilter": "Add Time Frames Filter",
+        "designSpace": "Add Design Space",
+        "chartingSpace": "Add Charting Space",
         "condition": "Add Condition",
         "text": "Add Text",
         "chartPoints": "Add Chart Points",
@@ -369,7 +374,10 @@
             }
         },
         "simulated": {
-            "events": "Add Simulated Events"
+            "events": "Add Simulated Events",
+            "partialFill": "Add Simulated Partial Fill",
+            "actualRate": "Add Simulated Actual Rate",
+            "feesPaid": "Add Simulated Fees Paid"
         },
         "image": {
             "condition": "Add Image Condition",

@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Simulated Partial Fill",
+            "translationKey": "add.simulated.partialFill",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedPartialFill",
             "relatedUiObject": "Simulated Partial Fill",
@@ -14,6 +15,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Simulated Actual Rate",
+            "translationKey": "add.simulated.actualRate",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedActualRate",
             "relatedUiObject": "Simulated Actual Rate",
@@ -24,6 +26,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Simulated Fees Paid",
+            "translationKey": "add.simulated.feesPaid",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedFeesPaid",
             "relatedUiObject": "Simulated Fees Paid",
@@ -36,7 +39,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

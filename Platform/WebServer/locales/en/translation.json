@@ -267,6 +267,9 @@
             "productionPortfolio": "Add Production Portfolio Tasks"
         },
         "exchange": {
+            "tradingTasks": "Add Exchange Trading Tasks",
+            "tradingProducts": "Add Exchange Trading Products",
+            "learningTasks": "Add Exchange Learning Tasks",
             "learningProducts": "Add Exchange Learning Products",
             "dataTasks": "Add Exchange Data Tasks",
             "dataProducts": "Add Exchange Data Products",
@@ -413,6 +416,14 @@
                 "data": {
                     "run": "Run All Exchange Data Tasks",
                     "stop": "Stop All Exchange Data Tasks"
+                },
+                "learning": {
+                    "run": "Run All Exchange Learning Tasks",
+                    "stop": "Stop All Exchange Learning Tasks"
+                },
+                "trading": {
+                    "run": "Run All Exchange Trading Tasks",
+                    "stop": "Stop All Exchange Trading Tasks"
                 }
             },
             "managed": {

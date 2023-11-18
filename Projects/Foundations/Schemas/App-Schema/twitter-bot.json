@@ -15,7 +15,7 @@
         {
             "action": "Send Twitter Test Message",
             "label": "Send Twitter Test Message",
-            "translationKey": "send.twitter.testMessage",
+            "translationKey": "send.message.twitterTest",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction"

@@ -36,6 +36,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Chart Points",
+            "translationKey": "add.chartPoints",
             "relatedUiObject": "Chart Points",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -44,6 +45,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon",
+            "translationKey": "add.polygon.default",
             "relatedUiObject": "Polygon",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -52,6 +54,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Image",
+            "translationKey": "add.image",
             "relatedUiObject": "Image",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -60,6 +63,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Text",
+            "translationKey": "add.text",
             "relatedUiObject": "Text",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -70,7 +74,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

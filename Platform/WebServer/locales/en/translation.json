@@ -59,6 +59,10 @@
         }
     },
     "add": {
+        "text": "Add Text",
+        "chartPoints": "Add Chart Points",
+        "socialTradingBotReference": "Add Social Trading Bot Reference",
+        "masterScript": "Add Master Script",
         "fieldReference": "Add Field Reference",
         "recordProperty": "Add Record Property",
         "dashboard": "Add Dashboard",
@@ -174,6 +178,7 @@
         "limitOrder": "Add Limit Order",
         "marketOrder": "Add Market Order",
         "polygon": {
+            "defaut": "Add Polygon",
             "condition": "Add Polygon Condition",
             "body": "Add Polygon Body",
             "border": "Add Polygon Border",
@@ -482,8 +487,9 @@
         }
     },
     "send": {
-        "twitter": {
-            "testMessage": "Send Twitter Test Message"
+        "message": {
+            "twitterTest": "Send Twitter Test Message",
+            "text": "Send Test Message"
         }
     }
 }

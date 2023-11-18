@@ -5,12 +5,14 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Send Webhook Test Message",
             "label": "Send Test Message",
+            "translationKey": "send.message.text",
             "workingLabel": "Sending Message",
             "workDoneLabel": "Message Sent",
             "workFailedLabel": "Message not Delivered",
@@ -20,10 +22,12 @@
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

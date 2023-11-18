@@ -57,6 +57,8 @@
         }
     },
     "add": {
+        "statusDependency": "Add Status Dependency",
+        "prediction": "Add Prediction",
         "style": "Add Style",
         "styleCondition": "Add Style Condition",
         "pointFormula": "Add Point Formula",
@@ -285,6 +287,8 @@
             "incoming": "Add Incoming Signals"
         },
         "data": {
+            "allMineDependencies": "Add All Data Mine Dependencies",
+            "mineDependencies": "Add Data Mine Dependencies",
             "formula": "Add Data Formula",
             "storage": "Add Data Storage",
             "marketTasks": "Add Market Data Tasks",

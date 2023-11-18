@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir durum ( Status ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648671505927
+            },
+            {
+                "language": "DE",
+                "text": "Ein Status -knoten wurde erwartet, aber an dem Knoten, von dem der Fehler ausging, nicht gefunden.",
+                "updated": 1700080414437
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Durum Düğümü Eksik. ( Status Node Missing )",
                     "updated": 1648651474997
+                },
+                {
+                    "language": "DE",
+                    "text": "Statusknoten fehlt (Status Node Missing)",
+                    "updated": 1700080433669
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648651513315
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700080451333
                 }
             ]
         }

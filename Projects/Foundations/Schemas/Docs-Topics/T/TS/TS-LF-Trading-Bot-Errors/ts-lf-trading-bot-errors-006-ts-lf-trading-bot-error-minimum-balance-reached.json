@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Ticaret Oturumu ( Trading Session ) için yapılandırılan minimum bakiyeye ulaşıldığından durduruldu.",
                 "updated": 1648066217323
+            },
+            {
+                "language": "DE",
+                "text": "Die Handelssitzung (Trading Session) wurde gestoppt, weil das für die Sitzung konfigurierte Mindestguthaben erreicht wurde.",
+                "updated": 1700077829973
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Temel Varlık Oturumu ( Session Base Asset ) ve Kote edilmiş varlık oturumu ( Session Quoted Asset ) Ticaret parametreleri oturumu ( Trading Parameters ) Ticaret Parametreleri minimum Denge minimumBalance. ayarı yapılmasını sağlar Parametre isteğe bağlıdır. Kullandığınız zaman, Ticaret Botu, ( LF Trading Bot ) her mum için kontrol eder. Bakiyenin yapılandırılan minimum değere ulaştığı Ticaret ( Trading ) Olursa bu hata tetiklenir ve hemen Ticaret oturumu ( Trading Session ) durur.",
                     "updated": 1648579377195
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Handelsparameter Session Base Asset und Session Quoted Asset (Session Quoted Asset Trading Parameters) ermöglichen die Festlegung eines minimumBalance. Der Parameter ist optional. Wenn Sie ihn verwenden, prüft der LF Trading Bot bei jeder Kerze während der Handelssitzung (Trading Session), ob der Saldo das konfigurierte Minimum nicht erreicht hat. Wenn dies der Fall ist, wird dieser Fehler ausgelöst und die Handelssitzung (Trading Session) wird sofort beendet.",
+                    "updated": 1700077846458
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Minimum ( Balance ) Bakiyeye Ulaşıldı.",
                     "updated": 1648067009718
+                },
+                {
+                    "language": "DE",
+                    "text": "Maximaler Saldo erreicht (Maximum Balance Reached)",
+                    "updated": 1700077850905
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "TR",
                     "text": "Bağlam Bilgisi",
                     "updated": 1648065659888
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1700077858689
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "TR",
                     "text": "Bu hata oluştuğunda, analiz etmeniz için bazı bağlam bilgileri korunmuştur. Bu bilgi aşağıdadır:",
                     "updated": 1648065689234
+                },
+                {
+                    "language": "DE",
+                    "text": "Als dieser Fehler auftrat, wurden einige Kontextinformationen gespeichert, die Sie analysieren können. Im Folgenden finden Sie diese Informationen:",
+                    "updated": 1700077867665
                 }
             ]
         },

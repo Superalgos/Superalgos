@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Hedef Oran  ( Target Rate ) düğümünün değeri bir sayı olmalıdır.",
                 "updated": 1648649175180
+            },
+            {
+                "language": "DE",
+                "text": "Der Wert des Knotens Zielsatz (Target Rate) muss eine Zahl sein.",
+                "updated": 1700078095880
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Hedef Oran  Düğüm Değeri Sayı Değil. ( Target Rate Node Value Not A Number )",
                     "updated": 1648649270765
+                },
+                {
+                    "language": "DE",
+                    "text": "Zielratenknotenwert ist keine Zahl (Target Rate Node Value Not A Number)",
+                    "updated": 1700078108041
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Bu düğüm için bulunan değer:",
                     "updated": 1648649336234
+                },
+                {
+                    "language": "DE",
+                    "text": "Der für diesen Knoten gefundene Wert war:",
+                    "updated": 1700078116176
                 }
             ]
         },

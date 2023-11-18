@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Ticaret Sisteminde kullanıcı tanımlı bir Koşul değerlendirilirken bir hata oluştu.",
                 "updated": 1647877237841
+            },
+            {
+                "language": "DE",
+                "text": "Bei der Auswertung einer benutzerdefinierten Bedingung (Condition) im Handelssystem (Trading System) ist ein Fehler aufgetreten.",
+                "updated": 1699652396031
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "TS'de çalışırken, LF Ticaret Botu ( LF Trading Bot ), aşağıda tanımlanan koşullardan birini değerlendirmeye çalışırken bir hatayla karşılaştı. Ticaret Sistemi ( Trading System ) Koşullar, kullanıcıların yazabileceği isteğe bağlı Javascript Kod ( Javascript Code ) NodeJS için geçerli Javascript olmalıdır.",
                     "updated": 1647968483504
+                },
+                {
+                    "language": "DE",
+                    "text": "Während der Ausführung im TS ist der LF Trading Bot auf einen Fehler gestoßen, als er versucht hat, eine der im Handelssystem (Trading System) definierten Bedingungen auszuwerten. Bedingungen sind beliebiger Javascript Code, den Benutzer schreiben können. Der Code muss gültiges Javascript für NodeJS sein.",
+                    "updated": 1699993684176
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1647878462402
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1699993703364
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1647878489603
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1699993718382
                 }
             ]
         },
@@ -69,6 +89,11 @@
                     "language": "TR",
                     "text": "Bilgileri ancak bu sayfayı gerçekten, oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1647878555604
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1699993790109
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "language": "TR",
                     "text": "Hata mesajı",
                     "updated": 1647878584795
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1699993800501
                 }
             ]
         },
@@ -92,6 +122,11 @@
                     "language": "TR",
                     "text": "LF Ticaret Botunda ( LF Trading Bot )  meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
                     "updated": 1647931245501
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie die Fehlermeldung, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1699994086413
                 }
             ]
         },
@@ -107,6 +142,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1647892975268
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerhäufigkeit",
+                    "updated": 1699995089681
                 }
             ]
         },
@@ -119,6 +159,11 @@
                     "language": "TR",
                     "text": "LF Ticaret Botunda ( LF Trading Bot ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
                     "updated": 1647931282706
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt die Fehlerhäufigkeit, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1699995101825
                 }
             ]
         },
@@ -134,6 +179,11 @@
                     "language": "TR",
                     "text": "Hata kodu",
                     "updated": 1647892998883
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1699994154434
                 }
             ]
         },
@@ -146,6 +196,11 @@
                     "language": "TR",
                     "text": "LF Ticaret Botunda ( LF Trading Bot ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
                     "updated": 1647931303957
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie den Fehlercode der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1699994191838
                 }
             ]
         },
@@ -161,6 +216,11 @@
                     "language": "TR",
                     "text": "Hata detayları",
                     "updated": 1647893051444
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1699994244149
                 }
             ]
         },
@@ -173,6 +233,11 @@
                     "language": "TR",
                     "text": "LF Ticaret Botunda ( LF Trading Bot ) meydana gelen İstisnanın tüm Hata ayrıntıları aşağıdadır:",
                     "updated": 1648041471166
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie alle Fehlerdetails der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1699994253186
                 }
             ]
         },
@@ -189,6 +254,11 @@
                     "language": "TR",
                     "text": "Düğüm Adı",
                     "updated": 1647893186466
+                },
+                {
+                    "language": "DE",
+                    "text": "Name des Knotens",
+                    "updated": 1699994300349
                 }
             ]
         },
@@ -201,6 +271,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1648041483576
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Name des Knotens, der am meisten mit diesem Fehler zu tun hat:",
+                    "updated": 1699994265540
                 }
             ]
         },
@@ -216,6 +291,11 @@
                     "language": "TR",
                     "text": "Düğüm Kodu",
                     "updated": 1647893322123
+                },
+                {
+                    "language": "DE",
+                    "text": "Code des Knotens",
+                    "updated": 1699994291676
                 }
             ]
         },
@@ -228,6 +308,11 @@
                     "language": "TR",
                     "text": "LF  Ticaret Bot'ta ( LF Trading Bot )  hatayı üreten düğümde depolanan kod aşağıdadır:",
                     "updated": 1648041528140
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Code aufgeführt, der in dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
+                    "updated": 1699994337325
                 }
             ]
         },
@@ -245,6 +330,11 @@
                     "language": "TR",
                     "text": "Daha fazla bilgi edin",
                     "updated": 1647893496775
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1699994345565
                 }
             ]
         },
@@ -256,6 +346,11 @@
                     "language": "TR",
                     "text": "Sözdizimine Genel Bakış ( Syntax Overview )",
                     "updated": 1647893859752
+                },
+                {
+                    "language": "DE",
+                    "text": "Überblick über die Syntax (Syntax Overview)",
+                    "updated": 1699994364364
                 }
             ]
         },

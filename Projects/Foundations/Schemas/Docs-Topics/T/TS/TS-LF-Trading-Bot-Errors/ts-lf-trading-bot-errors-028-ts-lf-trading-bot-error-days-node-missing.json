@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Gün ( Days ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648938129393
+            },
+            {
+                "language": "DE",
+                "text": "Ein Tages-Knoten (Days node) wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat.",
+                "updated": 1700082716902
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Gün Düğümü Eksik. ( Days Node Missing )",
                     "updated": 1648938160220
+                },
+                {
+                    "language": "DE",
+                    "text": "Tages-Knoten fehlt (Days Node Missing)",
+                    "updated": 1700082728438
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648938185157
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700082737214
                 }
             ]
         }

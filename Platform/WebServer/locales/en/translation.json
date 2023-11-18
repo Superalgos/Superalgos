@@ -59,6 +59,7 @@
         }
     },
     "add": {
+        "condition": "Add Condition",
         "text": "Add Text",
         "chartPoints": "Add Chart Points",
         "socialTradingBotReference": "Add Social Trading Bot Reference",
@@ -307,6 +308,7 @@
             "system": "Add Trading System"
         },
         "signals": {
+            "provider": "Add Signals Provider",
             "providers": "Add Signals Providers",
             "outgoing": "Add Outgoing Signals",
             "incoming": "Add Incoming Signals"

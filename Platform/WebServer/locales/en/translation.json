@@ -59,6 +59,11 @@
         }
     },
     "add": {
+        "textFormula": "Add Text Formula",
+        "textPosition": "Add Text Position",
+        "textCondition": "Add Text Condition",
+        "templateTarget": "Add Template Target",
+        "templateStructure": "Add Template Structure",
         "scriptsLibrary": "Add Scripts Library",
         "superAction": "Add Super Action",
         "timeFramesFilter": "Add Time Frames Filter",
@@ -430,6 +435,8 @@
     },
     "task": {
         "all": {
+            "run": "Run All Tasks",
+            "stop": "Stop All Tasks",
             "exchange": {
                 "data": {
                     "run": "Run All Exchange Data Tasks",

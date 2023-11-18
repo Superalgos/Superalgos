@@ -12,6 +12,7 @@
             "propertyToCheckFor": "textCondition",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Condition",
+            "translationKey": "add.textCondition",
             "relatedUiObject": "Text Condition",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -22,6 +23,7 @@
             "propertyToCheckFor": "textPosition",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Position",
+            "translationKey": "add.textPosition",
             "relatedUiObject": "Text Position",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -32,6 +34,7 @@
             "propertyToCheckFor": "textFormula",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Formula",
+            "translationKey": "add.textFormula",
             "relatedUiObject": "Text Formula",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -42,6 +45,7 @@
             "propertyToCheckFor": "textStyle",
             "actionFunction": "payload.executeAction",
             "label": "Add Text Style",
+            "translationKey": "add.textStyle",
             "relatedUiObject": "Text Style",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -52,7 +56,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

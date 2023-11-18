@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Output Dataset",
+            "translationKey": "add.outputDataset",
             "relatedUiObject": "Output Dataset",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Output Dataset Folder",
+            "translationKey": "add.outputDatasetFolder",
             "relatedUiObject": "Output Dataset Folder",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -20,8 +22,10 @@
         {
             "action": "Add All Output Datasets",
             "label": "Add All Output Datasets",
+            "translationKey": "add.allOutputDatasets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Output Dataset",
             "actionFunction": "payload.executeAction",
@@ -33,7 +37,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

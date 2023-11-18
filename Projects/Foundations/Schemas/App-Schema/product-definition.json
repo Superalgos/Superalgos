@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -12,19 +13,22 @@
         {
             "action": "Install Product",
             "label": "Install Product",
+            "translationKey": "install.product",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Product Definition",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
         },
-
+        
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "record",
             "label": "Add Record Definition",
+            "translationKey": "add.recordDefinition",
             "relatedUiObject": "Record Definition",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -33,6 +37,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Dataset Definition",
+            "translationKey": "add.datasetDefinition",
             "relatedUiObject": "Dataset Definition",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -41,6 +46,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Items",
+            "translationKey": "add.missing.items",
             "relatedUiObject": "Calculations Procedure",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -51,7 +57,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

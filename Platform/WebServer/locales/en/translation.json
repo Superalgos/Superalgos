@@ -43,7 +43,8 @@
     },
     "install": {
         "marketPair": "Install Pair (Market)",
-        "market": "Install Market"
+        "market": "Install Market",
+        "product": "Install Product"
     },
     "uninstall": {
         "marketPair": "Uninstall Pair (Market)",
@@ -57,6 +58,10 @@
         }
     },
     "add": {
+        "dashboard": "Add Dashboard",
+        "datasetDefinition": "Add Dataset Definition",
+        "recordDefinition": "Add Record Definition",
+        "allOutputDatasets": "Add All Output Datasets",
         "variable": "Add Variable",
         "key": "Add Key",
         "statusDependency": "Add Status Dependency",
@@ -197,6 +202,7 @@
             "learningTasks": "Add Market Learning Tasks"
         },
         "missing": {
+            "dashboards": "Add Missing Dashboards",
             "stages": "Add Missing Stages",
             "events": "Add Missing Events",
             "sessions": "Add Missing Sessions",
@@ -255,11 +261,15 @@
             "learningMine": "Add Learning Mine Tasks",
             "tradingMine": "Add Trading Mine Tasks",
             "testingTrading": "Add Testing Trading Tasks",
+            "projectTrading": "Add Project Trading Tasks",
             "productionTrading": "Add Production Trading Tasks",
             "testingPortfolio": "Add Testing Portfolio Tasks",
             "productionPortfolio": "Add Production Portfolio Tasks"
         },
         "exchange": {
+            "learningProducts": "Add Exchange Learning Products",
+            "dataTasks": "Add Exchange Data Tasks",
+            "dataProducts": "Add Exchange Data Products",
             "accounts": "Add Exchange Accounts",
             "assets": "Add Exchange Assets",
             "centralized": "Add Centralized Exchange",
@@ -399,6 +409,12 @@
     },
     "task": {
         "all": {
+            "exchange": {
+                "data": {
+                    "run": "Run All Exchange Data Tasks",
+                    "stop": "Stop All Exchange Data Tasks"
+                }
+            },
             "managed": {
                 "run": "Run All Managed Tasks",
                 "stop": "Stop All Managed Tasks"               
@@ -415,6 +431,10 @@
                 "learning": {
                     "run": "Run All Project Learning Tasks",
                     "stop": "Stop All Project Learning Tasks"
+                },
+                "trading": {
+                    "run": "Run All Project Trading Tasks",
+                    "stop": "Stop All Project Trading Tasks"
                 }
             },
             "market": {

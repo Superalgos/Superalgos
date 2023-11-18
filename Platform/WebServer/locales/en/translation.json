@@ -42,6 +42,7 @@
         }
     },
     "install": {
+        "apiResponseFieldRefs": "Install API Response Field Refs",
         "marketPair": "Install Pair (Market)",
         "market": "Install Market",
         "product": "Install Product"
@@ -58,6 +59,8 @@
         }
     },
     "add": {
+        "fieldReference": "Add Field Reference",
+        "recordProperty": "Add Record Property",
         "dashboard": "Add Dashboard",
         "datasetDefinition": "Add Dataset Definition",
         "recordDefinition": "Add Record Definition",

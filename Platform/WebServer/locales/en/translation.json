@@ -26,6 +26,7 @@
         "configure": "Configure",
         "delete": "Delete",
         "edit": "Edit",
+        "debug": "Debug",
         "confirm": {
             "delete": "Confirm to Delete",
             "proceed": "Confirm to Proceed",
@@ -59,6 +60,16 @@
         }
     },
     "add": {
+        "p2pNetworkClient": "Add P2P Network Client",
+        "keyReference": "Add Key Reference",
+        "learningBotInstance": "Add Learning Bot Instance",
+        "portfolioBotInstance": "Add Portfolio Bot Instance",
+        "tradingBotInstance": "Add Trading Bot Instance",
+        "studyBotInstance": "Add Study Bot Instance",
+        "indicatorBotInstance": "Add Indicator Bot Instance",
+        "apiDataFetcherBot": "Add API Data Fetcher Bot",
+        "sensorBotInstance": "Add Sensor Bot Instance",
+        "botInstance": "Add Bot Instance",
         "textFormula": "Add Text Formula",
         "textPosition": "Add Text Position",
         "textCondition": "Add Text Condition",
@@ -274,6 +285,8 @@
             "engine": "Add Learning Engine"
         },
         "tasks": {
+            "serverAppReference": "Add Task Server App Reference",
+            "managed": "Add Managed Tasks",
             "default": "Add Tasks",
             "data": "Add Data Tasks",
             "learning": "Add Learning Tasks",

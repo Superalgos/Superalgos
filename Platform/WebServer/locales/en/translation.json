@@ -59,6 +59,7 @@
         }
     },
     "add": {
+        "tokensAwarded": "Add Tokens Awarded",
         "userAssets": "Add User Assets",
         "userKeys": "Add User Keys",
         "layerManager": "Add Layer Manager",

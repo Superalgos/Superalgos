@@ -56,10 +56,16 @@
         "managed": {
             "stop": "Stop Managed Sessions",
             "run": "Run Managed Sessions"
-
         }
     },
     "add": {
+        "userAssets": "Add User Assets",
+        "userKeys": "Add User Keys",
+        "layerManager": "Add Layer Manager",
+        "timeScale": "Add Time Scale",
+        "rateScale": "Add Rate Scale",
+        "timeFrameScale": "Add Time Frame Scale",
+        "timelineChart": "Add Timeline Chart",
         "p2pNetworkClient": "Add P2P Network Client",
         "keyReference": "Add Key Reference",
         "learningBotInstance": "Add Learning Bot Instance",
@@ -199,6 +205,12 @@
         "apiAuthorizationKey": "Add API Authorization Key",
         "limitOrder": "Add Limit Order",
         "marketOrder": "Add Market Order",
+        "session": {
+            "backTesting": "Add Backtesting Session",
+            "liveTrading": "Add Live Trading Session",
+            "paperTrading": "Add Paper Trading Session",
+            "forwardTrading": "Add Forward Testing Session"
+        },
         "polygon": {
             "defaut": "Add Polygon",
             "condition": "Add Polygon Condition",
@@ -212,6 +224,7 @@
             }
         },
         "project": {
+            "tradingProducts": "Add Project Trading Products",
             "learningProducts": "Add Project Learning Products"
         },
         "layers": {
@@ -327,6 +340,8 @@
             "bot": "Add Trading Bot",
             "engine": "Add Trading Engine",
             "mine": "Add Trading Mine",
+            "mineProducts": "Add Trading Mine Products",
+            "allMineProducts": "Add All Trading Mine Products",
             "strategy": "Add Trading Strategy",
             "system": "Add Trading System"
         },

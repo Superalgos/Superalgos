@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate"
@@ -11,6 +12,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Process Instance",
+            "translationKey": "add.processInstance",
             "relatedUiObject": "Trading Process Instance",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,6 +25,7 @@
             "propertyToCheckFor": "socialTradingBotReference",
             "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Bot Reference",
+            "translationKey": "add.socialTradingBotReference",
             "relatedUiObject": "Social Trading Bot Reference",
             "relatedUiObjectProject": "Social-Trading"
         },
@@ -31,7 +34,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

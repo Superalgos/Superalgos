@@ -43,6 +43,9 @@
         }
     },
     "install": {
+        "asPlugin": "Install as Plugin",
+        "missingAssets": "Install Missing Assets",
+        "missingClaims": "Install Missing Claims",
         "apiResponseFieldRefs": "Install API Response Field Refs",
         "marketPair": "Install Pair (Market)",
         "market": "Install Market",
@@ -59,6 +62,9 @@
         }
     },
     "add": {
+        "assetClass": "Add Asset Class",
+        "assetContributionClaim": "Add Asset Contribution Claim",
+        "assetClaimsFolder": "Add Asset Claims Folder",
         "tokensAwarded": "Add Tokens Awarded",
         "userAssets": "Add User Assets",
         "userKeys": "Add User Keys",

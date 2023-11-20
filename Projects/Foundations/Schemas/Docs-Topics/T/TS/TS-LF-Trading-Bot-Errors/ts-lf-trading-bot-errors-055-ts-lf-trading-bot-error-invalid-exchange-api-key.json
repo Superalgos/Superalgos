@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der Exchange API-Schlüssel, den Sie für den Zugriff auf die Börse angegeben haben, wurde von der Börse nicht als gültiger Schlüssel erkannt.",
-                "updated": 1700306755692
+                "text": "Der Exchange API-Schlüssel, den Sie für den Zugriff auf die Börse angegeben haben, wurde von der Börse nicht als gültiger Schlüssel erkannt. ",
+                "updated": 1700512665242
             }
         ]
     },
@@ -371,8 +371,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Im Folgenden ist der Code aufgeführt, der an dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
-                    "updated": 1700307060925
+                    "text": "Im Folgenden ist der Code aufgeführt, der in dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
+                    "updated": 1700515690818
                 }
             ]
         },

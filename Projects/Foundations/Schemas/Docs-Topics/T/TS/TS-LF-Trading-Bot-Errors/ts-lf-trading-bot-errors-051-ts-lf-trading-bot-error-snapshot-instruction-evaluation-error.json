@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Dieser Fehler trat bei der Auswertung einer Anweisung als Teil des Prozesses zur Erstellung eines Snapshots auf. Dadurch wurde die Erstellung des Snapshots nicht verhindert, aber der Wert für die betreffende Anweisung wurde auf Null gesetzt.\n",
-                "updated": 1700303512828
+                "text": "Dieser Fehler trat bei der Auswertung einer Anweisung als Teil des Prozesses zur Erstellung eines Snapshots auf. Dadurch wurde die Erstellung des Snapshots nicht verhindert, aber der Wert für die betreffende Anweisung wurde auf Null gesetzt. ",
+                "updated": 1700512637324
             }
         ]
     },

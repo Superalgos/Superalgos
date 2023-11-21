@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "referralProgram",
             "label": "Add Referral Program",
+            "translationKey": "add.referralProgram",
             "relatedUiObject": "Referral Program",
             "relatedUiObjectProject": "Governance"
         },
@@ -25,6 +27,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "supportProgram",
             "label": "Add Support Program",
+            "translationKey": "add.supportProgram",
             "relatedUiObject": "Support Program",
             "relatedUiObjectProject": "Governance"
         },
@@ -35,6 +38,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mentorshipProgram",
             "label": "Add Mentorship Program",
+            "translationKey": "add.mentorshipProgram",
             "relatedUiObject": "Mentorship Program",
             "relatedUiObjectProject": "Governance"
         },
@@ -45,6 +49,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "influencerProgram",
             "label": "Add Influencer Program",
+            "translationKey": "add.influencerProgram",
             "relatedUiObject": "Influencer Program",
             "relatedUiObjectProject": "Governance"
         },
@@ -53,7 +58,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

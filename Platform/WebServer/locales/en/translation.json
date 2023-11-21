@@ -43,6 +43,7 @@
         }
     },
     "install": {
+        "missingVotes": "Install Missing Votes",
         "asPlugin": "Install as Plugin",
         "missingAssets": "Install Missing Assets",
         "missingClaims": "Install Missing Claims",
@@ -62,6 +63,19 @@
         }
     },
     "add": {
+        "influencerProgram": "Add Influencer Program",
+        "mentorshipProgram": "Add Mentorship Program",
+        "supportProgram": "Add Support Program",
+        "referralProgram": "Add Referral Program",
+        "positionClaimsFolder": "Add Position Claims Folder",
+        "featureClaimsFolder": "Add Feature Claims Folder",
+        "featureClaimVote": "Add Feature Claim Vote",
+        "assetClaimVote": "Add Asset Claim Vote",
+        "positionClaimVote": "Add Position Claim Vote",
+        "claimVotesSwitch": "Add Claim Votes Switch",
+        "computingProgram": "Add Computing Program",
+        "testClientInstance": "Add Test Client Instance",
+        "forecastClientInstance": "Add Forecast Client Instance",
         "assetClass": "Add Asset Class",
         "assetContributionClaim": "Add Asset Contribution Claim",
         "assetClaimsFolder": "Add Asset Claims Folder",

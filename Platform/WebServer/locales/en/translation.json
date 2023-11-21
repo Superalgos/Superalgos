@@ -63,6 +63,14 @@
         }
     },
     "add": {
+        "bitcoinFactoryForecasts": "Add Bitcoin Factory Forecasts",
+        "delegationProgram": "Add Delegation Program",
+        "stakingProgram": "Add Staking Program",
+        "featureClass": "Add Feature Class",
+        "featureContributionClaim": "Add Feature Contribution Claim",
+        "tokenBonus": "Add Tokens Bonus",
+        "userDelegate": "Add User Delegate",
+        "delegatePowerSwitch": "Add Delegate Power Switch",
         "influencerProgram": "Add Influencer Program",
         "mentorshipProgram": "Add Mentorship Program",
         "supportProgram": "Add Support Program",

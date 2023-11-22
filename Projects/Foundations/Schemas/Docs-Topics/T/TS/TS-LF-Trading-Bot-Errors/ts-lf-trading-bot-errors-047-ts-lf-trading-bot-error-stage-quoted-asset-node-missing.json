@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Aşamalı Koteli Varlık ( Stage Quoted Asset ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1649627101296
+            },
+            {
+                "language": "DE",
+                "text": "Ein Stage Quoted Asset -Knoten wurde erwartet, aber an dem Knoten, von dem der Fehler ausging, nicht gefunden. ",
+                "updated": 1700512607244
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Aşamalı Alıntı Varlık Düğümü Eksik. ( Stage Quoted Asset Node Missing )",
                     "updated": 1649627128913
+                },
+                {
+                    "language": "DE",
+                    "text": "Stage Quoted Asset-Knoten fehlt (Stage Quoted Asset Node Missing)",
+                    "updated": 1700297108325
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1649627169373
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700297079838
                 }
             ]
         }

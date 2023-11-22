@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Boyut Doldurulmuş ( Size Filled ) bir düğüm bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1649103602702
+            },
+            {
+                "language": "DE",
+                "text": "Ein Size Filled- Knoten wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat. ",
+                "updated": 1700512483393
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Boyut Dolu,Düğüm Eksik. ( Size Filled Node Missing )",
                     "updated": 1649103661309
+                },
+                {
+                    "language": "DE",
+                    "text": "Size Filled -Knoten fehlt (Size Filled Node Missing)",
+                    "updated": 1700294113384
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1649103685854
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700294123944
                 }
             ]
         }

@@ -63,6 +63,13 @@
         }
     },
     "add": {
+        "positionClass": "Add Position Class",
+        "position": "Add Position",
+        "positionContributionClaim": "Add Position Contribution Claim",
+        "pool": "Add Pool",
+        "poolClass": "Add Pool Class",
+        "githubProgram": "Add Github Program",
+        "airdropProgram": "Add Airdrop Program",
         "userMentor": "Add User Mentor",
         "liquidityProgram": "Add Liquidity Program",
         "userInfluencer": "Add User Influencer",

@@ -63,6 +63,14 @@
         }
     },
     "add": {
+        "userMentor": "Add User Mentor",
+        "liquidityProgram": "Add Liquidity Program",
+        "userInfluencer": "Add User Influencer",
+        "pools": "Add Pools",
+        "assets": "Add Assets",
+        "features": "Add Features",
+        "positions": "Add Positions",
+        "profileConstructor": "Add Profile Constructor",
         "bitcoinFactoryForecasts": "Add Bitcoin Factory Forecasts",
         "delegationProgram": "Add Delegation Program",
         "stakingProgram": "Add Staking Program",

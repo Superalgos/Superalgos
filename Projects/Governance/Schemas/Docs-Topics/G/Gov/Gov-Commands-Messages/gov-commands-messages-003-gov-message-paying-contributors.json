@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: Katkıda bulunanlara ödeme süreci başlatıldı. bekle!",
                 "updated": 1646741214197
+            },
+            {
+                "language": "DE",
+                "text": "Das Verfahren zur Bezahlung der Beitragszahler wurde eingeleitet. Warte ab!",
+                "updated": 1700772792866
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "İpucu: Yakında, sürecin tüm katkıda bulunanlara ödeme yapıp yapmadığını bildiren bir bildirim alacaksınız.",
                     "updated": 1646741229539
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden in Kürze eine Mitteilung erhalten, in der Sie darüber informiert werden, ob es gelungen ist, alle Beitragszahler zu bezahlen oder nicht.",
+                    "updated": 1700772730025
                 }
             ],
             "updated": 1627203557237

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düğüm, ana düğümü etrafında dönme simetrisine kilitlenir ve kardeş düğümler de aynı ayarı kullanır. Simetri 360 dereceye yayılır ve üst düğümle olan bağlantı çizgisi turuncuya döner.",
                 "updated": 1666968290015
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten ist auf eine Rotationssymmetrie um seinen übergeordneten Knoten festgelegt, wobei die Geschwisterknoten die gleiche Einstellung verwenden. Die Symmetrie erstreckt sich über 360 Grad, und die Verbindungslinie mit dem übergeordneten Knoten wird orange.",
+                "updated": 1701028822827
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638297054254
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701028845676
                 }
             ]
         }

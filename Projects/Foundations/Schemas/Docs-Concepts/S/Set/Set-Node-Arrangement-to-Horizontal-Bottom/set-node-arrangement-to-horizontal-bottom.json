@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düğüm, ana düğümünün altındaki yatay bir çizgi üzerinde bir yuvayı benimser.",
                 "updated": 1666905873943
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten nimmt einen Platz auf einer horizontalen Linie unterhalb seines übergeordneten Knotens ein.",
+                "updated": 1701029839169
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638297767740
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701029860986
                 }
             ]
         }

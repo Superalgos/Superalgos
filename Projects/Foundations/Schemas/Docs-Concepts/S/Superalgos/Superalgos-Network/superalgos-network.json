@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Superalgos Ağı, şu anda yapım aşamasında olan açık, eşler arası bir ağdır. Ağ, kullanıcıların Müşterilerini diğer Müşterilerle etkileşime girecek şekilde kurmalarını sağlayacaktır. Bu tür bir bağlantı, ürün ve hizmetlerin kullanıcılardan kullanıcılara değiş tokuş edilmesini ve yayılmasını sağlar.",
                 "updated": 1666900386580
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos-Netzwerk ist ein offenes Peer-to-Peer-Netzwerk, das sich derzeit im Aufbau befindet. Das Netzwerk wird es Nutzern ermöglichen, ihre Clients einzurichten, um mit anderen Clients zu interagieren. Diese Konnektivität ermöglicht den Austausch und die Verbreitung von Produkten und Dienstleistungen von und für Nutzer.",
+                "updated": 1701031191809
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Superalgos Ağı, 2022 yılında hayata geçirilmesi beklenen projenin yol haritasında yer alıyor.",
                     "updated": 1666900471494
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Superalgos-Netz steht auf dem Fahrplan des Projekts, das voraussichtlich im Jahr 2022 umgesetzt wird.",
+                    "updated": 1701031200090
                 }
             ]
         }

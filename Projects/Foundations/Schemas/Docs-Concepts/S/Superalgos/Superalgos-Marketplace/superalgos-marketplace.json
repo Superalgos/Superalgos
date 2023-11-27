@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Superalgos Marketplace, kullanıcıların birbirlerine p2p şekilinde ürün ve hizmet sunmalarına olanak tanıyacak ve botlarının internet üzerinden diğer kullanıcıların botlarından veri ve hizmet tüketmesini sağlayacak henüz uygulanmamış bir dizi özelliktir.",
                 "updated": 1666901430110
+            },
+            {
+                "language": "DE",
+                "text": "Der Superalgos Marketplace ist eine noch zu implementierende Reihe von Funktionen, die es Nutzern ermöglichen, sich gegenseitig Produkte und Dienstleistungen auf P2P-Basis anzubieten, indem sie ihren Bots ermöglichen, Daten und Dienstleistungen von Bots anderer Nutzer im Internet zu nutzen.",
+                "updated": 1701031075020
             }
         ]
     },

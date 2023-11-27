@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Рыночный ордер - это раздел структуры данных, который отслеживает свойства конкретного рыночного ордера, как определено в торговой системе.",
                 "updated": 1645168439825
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa emri, ticaret sisteminde tanımlandığı gibi belirli bir piyasa emrinin özelliklerini takip eden veri yapısının bölümüdür.",
+                "updated": 1701087652482
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Каждый рыночный ордер, определенный в торговой системе, должен ссылаться на структуру данных рыночного ордера в торговом движке.",
                     "updated": 1645168449400
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım sisteminde tanımlanan her bir piyasa emri, alım satım motorundaki bir piyasa emrinin veri yapısına referans vermelidir.",
+                    "updated": 1701087657003
                 }
             ]
         }

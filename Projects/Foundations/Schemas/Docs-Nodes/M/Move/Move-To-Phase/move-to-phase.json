@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Считает периоды с момента последнего срабатывания события перехода в фазу.",
                 "updated": 1645168908179
+            },
+            {
+                "language": "TR",
+                "text": "Bir faza geçme olayının son kez tetiklenmesinden bu yana geçen süreleri sayar.",
+                "updated": 1701088063850
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1645168916713
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin.",
+                    "updated": 1701088068555
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Move To Phase",
                     "updated": 1645168930677
+                },
+                {
+                    "language": "TR",
+                    "text": "Faz Konfigürasyonuna Geç",
+                    "updated": 1701088152178
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1645168937706
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1701088103105
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1645168945926
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1701088106923
                 }
             ]
         }

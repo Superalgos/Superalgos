@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Geriye Dönük Test Oturumu ( Backtesting Session ), Canlı Alım Satım Oturumu ( Live Trading Session ), Kağıt Alım Satım Oturumu ( Paper Trading Session ) ve İleriye Yönelik Test Oturumu ( Forward Testing Session ) düğümlerinin Ticaret Parametreleri ( Trading Parameters ) türünde bir alt öğeye sahip olması beklenir ve bu durumda bulunamadı.",
                 "updated": 1647096951033
+            },
+            {
+                "language": "DE",
+                "text": "Von den Knoten Backtesting Session, Live Trading Session, Paper Trading Session und Forward Testing Session wird ein untergeordnetes Element vom Typ Trading Parameters erwartet, das in diesem Fall nicht gefunden werden konnte.",
+                "updated": 1701115731452
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bunu düzeltmek için bir Ticaret Parametreleri ( Trading Parameters ) alt öğesi ekleyin ve tekrar deneyin.",
                     "updated": 1647097000591
+                },
+                {
+                    "language": "DE",
+                    "text": "Um dieses Problem zu beheben, fügen Sie ein Handelsparameter-Kind (Trading Parameters child) hinzu und versuchen Sie es erneut.",
+                    "updated": 1701115755934
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ödeme işlemi başarıyla tamamlandı. Tüm katkıda bulunanlara ödemeler gönderildi.",
                 "updated": 1646741645499
+            },
+            {
+                "language": "DE",
+                "text": "Der Zahlungsvorgang wurde erfolgreich abgeschlossen. Die Zahlungen an alle Beitragszahler wurden verschickt.",
+                "updated": 1700772976776
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Katkıda bulunanlara ödeme süreci tamamen başarılı oldu ve tüm ödemeler gönderildi.",
                     "updated": 1646741661182
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Prozess zur Bezahlung der Beitragszahler war vollständig erfolgreich und alle Zahlungen wurden verschickt.",
+                    "updated": 1700772987208
                 }
             ]
         }

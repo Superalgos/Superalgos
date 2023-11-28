@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Tanımlayıcı ( Identifier ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648670857252
+            },
+            {
+                "language": "DE",
+                "text": "Ein Identifier -Knoten wurde erwartet, aber an dem Knoten, von dem der Fehler ausging, nicht gefunden.",
+                "updated": 1700081136913
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Tanımlayıcı Düğüm Eksik. ( Identifier Node Missing )",
                     "updated": 1648670909366
+                },
+                {
+                    "language": "DE",
+                    "text": "Node Missing identifizieren (Identifier Node Missing)",
+                    "updated": 1700081187853
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648670944271
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700081195453
                 }
             ]
         }

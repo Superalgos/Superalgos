@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Min - минимальный курс, зарегистрированный биржей в период между датами свойств begin и end, как это предусмотрено биржей.",
                 "updated": 1645168730353
+            },
+            {
+                "language": "TR",
+                "text": "Min, borsa tarafından sağlanan başlangıç ve bitiş özelliklerinin tarih zamanları arasındaki süre boyunca borsa tarafından kaydedilen minimum orandır.",
+                "updated": 1701087946355
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1645168738693
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin.",
+                    "updated": 1701087952035
                 }
             ]
         }

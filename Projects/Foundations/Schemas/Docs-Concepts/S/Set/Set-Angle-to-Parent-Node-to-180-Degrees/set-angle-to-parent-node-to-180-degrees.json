@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Simetrinin ana düğümü etrafındaki yuvası 180 derece ile sınırlıdır ve bağlantı çizgisi turuncu kalır.",
                 "updated": 1666968117273
+            },
+            {
+                "language": "DE",
+                "text": "Der Schlitz der Symmetrie um den übergeordneten Knoten ist auf 180 Grad begrenzt, und die Verbindungslinie bleibt orange.",
+                "updated": 1701028766123
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638296941783
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701028775908
                 }
             ]
         }

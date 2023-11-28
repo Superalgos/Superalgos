@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Источники (шахты, хранилища) относятся к различным типам источников данных, для которых существуют определения в виде иерархий. На этом этапе узел может породить иерархии Data Mine, Trading Mine и Learning Mine.",
                 "updated": 1645168879537
+            },
+            {
+                "language": "TR",
+                "text": "Madenler, hiyerarşiler şeklinde tanımların mevcut olduğu farklı maden türlerini ifade eder. Bu aşamada, düğüm Veri Madeni ( Data Mine ), Ticaret Madeni ( Trading Mine ) ve Öğrenme Madeni ( Learning Mine ) hiyerarşilerini ortaya çıkarabilir.",
+                "updated": 1701088027643
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "RU",
                     "text": "Используйте меню для создания новых иерархий.",
                     "updated": 1645168886415
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni hiyerarşiler oluşturmak için menüyü kullanın.",
+                    "updated": 1701088033320
                 }
             ]
         }

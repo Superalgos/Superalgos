@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Рыночный котируемый актив - это актив в паре, для которого дана котировка, выраженная в базовом активе, котируемом на бирже.",
                 "updated": 1645168492035
+            },
+            {
+                "language": "TR",
+                "text": "Piyasada kote edilen varlık, borsada listelendiği şekliyle baz varlık cinsinden kotasyon verilen çiftteki varlıktır.",
+                "updated": 1701087676563
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Котируемый на рынке актив должен ссылаться на актив, определенный в узле биржевых активов.",
                     "updated": 1645168504712
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasaya kote edilen bir varlık, borsa varlıkları düğümü altında tanımlanan bir varlığı referans almalıdır.",
+                    "updated": 1701087681435
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Sipariş İstatistikleri ( Order Statistics ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648937847053
+            },
+            {
+                "language": "DE",
+                "text": "An dem Knoten, an dem der Fehler auftrat, wurde ein Knoten \"Auftragsstatistik\" (Order Statistics node) erwartet, aber nicht gefunden.",
+                "updated": 1700082563839
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Sipariş İstatistikleri Düğümü Eksik. ( Order Statistics Node Missing )",
                     "updated": 1648937887373
+                },
+                {
+                    "language": "DE",
+                    "text": "Knoten der Auftragsstatistik fehlt (Order Statistics Node Missing)",
+                    "updated": 1700082572079
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648937925996
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700082579909
                 }
             ]
         }

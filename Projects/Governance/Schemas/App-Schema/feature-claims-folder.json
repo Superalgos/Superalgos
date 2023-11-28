@@ -18,6 +18,7 @@
             "relatedUiObject": "Feature Contribution Claim",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
+            "confirmationLabelTranslationKey": "general.confirm.install",
             "relatedUiObjectProject": "Governance"
         },
         {

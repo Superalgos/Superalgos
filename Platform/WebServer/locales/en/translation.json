@@ -31,7 +31,9 @@
             "delete": "Confirm to Delete",
             "proceed": "Confirm to Proceed",
             "run": "Confirm to Run",
-            "stop": "Confirm to Stop"
+            "stop": "Confirm to Stop",
+            "install": "Confirm to Install",
+            "save": "Confirm to Save"
         },
         "updateCheck": "Check for Updates"
     },
@@ -43,6 +45,7 @@
         }
     },
     "install": {
+        "signingAccounts": "Install Signing Account",
         "missingVotes": "Install Missing Votes",
         "asPlugin": "Install as Plugin",
         "missingAssets": "Install Missing Assets",
@@ -63,6 +66,30 @@
         }
     },
     "add": {
+        "featureWeightVote": "Add Feature Weight Vote",
+        "assetWeightVote": "Add Asset Weight Vote",
+        "positionWeightVote": "Add Position Weight Vote",
+        "poolWeightVote": "Add Pool Weight Vote",
+        "userProfileVotesSwitch": "Add User Profile Votes Switch",
+        "weightVotesSwitch": "Add Weight Votes Switch",
+        "votesSwitch": "Add Votes Switch",
+        "claimsProgram": "Add Claims Program",
+        "votingProgram": "Add Voting Program",
+        "forecastsProviders": "Add Forecasts Providers",
+        "userStorage": "Add User Storage",
+        "permissionedP2pNetworks": "Add Permissioned P2P Networks",
+        "p2pNetworkNodes": "Add P2P Network Nodes",
+        "socialPersonas": "Add Social Personas",
+        "userBots": "Add User Bots",
+        "userApps": "Add User Apps",
+        "tokensMined": "Add Tokens Mined",
+        "child": "Add Child",
+        "userProfileVote": "Add User Profile Vote",
+        "userProfilesVotesSwitch": "Add User Profile Votes Switch",
+        "socialTradingBots": "Add Social Trading Bots",
+        "tokenPowerSwitch": "Add Token Power Switch",
+        "userSupporter": "Add User Supporter",
+        "userReferrer": "Add User Referrer",
         "positionClass": "Add Position Class",
         "position": "Add Position",
         "positionContributionClaim": "Add Position Contribution Claim",
@@ -460,6 +487,14 @@
             "condition": "Add Image Condition",
             "formula": "Add Image Formula",
             "position": "Add Image Position"
+        },
+        "programs": {
+            "bitcoinFactory": "Add Bitcoin Factory Programs",
+            "liquidity": "Add Liquidity Programs",
+            "financial": "Add Financial Programs",
+            "votesAndClaims": "Add Votes And Claims Programs",
+            "communityBuilding": "Add Community Building Programs",
+            "onboarding": "Add Onboarding Programs"
         }
     },
     "import": {
@@ -489,6 +524,7 @@
         }
     },
     "save": {
+        "plugin": "Save Plugin",
         "enableWithWorkspace": "Enable Saving With Workspace",
         "pluginFile": "Save Plugin File"
     },
@@ -580,5 +616,10 @@
             "twitterTest": "Send Twitter Test Message",
             "text": "Send Test Message"
         }
+    },
+    "build": {
+        "profileWithWalletConnect": "Build Profile with WalletConnect",
+        "profileWithMnemonic": "Build Profile with Mnemonic",
+        "profileAndNewWallet": "Build Profile and New Wallet"
     }
 }

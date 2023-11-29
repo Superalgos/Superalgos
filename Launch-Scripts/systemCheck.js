@@ -1,6 +1,8 @@
 const { execSync } = require("child_process")
 const os = require("os")
 const env = require("../Environment").newEnvironment()
+const semver = require('semver')
+//const semver = require('semver/classes/comparator')
 
 // moved 'minimum versions required' to environment file, this 
 // centralizes them in one place & makes tests more robust
@@ -11,33 +13,30 @@ function systemCheck () {
   try {
     
     // Gather Installed Versions of Node, NPM and Git
-    const npmVersionRaw = execSync( "npm -v",{ encoding: 'utf8', timeout: 30000 })
-    const nodeVersionRaw = execSync( "node -v",{ encoding: 'utf8',timeout: 30000 })
-    const gitVersionRaw = execSync( "git --version",{ encoding: 'utf8',timeout: 30000 })
-    const npmVersion = npmVersionRaw.trim().split('.')
-    const nodeVersion = nodeVersionRaw.trim().substring(1).split('.')
-    const gitVersion = gitVersionRaw.trim().split(' ')[2].split('.')
+    const npmVersion = execSync( "npm -v").toString().trim()
+    const nodeVersion = execSync( "node -v").toString().trim()
+    const gitVersion = execSync( "git --version").toString().split(' ')[2].trim()
 
     // Make sure update version of npm is installed
-    if ( npmVersion[0] < env.NPM_NEEDED_VERSION ) {
+      if (semver.compare(npmVersion,env.NPM_NEEDED_VERSION) < 0) {
       console.log('')
-      console.log("ERROR: the version of npm you have installed is out of date. Please update your installation of npm and try again.")
+      console.log("ERROR: the version of npm V",npmVersion, " you have installed is out of date. Please update your installation of npm and try again.")
       console.log('')
       process.exit()
     }
     
     // Make sure update version of node is installed 
-    if ( nodeVersion[0] < env.NODE_NEEDED_VERSION ) {
+      if (semver.compare(nodeVersion,env.NODE_NEEDED_VERSION) < 0) {
       console.log('')
-      console.log("ERROR: the version of node you have installed is out of date. Please update your installation of node and try again.")
+      console.log("ERROR: the version of node V",nodeVersion, "you have installed is out of date. Please update your installation of node and try again.")
       console.log('')
       process.exit()
     }
 
     // Make sure updated version of git is installed
-    if ( gitVersion[0] < env.GIT_NEEDED_VERSION ) {
+      if (semver.compare(gitVersion,env.GIT_NEEDED_VERSION) < 0) {
       console.log('')
-      console.log("ERROR: the version of git you have installed is out of date. Please update your installation of git and try again.")
+      console.log("ERROR: the version of git V",gitVersion, "you have installed is out of date. Please update your installation of git and try again.")
       console.log('')
       process.exit()
     }

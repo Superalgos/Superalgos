@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Exchange Hesabı Anahtar Düğümü ( Exchange Account Key ) yapılandırmasında codeName adlı bir özellik bekleniyor.",
                 "updated": 1647101435975
+            },
+            {
+                "language": "DE",
+                "text": "Eine Eigenschaft namens codeName wird in der Konfiguration des Exchange Account Key Node erwartet.",
+                "updated": 1701116984204
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu özelliği ekleyin ve buna Exchange web sitesinden alınan hesap anahtarınızın değerini atayın.",
                     "updated": 1647101472748
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie diese Eigenschaft hinzu und weisen Sie ihr den Wert Ihres Kontoschlüssels von der Exchange-Website zu.",
+                    "updated": 1701117037149
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Eksik Özellik ",
                     "updated": 1647101484667
+                },
+                {
+                    "language": "DE",
+                    "text": "fehlende Eigenschaft",
+                    "updated": 1701117063527
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Zaman Aralığı ( Time Range ) düğümünde yapılandırılan ilk Datetime özelliği, geçerli bir Javascript Datetime olarak tanınmıyor.",
                 "updated": 1647097072554
+            },
+            {
+                "language": "DE",
+                "text": "Die Eigenschaft initialDatetime, die am Knoten Zeitbereich (Time Range) konfiguriert ist, wird nicht als gültige Javascript Datetime erkannt.",
+                "updated": 1701115806934
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "sessionParameters.timeRange.config.initialDatetime doğrulaması başarısız oldu ve bu nedenle Ticaret Oturumu ( Trading Session ) çalıştırılamaz.",
                     "updated": 1647097145609
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Validierung von sessionParameters.timeRange.config.initialDatetime hat nicht bestanden, und daher kann die Trading Session nicht ausgeführt werden.",
+                    "updated": 1701115820463
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "İpucu: Bir tarih saat değerinin nasıl doğru şekilde ifade edileceğini öğrenmek için Node JS Javascript belgelerine bakın.",
                     "updated": 1647097171636
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie in den Node JS Javascript-Dokumenten nach, um zu erfahren, wie man einen Datetime-Wert korrekt ausdrückt.",
+                    "updated": 1701115835100
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Mevcut değer",
                     "updated": 1647097202742
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktueller Wert",
+                    "updated": 1701115843823
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Şu andaki özellik aşağıdaki değere sahiptir. Aşağıda, başka yollarla bu hata sayfasına gittiğinizde değil, yalnızca bu hatayı aldığınızda bir değer gösterileceğini unutmayın.",
                     "updated": 1647097305096
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaft hat im Moment den folgenden Wert. Beachten Sie, dass der Wert unten nur angezeigt wird, wenn Sie diesen Fehler erhalten haben, nicht aber, wenn Sie diese Fehlerseite auf anderem Wege aufrufen.",
+                    "updated": 1701115851439
                 }
             ]
         },

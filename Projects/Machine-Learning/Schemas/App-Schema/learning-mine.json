@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -13,6 +14,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Learning Bot",
+            "translationKey": "add.learning.bot",
             "relatedUiObject": "Learning Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -21,6 +23,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Plotter",
+            "translationKey": "add.plotter",
             "relatedUiObject": "Plotter",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
@@ -31,7 +34,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

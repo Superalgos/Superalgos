@@ -359,6 +359,7 @@
                 "live": "Add Live Learning Session"
             },
             "mine": {
+                "default": "Add Learning Mine",
                 "products": "Add Learning Mine Products",
                 "allProducts": "Add All Learning Mine Products"
             },
@@ -366,7 +367,8 @@
                 "tasks": "Add Project Learning Tasks"
             },
             "system": "Add Learning System",
-            "engine": "Add Learning Engine"
+            "engine": "Add Learning Engine",
+            "bot":"Add Learning Bot"
         },
         "tasks": {
             "serverAppReference": "Add Task Server App Reference",

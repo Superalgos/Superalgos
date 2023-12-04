@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "iconPathOn": "machine-learning-project",
             "iconPathOff": "machine-learning-project",
             "iconProject": "Machine-Learning",
@@ -13,6 +14,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Learning Mine",
+            "translationKey": "add.learning.mine.default",
             "relatedUiObject": "Learning Mine",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
@@ -21,6 +23,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Learning Engine",
+            "translationKey": "add.learning.engine",
             "relatedUiObject": "Learning Engine",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
@@ -29,6 +32,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Learning System",
+            "translationKey": "add.learning.system",
             "relatedUiObject": "Learning System",
             "relatedUiObjectProject": "Machine-Learning",
             "actionFunction": "payload.executeAction",
@@ -39,8 +43,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

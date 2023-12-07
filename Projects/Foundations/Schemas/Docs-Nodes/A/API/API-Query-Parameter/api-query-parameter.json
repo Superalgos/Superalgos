@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm tek bir sorgu parametresini temsil eder. Sorgu parametresinin ne olduğuna dair tam bir tanım için lütfen API Sorgu Parametreleri sayfasına bakın.",
                 "updated": 1654391398163
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten stellt einen einzelnen Abfrageparameter dar. Eine vollständige Definition des Begriffs Abfrageparameter finden Sie auf der Seite API Query Parameters.",
+                "updated": 1701930778277
             }
         ]
     },
@@ -32,6 +37,12 @@
                     "text": "Bir uç nokta için sunulan her sorgu parametresini kullanmıyor olsanız bile.  Bütünlük adına, haritaya eklemek ve değer özelliğini silmek iyi bir fikirdir.",
                     "updated": 1654391403924,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch wenn Sie nicht alle für einen Endpunkt angebotenen Abfrageparameter verwenden.  Der Vollständigkeit halber ist es eine gute Idee, ihn zur Karte hinzuzufügen und die Eigenschaft value zu löschen.",
+                    "updated": 1701930778436,
+                    "style": "Success"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "text": "API Sorgu Parametresi Yapılandırması",
                     "updated": 1654391409131,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der API Query Parameter",
+                    "updated": 1701930778589,
+                    "style": "Title"
                 }
             ]
         },
@@ -66,6 +83,12 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1654391415215,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930778701,
                     "style": "Subtitle"
                 }
             ]
@@ -84,6 +107,12 @@
                     "text": "codeName: Bu, API dokümanlarında tanımlanan sorgu parametresinin adıyla eşleşmelidir.",
                     "updated": 1654391422325,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName: Dieser muss mit dem Namen des in den API-Dokumenten definierten Abfrageparameters übereinstimmen.",
+                    "updated": 1701930778866,
+                    "style": "List"
                 }
             ]
         },
@@ -100,6 +129,12 @@
                     "language": "TR",
                     "text": "isString: Yol parametresinin bir dize olup olmadığını tanımlar.",
                     "updated": 1654391428286,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "isString: Definiert, ob der Pfadparameter eine Zeichenkette ist oder nicht.",
+                    "updated": 1701930779016,
                     "style": "List"
                 }
             ]
@@ -118,6 +153,12 @@
                     "text": "isOptional: Bu yol parametresinin isteğe bağlı olup olmadığını tanımlar.",
                     "updated": 1654391434285,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "isOptional: Legt fest, ob dieser Pfadparameter optional ist oder nicht.",
+                    "updated": 1701930779155,
+                    "style": "List"
                 }
             ]
         },
@@ -134,6 +175,12 @@
                     "language": "TR",
                     "text": "Açıklama: Bu yol parametresinin ne yaptığına dair temel bir açıklama tanımlayın.",
                     "updated": 1654391439744,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "description: Definieren Sie eine grundlegende Beschreibung dessen, was dieser Pfadparameter bewirkt.",
+                    "updated": 1701930779276,
                     "style": "List"
                 }
             ]
@@ -153,6 +200,12 @@
                     "text": "değer: Parametre tarafından kullanılacak değerdir.",
                     "updated": 1654391445484,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "value: Dies ist der Wert, der für den Parameter verwendet werden soll.",
+                    "updated": 1701930779407,
+                    "style": "List"
                 }
             ]
         },
@@ -170,6 +223,12 @@
                     "language": "TR",
                     "text": "API Haritasına yazdığınız değer varsayılan değer olarak kabul edilecektir. Aynı parametre replaceBy özelliği kullanılarak bir kullanıcının sisteminden dinamik olarak çekilebilir.  replaceBy özelliği kullanıldığında varsayılan değerin üzerine yazılacaktır.",
                     "updated": 1654391451184,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert, den Sie in die API Map eingeben, wird als Standardwert betrachtet. Derselbe Parameter kann mit der Eigenschaft replaceBy dynamisch aus dem System eines Benutzers abgerufen werden.  Wenn die replaceBy-Eigenschaft verwendet wird, wird der Standardwert überschrieben.",
+                    "updated": 1701930779532,
                     "style": "Note"
                 }
             ]
@@ -189,6 +248,12 @@
                     "text": "replaceBy: [İsteğe bağlı] Bu özellik, API Fetcher Bot'a bu parametreye geçerli varsayılanın yerine bir değer ayarlaması ve yalnızca çalışma zamanında kullanılabilen bağlamsal bilgileri kullanması talimatını vermenizi sağlar.",
                     "updated": 1654391456940,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "replaceBy: [Optional] Mit dieser Eigenschaft können Sie den API Fetcher Bot anweisen, einen Wert für diesen Parameter festzulegen, der den aktuellen Standardwert ersetzt und kontextbezogene Informationen verwendet, die nur zur Laufzeit verfügbar sind.",
+                    "updated": 1701930779699,
+                    "style": "List"
                 }
             ]
         },
@@ -207,6 +272,12 @@
                     "text": "İşte bir sorgu seçeneğini false olarak ayarlayan örnek bir yapılandırma:",
                     "updated": 1654391463415,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist eine Beispielkonfiguration, die eine Abfrageoption auf false setzt:",
+                    "updated": 1701930779921,
+                    "style": "Text"
                 }
             ]
         },
@@ -223,6 +294,12 @@
                     "language": "TR",
                     "text": "Foundations->Concept->replaceBy Config Property->Nasıl Kullanılır",
                     "updated": 1654391469321,
+                    "style": "Include"
+                },
+                {
+                    "language": "DE",
+                    "text": "Foundations->Concept->replaceBy Config Property->Hinweise zur Verwendung",
+                    "updated": 1701930780206,
                     "style": "Include"
                 }
             ]

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Sistemine ( Trading System ) katkıda bulunmak için ticaret sistemi dosyasını, temiz bir çalışma alanını ve uygun belgeleri sağlamanız gerekir.",
                 "updated": 1645289710295
+            },
+            {
+                "language": "DE",
+                "text": "Um bei einem Handelssystem (Trading System) etwas beizutragen, müssen Sie die Handelssystemdatei, einen sauberen Arbeitsbereich und die entsprechende Dokumentation bereitstellen.",
+                "updated": 1702159567721
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Gereksinimler",
                     "updated": 1645289798177
+                },
+                {
+                    "language": "DE",
+                    "text": "Anforderungen",
+                    "updated": 1702159607471
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Temiz ve düzenli bir Ticaret Sistemi ( Trading System ) hazırlayın. Daha kolay okunabilmesi için stratejileri, durumları, koşulları, emirleri vb. düzenleyin ve adlandırın.",
                     "updated": 1645289842547
+                },
+                {
+                    "language": "DE",
+                    "text": "Bereiten Sie ein sauberes und aufgeräumtes Handelssystem (Trading System) vor. Organisieren und benennen Sie Strategien, Situationen, Bedingungen, Aufträge usw. so, dass es leichter zu lesen ist.",
+                    "updated": 1702159688945
                 }
             ]
         },
@@ -83,6 +98,11 @@
                     "language": "TR",
                     "text": "Ticaret Sistemi ( Trading System ) dosyasını eklenti olarak uygun klasöre ekleyin.",
                     "updated": 1645289908630
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie die Trading System -Datei als Plugin in den entsprechenden Ordner ein.",
+                    "updated": 1702159732897
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanı Dosyası",
                     "updated": 1645289924945
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspace-Datei",
+                    "updated": 1702159813969
                 }
             ]
         },
@@ -125,6 +150,11 @@
                     "language": "TR",
                     "text": "Ticaret Sisteminizi ( Trading System ) ve yalnızca gerekli veri madenlerini içeren temiz bir Çalışma Alanı ( Workspace ) hazırlayın.",
                     "updated": 1645290008446
+                },
+                {
+                    "language": "DE",
+                    "text": "Bereiten Sie einen sauberen Arbeitsbereich (Workspace) vor, der nur Ihr Handelssystem (Trading System) und die erforderlichen Datenminen enthält.",
+                    "updated": 1702159862488
                 }
             ]
         },
@@ -142,6 +172,11 @@
                     "language": "TR",
                     "text": "Kullanıcıların hangi göstergelerin gerekli olduğunu bilmeleri için Market'i kurun ve gereksiz Veri Görevlerini kaldırın. Gereksiz Veri Depolama ( Data Storage ) düğümlerini de kaldırdığınızdan emin olun.",
                     "updated": 1645290057109
+                },
+                {
+                    "language": "DE",
+                    "text": "Installieren Sie den Markt (Market) und entfernen Sie die unnötigen Data Tasks, damit die Benutzer wissen, welche Indikatoren erforderlich sind. Stellen Sie sicher, dass Sie auch die unnötigen Datenspeicherknoten (Data Storage) entfernen. Fügen Sie eine Workspace-Datei als Workspace-Plugin in den entsprechenden Ordner ein.",
+                    "updated": 1702159932914
                 }
             ]
         },
@@ -159,6 +194,11 @@
                     "language": "TR",
                     "text": "Uygun klasöre bir çalışma alanı eklentisi olarak bir Çalışma Alanı ( Workspace ) dosyası ekleyin.",
                     "updated": 1645290086131
+                },
+                {
+                    "language": "DE",
+                    "text": " Fügen Sie eine Workspace -Datei als Workspace-Plugin in den entsprechenden Ordner ein.",
+                    "updated": 1702159963834
                 }
             ]
         },
@@ -181,6 +221,11 @@
                     "language": "TR",
                     "text": "Belgeler",
                     "updated": 1645290124994
+                },
+                {
+                    "language": "DE",
+                    "text": "Dokumentation",
+                    "updated": 1702159980508
                 }
             ]
         },
@@ -198,6 +243,11 @@
                     "language": "TR",
                     "text": "BB Top Bounce (BBTB) sayfasını, ticaret sistemi için belge olarak sağlamanız gereken içeriğe örnek olarak alın.",
                     "updated": 1645290149543
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie die Seite BB Top Bounce (BBTB) als Beispiel für den Inhalt, den Sie als Dokumentation für das Handelssystem bereitstellen sollten.",
+                    "updated": 1702160297466
                 }
             ]
         },
@@ -215,6 +265,11 @@
                     "language": "TR",
                     "text": "Oluşturduğunuz sayfanın adı aşağıdaki formatta olmalıdır...",
                     "updated": 1645290160406
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Name der Seite, die Sie erstellen, muss dem folgenden Format entsprechen...",
+                    "updated": 1702160312457
                 }
             ]
         },
@@ -236,6 +291,11 @@
                     "language": "TR",
                     "text": "Örneğin:",
                     "updated": 1645290172863
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1702160327033
                 }
             ]
         },
@@ -257,6 +317,11 @@
                     "language": "TR",
                     "text": "Yukarıdakiler, Ticaret Sisteminin ( Trading System ) belirli bir Pazar ( Market ) için optimize edildiğini varsayar. Durum böyle olmasa bile Çalışma Alanı ( Workspace ) dosyasında kurulu olduğu marketi belirtin.",
                     "updated": 1645290305986
+                },
+                {
+                    "language": "DE",
+                    "text": "Die obigen Ausführungen gehen davon aus, dass das Handelssystem (Trading System) für einen bestimmten Markt (Market) optimiert ist. Auch wenn dies nicht der Fall ist, geben Sie den Markt an, der in der Workspace -Datei installiert ist.",
+                    "updated": 1702160597556
                 }
             ]
         },
@@ -269,6 +334,11 @@
                     "language": "TR",
                     "text": "Sayfayı Topluluk Ticaret Sistemleri ( Community Trading ) konusunda oluşturun. Aşağıdaki komutu ihtiyaçlarınıza göre düzenleyebilirsiniz.",
                     "updated": 1645290390795
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie die Seite innerhalb des Themas Gemeinschaftshandelssysteme (Community Trading). Sie können den unten stehenden Befehl an Ihre Bedürfnisse anpassen.",
+                    "updated": 1702160694300
                 }
             ]
         },
@@ -291,6 +361,11 @@
                     "language": "TR",
                     "text": "Opsiyonel İçerik",
                     "updated": 1645290422657
+                },
+                {
+                    "language": "DE",
+                    "text": "Fakultativer Inhalt",
+                    "updated": 1702160713029
                 }
             ]
         },
@@ -308,6 +383,11 @@
                     "language": "TR",
                     "text": "Ticaret Sisteminin ( Trading System ) uygulanmasından geçen ve bir simülasyonda (geriye dönük test) nasıl çalıştığını gösteren etkileşimli bir Öğretici ( Tutorial ) oluşturmayı düşünün. Bu önemli bir değer katar ve kesinlikle teşvik edilir!",
                     "updated": 1645290506155
+                },
+                {
+                    "language": "DE",
+                    "text": "Erwägen Sie die Erstellung eines interaktiven Tutorial ´s, das die Implementierung des Handelssystems (Trading System) erläutert und zeigt, wie es in einer Simulation (Backtest) funktioniert. Dies bietet einen erheblichen Mehrwert und ist sicherlich lohnend!",
+                    "updated": 1702160783772
                 }
             ]
         }

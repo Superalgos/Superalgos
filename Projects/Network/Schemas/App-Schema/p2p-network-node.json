@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionProject": "Foundations",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -17,6 +18,7 @@
             "propertyToCheckFor": "p2pNetworkReference",
             "actionFunction": "payload.executeAction",
             "label": "Add P2P Network Reference",
+            "translationKey": "add.p2pNetworkReference",
             "relatedUiObject": "P2P Network Reference",
             "relatedUiObjectProject": "Network"
         },
@@ -27,6 +29,7 @@
             "propertyToCheckFor": "networkServices",
             "actionFunction": "payload.executeAction",
             "label": "Add Network Services",
+            "translationKey": "add.networkServices",
             "relatedUiObject": "Network Services",
             "relatedUiObjectProject": "Network"
         },
@@ -37,6 +40,7 @@
             "propertyToCheckFor": "networkInterfaces",
             "actionFunction": "payload.executeAction",
             "label": "Add Network Interfaces",
+            "translationKey": "add.networkInterfaces",
             "relatedUiObject": "Network Interfaces",
             "relatedUiObjectProject": "Network"
         },
@@ -47,6 +51,7 @@
             "propertyToCheckFor": "availableStorage",
             "actionFunction": "payload.executeAction",
             "label": "Add Available Storage",
+            "translationKey": "add.availableStorage",
             "relatedUiObject": "Available Storage",
             "relatedUiObjectProject": "Open-Storage"
         },
@@ -55,7 +60,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

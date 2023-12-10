@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Lädt eine JSON-Datei mit der Entität herunter, bei der es sich um den gesamten Arbeitsbereich (Workspace) oder einen Knoten handeln kann, einschließlich der Verweise auf den jeweiligen Knoten und seine Nachkommen. Verwenden Sie diese Funktion, um Ihren gesamten Arbeitsbereich oder eine bestimmte Struktur von Knoten innerhalb Ihres Arbeitsbereichs zu speichern, damit Sie die Informationen, einschließlich aller Referenzen, später wiederherstellen können, falls Sie dies benötigen. Die heruntergeladene Datei trägt den Namen Backup, gefolgt vom Namen der Entität, die Sie sichern.",
-                "updated": 1701114560341
+                "text": "Lädt eine JSON-Datei mit der Entität herunter, bei der es sich um den gesamten Arbeitsbereich (Workspace) oder einen Knoten handeln kann, einschließlich der Verweise auf den jeweiligen Knoten und seine Nachkommen. Verwenden Sie diese Funktion, um Ihren gesamten Arbeitsbereich oder eine bestimmte Struktur von Knoten innerhalb Ihres Arbeitsbereichs zu speichern, damit Sie die Informationen, einschließlich aller Referenzen, später wiederherstellen können, falls Sie dies benötigen. Die heruntergeladene Datei trägt den Namen Backup, gefolgt vom Namen der Entität, die Sie sichern. ",
+                "updated": 1701272670405
             }
         ]
     },
@@ -39,8 +39,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
-                    "updated": 1701114577792
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. ",
+                    "updated": 1701272674445
                 }
             ]
         }

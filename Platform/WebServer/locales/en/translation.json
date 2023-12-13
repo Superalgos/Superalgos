@@ -66,6 +66,8 @@
         }
     },
     "add": {
+        "githubStorageContainer": "Add Github Storage Container",
+        "storageContainerReference": "Add Storage Container Reference",
         "socialGraph": "Add Social Graph",
         "machineLearning": "Add Machine Learning",
         "tradingSignals": "Add Trading Signals",

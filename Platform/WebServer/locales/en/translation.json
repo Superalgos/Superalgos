@@ -66,6 +66,9 @@
         }
     },
     "add": {
+        "exchangeManagedAsset": "Add Exchange Managed Asset",
+        "confirmEventRules": "Add Confirm Event Rules",
+        "setEventRules": "Add Set Event Rules",
         "confirmFormulaReference": "Add Confirm Formula Reference",
         "confirmEventReference": "Add Confirm Event Reference",
         "managedSessions": "Add Managed Sessions",
@@ -342,7 +345,8 @@
             "learningProducts": "Add Market Learning Products",
             "tradingProducts": "Add Market Trading Products",
             "tradingTasks": "Add Market Trading Tasks",
-            "learningTasks": "Add Market Learning Tasks"
+            "learningTasks": "Add Market Learning Tasks",
+            "portfolioProducts": "Add Market Portfolio Products"
         },
         "missing": {
             "dashboards": "Add Missing Dashboards",
@@ -411,7 +415,8 @@
             "projectTrading": "Add Project Trading Tasks",
             "productionTrading": "Add Production Trading Tasks",
             "testingPortfolio": "Add Testing Portfolio Tasks",
-            "productionPortfolio": "Add Production Portfolio Tasks"
+            "productionPortfolio": "Add Production Portfolio Tasks",
+            "marketPortfolio": "Add Market Portfolio Tasks"
         },
         "exchange": {
             "tradingTasks": "Add Exchange Trading Tasks",
@@ -621,6 +626,10 @@
                 "learning": {
                     "run": "Run All Market Learning Tasks",
                     "stop": "Stop All Market Learning Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Market Portfolio Tasks",
+                    "stop": "Stop All Market Portfolio Tasks"
                 },
                 "trading": {
                     "run": "Run All Market Trading Tasks",

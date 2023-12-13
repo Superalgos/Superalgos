@@ -4,6 +4,7 @@
         {
             "action": "Run Portfolio Session",
             "label": "Run",
+            "translationKey": "general.run",
             "workingLabel": "Run Request Sent",
             "workDoneLabel": "Session Running",
             "workFailedLabel": "Session Cannot be Run",
@@ -21,6 +22,7 @@
         {
             "action": "Resume Portfolio Session",
             "label": "Resume",
+            "translationKey": "general.resume",
             "workingLabel": "Resume Request Sent",
             "workDoneLabel": "Session Running",
             "workFailedLabel": "Session Cannot be Resumed",
@@ -38,6 +40,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -46,6 +49,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Social Bots",
+            "translationKey": "add.socialBots",
             "relatedUiObject": "Social Bots",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Social-Bots",
@@ -56,6 +60,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "managedSessions",
             "label": "Add Managed Sessions",
+            "translationKey": "add.managedSessions",
             "relatedUiObject": "Managed Sessions",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -64,6 +69,7 @@
         {
             "action": "Switch To Live Portfolio",
             "label": "Switch To Live Portfolio",
+            "translationKey": "switch.to.livePortfolio",
             "relatedUiObject": "Live Portfolio Session",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management"
@@ -71,6 +77,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Portfolio Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -81,7 +88,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

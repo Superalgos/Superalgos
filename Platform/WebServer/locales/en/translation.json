@@ -66,6 +66,9 @@
         }
     },
     "add": {
+        "confirmFormulaReference": "Add Confirm Formula Reference",
+        "confirmEventReference": "Add Confirm Event Reference",
+        "managedSessions": "Add Managed Sessions",
         "confirmFormula": "Add Confirm Formula",
         "setFormula": "Add Set Formula",
         "confirmEvent": "Add Confirm Event",
@@ -541,7 +544,8 @@
             "paperTrading": "Switch To Paper Trading",
             "liveTrading": "Switch To Live Trading",
             "forwardTesting": "Switch To Forward Testing",
-            "backTesting": "Switch To Backtesting"
+            "backTesting": "Switch To Backtesting",
+            "livePortfolio": "Switch To Live Portfolio"
         }
     },
     "copy": {

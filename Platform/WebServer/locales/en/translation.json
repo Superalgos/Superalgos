@@ -66,6 +66,13 @@
         }
     },
     "add": {
+        "confirmFormula": "Add Confirm Formula",
+        "setFormula": "Add Set Formula",
+        "confirmEvent": "Add Confirm Event",
+        "setEvent": "Add Set Event",
+        "superalgosStorage": "Add Superalgos Storage",
+        "githubStorage": "Add Github Storage",
+        "superalgosStorageContainer": "Add Superalgos Storage Container",
         "githubStorageContainer": "Add Github Storage Container",
         "storageContainerReference": "Add Storage Container Reference",
         "socialGraph": "Add Social Graph",

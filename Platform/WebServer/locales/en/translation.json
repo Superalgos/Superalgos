@@ -66,6 +66,14 @@
         }
     },
     "add": {
+        "portfolioSessionReference": "Add Portfolio Session Reference",
+        "managedTradingBotAdd Missing Sessions": "Add Managed Trading Bot",
+        "managedTradingBotEngine": "Add Managed Trading Bot Engine",
+        "eventsManager": "Add Events Manager",
+        "formulasManager": "Add Formulas Manager",
+        "managedAsset": "Add Managed Asset",
+        "setFormulaRules": "Add Set Formula Rules",
+        "confirmFormulaRules": "Add Confirm Formula Rules",
         "exchangeManagedAsset": "Add Exchange Managed Asset",
         "confirmEventRules": "Add Confirm Event Rules",
         "setEventRules": "Add Set Event Rules",
@@ -383,7 +391,8 @@
             "children": "Add Missing Children",
             "projects": "Add Missing Projects",
             "swapPairs": "Add Missing Swap Pairs",
-            "items": "Add Missing Items"
+            "items": "Add Missing Items",
+            "portfolioMineTasks": "Add Missing Portfolio Mine Tasks"
         },
         "learning": {
             "session": {
@@ -404,6 +413,7 @@
             "bot":"Add Learning Bot"
         },
         "tasks": {
+            "portfolioMine": "Add Portfolio Mine Tasks",
             "serverAppReference": "Add Task Server App Reference",
             "managed": "Add Managed Tasks",
             "default": "Add Tasks",
@@ -550,7 +560,8 @@
             "liveTrading": "Switch To Live Trading",
             "forwardTesting": "Switch To Forward Testing",
             "backTesting": "Switch To Backtesting",
-            "livePortfolio": "Switch To Live Portfolio"
+            "livePortfolio": "Switch To Live Portfolio",
+            "backtestingPortfolio": "Switch To Backtesting Portfolio"
         }
     },
     "copy": {
@@ -648,6 +659,10 @@
                 "learning": {
                     "run": "Run All Learning Mine Tasks",
                     "stop": "Stop All Learning Mine Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Portfolio Mine Tasks",
+                    "stop": "Stop All Portfolio Mine Tasks"
                 }
             }
         }

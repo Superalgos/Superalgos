@@ -66,6 +66,9 @@
         }
     },
     "add": {
+        "portfolioEngine": "Add Portfolio Engine",
+        "portfolioMine": "Add Portfolio Mine",
+        "portfolioSystem": "Add Portfolio System",
         "portfolioSessionReference": "Add Portfolio Session Reference",
         "managedTradingBotAdd Missing Sessions": "Add Managed Trading Bot",
         "managedTradingBotEngine": "Add Managed Trading Bot Engine",

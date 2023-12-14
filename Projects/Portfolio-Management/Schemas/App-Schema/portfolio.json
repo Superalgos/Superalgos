@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Portfolio System",
+            "translationKey": "add.portfolioSystem",
             "relatedUiObject": "Portfolio System",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Portfolio Engine",
+            "translationKey": "add.portfolioEngine",
             "relatedUiObject": "Portfolio Engine",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -22,8 +24,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

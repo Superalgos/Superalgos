@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Siparişlerin bağlamına özel hesaplar hakkında bilgi edinin. Bu sayfada: Oran, Gerçek Oran, Boyut, Doldurulan Yüzde, Ödenen Ücretler ve Kilit ( Rate, Actual Rate, Size, Percentage Filled, Fees Paid, and Lock ).",
                 "updated": 1650618107937
+            },
+            {
+                "language": "DE",
+                "text": "Erfahren Sie mehr über Konten, die im Zusammenhang mit Bestellungen stehen. Auf dieser Seite: Kurs, tatsächlicher Kurs, Größe, Prozentsatz der Erfüllung, gezahlte Gebühren und Sperre (Rate, Actual Rate, Size, Percentage Filled, Fees Paid, and Lock).",
+                "updated": 1702583722743
             }
         ]
     },
@@ -37,7 +42,14 @@
         {
             "style": "Title",
             "text": "Actual Rate",
-            "updated": 1611336604269
+            "updated": 1611336604269,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tatsächliche Rate",
+                    "updated": 1702583746585
+                }
+            ]
         },
         {
             "style": "Include",
@@ -52,7 +64,14 @@
         {
             "style": "Title",
             "text": "Size",
-            "updated": 1611336619074
+            "updated": 1611336619074,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Größe (Size)",
+                    "updated": 1702583912948
+                }
+            ]
         },
         {
             "style": "Include",
@@ -67,7 +86,14 @@
         {
             "style": "Title",
             "text": "Percentage Filled",
-            "updated": 1611336634683
+            "updated": 1611336634683,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prozentsatz Gefüllt (Percentage Filled)",
+                    "updated": 1702583921020
+                }
+            ]
         },
         {
             "style": "Include",
@@ -82,7 +108,14 @@
         {
             "style": "Title",
             "text": "Fees Paid",
-            "updated": 1611336663062
+            "updated": 1611336663062,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bezahlte Gebühren (Fees Paid)",
+                    "updated": 1702583929244
+                }
+            ]
         },
         {
             "style": "Include",
@@ -97,7 +130,14 @@
         {
             "style": "Title",
             "text": "Lock",
-            "updated": 1611336682293
+            "updated": 1611336682293,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schloss (Lock)",
+                    "updated": 1702583945892
+                }
+            ]
         },
         {
             "style": "Include",

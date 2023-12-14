@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Dieser Indikator erzeugt die MACD R1 Kaufsignale.",
-                "updated": 1678463300755
+                "text": "Dieser Indikator erzeugt die MACD R1 Kaufsignale",
+                "updated": 1702328276443
             }
         ]
     },
@@ -37,7 +37,7 @@
                 {
                     "language": "DE",
                     "text": "Der MACD R1 der Kategorie 1 tut Folgendes:",
-                    "updated": 1678463315019
+                    "updated": 1702328288027
                 }
             ]
         },
@@ -53,7 +53,7 @@
                 {
                     "language": "DE",
                     "text": "Warten Sie drei (3) Perioden der Überschreitung ab, um eine Entscheidung (Position) zu treffen. Wenn während dieser Periode eine Überschreitung stattfindet, wird diese abgewartet.",
-                    "updated": 1678463324788
+                    "updated": 1702328296602
                 }
             ]
         },
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Aufgrund der verzögerten Natur des Indikators wird empfohlen, einen Limit-Order Take-Proft zu verwenden, falls der Preis schnell fällt. Die zugrunde liegenden Berechnungen verwenden die Standard-MACD-Einstellungen, 12-26-9",
-                    "updated": 1678463389659
+                    "text": "Aufgrund der verzögerten Natur des Indikators wird empfohlen, einen Limit-Order (Take-Proft) zu verwenden, falls der Preis schnell fällt. Die zugrunde liegenden Berechnungen verwenden die Standard-MACD-Einstellungen, 12-26-9",
+                    "updated": 1702328307146
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret motoru tarafından sağlanan bilgilerin çoğuna, herhangi bir zamanda, nesnenin mevcut örneği ve açık olan son örnek için erişilebilir.",
                 "updated": 1650574829214
+            },
+            {
+                "language": "DE",
+                "text": "Viele der von der Trading Engine bereitgestellten Informationen können sowohl für die aktuelle Instanz des Objekts als auch für die zuletzt geöffnete Instanz zu einem beliebigen Zeitpunkt abgerufen werden.",
+                "updated": 1702402619620
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Ticaret motoru hiyerarşisi bağlama göre düzenlenir. Diğer bir deyişle, ana yavru düğümler (mevcut, son ve takas emirleri) kendi yavrularının yaşadığı bağlamı tanımlar.",
                     "updated": 1650574853924
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Hierarchie der Handelsmaschine ist nach Kontext gegliedert. Das heißt, die Hauptknoten der Nachkommen - aktuelle, letzte und Tauschaufträge - beschreiben den Kontext, in dem ihre jeweiligen Nachkommen leben.",
+                    "updated": 1702403222008
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Örneğin, bir bölüm kavramı - ticaret botunun tüm çalışması - sistem aynı anda yalnızca bir bölümü takip ettiğinden, yalnızca mevcut bölüm bağlamında var olur.",
                     "updated": 1650574860164
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Konzept einer Episode - ein ganzer Durchlauf des Trading Bots - existiert beispielsweise nur im Zusammenhang mit der aktuellen Episode, da das System jeweils nur eine Episode verfolgt.",
+                    "updated": 1702403236033
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Ancak pozisyon kavramı hem mevcut pozisyon hem de son pozisyon olarak izlenir. Bu mümkündür çünkü sistem bir epizod içinde meydana gelen tüm pozisyonları takip eder.",
                     "updated": 1650574867335
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Konzept einer Position wird jedoch sowohl als aktuelle Position als auch als letzte Position verfolgt. Dies ist möglich, weil das System alle Positionen, die innerhalb einer Episode auftreten, aufzeichnet.",
+                    "updated": 1702403245160
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Superalgos geliştiricileri, örneğin her iki bağlamda da belirli bilgileri, pozisyonları sağlamanın buna değeceğini düşündüler, çünkü bu size - görsel olarak - ve ticaret sisteminize - basit sözdizimi kullanarak - mevcut pozisyon ve son pozisyon hakkında herhangi bir zamanda bilgilere erişmenizi sağlar. zamanda verilen nokta.",
                     "updated": 1650574889795
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Entwickler von Superalgos waren der Meinung, dass es sich lohnt, bestimmte Informationen, z. B. Positionen, in beiden Kontexten bereitzustellen, da dies Ihnen - und Ihrem Handelssystem - mit Hilfe einer einfachen Syntax den Zugriff auf Informationen über die aktuelle Position und die letzte Position zu einem bestimmten Zeitpunkt ermöglicht.",
+                    "updated": 1702403261209
                 }
             ]
         },
@@ -93,6 +118,11 @@
                     "language": "TR",
                     "text": "İşlem Akımı ( Trading Current )",
                     "updated": 1650574907295
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsstrom",
+                    "updated": 1702403268645
                 }
             ]
         },

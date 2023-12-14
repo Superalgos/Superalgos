@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bölümler, stratejiler, pozisyonlar, strateji aşamaları ve takas emirleri gibi ticaret botu tarafından işlenen ana kavramların her birinin içindeki özellikleri izleyin.",
                 "updated": 1650574977209
+            },
+            {
+                "language": "DE",
+                "text": "Verfolgen Sie die Eigenschaften der wichtigsten Konzepte, die vom Trading-Bot verarbeitet werden, wie z. B. Episoden, Strategien, Positionen, Strategiephasen und Börsenaufträge.",
+                "updated": 1702580807556
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bölümler, stratejiler, pozisyonlar, strateji aşamaları, değiş tokuş emirleri ve diğer kavramlar, zamansal türden olmasalar da farklı bağlamlar olarak görülebilir.",
                     "updated": 1650575001246
+                },
+                {
+                    "language": "DE",
+                    "text": "Episoden, Strategien, Positionen, Strategiephasen, Austauschreihenfolgen und andere Konzepte können ebenfalls als unterschiedliche Kontexte betrachtet werden, wenn auch nicht als zeitliche.",
+                    "updated": 1702580819193
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Örneğin, bölüm bağlamındaki ROI'nin ne olduğunu (yani, birkaç pozisyon geçtikten sonraki ROI'yi) veya yalnızca mevcut pozisyonun ROI'sini bilmek isteyebilirsiniz.",
                     "updated": 1650575009987
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie möchten beispielsweise wissen, was der ROI im Kontext der Episode ist, d. h. der ROI, nachdem mehrere Positionen vergangen sind, oder nur der ROI der aktuellen Position.",
+                    "updated": 1702580845922
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Diğer bir deyişle, performans ölçütleri (ROI veya kar kaybı gibi) veya başlangıç ve bitiş tarihleri veya bu kavramlardan herhangi biri gibi piyasa verileri gibi birçok özellik birden fazla kavramsal bağlamda bulunur.",
                     "updated": 1650575029635
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Viele Eigenschaften, wie Leistungskennzahlen, ROI (z. B. die Kapitalrendite oder der Gewinnverlust) oder Marktdaten (z. B. die Anfangs- und Endzeitpunkte) existieren in mehr als einem konzeptionellen Kontext.",
+                    "updated": 1702580952744
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki sayfalar, sırayla birden fazla zamansal bağlamda var olabilecek bu ana kavramsal bağlamların her birini açıklamaktadır.",
                     "updated": 1650575037396
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf den folgenden Seiten wird jeder dieser großen konzeptionellen Zusammenhänge beschrieben, die wiederum in mehr als einem zeitlichen Kontext existieren können.",
+                    "updated": 1702580960784
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Not: Sistem tasarımı açısından, bu kavramların her biri açık veya kapalı olabilen bir nesne olarak ele alınır, dolayısıyla bir ömrü vardır. Aynı nesne birden fazla kez açık olabilir, ancak yalnızca önceki örnek kapatıldıktan sonra.",
                     "updated": 1650575051775
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus der Sicht des Systemdesigns wird jedes dieser Konzepte als ein Objekt behandelt, das geöffnet oder geschlossen sein kann und somit eine Lebensdauer hat. Ein und dasselbe Objekt kann mehr als einmal geöffnet werden, aber erst nachdem die vorherige Instanz geschlossen worden ist.",
+                    "updated": 1702580974365
                 }
             ]
         },
@@ -110,6 +140,11 @@
                     "language": "TR",
                     "text": "Ticaret Bölümü ( Trading Episode )",
                     "updated": 1650575073662
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsepisode",
+                    "updated": 1702580983426
                 }
             ]
         },
@@ -145,6 +180,11 @@
                     "language": "TR",
                     "text": "Strateji ( Strategy )",
                     "updated": 1650575100260
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategie",
+                    "updated": 1702581009210
                 }
             ]
         },
@@ -216,6 +256,11 @@
                     "language": "TR",
                     "text": "Strateji Aşamaları ( Strategy Stages )",
                     "updated": 1650575149416
+                },
+                {
+                    "language": "DE",
+                    "text": "Etappen der Strategie",
+                    "updated": 1702581061816
                 }
             ]
         },
@@ -233,6 +278,11 @@
                     "language": "TR",
                     "text": "Superalgos Protokolü, bir ticaret sistemi içindeki stratejilerin aşamalar halinde tanımlandığı bir ticaret çerçevesi uygular. Ticaret botu, çalışma zamanı sırasında bu tanımları kullanır.",
                     "updated": 1650575183833
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Superalgos-Protokoll implementiert einen Handelsrahmen, mit dem Strategien innerhalb eines Handelssystems in Stufen beschrieben werden. Der Trading-Bot verwendet diese Definitionen zur Laufzeit.",
+                    "updated": 1702581066298
                 }
             ]
         },
@@ -249,6 +299,11 @@
                     "language": "TR",
                     "text": "Ticaret motoru bağlamında strateji aşamaları kavramı, ticaret botunun etkinliğini takip etmek ve çalışma süresi boyunca işlenen bilgileri düzenlemek için yararlı olan orijinal konseptin bir uzantısıdır.",
                     "updated": 1650575200007
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Konzept der Strategiestufen im Zusammenhang mit der Handelsmaschine ist eine Erweiterung des ursprünglichen Konzepts, die nützlich ist, um die Aktivität des Handelsroboters zu verfolgen und die während der Laufzeit verarbeiteten Informationen zu organisieren.",
+                    "updated": 1702581076202
                 }
             ]
         },
@@ -265,6 +320,11 @@
                     "language": "TR",
                     "text": "Strateji aşamasına göre ayrılmış bilgilerle, bir stratejinin tetiklendiği andan kapanana kadar ayrıntılı bir düzeyde adım adım neler olup bittiğini tam olarak izlemek istiyorsanız, ticaret motorunun bu bölümlerini kullanın.",
                     "updated": 1650575208220
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie diese Abschnitte der Trading Engine, wenn Sie genau verfolgen möchten, was auf einer granularen Ebene Schritt für Schritt passiert, von dem Moment an, in dem eine Strategie ausgelöst wird, bis zu ihrer Schließung, wobei die Informationen nach Strategiestufen getrennt sind.",
+                    "updated": 1702581086028
                 }
             ]
         },
@@ -281,6 +341,11 @@
                     "language": "TR",
                     "text": "Alıştırma, ticaret botunun işleyişinin inceliklerini kavramak veya belirli davranışları araştırmak için özellikle yararlı olabilir.",
                     "updated": 1650575216553
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Übung kann besonders nützlich sein, um die Feinheiten der Funktionsweise des Trading-Bots zu verstehen oder um bestimmte Verhaltensweisen zu erforschen.",
+                    "updated": 1702581094658
                 }
             ]
         },
@@ -293,6 +358,11 @@
                     "language": "TR",
                     "text": "Strateji Tetikleme Aşaması ( Strategy Trigger Stage )",
                     "updated": 1650575239806
+                },
+                {
+                    "language": "DE",
+                    "text": "Auslösestufe der Strategie",
+                    "updated": 1702581112162
                 }
             ]
         },
@@ -328,6 +398,11 @@
                     "language": "TR",
                     "text": "Strateji Açık Aşama ( Strategy Open Stage )",
                     "updated": 1650575261994
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategie Open Stage",
+                    "updated": 1702581191057
                 }
             ]
         },
@@ -363,6 +438,11 @@
                     "language": "TR",
                     "text": "Strateji Yönetimi Aşaması ( Strategy Manage Stage )",
                     "updated": 1650575283582
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategie Manage Stage",
+                    "updated": 1702581196626
                 }
             ]
         },
@@ -394,6 +474,11 @@
                     "language": "TR",
                     "text": "Strateji Aşamayı Kapat ( Strategy Close Stage )",
                     "updated": 1650575335646
+                },
+                {
+                    "language": "DE",
+                    "text": "Strategie Close Stage",
+                    "updated": 1702581206009
                 }
             ]
         },

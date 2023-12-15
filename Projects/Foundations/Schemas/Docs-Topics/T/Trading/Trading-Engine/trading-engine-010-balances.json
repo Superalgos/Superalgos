@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Zamanın farklı noktalarında her bir varlığın bakiyelerini takip edin. Bu sayfada: Bakiye, Bakiyeyi Başlat ve Bakiyeyi Bitir ( Balance, Begin Balance, and End Balance ).",
                 "updated": 1650617815777
+            },
+            {
+                "language": "DE",
+                "text": "Behalten Sie den Überblick über die Salden der einzelnen Vermögenswerte zu verschiedenen Zeitpunkten. Auf dieser Seite: Saldo, Anfangssaldo und Endsaldo (Balance, Begin Balance, and End Balance).",
+                "updated": 1702582130217
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bakiyeler, herhangi bir zamanda hesapta her bir varlığın ne kadarının bulunduğunu tam olarak bilebileceğiniz hesap tutma özelliklerinin temelidir.",
                     "updated": 1650617774865
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Salden sind die Grundlage der Kontoführungsfunktionen, durch die Sie genau wissen können, wie viel von jedem Vermögenswert zu einem bestimmten Zeitpunkt auf dem Konto vorhanden ist.",
+                    "updated": 1702582143882
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Sistem, birçok bağlamda bakiyeleri takip eder, ancak aynı zamanda önemli anlarda bakiyenin ne olduğunun anlık görüntülerini de kaydeder, böylece bu tür bilgiler hem operasyonların sonuçlarını incelemek için kullanılabilir hem de ticarette kullanılabilir.",
                     "updated": 1650617755933
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System verfolgt die Salden in verschiedenen Zusammenhängen, speichert aber auch Momentaufnahmen der Salden zu wichtigen Zeitpunkten, so dass diese Informationen sowohl für die Untersuchung der Ergebnisse von Operationen als auch für Handelsstrategien genutzt werden können.",
+                    "updated": 1702582152460
                 }
             ]
         },
@@ -65,13 +80,25 @@
                     "language": "TR",
                     "text": "Bakiyelerin, ticaret motoru tarafından yönetilen dahili bir kavram olduğunu ve ticaret botu tarafından işlenen bilgilere dayanarak hesaplandığını anlamak önemlidir. Bakiyeler, borsadaki varlıkların gerçek miktarını mutlaka yansıtmaz.",
                     "updated": 1650617842459
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig zu verstehen, dass Salden ein internes Konzept sind, das von der Trading Engine verwaltet wird und auf der Grundlage der vom Trading Bot verarbeiteten Informationen berechnet wird. Die Salden spiegeln nicht notwendigerweise die tatsächliche Höhe der Vermögenswerte an der Börse wider.",
+                    "updated": 1702582161530
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Balance",
-            "updated": 1611331710709
+            "updated": 1611331710709,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Waage",
+                    "updated": 1702582168345
+                }
+            ]
         },
         {
             "style": "Include",
@@ -86,7 +113,14 @@
         {
             "style": "Title",
             "text": "Begin Balance",
-            "updated": 1611331731595
+            "updated": 1611331731595,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Startsaldo",
+                    "updated": 1702582202425
+                }
+            ]
         },
         {
             "style": "Include",
@@ -101,7 +135,14 @@
         {
             "style": "Title",
             "text": "End Balance",
-            "updated": 1611331749501
+            "updated": 1611331749501,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Endsaldo",
+                    "updated": 1702582214489
+                }
+            ]
         },
         {
             "style": "Include",

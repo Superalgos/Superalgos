@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Dieser Indikator erzeugt die Kauf- und Verkaufssignale des MACD R2.",
-                "updated": 1678463490701
+                "text": "Dieser Indikator erzeugt die Kauf- und Verkaufssignale des MACD R2",
+                "updated": 1702328327090
             }
         ]
     },
@@ -37,7 +37,7 @@
                 {
                     "language": "DE",
                     "text": "Der MACD R2, oder Kategorie 2, reduziert false -Signale durch folgende Maßnahmen:",
-                    "updated": 1678463561535
+                    "updated": 1702328349810
                 }
             ]
         },
@@ -53,7 +53,7 @@
                 {
                     "language": "DE",
                     "text": "Warten Sie drei (3) Perioden nach der Überschreitung, um eine Entscheidung zu treffen. Wenn während dieser Periode eine Überschreitung stattfindet, wird diese abgewartet.",
-                    "updated": 1678463575467
+                    "updated": 1702328358296
                 }
             ]
         },
@@ -69,7 +69,7 @@
                 {
                     "language": "DE",
                     "text": "Überprüft die Differenz zwischen der MACD-Linie und dem Signal. Wenn die Differenz größer ist als der vorgegebene Wert (standardmäßig auf 2% eingestellt), wird ein Kaufsignal angezeigt oder gesendet.",
-                    "updated": 1678463584633
+                    "updated": 1702328367784
                 }
             ]
         },
@@ -90,7 +90,7 @@
                 {
                     "language": "DE",
                     "text": "Das Gegenteil ist true für die Verkaufsindikationen, wobei es natürlich möglich ist, diese Einstellungen in der Datenmine zu ändern. Die zugrunde liegenden Berechnungen verwenden die Standard-MACD-Einstellungen, 12-26-9",
-                    "updated": 1678463607514
+                    "updated": 1702328390640
                 }
             ]
         }

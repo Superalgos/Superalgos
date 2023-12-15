@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Açık ve kapalı aşamaların bağlamına özel hesaplar hakkında bilgi edinin. Bu sayfada: Hedef Boyut, Yerleştirilen Boyut, Doldurulan Boyut ve Ödenen Ücretler ( Target Size, Size Placed, Size Filled, and Fees Paid ).",
                 "updated": 1650618041162
+            },
+            {
+                "language": "DE",
+                "text": "Erfahren Sie mehr über Konten, die im Zusammenhang mit der Eröffnungs- und Abschlussphase stehen. Auf dieser Seite: Zielgröße, platzierte Größe, gefüllte Größe und gezahlte Gebühren (Target Size, Size Placed, Size Filled, and Fees Paid).",
+                "updated": 1702582704999
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Hedef Boyutu ( Target Size )",
                     "updated": 1650618061689
+                },
+                {
+                    "language": "DE",
+                    "text": "Zielgröße (Target Size)",
+                    "updated": 1702583795360
                 }
             ]
         },
@@ -39,7 +49,14 @@
         {
             "style": "Title",
             "text": "Size Placed",
-            "updated": 1611335767899
+            "updated": 1611335767899,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Platzierte Größe (Size Placed)",
+                    "updated": 1702583805043
+                }
+            ]
         },
         {
             "style": "Include",
@@ -54,7 +71,14 @@
         {
             "style": "Title",
             "text": "Size Filled",
-            "updated": 1611335816288
+            "updated": 1611335816288,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gefüllte Größe (Size Filled)",
+                    "updated": 1702583812207
+                }
+            ]
         },
         {
             "style": "Include",
@@ -69,7 +93,14 @@
         {
             "style": "Title",
             "text": "Fees Paid",
-            "updated": 1611335839409
+            "updated": 1611335839409,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bezahlte Gebühren (Fees Paid)",
+                    "updated": 1702583820335
+                }
+            ]
         },
         {
             "style": "Include",

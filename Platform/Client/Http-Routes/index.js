@@ -36,6 +36,7 @@ exports.newHttpRoutes = function newHttpRoutes() {
             require('./list-workspaces').newListWorkspacesRoute(),
             require('./load-my-workspace').newLoadMyWorkspaceRoute(),
             require('./load-plugin').newLoadPluginRoute(),
+            require('./locales').newLocalesRoute(),
             require('./plotter-panel').newPlotterPanelRoute(),
             require('./plotters').newPlottersRoute(),
             require('./plugin-file-names').newPluginFileNamesRoute(),

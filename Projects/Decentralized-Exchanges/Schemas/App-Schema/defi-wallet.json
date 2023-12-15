@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -12,6 +13,7 @@
         {
             "action": "Create New Wallet",
             "label": "Create New Wallet",
+            "translationKey": "create.newWallet",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction",
@@ -20,6 +22,7 @@
         {
             "action": "Import Wallet from Mnemonic",
             "label": "Import Existing Wallet from Mnemonic",
+            "translationKey": "import.existing.wallet.mnemonic",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction",
@@ -28,6 +31,7 @@
         {
             "action": "Import Wallet from Private Key",
             "label": "Import Existing Wallet from Private Key",
+            "translationKey": "import.existing.wallet.privateKey",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction",
@@ -38,6 +42,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokens",
             "label": "Add Tokens",
+            "translationKey": "add.tokens",
             "relatedUiObject": "Tokens",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -48,6 +53,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "swapPairs",
             "label": "Add Swap Pairs",
+            "translationKey": "add.swapPairs",
             "relatedUiObject": "Swap Pairs",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -58,7 +64,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

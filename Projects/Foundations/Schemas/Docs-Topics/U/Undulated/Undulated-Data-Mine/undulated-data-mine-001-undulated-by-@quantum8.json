@@ -55,6 +55,30 @@
             "text": "10) AK MACD BB"
         },
         {
+            "style": "List",
+            "text": "11) Hurst Channel Oscillator"
+        },
+        {
+            "style": "List",
+            "text": "12) LW Proxy"
+        },
+        {
+            "style": "List",
+            "text": "13) TDFI"
+        },
+        {
+            "style": "List",
+            "text": "14) Banker Fund Flow"
+        },
+        {
+            "style": "List",
+            "text": "15) SMI FMI"
+        },
+        {
+            "style": "List",
+            "text": "16) HLC Trend"
+        },
+        {
             "style": "Title",
             "text": "Maintainer:"
         },

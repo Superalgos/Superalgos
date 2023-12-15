@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Coinbase Pro, veri madenciliği veya canlı ticaret için tam olarak test edilmemiştir.",
                 "updated": 1650571911082
+            },
+            {
+                "language": "DE",
+                "text": "Coinbase Pro ist weder für Data Mining noch für den Live-Handel vollständig getestet.",
+                "updated": 1690357577609
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650571926876
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357584457
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test ve Kağıt ticareti işlevseldir. API limitleri nedeniyle tam geçmiş alınırken veri madenciliği süreci son derece yavaştır ancak canlı ticaret amaçları için yeterlidir.",
                     "updated": 1650571920517
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Backtesting und Papierhandel sind möglich. Der Data-Mining-Prozess ist aufgrund der API-Beschränkungen extrem langsam, wenn es darum geht, die gesamte Historie abzurufen, aber für Live-Trading-Zwecke ist er ausreichend.",
+                    "updated": 1690357615441
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: Tam kapsam bilinmiyor, ancak sensör botu 2021-05-01'den ayarlanan tarih 2020-01-01'e kadar.",
                     "updated": 1650571974569
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Der volle Umfang ist unbekannt, aber der Sensor-Bot beginnt am 2021-05-01, auch wenn der Stichtag der 2020-01-01 ist.",
+                    "updated": 1690357625017
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği: Kısmi. Uygun bir anahtar konfigürasyonu ile sipariş vermek mümkündür. Şu anda, kapanış emirleri tam olarak işlevsel değildir, bu nedenle her türlü ticaret stratejisi tam olarak işlevsel olmayabilir.",
                     "updated": 1650571985447
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsfähigkeit (Trading Capability): Teilweise. Mit der richtigen Tastenkonfiguration ist das Platzieren von Aufträgen möglich. Derzeit ist das Schließen von Aufträgen nicht voll funktionsfähig, so dass möglicherweise nicht alle Arten von Handelsstrategien voll funktionsfähig sind.",
+                    "updated": 1690357639410
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Yorumlar: API kısıtlamaları nedeniyle Ham Veriler son derece yavaş getiriliyor, bkz. config.",
                     "updated": 1650571994178
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Rohdatenabruf (Raw Data fetching) aufgrund von API-Beschränkungen extrem langsam, siehe ",
+                    "updated": 1690357649320
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Exchange Yapılandırması",
                     "updated": 1650572002748
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der Exchange.",
+                    "updated": 1690357659393
                 }
             ]
         },
@@ -138,6 +173,11 @@
                     "language": "TR",
                     "text": "API Key Yapılandırması",
                     "updated": 1650572012786
+                },
+                {
+                    "language": "DE",
+                    "text": "API-Schlüssel-Konfiguration",
+                    "updated": 1690357669985
                 }
             ]
         },

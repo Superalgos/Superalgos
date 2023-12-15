@@ -1,0 +1,66 @@
+{
+    "topic": "Trends AI Data Mine",
+    "pageNumber": "3",
+    "type": "Nadaraya-Watson Envelope",
+    "definition": {
+        "text": "This indicator uses Nadaraya-Watson Regression and is a type of Kernel Regression. Specifically it is a non-parametric method for estimating the curve of best fit for a dataset. "
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Nadaraya-Watson Envelope on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "Unlike Linear Regression or Polynomial Regression, Kernel Regression does not assume any underlying distribution of the data. For estimation, it uses a kernel function, which is a weighting function that assigns a weight to each data point based on how close it is to the current point. The computed weights are then used to calculate the weighted average of the data points."
+        },
+        {
+            "style": "Text",
+            "text": "A custom average true range (ATR) calculation is then applied to the kernel estimate to create the envelope around the price action."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/TrendsAI-NW-Envelope.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| NadarayaWatsonEnvelope | nwe | value, upperNear, upperFar, upperAvg, lowerNear, lowerFar, lowerAvg |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Nadaraya Watson Envelope\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/TrendsAI-NW-Envelope-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point for a trade could be when the price action rises above the lower average, potentially signalling a rebound:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hr.nwe.lowerAvg > chart.at01hr.candle.close && chart.at01hr.nwe.lowerAvg < chart.at01hr.candle.close"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "17",
+    "type": "HLC Trend",
+    "definition": {
+        "text": "The High-Low-Close (HLC) Trend indicator calculates the simple moving average (SMA) using the aforementioned inputs and then calculates the difference between the high and close, and low and close to produce the oscillator's output.",
+        "updated": 1689762670005
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "HLC Trend on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output will show the close-high signal as green, and the close-low signal as red. If the green signal is above the red, then the prevailing trend is upward, and vice versa."
+        },
+        {
+            "style": "Text",
+            "text": "The histogram in the background shows green for a strong upward trend, red for a strong downward trend, and orange for a weakening or ranging trend."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-hlc-trend.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HlcTrend | HlcTrend | closeHigh, lowClose, bgFill |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"HLC Trend\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-hlc-trend-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a buy trade when the closeHigh rises above the lowClose value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at45min.HlcTrend.closeHigh > chart.at45min.HlcTrend.lowClose && chart.at45min.HlcTrend.previous.closeHigh < chart.at45min.HlcTrend.previous.lowClose"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

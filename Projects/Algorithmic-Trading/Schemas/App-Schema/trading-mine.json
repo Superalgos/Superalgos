@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "iconProject": "Foundations",
@@ -14,6 +15,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Trading Bot",
+            "translationKey": "add.trading.bot",
             "relatedUiObject": "Trading Bot",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
@@ -22,6 +24,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Plotter",
+            "translationKey": "add.plotter",
             "relatedUiObject": "Plotter",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
@@ -32,7 +35,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

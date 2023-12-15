@@ -5,6 +5,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Blockchain",
+            "translationKey": "add.blockchain",
             "relatedUiObject": "Ethereum Blockchain",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -13,6 +14,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Decentralized Application",
+            "translationKey": "add.decentralizedApplication",
             "relatedUiObject": "Ethereum Decentralized Application",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -21,6 +23,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Token Definitions",
+            "translationKey": "add.tokenDefinitions",
             "relatedUiObject": "Ethereum Token Definitions",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -29,6 +32,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Wallet",
+            "translationKey": "add.wallet",
             "relatedUiObject": "Ethereum Wallet",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -37,6 +41,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Data Mine",
+            "translationKey": "add.dataMine",
             "relatedUiObject": "Data Mine",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -47,7 +52,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

@@ -71,8 +71,13 @@
             ]
         },
         {
+            "style": "List",
+            "text": "You may also define a precise amount of token power to flow to the node instead of a percentage.",
+            "updated": 1693762113263
+        },
+        {
             "style": "Text",
-            "text": "This is the format of the configuration you may use on each of the programs:",
+            "text": "This is the format of the configuration you may use on each node to define a percentage:",
             "translations": [
                 {
                     "language": "RU",
@@ -84,7 +89,8 @@
                     "text": "Bu, programların her birinde kullanabileceğiniz yapılandırma biçimidir:",
                     "updated": 1642714083414
                 }
-            ]
+            ],
+            "updated": 1693762132115
         },
         {
             "style": "Json",
@@ -93,8 +99,8 @@
         },
         {
             "style": "Text",
-            "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes And Claims Programs, and Financial Programs nodes.",
-            "updated": 1630436060757,
+            "text": "This is the configuration you may use to define flows in absolute terms:",
+            "updated": 1693762187956,
             "translations": [
                 {
                     "language": "RU",
@@ -107,6 +113,15 @@
                     "updated": 1642714236593
                 }
             ]
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"amount\": 10000\n}",
+            "updated": 1693762217493
+        },
+        {
+            "style": "Text",
+            "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes And Claims Programs, and Financial Programs nodes."
         },
         {
             "style": "Callout",

@@ -3,6 +3,8 @@ function newCircularMenuItem() {
     const MODULE_NAME = 'Circular Menu Item'
 
     let thisObject = {
+        confirmationLabelTranslationKey: undefined,
+        translationKey: undefined,
         type: undefined,
         isDeployed: undefined,
         askConfirmation: undefined,
@@ -631,6 +633,10 @@ function newCircularMenuItem() {
         /* Menu Label */
         if (thisObject.type === 'Icon & Text') {
             label = labelToPrint
+            const translationKey = labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey
+            if(translationKey) {
+                label = findTranslation(translationKey)
+            }
             if (thisObject.shorcutNumber !== undefined) {
                 label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
             }

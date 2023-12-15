@@ -6,8 +6,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node. Created and maintained by gitforkgit ",
-                "updated": 1638052964966
+                "text": "Dieser Artikel wurde erstellt, um Ihnen zu zeigen, welche Begriffe Sie nicht übersetzen sollten, weil sie ein fester Begriff sind. Ein Beispiel ist das Wort Node. Erstellt und gepflegt von gitforkgit",
+                "updated": 1698614312184
             },
             {
                 "language": "RU",
@@ -37,6 +37,11 @@
                     "text": "Hedeflerimizden biri Superalgos'u sonsuza kadar ücretsiz ve açık kaynak olarak herkesin kullanımına sunmaktır. Bunun için çeviriler son derece önemli ve gereklidir. Ancak, çevrilmemesi gereken bazı teknik terimler vardır.Aksi takdirde sorunları başkalarına anlatırken, katkıda bulunmaya başlarken, Superalgos'u anlamak zor olabilir...",
                     "updated": 1656946338649,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eines unserer Ziele ist es, Superalgos für jeden kostenlos und quelloffen für immer verfügbar zu machen. Hierfür sind Übersetzungen extrem wichtig und unerlässlich. Allerdings gibt es einige Fachbegriffe, die nicht übersetzt werden sollten. Denn sonst könnte es schwierig werden, anderen Probleme zu beschreiben, einen Beitrag zu leisten, Superalgos zu verstehen...",
+                    "updated": 1698614334847
                 }
             ]
         },
@@ -55,6 +60,11 @@
                     "text": "\"Aşağıda terimlerin listelendiği bir tablo yer almaktadır. Burada çevirmenler kendilerini yönlendirebilir ve her Superalgos kullanıcısı çevrilmemesi gerektiğini düşündüğü terimleri ekleyebilir. Eğer makaleleri çeviriyorsanız, hangi terimleri orijinalinde olduğu gibi bırakmanız gerektiğini görmek için lütfen zaman zaman buraya bakın. Terimlerin arkasındaki parantez içindeki çeviriler elbette meşrudur ve makalelerin okuyucuları tarafından memnuniyetle karşılanır.",
                     "updated": 1654390457320,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "\"Hier unten ist eine Tabelle, in der die Begriffe aufgelistet sind. Hier können sich die Übersetzer orientieren und jeder Superalgos-Nutzer kann Begriffe hinzufügen, von denen er meint, dass sie nicht übersetzt werden sollten. Wenn Sie Artikel übersetzen, schauen Sie bitte von Zeit zu Zeit hier nach, welche Begriffe Sie so lassen sollten, wie sie im Original stehen. Übersetzungen in Klammern hinter den Begriffen selbst sind natürlich legitim und von den Lesern der Artikel willkommen.",
+                    "updated": 1698614360984
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "text": "Tabloya Terimler eklemekten çekinmeyin!",
                     "updated": 1654390463600,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie gerne Begriffe in die Tabelle ein!",
+                    "updated": 1698614380007
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "text": "Makale çevirilerinde orijinal kalması gereken terimler:",
                     "updated": 1654390469791,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Begriffe, die in den Übersetzungen von Artikeln im Original bleiben sollten:",
+                    "updated": 1698614422864
                 }
             ]
         },
@@ -114,6 +134,11 @@
                     "text": "Çalışma Alanı terimleri -> Çalışma Alanıyla ilgili tüm Teknik Terimler",
                     "updated": 1654390475627,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Begriffe des Arbeitsbereichs (Workspace) -> alle technischen Begriffe im Zusammenhang mit dem Arbeitsbereich (Workspace)",
+                    "updated": 1698614514229
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "text": "Düğüm Terimleri -> Düğümlerle ilgili tüm Teknik Terimler",
                     "updated": 1654390483239,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Knotenbegriffe -> alle Fachbegriffe zum Thema Knoten",
+                    "updated": 1698614523854
                 }
             ]
         },
@@ -148,6 +178,11 @@
                     "text": "Diğer Teknik Terimler -> diğer kategorilere uymayan tüm Teknik Terimler",
                     "updated": 1654390489615,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sonstige Fachbegriffe -> alle Fachbegriffe, die nicht in die anderen Kategorien passen",
+                    "updated": 1698614531968
                 }
             ]
         },
@@ -166,6 +201,11 @@
                     "text": "Üstbilgisi çeviri olan sütunlarda, diliniz altbilgide seçiliyse çeviriyi kendi dilinize ekleyebilirsiniz, aksi takdirde çeviriler Hedef olmayan tabloda küresel olarak yer alır.",
                     "updated": 1654390495521,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "In den Spalten mit der Übersetzung als Kopfzeile können Sie die Übersetzung in Ihre Sprache hinzufügen, wenn Ihre Sprache in der Fußzeile ausgewählt ist, ansonsten würden die Übersetzungen global in der Tabelle erscheinen, was nicht das Ziel ist.",
+                    "updated": 1698614543384
                 }
             ]
         },

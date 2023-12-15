@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Oturumu ( Trading Session ) yürütmek için bir Zaman Çerçevesi ( Time Frame ) Düğümü beklenir ve gereklidir.",
                 "updated": 1647099792262
+            },
+            {
+                "language": "DE",
+                "text": "Ein Time Frame Node wird erwartet und benötigt, um eine Trading Session durchzuführen.",
+                "updated": 1701115943524
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu hatanın ortaya çıktığı Ticaret Parametreleri ( Trading Parameters ) Düğümünde bir Zaman Çerçevesi ( Time Frame ) Düğümü ekleyin, yapılandırmasını kontrol edin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
                     "updated": 1647099896252
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie einen Zeitrahmenknoten (Time Frame Node) an dem Knoten mit den Handelsparametern (Trading Parameters Node) hinzu, an dem dieser Fehler auftrat, überprüfen Sie dessen Konfiguration und versuchen Sie, die Handelssitzung (Trading Session) erneut auszuführen.",
+                    "updated": 1701116021206
                 }
             ]
         }

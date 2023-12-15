@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, kullanıcıların bir Kayıt Özelliğinden ( Record Property ) bir API Veri Alanına başvurmasına izin verir. Başka bir deyişle, kullanıcının yerel olarak kaydedilmesini istediği her bir veri parçasını, çalışma zamanında verileri tutacak olan API Haritasındaki ( API Map ) alana bağlamaya izin verir.",
                 "updated": 1652022548483
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten ermöglicht es Benutzern, ein API Data Field von einer Datensatzeigenschaft (Record Property) aus zu referenzieren. Mit anderen Worten, er ermöglicht es, jedes Datenelement, das der Benutzer lokal speichern möchte, mit dem Feld in der API Map zu verknüpfen, das die Daten zur Laufzeit enthalten wird.",
+                "updated": 1701930782798
             }
         ]
     },
@@ -31,12 +36,19 @@
                     "language": "TR",
                     "text": "Oluşturulduktan sonra bir API Veri Alanına başvurmanız gerekir.",
                     "updated": 1652022558638
+                },
+                {
+                    "language": "DE",
+                    "text": "Nach der Erstellung müssen Sie auf ein API Data Field verweisen.",
+                    "updated": 1701930783002,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Important",
             "text": "All references originating at the same Record Definition must be to API Data Fields living at the same API Endpoint.",
+            "updated": 1652772276957,
             "translations": [
                 {
                     "language": "RU",
@@ -47,9 +59,14 @@
                     "language": "TR",
                     "text": "Önemli: Aynı Kayıt Tanımından ( Record Definition ) kaynaklanan tüm referanslar, aynı API Uç Noktasında ( API Endpoint ) yaşayan API Veri Alanına olmalıdır.",
                     "updated": 1652022619980
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Verweise, die von derselben Datensatzdefinition (Record Definition) ausgehen, müssen sich auf API Data Fields beziehen, die an demselben API Endpoint liegen.",
+                    "updated": 1701930783108,
+                    "style": "Important"
                 }
-            ],
-            "updated": 1652772276957
+            ]
         },
         {
             "style": "Title",
@@ -64,6 +81,12 @@
                     "language": "TR",
                     "text": "Özellik Yapılandırmasını Kaydet",
                     "updated": 1652022627302
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration Record Property (der Datensatzeigenschaften)",
+                    "updated": 1701930783249,
+                    "style": "Title"
                 }
             ]
         },
@@ -80,6 +103,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652022633130
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930783337,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -97,6 +126,12 @@
                     "language": "TR",
                     "text": "İpucu: nodePath, başvurulan API Yanıt Alanı ( API Response Field  ) yanıt yapısındaki Veri Kökü nesnesinin altında olmadığında gerekli olan bir özelliktir.",
                     "updated": 1652022675027
+                },
+                {
+                    "language": "DE",
+                    "text": "nodePath ist eine Eigenschaft, die erforderlich ist, wenn sich das API Response Field, auf das verwiesen wird, nicht unter dem Data Root Objekt innerhalb der Antwortstruktur befindet.",
+                    "updated": 1701930783440,
+                    "style": "Success"
                 }
             ]
         },
@@ -113,6 +148,12 @@
                     "language": "TR",
                     "text": "API Sunucusundan gelen yanıt, bazı başlık türlerini ve istenen gerçek verileri içerebilir. Yanıt bir JSON nesnesi olduğundan, gerçek veriler o nesnenin yapısı içinde bir yerde bulunabilir. API Yanıt Şeması düğümünde, üstbilgi benzeri bilgileri atlamak için kullanıcıların istenen gerçek verilere giden yolu bildirmelerine olanak tanıyan bir nodePath özelliği vardır. Verilerin tutulduğu API Yanıt Alanına Veri Kökü diyoruz.",
                     "updated": 1652022684440
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Antwort des API Server kann einige Kopfdaten und die eigentlichen angeforderten Daten enthalten. Da es sich bei der Antwort um ein JSON Objekt handelt, können sich die eigentlichen Daten irgendwo innerhalb der Struktur dieses Objekts befinden. Der Knoten des API Response Schema verfügt über eine Eigenschaft nodePath, mit der der Benutzer den Pfad zu den tatsächlich angeforderten Daten angeben kann, um die headerartigen Informationen zu überspringen. Wir nennen das API Response Field, in dem die Daten gespeichert sind, die Data Root.",
+                    "updated": 1701930783616,
+                    "style": "Text"
                 }
             ]
         },
@@ -130,6 +171,12 @@
                     "language": "TR",
                     "text": "Her Kayıt Özelliği için ayrı değerler çıkarmak için, API Veri Alıcısı Botunun yanıt veri yapısındaki her Kayıt Özelliği için nodePath'i dinamik olarak keşfetmesi gerekir ve başvurulan API Yanıt Alanı Veri Kökü altında olduğu sürece bunu yapabilir. nodePath'i otomatik olarak keşfetmek için Veri Kökünü bulmak için API Yanıt Şeması düğüm Yolu'nu kullanır ve ardından API Yanıt Alanı Referans düğümünden API Yanıt Alanına olan referansı takip eder ve API Yanıt Şemasına ulaşana kadar yukarı tırmanır. Yukarı tırmanırken, yanıt veri yapısından değeri alması gereken nodePath'i keşfeder. Bu böyle çalışır.",
                     "updated": 1652022698314
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einzelne Werte für jede Datensatzeigenschaft (Record Property) zu extrahieren, muss der API Data Fetcher Bot den nodePath für jede Datensatzeigenschaft (Record Property) in der Antwortdatenstruktur dynamisch ermitteln und kann dies tun, solange sich das referenzierte API Response Field unter der Data Root befindet. Um den nodePath automatisch zu ermitteln, verwendet er den nodePath des API Response Schema, um die Data Root zu lokalisieren, und folgt dann dem Verweis vom API Response Field Reference zum API Response Schema und klettert nach oben, bis er das API Response Schema erreicht. Beim Aufwärtsklettern entdeckt er den nodePath, den er benötigt, um den Wert aus der Antwortdatenstruktur zu holen. So funktioniert das Ganze.",
+                    "updated": 1701930783861,
+                    "style": "Text"
                 }
             ]
         },
@@ -147,6 +194,12 @@
                     "language": "TR",
                     "text": "Başvurulan API Yanıt Alanı, Veri Kökünün kapsamı dışında olduğunda, süreç bu yolu otomatik olarak keşfedemez ve kullanıcıların nodePath'i (API Yanıt Şemasından değeri tutan API Yanıt Alanına) manuel olarak tanımlamasına ihtiyaç duyar ve bu özellikte ayarlayın. Bu, örneğin API Yanıt Alanı, API Sunucusu yanıtının başlığının bir parçası olduğunda gerçekleşir.",
                     "updated": 1652022708470
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das referenzierte API Response Field (API-Antwortfeld) außerhalb des Bereichs der Data Root liegt, ist der Prozess nicht in der Lage, diesen Pfad automatisch zu erkennen, und die Benutzer müssen den nodePath (vom API Response Schema zum API Response Field, das den Wert enthält) manuell definieren und in dieser Eigenschaft festlegen. Dies ist zum Beispiel der Fall, wenn das API Response Field Teil der Kopfzeile der API Server Antwort ist.",
+                    "updated": 1701930784184,
+                    "style": "Text"
                 }
             ]
         },

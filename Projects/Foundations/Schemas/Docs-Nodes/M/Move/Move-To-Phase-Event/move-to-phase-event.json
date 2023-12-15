@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Событие Move To Phase Event определяет, когда должно произойти переключение фаз с текущей фазы на произвольную фазу, установленную по ссылке.",
                 "updated": 1639849900481
+            },
+            {
+                "language": "TR",
+                "text": "Faza geçme olayı, fazların mevcut fazdan bir referans tarafından belirlenen rastgele bir faza ne zaman geçmesi gerektiğini belirler.",
+                "updated": 1701088174010
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Хотя фазы определяются в последовательности, и вы можете выбрать управление позицией, переходя от одной фазы к следующей в последовательности, событие перехода к фазе предлагает альтернативу.",
                     "updated": 1639849948671
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamalar bir sıra halinde tanımlanırken ve sıradaki bir aşamadan diğerine geçerek konumu yönetmeyi seçebilirken, aşamaya geçme olayı bir alternatif sunar.",
+                    "updated": 1701088179482
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "С помощью события перехода к фазе вы можете произвольно решить, какая фаза будет следующей. Для этого необходимо установить ссылку от события перехода к фазе на фазу, которая должна быть активирована после срабатывания этого события.",
                     "updated": 1639849973615
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşamaya geçme olayıyla, bir sonraki aşamanın hangisi olacağına keyfi olarak karar verebilirsiniz. Bunu yapmak için, aşamaya geçme olayından, olay tetiklendiğinde etkinleştirilmesi gereken aşamaya bir referans oluşturmalısınız.",
+                    "updated": 1701088184404
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Для каждой фазы может быть установлено любое количество событий перехода к фазе, что обеспечивает полную гибкость в управлении позицией. Эта функция позволяет создавать универсальные алгоритмы управления позицией, которые могут переключаться на различные формулы туда и обратно или в любой другой конфигурации, которую только можно себе представить.",
                     "updated": 1639850029480
+                },
+                {
+                    "language": "TR",
+                    "text": "Her bir faz için istenilen sayıda hareket-faz olayı ayarlanabilir ve bu da pozisyonun nasıl yönetileceği konusunda tam esneklik sağlar. Bu özellik, farklı formüllere ileri geri geçiş yapabilen veya akla gelebilecek herhangi bir konfigürasyonda çok yönlü pozisyon yönetimi algoritmalarının kurulmasına olanak tanır.",
+                    "updated": 1701088187563
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Событие перехода в фазу должно ссылаться на узел фазы Phase. Когда ситуация в событии перехода к фазе оценивается как истинная (true), управление переходит к фазе, на которую ссылается событие.",
                     "updated": 1639850084798
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir faza geçme olayı bir faz düğümüne referans vermelidir. Faza geçme olayındaki durum doğru olarak değerlendirildiğinde, yönetim referans verilen faza geçer.",
+                    "updated": 1701088191763
                 }
             ]
         }

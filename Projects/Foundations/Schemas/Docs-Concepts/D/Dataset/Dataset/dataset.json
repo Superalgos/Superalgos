@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Superalgos'ta bir Veri Kümesi, belirli bir şekilde düzenlenmiş JSON / metin dosyalarının bir koleksiyonudur.",
                 "updated": 1654390935031
+            },
+            {
+                "language": "DE",
+                "text": "In Superalgos ist ein Dataset eine Sammlung von JSON-/Textdateien, die auf eine bestimmte Weise organisiert sind.",
+                "updated": 1696955462845
             }
         ]
     },
@@ -30,6 +35,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
                     "updated": 1654390941948,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955463004,
                     "style": "Text"
                 }
             ]

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Aşama Temel Varlık ( Stage Base Asset ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1649626864230
+            },
+            {
+                "language": "DE",
+                "text": "Ein Stage Base Asset -Knoten wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat. ",
+                "updated": 1700512603483
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Aşama Temel Varlık Düğümü Eksik. ( Stage Base Asset Node Missing )",
                     "updated": 1649626924535
+                },
+                {
+                    "language": "DE",
+                    "text": "Stage Base Asset-Knoten fehlt (Stage Base Asset Node Missing)",
+                    "updated": 1700296951629
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1649626948498
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700296958708
                 }
             ]
         }

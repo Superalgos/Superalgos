@@ -39,6 +39,11 @@
                     "language": "ES",
                     "text": "Un nodo Live Trading Session debe hacer referencia a un Trading System para acceder a la lógica de trading que se aplicará durante la sesión. Otras consideraciones que enmarcan la sesión provienen del conjunto de parámetros que se le adjuntan.",
                     "updated": 1641154898692
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı bir alım satım seansı düğümü, seans sırasında uygulanacak alım satım mantığına erişim sağlamak için bir alım satım sistemine referans vermelidir. Oturumu çerçeveleyen diğer hususlar, ona bağlı parametreler kümesinden gelir.",
+                    "updated": 1701085344331
                 }
             ]
         },
@@ -64,6 +69,11 @@
                     "language": "ES",
                     "text": "Ejecutando una Live Trading Session",
                     "updated": 1641154916141
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı İşlem Oturumu Çalıştırma",
+                    "updated": 1701085357762
                 }
             ]
         },
@@ -80,6 +90,11 @@
                     "language": "ES",
                     "text": "Antes de iniciar una Live Trading Sesion, la tarea correspondiente debe estar en ejecución, ya que es la tarea que pone en marcha la instancia del bot de trading. Una vez que la instancia del bot de trading se esté ejecutando, seleccione \"Run\" en el menú para iniciar la sesión.",
                     "updated": 1641154982020
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı bir alım satım seansı başlatmadan önce, alım satım botu örneğini çalıştıran görev olduğu için ilgili görevin çalışıyor olması gerekir. Ticaret botu örneği çalıştığında, oturumu başlatmak için menüden Çalıştır'ı seçin.",
+                    "updated": 1701085361290
                 }
             ]
         },
@@ -96,6 +111,11 @@
                     "language": "ES",
                     "text": "Para detener una Live Trading Session , seleccione \"Stop\" en el menú.",
                     "updated": 1641155284114
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı bir işlem seansını durdurmak için menüden Durdur öğesini seçin.",
+                    "updated": 1701085365075
                 }
             ],
             "updated": 1641177920119
@@ -119,6 +139,11 @@
                     "language": "ES",
                     "text": "Configuración de la Live Trading Session",
                     "updated": 1641155347345
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı İşlem Oturumu Yapılandırması",
+                    "updated": 1701085369242
                 }
             ]
         },
@@ -136,6 +161,11 @@
                     "language": "ES",
                     "text": "Propiedades",
                     "updated": 1641155393289
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1701085372515
                 }
             ]
         },
@@ -153,6 +183,11 @@
                     "language": "ES",
                     "text": "folderName permite establecer un nombre apropiado para la carpeta en la que se almacenan los Data Products -y los Logs- generados por la sesión. Si se deja en blanco, el sistema nombra las carpetas con el id de la sesión. Esto puede ser útil cuando se pretende consultar los datos brutos generados por la sesión, ya que, de lo contrario, la carpeta sería difícil de identificar.",
                     "updated": 1641155398185
+                },
+                {
+                    "language": "TR",
+                    "text": "folderName, oturum tarafından oluşturulan veri ürünlerinin -ve günlüklerin- depolandığı klasöre önemli bir ad vermenizi sağlar. Boş bırakılırsa, sistem klasörleri oturum kimliği ile adlandırır. Bu, oturum tarafından üretilen ham verilere başvurmak istediğinizde kullanışlı olabilir, aksi takdirde klasörü tanımlamak zor olacaktır.",
+                    "updated": 1701085376930
                 }
             ]
         }

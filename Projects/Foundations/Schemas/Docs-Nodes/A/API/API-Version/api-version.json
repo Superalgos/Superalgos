@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir API'nin farklı sürümleri olabilir. Bu düğüm, alt öğelerinin tanımladığı sürümü belirtmek için kullanılır. codeName özelliğinde, API Sunucusunu ( API Server ) çağırırken URL'de ihtiyaç duyulacak sürüm dizesini bekliyoruz.",
                 "updated": 1652023061614
+            },
+            {
+                "language": "DE",
+                "text": "Eine API kann verschiedene Versionen haben. Dieser Knoten wird verwendet, um die Version anzugeben, die seine Kinder definieren. Bei der Eigenschaft codeName erwarten wir die Versionszeichenfolge, die in der URL beim Aufruf des API Server benötigt wird.",
+                "updated": 1701930789143
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "Not: Her API'nin en az bir sürümü olmasını bekleriz. Diğerlerinde üç veya daha fazla olabilir.",
                     "updated": 1652023070270
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir erwarten, dass jede API mindestens eine Version hat. Andere können drei oder mehr haben.",
+                    "updated": 1701930789342,
+                    "style": "Note"
                 }
             ]
         },
@@ -44,6 +55,12 @@
                     "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
                     "updated": 1654391500410,
                     "style": "Include"
+                },
+                {
+                    "language": "DE",
+                    "text": "Foundations->Topic->Data Mining - Abrufen von Daten aus APIs->Hauptarbeitsablauf",
+                    "updated": 1701930789518,
+                    "style": "Include"
                 }
             ]
         },
@@ -56,6 +73,12 @@
                     "language": "TR",
                     "text": "API Version Yapılandırması",
                     "updated": 1652023087997
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der API Version",
+                    "updated": 1701930789695,
+                    "style": "Title"
                 }
             ]
         },
@@ -67,6 +90,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652023094988
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930789857,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -78,6 +107,12 @@
                     "language": "TR",
                     "text": "codeName: Haritanın bu dalının işleyeceği API sürümünü tanımlayın.",
                     "updated": 1652023103627
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName: Definieren Sie die Version der API, die dieser Zweig der Map verarbeiten wird.",
+                    "updated": 1701930790013,
+                    "style": "List"
                 }
             ]
         }

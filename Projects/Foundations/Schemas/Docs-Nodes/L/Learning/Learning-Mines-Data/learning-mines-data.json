@@ -10,6 +10,11 @@
                     "language": "RU",
                     "text": "В настоящее время внедряется инфраструктура для алгоритмов машинного обучения.",
                     "updated": 1645168001221
+                },
+                {
+                    "language": "TR",
+                    "text": "Makine Öğrenimi ( Machine Learning ) algoritmaları için altyapı şu anda uygulanmaktadır.",
+                    "updated": 1701084805042
                 }
             ]
         }
@@ -22,6 +27,11 @@
                 "language": "RU",
                 "text": "Learning Mines Data - это раздел хранилища данных, в котором после внедрения будут храниться продукты данных, созданные обучающими ботами.",
                 "updated": 1645167986376
+            },
+            {
+                "language": "TR",
+                "text": "Öğrenme Madenleri Verileri, Veri Deposunun -uygulandığında- Öğrenme Botları tarafından üretilen Veri Ürünlerini tutacak olan bölümüdür.",
+                "updated": 1701084791746
             }
         ]
     }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Уровни Dollar Cost Average (DCA) - это индикатор, который предоставляет набор сигналов тейк-профита, стоп-лосса и потенциальных точек входа, основанных на принципах DCA. Он используется только для спотовой покупки или для длинных входов, короткие входы в настоящее время не поддерживаются этим индикатором.",
                 "updated": 1645611772806
+            },
+            {
+                "language": "TR",
+                "text": "Dolar Maliyet Ortalaması (DCA) seviyeleri, DCA ilkelerine dayalı olarak bir dizi kar alma, zararı durdurma sinyali ve potansiyel giriş noktaları sağlayan bir göstergedir. Spot alım için veya yalnızca uzun girişler için kullanılmalıdır, kısa devre şu anda bu gösterge tarafından desteklenmemektedir.",
+                "updated": 1697836203631
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Уровни DCA на графиках:",
                     "updated": 1645611779118
+                },
+                {
+                    "language": "TR",
+                    "text": "DCA Levels :",
+                    "updated": 1697836213210
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Для каждой свечи этот индикатор предоставляет потенциальные точки входа, помеченные как safetyDown, а также потенциальные значения тейк-профита. Данный индикатор основан на использовании среднего истинного диапазона для получения значений и использует принципы DCA, чтобы попытаться снизить общую стоимость входа.",
                     "updated": 1645611791630
+                },
+                {
+                    "language": "TR",
+                    "text": "Her mum için bu gösterge, safetyDown olarak işaretlenmiş potansiyel giriş noktalarının yanı sıra potansiyel kar alma değerleri sağlar. Bu gösterge, değerleri sağlamak için Ortalama Gerçek Aralığı kullanmaya dayanır ve genel giriş maliyetini denemek ve düşürmek için DCA ilkelerini kullanır.",
+                    "updated": 1697836222313
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "language": "RU",
                     "text": "Следующие параметры можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в Product Definition 'DCALevelsLong'.",
                     "updated": 1645611808912
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki parametreler, 'DCALevelsLong' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697836256665
                 }
             ]
         },
@@ -70,6 +90,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645611815913
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697836262144
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645611821580
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697836265621
                 }
             ]
         },
@@ -98,6 +128,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1645611826547
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1697836270512
                 }
             ]
         },
@@ -109,6 +144,11 @@
                     "language": "RU",
                     "text": "Расчет Percentage можно использовать для установки лимита тейк-профита или стоп-лосса на основе желаемого процентного изменения.",
                     "updated": 1645611842266
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde hesaplaması, istenen yüzde değişikliğine bağlı olarak bir kar alma veya zararı durdurma limiti belirlemek için kullanılabilir.",
+                    "updated": 1697836274321
                 }
             ]
         },
@@ -120,6 +160,11 @@
                     "language": "RU",
                     "text": "Следующий пример устанавливает сигнал тейк-профита, если цена закрытия текущей свечи поднимается выше уставки tp2Up:",
                     "updated": 1645611850877
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnek, mevcut mum kapanış fiyatı tp2Up ayar noktasının üzerine çıkarsa bir kar alma sinyali ayarlayacaktır:",
+                    "updated": 1697836283169
                 }
             ]
         },
@@ -136,6 +181,11 @@
                     "language": "RU",
                     "text": "Для реализации DCA этот индикатор можно использовать для установки ордеров на покупку на желаемых уровнях безопасности, таких как safety1Down, safety2Down и safety3Down.",
                     "updated": 1645611860829
+                },
+                {
+                    "language": "TR",
+                    "text": "DCA'yı uygulamak için bu gösterge, safety1Down, safety2Down ve safety3Down gibi istenen güvenlik seviyelerinde alım emirleri oluşturmak için kullanılabilir.",
+                    "updated": 1697836289911
                 }
             ]
         },
@@ -147,6 +197,11 @@
                     "language": "RU",
                     "text": "Поскольку эти значения будут меняться для каждого периода свечи, рекомендуется в определенный момент времени копировать значение в переменную, определяемую пользователем, например, tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value, чтобы предотвратить перезапись значения с каждым новым периодом свечи:",
                     "updated": 1645611873561
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu değerler her mum dönemi için değişeceğinden, her yeni mum döneminde değerin üzerine yazılmasını önlemek için değerin belirli bir zamanda tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value gibi kullanıcı tanımlı bir değişkene kopyalanması önerilir:",
+                    "updated": 1697836309586
                 }
             ]
         },

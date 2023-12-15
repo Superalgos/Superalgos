@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu özellik, Ticaret Oturumunun ( Trading Session ) yürütüleceği Zaman Çerçevesini ( Time Frame  ) tanımlamanızı bekler. Özelliğe atanan mevcut değer, geçerli bir değer olarak tanınmadı.",
                 "updated": 1647100143421
+            },
+            {
+                "language": "DE",
+                "text": "Diese Eigenschaft erwartet, dass Sie den Zeitrahmen (Time Frame) festlegen, in dem die Handelssitzung (Trading Session) ablaufen soll. Der der Eigenschaft zugewiesene aktuelle Wert wird nicht als gültiger Wert anerkannt.",
+                "updated": 1701116445507
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Şu anda sahip olduğunuz değer geçersiz. Bunu değiştirmeniz ve Ticaret Oturumunu yeniden çalıştırmanız gerekir.",
                     "updated": 1647100182097
+                },
+                {
+                    "language": "DE",
+                    "text": "Der aktuell eingestellte Wert ist ungültig. Sie müssen ihn ändern und die Trading Session erneut durchführen.",
+                    "updated": 1701116458379
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Mevcut değer",
                     "updated": 1647100299028
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktueller Wert",
+                    "updated": 1701116464659
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Şu anda mülk aşağıdaki değere sahiptir. Aşağıda, başka yollarla bu hata sayfasına gittiğinizde değil, yalnızca bu hatayı aldıysanız bir değerin gösterileceğini unutmayın.",
                     "updated": 1647100304986
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaft hat im Moment den folgenden Wert. Beachten Sie, dass der Wert unten nur angezeigt wird, wenn Sie diesen Fehler erhalten haben, nicht aber, wenn Sie diese Fehlerseite auf anderem Wege aufrufen.",
+                    "updated": 1701116473652
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "language": "TR",
                     "text": "Muhtemel Değerler",
                     "updated": 1647100321983
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1701116480853
                 }
             ]
         },

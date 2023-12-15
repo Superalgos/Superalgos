@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Warten Sie, während dieser Prozess alle offenen PRs im Superalgos-Repository auf GitHub.com prüft und alle zusammenführt, die gemäß den PRs-Verarbeitungsregeln zusammengeführt werden können. Sie werden eine neue Nachricht erhalten, wenn der Vorgang abgeschlossen ist.",
-                "updated": 1639343926239
+                "text": "You will get a new message when the operation is complete.\nZusammenfassung: Warten Sie, während dieser Prozess alle offenen PRs im Superalgos-Repository auf GitHub.com überprüft und alle zusammenführt, die gemäß den PRs-Verarbeitungsregeln zusammengeführt werden können. Sie werden eine neue Nachricht erhalten, wenn der Vorgang abgeschlossen ist.",
+                "updated": 1700772664714
             },
             {
                 "language": "RU",
@@ -31,8 +31,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Was Nun?",
-                    "updated": 1639343937929
+                    "text": "Was kommt als Nächstes?",
+                    "updated": 1700772691175
                 },
                 {
                     "language": "RU",
@@ -53,8 +53,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie müssen nichts weiter tun. In wenigen Sekunden/Minuten sollten Sie das Ergebnis dieses Vorgangs sehen können.",
-                    "updated": 1639343951382
+                    "text": "Sie brauchen nichts weiter zu tun. In wenigen Sekunden/Minuten sollten Sie das Ergebnis dieses Vorgangs sehen können.",
+                    "updated": 1700772705400
                 },
                 {
                     "language": "RU",

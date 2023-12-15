@@ -14,8 +14,8 @@
             },
             {
                 "language": "DE",
-                "text": "Warten Sie, während die Änderungen auf GitHub.com hochgeladen werden und ein Pull Request erstellt wird. Sie werden eine neue Nachricht erhalten, wenn der Vorgang abgeschlossen ist.",
-                "updated": 1634163736599
+                "text": "Warten Sie, während Ihr Benutzerprofil auf GitHub.com hochgeladen wird. Sie erhalten eine neue Nachricht, wenn der Vorgang abgeschlossen ist.",
+                "updated": 1700773144255
             },
             {
                 "language": "RU",
@@ -43,8 +43,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wie geht es nun weiter?",
-                    "updated": 1634163743036
+                    "text": "Was kommt als Nächstes?",
+                    "updated": 1700773152460
                 },
                 {
                     "language": "RU",
@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es ist keine weitere Aktion von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Thema auf Github.com weiterverfolgen.",
-                    "updated": 1634163822210
+                    "text": "Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Problem auf Github.com weiterverfolgen.",
+                    "updated": 1700773161440
                 },
                 {
                     "language": "RU",
@@ -99,8 +99,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sollten Sie weitere Beiträge einreichen, während der Pull Request geprüft wird, werden diese automatisch an den offenen Pull Request angehängt.",
-                    "updated": 1634163831841
+                    "text": "Wenn Sie weitere Beiträge einreichen, während der Pull Request geprüft wird, werden diese automatisch an den offenen Pull Request angehängt.",
+                    "updated": 1700773170607
                 },
                 {
                     "language": "RU",

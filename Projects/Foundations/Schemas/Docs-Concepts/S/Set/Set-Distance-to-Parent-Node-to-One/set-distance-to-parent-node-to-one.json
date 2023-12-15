@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düğüm mesafenin 1 katına kilitlenir.",
                 "updated": 1666967295367
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten ist auf das 1fache der Entfernung festgelegt.",
+                "updated": 1701028879716
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638297147580
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701028907220
                 }
             ]
         }

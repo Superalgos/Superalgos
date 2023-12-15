@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Borsaya erişmek için sağladığınız Borsa API Anahtarı, Borsa tarafından geçerli bir anahtar olarak tanınmadı.",
                 "updated": 1651090954593
+            },
+            {
+                "language": "DE",
+                "text": "Der Exchange API-Schlüssel, den Sie für den Zugriff auf die Börse angegeben haben, wurde von der Börse nicht als gültiger Schlüssel erkannt. ",
+                "updated": 1700512665242
             }
         ]
     },
@@ -23,21 +28,47 @@
                     "language": "TR",
                     "text": "Borsa Hesap Anahtarı ( Exchange Account Key ) ile ilgili çoğu hata, değişim tarafından sağlanan anahtarların işlenmesinden kaynaklanır. Lütfen aşağıda listelenen tipik sorunları iki kez kontrol edin! ",
                     "updated": 1651091065529
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Fehler im Zusammenhang mit dem Exchange Account Key entstehen durch die Handhabung der vom Exchange zur Verfügung gestellten Schlüssel. Bitte überprüfen Sie die unten aufgeführten typischen Probleme!",
+                    "updated": 1700306777805
                 }
             ]
         },
         {
             "style": "List",
             "text": "Copy the public key in the codeName property and the secret key in the secret property.",
-            "updated": 1611950941851
+            "updated": 1611950941851,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie den öffentlichen Schlüssel in die Eigenschaft codeName und den geheimen Schlüssel in die Eigenschaft secret.",
+                    "updated": 1700306803853
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Make sure you don't bring invisible characters from the exchange's website."
+            "text": "Make sure you don't bring invisible characters from the exchange's website.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, dass Sie keine unsichtbaren Zeichen von der Website der Börse mitbringen.",
+                    "updated": 1700306816316
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Make sure you don't leave foreign characters from the sample text. To be extra sure, you may copy the code of the configuration below into a text editor, paste the keys, and then replace the whole configuration code in the corresponding node."
+            "text": "Make sure you don't leave foreign characters from the sample text. To be extra sure, you may copy the code of the configuration below into a text editor, paste the keys, and then replace the whole configuration code in the corresponding node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, dass Sie keine fremden Zeichen aus dem Beispieltext weglassen. Um besonders sicher zu gehen, können Sie den Code der unten stehenden Konfiguration in einen Texteditor kopieren, die Schlüssel einfügen und dann den gesamten Konfigurationscode im entsprechenden Knoten ersetzen.",
+                    "updated": 1700306825613
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -47,12 +78,26 @@
         {
             "style": "List",
             "text": "Make sure that the keys are not disabled at the exchange.",
-            "updated": 1611951062366
+            "updated": 1611951062366,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass die Schlüssel in der Vermittlungsstelle nicht deaktiviert sind.",
+                    "updated": 1700306834756
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If the keys are IP restricted, double-check the IP address. Try without restrictions until you rule out other potential issues.",
-            "updated": 1611951081066
+            "updated": 1611951081066,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Schlüssel IP-beschränkt sind, überprüfen Sie die IP-Adresse. Versuchen Sie es ohne Einschränkungen, bis Sie andere mögliche Probleme ausgeschlossen haben.",
+                    "updated": 1700306843221
+                }
+            ]
         },
         {
             "style": "Error",
@@ -62,6 +107,11 @@
                     "language": "TR",
                     "text": "Geçersiz Borsa API Anahtarı.",
                     "updated": 1651091172657
+                },
+                {
+                    "language": "DE",
+                    "text": "Ungültiger Exchange-API-Schlüssel (Invalid Exchange API Key)",
+                    "updated": 1700306863469
                 }
             ]
         },
@@ -73,6 +123,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1651091191149
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1700306871693
                 }
             ]
         },
@@ -84,6 +139,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1651091218479
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1700306879780
                 }
             ]
         },
@@ -96,6 +156,11 @@
                     "language": "TR",
                     "text": "Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1651091251056
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1700306895334
                 }
             ]
         },
@@ -107,6 +172,11 @@
                     "language": "TR",
                     "text": "Hata iletisi",
                     "updated": 1651091387438
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1700306916972
                 }
             ]
         },
@@ -118,6 +188,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading ) Ticaret Botunda oluşan Özel Durumun Hata İletisi aşağıdadır:",
                     "updated": 1651091379548
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie die Fehlermeldung der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700306927782
                 }
             ]
         },
@@ -133,6 +208,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1651091418372
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerliste",
+                    "updated": 1700306959802
                 }
             ]
         },
@@ -144,6 +224,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Yığını aşağıdadır:",
                     "updated": 1651091466947
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt die Anzahl der Fehler, die beim LF Trading Bot aufgetreten sind:",
+                    "updated": 1700306969605
                 }
             ]
         },
@@ -159,6 +244,11 @@
                     "language": "TR",
                     "text": "Hata Kodu",
                     "updated": 1651091490428
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1700306977676
                 }
             ]
         },
@@ -170,6 +260,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Kodu aşağıdadır:",
                     "updated": 1651091495279
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie den Fehlercode der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700306985965
                 }
             ]
         },
@@ -185,6 +280,11 @@
                     "language": "TR",
                     "text": "Hata Ayrıntıları",
                     "updated": 1651091514765
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1700306993332
                 }
             ]
         },
@@ -196,6 +296,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda meydana gelen İstisnanın tüm Hata ayrıntıları aşağıdadır:",
                     "updated": 1651091519619
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie alle Fehlerdetails der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700307006590
                 }
             ]
         },
@@ -211,6 +316,11 @@
                     "language": "TR",
                     "text": "Düğüm Adı",
                     "updated": 1651091534497
+                },
+                {
+                    "language": "DE",
+                    "text": "Name des Knotens",
+                    "updated": 1700307014139
                 }
             ]
         },
@@ -222,6 +332,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1651091550611
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Name des Knotens, der am meisten mit diesem Fehler zu tun hat:",
+                    "updated": 1700307024437
                 }
             ]
         },
@@ -237,6 +352,11 @@
                     "language": "TR",
                     "text": "Düğüm Kodu",
                     "updated": 1651091585516
+                },
+                {
+                    "language": "DE",
+                    "text": "Code des Knotens",
+                    "updated": 1700307045805
                 }
             ]
         },
@@ -248,6 +368,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading ) Ticaret Bot'ta hatayı üreten düğümde depolanan kod aşağıdadır:",
                     "updated": 1651091603494
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Code aufgeführt, der in dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
+                    "updated": 1700515690818
                 }
             ]
         },
@@ -264,6 +389,11 @@
                     "language": "TR",
                     "text": "Düğüm Yapılandırması",
                     "updated": 1651091625125
+                },
+                {
+                    "language": "DE",
+                    "text": "Knoten-Konfiguration",
+                    "updated": 1700307067518
                 }
             ]
         },
@@ -276,6 +406,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading ) Ticaret Bot'ta Aşağıdakiler, hatayı üreten düğümde depolanan yapılandırmadır:",
                     "updated": 1651091728925
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist die Konfiguration des Knotens aufgeführt, der den Fehler im LF Trading Bot verursacht hat:",
+                    "updated": 1700307074950
                 }
             ]
         },
@@ -291,6 +426,11 @@
                     "language": "TR",
                     "text": "Bağlam Bilgisi",
                     "updated": 1651091746395
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1700307081541
                 }
             ]
         },
@@ -302,6 +442,11 @@
                     "language": "TR",
                     "text": "Hata oluştuğunda korunan bağlam bilgileri aşağıdadır:",
                     "updated": 1651091764146
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden sind die Kontextinformationen aufgeführt, die beim Auftreten des Fehlers erhalten wurden:",
+                    "updated": 1700307089642
                 }
             ]
         },

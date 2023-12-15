@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Managed Take Profit включает в себя определение фаз, которые формируют управление целью тейк-профита по мере развития позиции.",
                 "updated": 1639847302819
+            },
+            {
+                "language": "TR",
+                "text": "Yönetilen kar alma düğümü, pozisyon geliştikçe kar alma hedefinin yönetimini oluşturan aşamaların tanımını içerir.",
+                "updated": 1701087326219
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Цель тейк-профита играет важную роль в вашей стратегии, поскольку она играет решающую роль в определении соотношения риск/вознаграждение торговой возможности, которая возникла и по которой ваша стратегия приняла решение занять позицию.",
                     "updated": 1639847415222
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kar alma hedefi, stratejinizde önemli bir rol oynar, çünkü gerçekleşen ve stratejinizin bir pozisyon almak için harekete geçtiği ticaret fırsatının risk / ödül oranını belirlemede çok önemli bir rol oynar.",
+                    "updated": 1701087342970
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Главной целью торговли является увеличение вашего капитала, и от того, как вы установите первоначальную цель тейк-профита и будете управлять ею в дальнейшем, зависит, насколько вы сможете увеличить свой капитал при благоприятном ценовом движении.",
                     "updated": 1639847444721
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaretin en önemli amacı sermayenizi artırmaktır ve ilk kar alma hedefinizi nasıl belirlediğiniz ve daha sonra nasıl yönettiğiniz, uygun bir fiyat hareketi göz önüne alındığında sermayenizi ne kadar artırabileceğinizi belirler.",
+                    "updated": 1701087346428
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Система предоставляет те же функции для управления целью тейк-профита, что и для управления целью стоп-лосса, поэтому, пожалуйста, убедитесь, что вы изучили и этот раздел.",
                     "updated": 1639847465043
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, yönetilen zararı durdurma hedefi için açıklandığı gibi kar alma hedefini yönetmek için aynı işlevselliği sağlar, bu nedenle lütfen bu bölümü de gözden geçirdiğinizden emin olun.",
+                    "updated": 1701087350555
                 }
             ]
         }

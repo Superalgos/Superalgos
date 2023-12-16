@@ -66,6 +66,9 @@
         }
     },
     "add": {
+        "setEventReference": "Add Set Event Reference",
+        "setFormulaReference": "Add Set Formula Reference",
+        "code": "Add Code",
         "portfolioEngine": "Add Portfolio Engine",
         "portfolioMine": "Add Portfolio Mine",
         "portfolioSystem": "Add Portfolio System",

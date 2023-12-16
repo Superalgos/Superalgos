@@ -62,10 +62,17 @@
     "sessions": {
         "managed": {
             "stop": "Stop Managed Sessions",
-            "run": "Run Managed Sessions"
+            "run": "Run Managed Sessions",
+            "reference": "Managed Session Reference"
         }
     },
     "add": {
+        "projectPortfolioProducts": "Add Project Portfolio Products",
+        "allPortfolioMineProducts": "Add All Portfolio Mine Products",
+        "portfolioMineProducts": "Add Portfolio Mine Products",
+        "dataProduct": "Add Data Product",
+        "userDefinedCode": "Add User Defined Code",
+        "exchangePortfolioProducts": "Add Exchange Portfolio Products",
         "setEventReference": "Add Set Event Reference",
         "setFormulaReference": "Add Set Formula Reference",
         "code": "Add Code",

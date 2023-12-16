@@ -67,6 +67,7 @@
         }
     },
     "add": {
+        "portfolioBot": "Add Portfolio Bot",
         "projectPortfolioProducts": "Add Project Portfolio Products",
         "allPortfolioMineProducts": "Add All Portfolio Mine Products",
         "portfolioMineProducts": "Add Portfolio Mine Products",
@@ -331,7 +332,9 @@
         "marketOrder": "Add Market Order",
         "session": {
             "backTesting": "Add Backtesting Session",
+            "backtestingPortfolio": "Add Backtesting Portfolio Session",
             "liveTrading": "Add Live Trading Session",
+            "livePortfolio": "Add Live Portfolio Session",
             "paperTrading": "Add Paper Trading Session",
             "forwardTrading": "Add Forward Testing Session"
         },

@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: Buraya bu konu sayfası için bir özet yazın.",
                 "updated": 1647094414249
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie hier eine Zusammenfassung für diese Themenseite.",
+                "updated": 1702935715382
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1647094426852
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1702935734654
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "TR",
                     "text": "Hata: Beklenmeyen Hata ( Unexpected Error )",
                     "updated": 1647094456234
+                },
+                {
+                    "language": "DE",
+                    "text": "Unerwarteter Fehler (Unexpected Error)",
+                    "updated": 1702935751293
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1647094473374
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1702935756662
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1647094485247
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1702935763894
                 }
             ]
         },
@@ -91,6 +116,11 @@
                     "language": "TR",
                     "text": "Not: Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1647094497469
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1702935781349
                 }
             ]
         },
@@ -102,6 +132,11 @@
                     "language": "TR",
                     "text": "Hata mesajı",
                     "updated": 1647094515861
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1702935788190
                 }
             ]
         },
@@ -119,6 +154,11 @@
                     "language": "TR",
                     "text": "TS'de meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
                     "updated": 1647094529476
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt die Fehlermeldung der Ausnahme, die beim TS aufgetreten ist:",
+                    "updated": 1702935801069
                 }
             ]
         },
@@ -136,6 +176,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1647094553732
+                },
+                {
+                    "language": "DE",
+                    "text": "Anzahl der Fehler",
+                    "updated": 1702935807197
                 }
             ]
         },
@@ -153,6 +198,11 @@
                     "language": "TR",
                     "text": "TS'de meydana gelen İstisnanın Hata Yığını aşağıdadır:",
                     "updated": 1647094557484
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt die Anzahl der Fehler, die beim TS aufgetreten sind:",
+                    "updated": 1702935815461
                 }
             ]
         },
@@ -169,6 +219,11 @@
                     "language": "TR",
                     "text": "Hata Kodu",
                     "updated": 1647094570512
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1702935834397
                 }
             ]
         },
@@ -185,6 +240,11 @@
                     "language": "TR",
                     "text": "TS'de meydana gelen İstisnanın Hata Kodu aşağıdadır:",
                     "updated": 1647094588697
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Fehlercode der Ausnahme, die beim TS aufgetreten ist:",
+                    "updated": 1702935842629
                 }
             ]
         },
@@ -200,6 +260,11 @@
                     "language": "TR",
                     "text": "Hata detayları",
                     "updated": 1647094601725
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1702935849013
                 }
             ]
         },
@@ -217,6 +282,11 @@
                     "language": "TR",
                     "text": "Aşağıdakiler, TS'de meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
                     "updated": 1647094620238
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie alle Fehlerdetails der Ausnahme, die beim TS aufgetreten ist:",
+                    "updated": 1702935855989
                 }
             ]
         },

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Market Trading Products представляет собой группу продуктов данных, сгенерированных указанным сеансом на конкретном рынке.",
                 "updated": 1639150001571
+            },
+            {
+                "language": "TR",
+                "text": "Bir piyasa alım satım ürünleri düğümü, belirli bir piyasada başvurulan oturum tarafından üretilen veri ürünleri grubunu içerir.",
+                "updated": 1701087798851
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Узел рыночных торговых продуктов должен ссылаться на рынок, определенный в иерархии Crypto Ecosystem.",
                     "updated": 1639150037694
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa ticaret ürünleri düğümü, Kripto Ekosistemi ( Crypto Ecosystem ) hiyerarşisinde tanımlanmış bir piyasaya referans vermelidir.",
+                    "updated": 1701087815251
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Этот узел может порождать отдельные продукты данных или может массово развертывать продукты данных, организованные узлами Trading Mine и Trading Bots. См. Подробности в узле Data Product.",
                     "updated": 1639493284553
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm tek tek veri ürünleri oluşturabilir veya veri ürünlerini ticaret madeni ve ticaret botları tarafından organize edilen toplu olarak dağıtabilir. Ayrıntılar için veri ürünleri düğümüne bakın.",
+                    "updated": 1701087820275
                 }
             ]
         }

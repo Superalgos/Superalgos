@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Canlı Ticaret Oturumu ( Live Trading Session ) veya İleriye Yönelik Test ( Forward Testing Session ) Oturumu için, Exchange hesabınıza erişmek için bir Exchange API Anahtarı sağlamanız gerekir. Bunu yapmak için, anahtarlarınızla bir Exchange Hesabı Anahtar ( Exchange Account Key ) Düğümüne başvuran bir Anahtar Referans Düğümü ( Key Reference Node ) eklemeniz gerekir.",
                 "updated": 1647101079392
+            },
+            {
+                "language": "DE",
+                "text": "Für eine Live-Handelssitzung (Live Trading Session) oder eine Forward-Testing-Sitzung (Forward Testing Session) müssen Sie einen Exchange-API-Schlüssel bereitstellen, um auf Ihr Börsenkonto zuzugreifen. Dazu müssen Sie einen Key Reference Node hinzufügen, der auf einen Exchange Account Key Node mit Ihren Schlüsseln verweist.",
+                "updated": 1701116789817
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu hatanın ortaya çıktığı Görev Düğümünde ( Task Node ), bir Anahtar Referans Düğümü ( Key Reference Node ) ekleyin ve onunla birlikte bir Exchange Hesabı Anahtarına ( Exchange Account Key ) referans verin. Ardından Ticaret Oturumunu ( Trading Session ) tekrar çalıştırmayı deneyebilirsiniz.",
                     "updated": 1647101186078
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie zu dem Task Node, bei dem dieser Fehler auftrat, einen Key Reference Node hinzu und referenzieren Sie mit diesem einen Exchange Account Key. Dann können Sie versuchen, die Handelssitzung (Trading Session) erneut auszuführen.",
+                    "updated": 1701116864642
                 }
             ]
         }

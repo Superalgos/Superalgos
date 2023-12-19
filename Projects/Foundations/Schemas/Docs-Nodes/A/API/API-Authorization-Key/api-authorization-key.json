@@ -2,18 +2,41 @@
     "type": "API Authorization Key",
     "definition": {
         "text": "The API Authorization Key node is referenced by a Task with a API Data Fetcher Bot Instance. It contains the keys that will be used by the bot to authenticate with the API endpoint.",
-        "updated": 1658641304473
+        "updated": 1658641304473,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der API Authorization Key (Knoten API-Autorisierungsschlüssel) wird von einer Task (Aufgabe) mit einer API Data Fetcher Bot Instance referenziert. Er enthält die Schlüssel, die vom Bot zur Authentifizierung beim API-Endpunkt verwendet werden.",
+                "updated": 1701930765060
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The API Authorization Key node is a child underneath the APIs parent node.",
-            "updated": 1658641400230
+            "updated": 1658641400230,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Knoten API Authorization Key (API-Autorisierungsschlüssel) ist ein untergeordneter Knoten unterhalb des übergeordneten Knotens APIs.",
+                    "updated": 1701930765274,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The default configuration contains a number of parameters commonly used by APIs. These are things such as API key and secrets used to obtain OAuth tokens, or bearer tokens.",
-            "updated": 1658641411202
+            "updated": 1658641411202,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Standardkonfiguration enthält eine Reihe von Parametern, die häufig von APIs verwendet werden. Dies sind Dinge wie API-Schlüssel und Geheimnisse, die verwendet werden, um OAuth-Tokens oder Inhaber-Tokens zu erhalten.",
+                    "updated": 1701930765507,
+                    "style": "Text"
+                }
+            ]
         }
     ]
 }

@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Gerçek oran, bir emrin yerine getirildiği oran olarak döviz tarafından bildirilen sayıdır.",
                 "updated": 1652017508810
+            },
+            {
+                "language": "DE",
+                "text": "Der tatsächliche Kurs ist der von der Börse gemeldete Kurs, zu dem ein Auftrag ausgeführt wurde.",
+                "updated": 1701930790529
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Sistem, açık emirlerin durumunu borsa ile görüştüğünde, borsa, belirli bir emir için doldurulan miktar ve gerçek kur ile yanıt verir. Kademeli olarak sipariş verilmesi durumunda değer buna göre güncellenir.",
                     "updated": 1652017517346
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das System den Status offener Aufträge bei der Börse abfragt, antwortet die Börse mit der gefüllten Größe und dem aktuellen Kurs für den jeweiligen Auftrag. Wenn ein Auftrag schrittweise ausgeführt wird, wird der Wert entsprechend aktualisiert.",
+                    "updated": 1701930790679,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Sistem, aksi takdirde varsayılan olarak orijinal oran ile hesaplanan bakiye hesaplamasını güncellemek için gerçek oranı kullanır.",
                     "updated": 1652017525236
+                },
+                {
+                    "language": "dDEe",
+                    "text": "Das System verwendet den tatsächlichen Kurs, um die Berechnung der Salden zu aktualisieren, die ansonsten standardmäßig mit dem ursprünglichen Kurs berechnet werden.",
+                    "updated": 1701930790883,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,6 +88,12 @@
                     "language": "TR",
                     "text": "Gerçek Oran Yapılandırması",
                     "updated": 1652017562673
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration Actual Rate",
+                    "updated": 1701930791074,
+                    "style": "Title"
                 }
             ]
         },
@@ -88,6 +111,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652017578619
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930791205,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -105,6 +134,12 @@
                     "language": "TR",
                     "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652017612829
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930791336,
+                    "style": "List"
                 }
             ]
         }

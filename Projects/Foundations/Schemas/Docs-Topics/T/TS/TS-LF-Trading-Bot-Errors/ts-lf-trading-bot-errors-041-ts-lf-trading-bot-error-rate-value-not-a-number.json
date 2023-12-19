@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Oran ( Rate ) düğümünün altındaki Formül ( Formula ) bir sayı olarak değerlendirilmelidir.",
                 "updated": 1649277081940
+            },
+            {
+                "language": "DE",
+                "text": "Die Formel (Formula) unter dem Rate -Knoten muss eine Zahl ergeben. ",
+                "updated": 1700512582963
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Oran Değeri Sayı Değil. ( Rate Value Not A Number )",
                     "updated": 1649277125626
+                },
+                {
+                    "language": "DE",
+                    "text": "Rate Value ist keine Zahl (Rate Value Not A Number)",
+                    "updated": 1700295126645
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Formülün ( Formula ) bir sayı olarak değerlendirildiğinden emin olun ve tekrar deneyin.",
                     "updated": 1649277204550
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass die Formel (Formula) als Zahl ausgewertet wird, und versuchen Sie es erneut.",
+                    "updated": 1700295153740
                 }
             ]
         }

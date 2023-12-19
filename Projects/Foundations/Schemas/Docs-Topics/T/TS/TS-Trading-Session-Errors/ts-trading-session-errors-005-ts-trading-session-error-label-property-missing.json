@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Zaman Çerçevesi Düğümü ( Time Frame Node ) yapılandırmasında etiket adlı bir özellik bekleniyor, ancak bu özellik yok.",
                 "updated": 1647099951855
+            },
+            {
+                "language": "DE",
+                "text": "In der Konfiguration des Zeitrahmenknotens (Time Frame Node) wird eine Eigenschaft namens label erwartet, die jedoch nicht vorhanden ist.",
+                "updated": 1701116123245
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Zaman Çerçevesi Düğümünde ( Time Frame Node ) etiket özelliğini ekleyin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
                     "updated": 1647100023548
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie die Beschriftungseigenschaft am Zeitrahmenknoten (Time Frame Node) hinzu und versuchen Sie, die Handelssitzung (Trading Session) erneut auszuführen.",
+                    "updated": 1701116156855
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Özellik Eksik",
                     "updated": 1647100039960
+                },
+                {
+                    "language": "DE",
+                    "text": "fehlende Eigenschaft",
+                    "updated": 1701117081256
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "TR",
                     "text": "Örnek",
                     "updated": 1647100061363
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel",
+                    "updated": 1701116177080
                 }
             ]
         },

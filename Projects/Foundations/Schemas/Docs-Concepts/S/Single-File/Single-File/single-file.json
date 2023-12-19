@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu Veri Kümesi ( Dataset ) , içindeki tüm verilerle birlikte yalnızca bir dosya içerir.",
                 "updated": 1666902349451
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Dataset enthält nur eine Datei mit allen Daten.",
+                "updated": 1701030730682
             }
         ]
     },

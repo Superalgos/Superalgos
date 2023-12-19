@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie dabei helfen, die Docs (eine Art Bibliothek aus Tutorials, Dokumentation, Hilfestellungen) auf dem neuesten Stand zu halten, die Vermittlung von Informationen zu verbessern, Erklärungen zu ergänzen oder einfach nur Tipp- und Grammatikfehler zu korrigieren, verbessert das die Benutzerfreundlichkeit und senkt die Einstiegshürden für neue Benutzer.",
-                "updated": 1642541252464
+                "text": "Die Hilfe bei der Aktualisierung der Dokumente, bei der Verbesserung der Informationsvermittlung, bei der Erweiterung von Erklärungen oder einfach bei der Korrektur von Tipp- und Grammatikfehlern trägt zu einer besseren Benutzererfahrung bei und senkt die Einstiegshürden für neue Benutzer.",
+                "updated": 1702163471448
             },
             {
                 "language": "TR",
@@ -36,8 +36,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Koordination",
-                    "updated": 1642541260678
+                    "text": "Koordinierung",
+                    "updated": 1702163486736
                 },
                 {
                     "language": "TR",
@@ -58,8 +58,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Treten Sie der Docs Group (Docs Gruppe) bei, um Ihre Arbeit mit anderen Mitwirkenden (contributor) zu koordinieren:",
-                    "updated": 1642541313002
+                    "text": "Treten Sie der Docs-Gruppe (Docs Group) bei, um Ihre Arbeit mit anderen Mitwirkenden zu koordinieren:",
+                    "updated": 1702163533944
                 },
                 {
                     "language": "TR",
@@ -111,8 +111,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Logistik und beste Praktiken",
-                    "updated": 1642541488372
+                    "text": "Logistik und bewährte Verfahren",
+                    "updated": 1702163709704
                 },
                 {
                     "language": "TR",
@@ -133,8 +133,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es kann sein, dass mehrere Personen zu einem beliebigen Zeitpunkt an den Docs mitarbeiten. Um das Auftreten von Konflikten zum Zeitpunkt des Zusammenführens Ihrer Beiträge (merging) in das Superalgos-Repository zu minimieren, werden die folgenden Praktiken dringend empfohlen.",
-                    "updated": 1642541533730
+                    "text": "Es kann sein, dass mehrere Personen zu einem beliebigen Zeitpunkt an den Docs mitarbeiten. Um das Auftreten von Konflikten zum Zeitpunkt des Zusammenführens Ihrer Beiträge in das Superalgos-Repository zu minimieren, werden die folgenden Praktiken dringend empfohlen.",
+                    "updated": 1702163780697
                 },
                 {
                     "language": "TR",
@@ -177,8 +177,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Behalten Sie Änderungen nicht zu lange lokal. Teilen Sie Ihre Arbeit auf und reichen Sie Ihre Beiträge jeden Tag ein. (app.contribute wie unten erklärt)",
-                    "updated": 1642541944707
+                    "text": "Behalten Sie Änderungen nicht zu lange lokal. Teilen Sie Ihre Arbeit auf und reichen Sie Ihre Beiträge jeden Tag ein.",
+                    "updated": 1702163825745
                 },
                 {
                     "language": "TR",
@@ -199,8 +199,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie den App Contribute-Befehl ausführen, wird ein Pull Request bei Ihrer fork (Spaltung) erstellt. Die Betreuer des Superalgos-Projekt repo werden Ihren Beitrag prüfen und entscheiden, ob er so wie er ist zusammengeführt werden kann (auch merging genannt) oder ob die Arbeit Anpassungen erfordert.",
-                    "updated": 1642542058345
+                    "text": "Wenn Sie den App Contribute-Befehl (Contribute Command) ausführen, wird ein Pull Request bei Ihrer Abspaltung erstellt. Die Betreuer des Superalgos-Projektarchivs werden Ihren Beitrag prüfen und entscheiden, ob er so wie er ist zusammengeführt werden kann, oder ob die Arbeit Anpassungen erfordert.",
+                    "updated": 1702163847657
                 },
                 {
                     "language": "TR",
@@ -221,8 +221,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Behalten Sie den Überblick über Ihre contributions (Beiträge), bis sie merged (zusammengeführt) wurden.",
-                    "updated": 1642542095692
+                    "text": "Behalten Sie den Überblick über Ihre Beiträge, bis sie zusammengeführt werden.",
+                    "updated": 1702163858601
                 },
                 {
                     "language": "TR",
@@ -243,8 +243,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Bleiben Sie ansprechbar, wenn es Rückmeldungen oder Anfragen von den Betreuern gibt.",
-                    "updated": 1642542121016
+                    "text": "Bleiben Sie erreichbar, wenn es Rückmeldungen oder Anfragen von den Betreuern gibt.",
+                    "updated": 1702163889370
                 },
                 {
                     "language": "TR",
@@ -289,6 +289,11 @@
                     "language": "RU",
                     "text": "Узнайте все о документах и искусстве документирования",
                     "updated": 1647782019395
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie alles über die Docs und die Kunst des Dokumentierens",
+                    "updated": 1702163906761
                 }
             ]
         },
@@ -305,6 +310,11 @@
                     "language": "RU",
                     "text": "Вы, вероятно, имеете представление о том, как функционирует Docs, благодаря использованию приложения и прохождению первых нескольких уроков. Если вы собираетесь вносить небольшие исправления в существующие страницы, вы, вероятно, знаете достаточно, чтобы начать вносить свой вклад!",
                     "updated": 1647782101485
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie haben wahrscheinlich eine Vorstellung davon, wie die Docs funktionieren, weil Sie die App benutzen und die ersten paar Tutorials machen. Wenn Sie vorhaben, gelegentlich kleine Korrekturen an bestehenden Seiten vorzunehmen, wissen Sie wahrscheinlich genug, um einen Beitrag zu leisten!",
+                    "updated": 1702163954447
                 }
             ]
         },
@@ -322,6 +332,11 @@
                     "language": "RU",
                     "text": "Однако если вы хотите принять участие в документировании новой функциональности, реорганизации тем, упорядочивании книг и так далее, вам обязательно нужно прочитать книгу The Docs Explained. Обратите особое внимание на последнюю главу: The Art of Documenting.",
                     "updated": 1647782116998
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sich jedoch mit der Dokumentation neuer Funktionen, der Neuorganisation von Themen, der Anordnung von Büchern usw. befassen möchten, sollten Sie unbedingt das Buch The Docs Explained lesen. Achten Sie besonders auf das letzte Kapitel: Die Kunst des Dokumentierens.",
+                    "updated": 1702163968953
                 }
             ]
         },

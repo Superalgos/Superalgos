@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Lock - это внутренний механизм, который блокирует структуру данных ордера в торговом движке, когда определение ордера в торговой системе запрещает порождать несколько ордеров.",
                 "updated": 1640350471943
+            },
+            {
+                "language": "TR",
+                "text": "Kilit, alım satım sistemindeki emrin tanımı birden fazla emrin ortaya çıkmasına izin vermediğinde, alım satım motorundaki emrin veri yapısını engelleyen dahili bir mekanizmadır.",
+                "updated": 1701085416843
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Возможные значения для Lock - открыто и закрыто.",
                     "updated": 1640350504578
+                },
+                {
+                    "language": "TR",
+                    "text": "Kilit için olası değerler açık ve kapalıdır.",
+                    "updated": 1701085421043
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "В момент закрытия ордера система проверяет параметр spawnMultipleOrders в конфигурации ордера в торговой системе. Если значение равно false, система устанавливает блокировку на closed, чтобы структура данных не могла быть использована снова во время той же позиции.",
                     "updated": 1640350532458
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir emir kapatıldığı anda sistem, işlem sistemindeki emir yapılandırmasında spawnMultipleOrders parametresini kontrol eder. Değer false ise, sistem kilidi kapalı olarak ayarlar, böylece veri yapısı aynı pozisyon sırasında tekrar kullanılamaz.",
+                    "updated": 1701085426835
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "В момент открытия ордера система проверяет параметр spawnMultipleOrders в конфигурации ордера в торговой системе. Если значение равно false, то система проверяет значение блокировки. Если значение открыто, то она может создать ордер, если закрыто, то ордер не может быть создан.",
                     "updated": 1640350570086
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir emir açıldığı anda, sistem işlem sistemindeki emir yapılandırmasında spawnMultipleOrders parametresini kontrol eder. Eğer değer false ise, sistem kilidin değerini kontrol eder. Değer açıksa, emri oluşturabilir; kapalıysa, emir oluşturulmayabilir.",
+                    "updated": 1701085431235
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Конфигурация Lock",
                     "updated": 1640350587791
+                },
+                {
+                    "language": "TR",
+                    "text": "Kilit Konfigürasyonu",
+                    "updated": 1701085434890
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1640350594014
+                },
+                {
+                    "language": "TR",
+                    "text": "Mülkler",
+                    "updated": 1701085438264
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1640350602325
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1701085442543
                 }
             ]
         }

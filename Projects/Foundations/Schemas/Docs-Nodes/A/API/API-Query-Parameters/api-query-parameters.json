@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sorgu dizesi, tek tip kaynak bulucunun (URL) bir parçasıdır. Sorgu parametresi temel URL'ye eklenir ve API'ye veri talebini belirtmek için belirtilen parametrelere değerler atar.",
                 "updated": 1654391475166
+            },
+            {
+                "language": "DE",
+                "text": "Ein Query-String ist Teil eines Uniform Resource Locator (URL). Der Abfrageparameter wird der Basis-URL hinzugefügt und weist den angegebenen Parametern Werte zu, um die Datenanfrage an die API zu spezifizieren.",
+                "updated": 1701930780393
             }
         ]
     },
@@ -32,6 +37,12 @@
                     "text": "Başka bir deyişle, API Sorgusu, bir API'den bilgi istemek için kullanılan URL'nin bir parçasıdır. Bu değerler, istek URL'sindeki ? işaretinden sonra tutulur. Sorgular genellikle api'nin döndüreceği veri türünde ayarlamalar yapmak için kullanılır. Örneğin, bir api uç noktası bir zaman sorgusunu kabul ederse, belirli bir zaman diliminden veri talep edebilirsiniz.",
                     "updated": 1654391480844,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Eine API-Abfrage (API Query) ist Teil der URL, die zur Anforderung von Informationen von einer API verwendet wird. Diese Werte werden nach dem ? in der Anfrage-URL angegeben. Abfragen werden im Allgemeinen verwendet, um die Art der Daten, die die API zurückgibt, anzupassen. Wenn ein API-Endpunkt zum Beispiel eine Zeitabfrage akzeptiert, können Sie Daten aus einem bestimmten Zeitraum anfordern.",
+                    "updated": 1701930780577,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "text": "Genel olarak Sorgu Parametrelerinin belirli bir sırayla tanımlanması gerekmez, bu nedenle bu düğüm için istediğiniz sırayla çocuk eklemekten çekinmeyin.",
                     "updated": 1654391486875,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Abfrageparameter müssen im Allgemeinen nicht in einer bestimmten Reihenfolge definiert werden. Sie können also in beliebiger Reihenfolge Kinder für diesen Knoten hinzufügen.",
+                    "updated": 1701930780759,
+                    "style": "Note"
                 }
             ]
         },
@@ -67,6 +84,12 @@
                     "language": "TR",
                     "text": "API Haritasında bir API Sorgu Parametresi bulunduğunda, her API Sorgu Parametresi düğümünün değer özelliğine dayalı olarak varsayılan değerleri tanımlayacaktır. Ancak, replaceBy özelliği kullanılırsa, sistem değeri kullanıcının sisteminden çekecektir.  Buna örnek olarak geçerli saat, kullanılan geçerli döviz vb. verilebilir.",
                     "updated": 1654391494283,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn ein API Query Parameter in der API Map gefunden wird, werden die Standardwerte auf der Grundlage der Eigenschaft value der einzelnen API Query Parameter Knoten definiert. Wenn jedoch die Eigenschaft replaceBy verwendet wird, zieht das System den Wert aus dem System des Benutzers.  Beispiele hierfür sind die aktuelle Uhrzeit, die aktuell verwendete Börse usw.",
+                    "updated": 1701930780956,
                     "style": "Success"
                 }
             ]

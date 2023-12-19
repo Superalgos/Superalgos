@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Ödenecek Ücretler ( Fees To Be Paid ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1649104741186
+            },
+            {
+                "language": "DE",
+                "text": "Ein Fees To Be Paid -Knoten wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat. ",
+                "updated": 1700512562236
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Ödenecek,Ücretler Düğüm Eksik. ( Fees To Be Paid Node Missing )",
                     "updated": 1649104790869
+                },
+                {
+                    "language": "DE",
+                    "text": "Fees To Be Paid Node -Knoten fehlt (Fees To Be Paid Node Missing)",
+                    "updated": 1700294619535
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1649104820621
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700294629073
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bu hata, Anlık Görüntü oluşturma işleminin bir parçası olarak bir yönerge değerlendirilirken oluştu. Bu Anlık Görüntünün oluşturulmasını engellemedi, ancak belirli yönerge değeri sıfıra ayarlandı.",
                 "updated": 1650311523753
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Fehler trat bei der Auswertung einer Anweisung als Teil des Prozesses zur Erstellung eines Snapshots auf. Dadurch wurde die Erstellung des Snapshots nicht verhindert, aber der Wert für die betreffende Anweisung wurde auf Null gesetzt. ",
+                "updated": 1700512637324
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Anlık Görüntü Yönerge Değerlendirme Hatası.",
                     "updated": 1650311582408
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler bei der Auswertung von Snapshot-Anweisungen (Snapshot Instruction Evaluation Error)",
+                    "updated": 1700303549603
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1650311613276
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1700303561788
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1650311641321
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1700303574147
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "TR",
                     "text": "Bilgileri yalnızca bu sayfayı gerçekte meydana gelen hatanın bir sonucu olarak açtıysanız görürsünüz.",
                     "updated": 1650311675521
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1700303587719
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "TR",
                     "text": "Hata İletisi",
                     "updated": 1650311694120
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1700303596996
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata İletisi aşağıdadır:",
                     "updated": 1650311731621
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie die Fehlermeldung der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700303606916
                 }
             ]
         },
@@ -93,6 +128,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1650311749383
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerliste",
+                    "updated": 1700303733763
                 }
             ]
         },
@@ -104,6 +144,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Yığını aşağıdadır:",
                     "updated": 1650311770929
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt die Anzahl der Fehler, die beim LF Trading Bot aufgetreten sind:",
+                    "updated": 1700303743323
                 }
             ]
         },
@@ -119,6 +164,11 @@
                     "language": "TR",
                     "text": "Hata Kodu",
                     "updated": 1650311785688
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1700303751009
                 }
             ]
         },
@@ -130,6 +180,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Kodu aşağıdadır:",
                     "updated": 1650311817166
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie den Fehlercode der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700303764355
                 }
             ]
         },
@@ -145,6 +200,11 @@
                     "language": "TR",
                     "text": "Hata Ayrıntıları",
                     "updated": 1650311867687
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1700303794203
                 }
             ]
         },
@@ -156,6 +216,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda meydana gelen İstisnanın tüm Hata ayrıntıları aşağıdadır:",
                     "updated": 1650311960353
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie alle Fehlerdetails der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700303801395
                 }
             ]
         },
@@ -171,6 +236,11 @@
                     "language": "TR",
                     "text": "Düğüm Adı",
                     "updated": 1650311974607
+                },
+                {
+                    "language": "DE",
+                    "text": "Name des Knotens",
+                    "updated": 1700303808595
                 }
             ]
         },
@@ -182,6 +252,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1650312019992
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Name des Knotens (Node), der am meisten mit diesem Fehler zu tun hat:",
+                    "updated": 1700303842459
                 }
             ]
         },
@@ -197,6 +272,11 @@
                     "language": "TR",
                     "text": "Düğüm Kodu",
                     "updated": 1650312035808
+                },
+                {
+                    "language": "DE",
+                    "text": "Code des Knotens",
+                    "updated": 1700303855174
                 }
             ]
         },
@@ -208,6 +288,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading ) Ticaret Bot'ta hatayı üreten düğümde depolanan kod aşağıdadır:",
                     "updated": 1650312078671
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Code aufgeführt, der an dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
+                    "updated": 1700303869318
                 }
             ]
         },
@@ -224,6 +309,11 @@
                     "language": "TR",
                     "text": "İçerik Bilgisi",
                     "updated": 1650312093099
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1700303876611
                 }
             ]
         },
@@ -236,6 +326,11 @@
                     "language": "TR",
                     "text": "Hata oluştuğunda korunan içerik bilgileri aşağıdadır: ",
                     "updated": 1650312128746
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden sind die Kontextinformationen aufgeführt, die beim Auftreten des Fehlers erhalten wurden:",
+                    "updated": 1700303887117
                 }
             ]
         },

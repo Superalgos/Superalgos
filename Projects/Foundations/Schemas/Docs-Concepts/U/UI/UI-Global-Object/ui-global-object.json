@@ -11,8 +11,8 @@
             },
             {
                 "language": "DE",
-                "text": "Es handelt sich um ein globales Objekt, das im Browser verfügbar ist und zur Laufzeit eine Struktur von Utilities, Function Libraries, Spaces  und anderen enthält, auf die von jeder Stelle der Benutzeroberfläche(UI) aus zugegriffen werden kann und deren Funktionen genutzt werden können.",
-                "updated": 1638747281780
+                "text": "Es handelt sich um ein globales Objekt, das im Browser verfügbar ist und zur Laufzeit eine Struktur von Objekten wie Dienstprogrammen, Funktionsbibliotheken, Spaces und anderen enthält, auf die von jeder Stelle der Benutzeroberfläche (UI) aus zugegriffen werden kann und deren Funktionen genutzt werden können.",
+                "updated": 1701012820654
             },
             {
                 "language": "TR",

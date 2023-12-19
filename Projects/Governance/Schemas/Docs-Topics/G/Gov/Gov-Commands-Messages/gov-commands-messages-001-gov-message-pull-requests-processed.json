@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Pull Requests im Superalgos Main-repository wurden erfolgreich bearbeitet.",
-                "updated": 1640448073259
+                "text": "Die Pull Requests im Haupt-Repository von Superalgos wurden erfolgreich bearbeitet.",
+                "updated": 1700772586768
             },
             {
                 "language": "RU",
@@ -31,8 +31,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Die PRs-Bearbeitungsregeln wurden angewendet und alle PRs (Pull requests), die zusammengeführt werden konnten, wurden zusammengeführt. Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Die PRs-Bearbeitungsregeln wurden angewendet und alle PRs, die zusammengeführt werden konnten, wurden zusammengeführt.",
-                    "updated": 1640448124374
+                    "text": "Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Die PR-Verarbeitungsregeln wurden angewendet und alle PRs (Processing Rules), die zusammengeführt werden konnten, wurden zusammengeführt.",
+                    "updated": 1700772649520
                 },
                 {
                     "language": "RU",

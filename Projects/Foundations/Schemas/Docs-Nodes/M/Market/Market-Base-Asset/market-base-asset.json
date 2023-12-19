@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Market Base Asset (Рыночный базовый актив) — это актив в паре, используемый для предоставления котировки — цены - для котируемого актива, как указано на бирже.",
                 "updated": 1640151517094
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa temel varlığı, borsada listelendiği şekliyle, kote edilen varlık için bir kotasyon (fiyat) sağlamak için kullanılan çiftteki varlıktır.",
+                "updated": 1701087393370
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Базовый рыночный актив должен ссылаться на актив, определенный в узле Exchange Assets.",
                     "updated": 1640151619227
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir piyasa temel varlığı, borsa varlıkları düğümü altında tanımlanan bir varlığı referans almalıdır.",
+                    "updated": 1701087397996
                 }
             ]
         }

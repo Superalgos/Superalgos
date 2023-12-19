@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Yol parametresi, uç noktanıza giden benzersiz yolu tanımlar. \nBir yol parametresinin nasıl tanımlanacağına ilişkin tam açıklama için API Yol Parametreleri sayfasına bakın.",
                 "updated": 1654391294315
+            },
+            {
+                "language": "DE",
+                "text": "API Path Parameter definiert den eindeutigen Pfad zu Ihrem Endpunkt.\nEine vollständige Beschreibung, wie ein Pfadparameter zu identifizieren ist, finden Sie auf der Seite API Path Parameter.",
+                "updated": 1701930775310
             }
         ]
     },
@@ -32,6 +37,12 @@
                     "text": "Bir yol parametresi, bir API Yol Parametresi düğümünde tanımlanan sabit bir metin dizesi olabilir veya çalışma zamanında oluşturulan bir değer için API Getirici Bot tarafından dinamik olarak değiştirilebilir.",
                     "updated": 1654391300685,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Pfadparameter kann eine feste Textzeichenfolge sein, die an einem API Path Parameter Knoten definiert ist, oder er kann vom API Fetcher Bot dynamisch durch einen zur Laufzeit generierten Wert ersetzt werden.",
+                    "updated": 1701930775465,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "text": "API Yolu Parametre Yapılandırması",
                     "updated": 1654391306984,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration API Path Parameter",
+                    "updated": 1701930775713,
+                    "style": "Title"
                 }
             ]
         },
@@ -66,6 +83,12 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1654391312985,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930775827,
                     "style": "Subtitle"
                 }
             ]
@@ -85,6 +108,12 @@
                     "text": "codeName: Bu özellik, istek URL'sinin oluşturulmasına yardımcı olmak için kullanılan değeri tutar.",
                     "updated": 1654391318987,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName: Diese Eigenschaft enthält den Wert, der für die Erstellung der Anfrage URL verwendet wird.",
+                    "updated": 1701930775943,
+                    "style": "List"
                 }
             ]
         },
@@ -103,6 +132,12 @@
                     "text": "API belgelerinde belirtilen dizeyi tam olarak yazmaya dikkat edin. Ekstra boşluklar veya büyük harfler URL'yi bozacak ve hata döndürmesine neden olacaktır.",
                     "updated": 1654391326025,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, genau die in der API-Dokumentation angegebene Zeichenfolge zu schreiben. Zusätzliche Leerzeichen oder Großbuchstaben unterbrechen die URL und führen zu einer Fehlermeldung.",
+                    "updated": 1701930776131,
+                    "style": "Important"
                 }
             ]
         },
@@ -119,6 +154,12 @@
                     "language": "TR",
                     "text": "isString: Yol parametresinin bir dize olup olmadığını tanımlar.",
                     "updated": 1654391332286,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "isString: Definiert, ob der Pfadparameter eine Zeichenkette ist oder nicht.",
+                    "updated": 1701930776286,
                     "style": "List"
                 }
             ]
@@ -137,6 +178,12 @@
                     "text": "isOptional: Bu yol parametresinin isteğe bağlı olup olmadığını tanımlar.",
                     "updated": 1654391337565,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "isOptional: Legt fest, ob dieser Pfadparameter optional ist oder nicht.",
+                    "updated": 1701930776424,
+                    "style": "List"
                 }
             ]
         },
@@ -153,6 +200,12 @@
                     "language": "TR",
                     "text": "Açıklama: Bu yol parametresinin ne yaptığına dair temel bir açıklama tanımlayın.",
                     "updated": 1654391343597,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "description: Definieren Sie eine grundlegende Beschreibung dessen, was dieser Pfadparameter bewirkt.",
+                    "updated": 1701930776574,
                     "style": "List"
                 }
             ]
@@ -172,6 +225,12 @@
                     "text": "replaceBy: [İsteğe bağlı] Bu özellik, API Fetcher Bot'a bu parametreye geçerli varsayılanın yerine bir değer ayarlaması ve yalnızca çalışma zamanında kullanılabilen bağlamsal bilgileri kullanması talimatını vermenizi sağlar.",
                     "updated": 1654391349013,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "replaceBy: [Optional] Mit dieser Eigenschaft können Sie den API Fetcher Bot anweisen, einen Wert für diesen Parameter festzulegen, der den aktuellen Standardwert ersetzt und kontextbezogene Informationen verwendet, die nur zur Laufzeit verfügbar sind.",
+                    "updated": 1701930776753,
+                    "style": "List"
                 }
             ]
         },
@@ -188,6 +247,12 @@
                     "language": "TR",
                     "text": "İşte bir API Yolu Parametresi yapılandırması örneği:",
                     "updated": 1654391354978,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein Beispiel für eine API Path Parameter Konfiguration:",
+                    "updated": 1701930777036,
                     "style": "Text"
                 }
             ]
@@ -206,6 +271,12 @@
                     "language": "TR",
                     "text": "Foundations->Concept->replaceBy Config Property->Nasıl Kullanılır",
                     "updated": 1654391360994,
+                    "style": "Include"
+                },
+                {
+                    "language": "DE",
+                    "text": "Foundations->Concept->replaceBy Config Property->Hinweise zur Verwendung",
+                    "updated": 1701930777140,
                     "style": "Include"
                 }
             ]

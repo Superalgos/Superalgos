@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Borsadan bir siparişle ilgili bilgi alınmaya çalışılırken beklenmeyen bir hata oluştu.",
                 "updated": 1651093117665
+            },
+            {
+                "language": "DE",
+                "text": "Bei dem Versuch, die Informationen zu einem Auftrag von der Börse abzurufen, ist ein unerwarteter Fehler aufgetreten.",
+                "updated": 1700515018148
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Bir sipariş alma süreci, sipariş bilgileriyle birlikte bir yanıt almayı bekleyen API'si aracılığıyla borsaya bir istek göndermeyi içerir. Sürecin başarısız olmasının birçok farklı nedeni vardır. Bu nedenlerden bazıları sizin kontrolünüz altında, bazıları ise değil. Bazıları, değişim sunucularının geçici olarak kullanılamaması, iletişim ve ağ hataları veya diğer sorunları içerebilir.",
                     "updated": 1651093173059
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Auftrag zu erhalten, muss eine Anfrage an die Börse über deren API gesendet werden, in der Erwartung, eine Antwort mit den Auftragsinformationen zu erhalten. Es gibt viele verschiedene Gründe, warum dieser Prozess fehlschlagen kann. Einige dieser Gründe liegen unter Ihrer Kontrolle, andere nicht. Einige können die vorübergehende Nichtverfügbarkeit der Börsenserver, Kommunikations- und Netzwerkfehler oder andere Probleme betreffen.",
+                    "updated": 1700515041292
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Hata ayrıntılarını aşağıda bulabilirsiniz. Sorunun doğasını anlamanıza ve belki de ulaşabileceğiniz bir yerdeyse çözmenize yardımcı olabilirler. LF ( LF Trading Bot ) Ticaret Botu, beklenmeyen hataların ortaya çıkmasına rağmen çalışmaya devam etme mantığına sahiptir.",
                     "updated": 1651093555279
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie die Fehlerdetails. Sie können Ihnen helfen, die Art des Problems zu verstehen und es vielleicht zu lösen, wenn es in Ihrer Reichweite ist. Der LF Trading Bot verfügt über eine Logik, um unerwartete Fehler zu behandeln und trotz ihres Auftretens weiterzuarbeiten.",
+                    "updated": 1700515055889
                 }
             ]
         },
@@ -62,6 +77,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1651093707093
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1700515070410
                 }
             ]
         },
@@ -73,6 +93,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1651093718587
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1700515082458
                 }
             ]
         },
@@ -85,6 +110,11 @@
                     "language": "TR",
                     "text": "Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1651093733088
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1700515098585
                 }
             ]
         },
@@ -96,6 +126,11 @@
                     "language": "TR",
                     "text": "Hata iletisi",
                     "updated": 1651093800785
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1700515107458
                 }
             ]
         },
@@ -107,6 +142,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading ) Ticaret Botunda oluşan Özel Durumun Hata İletisi aşağıdadır:",
                     "updated": 1651093822154
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie die Fehlermeldung der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700515116703
                 }
             ]
         },
@@ -122,6 +162,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1651093843857
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerstapel",
+                    "updated": 1700515128652
                 }
             ]
         },
@@ -133,6 +178,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Yığını aşağıdadır:",
                     "updated": 1651093853535
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Fehlerstapel der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700515137489
                 }
             ]
         },
@@ -148,6 +198,11 @@
                     "language": "TR",
                     "text": "Hata Kodu",
                     "updated": 1651093863014
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1700515146980
                 }
             ]
         },
@@ -159,6 +214,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda oluşan Özel Durumun Hata Kodu aşağıdadır:",
                     "updated": 1651093873927
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie den Fehlercode der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700515156434
                 }
             ]
         },
@@ -174,6 +234,11 @@
                     "language": "TR",
                     "text": "Hata Ayrıntıları",
                     "updated": 1651093888466
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1700515168015
                 }
             ]
         },
@@ -185,6 +250,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading Bot ) Ticaret Botunda meydana gelen İstisnanın tüm Hata ayrıntıları aşağıdadır:",
                     "updated": 1651093900622
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie alle Fehlerdetails der Ausnahme, die beim LF Trading Bot aufgetreten ist:",
+                    "updated": 1700515176560
                 }
             ]
         },
@@ -200,6 +270,11 @@
                     "language": "TR",
                     "text": "Düğüm Adı",
                     "updated": 1651093923504
+                },
+                {
+                    "language": "DE",
+                    "text": "Name des Knotens",
+                    "updated": 1700515192148
                 }
             ]
         },
@@ -211,6 +286,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1651093927772
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Name des Knotens, der am meisten mit diesem Fehler zu tun hat:",
+                    "updated": 1700515199563
                 }
             ]
         },
@@ -226,6 +306,11 @@
                     "language": "TR",
                     "text": "Düğüm Kodu",
                     "updated": 1651093945748
+                },
+                {
+                    "language": "DE",
+                    "text": "Code des Knotens",
+                    "updated": 1700515221703
                 }
             ]
         },
@@ -237,6 +322,11 @@
                     "language": "TR",
                     "text": "LF ( LF Trading ) Ticaret Bot'ta hatayı üreten düğümde depolanan kod aşağıdadır:",
                     "updated": 1651093950165
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Code aufgeführt, der in dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
+                    "updated": 1700515668050
                 }
             ]
         },
@@ -252,6 +342,11 @@
                     "language": "TR",
                     "text": "Bağlam Bilgisi",
                     "updated": 1651094007494
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1700515272646
                 }
             ]
         },
@@ -263,6 +358,11 @@
                     "language": "TR",
                     "text": "Hata oluştuğunda korunan bağlam bilgileri aşağıdadır:",
                     "updated": 1651094012644
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden sind die Kontextinformationen aufgeführt, die beim Auftreten des Fehlers erhalten wurden:",
+                    "updated": 1700515281443
                 }
             ]
         },

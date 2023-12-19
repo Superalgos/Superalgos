@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Лимитный ордер - это раздел структуры данных, который отслеживает свойства конкретного лимитного ордера, определенного в торговой системе.",
                 "updated": 1645168214097
+            },
+            {
+                "language": "TR",
+                "text": "Limit emri, ticaret sisteminde tanımlandığı gibi belirli bir limit emrinin özelliklerini takip eden veri yapısının bölümüdür.",
+                "updated": 1701085045103
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Каждый лимитный ордер, определенный в торговой системе, должен ссылаться на структуру данных лимитного ордера в торговом движке.",
                     "updated": 1645168231810
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım sisteminde tanımlanan her bir limit emri, alım satım motorundaki bir limit emrinin veri yapısını referans almalıdır.",
+                    "updated": 1701085049842
                 }
             ]
         }

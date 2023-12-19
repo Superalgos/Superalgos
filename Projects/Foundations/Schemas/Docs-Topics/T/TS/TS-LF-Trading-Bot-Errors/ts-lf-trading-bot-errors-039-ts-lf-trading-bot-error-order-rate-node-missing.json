@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Sipariş Oranı ( Order Rate ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1649105319038
+            },
+            {
+                "language": "DE",
+                "text": "An dem Knoten, an dem der Fehler auftrat, wurde ein Order Rate -Knoten erwartet, aber nicht gefunden. ",
+                "updated": 1700512572443
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Sipariş Oranı Düğümü Eksik. ( Order Rate Node Missing )",
                     "updated": 1649105354104
+                },
+                {
+                    "language": "DE",
+                    "text": "Rate-Knoten fehlt (Order Rate Node Missing)",
+                    "updated": 1700294815222
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1649105376129
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700294824454
                 }
             ]
         }

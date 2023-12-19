@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Boyut ( Size ) düğümü bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648939346038
+            },
+            {
+                "language": "DE",
+                "text": "Ein Size node wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat. ",
+                "updated": 1700512473472
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Boyut Düğümü Eksik. ( Size Node Missing )",
                     "updated": 1648939376910
+                },
+                {
+                    "language": "DE",
+                    "text": "Size Node fehlt (Size Node Missing)",
+                    "updated": 1700294046883
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648939407268
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700294065617
                 }
             ]
         }

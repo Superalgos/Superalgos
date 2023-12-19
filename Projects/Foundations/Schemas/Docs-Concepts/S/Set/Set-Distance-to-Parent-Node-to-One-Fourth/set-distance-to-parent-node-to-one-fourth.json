@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düğüm, mesafenin 1/4 (0.25)'üne kilitlenir.",
                 "updated": 1666967007712
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten ist auf das 0,25-fache der Entfernung eingestellt.",
+                "updated": 1701029500817
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыш�� и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638297383387
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701029520266
                 }
             ]
         }

@@ -408,7 +408,8 @@
             "projects": "Add Missing Projects",
             "swapPairs": "Add Missing Swap Pairs",
             "items": "Add Missing Items",
-            "portfolioMineTasks": "Add Missing Portfolio Mine Tasks"
+            "portfolioMineTasks": "Add Missing Portfolio Mine Tasks",
+            "projectPortfolioTasks": "Add Missing Project Portfolio Tasks"
         },
         "learning": {
             "session": {
@@ -441,7 +442,9 @@
             "projectTrading": "Add Project Trading Tasks",
             "productionTrading": "Add Production Trading Tasks",
             "testingPortfolio": "Add Testing Portfolio Tasks",
+            "exchangePortfolio": "Add Exchange Portfolio Tasks",
             "productionPortfolio": "Add Production Portfolio Tasks",
+            "projectPortfolio": "Add Project Portfolio Tasks",
             "marketPortfolio": "Add Market Portfolio Tasks"
         },
         "exchange": {
@@ -618,6 +621,10 @@
                     "run": "Run All Exchange Learning Tasks",
                     "stop": "Stop All Exchange Learning Tasks"
                 },
+                "portfolio": {
+                    "run": "Run All Exchange Portfolio Tasks",
+                    "stop": "Stop All Exchange Portfolio Tasks"
+                },
                 "trading": {
                     "run": "Run All Exchange Trading Tasks",
                     "stop": "Stop All Exchange Trading Tasks"
@@ -639,6 +646,10 @@
                 "learning": {
                     "run": "Run All Project Learning Tasks",
                     "stop": "Stop All Project Learning Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Project Portfolio Tasks",
+                    "stop": "Stop All Project Portfolio Tasks"
                 },
                 "trading": {
                     "run": "Run All Project Trading Tasks",

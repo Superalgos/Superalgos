@@ -27,13 +27,15 @@ function newGobernanceReportsSpace() {
         computing: undefined,
         tablesSortingOrders: undefined,
         commandInterface: undefined,
+        /**@type {CsvExportFunction} */ csvExport: undefined,
         changeTableSortingOrder,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
         finalize: finalize,
         initialize: initialize,
-        reset: reset
+        reset: reset,
+        exportCsv: exportCsv,
     }
 
     let browserResizedEventSubscriptionId
@@ -126,6 +128,9 @@ function newGobernanceReportsSpace() {
         thisObject.commandInterface.finalize()
         thisObject.commandInterface = undefined
 
+        thisObject.csvExport.finalize()
+        thisObject.csvExport = undefined
+
         isInitialized = false
     }
 
@@ -168,6 +173,7 @@ function newGobernanceReportsSpace() {
         thisObject.positions = newGovernanceReportsPositions()
         thisObject.mining = newGovernanceReportsMining()
         thisObject.computing = newGovernanceReportsComputing()
+        thisObject.csvExport = newGovernanceReportsCsvExport()
 
         thisObject.commandInterface.initialize()
         thisObject.reportsPage.initialize()
@@ -191,6 +197,7 @@ function newGobernanceReportsSpace() {
         thisObject.positions.initialize()
         thisObject.mining.initialize()
         thisObject.computing.initialize()
+        thisObject.csvExport.initialize()
 
         setupSidePanelTab()
 
@@ -364,5 +371,24 @@ function newGobernanceReportsSpace() {
                 browserCanvasContext.stroke()
             }
         }
+    }
+
+    function exportCsv() {
+        let records = thisObject.csvExport.asCsv()
+        console.log('export generated ' + records.length + 'records')
+        console.log(JSON.stringify(records))
+        const blob = new Blob([records.join('\n')], { type: 'text/csv' })
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.setAttribute('href', url)
+        const now = new Date();
+        const filename = 'governance-report-' 
+            + now.getFullYear() 
+            + '-' 
+            + (now.getMonth() + 1)
+            + '-' 
+            + now.getDate() + '.csv'
+        a.setAttribute('download', filename)
+        a.click()
     }
 }

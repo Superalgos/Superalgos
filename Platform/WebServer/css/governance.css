@@ -829,6 +829,19 @@
     width: 100%;
     }
     
+    .governance-report-page-header-download-container {
+    display: block;
+    text-align: right;
+    align-content: right;
+    margin-top: 20px;
+    caret-color: transparent;
+    }
+
+    .governance-report-page-header-download-container a {
+        text-decoration: none;
+        color: #365558;
+    }
+
     .governance-report-page-header-tabs-container {
     display: table;
     text-align: right;
@@ -872,7 +885,7 @@
     .governance-search-result-content > div {
     display: none;
     }
-    
+
     #governance-tab1:checked ~ .governance-search-result-content #content1,
     #governance-tab2:checked ~ .governance-search-result-content #content2,
     #governance-tab3:checked ~ .governance-search-result-content #content3,

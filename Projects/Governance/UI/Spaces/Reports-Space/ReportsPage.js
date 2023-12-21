@@ -54,6 +54,11 @@ function newGovernanceReportsReportsPage() {
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.governance.spaces.reportsSpace.filtersHeader.addFilterHeader()
 
+
+            HTML = HTML + '<div class="governance-report-page-header-download-container">'
+            HTML = HTML + '<p><a href="#" onClick="UI.projects.governance.spaces.reportsSpace.exportCsv()">Download as CSV <i class="fa fa-download" aria-hidden="true"></i></a></p>'
+            HTML = HTML + '</div>'
+
             // Tabs
             HTML = HTML + '<div class="governance-report-page-header-tabs-container">'
             let checked = ' checked=""'

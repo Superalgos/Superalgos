@@ -152,7 +152,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'socketMessage Not Correct JSON Format.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -164,7 +164,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'messageType Not Provided.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -182,7 +182,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             message: 'Handshake Not Done Yet.',
                             messageId: socketMessage.messageId
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
                     }
@@ -196,7 +196,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             message: 'Payload Not Correct JSON Format.',
                             messageId: socketMessage.messageId
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                     }
 
@@ -206,7 +206,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             message: 'Network Service Undefined.',
                             messageId: socketMessage.messageId
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
                     }
@@ -231,14 +231,14 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         boradcastTo = response.boradcastTo
                                         response.boradcastTo = undefined
                                         response.messageId = socketMessage.messageId
-                                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                     } else {
                                         let response = {
                                             result: 'Error',
                                             message: 'Social Graph Network Service Not Running.'
                                         }
                                         response.messageId = socketMessage.messageId
-                                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                         caller.socket.close()
                                         return
                                     }
@@ -254,14 +254,14 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         boradcastTo = response.boradcastTo
                                         response.boradcastTo = undefined
                                         response.messageId = socketMessage.messageId
-                                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                     } else {
                                         let response = {
                                             result: 'Error',
                                             message: 'Bitcoin Factory Network Service Not Running.'
                                         }
                                         response.messageId = socketMessage.messageId
-                                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                         caller.socket.close()
                                         return
                                     }
@@ -295,7 +295,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         message: 'Network Service Not Supported.'
                                     }
                                     response.messageId = socketMessage.messageId
-                                    sendSocketMessage(caller.socket, JSON.stringify(response))
+                                    caller.socket.send(JSON.stringify(response))
                                     caller.socket.close()
                                     return
                                 }
@@ -313,14 +313,14 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         boradcastTo = response.boradcastTo
                                         response.boradcastTo = undefined
                                         response.messageId = socketMessage.messageId
-                                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                     } else {
                                         let response = {
                                             result: 'Error',
                                             message: 'Social Graph Network Service Not Running.'
                                         }
                                         response.messageId = socketMessage.messageId
-                                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                                        caller.socket.send(JSON.stringify(response))
                                         caller.socket.close()
                                         return
                                     }
@@ -335,7 +335,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                                         message: 'Network Service Not Supported.'
                                     }
                                     response.messageId = socketMessage.messageId
-                                    sendSocketMessage(caller.socket, JSON.stringify(response))
+                                    caller.socket.send(JSON.stringify(response))
                                     caller.socket.close()
                                     return
                                 }
@@ -367,7 +367,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         result: 'Error',
                         message: 'messageType Not Supported.'
                     }
-                    sendSocketMessage(caller.socket, JSON.stringify(response))
+                    caller.socket.send(JSON.stringify(response))
                     caller.socket.close()
                     break
                 }
@@ -392,7 +392,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 result: 'Error',
                 message: 'step Not Provided.'
             }
-            sendSocketMessage(caller.socket, JSON.stringify(response))
+            caller.socket.send(JSON.stringify(response))
             caller.socket.close()
             return
         }
@@ -401,7 +401,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 result: 'Error',
                 message: 'step Not Supported.'
             }
-            sendSocketMessage(caller.socket, JSON.stringify(response))
+            caller.socket.send(JSON.stringify(response))
             caller.socket.close()
             return
         }
@@ -424,7 +424,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'callerRole Not Provided.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -434,7 +434,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'callerRole Not Supported.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -450,7 +450,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             result: 'Error',
                             message: 'P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS reached.'
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
                     }
@@ -462,7 +462,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             result: 'Error',
                             message: 'P2P_NETWORK_NODE_MAX_INCOMING_PEERS reached.'
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
                     }
@@ -477,7 +477,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'callerProfileHandle Not Provided.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -490,7 +490,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'callerTimestamp Not Provided.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -502,7 +502,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'callerTimestamp Too Old.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -523,7 +523,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 message: 'Handshake Step One Complete',
                 signature: JSON.stringify(signature)
             }
-            sendSocketMessage(caller.socket, JSON.stringify(response))
+            caller.socket.send(JSON.stringify(response))
         }
 
         function handshakeStepTwo() {
@@ -535,7 +535,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'Handshake Step One Not Completed.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -547,7 +547,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'signature Not Provided.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -560,7 +560,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'Bad Signature.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -574,7 +574,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'userProfile Not Found. This means that the signing account used to sign the message sent to the Network Node is not the same that the one the Network Node knows. The reason could be that 1) you did not generate the Signing Accounts, 2) You did not save your User Profile Plugin, 3) Your User Profile was not merged at the Governance Repo (it takes a few minutes to merge when the merging bot is running, check the repo) 4) The Network Node did not git pull your User Profile yet. 5) The Task you are running is not referencing the Task App at your own profile. Check carefuly those points to figure out which one is causing this problem for you.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 SA.logger.info('Socket Interfaces -> handshakeStepTwo -> userAppBlockchainAccount not associated with userProfile -> userAppBlockchainAccount = ' + caller.userAppBlockchainAccount)
                 return
@@ -590,7 +590,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             result: 'Error',
                             message: 'Network Client User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
                     }
@@ -603,7 +603,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                             result: 'Error',
                             message: 'Network Peer User Profile ' + userProfileByBlockchainAccount.config.codeName + ' has a Balance of ' + SA.projects.governance.utilities.balances.toSABalanceString(userProfileByBlockchainAccount.balance) + ' while the Minimun Balance Required to connect to this Network Node "' + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + '/' + NT.networkApp.p2pNetworkNode.node.config.codeName + '" is ' + SA.projects.governance.utilities.balances.toSABalanceString(clientMinimunBalance)
                         }
-                        sendSocketMessage(caller.socket, JSON.stringify(response))
+                        caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
                         return
                     }
@@ -666,7 +666,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'signature.message Hashed Does Not Match signature.messageHash.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -679,7 +679,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'callerProfileHandle Does Not Match userProfileByBlockchainAccount.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -692,7 +692,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'calledProfileHandle Does Not Match This Network Node Handle.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -704,7 +704,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                     result: 'Error',
                     message: 'calledTimestamp Does Not Match calledTimestamp On Record.'
                 }
-                sendSocketMessage(caller.socket, JSON.stringify(response))
+                caller.socket.send(JSON.stringify(response))
                 caller.socket.close()
                 return
             }
@@ -723,7 +723,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                         result: 'Error',
                         message: 'User Profile Does Not Have Permission to This Permissioned P2P Network.'
                     }
-                    sendSocketMessage(caller.socket, JSON.stringify(response))
+                    caller.socket.send(JSON.stringify(response))
                     caller.socket.close()
                     return
                 }
@@ -739,7 +739,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
                 result: 'Ok',
                 message: 'Handshake Successful.'
             }
-            sendSocketMessage(caller.socket, JSON.stringify(response))
+            caller.socket.send(JSON.stringify(response))
         }
     }
 
@@ -1158,17 +1158,5 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
             signalId = '<unknown>'
         }
         return signalId
-    }
-
-    /**
-     * @param {{
-     *   addEventListener: (type: string, callback: (error) => void) => void
-     *   send: (message: string, callback: (error) => void) => void
-     * }} socket 
-     * @param {string} message 
-     */
-    function sendSocketMessage(socket, message) {
-        socket.addEventListener('error', (event) => console.log('WebSocket error: ', event))
-        socket.send(message, (err) => console.error(`error callback from websocket send: ${err}`))
     }
 }

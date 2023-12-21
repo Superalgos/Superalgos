@@ -9,9 +9,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         finalize: finalize
     }
 
-    let thisSocket = undefined
-    let thisTimer = undefined
-
     return thisObject
 
     function finalize() {
@@ -40,41 +37,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
         */
         SA.logger.debug('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
-        
-        await initSocket(
-            callerRole,
-            p2pNetworkClientIdentity,
-            p2pNetworkNode,
-            p2pNetworkClient,
-            onConnectionClosedCallBack
-        )
-        
-        // 24 hours
-        const intervalPeriod = 60*60*24*1000;
-        /* 
-        trigger a close and reconnect every 24hrs so the connection does not go stale
-        */
-        thisTimer = setInterval(() => {
-            thisSocket.close()
-            initSocket(
-                callerRole,
-                p2pNetworkClientIdentity,
-                p2pNetworkNode,
-                p2pNetworkClient,
-                onConnectionClosedCallBack
-                )
-            }, intervalPeriod) 
-    }
 
-    async function initSocket(
-        callerRole,
-        p2pNetworkClientIdentity,
-        p2pNetworkNode,
-        p2pNetworkClient,
-        onConnectionClosedCallBack
-    ) {
-
-        thisSocket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
+        let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
 
         thisObject.socketNetworkClients = SA.projects.network.modules.socketNetworkClients.newNetworkModulesSocketNetworkClients()
         thisObject.socketNetworkClients.initialize(
@@ -92,6 +56,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         SA.logger.info('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         SA.logger.info('')
         thisObject.socketNetworkClients.isConnected = true
+
     }
 
     async function setUpWebSocketClient(socket) {

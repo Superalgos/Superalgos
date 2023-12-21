@@ -859,7 +859,7 @@ exports.newNetworkModulesSocketInterfaces = function newNetworkModulesSocketInte
         try {
             for (let i = 0; i < boradcastTo.length; i++) {
                 let networkClient = boradcastTo[i]
-                sendSocketMessage(networkClient.socket, JSON.stringify(socketMessage))
+                networkClient.socket.send(JSON.stringify(socketMessage))
             }
             return true
         } catch (err) {

@@ -48,6 +48,7 @@ exports.newNetworkModulesWebRTCNetworkClient = function newNetworkModulesWebRTCN
         SA.logger.info('WebRTC Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         SA.logger.info('')
         thisObject.socketNetworkClients.isConnected = true
+
     }
 
     async function setUpWebSocketClient(socket) {

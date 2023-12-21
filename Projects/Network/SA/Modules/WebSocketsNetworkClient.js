@@ -12,9 +12,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
     return thisObject
 
     function finalize() {
-        clearInterval(thisTimer)
-        thisTimer = undefined
-        thisSocket.close()
         thisObject.socketNetworkClients = undefined
         thisObject.p2pNetworkNode = undefined
         thisObject.host = undefined
@@ -37,6 +34,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
         */
         SA.logger.debug('Websockets Client will try to Connect to Network Node via Web Sockets ........ Trying to Connect to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+
 
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
 

@@ -8,6 +8,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionProject": "Foundations"
@@ -15,6 +16,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Social Bot Command",
+            "translationKey": "add.socialBotCommand",
             "relatedUiObject": "Social Bot Command",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,6 +25,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Timer Announcement",
+            "translationKey": "add.timerAccouncement",
             "relatedUiObject": "Timer Announcement",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -31,6 +34,7 @@
         {
             "action": "Send Telegram Test Message",
             "label": "Send Telegram Test Message",
+            "translationKey": "send.message.telegramTest",
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction",
@@ -41,7 +45,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

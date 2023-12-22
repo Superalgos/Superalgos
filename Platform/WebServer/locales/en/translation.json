@@ -67,6 +67,14 @@
         }
     },
     "add": {
+        "timerAccouncement": "Add Timer Announcement",
+        "socialBotCommand": "Add Social Bot Command",
+        "twitterBot": "Add Twitter Bot",
+        "slackBot": "Add Slack Bot",
+        "discordBot": "Add Discord Bot",
+        "telegramBot": "Add Telegram Bot",
+        "announcementCondition": "Add Announcement Condition",
+        "announcementFormula": "Add Announcement Formula",
         "portfolioBot": "Add Portfolio Bot",
         "projectPortfolioProducts": "Add Project Portfolio Products",
         "allPortfolioMineProducts": "Add All Portfolio Mine Products",
@@ -696,6 +704,9 @@
     },
     "send": {
         "message": {
+            "telegramTest": "Send Telegram Test Message",
+            "slackTest": "Send Slack Test Message",
+            "discordTest": "Send Discord Test Message",
             "twitterTest": "Send Twitter Test Message",
             "text": "Send Test Message"
         }

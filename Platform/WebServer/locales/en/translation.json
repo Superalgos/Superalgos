@@ -67,6 +67,9 @@
         }
     },
     "add": {
+        "socialTradingBot": "Add Social Trading Bot",
+        "followedBotReference": "Add Followed Bot Reference",
+        "socialPersona": "Add Social Persona",
         "timerAccouncement": "Add Timer Announcement",
         "socialBotCommand": "Add Social Bot Command",
         "twitterBot": "Add Twitter Bot",
@@ -493,7 +496,8 @@
             "provider": "Add Signals Provider",
             "providers": "Add Signals Providers",
             "outgoing": "Add Outgoing Signals",
-            "incoming": "Add Incoming Signals"
+            "incoming": "Add Incoming Signals",
+            "available": "Add Available Signals"
         },
         "data": {
             "allMineDependencies": "Add All Data Mine Dependencies",

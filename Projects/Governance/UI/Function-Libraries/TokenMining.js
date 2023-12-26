@@ -220,3 +220,5 @@ function newGovernanceFunctionLibraryTokenMining() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryTokenMining = newGovernanceFunctionLibraryTokenMining

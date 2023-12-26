@@ -1734,7 +1734,7 @@
                 {
                     "name": "Descendent Tables",
                     "propertyName": "decendentTables",
-                    "fileName": "DecendentTables.js",
+                    "fileName": "DescendentTables.js",
                     "functionName": "newGovernanceUtilitiesDecendentTables"
                 },
                 {

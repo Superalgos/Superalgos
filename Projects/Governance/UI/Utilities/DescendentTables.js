@@ -129,3 +129,5 @@ function newGovernanceUtilitiesDecendentTables() {
         )
     }
 }
+
+exports.newGovernanceUtilitiesDecendentTables = newGovernanceUtilitiesDecendentTables

@@ -31,7 +31,7 @@ function newGovernanceReportsCsvExport() {
      * 
      * @returns {string[]}
      */
-    function asCsv() {
+    function asCsv(userProfiles) {
         let tableRecords = []
         let tableRecordDefinition = {
             headers: [
@@ -259,10 +259,7 @@ function newGovernanceReportsCsvExport() {
                 },
             ]
         }
-        /*
-        Here we get from the workspace all User Profiles.
-        */
-        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+
         /*
          * Transform the result array into table records.
          */
@@ -548,6 +545,8 @@ function newGovernanceReportsCsvExport() {
         }
     }
 }
+
+exports.newGovernanceReportsCsvExport = newGovernanceReportsCsvExport
 
 /**
  * @typedef TablePropertyDefinition

@@ -331,3 +331,5 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryLiquidityProgram = newGovernanceFunctionLibraryLiquidityProgram

@@ -9,3 +9,5 @@ function newGovernanceGlobalsDesigner() {
     }
     return thisObject
 }
+
+exports.newGovernanceGlobalsDesigner = newGovernanceGlobalsDesigner

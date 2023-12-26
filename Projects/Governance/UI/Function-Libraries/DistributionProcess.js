@@ -159,3 +159,5 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryDistributionProcess = newGovernanceFunctionLibraryDistributionProcess

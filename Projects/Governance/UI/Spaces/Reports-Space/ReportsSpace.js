@@ -1,4 +1,4 @@
-function newGobernanceReportsSpace() {
+function newGovernanceReportsSpace() {
     const MODULE_NAME = 'Reports Space'
 
     let thisObject = {
@@ -374,7 +374,7 @@ function newGobernanceReportsSpace() {
     }
 
     function exportCsv() {
-        let records = thisObject.csvExport.asCsv()
+        let records = thisObject.csvExport.asCsv(UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile'))
         console.log('export generated ' + records.length + 'records')
         console.log(JSON.stringify(records))
         const blob = new Blob([records.join('\n')], { type: 'text/csv' })

@@ -74,3 +74,5 @@ function newVisualScriptingUtilitiesBranches() {
         }
     }
 }
+
+exports.newVisualScriptingUtilitiesBranches = newVisualScriptingUtilitiesBranches

@@ -19,3 +19,5 @@ function newFoundationsUtilitiesDates() {
         return [year, month, day].join('-');
     }
 }
+
+exports.newFoundationsUtilitiesDates = newFoundationsUtilitiesDates

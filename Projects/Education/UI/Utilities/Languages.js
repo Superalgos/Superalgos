@@ -64,3 +64,5 @@ function newEducationUtilitiesLanguages() {
         return languageLabel 
     }    
 }
+
+exports.newEducationUtilitiesLanguages = newEducationUtilitiesLanguages

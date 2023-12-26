@@ -128,3 +128,5 @@ function newFoundationsUtilitiesFolders() {
         return newUiObjects
     }
 }
+
+exports.newFoundationsUtilitiesFolders = newFoundationsUtilitiesFolders

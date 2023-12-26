@@ -38,3 +38,5 @@ function newEducationFunctionLibraryDocsStatisticsFunctions() {
         }
     }
 }
+
+exports.newEducationFunctionLibraryDocsStatisticsFunctions = newEducationFunctionLibraryDocsStatisticsFunctions

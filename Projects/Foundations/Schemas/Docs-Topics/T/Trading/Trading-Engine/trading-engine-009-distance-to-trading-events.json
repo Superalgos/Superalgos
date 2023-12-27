@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Her bir olay türünün son oluşumundan bu yana geçen dönemlerin sayısını izleyin. Bu sayfada: Tetikleme Açık, Tetikleme Kapalı, Pozisyon Al, Pozisyonu Kapat, Sonraki Aşama, Aşamaya Taşı, Emir Oluştur, Emir İptal Et, Siparişi Kapat ( Trigger On, Trigger Off, Take Position, Close Position, Next Phase, Move to Phase, Create Order, Cancel Order, Close Order ).",
                 "updated": 1650617406152
+            },
+            {
+                "language": "DE",
+                "text": "Verfolgen Sie die Anzahl der Zeiträume, die seit dem letzten Auftreten der einzelnen Ereignistypen vergangen sind. Auf dieser Seite: Trigger On, Trigger Off, Take Position, Close Position, Next Phase, Move to Phase, Create Order, Cancel Order, Close Order.",
+                "updated": 1702581870353
             }
         ]
     },

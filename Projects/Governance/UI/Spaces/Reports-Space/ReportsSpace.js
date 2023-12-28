@@ -375,9 +375,18 @@ function newGovernanceReportsSpace() {
 
     function exportCsv() {
         let records = thisObject.csvExport.asCsv(UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile'))
-        console.log('export generated ' + records.length + 'records')
-        console.log(JSON.stringify(records))
-        const blob = new Blob([records.join('\n')], { type: 'text/csv' })
+
+        let dataRows = records.userProfiles.join('\n')
+        dataRows += '\n\nAssets\n'
+        dataRows += records.assets.join('\n')
+        dataRows += '\n\nFeatures\n'
+        dataRows += records.features.join('\n')
+        dataRows += '\n\nPools\n'
+        dataRows += records.pools.join('\n')
+        dataRows += '\n\nPositions\n'
+        dataRows += records.positions.join('\n')
+        
+        const blob = new Blob([dataRows], { type: 'text/csv' })
         const url = window.URL.createObjectURL(blob)
         const a = document.createElement('a')
         a.setAttribute('href', url)

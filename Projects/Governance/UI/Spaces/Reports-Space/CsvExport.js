@@ -174,7 +174,7 @@ function newGovernanceReportsCsvExport() {
                 record.name.value = name
                 record.tokensReward.value = node.payload.tokens | 0,
                 record.rewardsInBTC.value = UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.tokens | 0),
-                record.weight.value = (node.payload.weight * 100).toFixed(2) = '%',
+                record.weight.value = (node.payload.weight * 100).toFixed(2) + '%',
                 record.weightPower.value = weightPower
                 commonRecordMap[recordKey].push(record)
             }

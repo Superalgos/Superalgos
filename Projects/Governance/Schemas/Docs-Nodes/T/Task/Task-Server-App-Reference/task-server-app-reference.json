@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Dieser Knoten speichert einen Verweis auf den Knoten Task Server App, der es dem übergeordneten Task ermöglicht, auf das Signing Account des Taskservers des aktuellen Benutzers zuzugreifen.",
-                "updated": 1704578342389
+                "text": "Dieser Knoten speichert einen Verweis auf den Knoten Task Server App, der es dem übergeordneten Task ermöglicht, auf das Signing Account des Taskservers des aktuellen Benutzers zuzugreifen. ",
+                "updated": 1704581547114
             }
         ]
     },

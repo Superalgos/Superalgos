@@ -19,7 +19,7 @@
             {
                 "language": "DE",
                 "text": "Um die Websockets-Kommunikation zwischen der Benutzeroberfläche (UI) und den Superalgos-Clients zu ermöglichen, müssen wir die Konfiguration des Netzwerkknotens (Network Node) lesen. Wenn irgendetwas mit dieser Konfiguration nicht stimmt, kann die Benutzeroberfläche nicht mit dem Client über Websockets kommunizieren und viele Dinge, wie das Ausführen eines Task s, sind nicht möglich.",
-                "updated": 1702934604610
+                "updated": 1704581385882
             }
         ]
     },
@@ -41,8 +41,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es gibt mehrere Gründe, warum der UI Web Sockets Client einen Fehler bei der Konfiguration meldet. Sie sind alle unten aufgeführt.",
-                    "updated": 1702934625354
+                    "text": "Es gibt mehrere Gründe, warum der UI Web Sockets Client einen Fehler bei der Konfiguration meldet. Sie sind alle unten aufgeführt. ",
+                    "updated": 1704581389882
                 }
             ]
         },

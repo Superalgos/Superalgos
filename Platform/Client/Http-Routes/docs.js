@@ -339,6 +339,13 @@ exports.newDocsRoute = function newDocsRoute() {
                     .replace('..', '.')
                     .replace(',', '')
                     .replace('\'', '')
+                    .replace(':', '')
+                    .replace('|', '')
+                    .replace('"', '')
+                    .replace('<', '')
+                    .replace('>', '')
+                    .replace(';', '')
+                    .replace('=', '')
             }
             return fileName
         }

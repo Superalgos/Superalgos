@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "5",
+    "pageNumber": 4,
     "type": "Keltner Channel - MAMA version",
     "definition": {
         "text": "Keltner channel using Mesa Adaptive Moving Average (MAMA).",

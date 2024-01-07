@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "12",
+    "pageNumber": 11,
     "type": "Volatility Bands",
     "definition": {
         "text": "Volatility Bands take a Volatility Adjusted Moving Average (VAMA) to produce bands similar to Bollinger Bands and the Keltner channel.",

@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Polus by @Raplh2502 ",
     "definition": {
         "text": "The Polus Data Mine features several indicators as listed below. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node.",

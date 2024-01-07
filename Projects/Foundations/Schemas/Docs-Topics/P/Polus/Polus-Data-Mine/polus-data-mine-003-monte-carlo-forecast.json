@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "3",
+    "pageNumber": 3,
     "type": "Monte Carlo Forecast",
     "definition": {
         "text": "The Monte-Carlo simulation is an algorithmic method used to approximate a numerical value with random processes.",

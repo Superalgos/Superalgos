@@ -24,3 +24,5 @@ function newFoundationsUtilitiesCoordinateTransformations() {
         return point
     }
 }
+
+exports.newFoundationsUtilitiesCoordinateTransformations = newFoundationsUtilitiesCoordinateTransformations

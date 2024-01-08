@@ -4,3 +4,5 @@ function newGovernanceGlobalsReports() {
     }
     return thisObject
 }
+
+exports.newGovernanceGlobalsReports = newGovernanceGlobalsReports

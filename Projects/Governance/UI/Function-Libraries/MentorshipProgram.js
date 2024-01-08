@@ -30,3 +30,5 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
         )
     }
 }
+
+exports.newGovernanceFunctionLibraryMentorshipProgram = newGovernanceFunctionLibraryMentorshipProgram

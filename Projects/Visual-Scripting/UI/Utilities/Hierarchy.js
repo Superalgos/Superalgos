@@ -87,3 +87,5 @@ function newVisualScriptingUtilitiesHierarchy() {
         }
     }
 }
+
+exports.newVisualScriptingUtilitiesHierarchy = newVisualScriptingUtilitiesHierarchy

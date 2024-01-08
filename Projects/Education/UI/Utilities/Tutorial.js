@@ -25,3 +25,5 @@ function newEducationUtilitiesTutorial() {
         }
     }
 }
+
+exports.newEducationUtilitiesTutorial = newEducationUtilitiesTutorial

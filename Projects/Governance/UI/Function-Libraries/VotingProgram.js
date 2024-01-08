@@ -557,3 +557,5 @@ function newGovernanceFunctionLibraryVotingProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryVotingProgram = newGovernanceFunctionLibraryVotingProgram

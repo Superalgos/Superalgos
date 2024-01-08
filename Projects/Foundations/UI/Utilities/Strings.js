@@ -127,3 +127,5 @@ function newFoundationsUtilitiesStrings() {
         return result
     }
 }
+
+exports.newFoundationsUtilitiesStrings = newFoundationsUtilitiesStrings

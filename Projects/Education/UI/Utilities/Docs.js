@@ -715,3 +715,5 @@ function newEducationUtilitiesDocs() {
             .replace('<', '')
     }
 }
+
+exports.newEducationUtilitiesDocs = newEducationUtilitiesDocs

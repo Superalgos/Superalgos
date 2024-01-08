@@ -907,3 +907,5 @@ function newWorkspace() {
         console.log('setting workspace title')
     }
 }
+
+exports.newWorkspace = newWorkspace

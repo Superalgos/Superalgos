@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sunucu Uygulamaları hiyerarşisi, mevcut Kullanıcı Profili (User Profile) ile ilişkili tüm sunucu uygulamalarının tanımlarını tutar.",
                 "updated": 1666691653998
+            },
+            {
+                "language": "DE",
+                "text": "Die Hierarchie der Server-Apps enthält die Definitionen aller Server-Apps, die mit dem aktuellen Benutzerprofil (User Profile) verbunden sind. ",
+                "updated": 1704581455224
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "İçerik Sunucu uygulamaları, ortam gibi bir sunucu aracılığıyla Superalgos eşler arası ağa erişmek için kullanılır.",
                     "updated": 1666691637266
+                },
+                {
+                    "language": "DE",
+                    "text": "Server-Apps werden verwendet, um über eine serverähnliche Umgebung auf das Superalgos Peer-to-Peer-Netzwerk zuzugreifen.",
+                    "updated": 1704580112850
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Şu anda mevcut olan iki ana sunucu uygulaması şunlardır:",
                     "updated": 1666691680156
+                },
+                {
+                    "language": "DE",
+                    "text": "Die beiden wichtigsten derzeit verfügbaren Serveranwendungen sind:",
+                    "updated": 1704580505449
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "TR",
                     "text": "Task Server App (Görev Sunucusu Uygulaması)",
                     "updated": 1666691716865
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufgaben-Server-App (Task Server App)",
+                    "updated": 1704580999549
                 }
             ]
         },

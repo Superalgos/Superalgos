@@ -16,6 +16,11 @@
                 "text": "Bu Eğitim, bir gösterge için özel bir Oran Ölçeği oluşturmanın tüm ayrıntılarını açıklar.  Özel bir oran ölçeği, birden fazla göstergeyi daha da esnek yollarla yan yana görselleştirmenize olanak tanır.",
                 "updated": 1654394034656,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Tutorial wird erklärt, wie man eine benutzerdefinierte Kursskala (Rate Scale) für einen Indikator einrichtet. Mit einer benutzerdefinierten Kursskala können Sie mehrere Indikatoren auf noch flexiblere Weise nebeneinander darstellen.",
+                "updated": 1703089550026
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "text": "Bu Öğretici Çalışma Alanı TBD'de bulunabilir",
                     "updated": 1654394042173,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Tutorial befindet sich im Arbeitsbereich (Workspace) TBD",
+                    "updated": 1703089565468
                 }
             ]
         }

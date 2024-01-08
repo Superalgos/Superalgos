@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Görev Sunucusu Uygulaması düğümü, bir kullanıcının Görev Sunucusu (Task Server) için bir kimlik tanımlamasına izin verir.",
                 "updated": 1666688184049
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Task Server App ermöglicht es einem Benutzer, eine Identität für einen Task Server zu definieren. ",
+                "updated": 1704581436762
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "TR",
                     "text": "Bir görev sunucusu için kimlik tanımlamak, mevcut Kullanıcı Profiline (User Profile) ait Superalgos Platformunun bir örneğini, Superalgos Eşler Arası Ağa bağlar.",
                     "updated": 1666688649228
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Definition einer Identität für einen Aufgabenserver ermöglicht es dem aktuellen Benutzerprofil (User Profile), eine Instanz der Superalgos Plattform mit dem Superalgos Peer-to-Peer Netzwerk zu verbinden.",
+                    "updated": 1704577879621
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "TR",
                     "text": "Bu, bir İmzalama Hesabı (Signing Account) oluşturulmasıyla sağlanır.",
                     "updated": 1666688739217
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies wird durch die Erstellung eines Signing Account erreicht.",
+                    "updated": 1704577902509
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1666688789633
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1704577916564
                 }
             ]
         },
@@ -94,6 +114,11 @@
                     "language": "TR",
                     "text": "codeName: Bu özellik, bir Kullanıcının görev sunucusu uygulaması için seçilen adı tanımlar.",
                     "updated": 1666688828704
+                },
+                {
+                    "language": "DE",
+                    "text": "CodeName: Diese Eigenschaft definiert den gewählten Namen für die Aufgaben-Server-App eines Benutzers.",
+                    "updated": 1704578105707
                 }
             ]
         }

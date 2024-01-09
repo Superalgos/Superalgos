@@ -67,6 +67,11 @@
         }
     },
     "add": {
+        "model": "Add Model",
+        "thresholdedReluLayer": "Add Thresholded Relu Layer",
+        "softmaxLayer": "Add Softmax Layer",
+        "reluLayer": "Add Relu Layer",
+        "preluLayer": "Add Prelu Layer",
         "socialTradingBot": "Add Social Trading Bot",
         "followedBotReference": "Add Followed Bot Reference",
         "socialPersona": "Add Social Persona",

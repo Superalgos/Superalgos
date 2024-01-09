@@ -66,3 +66,5 @@ function newGovernanceUtilitiesValidations() {
         }
     }
 }
+
+exports.newGovernanceUtilitiesValidations = newGovernanceUtilitiesValidations

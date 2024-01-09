@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu metrikler farklı bağlamlarda, örneğin Bölüm, Pozisyon veya Pozisyon düzeyinde ve hem temel hem de teklif edilen varlıklar için mevcuttur.",
                 "updated": 1650617897558
+            },
+            {
+                "language": "DE",
+                "text": "Diese Kennzahlen sind in verschiedenen Zusammenhängen verfügbar, z. B. auf der Ebene der Episode, der Position oder der Position, und zwar sowohl für die Basis als auch für die notierten Vermögenswerte.",
+                "updated": 1702582453233
             }
         ]
     },
@@ -22,7 +27,14 @@
         {
             "style": "Title",
             "text": "Hits",
-            "updated": 1611331909747
+            "updated": 1611331909747,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Treffer (Hits)",
+                    "updated": 1702583835654
+                }
+            ]
         },
         {
             "style": "Include",
@@ -37,7 +49,14 @@
         {
             "style": "Title",
             "text": "Fails",
-            "updated": 1611331934877
+            "updated": 1611331934877,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anzahl der negativen Positionen (Fails)",
+                    "updated": 1702582576007
+                }
+            ]
         },
         {
             "style": "Include",
@@ -67,7 +86,14 @@
         {
             "style": "Title",
             "text": "Profit Loss",
-            "updated": 1611332640555
+            "updated": 1611332640555,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gewinn Verlust (Profit Loss)",
+                    "updated": 1702583851454
+                }
+            ]
         },
         {
             "style": "Include",
@@ -97,7 +123,14 @@
         {
             "style": "Title",
             "text": "Annualized Rate Of Return",
-            "updated": 1611332963859
+            "updated": 1611332963859,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Annualisierte Rendite",
+                    "updated": 1702582596310
+                }
+            ]
         },
         {
             "style": "Include",

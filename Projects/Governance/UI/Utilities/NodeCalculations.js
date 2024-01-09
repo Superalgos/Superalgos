@@ -65,3 +65,5 @@ function newGovernanceUtilitiesNodeCalculations() {
     }
 
 }
+
+exports.newGovernanceUtilitiesNodeCalculations = newGovernanceUtilitiesNodeCalculations

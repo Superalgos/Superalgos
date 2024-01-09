@@ -172,3 +172,5 @@ function newPluginsUtilitiesPlugins() {
         }
     }
 }
+
+exports.newPluginsUtilitiesPlugins = newPluginsUtilitiesPlugins

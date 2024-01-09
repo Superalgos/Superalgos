@@ -501,32 +501,38 @@
                 {
                     "name": "Branches",
                     "propertyName": "branches",
-                    "functionName": "newVisualScriptingUtilitiesBranches"
+                    "functionName": "newVisualScriptingUtilitiesBranches",
+                    "fileName": "Branches.js"
                 },
                 {
                     "name": "Hierarchy",
                     "propertyName": "hierarchy",
-                    "functionName": "newVisualScriptingUtilitiesHierarchy"
+                    "functionName": "newVisualScriptingUtilitiesHierarchy",
+                    "fileName": "Hierarchy.js"
                 },
                 {
                     "name": "Load Save Frame",
                     "propertyName": "loadSaveFrame",
-                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
+                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame",
+                    "fileName": "LoadSaveFrame.js"
                 },
                 {
                     "name": "Meshes",
                     "propertyName": "meshes",
-                    "functionName": "newVisualScriptingUtilitiesMeshes"
+                    "functionName": "newVisualScriptingUtilitiesMeshes",
+                    "fileName": "Meshes.js"
                 },
                 {
                     "name": "Node Children",
                     "propertyName": "nodeChildren",
-                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
+                    "functionName": "newVisualScriptingUtilitiesNodeChildren",
+                    "fileName": "NodeChildren.js"
                 },
                 {
                     "name": "Node Config",
                     "propertyName": "nodeConfig",
-                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
+                    "functionName": "newVisualScriptingUtilitiesNodeConfig",
+                    "fileName": "NodeConfig.js"
                 }
             ]
         },
@@ -594,64 +600,76 @@
                 {
                     "name": "Zoom",
                     "propertyName": "zoom",
-                    "functionName": "newFoundationsGlobalsZoom"
+                    "functionName": "newFoundationsGlobalsZoom",
+                    "fileName": "Zoom.js"
                 }
             ],
             "utilities": [
                 {
                     "name": "Clipboard",
                     "propertyName": "clipboard",
-                    "functionName": "newFoundationsUtilitiesClipboard"
+                    "functionName": "newFoundationsUtilitiesClipboard",
+                    "fileName": "Clipboard.js"
                 },
                 {
                     "name": "Coordinate Transformations",
                     "propertyName": "coordinateTransformations",
-                    "functionName": "newFoundationsUtilitiesCoordinateTransformations"
+                    "functionName": "newFoundationsUtilitiesCoordinateTransformations",
+                    "fileName": "CoordinateTransformations.js"
                 },
                 {
                     "name": "Date Rate Transformations",
                     "propertyName": "dateRateTransformations",
-                    "functionName": "newFoundationsUtilitiesDateRateTransformations"
+                    "functionName": "newFoundationsUtilitiesDateRateTransformations",
+                    "fileName": "DateRateTransformations.js"
                 },
                 {
                     "name": "Dates",
                     "propertyName": "dates",
-                    "functionName": "newFoundationsUtilitiesDates"
+                    "functionName": "newFoundationsUtilitiesDates",
+                    "fileName": "Dates.js"
                 },
                 {
                     "name": "Download",
                     "propertyName": "download",
-                    "functionName": "newFoundationsUtilitiesDownload"
+                    "functionName": "newFoundationsUtilitiesDownload",
+                    "fileName": "Download.js"
                 },
                 {
                     "name": "Draw Print",
                     "propertyName": "drawPrint",
-                    "functionName": "newFoundationsUtilitiesDrawPrint"
+                    "functionName": "newFoundationsUtilitiesDrawPrint",
+                    "fileName": "DrawPrint.js"
                 },
                 {
                     "name": "Menu",
                     "propertyName": "menu",
-                    "functionName": "newFoundationsUtilitiesMenu"
+                    "functionName": "newFoundationsUtilitiesMenu",
+                    "fileName": "Menu.js"
                 },
                 {
                     "name": "Folders",
                     "propertyName": "folders",
-                    "functionName": "newFoundationsUtilitiesFolders"
+                    "functionName": "newFoundationsUtilitiesFolders",
+                    "fileName": "Folders.js"
                 },
                 {
                     "name": "Strings",
                     "propertyName": "strings",
-                    "functionName": "newFoundationsUtilitiesStrings"
+                    "functionName": "newFoundationsUtilitiesStrings",
+                    "fileName": "Strings.js"
                 },
                 {
                     "name": "Git Branches",
                     "propertyName": "gitBranches",
-                    "functionName": "newFoundationsUtilitiesGitBranches"
+                    "functionName": "newFoundationsUtilitiesGitBranches",
+                    "fileName": "GitBranches.js"
                 },
                 {
                     "name": "Status Bar",
                     "propertyName": "statusBar",
-                    "functionName": "newFoundationsUtilitiesStatusBar"
+                    "functionName": "newFoundationsUtilitiesStatusBar",
+                    "fileName": "StatusBar.js"
                 }
             ],
             "spaces": [
@@ -1308,7 +1326,8 @@
                 {
                     "name": "Plugins",
                     "propertyName": "plugins",
-                    "functionName": "newPluginsUtilitiesPlugins"
+                    "functionName": "newPluginsUtilitiesPlugins",
+                    "fileName": "Plugins.js"
                 }
             ]
         },
@@ -1353,14 +1372,16 @@
                 {
                     "name": "ChainIds",
                     "propertyName": "chainIds",
-                    "functionName": "newEthereumGlobalsChainIds"
+                    "functionName": "newEthereumGlobalsChainIds",
+                    "fileName": "ChainIds.js"
                 }
             ],
             "utilities": [
                 {
                     "name": "Route To Client",
                     "propertyName": "routeToClient",
-                    "functionName": "newEthereumUtilitiesRouteToClient"
+                    "functionName": "newEthereumUtilitiesRouteToClient",
+                    "fileName": "RouteToClient.js"
                 }
             ],
             "spaces": [
@@ -1445,31 +1466,36 @@
                 {
                     "name": "Docs Statistics Functions",
                     "propertyName": "docsStatisticsFunctions",
-                    "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions"
+                    "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions",
+                    "fileName": "DocsStatisticsFunctions.js"
                 }
             ],
             "globals": [
                 {
                     "name": "Docs",
                     "propertyName": "docs",
-                    "functionName": "newEducationGlobalsDocs"
+                    "functionName": "newEducationGlobalsDocs",
+                    "fileName": "Docs.js"
                 }
             ],
             "utilities": [
                 {
                     "name": "Languages",
                     "propertyName": "languages",
-                    "functionName": "newEducationUtilitiesLanguages"
+                    "functionName": "newEducationUtilitiesLanguages",
+                    "fileName": "Languages.js"
                 },
                 {
                     "name": "Docs",
                     "propertyName": "docs",
-                    "functionName": "newEducationUtilitiesDocs"
+                    "functionName": "newEducationUtilitiesDocs",
+                    "fileName": "Docs.js"
                 },
                 {
                     "name": "Tutorial",
                     "propertyName": "tutorial",
-                    "functionName": "newEducationUtilitiesTutorial"
+                    "functionName": "newEducationUtilitiesTutorial",
+                    "fileName": "Tutorial.js"
                 }
             ],
             "spaces": [
@@ -1554,86 +1580,103 @@
                 {
                     "name": "Token Power",
                     "propertyName": "tokenPower",
+                    "fileName": "TokenPower.js",
                     "functionName": "newGovernanceFunctionLibraryTokenPower"
                 },
                 {
                     "name": "Token Mining",
                     "propertyName": "tokenMining",
+                    "fileName": "TokenMining.js",
                     "functionName": "newGovernanceFunctionLibraryTokenMining"
                 },
                 {
                     "name": "Voting Program",
                     "propertyName": "votingProgram",
+                    "fileName": "VotingProgram.js",
                     "functionName": "newGovernanceFunctionLibraryVotingProgram"
                 },
                 {
                     "name": "Delegation Program",
                     "propertyName": "delegationProgram",
+                    "fileName": "DelegationProgram.js",
                     "functionName": "newGovernanceFunctionLibraryDelegationProgram"
                 },
                 {
                     "name": "Tokens",
                     "propertyName": "tokens",
+                    "fileName": "Tokens.js",
                     "functionName": "newGovernanceFunctionLibraryTokens"
                 },
                 {
                     "name": "Weights",
                     "propertyName": "weights",
+                    "fileName": "Weights.js",
                     "functionName": "newGovernanceFunctionLibraryWeights"
                 },
                 {
                     "name": "Claims Program",
                     "propertyName": "claimsProgram",
+                    "fileName": "ClaimsProgram.js",
                     "functionName": "newGovernanceFunctionLibraryClaimsProgram"
                 },
                 {
                     "name": "Distribution Process",
                     "propertyName": "distributionProcess",
+                    "fileName": "DistributionProcess.js",
                     "functionName": "newGovernanceFunctionLibraryDistributionProcess"
                 },
                 {
                     "name": "Referral Program",
                     "propertyName": "referralProgram",
+                    "fileName": "ReferralProgram.js",
                     "functionName": "newGovernanceFunctionLibraryReferralProgram"
                 },
                 {
                     "name": "Support Program",
                     "propertyName": "supportProgram",
+                    "fileName": "SupportProgram.js",
                     "functionName": "newGovernanceFunctionLibrarySupportProgram"
                 },
                 {
                     "name": "Influencer Program",
                     "propertyName": "influencerProgram",
+                    "fileName": "InfluencerProgram.js",
                     "functionName": "newGovernanceFunctionLibraryInfluencerProgram"
                 },
                 {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
+                    "fileName": "MentorshipProgram.js",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
                 },
                 {
                     "name": "Staking Program",
                     "propertyName": "stakingProgram",
+                    "fileName": "StakingProgram.js",
                     "functionName": "newGovernanceFunctionLibraryStakingProgram"
                 },
                 {
                     "name": "Liquidity Program",
                     "propertyName": "liquidityProgram",
+                    "fileName": "LiquidityProgram.js",
                     "functionName": "newGovernanceFunctionLibraryLiquidityProgram"
                 },
                 {
                     "name": "Github Program",
                     "propertyName": "githubProgram",
+                    "fileName": "GithubProgram.js",
                     "functionName": "newGovernanceFunctionLibraryGithubProgram"
                 },
                 {
                     "name": "Airdrop Program",
                     "propertyName": "airdropProgram",
+                    "fileName": "AirdropProgram.js",
                     "functionName": "newGovernanceFunctionLibraryAirdropProgram"
                 },
                 {
                     "name": "Computing Program",
                     "propertyName": "computingProgram",
+                    "fileName": "ComputingProgram.js",
                     "functionName": "newGovernanceFunctionLibraryComputingProgram"
                 }
             ],
@@ -1641,16 +1684,19 @@
                 {
                     "name": "Designer",
                     "propertyName": "designer",
+                    "fileName": "Designer.js",
                     "functionName": "newGovernanceGlobalsDesigner"
                 },
                 {
                     "name": "Reports",
                     "propertyName": "reports",
+                    "fileName": "Reports.js",
                     "functionName": "newGovernanceGlobalsReports"
                 },
                 {
                     "name": "SA Token",
                     "propertyName": "saToken",
+                    "fileName": "SAToken.js",
                     "functionName": "newGovernanceGlobalsSaToken"
                 }
             ],
@@ -1658,56 +1704,67 @@
                 {
                     "name": "Pools",
                     "propertyName": "pools",
+                    "fileName": "Pools.js",
                     "functionName": "newGovernanceUtilitiesPools"
                 },
                 {
                     "name": "Decendent Program",
                     "propertyName": "decendentProgram",
+                    "fileName": "DecendentProgram.js",
                     "functionName": "newGovernanceUtilitiesDecendentProgram"
                 },
                 {
                     "name": "Bonus Program",
                     "propertyName": "bonusProgram",
+                    "fileName": "BonusProgram.js",
                     "functionName": "newGovernanceUtilitiesBonusProgram"
                 },
                 {
                     "name": "Validations",
                     "propertyName": "validations",
+                    "fileName": "Validations.js",
                     "functionName": "newGovernanceUtilitiesValidations"
                 },
                 {
                     "name": "Tables",
                     "propertyName": "tables",
+                    "fileName": "Tables.js",
                     "functionName": "newGovernanceUtilitiesTables"
                 },
                 {
                     "name": "Descendent Tables",
                     "propertyName": "decendentTables",
+                    "fileName": "DescendentTables.js",
                     "functionName": "newGovernanceUtilitiesDecendentTables"
                 },
                 {
                     "name": "Common Tables",
                     "propertyName": "commonTables",
+                    "fileName": "CommonTables.js",
                     "functionName": "newGovernanceUtilitiesCommonTables"
                 },
                 {
                     "name": "Filters",
                     "propertyName": "filters",
+                    "fileName": "Filters.js",
                     "functionName": "newGovernanceUtilitiesFilters"
                 },
                 {
                     "name": "Conversions",
                     "propertyName": "conversions",
+                    "fileName": "Conversions.js",
                     "functionName": "newGovernanceUtilitiesConversions"
                 },
                 {
                     "name": "Chains",
                     "propertyName": "chains",
+                    "fileName": "Chains.js",
                     "functionName": "newGovernanceUtilitiesChains"
                 },
                 {
                     "name": "Node Calculations",
                     "propertyName": "nodeCalculations",
+                    "fileName": "NodeCalculations.js",
                     "functionName": "newGovernanceUtilitiesNodeCalculations"
                 }
             ],
@@ -1729,7 +1786,7 @@
                     "name": "Reports Space",
                     "folderName": "Reports-Space",
                     "propertyName": "reportsSpace",
-                    "functionName": "newGobernanceReportsSpace",
+                    "functionName": "newGovernanceReportsSpace",
                     "initializationIndex": 14,
                     "animationPhysicsIndex": 14,
                     "animationDrawIndex": 14,

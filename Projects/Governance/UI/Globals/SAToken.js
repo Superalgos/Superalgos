@@ -70,3 +70,5 @@ function newGovernanceGlobalsSaToken() {
     }
     return thisObject
 }
+
+exports.newGovernanceGlobalsSaToken = newGovernanceGlobalsSaToken

@@ -536,3 +536,5 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryClaimsProgram = newGovernanceFunctionLibraryClaimsProgram

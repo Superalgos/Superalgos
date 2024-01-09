@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Canlı Ticaret Oturumu ( Live Trading Session ) veya İleri Test Oturumu ( Forward Testing Session ) çalıştırmak için bir Exchange Hesabı Anahtar ( Exchange Account Key ) Düğümü beklenir ve gereklidir.",
                 "updated": 1647101306321
+            },
+            {
+                "language": "DE",
+                "text": "Ein Exchange Account Key Node wird erwartet und benötigt, um eine Live Trading Session oder eine Forward Testing Session durchzuführen.",
+                "updated": 1701116877449
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu hatanın ortaya çıktığı Anahtar Referans Düğümünden ( Key Reference Node ), Exchange'deki hesabınıza erişmek için anahtarlarınızı tutan bir Hesap Değişim Anahtarına başvurmanız gerekir.",
                     "updated": 1647101364705
+                },
+                {
+                    "language": "DE",
+                    "text": "Vom Schlüsselreferenzknoten (Key Reference Node) aus, bei dem dieser Fehler auftrat, müssen Sie auf einen Kontoaustauschschlüssel (Account Exchange Key holding) verweisen, der Ihre Schlüssel enthält, um auf Ihr Konto bei der Börse zuzugreifen.",
+                    "updated": 1701116916588
                 }
             ]
         }

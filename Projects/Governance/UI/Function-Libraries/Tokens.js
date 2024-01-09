@@ -191,3 +191,5 @@ function newGovernanceFunctionLibraryTokens() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryTokens = newGovernanceFunctionLibraryTokens

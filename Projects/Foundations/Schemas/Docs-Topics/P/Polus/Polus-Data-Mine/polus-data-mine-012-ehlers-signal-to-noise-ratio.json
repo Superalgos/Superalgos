@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "13",
+    "pageNumber": 12,
     "type": "Ehlers Signal-to-noise Ratio",
     "definition": {
         "text": "This is a volatility indicator created by John Ehlers and published in his book ’Rocket Science for Traders, p81-82.’",

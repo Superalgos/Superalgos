@@ -24,3 +24,5 @@ function newFoundationsUtilitiesGitBranches() {
         return branchLabel 
     }    
 }
+
+exports.newFoundationsUtilitiesGitBranches = newFoundationsUtilitiesGitBranches

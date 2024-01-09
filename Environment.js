@@ -55,9 +55,9 @@ exports.newEnvironment = function () {
         P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS: 1000,
         P2P_NETWORK_NODE_MAX_INCOMING_PEERS: 2,
         P2P_NETWORK_NODE_MAX_OUTGOING_PEERS: 2,
-        NPM_NEEDED_VERSION: '5',
-        NODE_NEEDED_VERSION: '12',
-        GIT_NEEDED_VERSION: '2',
+        NPM_NEEDED_VERSION: '5.0.0',
+        NODE_NEEDED_VERSION: '12.0.0',
+        GIT_NEEDED_VERSION: '2.0.0',
         EXTERNAL_SCRIPTS: [
             'https://code.jquery.com/jquery-3.6.0.js',
             'https://code.jquery.com/ui/1.13.0/jquery-ui.js'

@@ -29,3 +29,5 @@ function newGovernanceFunctionLibraryReferralProgram() {
         )
     }
 }
+
+exports.newGovernanceFunctionLibraryReferralProgram = newGovernanceFunctionLibraryReferralProgram

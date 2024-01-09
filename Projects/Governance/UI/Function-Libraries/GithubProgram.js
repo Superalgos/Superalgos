@@ -227,3 +227,5 @@ function newGovernanceFunctionLibraryGithubProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryGithubProgram = newGovernanceFunctionLibraryGithubProgram

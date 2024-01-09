@@ -7,6 +7,11 @@
                 "language": "TR",
                 "text": "Bu Düğümün tanımını yazın.",
                 "updated": 1652023176820
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie die Definition für diesen Knoten.",
+                "updated": 1701930790144
             }
         ]
     },
@@ -19,6 +24,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1652023185626
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1701930790255,
+                    "style": "Text"
                 }
             ]
         }

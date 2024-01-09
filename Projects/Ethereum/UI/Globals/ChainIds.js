@@ -16,3 +16,5 @@ function newEthereumGlobalsChainIds() {
         }
     }
 }
+
+exports.newEthereumGlobalsChainIds = newEthereumGlobalsChainIds

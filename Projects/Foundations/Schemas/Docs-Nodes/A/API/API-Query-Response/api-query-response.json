@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, API çağrısından belirli bir yanıtın tanımını sağlar.",
                 "updated": 1652021754469
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten ermöglicht die Definition einer bestimmten Antwort des API call (API-Aufrufs).",
+                "updated": 1701930781191
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "API Sorgu Yanıt Yapılandırması",
                     "updated": 1652021805707
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der API Query Response (API-Abfrageantwort)",
+                    "updated": 1701930781295,
+                    "style": "Title"
                 }
             ]
         },
@@ -47,6 +58,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652021816275
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930781408,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -64,6 +81,12 @@
                     "language": "TR",
                     "text": "codeName: codeName özelliğinde, API Alıcısı Botu, bu düğüm tarafından işlenen API çağrısından http yanıt kodunu bulmayı bekleyecektir. Bu düğümlerden en az birine codeName = \"200\" (başarı için standart kod budur) sahip olmanız gerekir.",
                     "updated": 1652021826846
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName: In der Eigenschaft codeName erwartet der API Fetcher Bot den http-Antwortcode des von diesem Knoten bearbeiteten API-Aufrufs. Sie müssen mindestens einen dieser Knoten mit einem codeName = \"200\" haben (das ist der Standardcode für Erfolg).",
+                    "updated": 1701930781514,
+                    "style": "List"
                 }
             ]
         },
@@ -81,6 +104,12 @@
                     "language": "TR",
                     "text": "isError: Durum kodunun bir hata olarak kabul edilip edilmeyeceğini tanımlayın.",
                     "updated": 1652021838167
+                },
+                {
+                    "language": "DE",
+                    "text": "isError: Definieren Sie, ob der Statuscode als Fehler angesehen werden soll oder nicht.",
+                    "updated": 1701930781703,
+                    "style": "List"
                 }
             ]
         },
@@ -98,6 +127,12 @@
                     "language": "TR",
                     "text": "İpucu: Diğer hata kodlarına tepki verebilmek istiyorsanız, kapsamak istediğiniz her durumun kodAdı ile bu düğümlerden daha fazlasına sahip olmalısınız. API Veri Alıcı Botu ( API Data Fetcher Bot ), tanımlanmamış bir yanıt kodu alırsa, işlemeyi durdurur ve hata verir.",
                     "updated": 1652021888686
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie in der Lage sein wollen, auf andere Fehlercodes zu reagieren, sollten Sie auch mehrere dieser Knoten mit dem CodeName jedes Status haben, den Sie abdecken wollen. Wenn der API Data Fetcher Bot einen Antwortcode empfängt, der nicht definiert wurde, bricht er die Verarbeitung ab und gibt einen Fehler aus.",
+                    "updated": 1701930781846,
+                    "style": "Success"
                 }
             ]
         },
@@ -114,6 +149,12 @@
                     "language": "TR",
                     "text": "İşte örnek bir API Sorgu Yanıtı yapılandırması:",
                     "updated": 1652021899089
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein Beispiel für eine API Query Response (API-Abfrage-Antwort) Konfiguration:",
+                    "updated": 1701930782021,
+                    "style": "Text"
                 }
             ]
         },

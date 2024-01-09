@@ -375,3 +375,5 @@ function newGovernanceFunctionLibraryDelegationProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryDelegationProgram = newGovernanceFunctionLibraryDelegationProgram

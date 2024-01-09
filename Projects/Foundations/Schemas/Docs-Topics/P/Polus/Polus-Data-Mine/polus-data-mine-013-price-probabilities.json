@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "14",
+    "pageNumber": 13,
     "type": "Price Probabilities",
     "definition": {
         "text": "This is an indicator that uses Exponential Moving Average (EMA) and Average True Range (ATR) to provide probability bands around the price action based on standard deviations.",

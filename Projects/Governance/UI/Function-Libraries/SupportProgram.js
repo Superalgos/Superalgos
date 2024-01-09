@@ -29,3 +29,5 @@ function newGovernanceFunctionLibrarySupportProgram() {
         )
     }
 }
+
+exports.newGovernanceFunctionLibrarySupportProgram = newGovernanceFunctionLibrarySupportProgram

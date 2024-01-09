@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "11",
+    "pageNumber": 10,
     "type": "Relative Vigor Index",
     "definition": {
         "text": "The Relative Vigor Index (RVI) is a momentum indicator similar to the Stochastic indicator. The RVI compares candle open and closes to determine the output trend, instead of the Stochastic's comparison of a candle's close to minimum.",

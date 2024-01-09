@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "10",
+    "pageNumber": 9,
     "type": "Volatility Adjusted Moving Average",
     "definition": {
         "text": "The Volatility Adjusted Moving Average (VAMA) is an indicator that takes into account both short and long term volatility. It creates a moving average that attempts to gauge an area of price action that is expected to produce a reaction when interacting with it.",

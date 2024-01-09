@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "9",
+    "pageNumber": 8,
     "type": "Volatility Oscillator",
     "definition": {
         "text": "The Weighted Volatility Oscillator is a modification of the standard volatility index but weighted by the position of the price in the Bollinger Band.",

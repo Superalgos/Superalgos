@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "8",
+    "pageNumber": 7,
     "type": "Volatility Index",
     "definition": {
         "text": "The Volatility Index represents how an asset's prices moves around the calculated mean price.",

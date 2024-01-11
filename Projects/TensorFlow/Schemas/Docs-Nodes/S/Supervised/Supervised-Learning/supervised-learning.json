@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Überwachtes Lernen ist die Aufgabe des maschinellen Lernens, eine Funktion zu erlernen, die eine Eingabe auf eine Ausgabe auf der Grundlage von Eingabe-Ausgabe-Beispielpaaren abbildet. Dabei wird eine Funktion aus markierten Trainingsdaten abgeleitet, die aus einer Reihe von Trainingsbeispielen bestehen. Beim überwachten Lernen ist jedes Beispiel ein Paar, das aus einem Eingabeobjekt (in der Regel ein Vektor) und einem gewünschten Ausgabewert (auch Überwachungssignal genannt) besteht.",
-                "updated": 1705009211592
+                "text": "Überwachtes Lernen ist die Aufgabe des maschinellen Lernens, eine Funktion zu erlernen, die eine Eingabe auf eine Ausgabe auf der Grundlage von Eingabe-Ausgabe-Beispielpaaren abbildet. Dabei wird eine Funktion aus markierten Trainingsdaten abgeleitet, die aus einer Reihe von Trainingsbeispielen bestehen. Beim überwachten Lernen ist jedes Beispiel ein Paar, das aus einem Eingabeobjekt (in der Regel ein Vektor) und einem gewünschten Ausgabewert (auch Überwachungssignal genannt) besteht. ",
+                "updated": 1705011729072
             }
         ]
     },

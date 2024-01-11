@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Tiefenweise trennbare 2D-Faltung. Bei der trennbaren Faltung wird zunächst eine räumliche Faltung in der Tiefe durchgeführt (die auf jeden Eingangskanal separat wirkt), gefolgt von einer punktweisen Faltung, bei der die resultierenden Ausgangskanäle zusammengemischt werden. Das Argument depthMultiplier steuert, wie viele Ausgangskanäle pro Eingangskanal im tiefenweisen Schritt erzeugt werden.",
-                "updated": 1705008253656
+                "text": "Tiefenweise trennbare 2D-Faltung. Bei der trennbaren Faltung wird zunächst eine räumliche Faltung in der Tiefe durchgeführt (die auf jeden Eingangskanal separat wirkt), gefolgt von einer punktweisen Faltung, bei der die resultierenden Ausgangskanäle zusammengemischt werden. Das Argument depthMultiplier steuert, wie viele Ausgangskanäle pro Eingangskanal im tiefenweisen Schritt erzeugt werden. ",
+                "updated": 1705011618112
             }
         ]
     },

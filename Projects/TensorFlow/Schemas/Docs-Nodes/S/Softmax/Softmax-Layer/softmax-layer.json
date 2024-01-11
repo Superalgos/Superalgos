@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Softmax-Aktivierungsschicht. Eine Funktion, die Wahrscheinlichkeiten für jede mögliche Klasse in einem Mehrklassen-Klassifikationsmodell liefert. Die Wahrscheinlichkeiten addieren sich zu genau 1,0. Beispielsweise könnte Softmax bestimmen, dass die Wahrscheinlichkeit, dass es sich bei einem bestimmten Bild um einen Hund handelt, bei 0,9 liegt, bei einer Katze bei 0,08 und bei einem Pferd bei 0,02.",
-                "updated": 1705008953585
+                "text": "Softmax-Aktivierungsschicht. Eine Funktion, die Wahrscheinlichkeiten für jede mögliche Klasse in einem Mehrklassen-Klassifikationsmodell liefert. Die Wahrscheinlichkeiten addieren sich zu genau 1,0. Beispielsweise könnte Softmax bestimmen, dass die Wahrscheinlichkeit, dass es sich bei einem bestimmten Bild um einen Hund handelt, bei 0,9 liegt, bei einer Katze bei 0,08 und bei einem Pferd bei 0,02. ",
+                "updated": 1705011679142
             }
         ]
     },

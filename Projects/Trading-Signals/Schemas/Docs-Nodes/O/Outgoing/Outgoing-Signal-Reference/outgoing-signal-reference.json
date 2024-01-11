@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der Knoten \"Ausgehende Signalreferenz\" speichert einen Verweis auf eine im Benutzerprofil gespeicherte Signaldefinition, die über das Superalgos-Peer-to-Peer-Netzwerk gesendet werden soll.",
-                "updated": 1705009936911
+                "text": "Der Knoten \"Ausgehende Signalreferenz\" speichert einen Verweis auf eine im Benutzerprofil gespeicherte Signaldefinition, die über das Superalgos-Peer-to-Peer-Netzwerk gesendet werden soll. ",
+                "updated": 1705011815935
             }
         ]
     },

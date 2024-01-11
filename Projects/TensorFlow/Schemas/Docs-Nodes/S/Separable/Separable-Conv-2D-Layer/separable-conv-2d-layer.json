@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Derinlemesine ayrılabilir 2D konvolüsyon. Ayrılabilir konvolüsyon, önce derinlemesine bir uzamsal konvolüsyon (her bir giriş kanalına ayrı ayrı etki eden) ve ardından ortaya çıkan çıkış kanallarını karıştıran noktasal bir konvolüsyon gerçekleştirmekten oluşur. depthMultiplier bağımsız değişkeni, derinlik adımında giriş kanalı başına kaç çıkış kanalı oluşturulacağını kontrol eder.",
                 "updated": 1654397550507
+            },
+            {
+                "language": "DE",
+                "text": "Tiefenweise trennbare 2D-Faltung. Bei der trennbaren Faltung wird zunächst eine räumliche Faltung in der Tiefe durchgeführt (die auf jeden Eingangskanal separat wirkt), gefolgt von einer punktweisen Faltung, bei der die resultierenden Ausgangskanäle zusammengemischt werden. Das Argument depthMultiplier steuert, wie viele Ausgangskanäle pro Eingangskanal im tiefenweisen Schritt erzeugt werden.",
+                "updated": 1705008253656
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Sezgisel olarak, ayrılabilir konvolüsyonlar, bir konvolüsyon çekirdeğini iki küçük çekirdeğe çarpanlara ayırmanın bir yolu veya bir Inception bloğunun uç bir versiyonu olarak anlaşılabilir.",
                     "updated": 1654397556747,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Intuitiv können trennbare Faltungen als eine Möglichkeit verstanden werden, einen Faltungs-Kernel in zwei kleinere Kernel zu faktorisieren, oder als eine extreme Version eines Inception-Blocks.",
+                    "updated": 1705008263377
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Giriş şekli: Şekil ile 4D tensör: data_format='channelsFirst' ise [batch, channels, rows, cols] veya shape ile 4D tensör: data_format='channelsLast' ise [batch, rows, cols, channels].",
                     "updated": 1654397563891,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform (Input shape): 4D-Tensor mit Form: [batch, channels, rows, cols] wenn data_format='channelsFirst'oder 4D Tensor mit Form: [batch, rows, cols, channels], wenn data_format='channelsLast'.",
+                    "updated": 1705008291984
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "text": "Çıkış şekli: Şekil ile 4D tensör: [batch, filters, newRows, newCols] if data_format='channelsFirst' veya 4D tensor with shape: data_format='channelsLast' ise [batch, newRows, newCols, filters]. rows ve cols değerleri dolgu nedeniyle değişmiş olabilir.",
                     "updated": 1654397569662,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgabeform (Output shape): 4D-Tensor mit Form: [batch, filters, newRows, newCols] wenn data_format='channelsFirst'oder 4D Tensor mit shape: [batch, newRows, newCols, filters], wenn data_format='channelsLast'. Die Werte von rows und cols können sich aufgrund von Auffüllungen geändert haben.",
+                    "updated": 1705008319189
                 }
             ]
         }

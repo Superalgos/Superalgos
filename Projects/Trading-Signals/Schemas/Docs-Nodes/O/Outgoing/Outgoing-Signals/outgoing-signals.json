@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Giden Sinyaller düğümü, bir Alım Satım Sistemi içinde verilerin toplanıp bir Alım Satım Sinyali haline getirilebileceği konumu tanımlar.",
                 "updated": 1654397874818
+            },
+            {
+                "language": "DE",
+                "text": "Vom Knoten Ausgehende Signale definiert den Ort innerhalb eines Handelssystems (Trading System), von dem Daten gesammelt und zu einem Handelssignal (Trading Signal)zusammengestellt werden können.",
+                "updated": 1705010493662
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Bunun anlamı, bir Giden Sinyal düğümünün sinyal bilgilerini yakalaması ve ardından sisteme nereye göndereceğini söylemesidir. Bu, bir alt Giden Sinyal Referansı düğümü eklenerek gerçekleştirilir.",
                     "updated": 1654397880903,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass ein Knoten \"Ausgehendes Signal\" die Signalinformationen erfasst und dem System mitteilt, wohin es sie senden soll. Dies wird erreicht, indem ein untergeordneter Knoten Outgoing Signal Reference hinzugefügt wird.",
+                    "updated": 1705010507351
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "text": "Sinyal Türleri",
                     "updated": 1654397886682,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Arten von Signalen",
+                    "updated": 1705010516725
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "text": "Gönderilebilecek üç tür sinyal vardır:",
                     "updated": 1654397895547,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei Arten von Signalen, die gesendet werden können:",
+                    "updated": 1705010524598
                 }
             ]
         },
@@ -113,6 +133,11 @@
                     "text": "Sağlayıcı ve alıcı botlarını aynı mum üzerinde tutmak, alım satım sinyallerinin gerçekten yararlı olması için hayati önem taşır. Bu nedenle, Mum Senkronizasyonu sinyalleri Giden Sinyal düğümünün temel kullanımıdır. Mevcut sinyalin ait olduğu mumu iletir. Bu, alıcının botlarının tam olarak aynı mumu tanımlamasına ve sağlayıcının botlarıyla senkronize kalmasına olanak tanır.",
                     "updated": 1654397906974,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit Handelssignale tatsächlich nützlich sind, müssen die Bots des Anbieters und des Empfängers auf derselben Kerze stehen. Daher sind Candle -Sync-Signale die grundlegende Verwendung des Outgoing Signal-Knotens. Er teilt die Kerze mit, zu der das aktuelle Signal gehört. Dadurch können die Bots des Empfängers genau dieselbe Kerze identifizieren und mit den Bots des Anbieters synchron bleiben.",
+                    "updated": 1705010546831
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "text": "Mum senkronizasyon sinyalleri, bir Giden Sinyal düğümünün bir Ticaret Sistemi düğümüne bağlanmasıyla oluşturulur. Ardından bir alt Giden Sinyal Referans düğümü eklenir. Ardından Giden Sinyal Referans düğümünden sağlayıcının Sosyal Ticaret Botu altında tutulan Ticaret Sistemi Sinyal düğümüne bir referans oluşturulur.",
                     "updated": 1654397912793,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kerzensynchronisationssignale (Candle sync signals) werden erstellt, indem ein Knoten Ausgehendes Signal an einen Knoten Handelssystem (Trading System) angehängt wird. Dann wird ein untergeordneter Knoten Ausgehendes Signal Referenz (Outgoing Signal Reference) hinzugefügt. Anschließend wird ein Verweis vom Knoten Ausgehendes Signal (Outgoing Signal Reference) auf den Knoten Handelssystemsignal (Trading System Signal) erstellt, der unter dem Social Trading Bot des Anbieters geführt wird.",
+                    "updated": 1705010711884
                 }
             ]
         },
@@ -149,6 +179,11 @@
                     "text": "Olay Sinyalleri",
                     "updated": 1654397918316,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Event signals",
+                    "updated": 1705010844926
                 }
             ]
         },
@@ -167,6 +202,11 @@
                     "text": "Olay sinyalleri, sinyal sağlayıcının ticaret sistemi olaylarıyla ilgili bilgi göndermesine olanak tanır. Bu tür olaylara örnek olarak Tetik Açma Olayı, Tetik Kapatma Olayı, Pozisyon Alma Olayı vb. verilebilir.",
                     "updated": 1654397927409,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ereignissignale (Event signals) ermöglichen es dem Signalanbieter, Informationen über Ereignisse im Handelssystem zu senden. Beispiele für solche Ereignisse sind das Trigger On Event, das Trigger Off Event, das Take Position Event, etc.",
+                    "updated": 1705010851831
                 }
             ]
         },
@@ -221,6 +261,11 @@
                     "text": "Formül sinyalleri, sinyal sağlayıcının ticaret sistemi formüllerinden çıkan bilgileri göndermesine olanak tanır. Bu tür formüllere örnek olarak Hedef Oran, Emir Oranı, Temel Varlıktaki Hedef Büyüklük vb. verilebilir.",
                     "updated": 1654397944963,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Formelsignale (Formula signals) ermöglichen es dem Signalanbieter, Informationen zu senden, die aus Formeln des Handelssystems stammen. Beispiele für solche Formeln sind: Zielkurs, Auftragskurs, Zielgröße im Basiswert (Target Rate, Order Rate, Target Size In Base Asset) usw. ",
+                    "updated": 1705011119088
                 }
             ]
         },
@@ -238,6 +283,11 @@
                     "text": "Bir formül sinyali oluşturmak, bir olay sinyali oluşturmakla aynıdır.",
                     "updated": 1654397950421,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Erstellung eines Formelsignals ist dasselbe wie die Erstellung eines Ereignissignals.",
+                    "updated": 1705011127648
                 }
             ]
         },

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir makine öğrenme paradigması olarak kendi kendine öğrenme, 1982 yılında çapraz çubuk uyarlamalı dizi (CAA) adı verilen kendi kendine öğrenme yeteneğine sahip bir sinir ağı ile birlikte tanıtılmıştır. Bu, harici ödüllerin ve harici öğretmen tavsiyesinin olmadığı bir öğrenmedir. CAA kendi kendine öğrenme algoritması, çapraz çubuk tarzında, hem eylemlerle ilgili kararları hem de sonuç durumlarıyla ilgili duyguları (hisleri) hesaplar. Sistem, biliş ve duygu arasındaki etkileşim tarafından yönlendirilir.",
                 "updated": 1654397537431
+            },
+            {
+                "language": "DE",
+                "text": "Selbstlernen als Paradigma des maschinellen Lernens wurde 1982 zusammen mit einem selbstlernenden neuronalen Netz namens Crossbar Adaptive Array (CAA) eingeführt. Es handelt sich um ein Lernen ohne externe Belohnungen und ohne Ratschläge eines externen Lehrers. Der selbstlernende CAA-Algorithmus berechnet in einer Art Kreuzschiene sowohl Entscheidungen über Handlungen als auch Emotionen (Gefühle) über Folgesituationen. Das System wird durch die Interaktion zwischen Kognition und Emotion gesteuert.",
+                "updated": 1705008074877
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397543780,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705008081192
                 }
             ]
         }

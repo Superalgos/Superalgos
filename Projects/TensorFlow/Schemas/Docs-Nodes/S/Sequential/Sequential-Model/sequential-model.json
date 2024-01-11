@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "En yaygın model türü, doğrusal bir katman yığını olan Sıralı modeldir.",
                 "updated": 1654397577921
+            },
+            {
+                "language": "DE",
+                "text": "Der häufigste Modelltyp ist das sequenzielle Modell, bei dem es sich um einen linearen Stapel von Schichten handelt.",
+                "updated": 1705008868768
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397584100,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705008878768
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Dropout'un uzamsal 1D versiyonu.",
                 "updated": 1654397618078
+            },
+            {
+                "language": "DE",
+                "text": "Räumliche 1D-Version von Dropout.",
+                "updated": 1705009092705
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Bu Katman türü Bırakma katmanı ile aynı işlevi görür, ancak tek tek öğeler yerine 1B özellik haritalarının tamamını bırakır. Örneğin, bir girdi örneği 3 zaman adımından oluşuyorsa ve her bir zaman adımının özellik haritasının boyutu 4 ise, spatialDropout1d katmanı 1. ve 2. zaman adımlarının özellik haritalarını tamamen sıfırlarken 3. zaman adımının tüm özellik öğelerini koruyabilir.",
                     "updated": 1654397623614,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Ebenentyp (Layer type) erfüllt dieselbe Funktion wie die Dropout-Ebene, jedoch werden ganze 1D-Feature-Maps anstelle einzelner Elemente gelöscht. Wenn ein Eingabebeispiel beispielsweise aus drei Zeitschritten besteht und die Feature-Map für jeden Zeitschritt eine Größe von 4 hat, kann eine spatialDropout1d-Ebene die Feature-Maps des ersten und zweiten Zeitschritts vollständig löschen, während alle Feature-Elemente des dritten Zeitschritts verschont bleiben.",
+                    "updated": 1705009132673
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Bitişik kareler (zaman adımları) güçlü bir şekilde ilişkiliyse (normalde erken konvolüsyon katmanlarında olduğu gibi), düzenli bırakma aktivasyonu düzenli hale getirmeyecek ve aksi takdirde sadece etkili bir öğrenme oranı düşüşüne neden olacaktır. Bu durumda, spatialDropout1d özellik haritaları arasında bağımsızlığı desteklemeye yardımcı olacaktır ve bunun yerine kullanılmalıdır.",
                     "updated": 1654397629767,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn benachbarte Frames (Zeitschritte) stark korreliert sind (wie es normalerweise bei frühen Faltungsschichten der Fall ist), wird ein reguläres Dropout die Aktivierung nicht regulieren und andernfalls lediglich zu einer Verringerung der effektiven Lernrate führen. In diesem Fall trägt spatialDropout1d dazu bei, die Unabhängigkeit zwischen den Merkmalskarten zu fördern und sollte stattdessen verwendet werden.",
+                    "updated": 1705009148848
                 }
             ]
         }

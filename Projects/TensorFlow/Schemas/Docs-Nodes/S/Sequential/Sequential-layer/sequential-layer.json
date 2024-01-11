@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sıralı Modelli bir Yapay Sinir Ağında, bir dizi girdi özelliğini işleyen bir dizi nöron veya bu nöronların çıktısı.",
                 "updated": 1654397589946
+            },
+            {
+                "language": "DE",
+                "text": "Eine Gruppe von Neuronen in einem künstlichen neuronalen Netz (Artificial Neural Network) mit einem sequenziellen Modell (Sequential Model), die eine Reihe von Eingangsmerkmalen oder die Ausgabe dieser Neuronen verarbeiten.",
+                "updated": 1705008605218
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397595925,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705008788599
                 }
             ]
         }

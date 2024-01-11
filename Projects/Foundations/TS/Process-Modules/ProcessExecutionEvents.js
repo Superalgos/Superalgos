@@ -188,7 +188,7 @@
 
                 /* This forces this process to wait until the process that this one depends on, emits its event signaling that the process execution has finished. */
 
-                let extraCallerId = '-' + Math.trunc(Math.random() * 10000) + '-'
+                let extraCallerId = '-' + Math.random().toString(36).substring(2,9)
 
                 let market = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 let key = processThisDependsOn.name + "-" + processThisDependsOn.type + "-" + processThisDependsOn.id + "-" + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "-" + market

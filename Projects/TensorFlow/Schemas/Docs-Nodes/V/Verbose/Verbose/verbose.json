@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "\nAyrıntılı mod, bilgisayarın ne yaptığı ve hangi sürücüleri ve yazılımları yüklediği hakkında ek ayrıntılar sağlayan birçok bilgisayar işletim sisteminde ve programlama dilinde bulunan bir seçenektir. hata ayıklamak daha kolaydır.",
                 "updated": 1666694400316
+            },
+            {
+                "language": "DE",
+                "text": "Der Verbose-Modus ist eine Option, die in vielen Computer-Betriebssystemen und Programmiersprachen zur Verfügung steht und zusätzliche Details darüber liefert, was der Computer tut und welche Treiber und Software er beim Start oder bei der Programmierung lädt, so dass detaillierte Ausgaben zu Diagnosezwecken erzeugt werden, was die Fehlersuche in einem Programm erleichtert.",
+                "updated": 1705144768127
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1666694333499
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705144779087
                 }
             ]
         }

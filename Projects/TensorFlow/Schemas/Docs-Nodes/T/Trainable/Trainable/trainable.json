@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Обновляются ли веса этого слоя в процессе обучения. По умолчанию имеет значение true.",
                 "updated": 1645252483468
+            },
+            {
+                "language": "DE",
+                "text": "Ob die Gewichte dieser Schicht durch Training aktualisiert werden können. Der Standardwert ist true.",
+                "updated": 1705143656662
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Возможные значения",
                     "updated": 1645252489490
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1705143666965
                 }
             ]
         },

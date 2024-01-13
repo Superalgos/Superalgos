@@ -26,7 +26,7 @@ function newFoundationsTopSpace() {
         logoImage = new Image()
 
         loadImage('superalgos-header-background', backgroundImage)
-        loadImage('sa-v10-logo-horiz-dark', logoImage)
+        loadImage('superalgos-header-logo', logoImage)
 
         function loadImage(name, image) {
             const PATH = 'Images/'

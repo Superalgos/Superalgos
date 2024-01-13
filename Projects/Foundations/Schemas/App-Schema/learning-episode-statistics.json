@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Learning Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add User Defined Statistic",
+            "translationKey": "add.userDefinedStatistic",
             "relatedUiObject": "User Defined Statistic",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -22,7 +24,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

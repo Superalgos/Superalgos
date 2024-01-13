@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Feature",
+            "translationKey": "add.feature",
             "relatedUiObject": "Feature",
             "relatedUiObjectProject": "TensorFlow",
             "actionFunction": "payload.executeAction",
@@ -14,7 +15,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

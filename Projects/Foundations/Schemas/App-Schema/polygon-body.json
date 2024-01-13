@@ -25,6 +25,7 @@
             "propertyToCheckFor": "style",
             "actionFunction": "payload.executeAction",
             "label": "Add Style",
+            "translationKey": "add.style",
             "relatedUiObject": "Style",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -33,6 +34,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Style Condition",
+            "translationKey": "add.styleCondition",
             "relatedUiObject": "Style Condition",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -43,7 +45,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

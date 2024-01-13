@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Token Power Switch",
+            "translationKey": "add.tokenPowerSwitch",
             "relatedUiObject": "Token Power Switch",
             "relatedUiObjectProject": "Governance"
         },
@@ -23,6 +25,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "onboardingPrograms",
             "label": "Add Onboarding Programs",
+            "translationKey": "add.programs.onboarding",
             "relatedUiObject": "Onboarding Programs",
             "relatedUiObjectProject": "Governance"
         },
@@ -33,6 +36,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "communityBuildingPrograms",
             "label": "Add Community Building Programs",
+            "translationKey": "add.programs.communityBuilding",
             "relatedUiObject": "Community Building Programs",
             "relatedUiObjectProject": "Governance"
         },
@@ -43,6 +47,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "votesAndClaimsPrograms",
             "label": "Add Votes And Claims Programs",
+            "translationKey": "add.programs.votesAndClaims",
             "relatedUiObject": "Votes And Claims Programs",
             "relatedUiObjectProject": "Governance"
         },
@@ -53,6 +58,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "financialPrograms",
             "label": "Add Financial Programs",
+            "translationKey": "add.programs.financial",
             "relatedUiObject": "Financial Programs",
             "relatedUiObjectProject": "Governance"
         },
@@ -63,6 +69,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "liquidityPrograms",
             "label": "Add Liquidity Programs",
+            "translationKey": "add.programs.liquidity",
             "relatedUiObject": "Liquidity Programs",
             "relatedUiObjectProject": "Governance"
         },
@@ -73,6 +80,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "bitcoinFactoryPrograms",
             "label": "Add Bitcoin Factory Programs",
+            "translationKey": "add.programs.bitcoinFactory",
             "relatedUiObject": "Bitcoin Factory Programs",
             "relatedUiObjectProject": "Governance"
         },
@@ -81,7 +89,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

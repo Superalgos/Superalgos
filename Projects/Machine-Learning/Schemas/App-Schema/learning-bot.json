@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -13,6 +14,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Process Definition",
+            "translationKey": "add.process.definition",
             "relatedUiObject": "Process Definition",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -21,6 +23,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Product Definition",
+            "translationKey": "add.product.definition",
             "relatedUiObject": "Product Definition",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -29,6 +32,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Product Definition Folder",
+            "translationKey": "add.product.definitionFolder",
             "relatedUiObject": "Product Definition Folder",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -39,7 +43,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

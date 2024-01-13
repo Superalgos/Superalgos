@@ -4,6 +4,7 @@
         {
             "action": "Copy Node Path",
             "label": "Copy Node Path",
+            "translationKey": "copy.node.path",
             "iconPathOn": "copy-path",
             "iconPathOff": "copy-path",
             "actionFunction": "payload.executeAction",
@@ -12,6 +13,7 @@
         {
             "action": "Copy Node Value",
             "label": "Copy Node Value",
+            "translationKey": "copy.node.value",
             "iconPathOn": "copy-value",
             "iconPathOff": "copy-value",
             "actionFunction": "payload.executeAction",
@@ -20,6 +22,7 @@
         {
             "action": "Copy Node Type",
             "label": "Copy Node Type",
+            "translationKey": "copy.node.type",
             "iconPathOn": "copy-type",
             "iconPathOff": "copy-type",
             "actionFunction": "payload.executeAction",
@@ -30,7 +33,9 @@
 "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

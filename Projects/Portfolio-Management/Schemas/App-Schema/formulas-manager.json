@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Confirm Formula Rules",
+            "translationKey": "add.confirmFormulaRules",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "confirmFormulaRules",
             "relatedUiObject": "Confirm Formula Rules",
@@ -14,6 +15,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Set Formula Rules",
+            "translationKey": "add.setFormulaRules",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "setFormulaRules",
             "relatedUiObject": "Set Formula Rules",
@@ -26,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

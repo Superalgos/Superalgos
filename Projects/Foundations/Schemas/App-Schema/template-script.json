@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Template Structure",
+            "translationKey": "add.templateStructure",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "templateStructure",
             "relatedUiObject": "Template Structure",
@@ -14,6 +15,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Template Target",
+            "translationKey": "add.templateTarget",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "templateTarget",
             "relatedUiObject": "Template Target",
@@ -24,6 +26,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Javascript Code",
+            "translationKey": "add.javascriptCode",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "javascriptCode",
             "relatedUiObject": "Javascript Code",
@@ -36,7 +39,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

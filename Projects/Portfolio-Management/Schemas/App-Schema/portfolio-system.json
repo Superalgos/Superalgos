@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Managed Session Reference",
+            "translationKey": "sessions.managed.reference",
             "relatedUiObject": "Managed Session Reference",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add User Defined Code",
+            "translationKey": "add.userDefinedCode",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "userDefinedPortfolioCode",
             "relatedUiObject": "User Defined Portfolio Code",
@@ -24,7 +26,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

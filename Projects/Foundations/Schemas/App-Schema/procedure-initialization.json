@@ -6,6 +6,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "procedureJavascriptCode",
             "label": "Add Code",
+            "translationKey": "add.code",
             "relatedUiObject": "Procedure Javascript Code",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -16,7 +17,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

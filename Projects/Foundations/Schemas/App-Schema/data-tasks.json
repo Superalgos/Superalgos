@@ -4,8 +4,10 @@
         {
             "action": "Run All Project Data Tasks",
             "label": "Run All Project Data Tasks",
+            "translationKey": "task.all.project.data.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Run Request Sent",
             "iconPathOn": "run",
             "iconPathOff": "run",
@@ -14,8 +16,10 @@
         {
             "action": "Stop All Project Data Tasks",
             "label": "Stop All Project Data Tasks",
+            "translationKey": "task.all.project.data.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
+            "confirmationLabelTranslationKey": "general.confirm.stop",
             "workDoneLabel": "Stop Request Sent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
@@ -24,6 +28,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Project Data Tasks",
+            "translationKey": "add.data.projectTasks",
             "relatedUiObject": "Project Data Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -32,8 +37,10 @@
         {
             "action": "Add Missing Project Data Tasks",
             "label": "Add Missing Projects",
+            "translationKey": "add.missing.projects",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Project Data Tasks",
             "actionFunction": "payload.executeAction",
@@ -44,7 +51,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

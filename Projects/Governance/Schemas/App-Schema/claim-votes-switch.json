@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,9 +14,11 @@
             "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Install Missing Votes",
+            "translationKey": "install.missingVotes",
             "relatedUiObject": "Weight Votes Switch",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
+            "confirmationLabelTranslationKey": "general.confirm.install",
             "relatedUiObjectProject": "Governance"
         },
         {
@@ -23,6 +26,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Claim Votes Switch",
+            "translationKey": "add.claimVotesSwitch",
             "relatedUiObject": "Claim Votes Switch",
             "relatedUiObjectProject": "Governance"
         },
@@ -31,6 +35,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Claim Vote",
+            "translationKey": "add.positionClaimVote",
             "relatedUiObject": "Position Claim Vote",
             "relatedUiObjectProject": "Governance"
         },
@@ -39,6 +44,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Claim Vote",
+            "translationKey": "add.assetClaimVote",
             "relatedUiObject": "Asset Claim Vote",
             "relatedUiObjectProject": "Governance"
         },
@@ -47,6 +53,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Claim Vote",
+            "translationKey": "add.featureClaimVote",
             "relatedUiObject": "Feature Claim Vote",
             "relatedUiObjectProject": "Governance"
         },
@@ -55,7 +62,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

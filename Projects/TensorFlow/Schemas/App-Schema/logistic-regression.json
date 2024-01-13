@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "model",
             "label": "Add Model",
+            "translationKey": "add.model",
             "relatedUiObject": "Model",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -16,7 +17,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

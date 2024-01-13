@@ -4,8 +4,10 @@
         {
             "action": "Run All Managed Tasks",
             "label": "Run All Managed Tasks",
+            "translationKey": "task.all.managed.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Run Request Sent",
             "iconPathOn": "run",
             "iconPathOff": "run",
@@ -14,8 +16,10 @@
         {
             "action": "Stop All Managed Tasks",
             "label": "Stop All Managed Tasks",
+            "translationKey": "task.all.managed.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
+            "confirmationLabelTranslationKey": "general.confirm.stop",
             "workDoneLabel": "Stop Request Sent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
@@ -24,6 +28,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Task Reference",
+            "translationKey": "add.taskReference",
             "relatedUiObject": "Task Reference",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -34,7 +39,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

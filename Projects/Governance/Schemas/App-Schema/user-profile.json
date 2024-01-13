@@ -5,12 +5,14 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Open Menu",
             "label": "Add Child",
+            "translationKey": "add.child",
             "iconPathOn": "expand-structure-of-nodes",
             "iconPathOff": "expand-structure-of-nodes",
             "menuItems": [
@@ -21,6 +23,7 @@
                     "propertyToCheckFor": "tokenPowerSwitch",
                     "actionFunction": "payload.executeAction",
                     "label": "Add Token Power Switch",
+                    "translationKey": "add.tokenPowerSwitch",
                     "relatedUiObject": "Token Power Switch",
                     "relatedUiObjectProject": "Governance"
                 },
@@ -31,6 +34,7 @@
                     "propertyToCheckFor": "tokensMined",
                     "actionFunction": "payload.executeAction",
                     "label": "Add Tokens Mined",
+                    "translationKey": "add.tokensMined",
                     "relatedUiObject": "Tokens Mined",
                     "relatedUiObjectProject": "Governance"
                 },
@@ -41,6 +45,7 @@
                     "propertyToCheckFor": "userApps",
                     "actionFunction": "payload.executeAction",
                     "label": "Add User Apps",
+                    "translationKey": "add.userApps",
                     "relatedUiObject": "User Apps",
                     "relatedUiObjectProject": "User-Apps"
                 },
@@ -51,6 +56,7 @@
                     "propertyToCheckFor": "userBots",
                     "actionFunction": "payload.executeAction",
                     "label": "Add User Bots",
+                    "translationKey": "add.userBots",
                     "relatedUiObject": "User Bots",
                     "relatedUiObjectProject": "Governance"
                 },
@@ -61,6 +67,7 @@
                     "propertyToCheckFor": "socialPersonas",
                     "actionFunction": "payload.executeAction",
                     "label": "Add Social Personas",
+                    "translationKey": "add.socialPersonas",
                     "relatedUiObject": "Social Personas",
                     "relatedUiObjectProject": "Social-Trading"
                 },
@@ -71,6 +78,7 @@
                     "propertyToCheckFor": "p2pNetworkNodes",
                     "actionFunction": "payload.executeAction",
                     "label": "Add P2P Network Nodes",
+                    "translationKey": "add.p2pNetworkNodes",
                     "relatedUiObject": "P2P Network Nodes",
                     "relatedUiObjectProject": "Network"
                 },
@@ -81,6 +89,7 @@
                     "propertyToCheckFor": "permissionedP2PNetworks",
                     "actionFunction": "payload.executeAction",
                     "label": "Add Permissioned P2P Networks",
+                    "translationKey": "add.permissionedP2pNetworks",
                     "relatedUiObject": "Permissioned P2P Networks",
                     "relatedUiObjectProject": "Network"
                 },                
@@ -91,6 +100,7 @@
                     "propertyToCheckFor": "userStorage",
                     "actionFunction": "payload.executeAction",
                     "label": "Add User Storage",
+                    "translationKey": "add.userStorage",
                     "relatedUiObject": "User Storage",
                     "relatedUiObjectProject": "Open-Storage"
                 },                
@@ -101,6 +111,7 @@
                     "propertyToCheckFor": "forecastsProviders",
                     "actionFunction": "payload.executeAction",
                     "label": "Add Forecasts Providers",
+                    "translationKey": "add.forecastsProviders",
                     "relatedUiObject": "Forecasts Providers",
                     "relatedUiObjectProject": "Governance"
                 }
@@ -111,7 +122,9 @@
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
+            "confirmationLabelTranslationKey": "general.confirm.install",
             "label": "Install as Plugin",
+            "translationKey": "install.asPlugin",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "payload.executeAction"
@@ -121,7 +134,9 @@
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Save",
+            "confirmationLabelTranslationKey": "general.confirm.save",
             "label": "Save Plugin",
+            "translationKey": "save.plugin",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "payload.executeAction"
@@ -131,7 +146,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

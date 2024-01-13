@@ -4,8 +4,10 @@
         {
             "action": "Run All Exchange Portfolio Tasks",
             "label": "Run All Exchange Portfolio Tasks",
+            "translationKey": "tasks.all.exchange.portfolio.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Run Request Sent",
             "iconPathOn": "run",
             "iconPathOff": "run",
@@ -14,8 +16,10 @@
         {
             "action": "Stop All Exchange Portfolio Tasks",
             "label": "Stop All Exchange Portfolio Tasks",
+            "translationKey": "tasks.all.exchange.portfolio.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
+            "confirmationLabelTranslationKey": "general.confirm.stop",
             "workDoneLabel": "Stop Request Sent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
@@ -24,6 +28,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Exchange Portfolio Tasks",
+            "translationKey": "add.tasks.exchangePortfolio",
             "relatedUiObject": "Exchange Portfolio Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -32,8 +37,10 @@
         {
             "action": "Add Missing Exchange Portfolio Tasks",
             "label": "Add Missing Exchanges",
+            "translationKey": "add.missing.exchanges",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Exchange Portfolio Tasks",
             "actionFunction": "payload.executeAction",
@@ -44,7 +51,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

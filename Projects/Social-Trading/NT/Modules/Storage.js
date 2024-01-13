@@ -249,18 +249,18 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 const baseDirectory = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/';
                 getAllFilesInDirectoryAndSubdirectories(baseDirectory, onFiles);
 
-                function onFiles(fileList) {
+                async function onFiles(fileList) {
                     for (let i = 0; i < fileList.length; i++) {
                         const filePath = fileList[i];
                         SA.logger.info("Load events filePath = " + filePath);
         
                         try {
-                            const fileContent = SA.nodeModules.fs.readFileSync(filePath);
+                            const fileContent = await SA.nodeModules.fs.promises.readFile(filePath);
                             
                             if (fileContent.length === 0 || fileContent === '[]') {
                                 SA.logger.info("Empty file. Skipping..." + filePath );
                                 continue;
-                              }
+                            }
 
                             const eventsList = JSON.parse(fileContent);
         

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, sinyal sağlayıcının Kullanıcı Profili altında tutulan bir sinyal tanımına referansı saklar.",
                 "updated": 1654397664378
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten speichert einen Verweis auf eine Signaldefinition, die unter dem Benutzerprofil (User Profile) des Signalanbieters gespeichert ist.",
+                "updated": 1705145668194
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Sinyallerin eklenebileceği konumların her biri, sağlayıcının Sosyal Ticaret Botunun Ticaret Sistemi Sinyalleri düğümü altında eşleşen Sinyal düğümlerine sahiptir.",
                     "updated": 1654397670566,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder der Orte, an die Signale angehängt werden können, hat passende Signalknoten unter dem Knoten Handelssystemsignale (Trading System Signals) des Social Trading Bot des Anbieters.",
+                    "updated": 1705145681162
                 }
             ]
         }

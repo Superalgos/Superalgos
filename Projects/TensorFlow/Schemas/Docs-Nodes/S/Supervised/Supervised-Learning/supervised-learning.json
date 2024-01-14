@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Denetimli öğrenme, örnek girdi-çıktı çiftlerine dayalı olarak bir girdiyi bir çıktıya eşleyen bir işlevi öğrenmenin makine öğrenimi görevidir. Bir dizi eğitim örneğinden oluşan etiketli eğitim verilerinden bir işlev çıkarır. Denetimli öğrenmede, her örnek bir girdi nesnesinden (tipik olarak bir vektör) ve istenen bir çıktı değerinden (denetleme sinyali olarak da adlandırılır) oluşan bir çifttir.",
                 "updated": 1639220558905
+            },
+            {
+                "language": "DE",
+                "text": "Überwachtes Lernen ist die Aufgabe des maschinellen Lernens, eine Funktion zu erlernen, die eine Eingabe auf eine Ausgabe auf der Grundlage von Eingabe-Ausgabe-Beispielpaaren abbildet. Dabei wird eine Funktion aus markierten Trainingsdaten abgeleitet, die aus einer Reihe von Trainingsbeispielen bestehen. Beim überwachten Lernen ist jedes Beispiel ein Paar, das aus einem Eingabeobjekt (in der Regel ein Vektor) und einem gewünschten Ausgabewert (auch Überwachungssignal genannt) besteht. ",
+                "updated": 1705011729072
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Denetimli bir öğrenme algoritması eğitim verilerini analiz eder ve yeni örnekleri eşlemek için kullanılabilecek bir çıkarım işlevi üretir. Optimal bir senaryo, algoritmanın görünmeyen örnekler için sınıf etiketlerini doğru bir şekilde belirlemesini sağlayacaktır. Bu, öğrenme algoritmasının eğitim verilerinden görülmeyen durumlara \"makul\" bir şekilde genelleme yapmasını gerektirir (bkz. tümevarımsal önyargı).",
                     "updated": 1654397635630,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein überwachter Lernalgorithmus analysiert die Trainingsdaten und erstellt eine abgeleitete Funktion, die für die Zuordnung neuer Beispiele verwendet werden kann. Ein optimales Szenario ermöglicht es dem Algorithmus, die Klassenbezeichnungen für ungesehene Instanzen korrekt zu bestimmen. Dies setzt voraus, dass der Lernalgorithmus auf \"vernünftige\" Weise von den Trainingsdaten auf ungesehene Situationen verallgemeinert (siehe induktive Verzerrung).",
+                    "updated": 1705009221224
                 }
             ]
         }

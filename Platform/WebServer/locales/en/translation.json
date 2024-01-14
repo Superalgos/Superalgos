@@ -67,6 +67,15 @@
         }
     },
     "add": {
+        "spatialDropout1DLayer": "Add Spatial Dropout 1D Layer",
+        "reshapeLayer": "Add Reshape Layer",
+        "repeatVectorLayer": "Add Repeat Vector Layer",
+        "permuteLayer": "Add Permute Layer",
+        "flattenLayer": "Add Flatten Layer",
+        "embeddingLayer": "Add Embedding Layer",
+        "dropoutLayer": "Add Dropout Layer",
+        "denseLayer": "Add Dense Layer",
+        "activationLayer": "Add Activation Layer",
         "model": "Add Model",
         "thresholdedReluLayer": "Add Thresholded Relu Layer",
         "softmaxLayer": "Add Softmax Layer",

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sızdıran doğrultulmuş doğrusal birimin parametrelendirilmiş versiyonu.",
                 "updated": 1654397431593
+            },
+            {
+                "language": "DE",
+                "text": "Parametrisierte Version einer undichten gleichgerichteten linearen Einheit.",
+                "updated": 1705266754042
             }
         ]
     },
@@ -32,13 +37,25 @@
                     "text": "Takip Ediyor",
                     "updated": 1654397437519,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt",
+                    "updated": 1705266760089
                 }
             ]
         },
         {
             "style": "Javascript",
             "text": "f(x) = alpha * x for x < 0. f(x) = x for x >= 0. wherein alpha is a trainable weight",
-            "updated": 1613216938490
+            "updated": 1613216938490,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "f(x) = alpha * x for x < 0. f(x) = x for x >= 0. wobei alpha ein trainierbares Gewicht ist",
+                    "updated": 1705266768468
+                }
+            ]
         },
         {
             "style": "List",
@@ -54,6 +71,11 @@
                     "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
                     "updated": 1654397443752,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: Beliebig. Verwenden Sie die Konfiguration inputShape, wenn Sie diese Ebene als erste Ebene in einem Modell verwenden.",
+                    "updated": 1705266788508
                 }
             ]
         },
@@ -71,6 +93,11 @@
                     "text": "Çıkış şekli: Giriş ile aynı şekil.",
                     "updated": 1654397449668,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Form der Ausgabe: Gleiche Form wie bei der Eingabe.",
+                    "updated": 1705266795664
                 }
             ]
         }

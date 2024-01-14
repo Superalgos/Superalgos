@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Takviyeli öğrenme (RL), kümülatif ödül kavramını en üst düzeye çıkarmak için akıllı ajanların bir ortamda nasıl eylemde bulunmaları gerektiği ile ilgilenen bir makine öğrenimi alanıdır. Takviyeli öğrenme, denetimli öğrenme ve denetimsiz öğrenmenin yanı sıra üç temel makine öğrenimi paradigmasından biridir.",
                 "updated": 1654397467690
+            },
+            {
+                "language": "DE",
+                "text": "Verstärkungslernen (Reinforcement Learning, RL) ist ein Bereich des maschinellen Lernens, der sich mit der Frage beschäftigt, wie intelligente Agenten in einer Umgebung agieren sollten, um den Begriff der kumulativen Belohnung zu maximieren. Das Verstärkungslernen ist eines der drei grundlegenden Paradigmen des maschinellen Lernens, neben dem überwachten Lernen und dem unüberwachten Lernen.",
+                "updated": 1705265628971
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Pekiştirmeli öğrenme, etiketli girdi/çıktı çiftlerinin sunulmasına ihtiyaç duymaması ve alt-optimal eylemlerin açıkça düzeltilmesine ihtiyaç duymaması bakımından denetimli öğrenmeden farklıdır. Bunun yerine odak noktası, keşif (keşfedilmemiş bölge) ve sömürü (mevcut bilgi) arasında bir denge bulmaktır.",
                     "updated": 1654397473767,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Verstärkungslernen unterscheidet sich vom überwachten Lernen dadurch, dass keine markierten Eingabe-/Ausgabepaare präsentiert werden müssen und dass suboptimale Aktionen nicht explizit korrigiert werden müssen. Stattdessen liegt der Schwerpunkt auf der Suche nach einem Gleichgewicht zwischen der Erkundung (von Neuland) und der Ausnutzung (des vorhandenen Wissens).",
+                    "updated": 1705265638385
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "text": "Ortam tipik olarak bir Markov karar süreci (MDP) biçiminde ifade edilir, çünkü bu bağlam için birçok takviye öğrenme algoritması dinamik programlama tekniklerini kullanır. Klasik dinamik programlama yöntemleri ile takviyeli öğrenme algoritmaları arasındaki temel fark, ikincisinin MDP'nin kesin bir matematiksel modeli hakkında bilgi sahibi olduğunu varsaymaması ve kesin yöntemlerin uygulanamaz hale geldiği büyük MDP'leri hedeflemesidir.",
                     "updated": 1654397480819,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Umgebung wird in der Regel in Form eines Markov-Entscheidungsprozesses (MDP) angegeben, da viele Algorithmen für das Verstärkungslernen in diesem Zusammenhang Techniken der dynamischen Programmierung verwenden. Der Hauptunterschied zwischen den klassischen Methoden der dynamischen Programmierung und den Algorithmen des Verstärkungslernens besteht darin, dass letztere keine Kenntnis eines exakten mathematischen Modells des MDP voraussetzen und auf große MDPs abzielen, bei denen exakte Methoden nicht mehr durchführbar sind.",
+                    "updated": 1705265651635
                 }
             ]
         }

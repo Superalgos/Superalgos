@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Girdinin boyutlarını belirli bir desene göre değiştirir. Örneğin RNN'leri ve konvnetleri birbirine bağlamak için kullanışlıdır.",
                 "updated": 1654397419366
+            },
+            {
+                "language": "DE",
+                "text": "Permutiert die Dimensionen der Eingabe nach einem bestimmten Muster. Nützlich, um z. B. RNNs und Convnets miteinander zu verbinden.",
+                "updated": 1705266638450
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397425417,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705266645745
                 }
             ]
         }

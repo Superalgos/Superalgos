@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate"
@@ -14,6 +15,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "dimensionalityUnits",
             "label": "Add Dimensionality Units",
+            "translationKey": "add.dimensionalityUnits",
             "relatedUiObject": "Dimensionality Units",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -24,6 +26,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "activationFunction",
             "label": "Add Activation Function",
+            "translationKey": "add.activationFunction",
             "relatedUiObject": "Activation Function",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -34,6 +37,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "kernel",
             "label": "Add Kernel",
+            "translationKey": "add.kernel",
             "relatedUiObject": "Kernel",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -44,6 +48,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "bias",
             "label": "Add Bias",
+            "translationKey": "add.bias",
             "relatedUiObject": "Bias",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -54,6 +59,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "batchSize",
             "label": "Add Batch Size",
+            "translationKey": "add.batchSize",
             "relatedUiObject": "Batch Size",
             "actionFunction": "payload.executeAction"
         },
@@ -63,6 +69,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "dtype",
             "label": "Add Dtype",
+            "translationKey": "add.dtype",
             "relatedUiObject": "Dtype",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -73,6 +80,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "trainable",
             "label": "Add Trainable",
+            "translationKey": "add.trainable",
             "relatedUiObject": "Trainable",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -83,6 +91,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "weights",
             "label": "Add Weights",
+            "translationKey": "add.weights",
             "relatedUiObject": "Weights",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -92,7 +101,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

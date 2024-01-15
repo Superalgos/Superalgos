@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düzeltilmiş Doğrusal Birim aktivasyon fonksiyonu.",
                 "updated": 1654397487001
+            },
+            {
+                "language": "DE",
+                "text": "Rectified Linear Unit Aktivierungsfunktion.",
+                "updated": 1705266111483
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape (Tamsayılar dizisi, örnek eksenini içermez) yapılandırma alanını kullanın.",
                     "updated": 1654397493022,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: Beliebig. Verwenden Sie das Konfigurationsfeld inputShape (Array of integers, beinhaltet nicht die Sample-Achse), wenn Sie diesen Layer als ersten Layer in einem Modell verwenden.",
+                    "updated": 1705266138026
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Çıkış şekli: Giriş ile aynı şekil.",
                     "updated": 1654397499897,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Form der Ausgabe: Gleiche Form wie bei der Eingabe.",
+                    "updated": 1705266146350
                 }
             ]
         }

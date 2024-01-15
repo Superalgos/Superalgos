@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir girişi belirli bir şekle yeniden şekillendirir.",
                 "updated": 1654397518656
+            },
+            {
+                "language": "DE",
+                "text": "Formt eine Eingabe in eine bestimmte Form um.",
+                "updated": 1705266319563
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Giriş şekli: Keyfi, ancak giriş şeklindeki tüm boyutlar sabit olmalıdır. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
                     "updated": 1654397526184,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: Beliebig, wobei alle Dimensionen in der Eingabeform fest sein müssen. Verwenden Sie die Konfiguration inputShape, wenn Sie diese Ebene als erste Ebene in einem Modell verwenden.",
+                    "updated": 1705266329868
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "text": "Çıkış şekli: [batchSize, targetShape[0], targetShape[1], ..., targetShape[targetShape.length - 1]].",
                     "updated": 1654397531753,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Form ausgeben: [batchSize, targetShape[0], targetShape[1],..., targetShape[targetShape.length - 1]].",
+                    "updated": 1705266339476
                 }
             ]
         }

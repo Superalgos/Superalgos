@@ -67,6 +67,17 @@
         }
     },
     "add": {
+        "executionEnvironment": "Add Execution Environment",
+        "supervisedLearning": "Add Supervised Learning",
+        "unsupervisedLearning": "Add Unsupervised Learning",
+        "selfLearning": "Add Self Learning",
+        "reinforcementLearning": "Add Reinforcement Learning",
+        "inputLayer": "Add Input Layer",
+        "sequentialLayer": "Add Sequential layer",
+        "outputLayer": "Add Output Layer",
+        "activationlayers": "Add Activation Layers",
+        "basicLayers": "Add Basic Layers",
+        "convolutionalLayers": "Add Convolutional Layers",
         "tensor": "Add Tensor",
         "logicRegression": "Add Logistic Regression",
         "artificialNeuralNetwork": "Add Artificial Neural Network",

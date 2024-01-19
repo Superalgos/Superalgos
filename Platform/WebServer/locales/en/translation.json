@@ -67,6 +67,14 @@
         }
     },
     "add": {
+        "desktopApps": "Add Desktop Apps",
+        "mobileApps": "Add Mobile Apps",
+        "serverApps": "Add Server Apps",
+        "taskServerApp": "Add Task Server App",
+        "socialTradingServerApp": "Add Social Trading Server App",
+        "socialTradingMobileApp": "Add Social Trading Mobile App",
+        "socialTradingDesktopApp": "Add Social Trading Desktop App",
+        "algoTradersPlatformApp": "Add Algo Traders Platform App",
         "executionEnvironment": "Add Execution Environment",
         "supervisedLearning": "Add Supervised Learning",
         "unsupervisedLearning": "Add Unsupervised Learning",

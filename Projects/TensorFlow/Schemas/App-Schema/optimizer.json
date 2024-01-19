@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Optimizer by Name",
+            "translationKey": "add.optimizerByName",
             "relatedUiObject": "Optimizer by Name",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add SGD Instance",
+            "translationKey": "add.sgdInstance",
             "relatedUiObject": "SGD Instance",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -27,6 +29,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Momentum Instance",
+            "translationKey": "add.momentumInstance",
             "relatedUiObject": "Momentum Instance",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -37,6 +40,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Adagrad Instance",
+            "translationKey": "add.adagradInstance",
             "relatedUiObject": "Adagrad Instance",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -47,6 +51,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Adadelta Instance",
+            "translationKey": "add.adadeltaInstance",
             "relatedUiObject": "Adadelta Instance",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -57,6 +62,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Adam Instance",
+            "translationKey": "add.adamInstance",
             "relatedUiObject": "Adam Instance",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -67,6 +73,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizerType",
             "label": "Add Rmsprop Instance",
+            "translationKey": "add.rmspropInstance",
             "relatedUiObject": "Rmsprop Instance",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -76,7 +83,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

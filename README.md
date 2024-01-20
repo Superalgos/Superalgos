@@ -389,6 +389,7 @@ brew bundle
 > :white_check_mark: **NOTE**: You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
 
 ## Linux (e.g. Ubuntu, or Raspberry Pi running Raspberry Pi OS/Raspbian) Prerequisites
+Updated 21 JAN 2024
 > :white_check_mark: **NOTE**: Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
 
 Check git and python3 already installed
@@ -416,13 +417,22 @@ Restart terminal and then verify installed version
 nvm -v
 ```
 
+<strong><em>On Master Branch use.</em></strong>
+Install Node v20.6.1, packages with npm 9.8.1. Master branch can not currently accept npm version 10 or above.
+
+```sh
+nvm install 20.6.1
+```
+
+
+<strong><em>On Develop Branch use.</em></strong>
 Install latest version of node
 
 ```sh
 nvm install node
 ```
 
-#### Option 2 - Install Node directly
+#### Option 2 - Install Node directly - Develop Branch only
 
 [Follow the Node.js package manager install instructions](https://github.com/nodesource/distributions) for your distribution to ensure you are getting the latest version of Node.js.
 

@@ -107,15 +107,15 @@ All procedures (other than prerequisites) are the same for Windows, Linux, or Ma
 
 You will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
 
-Follow the installation wizards to install the latest NodeJS and Git. Make sure to follow all the default and recommended settings while installing Git. If desired also install Chrome.
+> :white_check_mark: **ENVIRONMENT-SPECIFIC NOTES**: Additional notes about installing prerequisites on specific environments and edge cases can be found in the [Prerequisites Notes](#small_orange_diamond-prerequisites-notes) section in the Appendix.
+
+For Windows installations, follow below installation wizards to install the latest NodeJS and Git. Make sure to follow all the default and recommended settings while installing Git. If desired also install Chrome.
 
 - [Node.js download page](https://nodejs.org/en/download/)
 
 - [Git download page](https://git-scm.com/downloads)
 
 - [Google Chrome download page](https://www.google.com/chrome/)
-
-> :white_check_mark: **ENVIRONMENT-SPECIFIC NOTES**: Additional notes about installing prerequisites on specific environments and edge cases can be found in the [Prerequisites Notes](#small_orange_diamond-prerequisites-notes) section in the Appendix.
 
 > :white_check_mark: **TENSORFLOW NOTE**: If you wish to test the (partial and incomplete) TensorFlow integration, you will also need Python 3.
 
@@ -389,32 +389,68 @@ brew bundle
 > :white_check_mark: **NOTE**: You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
 
 ## Linux (e.g. Ubuntu, or Raspberry Pi running Raspberry Pi OS/Raspbian) Prerequisites
-
-[Follow the Node.js package manager install instructions](https://nodejs.org/en/download/package-manager/) for your distribution to ensure you are getting the latest version of Node.js. Many distributions only maintain an older version in their default repositories.
-
 > :white_check_mark: **NOTE**: Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
 
+Check git and python3 already installed
 ```sh
-curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get \
-install -y \
-nodejs npm git python3
+sudo apt install git python3
 ```
 
-You may verify the installed versions with this command string:
+### :one: Install Node.js using one of the following options
+
+#### Option 1 - Install Node from Node Version Manager (recommended)
+
+Install Node Version Manager
 
 ```sh
-node \
--v && npm \
--v && git --version
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+or
+```sh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
-If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
+Restart terminal and then verify installed version
 
-Alternatively, you can use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to set up a tool for using Bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian-based Distro. Nymea also has tools for automation of IoT products to allow setting up Superalgos as a timed function without needing to learn how to code.
+```sh
+nvm -v
+```
 
-> :white_check_mark: **IMPORTANT**: 
-> 
-> If you are having node version errors there is a chance you may need to read the information in the Debian Prerequisites section and use NVM to handle node versions. This is due to some distributions having out-of-date repositories in the package manager lists.
+Install latest version of node
+
+```sh
+nvm install node
+```
+
+#### Option 2 - Install Node directly
+
+[Follow the Node.js package manager install instructions](https://github.com/nodesource/distributions) for your distribution to ensure you are getting the latest version of Node.js.
+
+```sh
+curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - && sudo apt-get install -y nodejs
+```
+
+### 2️⃣: Follow instructions above to [create github token, Fork and Clone the repository](https://github.com/Superalgos/Superalgos/edit/master/README.md#small_orange_diamond-superalgos-150)
+
+Check using correct Branch before proceeding
+
+Move to Superalgos directory
+```sh
+cd Superalgos
+```
+
+### 3️⃣: Install dependencies listed in packages.json
+```sh
+npm ci
+```
+Check Versions installed locally
+```sh
+npm list # npm version 10.3.0 or above
+```
+
+### 4️⃣: Return to [Install Node Dependencies](https://github.com/Superalgos/Superalgos/edit/master/README.md#small_orange_diamond-superalgos-150)
+
+
 
 ## Debian or Debian WSL/WSL2 Prerequisites
 (NVM & NPM Fix)

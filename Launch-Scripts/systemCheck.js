@@ -78,7 +78,7 @@ function compareVersions(actualVersion, neededVersion, application) {
   
   while (continueCheck) {
     /* End check as successful if next part of version number is undefined */
-    if (typeof actualVersion[pos] === undefined || typeof neededVersion[pos] === undefined || !actualVersion[pos] || !neededVersion[pos]) {
+    if (typeof actualVersion[pos] === 'undefined' || typeof neededVersion[pos] === 'undefined' || !actualVersion[pos] || !neededVersion[pos]) {
       continueCheck = false
       /* Output warning message if main version of an application can not be obtained */
       if (pos === 0) {

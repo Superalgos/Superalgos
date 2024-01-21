@@ -408,6 +408,12 @@ node \
 -v && git --version
 ```
 
+The setup process will require the presence of standard development software packages on your system, such as **make, gcc and g++**. Please monitor possible error messages during the setup process and install missing packages as required, for example:
+
+```sh
+sudo apt-get install -y make gcc g++
+```
+
 If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
 
 Alternatively, you can use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to set up a tool for using Bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian-based Distro. Nymea also has tools for automation of IoT products to allow setting up Superalgos as a timed function without needing to learn how to code.

@@ -80,12 +80,11 @@ function compareVersions(actualVersion, neededVersion, application) {
     /* End check as successful if next part of version number is undefined */
     if (typeof actualVersion[pos] === undefined || typeof neededVersion[pos] === undefined || !actualVersion[pos] || !neededVersion[pos]) {
       continueCheck = false
-      /* We must have a main version, otherwise stop with error */
+      /* Output warning message if main version of an application can not be obtained */
       if (pos === 0) {
         console.log('')
-        console.log('Required or current version of ' + application + ' could not be verified. Please check your setup.')
+        console.log('Warning: Unable to conduct version check for ' + application + '. If you face issues during setup, please check if this application is correctly installed on your system.') 
         console.log('')
-        process.exit()
       }
       break
     /* Fail if version number is too low */

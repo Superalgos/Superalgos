@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "propertyToCheckFor": "triggerStageSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Trigger Stage Signals",
+            "translationKey": "add.signals.triggerStage",
             "relatedUiObject": "Trigger Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -25,6 +27,7 @@
             "propertyToCheckFor": "openStageSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Open Stage Signals",
+            "translationKey": "add.signals.openStage",
             "relatedUiObject": "Open Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },        
@@ -35,6 +38,7 @@
             "propertyToCheckFor": "manageStageSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Manage Stage Signals",
+            "translationKey": "add.signals.manageStage",
             "relatedUiObject": "Manage Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },          
@@ -45,6 +49,7 @@
             "propertyToCheckFor": "closeStageSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Close Stage Signals",
+            "translationKey": "add.signals.closeStage",
             "relatedUiObject": "Close Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -53,7 +58,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

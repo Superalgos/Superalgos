@@ -52,6 +52,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Target Rate Signal",
+            "translationKey": "add.targetRateSignal",
             "relatedUiObject": "Target Rate Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },         

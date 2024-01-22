@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "propertyToCheckFor": "triggerOnSignal",
             "actionFunction": "payload.executeAction",
             "label": "Add Trigger On Signal",
+            "translationKey": "add.triggerOnSignal",
             "relatedUiObject": "Trigger On Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -25,6 +27,7 @@
             "propertyToCheckFor": "triggerOffSignal",
             "actionFunction": "payload.executeAction",
             "label": "Add Trigger Off Signal",
+            "translationKey": "add.triggerOffSignal",
             "relatedUiObject": "Trigger Off Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },        
@@ -35,6 +38,7 @@
             "propertyToCheckFor": "takePositionSignal",
             "actionFunction": "payload.executeAction",
             "label": "Add Take Position Signal",
+            "translationKey": "add.takePositionSignal",
             "relatedUiObject": "Take Position Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },          
@@ -43,7 +47,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

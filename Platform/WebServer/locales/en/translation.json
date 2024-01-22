@@ -73,10 +73,15 @@
         "missingReferences": "Fix Missing References"
     },
     "add": {
+        "takePositionSignal": "Add Take Position Signal",
+        "triggerOffSignal": "Add Trigger Off Signal",
+        "triggerOnSignal": "Add Trigger On Signal",
+        "moveToPhaseSignal": "Add Move To Phase Signal",
         "nextPhaseSignal": "Add Next Phase Signal",
         "signalContextFormula": "Add Signal Context Formula",
         "phaseSignal": "Add Phase Signal",
         "closeStageSignal": "Add Close Stage Signal",
+        "targetRateSignal": "Add Target Rate Signal",
         "targetSizeInQuotedAssetSignal": "Add Target Size In Quoted Asset Signal",
         "targetSizeInBaseAssetSignal": "Add Target Size In Base Asset Signal",
         "tradingSystemSignals": "Add Trading System Signals",
@@ -608,6 +613,11 @@
             "system": "Add Trading System"
         },
         "signals": {
+            "label": "Add Trading Strategy Signals",
+            "closeStage": "Add Close Stage Signals",
+            "manageStage": "Add Manage Stage Signals",
+            "triggerStage": "Add Trigger Stage Signals",
+            "openStage": "Add Open Stage Signals",
             "provider": "Add Signals Provider",
             "providers": "Add Signals Providers",
             "outgoing": "Add Outgoing Signals",

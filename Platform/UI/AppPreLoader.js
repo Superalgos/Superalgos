@@ -28,6 +28,8 @@ GLOBAL.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 }
 
+let exports = {}
+
 let browserCanvas                 // This is the canvas object of the browser.
 
 function spacePad(str, max) {

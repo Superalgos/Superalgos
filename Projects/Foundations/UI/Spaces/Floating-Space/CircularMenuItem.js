@@ -635,7 +635,10 @@ function newCircularMenuItem() {
             label = labelToPrint
             const translationKey = labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey
             if(translationKey) {
-                label = findTranslation(translationKey)
+                let value = findTranslation(translationKey)
+                if(value !== undefined) {
+                    label = value
+                }
             }
             if (thisObject.shorcutNumber !== undefined) {
                 label = '' + thisObject.shorcutNumber + '- ' + labelToPrint

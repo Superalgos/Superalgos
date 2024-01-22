@@ -667,9 +667,14 @@
                 "sell": "Add Market Sell Order"
             },
             "rate": "Add Order Rate",
+            "rateSignal": "Add Order Rate Signal",
             "event": {
                 "create": "Add Create Order Event",
                 "cancel": "Add Cancel Order Event"
+            },
+            "signal": {
+                "create": "Add Create Order Signal",
+                "cancel": "Add Cancel Order Signal"
             }
         },
         "simulated": {

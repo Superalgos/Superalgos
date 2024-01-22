@@ -73,6 +73,9 @@
         "missingReferences": "Fix Missing References"
     },
     "add": {
+        "nextPhaseSignal": "Add Next Phase Signal",
+        "signalContextFormula": "Add Signal Context Formula",
+        "phaseSignal": "Add Phase Signal",
         "closeStageSignal": "Add Close Stage Signal",
         "targetSizeInQuotedAssetSignal": "Add Target Size In Quoted Asset Signal",
         "targetSizeInBaseAssetSignal": "Add Target Size In Base Asset Signal",
@@ -611,7 +614,9 @@
             "incoming": "Add Incoming Signals",
             "available": "Add Available Signals",
             "outgoingReference": "Add Outgoing Signal Reference",
-            "incomingReference": "Add Incoming Signal Reference"
+            "incomingReference": "Add Incoming Signal Reference",
+            "managedStopLoss": "Add Managed Stop Loss Signals",
+            "managedTakeProfit": "Add Managed Take Profit Signals"
         },
         "data": {
             "allMineDependencies": "Add All Data Mine Dependencies",

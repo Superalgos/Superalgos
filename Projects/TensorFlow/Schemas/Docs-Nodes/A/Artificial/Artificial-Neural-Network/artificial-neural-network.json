@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "ANN, biyolojik bir beyindeki nöronları gevşek bir şekilde modelleyen, yapay nöronlar adı verilen bağlantılı birimler veya düğümler koleksiyonudur. Her bağlantı, biyolojik bir beyindeki sinapslar gibi, diğer nöronlara bir sinyal iletebilir. Bir sinyali alan yapay bir nöron daha sonra onu işler ve kendisine bağlı nöronlara sinyal gönderebilir.",
                 "updated": 1639221396544
+            },
+            {
+                "language": "DE",
+                "text": "Ein ANN basiert auf einer Sammlung miteinander verbundener Einheiten oder Knoten, die als künstliche Neuronen bezeichnet werden und die Neuronen in einem biologischen Gehirn locker nachbilden. Jede Verbindung kann, wie die Synapsen im biologischen Gehirn, ein Signal an andere Neuronen weiterleiten. Ein künstliches Neuron, das ein Signal empfängt, verarbeitet es und kann den mit ihm verbundenen Neuronen Signale geben.",
+                "updated": 1705959380358
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Bir bağlantıdaki \"sinyal\" gerçek bir sayıdır ve her nöronun çıktısı, girdilerinin toplamının doğrusal olmayan bir fonksiyonu ile hesaplanır. Bağlantılar kenar olarak adlandırılır. Nöronlar ve kenarlar tipik olarak öğrenme ilerledikçe ayarlanan bir ağırlığa sahiptir. Ağırlık, bir bağlantıdaki sinyalin gücünü artırır veya azaltır. Nöronların bir eşiği olabilir, öyle ki bir sinyal yalnızca toplam sinyal bu eşiği geçerse gönderilir. Tipik olarak, nöronlar katmanlar halinde toplanır. Farklı katmanlar girdileri üzerinde farklı dönüşümler gerçekleştirebilir. Sinyaller ilk katmandan (giriş katmanı) son katmana (çıkış katmanı), muhtemelen katmanları birden fazla kez geçtikten sonra gider.",
                     "updated": 1654396646118,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das \"Signal\" an einer Verbindung ist eine reelle Zahl, und die Ausgabe jedes Neurons wird durch eine nichtlineare Funktion der Summe seiner Eingaben berechnet. Die Verbindungen werden als Kanten bezeichnet. Neuronen und Kanten haben in der Regel ein Gewicht, das sich im Laufe des Lernprozesses anpasst. Die Gewichtung erhöht oder verringert die Stärke des Signals an einer Verbindung. Neuronen können einen Schwellenwert haben, so dass ein Signal nur gesendet wird, wenn das Gesamtsignal diesen Schwellenwert überschreitet. Normalerweise werden Neuronen in Schichten zusammengefasst. Verschiedene Schichten können unterschiedliche Transformationen an ihren Eingängen vornehmen. Die Signale wandern von der ersten Schicht (der Eingabeschicht) zur letzten Schicht (der Ausgabeschicht), möglicherweise nachdem sie die Schichten mehrfach durchlaufen haben.",
+                    "updated": 1705959434085
                 }
             ]
         }

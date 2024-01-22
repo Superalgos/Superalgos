@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Gelişmiş bir aktivasyon fonksiyonu uygulamak istediğinizde bu katman türünü kullanın.",
                 "updated": 1654396634117
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diese Art von Ebene, wenn Sie eine erweiterte Aktivierungsfunktion anwenden möchten.",
+                "updated": 1705959305542
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396640084,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705959313829
                 }
             ]
         }

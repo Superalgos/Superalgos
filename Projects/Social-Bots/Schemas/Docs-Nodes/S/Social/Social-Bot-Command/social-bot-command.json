@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sosyal Bot Komut düğümü, Superalgos tarafından yorumlanacak ve yürütülecek eğik çizgi komutlarını yapılandırmak için kullanılır.",
                 "updated": 1654396295781
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Social Bot Command wird verwendet, um Slash-Befehle zu konfigurieren, die von Superalgos interpretiert und ausgeführt werden sollen.",
+                "updated": 1705872712433
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Genel Bakış",
                     "updated": 1654396302650,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Übersicht",
+                    "updated": 1705872727806
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "text": "Sosyal Bot Komut düğümü, bir kullanıcı tarafından mesajlaşma uygulamasından tetiklendiğinde Superalgos tarafından yorumlanacak ve yürütülecek eğik çizgi komutlarını yapılandırmak için kullanılır.",
                     "updated": 1654396308324,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten Social Bot Command wird verwendet, um Slash-Befehle zu konfigurieren, die, wenn sie von einem Benutzer aus der Messaging-Anwendung ausgelöst werden, von Superalgos interpretiert und ausgeführt werden.",
+                    "updated": 1705872737947
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "text": "Sosyal Bot Komutu düğümünün yapılandırması, kaydedilen eğik çizgi komutunu tanımlar.",
                     "updated": 1654396314562,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Konfiguration des Knotens Social-Bot-Befehl definiert den registrierten Slash-Befehl.",
+                    "updated": 1705872751637
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "text": "Alt Formül düğümü, komut alındığında değerlendirilen ve gönderilen dizeyi tanımlar.",
                     "updated": 1654396320323,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der untergeordnete Knoten Formula definiert die Zeichenfolge, die beim Empfang des Befehls ausgewertet und gesendet wird.",
+                    "updated": 1705872766049
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "text": "Formül, Ticaret Motorunuzdaki düğüm yollarından herhangi birini içerebilir ve bunlar tam olarak Ticaret Stratejinizde olduğu gibi girilebilir.",
                     "updated": 1654396326547,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Formel kann jeden beliebigen Knotenpfad aus Ihrer Trading Engine enthalten, und diese können genau so eingegeben werden, wie sie in Ihrer Handelsstrategie (Trading Strategy) vorhanden sind.",
+                    "updated": 1705872788430
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "text": "Örnek",
                     "updated": 1654396334766,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel",
+                    "updated": 1705872795206
                 }
             ]
         },
@@ -138,6 +173,11 @@
                     "text": "Aşağıdaki örnek, \"/counters\" eğik çizgi komutunu ayarlayacak ve bu komut alındığında geçerli Ticaret Bölümü Sayaçlarını içeren bir mesaj gönderecektir.",
                     "updated": 1654396340663,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das folgende Beispiel richtet den Slash-Befehl \"/counters\" ein, der beim Empfang eine Nachricht mit den aktuellen Zählern der Handelsepisode (Trading Episode Counters) sendet.",
+                    "updated": 1705872842275
                 }
             ]
         },
@@ -156,6 +196,11 @@
                     "text": "Sosyal Bot Komut Yapılandırması:",
                     "updated": 1654396346842,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Social Bot-Befehlskonfiguration:",
+                    "updated": 1705872871694
                 }
             ]
         },
@@ -179,6 +224,11 @@
                     "text": "Çocuk Düğüm Formülü:",
                     "updated": 1654396352673,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Child Node Formel (Child Node Formula):",
+                    "updated": 1705872887654
                 }
             ]
         },
@@ -202,6 +252,11 @@
                     "text": "Örnekler",
                     "updated": 1654396358547,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1705872895542
                 }
             ]
         },
@@ -219,6 +274,11 @@
                     "text": "Aşağıda birkaç örnek formül ve önerilen komut adları bulunmaktadır.",
                     "updated": 1654396364499,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie einige Beispielformeln und vorgeschlagene Befehlsnamen.",
+                    "updated": 1705872905503
                 }
             ]
         },
@@ -231,6 +291,11 @@
                     "text": "/dengeler",
                     "updated": 1654396370646,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "/ balances",
+                    "updated": 1705873033862
                 }
             ]
         },

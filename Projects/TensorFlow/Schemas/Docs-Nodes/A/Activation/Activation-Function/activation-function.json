@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir önceki katmandan gelen tüm girdilerin ağırlıklı toplamını alan ve daha sonra bir çıktı değeri (genellikle doğrusal olmayan) üreten ve bir sonraki katmana ileten bir işlev (örneğin, ReLU veya sigmoid).",
                 "updated": 1654396600684
+            },
+            {
+                "language": "DE",
+                "text": "Eine Funktion (z. B. ReLU oder Sigmoid), die die gewichtete Summe aller Eingaben der vorherigen Schicht aufnimmt und dann einen (in der Regel nichtlinearen) Ausgabewert erzeugt und an die nächste Schicht weitergibt.",
+                "updated": 1705959167406
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Kullanılacak aktivasyon fonksiyonu. Belirtilmemişse, hiçbir aktivasyon uygulanmaz.",
                     "updated": 1654396607433,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu verwendende Aktivierungsfunktion. Wenn nicht angegeben, wird keine Aktivierung vorgenommen.",
+                    "updated": 1705959183935
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396614886,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1705959191313
                 }
             ]
         },

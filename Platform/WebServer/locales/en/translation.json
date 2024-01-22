@@ -73,6 +73,10 @@
         "missingReferences": "Fix Missing References"
     },
     "add": {
+        "closeStageSignal": "Add Close Stage Signal",
+        "targetSizeInQuotedAssetSignal": "Add Target Size In Quoted Asset Signal",
+        "targetSizeInBaseAssetSignal": "Add Target Size In Base Asset Signal",
+        "tradingSystemSignals": "Add Trading System Signals",
         "specifiedProject": "Add Specified Project",
         "desktopApps": "Add Desktop Apps",
         "mobileApps": "Add Mobile Apps",
@@ -605,7 +609,9 @@
             "providers": "Add Signals Providers",
             "outgoing": "Add Outgoing Signals",
             "incoming": "Add Incoming Signals",
-            "available": "Add Available Signals"
+            "available": "Add Available Signals",
+            "outgoingReference": "Add Outgoing Signal Reference",
+            "incomingReference": "Add Incoming Signal Reference"
         },
         "data": {
             "allMineDependencies": "Add All Data Mine Dependencies",
@@ -640,11 +646,15 @@
         "orders": {
             "limit": {
                 "buy": "Add Limit Buy Orders",
-                "sell": "Add Limit Sell Orders"
+                "sell": "Add Limit Sell Orders",
+                "buySignals": "Add Limit Buy Order Signals",
+                "sellSignals": "Add Limit Sell Order Signals"
             },
             "market": {
                 "buy": "Add Market Buy Orders",
-                "sell": "Add Market Sell Orders"
+                "sell": "Add Market Sell Orders",
+                "buySignals": "Add Market Buy Order Signals",
+                "sellSignals": "Add Market Sell Order Signals"
             }
         },
         "order": {

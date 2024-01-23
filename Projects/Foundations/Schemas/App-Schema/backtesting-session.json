@@ -34,6 +34,7 @@
             "workDoneLabel": "Session Running",
             "workDoneLabelTranslationKey": "general.sessionRunning",
             "workFailedLabel": "Session Cannot be Resumed",
+            "workFailedLabelTranslationKey": "general.sessionCannotBeResumed",
             "secondaryAction": "Stop Trading Session",
             "secondaryLabel": "Stop",
             "secondaryLabelTranslationKey": "general.stop",

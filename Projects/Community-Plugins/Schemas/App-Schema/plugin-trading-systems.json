@@ -9,6 +9,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "iconPathOn": "trading-system",
             "iconPathOff": "trading-system",
             "iconProject": "Algorithmic-Trading",

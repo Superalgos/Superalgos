@@ -28,6 +28,9 @@
         "sessionCannotBeStopped": "Session Cannot be Stopped",
         "sessionCannotBeResumed": "Session Cannot be Resumed",
         "disableSavingWithWorkspace": "Disable Saving With Workspace",
+        "sendingMessage": "Sending Message",
+        "messageSent": "Message Sent",
+        "messageNotDelivered": "Message not Delivered",
         "disabled": "Disabled",
         "previous": "Previous",
         "next": "Next",
@@ -41,6 +44,8 @@
         "delete": "Delete",
         "edit": "Edit",
         "debug": "Debug",
+        "debugging": "Debugging",
+        "debugRequestSent": "Debug Request Sent",
         "confirm": {
             "delete": "Confirm to Delete",
             "proceed": "Confirm to Proceed",
@@ -860,7 +865,8 @@
         "running": "Task Running",
         "cannotBeRun": "Task Cannot be Run",
         "stopped": "Task Stopping",
-        "cannotBeStopped": "Task Cannot be Stopped"
+        "cannotBeStopped": "Task Cannot be Stopped",
+        "cannotBeDebugged": "Task Cannot be Debugged"
     },
     "send": {
         "message": {

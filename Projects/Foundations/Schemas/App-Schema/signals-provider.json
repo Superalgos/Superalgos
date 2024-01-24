@@ -14,8 +14,11 @@
             "label": "Send Test Message",
             "translationKey": "send.message.text",
             "workingLabel": "Sending Message",
+            "workingLabelTranslationKey": "general.sendingMessage",
             "workDoneLabel": "Message Sent",
+            "workDoneLabelTranslationKey": "general.messageSent",
             "workFailedLabel": "Message not Delivered",
+            "workFailedLabelTranslationKey": "general.messageNotDelivered",
             "iconPathOn": "run",
             "iconPathOff": "run",
             "actionFunction": "payload.executeAction"

@@ -30,8 +30,11 @@
             "label": "Debug",
             "translationKey": "general.debug",
             "workingLabel": "Debugging",
+            "workingLabelTranslationKey": "general.debugging",
             "workDoneLabel": "Debug Request Sent",
+            "workDoneLabelTranslationKey": "general.debugRequestSent",
             "workFailedLabel": "Task Cannot be Debugged",
+            "workFailedLabelTranslationKey": "task.cannotBeDebugged",
             "iconPathOn": "status-dependency",
             "iconPathOff": "status-dependency",
             "actionFunction": "payload.executeAction"

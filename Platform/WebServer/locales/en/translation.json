@@ -856,7 +856,11 @@
                     "stop": "Stop All Portfolio Mine Tasks"
                 }
             }
-        }
+        },
+        "running": "Task Running",
+        "cannotBeRun": "Task Cannot be Run",
+        "stopped": "Task Stopping",
+        "cannotBeStopped": "Task Cannot be Stopped"
     },
     "send": {
         "message": {

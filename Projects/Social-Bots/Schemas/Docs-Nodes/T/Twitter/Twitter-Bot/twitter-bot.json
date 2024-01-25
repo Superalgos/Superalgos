@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Twitter Botu, Superalgos'un Twitter'a mesaj göndermesini sağlar.",
                 "updated": 1654396460658
+            },
+            {
+                "language": "DE",
+                "text": "Der Twitter-Bot ermöglicht es Superalgos, Nachrichten an Twitter zu senden.",
+                "updated": 1705957511509
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "text": "Twitter Bot'u kullanmak için bir Twitter API Uygulaması oluşturulması gerekir. Erişim başvurusunda bulunmak ve uygulamayı oluşturmak için Twitter API Dokümantasyonunu takip edin. Okuma ve Yazma izinlerine sahip bir Erişim Belirteci ve Sırrı oluşturun.",
                     "updated": 1654396468009,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um den Twitter Bot nutzen zu können, muss eine Twitter API Anwendung erstellt werden. Folgen Sie der Twitter API-Dokumentation, um Zugang zu beantragen und die Anwendung zu erstellen. Erstellen Sie ein Zugriffstoken und ein Geheimnis mit Lese- und Schreibberechtigung.",
+                    "updated": 1705957521380
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "Parametreler:",
                     "updated": 1654396474852,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Parameter:",
+                    "updated": 1705957528165
                 }
             ]
         },
@@ -64,6 +79,11 @@
                     "text": "- consumer_key - gerekli - Twitter geliştirici portalı uygulamasından elde edilir, API Anahtarı",
                     "updated": 1654396481100,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- consumer_key - erforderlich - erhalten von der Twitter-Entwicklerportal-Anwendung, API-Schlüssel",
+                    "updated": 1705957536468
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "text": "- consumer_secret - gerekli - Twitter geliştirici portalı uygulamasından elde edilir, API Key Secret",
                     "updated": 1654396487619,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- consumer_secret - erforderlich - wird von der Twitter-Entwicklerportal-Anwendung bezogen, API Key Secret",
+                    "updated": 1705957546480
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "text": "- access_token_key - gerekli - Twitter geliştirici portalı uygulamasından elde edilir, Erişim Belirteci",
                     "updated": 1654396495191,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- access_token_key - erforderlich - erhalten von der Twitter-Entwicklerportal-Anwendung, Access Token",
+                    "updated": 1705957556244
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "text": "- access_token_secret - gerekli - Twitter geliştirici portalı uygulamasından elde edilir, Erişim Belirteci Sırrı",
                     "updated": 1654396502308,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- access_token_secret - erforderlich - erhalten von der Twitter-Entwicklerportal-Anwendung, Access Token Secret",
+                    "updated": 1705957568126
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "text": "- biçim - isteğe bağlı - Discord'a gönderilen mesajın özel olarak biçimlendirilmesini sağlar.",
                     "updated": 1654396508803,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- format - optional - ermöglicht die benutzerdefinierte Formatierung der in Discord gesendeten Nachricht.",
+                    "updated": 1705957577133
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "text": "Tanınan Biçim Değişkenleri:",
                     "updated": 1654396515223,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erkannte Formatvariablen:",
+                    "updated": 1705957584621
                 }
             ]
         },
@@ -166,6 +211,11 @@
                     "text": "- `%{EXCHANGE}` çalışmakta olan borsa, yani Binance",
                     "updated": 1654396521802,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{EXCHANGE}` die Börse, die in Betrieb ist, d.h. Binance",
+                    "updated": 1705957597304
                 }
             ]
         },
@@ -183,6 +233,11 @@
                     "text": "- `%{MARKET}` faaliyette olan piyasa. yani BTC/USDT",
                     "updated": 1654396527874,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{MARKET}` der Markt, der in Betrieb ist, d.h. BTC/USDT",
+                    "updated": 1705957605515
                 }
             ]
         },
@@ -200,6 +255,11 @@
                     "text": "- `%{MESSAGE}` gönderilen metin",
                     "updated": 1654396534199,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{MESSAGE}` der gesendete Text",
+                    "updated": 1705957614208
                 }
             ]
         },
@@ -217,6 +277,11 @@
                     "text": "Örnek bir format şöyledir:",
                     "updated": 1654396540056,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Beispielformat ist:",
+                    "updated": 1705957624886
                 }
             ]
         },
@@ -238,6 +303,11 @@
                     "text": "Bu da Twitter'da aşağıdaki gibi görünen bir son mesajla sonuçlanır:",
                     "updated": 1654396547362,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ergebnis ist eine abschließende Meldung in Twitter, die wie folgt aussieht:",
+                    "updated": 1705957633016
                 }
             ]
         },

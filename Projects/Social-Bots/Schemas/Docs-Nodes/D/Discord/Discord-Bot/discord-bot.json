@@ -8,6 +8,11 @@
                 "language": "TR",
                 "text": "Discord Bot düğümü, bir Discord Bot için yapılandırmayı tanımlamak için kullanılır. Bu bot, Superalgos'un bir Discord Kanalına duyurular göndermesini sağlar.",
                 "updated": 1654396138578
+            },
+            {
+                "language": "DE",
+                "text": "Der Discord-Bot-Knoten dient zur Definition der Konfiguration eines Discord-Bots. Dieser Bot ermöglicht es Superalgos, Ankündigungen an einen Discord-Kanal zu senden.",
+                "updated": 1705871294860
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "text": "Discord Bot'u kullanmak için yeni bir Uygulama oluşturmanız gerekecektir. Botunuzu oluşturmak ve bir Auth Token almak için resmi Discord geliştirici portalı belgelerini izleyin.",
                     "updated": 1654396145999,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um den Discord-Bot nutzen zu können, müssen Sie eine neue Anwendung erstellen. Folgen Sie der offiziellen Dokumentation des Discord-Entwicklerportals, um Ihren Bot zu erstellen und ein Auth Token zu erhalten.",
+                    "updated": 1705871305407
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "text": "Parametreler:",
                     "updated": 1654396153583,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Parameter:",
+                    "updated": 1705871312182
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "text": "- token - gerekli - Discord Geliştirici Portalından elde edilir.",
                     "updated": 1654396159747,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- Token - erforderlich - erhalten Sie über das Discord-Entwicklerportal.",
+                    "updated": 1705871320027
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "text": "- channelId - gerekli - kanal kimliğini elde etmek için bir kanala sağ tıklayın ve ardından Kimliği Kopyala'ya tıklayın.",
                     "updated": 1654396165715,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- channelId - erforderlich - klicken Sie mit der rechten Maustaste auf einen Kanal und dann auf ID kopieren, um die Kanal-ID zu erhalten.",
+                    "updated": 1705871332540
                 }
             ]
         },
@@ -70,6 +95,11 @@
                     "text": "- biçim - isteğe bağlı - Discord'a gönderilen mesajın özel olarak biçimlendirilmesini sağlar.",
                     "updated": 1654396171662,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- format - optional - ermöglicht die benutzerdefinierte Formatierung der in Discord gesendeten Nachricht.",
+                    "updated": 1705871344411
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "text": "Tanınan Biçim Değişkenleri:",
                     "updated": 1654396177963,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erkannte Formatvariablen:",
+                    "updated": 1705871352810
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "text": "- `%{EXCHANGE}` çalışmakta olan borsa, yani Binance",
                     "updated": 1654396183538,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{EXCHANGE}` die Börse, die in Betrieb ist, d.h. Binance",
+                    "updated": 1705871361187
                 }
             ]
         },
@@ -106,6 +146,11 @@
                     "text": "- `%{MARKET}` faaliyette olan piyasa. yani BTC/USDT",
                     "updated": 1654396190284,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{MARKET}` der Markt, der in Betrieb ist, d.h. BTC/USDT",
+                    "updated": 1705871368531
                 }
             ]
         },
@@ -118,6 +163,11 @@
                     "text": "- `%{MESSAGE}` gönderilen metin",
                     "updated": 1654396196767,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{MESSAGE}` der gesendete Text",
+                    "updated": 1705871382749
                 }
             ]
         },
@@ -130,6 +180,11 @@
                     "text": "Örnek bir format şöyledir:",
                     "updated": 1654396202703,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Beispielformat ist:",
+                    "updated": 1705871398787
                 }
             ]
         },
@@ -146,6 +201,11 @@
                     "text": "Bu da Discord'da aşağıdaki gibi bir son mesajla sonuçlanır:",
                     "updated": 1654396208572,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ergebnis ist eine abschließende Nachricht in Discord, die so aussieht:",
+                    "updated": 1705871406082
                 }
             ]
         },

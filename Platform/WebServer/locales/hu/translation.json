@@ -1,0 +1,728 @@
+{
+    "nav": {
+        "workspaces": {
+            "title": "Munkaterületek",
+            "user": "Felhasználó munkaterületei",
+            "native": "Natív munkaterületek",
+            "collapseNodes": "Összes gyökércsomópont összecsukása",
+            "undoRedo": "Visszavonás/Ismétlés",
+            "save": "Munkaterület mentése"
+        },
+        "contributions": {
+            "title": "Hozzájárulások",
+            "contribute": "Minden változás hozzájárulása",
+            "update": "App frissítése",
+            "reset": "Helyi tároló visszaállítása"
+        }
+    },
+    "general": {
+        "previous": "Előző",
+        "next": "Következő",
+        "stop": "Megállítás",
+        "skip": "Kihagyás",
+        "play": "Lejátszás",
+        "resume": "Folytatás",
+        "run": "Futtatás",
+        "configure": "Konfigurálás",
+        "delete": "Törlés",
+        "edit": "Szerkesztés",
+        "debug": "Hibakeresés",
+        "confirm": {
+            "delete": "Törlés megerősítése",
+            "proceed": "Folytatás megerősítése",
+            "run": "Futtatás megerősítése",
+            "stop": "Megállítás megerősítése",
+            "install": "Telepítés megerősítése",
+            "save": "Mentés megerősítése"
+        },
+        "updateCheck": "Frissítések keresése"
+    },
+    "docs": {
+        "space": {
+            "style": "Dokumentumtér stílusának hozzáadása",
+            "settings": "Dokumentumtér beállításainak hozzáadása",
+            "add": "Dokumentumtér hozzáadása"
+        }
+    },
+    "install": {
+        "signingAccounts": "Aláírási fiók telepítése",
+        "missingVotes": "Hiányzó szavazatok telepítése",
+        "asPlugin": "Pluginként telepítése",
+        "missingAssets": "Hiányzó eszközök telepítése",
+        "missingClaims": "Hiányzó igények telepítése",
+        "apiResponseFieldRefs": "API válaszmező hivatkozások telepítése",
+        "marketPair": "Pár telepítése (Piac)",
+        "market": "Piac telepítése",
+        "product": "Termék telepítése"
+    },
+    "uninstall": {
+        "marketPair": "Pár eltávolítása (Piac)",
+        "market": "Piac eltávolítása"
+    },
+    "sessions": {
+        "managed": {
+            "stop": "Kezelt munkamenetek leállítása",
+            "run": "Kezelt munkamenetek futtatása",
+            "reference": "Kezelt munkamenet hivatkozás"
+        }
+    },
+    "add": {
+        "model": "Modell hozzáadása",
+        "thresholdedReluLayer": "Thresholded Relu réteg hozzáadása",
+        "softmaxLayer": "Softmax réteg hozzáadása",
+        "reluLayer": "Relu réteg hozzáadása",
+        "preluLayer": "Prelu réteg hozzáadása",
+        "socialTradingBot": "Közösségi kereskedési bot hozzáadása",
+        "followedBotReference": "Követett bot hivatkozás hozzáadása",
+        "socialPersona": "Közösségi személyiség hozzáadása",
+        "timerAccouncement": "Időzített bejelentés hozzáadása",
+        "socialBotCommand": "Közösségi bot parancs hozzáadása",
+        "twitterBot": "Twitter bot hozzáadása",
+        "slackBot": "Slack bot hozzáadása",
+        "discordBot": "Discord bot hozzáadása",
+        "telegramBot": "Telegram bot hozzáadása",
+        "announcementCondition": "Bejelentési feltétel hozzáadása",
+        "announcementFormula": "Bejelentési formula hozzáadása",
+        "portfolioBot": "Portfólió bot hozzáadása",
+        "projectPortfolioProducts": "Projekt portfólió termékek hozzáadása",
+        "allPortfolioMineProducts": "Minden portfólióm bányásztermék hozzáadása",
+        "portfolioMineProducts": "Portfólióm bányásztermékek hozzáadása",
+        "dataProduct": "Adattermék hozzáadása",
+        "userDefinedCode": "Felhasználó által definiált kód hozzáadása",
+        "exchangePortfolioProducts": "Csere portfólió termékek hozzáadása",
+        "setEventReference": "Esemény hivatkozás hozzáadása",
+        "setFormulaReference": "Formula hivatkozás hozzáadása",
+        "code": "Kód hozzáadása",
+        "portfolioEngine": "Portfólió motor hozzáadása",
+        "portfolioMine": "Portfólióm bánya hozzáadása",
+        "portfolioSystem": "Portfólió rendszer hozzáadása",
+        "portfolioSessionReference": "Portfólió munkamenet hivatkozás hozzáadása",
+        "managedTradingBotAdd Missing Sessions": "Kezelt kereskedési bot hozzáadása",
+        "managedTradingBotEngine": "Kezelt kereskedési bot motor hozzáadása",
+        "eventsManager": "Eseménykezelő hozzáadása",
+        "formulasManager": "Formulakezelő hozzáadása",
+        "managedAsset": "Kezelt eszköz hozzáadása",
+        "setFormulaRules": "Formula szabályok hozzáadása",
+        "confirmFormulaRules": "Formula szabályok megerősítése",
+        "exchangeManagedAsset": "Csere kezelt eszköz hozzáadása",
+        "confirmEventRules": "Esemény szabályok megerősítése",
+        "setEventRules": "Esemény szabályok hozzáadása",
+        "confirmFormulaReference": "Formula hivatkozás megerősítése",
+        "confirmEventReference": "Esemény hivatkozás megerősítése hozzáadása",
+        "managedSessions": "Kezelt munkamenetek hozzáadása",
+        "confirmFormula": "Formula megerősítése hozzáadása",
+        "setFormula": "Formula hozzáadása",
+        "confirmEvent": "Esemény megerősítése hozzáadása",
+        "setEvent": "Esemény hozzáadása",
+        "superalgosStorage": "Superalgos tároló hozzáadása",
+        "githubStorage": "Github tároló hozzáadása",
+        "superalgosStorageContainer": "Superalgos tároló konténer hozzáadása",
+        "githubStorageContainer": "Github tároló konténer hozzáadása",
+        "storageContainerReference": "Tároló konténer hivatkozás hozzáadása",
+        "socialGraph": "Közösségi gráf hozzáadása",
+        "machineLearning": "Gépi tanulás hozzáadása",
+        "tradingSignals": "Kereskedési jelek hozzáadása",
+        "onlineWorkspaces": "Online munkaterületek hozzáadása",
+        "httpNetworkInterface": "HTTP hálózati felület hozzáadása",
+        "webrtcNetworkInterface": "WebRTC hálózati felület hozzáadása",
+        "websocketsNetworkInterface": "Websockets hálózati felület hozzáadása",
+        "featureWeightVote": "Jellemző súly szavazat hozzáadása",
+        "assetWeightVote": "Eszköz súly szavazat hozzáadása",
+        "positionWeightVote": "Pozíció súly szavazat hozzáadása",
+        "poolWeightVote": "Medence súly szavazat hozzáadása",
+        "userProfileVotesSwitch": "Felhasználói profil szavazat kapcsoló hozzáadása",
+        "weightVotesSwitch": "Súly szavazat kapcsoló hozzáadása",
+        "votesSwitch": "Szavazat kapcsoló hozzáadása",
+        "claimsProgram": "Igények program hozzáadása",
+        "votingProgram": "Szavazási program hozzáadása",
+        "forecastsProviders": "Előrejelzés szolgáltatók hozzáadása",
+        "userStorage": "Felhasználói tároló hozzáadása",
+        "permissionedP2pNetworks": "Engedélyezett P2P hálózatok hozzáadása",
+        "p2pNetwork": "P2P hálózat hozzáadása",
+        "p2pNetworkNode": "P2P hálózati csomópont hozzáadása",
+        "p2pNetworkNodes": "P2P hálózati csomópontok hozzáadása",
+        "permissionGroup": "Engedély csoport hozzáadása",
+        "permissionGranted": "Engedély megadása hozzáadása",
+        "permissionedP2PNetwork": "Engedélyezett P2P hálózat hozzáadása",
+        "socialPersonas": "Közösségi személyiségek hozzáadása",
+        "userBots": "Felhasználói botok hozzáadása",
+        "userApps": "Felhasználói alkalmazások hozzáadása",
+        "tokensMined": "Bányászott tokenek hozzáadása",
+        "child": "Gyermek hozzáadása",
+        "userProfileVote": "Felhasználói profil szavazat hozzáadása",
+        "userProfilesVotesSwitch": "Felhasználói profil szavazat kapcsoló hozzáadása",
+        "socialTradingBots": "Közösségi kereskedési botok hozzáadása",
+        "tokenPowerSwitch": "Token teljesítmény kapcsoló hozzáadása",
+        "userSupporter": "Felhasználói támogató hozzáadása",
+        "userReferrer": "Felhasználói ajánló hozzáadása",
+        "positionClass": "Pozíció osztály hozzáadása",
+        "position": "Pozíció hozzáadása",
+        "positionContributionClaim": "Pozíció hozzájárulási igény hozzáadása",
+        "pool": "Medence hozzáadása",
+        "poolClass": "Medence osztály hozzáadása",
+        "githubProgram": "Github program hozzáadása",
+        "airdropProgram": "Airdrop program hozzáadása",
+        "userMentor": "Felhasználói mentor hozzáadása",
+        "liquidityProgram": "Likviditási program hozzáadása",
+        "userInfluencer": "Felhasználói influencer hozzáadása",
+        "pools": "Medencék hozzáadása",
+        "assets": "Eszközök hozzáadása",
+        "features": "Jellemzők hozzáadása",
+        "positions": "Pozíciók hozzáadása",
+        "profileConstructor": "Profil konstruktor hozzáadása",
+        "bitcoinFactoryForecasts": "Bitcoin Factory előrejelzések hozzáadása",
+        "delegationProgram": "Delegáció program hozzáadása",
+        "stakingProgram": "Staking program hozzáadása",
+        "featureClass": "Jellemző osztály hozzáadása",
+        "featureContributionClaim": "Jellemző hozzájárulási igény hozzáadása",
+        "tokenBonus": "Token bónusz hozzáadása",
+        "userDelegate": "Felhasználói delegátus hozzáadása",
+        "delegatePowerSwitch": "Delegátus erő kapcsoló hozzáadása",
+        "influencerProgram": "Influencer program hozzáadása",
+        "mentorshipProgram": "Mentor program hozzáadása",
+        "supportProgram": "Támogató program hozzáadása",
+        "referralProgram": "Ajánlási program hozzáadása",
+        "positionClaimsFolder": "Pozíció igények mappa hozzáadása",
+        "featureClaimsFolder": "Jellemző igények mappa hozzáadása",
+        "featureClaimVote": "Jellemző igény szavazat hozzáadása",
+        "assetClaimVote": "Eszköz igény szavazat hozzáadása",
+        "positionClaimVote": "Pozíció igény szavazat hozzáadása",
+        "claimVotesSwitch": "Igény szavazat kapcsoló hozzáadása",
+        "computingProgram": "Számítási program hozzáadása",
+        "testClientInstance": "Teszt ügyfél példány hozzáadása",
+        "forecastClientInstance": "Előrejelzési ügyfél példány hozzáadása",
+        "assetClass": "Eszköz osztály hozzáadása",
+        "assetContributionClaim": "Eszköz hozzájárulási igény hozzáadása",
+        "assetClaimsFolder": "Eszköz igények mappa hozzáadása",
+        "tokensAwarded": "Jutalmazott tokenek hozzáadása",
+        "userAssets": "Felhasználói eszközök hozzáadása",
+        "userKeys": "Felhasználói kulcsok hozzáadása",
+        "layerManager": "Rétegkezelő hozzáadása",
+        "timeScale": "Idő skála hozzáadása",
+        "rateScale": "Árfolyam skála hozzáadása",
+        "timeFrameScale": "Időkeret skála hozzáadása",
+        "timelineChart": "Idővonal diagram hozzáadása",
+        "p2pNetworkClient": "P2P hálózati ügyfél hozzáadása",
+        "p2pNetworkReference": "P2P hálózati hivatkozás hozzáadása",
+        "p2pNetworkNodeReference": "P2P hálózati csomópont hivatkozás hozzáadása",
+        "networkServices": "Hálózati szolgáltatások hozzáadása",
+        "networkInterfaces": "Hálózati felületek hozzáadása",
+        "availableStorage": "Elérhető tároló hozzáadása",
+        "keyReference": "Kulcs hivatkozás hozzáadása",
+        "learningBotInstance": "Tanuló bot példány hozzáadása",
+        "portfolioBotInstance": "Portfólió bot példány hozzáadása",
+        "tradingBotInstance": "Kereskedési bot példány hozzáadása",
+        "studyBotInstance": "Tanulmányi bot példány hozzáadása",
+        "indicatorBotInstance": "Mutató bot példány hozzáadása",
+        "apiDataFetcherBot": "API adatlejátszó bot hozzáadása",
+        "sensorBotInstance": "Szenzor bot példány hozzáadása",
+        "botInstance": "Bot példány hozzáadása",
+        "textFormula": "Szöveges formula hozzáadása",
+        "textPosition": "Szöveges pozíció hozzáadása",
+        "textCondition": "Szöveges feltétel hozzáadása",
+        "templateTarget": "Sablon cél hozzáadása",
+        "templateStructure": "Sablon struktúra hozzáadása",
+        "scriptsLibrary": "Szkript könyvtár hozzáadása",
+        "superAction": "Szuper művelet hozzáadása",
+        "timeFramesFilter": "Időkeret szűrő hozzáadása",
+        "designSpace": "Tervezési tér hozzáadása",
+        "chartingSpace": "Diagram tér hozzáadása",
+        "condition": "Feltétel hozzáadása",
+        "text": "Szöveg hozzáadása",
+        "chartPoints": "Diagram pontok hozzáadása",
+        "socialTradingBotReference": "Közösségi kereskedési bot hivatkozás hozzáadása",
+        "masterScript": "Mester szkript hozzáadása",
+        "fieldReference": "Mező hivatkozás hozzáadása",
+        "recordProperty": "Rekord tulajdonság hozzáadása",
+        "dashboard": "Irányítópult hozzáadása",
+        "datasetDefinition": "Adatkészlet definíció hozzáadása",
+        "recordDefinition": "Rekord definíció hozzáadása",
+        "allOutputDatasets": "Minden kimeneti adatkészlet hozzáadása",
+        "variable": "Változó hozzáadása",
+        "key": "Kulcs hozzáadása",
+        "statusDependency": "Állapotfüggőség hozzáadása",
+        "prediction": "Előrejelzés hozzáadása",
+        "style": "Stílus hozzáadása",
+        "styleCondition": "Stílus feltétel hozzáadása",
+        "pointFormula": "Pont formula hozzáadása",
+        "plotterModule": "Ábrázoló modul hozzáadása",
+        "panelData": "Panel adatok hozzáadása",
+        "plotterPanel": "Ábrázoló panel hozzáadása",
+        "shapes": "Alakzatok hozzáadása",
+        "moveToPhaseEvent": "Ugrás a fázis eseményéhez hozzáadása",
+        "nextPhaseEvent": "Következő fázis esemény hozzáadása",
+        "textStyle": "Szöveg stílus hozzáadása",
+        "outputDataset": "Kimeneti adatkészlet hozzáadása",
+        "outputDatasetFolder": "Kimeneti adatkészlet mappa hozzáadása",
+        "network": "Hálózat hozzáadása",
+        "cryptoEcosystem": "Kriptó ökoszisztéma hozzáadása",
+        "apis": "API-k hozzáadása",
+        "apiMap": "API térkép hozzáadása",
+        "periods": "Időszakok hozzáadása",
+        "tradingMine": "Kereskedési bánya hozzáadása",
+        "learningMine": "Tanulási bánya hozzáadása",
+        "templateScript": "Sablon szkript hozzáadása",
+        "javascriptCode": "Javascript kód hozzáadása",
+        "quotedAsset": "Idézett eszköz hozzáadása",
+        "baseAsset": "Alap eszköz hozzáadása",
+        "tradingSessionReference": "Kereskedési munkamenet hivatkozás hozzáadása",
+        "taskReference": "Feladat hivatkozás hozzáadása",
+        "phase": "Fázis hozzáadása",
+        "sessionReference": "Munkamenet hivatkozás hozzáadása",
+        "userDefinedStatistic": "Felhasználó által definiált statisztika hozzáadása",
+        "userDefinedCounter": "Felhasználó által definiált számláló hozzáadása",
+        "lanNetworkNode": "LAN hálózati csomópont hozzáadása",
+        "timeFrameFilter": "Időkeret szűrő hozzáadása",
+        "formula": "Formula hozzáadása",
+        "feature": "Jellemző hozzáadása",
+        "asset": "Eszköz hozzáadása",
+        "label": "Címke hozzáadása",
+        "userAccount": "Felhasználói fiók hozzáadása",
+        "indicatorFunction": "Mutató funkció hozzáadása",
+        "taskManager": "Feladatkezelő hozzáadása",
+        "allTasks": "Minden feladat hozzáadása",
+        "botProducts": "Bot termékek hozzáadása",
+        "timeMachine": "Időgép hozzáadása",
+        "cryptoExchanges": "Kriptó tőzsdék hozzáadása",
+        "executionAlgorithm": "Végrehajtási algoritmus hozzáadása",
+        "viewport": "Nézetablak hozzáadása",
+        "spaceStyle": "Tér stílus hozzáadása",
+        "spaceSettings": "Tér beállítások hozzáadása",
+        "projectDashboards": "Projekt irányítópultok hozzáadása",
+        "point": "Pont hozzáadása",
+        "announcement": "Bejelentés hozzáadása",
+        "situation": "Helyzet hozzáadása",
+        "askPortfolioManager": "Portfolio menedzser kérdezése hozzáadása",
+        "procedureInitialization": "Eljárás inicializálása hozzáadása",
+        "procedureLoop": "Eljárás ciklus hozzáadása",
+        "layer": "Réteg hozzáadása",
+        "socialBots": "Közösségi botok hozzáadása",
+        "sensorBot": "Szenzor bot hozzáadása",
+        "studyBot": "Tanulmányi bot hozzáadása",
+        "indicatorBot": "Mutató bot hozzáadása",
+        "fetcherBot": "API adatlejátszó bot hozzáadása",
+        "pluginFilePosition": "Bővítmény fájl pozíció hozzáadása",
+        "plotter": "Ábrázoló hozzáadása",
+        "missingChildren": "Hiányzó gyerekek hozzáadása",
+        "dynamicIndicators": "Dinamikus mutatók hozzáadása",
+        "portfolioManagedSystem": "Portfólió kezelt rendszer hozzáadása",
+        "plugins": "Bővítmények hozzáadása",
+        "dataMine": "Adatbánya hozzáadása",
+        "defiWallet": "DeFi pénztárca hozzáadása",
+        "swapPair": "Swap pár hozzáadása",
+        "swapPairs": "Swap párok hozzáadása",
+        "token": "Token hozzáadása",
+        "tokens": "Tokenek hozzáadása",
+        "tokenOutBaseAsset": "Token kivétel (Alap eszköz) hozzáadása",
+        "tokenInQuotedAsset": "Token be (Idézett eszköz) hozzáadása",
+        "ethBalance": "ETH egyenleg hozzáadása",
+        "tokenBalance": "Token egyenleg hozzáadása",
+        "solidarityCode": "Szolidaritási kód hozzáadása",
+        "networkClient": "Hálózati ügyfél hozzáadása",
+        "blockchainScannerBot": "Blokkolószkennelő bot hozzáadása",
+        "blockchainNetwork": "Blokkolási hálózat hozzáadása",
+        "blockchain": "Blokkolás hozzáadása",
+        "ethereumToken": "Ethereum token hozzáadása",
+        "smartContract": "Okos szerződés hozzáadása",
+        "childReference": "Gyermek hivatkozás hozzáadása",
+        "walletAccount": "Pénztári számla hozzáadása",
+        "wallet": "Pénztárca hozzáadása",
+        "tokenDefinitions": "Token definíciók hozzáadása",
+        "decentralizedApplication": "Decentralizált alkalmazás hozzáadása",
+        "processInstance": "Folyamat példány hozzáadása",
+        "apiMapReference": "API térkép hivatkozás hozzáadása",
+        "apiQueryResponses": "API lekérdezés válaszok hozzáadása",
+        "apiQueryResponse": "API lekérdezés válasz hozzáadása",
+        "apiPathParameters": "API út paraméterek hozzáadása",
+        "apiPathParameter": "API út paraméter hozzáadása",
+        "apiQueryParameters": "API lekérdezés paraméterek hozzáadása",
+        "apiQueryParameter": "API lekérdezés paraméter hozzáadása",
+        "apiResponseField": "API válasz mező hozzáadása",
+        "apiResponseSchema": "API válasz séma hozzáadása",
+        "apiVersion": "API verzió hozzáadása",
+        "apiEndpoint": "API végpont hozzáadása",
+        "githubAPI": "GitHub API hozzáadása",
+        "web3API": "Web3 API hozzáadása",
+        "apiAuthorizationKey": "API hitelesítési kulcs hozzáadása",
+        "limitOrder": "Korlátozott rendelés hozzáadása",
+        "marketOrder": "Piaci rendelés hozzáadása",
+        "session": {
+            "backTesting": "Backtesting munkafolyamat hozzáadása",
+            "backtestingPortfolio": "Portfólió backtesting munkafolyamat hozzáadása",
+            "liveTrading": "Élő kereskedési munkafolyamat hozzáadása",
+            "livePortfolio": "Élő portfólió munkafolyamat hozzáadása",
+            "paperTrading": "Papír kereskedési munkafolyamat hozzáadása",
+            "forwardTrading": "Forward tesztelési munkafolyamat hozzáadása"
+        },
+        "polygon": {
+            "defaut": "Sokszög hozzáadása",
+            "condition": "Sokszög feltétel hozzáadása",
+            "body": "Sokszög test hozzáadása",
+            "border": "Sokszög keret hozzáadása",
+            "vertex": "Sokszög csúcs hozzáadása"
+        },
+        "execution": {
+            "event": {
+                "started": "Végrehajtási esemény indítás hozzáadása"
+            }
+        },
+        "project": {
+            "tradingProducts": "Projekt kereskedelmi termékek hozzáadása",
+            "learningProducts": "Projekt tanulási termékek hozzáadása"
+        },
+        "layers": {
+            "folder": "Rétegmappa hozzáadása",
+            "allMine": "Minden saját réteg hozzáadása",
+            "bot": "Bot rétegek hozzáadása",
+            "allPanels": "Minden rétegpanel hozzáadása",
+            "panel": "Rétegpanel hozzáadása",
+            "polygon": "Rétegsokszög hozzáadása",
+            "allPolygons": "Minden rétegsokszög hozzáadása"
+
+        },
+        "market": {
+            "default": "Piac hozzáadása",
+            "learningProducts": "Piac tanulási termékek hozzáadása",
+            "tradingProducts": "Piac kereskedelmi termékek hozzáadása",
+            "tradingTasks": "Piac kereskedelmi feladatok hozzáadása",
+            "learningTasks": "Piac tanulási feladatok hozzáadása",
+            "portfolioProducts": "Piac portfólió termékek hozzáadása"
+        },
+        "missing": {
+            "dashboards": "Hiányzó vezérlőpultok hozzáadása",
+            "stages": "Hiányzó szakaszok hozzáadása",
+            "events": "Hiányzó események hozzáadása",
+            "sessions": "Hiányzó munkaszakaszok hozzáadása",
+            "markets": "Hiányzó piacok hozzáadása",
+            "timeMachines": "Hiányzó időgépek hozzáadása",
+            "exchanges": "Hiányzó tőzsdék hozzáadása",
+            "apiMaps": "Hiányzó API térképek hozzáadása",
+            "assets": "Hiányzó eszközök hozzáadása",
+            "dataMines": "Hiányzó adatbányák hozzáadása",
+            "dataMineTasks": "Hiányzó adatbánya feladatok hozzáadása",
+            "features": "Hiányzó funkciók hozzáadása",
+            "learningEngines": "Hiányzó tanuló motorok hozzáadása",
+            "learningMines": "Hiányzó tanuló bányák hozzáadása",
+            "learningMineTasks": "Hiányzó tanuló bánya feladatok hozzáadása",
+            "learningSystems": "Hiányzó tanuló rendszerek hozzáadása",
+            "p2pNetworks": "Hiányzó P2P hálózatok hozzáadása",
+            "parameters": "Hiányzó paraméterek hozzáadása",
+            "pools": "Hiányzó medencék hozzáadása",
+            "portfolioEngines": "Hiányzó portfólió motorok hozzáadása",
+            "portfolioMines": "Hiányzó portfólió bányák hozzáadása",
+            "portfolioSystems": "Hiányzó portfólió rendszerek hozzáadása",
+            "positions": "Hiányzó pozíciók hozzáadása",
+            "pluginTypes": "Hiányzó bővítmény típusok hozzáadása",
+            "tradingEngines": "Hiányzó kereskedelmi motorok hozzáadása",
+            "tradingMines": "Hiányzó kereskedelmi bányák hozzáadása",
+            "tradingMineTasks": "Hiányzó kereskedelmi bánya feladatok hozzáadása",
+            "tradingSystems": "Hiányzó kereskedelmi rendszerek hozzáadása",
+            "tutorials": "Hiányzó útmutatók hozzáadása",
+            "tokens": "Hiányzó tokenek hozzáadása",
+            "userProfiles": "Hiányzó felhasználói profilok hozzáadása",
+            "children": "Hiányzó gyermekek hozzáadása",
+            "projects": "Hiányzó projektek hozzáadása",
+            "swapPairs": "Hiányzó swap párok hozzáadása",
+            "items": "Hiányzó elemek hozzáadása",
+            "portfolioMineTasks": "Hiányzó portfólió bánya feladatok hozzáadása",
+            "projectPortfolioTasks": "Hiányzó projekt portfólió feladatok hozzáadása"
+        },
+        "learning": {
+            "session": {
+                "reference": "Tanulási munkaszakasz referenciájának hozzáadása",
+                "back": "Vissza a tanulási munkaszakasz hozzáadásához",
+                "live": "Élő tanulási munkaszakasz hozzáadása"
+            },
+            "mine": {
+                "default": "Tanuló bánya hozzáadása",
+                "products": "Tanuló bánya termékek hozzáadása",
+                "allProducts": "Az összes tanuló bánya termék hozzáadása"
+            },
+            "project": {
+                "tasks": "Projekt tanulási feladatok hozzáadása"
+            },
+            "system": "Tanulási rendszer hozzáadása",
+            "engine": "Tanulási motor hozzáadása",
+            "bot": "Tanulási bot hozzáadása"
+        },
+        "tasks": {
+            "portfolioMine": "Portfólió bánya feladatok hozzáadása",
+            "serverAppReference": "Feladat szerver alkalmazás hivatkozás hozzáadása",
+            "managed": "Kezelt feladatok hozzáadása",
+            "default": "Feladatok hozzáadása",
+            "data": "Adat feladatok hozzáadása",
+            "learning": "Tanulási feladatok hozzáadása",
+            "learningMine": "Tanulási bánya feladatok hozzáadása",
+            "tradingMine": "Kereskedelmi bánya feladatok hozzáadása",
+            "testingTrading": "Kereskedelmi tesztelési feladatok hozzáadása",
+            "projectTrading": "Projekt kereskedelmi feladatok hozzáadása",
+            "productionTrading": "Termelési kereskedelmi feladatok hozzáadása",
+            "testingPortfolio": "Portfólió tesztelési feladatok hozzáadása",
+            "exchangePortfolio": "Tőzsdei portfólió feladatok hozzáadása",
+            "productionPortfolio": "Termelési portfólió feladatok hozzáadása",
+            "projectPortfolio": "Projekt portfólió feladatok hozzáadása",
+            "marketPortfolio": "Piaci portfólió feladatok hozzáadása"
+        },
+        "exchange": {
+            "tradingTasks": "Tőzsdei kereskedelmi feladatok hozzáadása",
+            "tradingProducts": "Tőzsdei kereskedelmi termékek hozzáadása",
+            "learningTasks": "Tőzsdei tanulási feladatok hozzáadása",
+            "learningProducts": "Tőzsdei tanulási termékek hozzáadása",
+            "dataTasks": "Tőzsdei adat feladatok hozzáadása",
+            "dataProducts": "Tőzsdei adat termékek hozzáadása",
+            "accounts": "Tőzsdei számlák hozzáadása",
+            "assets": "Tőzsdei eszközök hozzáadása",
+            "centralized": "Központosított tőzsde hozzáadása",
+            "decentralized": "Decentralizált tőzsde hozzáadása",
+            "markets": "Tőzsdei piacok hozzáadása"
+        },
+        "specified": {
+            "pluginDataMine": "Megadott Bővítmény Adat Bánya Hozzáadása",
+            "p2pNetwork": "Megadott P2P Hálózat Hozzáadása",
+            "userProfile": "Megadott Felhasználói Profil Hozzáadása"
+        },
+        "process": {
+            "definition": "Folyamatdefiníció Hozzáadása"
+        },
+        "product": {
+            "definition": "Termékdefiníció Hozzáadása",
+            "definitionFolder": "Termékdefiníció Mappa Hozzáadása"
+        },
+        "trading": {
+            "bot": "Kereskedelmi Bot Hozzáadása",
+            "engine": "Kereskedelmi Motor Hozzáadása",
+            "mine": "Kereskedelmi Bánya Hozzáadása",
+            "mineProducts": "Kereskedelmi Bánya Termékek Hozzáadása",
+            "allMineProducts": "Az összes Kereskedelmi Bánya Termék Hozzáadása",
+            "strategy": "Kereskedelmi Stratégia Hozzáadása",
+            "system": "Kereskedelmi Rendszer Hozzáadása"
+        },
+        "signals": {
+            "provider": "Jelzőszolgáltató Hozzáadása",
+            "providers": "Jelzőszolgáltatók Hozzáadása",
+            "outgoing": "Kimenő Jelzések Hozzáadása",
+            "incoming": "Bejövő Jelzések Hozzáadása",
+            "available": "Elérhető Jelzések Hozzáadása"
+        },
+        "data": {
+            "allMineDependencies": "Az összes Adat Bánya Függőség Hozzáadása",
+            "mineDependencies": "Adat Bánya Függőségek Hozzáadása",
+            "formula": "Adat Képlet Hozzáadása",
+            "storage": "Adat Tárolás Hozzáadása",
+            "marketTasks": "Piaci Adat Feladatok Hozzáadása",
+            "marketProducts": "Piaci Adat Termékek Hozzáadása",
+            "dependency": "Adat Függőség Hozzáadása",
+            "dependencyFolder": "Adat Függőség Mappa Hozzáadása",
+            "product": "Adat Termék Hozzáadása",
+            "productFolder": "Adat Termék Mappa Hozzáadása",
+            "allDependencies": "Az összes Adat Függőség Hozzáadása",
+            "botDependencies": "Bot Adat Függőségek Hozzáadása",
+            "allProducts": "Az összes Adat Termék Hozzáadása",
+            "projectProducts": "Projekt Adat Termékek Hozzáadása",
+            "dataMines": "Adat Bányák Adat Hozzáadása",
+            "mineTasks": "Adat Bánya Feladatok Hozzáadása",
+            "tradingMines": "Kereskedelmi Bányák Adat Hozzáadása",
+            "portfolioMines": "Portfólió Bányák Adat Hozzáadása",
+            "learningMines": "Tanulási Bányák Adat Hozzáadása",
+            "projectTasks": "Projekt Adat Feladatok Hozzáadása",
+            "mineProducts": "Adat Bánya Termékek Hozzáadása",
+            "allMineProducts": "Az összes Adat Bánya Termék Hozzáadása"
+        },
+        "fetch": {
+            "fromJavascriptCode": "Betöltés Javascript Kódból"
+        },
+        "push": {
+            "toJavascriptCode": "Küldés Javascript Kódba"
+        },
+        "orders": {
+            "limit": {
+                "buy": "Limit Vásárlási Megbízás Hozzáadása",
+                "sell": "Limit Eladási Megbízás Hozzáadása"
+            },
+            "market": {
+                "buy": "Piaci Vásárlási Megbízás Hozzáadása",
+                "sell": "Piaci Eladási Megbízás Hozzáadása"
+            }
+        },
+        "order": {
+            "limit": {
+                "buy": "Limit Vásárlási Megbízás Hozzáadása",
+                "sell": "Limit Eladási Megbízás Hozzáadása"
+            },
+            "market": {
+                "buy": "Piaci Vásárlási Megbízás Hozzáadása",
+                "sell": "Piaci Eladási Megbízás Hozzáadása"
+            },
+            "rate": "Rendelési Árfolyam Hozzáadása",
+            "event": {
+                "create": "Rendelés Létrehozás Esemény Hozzáadása",
+                "cancel": "Rendelés Mégse Esemény Hozzáadása"
+            }
+        },
+        "simulated": {
+            "events": "Szimulált Események Hozzáadása",
+            "partialFill": "Szimulált Részleges Kitöltés Hozzáadása",
+            "actualRate": "Szimulált Valós Árfolyam Hozzáadása",
+            "feesPaid": "Szimulált Díjak Fizetése Hozzáadása"
+        },
+        "image": {
+            "condition": "Kép Kondíció Hozzáadása",
+            "formula": "Kép Képlet Hozzáadása",
+            "position": "Kép Pozíció Hozzáadása"
+        },
+        "programs": {
+            "bitcoinFactory": "Bitcoin Gyártás Programok Hozzáadása",
+            "liquidity": "Likviditás Programok Hozzáadása",
+            "financial": "Pénzügyi Programok Hozzáadása",
+            "votesAndClaims": "Szavazatok és Igények Programok Hozzáadása",
+            "communityBuilding": "Közösségépítő Programok Hozzáadása",
+            "onboarding": "Onboarding Programok Hozzáadása"
+        }
+    },
+    "import": {
+        "existing": {
+            "wallet": {
+                "mnemonic": "Meglévő Pénztárca Importálása Mnemonikus Kulcsból",
+                "privateKey": "Meglévő Pénztárca Importálása Privát Kulcsból"
+            }
+        }
+    },
+    "create": {
+        "newWallet": "Új Pénztárca Létrehozása"
+    },
+    "switch": {
+        "to": {
+            "paperTrading": "Váltás Papír Kereskedésre",
+            "liveTrading": "Váltás Élő Kereskedésre",
+            "forwardTesting": "Váltás Forward Tesztelésre",
+            "backTesting": "Váltás Backtestingre",
+            "livePortfolio": "Váltás Élő Portfólióra",
+            "backtestingPortfolio": "Váltás Backtesting Portfólióra"
+        }
+    },
+    "copy": {
+        "node": {
+            "path": "Másolás Cím",
+            "value": "Másolás Érték",
+            "type": "Másolás Típus"
+        }
+    },
+    "save": {
+        "plugin": "Plugin Mentése",
+        "enableWithWorkspace": "Mentés Engedélyezése Munkaterülettel",
+        "pluginFile": "Plugin Fájl Mentése"
+    },
+    "tutorial": {
+        "add": "Új Oktatóanyag Hozzáadása",
+        "reset": "Oktatóanyag Visszaállítása",
+        "step": {
+            "add": "Oktatóanyag Lépés Hozzáadása"
+        },
+        "topic": {
+            "add": "Oktatóanyag Téma Hozzáadása"
+        },
+        "confirmation": {
+            "reset": "Visszaállítás Megerősítése"
+        }
+    },
+    "task": {
+        "all": {
+            "run": "Összes Feladat Indítása",
+            "stop": "Összes Feladat Leállítása",
+            "exchange": {
+                "data": {
+                    "run": "Összes Tőzsdei Adat Feladat Indítása",
+                    "stop": "Összes Tőzsdei Adat Feladat Leállítása"
+                },
+                "learning": {
+                    "run": "Összes Tőzsdei Tanulási Feladat Indítása",
+                    "stop": "Összes Tőzsdei Tanulási Feladat Leállítása"
+                },
+                "portfolio": {
+                    "run": "Összes Tőzsdei Portfólió Feladat Indítása",
+                    "stop": "Összes Tőzsdei Portfólió Feladat Leállítása"
+                },
+                "trading": {
+                    "run": "Összes Tőzsdei Kereskedelmi Feladat Indítása",
+                    "stop": "Összes Tőzsdei Kereskedelmi Feladat Leállítása"
+                }
+            },
+            "managed": {
+                "run": "Összes Kezelt Feladat Indítása",
+                "stop": "Összes Kezelt Feladat Leállítása"
+            },
+            "managers": {
+                "run": "Összes Feladatkezelő Indítása",
+                "stop": "Összes Feladatkezelő Leállítása"
+            },
+            "project": {
+                "data": {
+                    "run": "Összes Projekt Adat Feladat Indítása",
+                    "stop": "Összes Projekt Adat Feladat Leállítása"
+                },
+                "learning": {
+                    "run": "Összes Projekt Tanulási Feladat Indítása",
+                    "stop": "Összes Projekt Tanulási Feladat Leállítása"
+                },
+                "portfolio": {
+                    "run": "Összes Projekt Portfólió Feladat Indítása",
+                    "stop": "Összes Projekt Portfólió Feladat Leállítása"
+                },
+                "trading": {
+                    "run": "Összes Projekt Kereskedelmi Feladat Indítása",
+                    "stop": "Összes Projekt Kereskedelmi Feladat Leállítása"
+                }
+            },
+            "market": {
+                "data": {
+                    "run": "Összes Piaci Adat Feladat Indítása",
+                    "stop": "Összes Piaci Adat Feladat Leállítása"
+                },
+                "learning": {
+                    "run": "Összes Piaci Tanulási Feladat Indítása",
+                    "stop": "Összes Piaci Tanulási Feladat Leállítása"
+                },
+                "portfolio": {
+                    "run": "Összes Piaci Portfólió Feladat Indítása",
+                    "stop": "Összes Piaci Portfólió Feladat Leállítása"
+                },
+                "trading": {
+                    "run": "Összes Piaci Kereskedelmi Feladat Indítása",
+                    "stop": "Összes Piaci Kereskedelmi Feladat Leállítása"
+                }
+            },
+            "mine": {
+                "data": {
+                    "run": "Összes Adat Bánya Feladat Indítása",
+                    "stop": "Összes Adat Bánya Feladat Leállítása"
+                },
+                "trading": {
+                    "run": "Összes Kereskedelmi Bánya Feladat Indítása",
+                    "stop": "Összes Kereskedelmi Bánya Feladat Leállítása"
+                },
+                "learning": {
+                    "run": "Összes Tanulási Bánya Feladat Indítása",
+                    "stop": "Összes Tanulási Bánya Feladat Leállítása"
+                },
+                "portfolio": {
+                    "run": "Összes Portfólió Bánya Feladat Indítása",
+                    "stop": "Összes Portfólió Bánya Feladat Leállítása"
+                }
+            }
+        }
+    },
+    "send": {
+        "message": {
+            "telegramTest": "Telegram Teszt Üzenet Küldése",
+            "slackTest": "Slack Teszt Üzenet Küldése",
+            "discordTest": "Discord Teszt Üzenet Küldése",
+            "twitterTest": "Twitter Teszt Üzenet Küldése",
+            "text": "Teszt Üzenet Küldése"
+        }
+    },
+    "build": {
+        "profileWithWalletConnect": "Profil Építése WalletConnect-tel",
+        "profileWithMnemonic": "Profil Építése Mnemonikus Kulcs Segítségével",
+        "profileAndNewWallet": "Profil Építése és Új Pénztárca Létrehozása"
+    }
+}

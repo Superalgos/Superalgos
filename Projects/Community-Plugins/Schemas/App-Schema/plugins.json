@@ -9,6 +9,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Plugin Project",
             "actionFunction": "payload.executeAction",
             "actionProject": "Community-Plugins",

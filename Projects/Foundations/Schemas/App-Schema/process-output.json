@@ -27,6 +27,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Output Dataset",
             "actionFunction": "payload.executeAction",
             "actionProject": "Data-Mining",

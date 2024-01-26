@@ -36,6 +36,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Data Mine Products",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"

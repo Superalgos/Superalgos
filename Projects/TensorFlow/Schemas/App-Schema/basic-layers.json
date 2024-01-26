@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Activation Layer",
+            "translationKey": "add.activationLayer",
             "relatedUiObject": "Activation Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Dense Layer",
+            "translationKey": "add.denseLayer",
             "relatedUiObject": "Dense Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -27,6 +29,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Dropout Layer",
+            "translationKey": "add.dropoutLayer",
             "relatedUiObject": "Dropout Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -37,6 +40,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Embedding Layer",
+            "translationKey": "add.embeddingLayer",
             "relatedUiObject": "Embedding Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -47,6 +51,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Flatten Layer",
+            "translationKey": "add.flattenLayer",
             "relatedUiObject": "Flatten Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -57,6 +62,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Permute Layer",
+            "translationKey": "add.permuteLayer",
             "relatedUiObject": "Permute Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -67,6 +73,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Repeat Vector Layer",
+            "translationKey": "add.repeatVectorLayer",
             "relatedUiObject": "Repeat Vector Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -77,6 +84,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Reshape Layer",
+            "translationKey": "add.reshapeLayer",
             "relatedUiObject": "Reshape Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -87,6 +95,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Spatial Dropout 1D Layer",
+            "translationKey": "add.spatialDropout1DLayer",
             "relatedUiObject": "Spatial Dropout 1D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -96,7 +105,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

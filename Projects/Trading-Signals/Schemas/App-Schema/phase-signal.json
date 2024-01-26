@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "propertyToCheckFor": "nextPhaseSignal",
             "actionFunction": "payload.executeAction",
             "label": "Add Next Phase Signal",
+            "translationKey": "add.nextPhaseSignal",
             "relatedUiObject": "Next Phase Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -23,6 +25,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Move To Phase Signal",
+            "translationKey": "add.moveToPhaseSignal",
             "relatedUiObject": "Move To Phase Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -31,7 +34,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

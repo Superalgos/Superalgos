@@ -26,6 +26,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Asset",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction"

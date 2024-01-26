@@ -9,6 +9,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "iconPathOn": "data-mine",
             "iconPathOff": "data-mine",
             "iconProject": "Data-Mining",

@@ -18,6 +18,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Project Portfolio Products",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management"

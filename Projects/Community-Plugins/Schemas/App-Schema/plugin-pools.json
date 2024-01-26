@@ -9,6 +9,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Pools",
             "actionFunction": "payload.executeAction",
             "actionProject": "Governance",

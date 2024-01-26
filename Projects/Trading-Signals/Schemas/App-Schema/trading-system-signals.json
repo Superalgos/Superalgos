@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Trading Strategy Signals",
+            "translationKey": "add.signals.tradingStrategy",
             "relatedUiObject": "Trading Strategy Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -23,6 +25,7 @@
             "propertyToCheckFor": "incomingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Incoming Signals",
+            "translationKey": "add.signals.incoming",
             "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -31,7 +34,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

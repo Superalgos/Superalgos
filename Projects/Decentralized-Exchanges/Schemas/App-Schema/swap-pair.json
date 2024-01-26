@@ -39,6 +39,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Install Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
@@ -51,6 +52,7 @@
             "confirmationLabel": "Confirm to Proceed",
             "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Uninstall Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"

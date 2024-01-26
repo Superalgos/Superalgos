@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate"
@@ -14,6 +15,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Layers API",
+            "translationKey": "add.layersApi",
             "relatedUiObject": "Layers API",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -24,6 +26,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Core API",
+            "translationKey": "add.coreApi",
             "relatedUiObject": "Core API",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -34,6 +37,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "compile",
             "label": "Add Compile",
+            "translationKey": "add.compile",
             "relatedUiObject": "Compile",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -44,6 +48,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "fitDataset",
             "label": "Add Fit Dataset",
+            "translationKey": "add.fitDataset",
             "relatedUiObject": "Fit Dataset",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -54,6 +59,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "dataReporting",
             "label": "Add Data Reporting",
+            "translationKey": "add.dataReporting",
             "relatedUiObject": "Data Reporting",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -63,7 +69,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

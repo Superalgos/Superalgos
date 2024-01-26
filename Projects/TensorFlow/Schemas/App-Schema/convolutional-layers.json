@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate"
@@ -14,6 +15,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Conv 1D Layer",
+            "translationKey": "add.conv1DLayer",
             "relatedUiObject": "Conv 1D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -24,6 +26,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Conv 2D Layer",
+            "translationKey": "add.conv2DLayer",
             "relatedUiObject": "Conv 2D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -34,6 +37,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Conv 2D Transpose Layer",
+            "translationKey": "add.conv2DTransposeLayer",
             "relatedUiObject": "Conv 2D Transpose Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -44,6 +48,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Conv 3D Layer",
+            "translationKey": "add.conv3DLayer",
             "relatedUiObject": "Conv 3D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -54,6 +59,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Cropping 2D Layer",
+            "translationKey": "add.cropping2DLayer",
             "relatedUiObject": "Cropping 2D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -64,6 +70,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Depthwise Conv 2D Layer",
+            "translationKey": "add.depthwiseConv2DLayer",
             "relatedUiObject": "Depthwise Conv 2D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -74,6 +81,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Separable Conv 2D Layer",
+            "translationKey": "add.separableConv2DLayer",
             "relatedUiObject": "Separable Conv 2D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -84,6 +92,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "layer",
             "label": "Add Up Sampling 2D Layer",
+            "translationKey": "add.upSampling2DLayer",
             "relatedUiObject": "Up Sampling 2D Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -93,7 +102,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

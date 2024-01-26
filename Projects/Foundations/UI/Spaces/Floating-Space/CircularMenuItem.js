@@ -3,12 +3,11 @@ function newCircularMenuItem() {
     const MODULE_NAME = 'Circular Menu Item'
 
     let thisObject = {
-        confirmationLabelTranslationKey: undefined,
-        translationKey: undefined,
         type: undefined,
         isDeployed: undefined,
         askConfirmation: undefined,
         confirmationLabel: undefined,
+        confirmationLabelTranslationKey: undefined,
         iconOn: undefined,
         iconOff: undefined,
         iconProject: undefined,
@@ -21,14 +20,22 @@ function newCircularMenuItem() {
         actionFunction: undefined,
         actionStatus: undefined,
         label: undefined,
+        translationKey: undefined,
         workingLabel: undefined,
+        workingLabelTranslationKey: undefined,
         workDoneLabel: undefined,
+        workDoneLabelTranslationKey: undefined,
         workFailedLabel: undefined,
+        workFailedLabelTranslationKey: undefined,
         secondaryAction: undefined,
         secondaryLabel: undefined,
+        secondaryLabelTranslationKey: undefined,
         secondaryWorkingLabel: undefined,
+        secondaryWorkingLabelTranslationKey: undefined,
         secondaryWorkDoneLabel: undefined,
+        secondaryWorkDoneLabelTranslationKey: undefined,
         secondaryWorkFailedLabel: undefined,
+        secondaryWorkFailedLabelTranslationKey: undefined,
         secondaryIcon: undefined,
         booleanProperty: undefined,
         nextAction: undefined,
@@ -144,7 +151,7 @@ function newCircularMenuItem() {
 
             if (config[thisObject.booleanProperty] === true) {
                 thisObject.nextAction = thisObject.secondaryAction
-                setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+                setStatus(getLabelTranslation(thisObject.secondaryLabel, thisObject.secondaryLabelTranslationKey), defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
             } else {
                 thisObject.nextAction = thisObject.action
             }
@@ -425,7 +432,7 @@ function newCircularMenuItem() {
             if (temporaryStatus === STATUS_WAITING_CONFIRMATION || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
                 executeAction(isInternal)
                 if (thisObject.workDoneLabel !== undefined) {
-                    setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
+                    setStatus(getLabelTranslation(thisObject.workDoneLabel, thisObject.workDoneLabelTranslationKey), UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                 } else {
                     setStatus('Done', UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                 }
@@ -445,7 +452,7 @@ function newCircularMenuItem() {
                 /* We need to execute the main Action */
                 /* If there is a working label defined, we use it here. */
                 if (thisObject.workingLabel !== undefined) {
-                    setStatus(thisObject.workingLabel, UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+                    setStatus(getLabelTranslation(thisObject.workingLabel, thisObject.workingLabelTranslationKey), UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
                 /* Execute the action and wait for callbacks to update our status. */
@@ -471,7 +478,7 @@ function newCircularMenuItem() {
             if (temporaryStatus === STATUS_PRIMARY_WORK_DONE && thisObject.secondaryAction !== undefined) {
                 /* We need to execute the secondary action. */
                 if (thisObject.secondaryWorkingLabel !== undefined) {
-                    setStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
+                    setStatus(getLabelTranslation(thisObject.secondaryWorkingLabel, thisObject.secondaryWorkingLabelTranslationKey), UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
                 /* Execute the action and wait for callbacks to update our status. */
@@ -493,7 +500,7 @@ function newCircularMenuItem() {
 
                 if (event !== undefined) {
                     if (event.type === 'Secondary Action Already Executed') {
-                        setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
+                        setStatus(getLabelTranslation(thisObject.secondaryWorkDoneLabel, thisObject.secondaryWorkDoneLabelTranslationKey), UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                         return
                     }
                 }
@@ -502,22 +509,22 @@ function newCircularMenuItem() {
                 if (thisObject.secondaryAction === undefined) { // This means there are no more possible actions.
                     if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         if (thisObject.workDoneLabel !== undefined) {
-                            setStatus(thisObject.workDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_PRIMARY_WORK_DONE)
+                            setStatus(getLabelTranslation(thisObject.workDoneLabel, thisObject.workDoneLabelTranslationKey), UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_PRIMARY_WORK_DONE)
                         }
                     } else {
                         if (thisObject.workFailedLabel != undefined) {
-                            setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 5, STATUS_PRIMARY_WORK_FAILED)
+                            setStatus(getLabelTranslation(thisObject.workFailedLabel, thisObject.workFailedLabelTranslationKey), UI_COLOR.TITANIUM_YELLOW, 5, STATUS_PRIMARY_WORK_FAILED)
                         }
                     }
                 } else {
                     if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         if (thisObject.workDoneLabel !== undefined) {
                             thisObject.nextAction = thisObject.secondaryAction
-                            setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+                            setStatus(getLabelTranslation(thisObject.secondaryLabel, thisObject.secondaryLabelTranslationKey), defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
                         }
                     } else {
                         if (thisObject.workFailedLabel != undefined) {
-                            setStatus(thisObject.workFailedLabel, UI_COLOR.TITANIUM_YELLOW, 5, STATUS_PRIMARY_WORK_FAILED)
+                            setStatus(getLabelTranslation(thisObject.workFailedLabel, thisObject.workFailedLabelTranslationKey), UI_COLOR.TITANIUM_YELLOW, 5, STATUS_PRIMARY_WORK_FAILED)
                         }
                     }
                 }
@@ -525,11 +532,11 @@ function newCircularMenuItem() {
             function onSecondaryCallBack(err) {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     if (thisObject.secondaryWorkDoneLabel !== undefined) {
-                        setStatus(thisObject.secondaryWorkDoneLabel, UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
+                        setStatus(getLabelTranslation(thisObject.secondaryWorkDoneLabel, thisObject.secondaryWorkDoneLabelTranslationKey), UI_COLOR.PATINATED_TURQUOISE, 5, STATUS_SECONDARY_WORK_DONE)
                     }
                 } else {
                     if (thisObject.secondaryWorkFailedLabel != undefined) {
-                        setStatus(thisObject.secondaryWorkFailedLabel, UI_COLOR.TITANIUM_YELLOW, 5, STATUS_SECONDARY_WORK_FAILED)
+                        setStatus(getLabelTranslation(thisObject.secondaryWorkFailedLabel, thisObject.secondaryWorkFailedLabelTranslationKey), UI_COLOR.TITANIUM_YELLOW, 5, STATUS_SECONDARY_WORK_FAILED)
                     }
                 }
             }
@@ -632,13 +639,9 @@ function newCircularMenuItem() {
 
         /* Menu Label */
         if (thisObject.type === 'Icon & Text') {
-            label = labelToPrint
-            const translationKey = labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey
-            if(translationKey) {
-                label = findTranslation(translationKey)
-            }
+            let label = getLabelTranslation(labelToPrint, labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey)
             if (thisObject.shorcutNumber !== undefined) {
-                label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+                label = '' + thisObject.shorcutNumber + '- ' + label
             }
 
             let labelPoint
@@ -657,5 +660,15 @@ function newCircularMenuItem() {
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
         }
+    }
+
+    function getLabelTranslation(label, translationKey) {
+        if(translationKey !== undefined) {
+            const value = findTranslation(translationKey)
+            if(value !== undefined) {
+                return value
+            }
+        }
+        return label
     }
 }

@@ -16,9 +16,26 @@
         }
     },
     "general": {
+        "done": "Done",
+        "enabled": "Enabled",
+        "requestSent": "Request Sent",
+        "sessionRunning": "Session Running",
+        "runRequestSent": "Run Request Sent",
+        "stopRequestSent": "Stop Request Sent",
+        "resumeRequestSent": "Resume Request Sent",
+        "sessionCannotBeRun": "Session Cannot be Run",
+        "sessionStopped": "Session Stopped",
+        "sessionCannotBeStopped": "Session Cannot be Stopped",
+        "sessionCannotBeResumed": "Session Cannot be Resumed",
+        "disableSavingWithWorkspace": "Disable Saving With Workspace",
+        "sendingMessage": "Sending Message",
+        "messageSent": "Message Sent",
+        "messageNotDelivered": "Message not Delivered",
+        "disabled": "Disabled",
         "previous": "Previous",
         "next": "Next",
         "stop": "Stop",
+        "stopping": "Stopping...",
         "skip": "Skip",
         "play": "Play",
         "resume": "Resume",
@@ -27,6 +44,8 @@
         "delete": "Delete",
         "edit": "Edit",
         "debug": "Debug",
+        "debugging": "Debugging",
+        "debugRequestSent": "Debug Request Sent",
         "confirm": {
             "delete": "Confirm to Delete",
             "proceed": "Confirm to Proceed",
@@ -66,7 +85,122 @@
             "reference": "Managed Session Reference"
         }
     },
+    "check": {
+        "forMissingReferences": "Check For Missing References"
+    },
+    "fix": {
+        "missingReferences": "Fix Missing References"
+    },
     "add": {
+        "takePositionSignal": "Add Take Position Signal",
+        "triggerOffSignal": "Add Trigger Off Signal",
+        "triggerOnSignal": "Add Trigger On Signal",
+        "moveToPhaseSignal": "Add Move To Phase Signal",
+        "nextPhaseSignal": "Add Next Phase Signal",
+        "signalContextFormula": "Add Signal Context Formula",
+        "phaseSignal": "Add Phase Signal",
+        "closeStageSignal": "Add Close Stage Signal",
+        "targetRateSignal": "Add Target Rate Signal",
+        "targetSizeInQuotedAssetSignal": "Add Target Size In Quoted Asset Signal",
+        "targetSizeInBaseAssetSignal": "Add Target Size In Base Asset Signal",
+        "tradingSystemSignals": "Add Trading System Signals",
+        "specifiedProject": "Add Specified Project",
+        "desktopApps": "Add Desktop Apps",
+        "mobileApps": "Add Mobile Apps",
+        "serverApps": "Add Server Apps",
+        "taskServerApp": "Add Task Server App",
+        "socialTradingServerApp": "Add Social Trading Server App",
+        "socialTradingMobileApp": "Add Social Trading Mobile App",
+        "socialTradingDesktopApp": "Add Social Trading Desktop App",
+        "algoTradersPlatformApp": "Add Algo Traders Platform App",
+        "executionEnvironment": "Add Execution Environment",
+        "supervisedLearning": "Add Supervised Learning",
+        "unsupervisedLearning": "Add Unsupervised Learning",
+        "selfLearning": "Add Self Learning",
+        "reinforcementLearning": "Add Reinforcement Learning",
+        "inputLayer": "Add Input Layer",
+        "sequentialLayer": "Add Sequential layer",
+        "outputLayer": "Add Output Layer",
+        "activationlayers": "Add Activation Layers",
+        "basicLayers": "Add Basic Layers",
+        "convolutionalLayers": "Add Convolutional Layers",
+        "tensor": "Add Tensor",
+        "logicRegression": "Add Logistic Regression",
+        "artificialNeuralNetwork": "Add Artificial Neural Network",
+        "outputLabels": "Add Output Labels",
+        "dataLabel": "Add Data Label",
+        "optimizerByName": "Add Optimizer by Name",
+        "sgdInstance": "Add SGD Instance",
+        "momentumInstance": "Add Momentum Instance",
+        "adagradInstance": "Add Adagrad Instance",
+        "adadeltaInstance": "Add Adadelta Instance",
+        "adamInstance": "Add Adam Instance",
+        "rmspropInstance": "Add Rmsprop Instance",
+        "layersApi": "Add Layers API",
+        "coreApi": "Add Core API",
+        "compile": "Add Compile",
+        "fitDataset": "Add Fit Dataset",
+        "dataReporting": "Add Data Reporting",
+        "library": "Add Library",
+        "sequentialModel": "Add Sequential Model",
+        "functionalModel": "Add Functional Model",
+        "kernelInitializer": "Add Kernel Initializer",
+        "kernelConstraint": "Add Kernel Constraint",
+        "kernelRegularizer": "Add Kernel Regularizer",
+        "inputFeatures": "Add Input Features",
+        "inputShape": "Add Input Shape",
+        "batchInputShape": "Add Batch Input Shape",
+        "collectionCondition": "Add Collection Condition",
+        "dataFeature": "Add Data Feature",
+        "datasetArgs": "Add Dataset Args",
+        "verbose": "Add Verbose",
+        "epochs": "Add Epochs",
+        "callbacks": "Add Callbacks",
+        "minMaxScaler": "Add MinMax Scaler",
+        "standardScaler": "Add Standard Scaler",
+        "webglBackend": "Add WebGL Backend",
+        "nodejsBackend": "Add NodeJS Backend",
+        "wasmBackend": "Add WASM Backend",
+        "cpuBackend": "Add CPU Backend",
+        "environmentFlags": "Add Environment Flags",
+        "debugMode": "Add Debug Mode",
+        "productionMode": "Add Production Mode",
+        "dimensionalityUnits": "Add Dimensionality Units",
+        "activationFunction": "Add Activation Function",
+        "kernel": "Add Kernel",
+        "bias": "Add Bias",
+        "batchSize": "Add Batch Size",
+        "dtype": "Add Dtype",
+        "trainable": "Add Trainable",
+        "weights": "Add Weights",
+        "batcheSizePerGradientUpdate": "Add Batch Size Per Gradient Update",
+        "shuffle": "Add Shuffle",
+        "labelFormula": "Add Label Formula",
+        "featureFormula": "Add Feature Formula",
+        "featurePreprocessing": "Add Feature Preprocessing",
+        "conv1DLayer": "Add Conv 1D Layer",
+        "conv2DLayer": "Add Conv 2D Layer",
+        "conv2DTransposeLayer": "Add Conv 2D Transpose Layer",
+        "conv3DLayer": "Add Conv 3D Layer",
+        "cropping2DLayer": "Add Cropping 2D Layer",
+        "depthwiseConv2DLayer": "Add Depthwise Conv 2D Layer",
+        "separableConv2DLayer": "Add Separable Conv 2D Layer",
+        "upSampling2DLayer": "Add Up Sampling 2D Layer",
+        "optimizer": "Add Optimizer",
+        "lossFunction": "Add Loss Function",
+        "metrics": "Add Metrics",
+        "biasInitializer": "Add Bias Initializer",
+        "biasConstraint": "Add Bias Constraint",
+        "biasRegularizer": "Add Bias Regularizer",
+        "spatialDropout1DLayer": "Add Spatial Dropout 1D Layer",
+        "reshapeLayer": "Add Reshape Layer",
+        "repeatVectorLayer": "Add Repeat Vector Layer",
+        "permuteLayer": "Add Permute Layer",
+        "flattenLayer": "Add Flatten Layer",
+        "embeddingLayer": "Add Embedding Layer",
+        "dropoutLayer": "Add Dropout Layer",
+        "denseLayer": "Add Dense Layer",
+        "activationLayer": "Add Activation Layer",
         "model": "Add Model",
         "thresholdedReluLayer": "Add Thresholded Relu Layer",
         "softmaxLayer": "Add Softmax Layer",
@@ -498,11 +632,20 @@
             "system": "Add Trading System"
         },
         "signals": {
+            "label": "Add Trading Strategy Signals",
+            "closeStage": "Add Close Stage Signals",
+            "manageStage": "Add Manage Stage Signals",
+            "triggerStage": "Add Trigger Stage Signals",
+            "openStage": "Add Open Stage Signals",
             "provider": "Add Signals Provider",
             "providers": "Add Signals Providers",
             "outgoing": "Add Outgoing Signals",
             "incoming": "Add Incoming Signals",
-            "available": "Add Available Signals"
+            "available": "Add Available Signals",
+            "outgoingReference": "Add Outgoing Signal Reference",
+            "incomingReference": "Add Incoming Signal Reference",
+            "managedStopLoss": "Add Managed Stop Loss Signals",
+            "managedTakeProfit": "Add Managed Take Profit Signals"
         },
         "data": {
             "allMineDependencies": "Add All Data Mine Dependencies",
@@ -537,11 +680,15 @@
         "orders": {
             "limit": {
                 "buy": "Add Limit Buy Orders",
-                "sell": "Add Limit Sell Orders"
+                "sell": "Add Limit Sell Orders",
+                "buySignals": "Add Limit Buy Order Signals",
+                "sellSignals": "Add Limit Sell Order Signals"
             },
             "market": {
                 "buy": "Add Market Buy Orders",
-                "sell": "Add Market Sell Orders"
+                "sell": "Add Market Sell Orders",
+                "buySignals": "Add Market Buy Order Signals",
+                "sellSignals": "Add Market Sell Order Signals"
             }
         },
         "order": {
@@ -554,9 +701,14 @@
                 "sell": "Add Market Sell Order"
             },
             "rate": "Add Order Rate",
+            "rateSignal": "Add Order Rate Signal",
             "event": {
                 "create": "Add Create Order Event",
                 "cancel": "Add Cancel Order Event"
+            },
+            "signal": {
+                "create": "Add Create Order Signal",
+                "cancel": "Add Cancel Order Signal"
             }
         },
         "simulated": {
@@ -709,7 +861,12 @@
                     "stop": "Stop All Portfolio Mine Tasks"
                 }
             }
-        }
+        },
+        "running": "Task Running",
+        "cannotBeRun": "Task Cannot be Run",
+        "stopped": "Task Stopping",
+        "cannotBeStopped": "Task Cannot be Stopped",
+        "cannotBeDebugged": "Task Cannot be Debugged"
     },
     "send": {
         "message": {

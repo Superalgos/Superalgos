@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Geri çağırma işlevi, başka bir işleve argüman olarak aktarılan ve daha sonra bir tür rutini veya eylemi tamamlamak için dış işlevin içinde çağrılan bir işlevdir.",
                 "updated": 1654396754892
+            },
+            {
+                "language": "DE",
+                "text": "Eine Rückruffunktion ist eine Funktion, die einer anderen Funktion als Argument übergeben wird und die dann innerhalb der äußeren Funktion aufgerufen wird, um eine Routine oder Aktion auszuführen.",
+                "updated": 1706356351178
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396761183,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706356363091
                 }
             ]
         }

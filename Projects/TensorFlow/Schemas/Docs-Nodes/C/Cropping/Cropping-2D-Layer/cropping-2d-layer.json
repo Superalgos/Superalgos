@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "2B girdi (örn. görüntü) için kırpma katmanı. Bu katman, bir görüntü tensörünün üst, alt, sol ve sağ tarafındaki bir girişi kırpabilir.",
                 "updated": 1654396868978
+            },
+            {
+                "language": "DE",
+                "text": "Beschneidungsebene für 2D-Eingaben (z. B. Bilder). Diese Schicht kann eine Eingabe an der oberen, unteren, linken und rechten Seite eines Bildtensors beschneiden.",
+                "updated": 1706358784650
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Giriş şekli: Şekil ile 4D tensör:",
                     "updated": 1654396874506,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform (Input shape): 4D-Tensor mit Form:",
+                    "updated": 1706359060353
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Eğer dataFormat \"channelsLast\" ise: [batch, rows, cols, channels]",
                     "updated": 1654396884588,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das dataFormat \"channelsLast\" wie folgt lautet: [batch, rows, cols, channels]",
+                    "updated": 1706358977481
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "text": "Eğer data_format \"channels_first\" ise: [batch, channels, rows, cols].",
                     "updated": 1654396890349,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das data_format \"channels_first\" wie folgt lautet: [batch, channels, rows, cols].",
+                    "updated": 1706358990063
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "text": "Çıkış şekli: Şekil ile 4D:",
                     "updated": 1654396896326,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgabeformat (Output shape): 4D mit Form:",
+                    "updated": 1706359041231
                 }
             ]
         },
@@ -95,6 +120,11 @@
                     "text": "Eğer dataFormat \"channelsLast\" ise: [batch, croppedRows, croppedCols, channels]",
                     "updated": 1654396902602,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das dataFormat \"channelsLast\" wie folgt lautet: [batch, croppedRows, croppedCols, channels]",
+                    "updated": 1706359185077
                 }
             ]
         },
@@ -112,6 +142,11 @@
                     "text": "Eğer dataFormat \"channelsFirst\" ise: [batch, channels, croppedRows, croppedCols].",
                     "updated": 1654396909165,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das dataFormat \"channelsFirst\" wie folgt lautet: [batch, channels, croppedRows, croppedCols].",
+                    "updated": 1706359193040
                 }
             ]
         }

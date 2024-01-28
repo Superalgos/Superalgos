@@ -89,8 +89,9 @@ function compareVersions(actualVersion, neededVersion, application) {
       break
     /* Fail if version number is too low */
     } else if (actualVersion[pos] < neededVersion[pos]) {
+      const versionString = 'env.' + application.toUpperCase() + '_NEEDED_VERSION'
       console.log('')
-      console.log('ERROR: the version of ' + application + ' you have installed is out of date. Please update your installation of ' + application + ' and try again.')
+      console.log('ERROR: The version of ' + application + ' you have installed is out of date (required: >= ' + eval(versionString) + '). Please update your installation of ' + application + ' and try again.')
       console.log('')
       continueCheck = false
       process.exit()    

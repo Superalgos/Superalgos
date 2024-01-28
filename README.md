@@ -392,7 +392,7 @@ brew bundle
 
 ## Linux (e.g. Debian, Ubuntu, or Raspberry Pi running Raspberry Pi OS) Prerequisites
 
-Installing Superalgos is easiest when using a Linux distribution already including node.js in a version >= 16. We successfully tested this for these distributions:
+Installing Superalgos is easiest when using a Linux distribution already including Node.js in a version >= 16. We successfully tested this for these distributions:
 
 * Debian version >= 12 ("Bookworm")
 * Fedora version >= 39
@@ -414,7 +414,10 @@ Node.js installation instructions for [many other distributions](https://nodejs.
 
 > :white_check_mark: **NOTE**: You need to have sufficient privileges on your system to install new packages. It may be required to precede above commands by **sudo** for them to work.
 >
+> :white_check_mark: **NOTE**: While some distributions package **npm** together with **node**, other distributions require you to install **npm** separately.
+>
 > :white_check_mark: **NOTE**: You may additionally install the package "python3". Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
+
 
 You may now verify the successful installations and the installed software versions with these commands:
 

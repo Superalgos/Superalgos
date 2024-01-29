@@ -38,6 +38,9 @@ function findTranslation(translationKey) {
         const tKeyParts = translationKey.split('.')
         for(let i = 0; i < tKeyParts.length; i++) {
             value = value[tKeyParts[i]]
+            if(value === undefined) {
+                break
+            }
         }
         return value
     }

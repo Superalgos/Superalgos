@@ -200,7 +200,7 @@ function newCircularMenuItem() {
 
         if (temporaryStatusCounter === 0) {
             temporaryStatus = STATUS_NO_ACTION_TAKEN_YET
-            labelToPrint = thisObject.label
+            labelToPrint = getLabelTranslation(thisObject.label, thisObject.translationKey)
             backgroundColorToUse = defaultBackgroudColor
             thisObject.nextAction = thisObject.action
         }
@@ -639,7 +639,7 @@ function newCircularMenuItem() {
 
         /* Menu Label */
         if (thisObject.type === 'Icon & Text') {
-            let label = getLabelTranslation(labelToPrint, labelToPrint == thisObject.confirmationLabel ? thisObject.confirmationLabelTranslationKey : thisObject.translationKey)
+            let label = labelToPrint
             if (thisObject.shorcutNumber !== undefined) {
                 label = '' + thisObject.shorcutNumber + '- ' + label
             }

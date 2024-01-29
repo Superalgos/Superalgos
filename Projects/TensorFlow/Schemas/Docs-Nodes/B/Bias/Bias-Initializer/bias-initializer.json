@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Önyargı vektörü için başlatıcı.",
                 "updated": 1654396707948
+            },
+            {
+                "language": "DE",
+                "text": "Initialisierer für den Bias-Vektor.",
+                "updated": 1706371849198
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396713482,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1706371857453
                 }
             ]
         },

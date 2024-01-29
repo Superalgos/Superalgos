@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Core API, model oluşturmak için kullanılan daha düşük seviyeli bir API'dir.",
                 "updated": 1654396855867
+            },
+            {
+                "language": "DE",
+                "text": "Die Kern-API ist eine untergeordnete API für die Erstellung von Modellen.",
+                "updated": 1706358006444
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396863009,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706358019582
                 }
             ]
         }

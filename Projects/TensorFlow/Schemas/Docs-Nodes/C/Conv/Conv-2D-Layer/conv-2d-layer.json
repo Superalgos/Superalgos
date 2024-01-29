@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "2D konvolüsyon katmanı (örneğin görüntüler üzerinde uzamsal konvolüsyon). Bu katman, bir çıktı tensörü üretmek için katman girdisi ile konvolüsyonlanan bir konvolüsyon çekirdeği oluşturur.",
                 "updated": 1654396794193
+            },
+            {
+                "language": "DE",
+                "text": "2D-Faltungsschicht (z. B. räumliche Faltung über Bilder). Diese Schicht erzeugt einen Faltungs-Kernel, der mit der Schicht-Eingabe gefaltet wird, um einen Tensor von Ausgaben zu erzeugen.",
+                "updated": 1706356572666
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396800124,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706356582102
                 }
             ]
         }

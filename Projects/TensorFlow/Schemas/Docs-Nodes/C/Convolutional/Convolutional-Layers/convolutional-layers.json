@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir konvolüsyon çekirdeği oluşturmak için bu katman türünü kullanın.",
                 "updated": 1654396843290
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diese Art von Schicht, um einen Faltungs-Kernel zu erstellen.",
+                "updated": 1706357521859
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396849690,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706357532342
                 }
             ]
         }

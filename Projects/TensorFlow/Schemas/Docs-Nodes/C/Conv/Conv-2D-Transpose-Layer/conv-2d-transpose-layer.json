@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Dönüştürülmüş konvolüsyonel katman (bazen Dekonvolüsyon olarak da adlandırılır). Dönüştürülmüş konvolüsyonlara duyulan ihtiyaç genellikle normal bir konvolüsyonun tersi yönde giden bir dönüşüm kullanma isteğinden kaynaklanır, yani bir konvolüsyonun çıktısının şekline sahip olan bir şeyden, söz konusu konvolüsyonla uyumlu bir bağlantı modelini korurken girdisinin şekline sahip olan bir şeye.",
                 "updated": 1654396806187
+            },
+            {
+                "language": "DE",
+                "text": "Transponierte Faltungsschicht (manchmal auch Dekonvolution genannt). Der Bedarf an transponierten Faltungen ergibt sich im Allgemeinen aus dem Wunsch, eine Transformation zu verwenden, die in die entgegengesetzte Richtung einer normalen Faltung geht, d. h. von etwas, das die Form des Ausgangs einer bestimmten Faltung hat, zu etwas, das die Form des Eingangs hat, wobei ein Konnektivitätsmuster beibehalten wird, das mit der genannten Faltung kompatibel ist.",
+                "updated": 1706356644033
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Bu katmanı bir modelde ilk katman olarak kullanırken, inputShape (Tamsayılar dizisi, örnek ekseni içermez) yapılandırmasını sağlayın, örn: dataFormat içinde 128x128 RGB resimler için [128, 128, 3]: 'channelsLast'.",
                     "updated": 1654396812984,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie diese Ebene als erste Ebene in einem Modell verwenden, geben Sie die Konfiguration inputShape an (Array von Ganzzahlen, enthält nicht die Musterachse), z. B. inputShape: [128, 128, 3] für 128x128 RGB-Bilder in dataFormat:'channelsLast'.",
+                    "updated": 1706356717872
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Giriş şekli: Şekil ile 4D tensör: dataFormat 'channelsFirst' ise [batch, channels, rows, cols]. veya dataFormat 'channelsLast' ise [batch, rows, cols, channels] şeklinde 4D tensör.",
                     "updated": 1654396818621,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform (Input shape): 4D-Tensor mit Form: [batch, channels, rows, cols] wenn dataFormat is'channelsFirst'. oder 4D tensor with shape [batch, rows, cols, channels] wenn dataFormat is'channelsLast.",
+                    "updated": 1706357090879
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "text": "Çıkış şekli: Şekil ile 4D tensör: dataFormat 'channelsFirst' ise [batch, filters, newRows, newCols]. veya 4D tensor with shape: DataFormat 'channelsLast' ise [batch, newRows, newCols, filters].",
                     "updated": 1654396824809,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgabeform (Output shape): 4D-Tensor mit Form: [batch, filters, newRows, newCols] wenn dataFormat is'channelsFirst'. oder 4D tensor with shape: [batch, newRows, newCols, filters], wenn dataFormat 'channelsLast' ist.",
+                    "updated": 1706357105775
                 }
             ]
         }

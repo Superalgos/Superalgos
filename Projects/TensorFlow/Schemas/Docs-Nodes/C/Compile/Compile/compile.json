@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Modeli eğitim ve değerlendirme için yapılandırır ve hazırlar. Modeli bir optimize edici, kayıp ve/veya metriklerle derleyerek uygun hale getirir.",
                 "updated": 1654396767251
+            },
+            {
+                "language": "DE",
+                "text": "Konfiguriert und bereitet das Modell für Training und Bewertung vor. Kompilieren stattet das Modell mit einem Optimierer, Verlusten und/oder Metriken aus.",
+                "updated": 1706356434254
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396774307,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706356443515
                 }
             ]
         }

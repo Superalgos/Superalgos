@@ -1,4 +1,4 @@
-# :small_orange_diamond: Superalgos 1.6.0
+# :small_orange_diamond: Superalgos 1.6.1
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -414,7 +414,7 @@ Node.js installation instructions for [many other distributions](https://nodejs.
 
 > :white_check_mark: **NOTE**: You need to have sufficient privileges on your system to install new packages. It may be required to precede above commands by **sudo** for them to work.
 >
-> :white_check_mark: **NOTE**: While some distributions package **npm** together with **node**, other distributions require you to install **npm** separately.
+> :white_check_mark: **NOTE**: While some distributions package **npm** together with **node**, other distributions require you to install **npm** separately.«
 >
 > :white_check_mark: **NOTE**: You may additionally install the package "python3". Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
 

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varsayılan Borsa, belirli bir Görevin ( Task ) indiği Borsa Veri Görevleri ( Exchange Data Tasks ), Borsa Alım Satım Görevleri ( Exchange Trading Tasks ) ve Borsa Öğrenme Görevleri ( Exchange Learning Tasks ) düğümleri tarafından referans verilen borsadır. Bu Görev ( Task ) altında çalışan Ticaret Botu Örneği ( Trading Bot Instance ), başvurulan Kripto Borsasını ( Crypto Exchange ) söz konusu Görev ( Task ) için Varsayılan Borsa olarak kabul edecektir.",
                 "updated": 1671643762180
+            },
+            {
+                "language": "DE",
+                "text": "Die Standardbörse ist diejenige, auf die die Knoten der Exchange Data Tasks, Exchange Trading Tasks und Exchange Learning Tasks verweisen, von denen eine bestimmte Aufgabe abstammt. Die Handelsroboter-Instanz ( Trading Bot Instance) , die unter dieser Aufgabe läuft, betrachtet die referenzierte Kryptobörse ( Crypto Exchange ) als Standardbörse für die besagte Aufgabe.",
+                "updated": 1696955463209
             }
         ]
     },
@@ -30,6 +35,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
                     "updated": 1654390953303,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1696955463462,
                     "style": "Text"
                 }
             ]

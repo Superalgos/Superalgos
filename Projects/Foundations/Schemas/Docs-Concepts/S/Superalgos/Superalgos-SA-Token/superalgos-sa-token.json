@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Superalgos kullanıcılarının alıp sattıkları ürün veya hizmetler için ödeme yaparken değişim aracı olarak kullanacakları Binance Akıllı Zincirindeki BEP20 tokenidir.",
                 "updated": 1642711509778
+            },
+            {
+                "language": "DE",
+                "text": "Es handelt sich um den nativen Token des Superalgos-Projekts (Superalgos Project), der unter den Mitwirkenden als Belohnung für den Mehrwert für das Projekt verteilt wird. Sie können den Token verwenden, um an der Governance teilzunehmen und um auf Premium- Community -Dienste zuzugreifen.",
+                "updated": 1701031471523
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1642711547203
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehrere Versionen",
+                    "updated": 1701031485091
                 }
             ]
         },
@@ -43,6 +53,11 @@
                     "language": "RU",
                     "text": "Проект развертывает версии токена на каждой из основных блокчейн, чтобы получить доступ к различным сообществам и экосистемам. В определенный момент вы сможете выбрать, на какой цепочке получать свои вознаграждения.",
                     "updated": 1661149347936
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Projekt stellt Versionen des Tokens auf jeder der großen Blockchains bereit, um verschiedene Gemeinschaften und Ökosysteme zu erreichen. Derzeit ist der Token auf der BNB Smart Chain (BSC) und Ethereum (ETH) verfügbar. Irgendwann werden Sie in der Lage sein, zu wählen, auf welcher Kette Sie Ihre Belohnungen erhalten möchten.",
+                    "updated": 1701031725821
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "language": "RU",
                     "text": "Характеристика",
                     "updated": 1661149418829
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701031739274
                 }
             ]
         },
@@ -70,6 +90,11 @@
                     "language": "TR",
                     "text": "SA Token aşağıdaki özelliklere sahiptir:",
                     "updated": 1642711567813
+                },
+                {
+                    "language": "DE",
+                    "text": "Das SA-Token hat die folgenden Eigenschaften:",
+                    "updated": 1701031743540
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "TR",
                     "text": "Maksimum toplam Arz: 1,500,000,000",
                     "updated": 1642711609189
+                },
+                {
+                    "language": "DE",
+                    "text": "Maximale Gesamtversorgung: 1,500,000,000",
+                    "updated": 1701031766459
                 }
             ]
         },
@@ -114,7 +144,14 @@
         {
             "style": "List",
             "text": "BNB Smart Chain (BSC) Max Supply: 500,000,000",
-            "updated": 1690067089154
+            "updated": 1690067089154,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "BNB Smart Chain (BSC) Maximalversorgung: 500,000,000",
+                    "updated": 1701031790347
+                }
+            ]
         },
         {
             "style": "List",
@@ -125,6 +162,11 @@
                     "language": "TR",
                     "text": "Kontrat Adresi: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
                     "updated": 1642711670828
+                },
+                {
+                    "language": "DE",
+                    "text": "BSC-Vertragsadresse: 0xfb981ed9a92377ca4d75d924b9ca06df163924fd",
+                    "updated": 1701031800160
                 }
             ]
         },
@@ -136,21 +178,49 @@
         {
             "style": "List",
             "text": "Ethereum (ETH) Max Supply: 250,000,000",
-            "updated": 1690067120223
+            "updated": 1690067120223,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ethereum (ETH) Maximales Angebot: 250,000,000",
+                    "updated": 1701031820075
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "ETH Contract Address: 0xc17272c3e15074c55b810bceba02ba0c4481cd79"
+            "text": "ETH Contract Address: 0xc17272c3e15074c55b810bceba02ba0c4481cd79",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ETH-Vertragsadresse: 0xc17272c3e15074c55b810bceba02ba0c4481cd79",
+                    "updated": 1701031830991
+                }
+            ]
         },
         {
             "style": "List",
             "text": "ZkSync Contract Address: 0xe3d85Bd3363B6f0F91351591f9a8fD0d0a1145Ed",
-            "updated": 1690067170184
+            "updated": 1690067170184,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ZkSync-Vertragsadresse: 0xe3d85Bd3363B6f0F91351591f9a8fD0d0a1145Ed",
+                    "updated": 1701031839904
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Superalgos utilizes zkSync, a Layer-2 scaling solution based on ETH. The ETH Max Supply is commonly used between ETH (L1) and zkSync (L2).",
-            "updated": 1690067429378
+            "updated": 1690067429378,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos verwendet zkSync, eine Layer-2-Skalierungslösung, die auf ETH basiert. Die ETH Max Supply wird üblicherweise zwischen ETH (L1) und zkSync (L2) eingesetzt.",
+                    "updated": 1701031853831
+                }
+            ]
         },
         {
             "style": "Title",
@@ -166,6 +236,11 @@
                     "language": "TR",
                     "text": "Dağıtım",
                     "updated": 1642711700357
+                },
+                {
+                    "language": "DE",
+                    "text": "Vertrieb",
+                    "updated": 1701031861519
                 }
             ]
         },
@@ -183,6 +258,11 @@
                     "language": "TR",
                     "text": "Token Mart 2021'de ortaya çıktı ve tüm tokenler projenin Hazine Hesabına yatırıldı. Tokenler, bu hesaptan katkıda bulunanlara sürüm bazında dağıtılır.",
                     "updated": 1642711794925
+                },
+                {
+                    "language": "DE",
+                    "text": "Nach der Bereitstellung werden die Token auf dem Treasury-Konto (Treasury Account) des Projekts hinterlegt. Die Token werden von diesem Konto aus pro Veröffentlichung an die Mitwirkenden verteilt.",
+                    "updated": 1701031883624
                 }
             ]
         },
@@ -216,6 +296,11 @@
                     "language": "TR",
                     "text": "Web sitesinde Superalgos SA Simgesi hakkında daha fazla bilgi edinebilirsiniz.",
                     "updated": 1642711932425
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr über den Superalgos SA Token auf der Website.",
+                    "updated": 1701031940994
                 }
             ]
         }

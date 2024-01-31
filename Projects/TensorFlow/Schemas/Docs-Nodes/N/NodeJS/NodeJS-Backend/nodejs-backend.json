@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "TensorFlow Node.js arka ucu olan 'node'da, işlemleri hızlandırmak için TensorFlow C API kullanılır. Bu, varsa makinenin CUDA gibi mevcut donanım hızlandırmasını kullanacaktır.",
                 "updated": 1654397370334
+            },
+            {
+                "language": "DE",
+                "text": "Im TensorFlow Node.js backend,'node', wird die TensorFlow C API zur Beschleunigung von Operationen verwendet. Dies wird die verfügbare Hardware-Beschleunigung der Maschine nutzen, wie CUDA, falls verfügbar.",
+                "updated": 1706372208180
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397376078,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706372223708
                 }
             ]
         }

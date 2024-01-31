@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": " Der McGinley Dynamic Indikator ist eine Art gleitender Durchschnitt, der entwickelt wurde, um den Markt besser zu verfolgen als bestehende gleitende Durchschnittsindikatoren. Es handelt sich um einen technischen Indikator, der die gleitenden Durchschnittslinien verbessert, indem er Verschiebungen der Marktgeschwindigkeit ausgleicht.",
                 "updated": 1647855742198
+            },
+            {
+                "language": "TR",
+                "text": "McGinley Dinamik göstergesi, piyasayı mevcut hareketli ortalama göstergelerinden daha iyi takip etmek için tasarlanmış bir tür hareketli ortalamadır. Piyasa hızındaki değişimleri ayarlayarak hareketli ortalama çizgilerini geliştiren teknik bir göstergedir.",
+                "updated": 1697834910322
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610557220
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697834915634
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "DE",
                     "text": "Bei seinen Untersuchungen stellte McGinley fest, dass gleitende Durchschnitte viele Probleme aufwiesen. Erstens wurden sie in unangemessener Weise angewandt. Gleitende Durchschnitte in verschiedenen Zeiträumen funktionieren auf verschiedenen Märkten in unterschiedlichem Maße. Wie kann man zum Beispiel wissen, wann man einen 10-, 20- oder 50-tägigen gleitenden Durchschnitt in einem schnellen oder langsamen Markt verwenden sollte? Um das Problem der Wahl der richtigen Länge des gleitenden Durchschnitts zu lösen, wurde der McGinley Dynamic so konzipiert, dass er sich automatisch an die aktuelle Geschwindigkeit des Marktes anpasst.",
                     "updated": 1647855758627
+                },
+                {
+                    "language": "TR",
+                    "text": "McGinley araştırmasında hareketli ortalamaların birçok sorunu olduğunu tespit etti. İlk olarak, uygunsuz bir şekilde uygulanıyorlardı. Farklı dönemlerdeki hareketli ortalamalar farklı piyasalarda farklı derecelerde işlemektedir. Örneğin, hızlı ya da yavaş bir piyasada 10 günlük, 20 günlük ya da 50 günlük bir hareketli ortalamanın ne zaman kullanılacağı nasıl bilinebilir? Doğru hareketli ortalama uzunluğunu seçme sorununu çözmek için McGinley Dynamic, piyasanın mevcut hızına göre otomatik olarak ayarlanacak şekilde geliştirilmiştir.",
+                    "updated": 1697834937225
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des McGinley Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization  unter’McGinley’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647855850830
+                },
+                {
+                    "language": "TR",
+                    "text": "McGinley gösterge hesaplamasının uzunluğu, 'McGinley' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697834974097
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647855893699
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697834981561
                 }
             ]
         },
@@ -106,6 +131,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647855904068
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697834984921
                 }
             ]
         },
@@ -135,6 +165,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647855978435
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697834989056
                 }
             ]
         },
@@ -151,6 +186,11 @@
                     "language": "DE",
                     "text": "Der McGinley Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des Indikatorwertes schließt:",
                     "updated": 1647856010066
+                },
+                {
+                    "language": "TR",
+                    "text": "McGinley göstergesi, bir mum gösterge değerinin üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697834993609
                 }
             ]
         },
@@ -172,6 +212,11 @@
                     "language": "DE",
                     "text": "Es wird vorgeschlagen, dass der McGinley Indikator in Verbindung mit ergänzenden Indikatoren wie MACD, RSI oder TDI verwendet werden kann.",
                     "updated": 1647856068758
+                },
+                {
+                    "language": "TR",
+                    "text": "McGinley göstergesinin MACD, RSI veya TDI gibi tamamlayıcı göstergelerle birlikte kullanılabileceği önerilmektedir",
+                    "updated": 1697835000313
                 }
             ]
         },

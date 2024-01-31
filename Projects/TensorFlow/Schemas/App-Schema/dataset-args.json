@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "batchesPerGradientUpdate",
             "label": "Add Batch Size Per Gradient Update",
+            "translationKey": "add.batcheSizePerGradientUpdate",
             "relatedUiObject": "Batches Per Gradient Update",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "shuffle",
             "label": "Add Shuffle",
+            "translationKey": "add.shuffle",
             "relatedUiObject": "Shuffle",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -26,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

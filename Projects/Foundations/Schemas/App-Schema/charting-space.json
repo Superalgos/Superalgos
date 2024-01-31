@@ -6,6 +6,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "viewport",
             "label": "Add Viewport",
+            "translationKey": "add.viewport",
             "relatedUiObject": "Viewport",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -16,6 +17,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "spaceStyle",
             "label": "Add Space Style",
+            "translationKey": "add.spaceStyle",
             "relatedUiObject": "Space Style",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -26,6 +28,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "spaceSettings",
             "label": "Add Space Settings",
+            "translationKey": "add.spaceSettings",
             "relatedUiObject": "Space Settings",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -34,6 +37,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Project Dashboards",
+            "translationKey": "add.projectDashboards",
             "relatedUiObject": "Project Dashboards",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -42,9 +46,12 @@
         {
             "action": "Add Missing Project Dashboards",
             "label": "Add Missing Projects",
+            "translationKey": "add.missing.projects",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Project Dashboards",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -55,7 +62,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

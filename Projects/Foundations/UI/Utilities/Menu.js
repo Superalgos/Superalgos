@@ -21,3 +21,5 @@ function newFoundationsUtilitiesMenu() {
         }
     }
 }
+
+exports.newFoundationsUtilitiesMenu = newFoundationsUtilitiesMenu

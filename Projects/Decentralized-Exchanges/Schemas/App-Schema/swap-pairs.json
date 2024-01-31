@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Swap Pair",
+            "translationKey": "add.swapPair",
             "relatedUiObject": "Swap Pair",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,9 +13,12 @@
         {
             "action": "Add Missing Pairs",
             "label": "Add Missing Swap Pairs",
+            "translationKey": "add.missing.swapPairs",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Request Sent",
+            "workDoneLabelTranslationKey": "general.requestSent",
             "relatedUiObject": "Swap Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
@@ -24,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

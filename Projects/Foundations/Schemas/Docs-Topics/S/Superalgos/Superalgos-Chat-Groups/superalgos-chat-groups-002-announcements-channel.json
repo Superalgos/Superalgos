@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Это официальный канал, транслирующий новости о релизах, срочных исправлениях и важную информацию.",
                 "updated": 1640353465085
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist der offizielle Kanal, der Neuigkeiten über Veröffentlichungen, Hotfixes und kritische Informationen verbreitet.",
+                "updated": 1697733633514
             }
         ]
     },

@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -14,6 +15,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "recordFormula",
             "label": "Add Formula",
+            "translationKey": "add.formula",
             "relatedUiObject": "Record Formula",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -24,6 +26,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "apiResponseFieldReference",
             "label": "Add Field Reference",
+            "translationKey": "add.fieldReference",
             "relatedUiObject": "API Response Field Reference",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -34,7 +37,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

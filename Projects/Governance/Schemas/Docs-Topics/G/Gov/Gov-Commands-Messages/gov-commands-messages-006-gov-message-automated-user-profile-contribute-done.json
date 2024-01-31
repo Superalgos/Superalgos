@@ -20,8 +20,8 @@
             },
             {
                 "language": "DE",
-                "text": "Ihre Beiträge wurden in Ihren Superalgos Fork hochgeladen und ein Pull Request wurde an das Haupt-Repository von Superalgos gesendet.",
-                "updated": 1634163888387,
+                "text": "Ihr Benutzerprofil wurde in Ihren Superalgos Fork hochgeladen und ein Pull Request wurde an das Haupt-Repository von Superalgos übermittelt.",
+                "updated": 1700773081160,
                 "style": "Definition"
             },
             {
@@ -50,8 +50,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es ist keine weitere Aktion von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Problem auf Github.com verfolgen.",
-                    "updated": 1634163896241,
+                    "text": "Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Problem auf Github.com verfolgen.",
+                    "updated": 1700773093264,
                     "style": "Success"
                 },
                 {

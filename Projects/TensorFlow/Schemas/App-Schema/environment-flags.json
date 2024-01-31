@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mode",
             "label": "Add Debug Mode",
+            "translationKey": "add.debugMode",
             "relatedUiObject": "Debug Mode",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mode",
             "label": "Add Production Mode",
+            "translationKey": "add.productionMode",
             "relatedUiObject": "Production Mode",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -26,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

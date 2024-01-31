@@ -4,9 +4,12 @@
         {
             "action": "Run All Data Mine Tasks",
             "label": "Run All Data Mine Tasks",
+            "translationKey": "task.all.mine.data.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Run Request Sent",
+            "workDoneLabelTranslationKey": "general.runRequestSent",
             "iconPathOn": "run",
             "iconPathOff": "run",
             "actionFunction": "payload.executeAction"
@@ -14,9 +17,12 @@
         {
             "action": "Stop All Data Mine Tasks",
             "label": "Stop All Data Mine Tasks",
+            "translationKey": "task.all.mine.data.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
+            "confirmationLabelTranslationKey": "general.confirm.stop",
             "workDoneLabel": "Stop Request Sent",
+            "workDoneLabelTranslationKey": "general.stopRequestSent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
             "actionFunction": "payload.executeAction"
@@ -24,6 +30,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Data Mine Tasks",
+            "translationKey": "add.data.mineTasks",
             "relatedUiObject": "Data Mine Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -32,9 +39,12 @@
         {
             "action": "Add Missing Data Mine Tasks",
             "label": "Add Missing Data Mine Tasks",
+            "translationKey": "add.missing.dataMineTasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Data Mine Tasks",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -44,7 +54,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

@@ -25,14 +25,16 @@ async function runRoot() {
   /*
   First thing is to load the project schema file.
   */
-  //global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
+  global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
   /*
   Setting up the modules that will be available, defined at the Project Schema file.
   */
-  //let MULTI_PROJECT = require('./MultiProject.js')
-  //let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-  //MULTI_PROJECT_MODULE.initialize(PL, 'PL')
-  //MULTI_PROJECT_MODULE.initialize(SA, 'SA')
+ 
+  let MULTI_PROJECT = require('./MultiProject.js')
+  let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
+  MULTI_PROJECT_MODULE.initialize(DS, 'DS')
+  MULTI_PROJECT_MODULE.initialize(SA, 'SA')
+  
   /*
   Setting up external dependencies.
   */
@@ -49,9 +51,9 @@ async function runRoot() {
   /* 
   Setting up the App Schema Memory Map. 
   */
-  //let APP_SCHEMAS = require('./AppSchemas.js')
-  //let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
-  //await APP_SCHEMAS_MODULE.initialize()
+  let APP_SCHEMAS = require('./AppSchemas.js')
+  let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
+  await APP_SCHEMAS_MODULE.initialize()
   /*
   Version Management
   */

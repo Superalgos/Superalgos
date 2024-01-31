@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Oturumu ( Trading Session ) yürütmek için bir Oturum Koteli Varlık Düğümü ( Session Quoted Asset Node ) beklenir ve gereklidir.",
                 "updated": 1647100605752
+            },
+            {
+                "language": "DE",
+                "text": "Ein Session Quoted Asset Node wird erwartet und benötigt, um eine Trading Session durchzuführen.",
+                "updated": 1701116649868
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu hatanın ortaya çıktığı Ticaret Parametreleri Düğümünde bir Oturum Koteli Varlık Düğümü ( Session Quoted Asset Node ) ekleyin, yapılandırmasını kontrol edin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
                     "updated": 1647100690468
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie einen Session Quoted Asset Node an dem Trading Parameters Node hinzu, an dem der Fehler auftrat, überprüfen Sie dessen Konfiguration und versuchen Sie, die Trading Session erneut auszuführen.",
+                    "updated": 1701116679373
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Aşama Alanı tarafından işlenen Boyutun ( Size ) yüzde kaçının Yürütme Algoritması ( Execution Algorithm ) tarafından işleneceğini belirtmelisiniz.",
                 "updated": 1649626040278
+            },
+            {
+                "language": "DE",
+                "text": "Sie müssen angeben, welcher Prozentsatz der von der Stufe bearbeiteten Größe (Size) vom Ausführungsalgorithmus (Execution Algorithm) bearbeitet werden soll. ",
+                "updated": 1700512594710
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Aşama Hedef Boyutu Yüzdesi Özelliği Sayı Değil. ( Target Size Property Not A Number )",
                     "updated": 1649626149018
+                },
+                {
+                    "language": "DE",
+                    "text": "Prozentsatz der Zielgrößeneigenschaft der Stufe ist keine Zahl (Percentage Of Stage Target Size Property Not A Number)",
+                    "updated": 1700296563830
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Algoritmanın yapılandırmasını kontrol edin ve aşma dışı hedef boyutun yüzdesi özelliğinin var olduğundan ve sıfırdan büyük bir sayıyla tanımlandığından emin olun.",
                     "updated": 1649626298551
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Konfiguration des Algorithmus und vergewissern Sie sich, dass die Eigenschaft percentageOfStageTargetSize vorhanden und mit einer Zahl größer als Null definiert ist.",
+                    "updated": 1700296555393
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Key Reference - это ссылка на ключ учетной записи биржи, как определено в конкретной учетной записи пользователя, в конкретной бирже в иерархии Crypto Ecosystem.",
                 "updated": 1638360087485
+            },
+            {
+                "language": "TR",
+                "text": "Anahtar referansı, Kripto Ekosistemi hiyerarşisinde belirli bir borsadaki belirli bir kullanıcı hesabında tanımlanan bir borsa hesap anahtarına referanstır.",
+                "updated": 1701086720068
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Обычно биржи требуют аутентификации с помощью ключа вашей учетной записи только для денежных транзакций. Однако некоторые биржи могут потребовать аутентификации и в других контекстах, например, для получения информации сверх определенной квоты или для получения необработанных данных сделок вместо данных OHLCV.",
                     "updated": 1638360137217
+                },
+                {
+                    "language": "TR",
+                    "text": "Genellikle, borsalar yalnızca parasal işlemler için borsa hesap anahtarınız aracılığıyla kimlik doğrulaması gerektirir. Ancak bazı borsalar, örneğin belirli bir kotanın üzerindeki bilgileri almak veya OHLCV verileri yerine ham işlem verilerini almak için başka bağlamlarda da kimlik doğrulaması gerektirebilir.",
+                    "updated": 1701086724984
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "По этим причинам ссылки на ключи биржи доступны как в контексте интеллектуального анализа данных, так и в торговых операциях и всегда привязаны к соответствующей задаче.",
                     "updated": 1638360172550
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenlerle, değişim anahtarı referansları hem veri madenciliği hem de ticaret işlemleri bağlamında mevcuttur ve her zaman ilgili göreve eklenir.",
+                    "updated": 1701086728866
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Форвард-тестирование и торговые сессии в реальном времени всегда требуют настройки ссылок на ключи, так как это тот сценарий, в котором пользователь должен пройти проверку на бирже.",
                     "updated": 1638430243621
+                },
+                {
+                    "language": "TR",
+                    "text": "İleriye dönük testler ve canlı alım satım seansları, kullanıcının borsa ile doğrulama yapması gereken türden bir senaryo olduğundan, her zaman anahtar referansların ayarlanmasını gerektirir.",
+                    "updated": 1701086732626
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Во всех случаях узел Key Reference должен ссылаться на действительный ключ учетной записи биржи, как определено в иерархии Crypto Ecosystem.",
                     "updated": 1638360299740
+                },
+                {
+                    "language": "TR",
+                    "text": "Her durumda, anahtar referans düğümü, Kripto Ekosistemi ( Crypto Ecosystem ) hiyerarşisinde tanımlandığı gibi, borsadaki bir hesaptan geçerli bir borsa hesap anahtarına referans vermelidir.",
+                    "updated": 1701086745411
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Большинство бирж не позволяют использовать один и тот же ключ учетной записи биржи для нескольких процессов, запрашивающих API биржи. Это означает, что если вы торгуете с использованием нескольких торговых систем или нескольких сессий на одной и той же бирже, для каждой сессии требуются разные ключи учетной записи биржи.",
                     "updated": 1638360345878
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu borsa, aynı borsa hesap anahtarının borsa API'sini sorgulayan birden fazla işlemle kullanılmasına izin vermez. Bu, aynı borsada birden fazla alım satım sistemi veya birden fazla oturumla alım satım yapıyorsanız, her oturumun farklı borsa hesap anahtarları gerektirdiği anlamına gelir.",
+                    "updated": 1701086750119
                 }
             ]
         }

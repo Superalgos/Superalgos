@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der von Alan Hull entwickelte Hull Moving Average (HMA) ist ein extrem schneller und glatter gleitender Durchschnitt. Tatsächlich eliminiert der HMA die Verzögerung fast vollständig und schafft es gleichzeitig, die Glättung zu verbessern.",
                 "updated": 1647854104458
+            },
+            {
+                "language": "TR",
+                "text": "Alan Hull tarafından geliştirilen Hull Hareketli Ortalama (HMA), son derece hızlı ve pürüzsüz bir hareketli ortalamadır. Aslında, HMA gecikmeyi neredeyse tamamen ortadan kaldırır ve aynı zamanda yumuşatmayı iyileştirmeyi başarır.",
+                "updated": 1697834622031
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610373960
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697834628218
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "DE",
                     "text": "Der Hull Moving Average (HMA) ist ein direktionaler Trendindikator. Er erfasst den aktuellen Zustand des Marktes und verwendet die jüngsten Kursbewegungen, um festzustellen, ob die Bedingungen im Vergleich zu den historischen Daten nach oben oder unten gerichtet sind.",
                     "updated": 1647854231233
+                },
+                {
+                    "language": "TR",
+                    "text": "Hull Hareketli Ortalama (HMA) yönlü bir trend göstergesidir. Piyasanın mevcut durumunu yakalar ve geçmiş verilere göre koşulların yükseliş mi yoksa düşüş mü olduğunu belirlemek için son fiyat hareketini kullanır.",
+                    "updated": 1697834651274
                 }
             ]
         },
@@ -60,6 +75,11 @@
                     "language": "DE",
                     "text": "Der Hull unterscheidet sich von traditionelleren Trendindikatoren wie dem Exponential Moving Average (EMA) und dem Simple Moving Average (SMA). Er wurde entwickelt, um die Verzögerung zu verringern, die oft mit diesen MAs verbunden ist, indem er ein schnelleres Signal auf einer glatteren visuellen Ebene liefert.",
                     "updated": 1647854236825
+                },
+                {
+                    "language": "TR",
+                    "text": "Hull, Üstel Hareketli Ortalama (EMA) ve Basit Hareketli Ortalama (SMA) gibi daha geleneksel trend göstergelerinden farklıdır. Daha yumuşak bir görsel düzlemde daha hızlı bir sinyal sağlayarak, genellikle bu MA'larla ilişkili gecikmeyi azaltmak için tasarlanmıştır.",
+                    "updated": 1697834664986
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des Hull Moving Average indicator kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’HMA’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647854645621
+                },
+                {
+                    "language": "TR",
+                    "text": "Gövde Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'HMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697834704563
                 }
             ]
         },
@@ -106,6 +131,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647854704779
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697834710490
                 }
             ]
         },
@@ -122,6 +152,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647854713634
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697834716850
                 }
             ]
         },
@@ -151,6 +186,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647854794218
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697834722010
                 }
             ]
         },
@@ -167,6 +207,11 @@
                     "language": "DE",
                     "text": "Der HMA-Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des HMA schließt:",
                     "updated": 1647854804199
+                },
+                {
+                    "language": "TR",
+                    "text": "HMA göstergesi, bir mum HMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697834730162
                 }
             ]
         },

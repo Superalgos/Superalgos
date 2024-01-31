@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Time Machine",
+            "translationKey": "add.timeMachine",
             "relatedUiObject": "Time Machine",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,9 +13,12 @@
         {
             "action": "Add Missing Time Machines",
             "label": "Add Missing Time Machines",
+            "translationKey": "add.missing.timeMachines",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Time Machine",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -24,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

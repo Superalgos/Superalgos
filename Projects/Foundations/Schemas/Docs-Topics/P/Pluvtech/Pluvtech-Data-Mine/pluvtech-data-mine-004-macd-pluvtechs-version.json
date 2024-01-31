@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der MACD (Moving Average Convergence Divergence) ist ein trendfolgender Momentum Indikator, der die Beziehung zwischen zwei gleitenden Durchschnitten des Kurses eines Wertpapiers anzeigt.",
                 "updated": 1647853041359
+            },
+            {
+                "language": "TR",
+                "text": "Hareketli ortalama yakınsama sapması (MACD), bir menkul kıymetin fiyatının iki hareketli ortalaması arasındaki ilişkiyi gösteren, trend takip eden bir momentum göstergesidir.",
+                "updated": 1697834302193
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610237690
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697834307969
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "DE",
                     "text": "Die Parameter des Pluvtech MACD Indikators können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter'Pluvtech MACD'Product Definition suchen und öffnen.",
                     "updated": 1647853195414
+                },
+                {
+                    "language": "TR",
+                    "text": "Pluvtech MACD göstergesinin parametreleri, 'Pluvtech MACD' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunarak ve açılarak değiştirilebilir.",
+                    "updated": 1697834360226
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647853232510
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697834366216
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647853242204
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697834373250
                 }
             ]
         },
@@ -118,6 +143,11 @@
                     "language": "DE",
                     "text": "<b>reversMacd:</b> Ein Kurs, der über diesem Wert schließt, führt zu einem Anstieg des MACD und umgekehrt.",
                     "updated": 1647853511999
+                },
+                {
+                    "language": "TR",
+                    "text": "reverseMacd ( Ters MACD ): Fiyat hareketinin bu değerin üzerinde kapanması MACD'nin artmasına neden olur ve bunun tersi de geçerlidir.",
+                    "updated": 1697834571761
                 }
             ]
         },
@@ -134,6 +164,11 @@
                     "language": "DE",
                     "text": "macdEmaCross:</b> Eine Kursbewegung, die über diesem Wert schließt, führt dazu, dass der MACD die EMA Signallinie überschreitet und umgekehrt.",
                     "updated": 1647853533037
+                },
+                {
+                    "language": "TR",
+                    "text": "macdEmaCross ( macd Ema Çapraz ): Fiyat hareketinin bu değerin üzerinde kapanması, MACD'nin EMA sinyal hattının üzerine çıkmasına ve bunun tersine neden olacaktır.",
+                    "updated": 1697834517610
                 }
             ]
         },
@@ -150,6 +185,11 @@
                     "language": "DE",
                     "text": "<b>macdZeroLine:</b> Der voraussichtliche Schlusskurswert, bei dem der MACD = 0 wäre.",
                     "updated": 1647853551265
+                },
+                {
+                    "language": "TR",
+                    "text": "macdZeroLine ( macd ÖlüBölge ): MACD = 0 yapacak tahmini kapanış fiyatı değeri",
+                    "updated": 1697834545050
                 }
             ]
         },
@@ -167,6 +207,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647853628766
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697834490937
                 }
             ]
         },
@@ -183,6 +228,11 @@
                     "language": "DE",
                     "text": "Eine einfache Strategie könnte sich auf den MACD stützen, wenn dieser die Nulllinie unterschreitet:",
                     "updated": 1647853642749
+                },
+                {
+                    "language": "TR",
+                    "text": "Sıfır çizgisinin altındayken MACD kesişimi kullanılarak basit bir strateji oluşturulabilir:",
+                    "updated": 1697834587825
                 }
             ]
         },

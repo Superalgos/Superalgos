@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Charting Space",
+            "translationKey": "add.chartingSpace",
             "relatedUiObject": "Charting Space",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Design Space",
+            "translationKey": "add.designSpace",
             "relatedUiObject": "Design Space",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,7 +25,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

@@ -3,7 +3,7 @@
 
 #pragma once
 
-const char version[] = "0.5.1";
+const char version[] = "0.5.5";
 
 #include <iostream>
 

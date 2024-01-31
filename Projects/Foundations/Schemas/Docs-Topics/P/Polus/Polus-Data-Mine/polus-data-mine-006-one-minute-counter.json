@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "7",
+    "pageNumber": 6,
     "type": "One Minute counter",
     "definition": {
         "text": "This indicator provides a simple counter that counts from 0 to 59 to represent every minute of the hour.",

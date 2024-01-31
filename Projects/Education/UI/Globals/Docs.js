@@ -8,3 +8,5 @@ function newEducationGlobalsDocs() {
     }
     return thisObject
 }
+
+exports.newEducationGlobalsDocs = newEducationGlobalsDocs

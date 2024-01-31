@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "inputFeatures",
             "label": "Add Input Features",
+            "translationKey": "add.inputFeatures",
             "relatedUiObject": "Input Features",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "inputShape",
             "label": "Add Input Shape",
+            "translationKey": "add.inputShape",
             "relatedUiObject": "Input Shape",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -27,6 +29,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "batchImputShape",
             "label": "Add Batch Input Shape",
+            "translationKey": "add.batchInputShape",
             "relatedUiObject": "Batch Input Shape",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -37,6 +40,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "collectionCondition",
             "label": "Add Collection Condition",
+            "translationKey": "add.collectionCondition",
             "relatedUiObject": "Collection Condition",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -46,7 +50,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

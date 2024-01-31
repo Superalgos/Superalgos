@@ -17,6 +17,11 @@
                 "language": "DE",
                 "text": "Ein Network Node (Netzwerkknoten) stellt eine Maschine dar, auf der Superalgos läuft, auf der Prozesse ablaufen und Daten gespeichert werden.",
                 "updated": 1651909956300
+            },
+            {
+                "language": "TR",
+                "text": "Bir ağ düğümü, Superalgos çalıştıran, üzerinde işlemlerin yürütüldüğü ve verilerin depolandığı bir makineyi temsil eder.",
+                "updated": 1701083980177
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "Standardmäßig sind die Prozesse so eingerichtet, dass sie lokal auf einem Netzwerkknoten ausgeführt werden, der Ihren lokalen Rechner darstellt. Das System ist jedoch darauf vorbereitet, verteilt auf einem Netzwerk von Nodes zu laufen, oder was wir eine Trading Frm nennen.",
                     "updated": 1651909967974
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, işlemler yerel makinenizi temsil eden bir ağ düğümünde yerel olarak çalışacak şekilde ayarlanmıştır. Ancak sistem, düğümlerden oluşan bir ağda ya da işlem çiftliği olarak adlandırdığımız bir ağda dağıtılmış olarak çalışmaya hazırdır.",
+                    "updated": 1701083984858
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "DE",
                     "text": "Sie können eine unbegrenzte Anzahl von Netzwerkknoten erstellen und diese verschiedenen Rechnern in einem Netzwerk zuordnen. Jeder Computer im Netzwerk führt eine Instanz des Superalgos-Backends aus, und Sie können den gesamten Netzwerkbetrieb von einer einzigen Maschine aus steuern, oder - im Allgemeinen - von jeder Maschine im Netzwerk, auf der das Superalgos-Frontend läuft. Um mehr über verteilte Setups zu erfahren, besuchen Sie die Seiten über Trading Farms.",
                     "updated": 1651909916506
+                },
+                {
+                    "language": "TR",
+                    "text": "Sınırsız sayıda ağ düğümü oluşturabilir ve bunları bir ağ üzerindeki farklı makinelerle eşleştirebilirsiniz. Ağdaki her bilgisayar Superalgos arka ucunun bir örneğini çalıştırır ve tüm ağ işlemini tek bir makineden veya genel olarak Superalgos ön ucunu çalıştıran ağdaki herhangi bir makineden kontrol edebilirsiniz. Dağıtılmış kurulumlar hakkında daha fazla bilgi edinmek için ticaret çiftlikleri sayfalarını kontrol edin.",
+                    "updated": 1701083989072
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "DE",
                     "text": "Der einfachste und schnellste Weg, einen Netzwerkknoten einzurichten, ist die Funktion \"Markt installieren\", die für die in der Crypto Ecosystem-Hierarchie definierten Märkte unter dem Knoten \"Exchange markets\" verfügbar ist. Diese Funktion fügt Data-Mining-Aufgaben für alle Sensor- und Indikator-Bots, die mit dem System ausgeliefert werden, Backtesting- und Live-Trading-Aufgaben für Handelssysteme, die mit dem System ausgeliefert werden, einschließlich der Datenspeicherdefinitionen für beide, hinzu und erstellt auch die entsprechenden Dashboards und Charts in der Charting Space-Hierarchie. Mehr über diese Funktion erfahren Sie auf der Seite \"How to install a new market\".",
                     "updated": 1651910131626
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ağ düğümü kurmanın en kolay ve en hızlı yolu, Kripto Ekosistemi ( Crypto Ecosystem ) hiyerarşisinde tanımlanan piyasalarda, borsa piyasaları düğümü altında bulunan Piyasayı Kur işlevini kullanmaktır. Bu işlev, sistemle birlikte gönderilen tüm sensör ve gösterge botları için veri madenciliği görevlerini, sistemle birlikte gönderilen ticaret sistemleri için geriye dönük test ve canlı ticaret görevlerini, her ikisi için de veri depolama tanımlarını ekler ve ayrıca Grafik Alanı ( Charting Space ) hiyerarşisinde ilgili gösterge tablolarını ve grafikleri oluşturur. Yeni bir piyasa nasıl kurulur sayfasında bu işlev hakkında daha fazla bilgi edinebilirsiniz.",
+                    "updated": 1701084057949
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine genauere Kontrolle über den Vorgang benötigen, den Sie im Netzwerk einsetzen möchten, können Sie die einzelnen Funktionen verwenden, die in jedem Abschnitt der Hierarchie unter dem Netzknoten verfügbar sind.",
                     "updated": 1651910185616
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ üzerinde dağıtmak istediğiniz işlem üzerinde daha ince kontrole ihtiyacınız varsa, ağ düğümü altındaki hiyerarşinin her bir bölümü altında bulunan ayrı işlevleri kullanabilirsiniz.",
+                    "updated": 1701084019054
                 }
             ]
         },
@@ -108,6 +133,11 @@
                     "language": "DE",
                     "text": "LAN Network Node Konfiguration",
                     "updated": 1651910198621
+                },
+                {
+                    "language": "TR",
+                    "text": "LAN Ağ Düğümü Yapılandırması ( LAN Network Node Configuration )",
+                    "updated": 1701084078507
                 }
             ]
         },
@@ -124,6 +154,11 @@
                     "language": "DE",
                     "text": "Eigenschaften",
                     "updated": 1651910206786
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler ( Properties )",
+                    "updated": 1701084138050
                 }
             ]
         },
@@ -144,6 +179,11 @@
                     "language": "DE",
                     "text": "host ist die Maschine oder Hardware, die durch den Netzwerkknoten repräsentiert wird. Der Standardparameter ist localhost. Wenn Sie jedoch beabsichtigen, von einem entfernten Computer aus auf die Backend-Dienste dieses Knotens zuzugreifen, müssen Sie localhost in die IP-Adresse des Rechners ändern, auf dem der Knoten ausgeführt wird, z. B. in 147.0.0.1.",
                     "updated": 1651910237720
+                },
+                {
+                    "language": "TR",
+                    "text": "ana bilgisayar, ağ düğümü tarafından temsil edilen makine veya donanımdır. Varsayılan parametre localhost'tur, ancak bu düğümün arka uç hizmetlerine uzak bir bilgisayardan erişmek istiyorsanız, localhost'u düğümün çalıştığı makinenin IP Adresi için, örneğin 147.0.0.1 olarak değiştirmelisiniz.",
+                    "updated": 1701084144329
                 }
             ]
         },
@@ -161,6 +201,11 @@
                     "language": "DE",
                     "text": "webPort ist der vom Webserver verwendete Port, in diesem Fall 34248.",
                     "updated": 1651910253259
+                },
+                {
+                    "language": "TR",
+                    "text": "webPort, Web Sunucusu tarafından kullanılan bağlantı noktasıdır, bu aşamada 34248'dir.",
+                    "updated": 1701084151225
                 }
             ]
         },
@@ -177,6 +222,11 @@
                     "language": "DE",
                     "text": "webSocketsPort ist der Port, der vom System für die Kommunikation über das lokale Netz verwendet wird und standardmäßig auf 18041 eingestellt ist.",
                     "updated": 1651910267466
+                },
+                {
+                    "language": "TR",
+                    "text": "webSocketsPort, sistem tarafından yerel alan ağı üzerinden iletişim kurmak için kullanılan bağlantı noktasıdır ve varsayılan olarak 18041 olarak ayarlanmıştır.",
+                    "updated": 1701084161130
                 }
             ]
         },
@@ -193,6 +243,11 @@
                     "language": "DE",
                     "text": "webSocketsExternalURL ist die URL, die vom System für die Kommunikation über das WAN verwendet wird; standardmäßig ist sie undefiniert.",
                     "updated": 1651910305318
+                },
+                {
+                    "language": "TR",
+                    "text": "webSocketsExternalURL, sistem tarafından geniş alan ağı üzerinden iletişim kurmak için kullanılan URL'dir, varsayılan olarak tanımsız olarak ayarlanmıştır.",
+                    "updated": 1701084177450
                 }
             ]
         }

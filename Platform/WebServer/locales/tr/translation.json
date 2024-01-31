@@ -1,0 +1,156 @@
+{
+    "nav": {
+        "workspaces": {
+            "title": "Çalışma Alanları",
+            "user": "Kullanıcı Çalışma Alanları",
+            "native": "Yerleşik Çalışma Alanları",
+            "collapseNodes": "Tüm Kök Düğümleri Daralt",
+            "undoRedo": "Geri Al / Yinele",
+            "save": "Çalışma Alanını Kaydet"
+        },
+        "contributions": {
+            "title": "Katkılar",
+            "contribute": "Tüm Değişiklikleri Katkıda Bulun",
+            "update": "Uygulamayı Güncelle",
+            "reset": "Yerel Repoyu Sıfırla"
+        }
+    },
+    "general": {
+        "previous": "Previous",
+        "next": "Next",
+        "stop": "Stop",
+        "skip": "Skip",
+        "play": "Oynat",
+        "resume": "Resume",
+        "configure": "Configure",
+        "delete": "Sil",
+        "edit": "Edit",
+        "confirm": {
+            "delete": "Confirm to Sil",
+            "proceed": "Confirm to Proceed"
+        }
+    },
+    "docs": {
+        "space": {
+            "style": "Add Docs Space Style",
+            "settings": "Add Docs Space Settings",
+            "add": "Add Docs Space"
+        }
+    },
+    "install": {
+        "marketPair": "Install Pair (Market)"
+    },
+    "uninstall": {
+        "marketPair": "Uninstall Pair (Market)"
+    },
+    "add": {
+        "sensorBot": "Add Sensor Bot",
+        "studyBot": "Add Study Bot",
+        "indicatorBot": "Add Indicator Bot",
+        "fetcherBot": "Add API Data Fetcher Bot",
+        "pluginFilePosition": "Add Plugin File Position",
+        "plotter": "Add Plotter",
+        "missingChildren": "Add Missing Children",
+        "dynamicIndicators": "Add Dynamic Indicators",
+        "portfoliaManagedSystem": "Add Portfolio Managed System",
+        "plugins": "Add Plugins",
+        "dataMine": "Add Data Mine",
+        "defiWallet": "Add DeFi Wallet",
+        "swapPair": "Add Swap Pair",
+        "swapPairs": "Add Swap Pairs",
+        "token": "Add Token",
+        "tokens": "Add Tokens",
+        "tokenOutBaseAsset": "Add Token Out (Base Asset)",
+        "tokenInQuotedAsset": "Add Token In (Quoted Asset)",
+        "ethBalance": "Add ETH Balance",
+        "tokenBalance": "Add Token Balance",
+        "solidarityCode": "Add Solidity Code",
+        "networkClient": "Add Network Client",
+        "blockchainScannerBot": "Add Blockchain Scanner Bot",
+        "blockchainNetwork": "Add Blockchain Network",
+        "blockchain": "Add Blockchain",
+        "ethereumToken": "Add Ethereum Token",
+        "smartContract": "Add Smart Contract",
+        "childReference": "Add Client Reference",
+        "walletAccount": "Add Wallet Account",
+        "wallet": "Add Wallet",
+        "tokenDefinitions": "Add Token Definitions",
+        "decentralizedApplication": "Add Decentralized Application",
+        "missing":{
+            "apiMaps": "Add Missing API Maps",
+            "assets": "Add Missing Assets",
+            "dataMines": "Add Missing Data Mines",
+            "features": "Add Missing Features",
+            "learningEngines": "Add Missing Learning Engines",
+            "learningMines": "Add Missing Learning Mines",
+            "learningSystems": "Add Missing Learning Systems",
+            "p2pNetworks": "Add Missing P2P Networks",
+            "pools": "Add Missing Pools",
+            "portfolioEngines": "Add Missing Portfolio Engines",
+            "portfolioMines": "Add Missing Portfolio Mines",
+            "portfolioSystems": "Add Missing Portfolio Systems",
+            "positions": "Add Missing Positions",
+            "pluginTypes": "Add Missing Plugin Types",
+            "tradingEngines": "Add Missing Trading Engines",
+            "tradingMines": "Add Missing Trading Mines",
+            "tradingSystems": "Add Missing Trading Systems",
+            "tutorials": "Add Missing Tutorials",
+            "tokens": "Add Missing Tokens",
+            "userProfiles": "Add Missing User Profiles",
+            "children": "Add Missing Children",
+            "projects": "Add Missing Projects",
+            "swapPairs": "Add Missing Swap Pairs"
+        },
+        "specified": {
+            "pluginDataMine": "Add Specified Plugin Data Mine",
+            "p2pNetwork": "Add Specified P2P Network",
+            "userProfile": "Add Specified User Profile"
+        },
+        "process": {
+            "definition": "Add Process Definition"
+        },
+        "product": {
+            "definition": "Add Product Definition",
+            "definitionFolder": "Add Product Definition Folder"
+        },
+        "trading": {
+            "bot": "Add Trading Bot",
+            "engine": "Add Trading Engine",
+            "mine": "Add Trading Mine",
+            "strategy": "Add Trading Strategy",
+            "system": "Add Trading System"
+        },
+        "signals": {
+            "outgoing": "Add Outgoing Signals",
+            "incoming": "Add Incoming Signals"
+        },
+        "import": {
+            "existing": {
+                "wallet": {
+                    "mnemonic": "Import Existing Wallet from Mnemonic",
+                    "privateKey": "Import Existing Wallet from Private Key"
+                }
+            }
+        },
+        "create": {
+            "newWallet": "Create New Wallet"
+        }
+    },
+    "save": {
+        "enableWithWorkspace": "Enable Saving With Workspace",
+        "pluginFile": "Save Plugin File"
+    },
+    "tutorial": {
+        "add": "Add Tutorial",
+        "reset": "Reset Tutorial Progress",
+        "step": {
+            "add": "Add Tutorial Step"
+        },
+        "topic": {
+            "add": "Add Tutorial Topic"
+        },
+        "confirmation": {
+            "reset": "Confirm to Reset"
+        }
+    }
+}

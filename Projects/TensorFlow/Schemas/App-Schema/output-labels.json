@@ -5,6 +5,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Data Label",
+            "translationKey": "add.dataLabel",
             "relatedUiObject": "Data Label",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -14,7 +15,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

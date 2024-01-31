@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Bot Data Dependencies",
+            "translationKey": "add.data.botDependencies",
             "relatedUiObject": "Bot Data Dependencies",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,9 +13,12 @@
         {
             "action": "Add All Data Dependencies",
             "label": "Add All Data Dependencies",
+            "translationKey": "add.data.allDependencies",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Data Dependency",
             "actionFunction": "payload.executeAction",
             "actionProject": "Data-Mining",
@@ -25,7 +29,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

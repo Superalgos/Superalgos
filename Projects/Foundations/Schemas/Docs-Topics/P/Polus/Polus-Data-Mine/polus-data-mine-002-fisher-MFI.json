@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "Fisher MFI",
     "definition": {
         "text": "The Fisher MFI - this indicator normalizes price and volume action into a gaussian normal disctibution. This version of the Fisher Transform uses money flow index (MFI) as a base of calculations instead of just the price action.",

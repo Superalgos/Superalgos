@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Tetikleme Aşaması Sinyalleri düğümü, sinyal sağlayıcının Tetikleme Aşamasından çıkan tüm bireysel sinyal öğelerinin tanımlarını barındırır.",
                 "updated": 1654398078742
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Trigger Stage Signals enthält die Definitionen für alle einzelnen Signalelemente, die von der Trigger Stage des Signalanbieters ausgehen. ",
+                "updated": 1705011794607
             }
         ]
     },

@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokenOut",
             "label": "Add Token Out (Base Asset)",
+            "translationKey": "add.tokenOutBaseAsset",
             "relatedUiObject": "Pair Token Out",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,6 +25,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokenIn",
             "label": "Add Token In (Quoted Asset)",
+            "translationKey": "add.tokenInQuotedAsset",
             "relatedUiObject": "Pair Token In",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -31,9 +34,12 @@
         {
             "action": "Install Pair",
             "label": "Install Pair (Market)",
+            "translationKey": "install.marketPair",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Install Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
@@ -41,9 +47,12 @@
         {
             "action": "Uninstall Pair",
             "label": "Uninstall Pair (Market)",
+            "translationKey": "uninstall.marketPair",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Uninstall Pair",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Decentralized-Exchanges"
@@ -53,7 +62,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

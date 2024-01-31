@@ -6,6 +6,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "formula",
             "label": "Add Formula",
+            "translationKey": "add.formula",
             "relatedUiObject": "Formula",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -16,6 +17,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "nextPhaseEvent",
             "label": "Add Next Phase Event",
+            "translationKey": "add.nextPhaseEvent",
             "relatedUiObject": "Next Phase Event",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -24,6 +26,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Move To Phase Event",
+            "translationKey": "add.moveToPhaseEvent",
             "relatedUiObject": "Move To Phase Event",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations",
@@ -36,6 +39,7 @@
             "propertyToCheckFor": "outgoingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Outgoing Signals",
+            "translationKey": "add.signals.outgoing",
             "relatedUiObject": "Outgoing Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -46,12 +50,14 @@
             "propertyToCheckFor": "incomingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Incoming Signals",
+            "translationKey": "add.signals.incoming",
             "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },         
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
+            "translationKey": "add.announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Social-Bots",
@@ -62,7 +68,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

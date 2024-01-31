@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Slack Bot düğümü, bir Slack Bot için yapılandırmayı tanımlamak için kullanılır. Bu bot, Superalgos'un bir Slack kanalına veya Doğrudan Mesaja duyurular göndermesini sağlar. Daha fazla ayrıntı için Slack API Dokümantasyonu'ndaki Başlarken kılavuzunu kullanın.",
                 "updated": 1654396215624
+            },
+            {
+                "language": "DE",
+                "text": "Der Slack-Bot-Knoten dient zur Definition der Konfiguration für einen Slack-Bot. Dieser Bot ermöglicht es Superalgos, Ankündigungen an einen Slack-Kanal oder eine Direktnachricht zu senden. Verwenden Sie die Anleitung \"Erste Schritte\" in der Slack-API-Dokumentation für weitere Details.",
+                "updated": 1705871944018
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "text": "Slack Bot'u kullanmak için Slack API belgelerini takip ederek yeni bir uygulama oluşturun. App Manifest'i düzenleyin ve oauth_config > scopes > bot bölümüne chat:write ekleyin.",
                     "updated": 1654396221108,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um den Slack-Bot zu verwenden, folgen Sie der Slack-API-Dokumentation, um eine neue App zu erstellen. Bearbeiten Sie das App-Manifest und fügen Sie chat:write zum Abschnitt oauth_config > scopes > bot hinzu.",
+                    "updated": 1705871956147
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "Parametreler:",
                     "updated": 1654396227998,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Parameter:",
+                    "updated": 1705871963217
                 }
             ]
         },
@@ -64,6 +79,11 @@
                     "text": "- token - gerekli - Bunu Slack uygulaması yapılandırma sayfasındaki Oauth & Permissions menüsünden alın.",
                     "updated": 1654396233584,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- Token - erforderlich - Holen Sie sich dieses aus dem Menü Oauth & Berechtigungen auf der Konfigurationsseite der Slack-App.",
+                    "updated": 1705871972794
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "text": "- conversationId - gerekli - Slack'ten alınan #kanal veya Konuşma Kimliği",
                     "updated": 1654396239534,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- conversationId - erforderlich - die von Slack erhaltene #channel oder Conversation ID",
+                    "updated": 1705871986880
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "text": "- biçim - isteğe bağlı - Discord'a gönderilen mesajın özel olarak biçimlendirilmesini sağlar.",
                     "updated": 1654396245349,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- format - optional - ermöglicht die benutzerdefinierte Formatierung der in Discord gesendeten Nachricht.",
+                    "updated": 1705871996441
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "text": "Tanınan Biçim Değişkenleri:",
                     "updated": 1654396255235,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erkannte Formatvariablen:",
+                    "updated": 1705872003569
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "text": "- `%{EXCHANGE}` çalışmakta olan borsa, yani Binance",
                     "updated": 1654396261084,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{EXCHANGE}` die Börse, die in Betrieb ist, d.h. Binance",
+                    "updated": 1705872011746
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "text": "- `%{MARKET}` faaliyette olan piyasa. yani BTC/USDT",
                     "updated": 1654396267293,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{MARKET}` der Markt, der in Betrieb ist, d.h. BTC/USDT",
+                    "updated": 1705872019489
                 }
             ]
         },
@@ -166,6 +211,11 @@
                     "text": "- `%{MESSAGE}` gönderilen metin",
                     "updated": 1654396277279,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "- %{MESSAGE}` der gesendete Text",
+                    "updated": 1705872026688
                 }
             ]
         },
@@ -183,6 +233,11 @@
                     "text": "Örnek bir format şöyledir:",
                     "updated": 1654396283484,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Beispielformat ist:",
+                    "updated": 1705872037057
                 }
             ]
         },
@@ -204,6 +259,11 @@
                     "text": "Bu da Slack'te aşağıdaki gibi görünen bir son mesajla sonuçlanır:",
                     "updated": 1654396289124,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Ergebnis ist eine endgültige Nachricht in Slack, die wie folgt aussieht:",
+                    "updated": 1705872047857
                 }
             ]
         },

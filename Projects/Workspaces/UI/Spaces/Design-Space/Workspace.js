@@ -170,14 +170,12 @@ function newWorkspace() {
                     UI.projects.foundations.utilities.statusBar.changeStatus("Displaying the UI...")
 
                     buildSystemMenu()
-
                     resolve()
                 }
             } catch (err) {
                 if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
             }
         })
-
         return promise
     }
 
@@ -230,7 +228,7 @@ function newWorkspace() {
         setWorkspaceTitle()
 
         async function createProjectMenuListItem(project) {
-            let html = '<li><a>' + project.name + '</a><ul>'
+            let html = '<li><a ' + addDataAttribute(project.translationKey) + '>' + project.name + '</a><ul>'
             /* call addMenuItem on the highest system menu hierarchy */
             await addMenuItem(project.systemMenu)
             return html + '</ul></li>'
@@ -276,18 +274,18 @@ function newWorkspace() {
                         } else {
                             action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\', params:['  + item.action.params + ']})'
                         }
-                        html = html + '<li><a onclick="' + action + '">' + item.label + '</a></li>'
+                        html = html + '<li><a onclick="' + action + '" ' + addDataAttribute(item.translationKey) + '>' + item.label + '</a></li>'
                     /* for a menu item that has an explicit submenu instead of an action */
                     } else if (item.subMenu !== undefined ) {
                         let label = item.label + ' →'
-                        html = html + '<li><a>' + label + '</a><ul>'
+                        html = html + '<li><a ' + addDataAttribute(item.translationKey) + '>' + label + '</a><ul>'
                         /* recurse into the submenu */
                         addMenuItem(item.subMenu)
                         html = html + '</ul></li>'
                     /* for a menu item that has a submenu constructor function instead of an action or an explicit submenu */
                     } else if (item.submenuConstructorFunction !== undefined) {
                         let label = item.label + ' →'
-                        html = html + '<li><a>' + label + '</a><ul>'
+                        html = html + '<li><a ' + addDataAttribute(item.translationKey) + '>' + label + '</a><ul>'
                         let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
                         addMenuItem(subMenu)
                         html = html + '</ul></li>'
@@ -296,7 +294,7 @@ function newWorkspace() {
                         item.label !== undefined &&
                         item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
                         ) {
-                        html = html + '<li class="label">' + item.label + '</li>'
+                        html = html + '<li class="label" ' + addDataAttribute(item.translationKey) + '>' + item.label + '</li>'
                     }
                 }
             }
@@ -904,5 +902,10 @@ function newWorkspace() {
     function setWorkspaceTitle() {
         let workspaceTitle = document.getElementById('workspace-title')
         workspaceTitle.innerHTML = currentWorkspaceTitle
+
+        translate();
+        console.log('setting workspace title')
     }
 }
+
+exports.newWorkspace = newWorkspace

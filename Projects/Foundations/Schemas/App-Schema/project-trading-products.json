@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Exchange Trading Products",
+            "translationKey": "add.exchange.tradingProducts",
             "relatedUiObject": "Exchange Trading Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,9 +13,12 @@
         {
             "action": "Add Missing Exchange Trading Products",
             "label": "Add Missing Exchanges",
+            "translationKey": "add.missing.exchanges",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Exchange Trading Products",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -24,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

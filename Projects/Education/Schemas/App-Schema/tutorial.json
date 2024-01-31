@@ -5,6 +5,7 @@
             "action": "Play Tutorial",
             "actionProject": "Education",
             "label": "Play",
+            "translationKey": "general.play",
             "iconPathOn": "play",
             "iconPathOff": "play",
             "actionFunction": "payload.executeAction"
@@ -13,6 +14,7 @@
             "action": "Resume Tutorial",
             "actionProject": "Education",
             "label": "Resume",
+            "translationKey": "general.resume",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
             "actionFunction": "payload.executeAction"
@@ -21,6 +23,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -28,6 +31,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Tutorial Step",
+            "translationKey": "tutorial.step.add",
             "relatedUiObject": "Tutorial Step",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Education"
@@ -36,6 +40,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Tutorial Topic",
+            "translationKey": "tutorial.topic.add",
             "relatedUiObject": "Tutorial Topic",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Education"
@@ -45,7 +50,9 @@
             "actionProject": "Education",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Reset",
+            "confirmationLabelTranslationKey": "tutorial.confirmation.reset",
             "label": "Reset Tutorial Progress",
+            "translationKey": "tutorial.reset",
             "iconPathOn": "reset",
             "iconPathOff": "reset",
             "actionFunction": "payload.executeAction"
@@ -55,7 +62,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

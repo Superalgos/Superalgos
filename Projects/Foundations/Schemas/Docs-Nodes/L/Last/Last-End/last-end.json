@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                 "updated": 1645167058923
+            },
+            {
+                "language": "TR",
+                "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin.",
+                "updated": 1701084291559
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
                     "updated": 1645167067863
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin.",
+                    "updated": 1701084295571
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Last End",
                     "updated": 1645167085104
+                },
+                {
+                    "language": "TR",
+                    "text": "Son Uç Yapılandırması ( Last End Configuration )",
+                    "updated": 1701084305116
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1645167092130
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler ( Properties )",
+                    "updated": 1701084316019
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1645167103129
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1701084319741
                 }
             ]
         }

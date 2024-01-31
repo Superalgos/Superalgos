@@ -8,6 +8,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionProject": "Foundations"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "announcementFormula",
             "label": "Add Announcement Formula",
+            "translationKey": "add.announcementFormula",
             "relatedUiObject": "Announcement Formula",
             "relatedUiObjectProject": "Social-Bots",
             "actionFunction": "payload.executeAction",
@@ -27,6 +29,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "announcementCondition",
             "label": "Add Announcement Condition",
+            "translationKey": "add.announcementCondition",
             "relatedUiObject": "Announcement Condition",
             "relatedUiObjectProject": "Social-Bots",
             "actionFunction": "payload.executeAction",
@@ -37,7 +40,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

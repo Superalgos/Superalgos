@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Mein erster Eindruck von Superalgos: Mir gefällt die Tatsache, dass Superalgos in meinen Räumlichkeiten läuft und alle Aktionen in meinem Superalgos-Ordner stattfinden. Ich fand es einfach zu installieren und einzurichten, indem ich den Anweisungen folgte. Ich habe auch einen Blick auf den Code geworfen und er scheint gut strukturiert und leicht zu verstehen zu sein. Ich bin mir nicht sicher, ob mir die visuelle Skripting-Umgebung gefällt. Bisher habe ich viel Zeit damit verbracht, die grafische Benutzeroberfläche zu erlernen, ohne viel von dem zu verstehen, was im Hintergrund passiert. Ich finde die visuelle Darstellung der Knoten zu detailliert. Die Knoten sind manchmal sehr weit voneinander entfernt und die Beziehung zwischen den Knoten ist mir nicht immer klar. Die Hierarchien scheinen auch zu tief zu sein, ich habe das Gefühl, dass die Dinge flacher organisiert werden könnten. Ich hatte Schwierigkeiten, über die grafische Benutzeroberfläche Verweise zu erstellen. Die Schaltfläche \"Weiter\" am Ende von Tutorials bewirkt nichts (ich verwende Chrome Version 102.0.5005.61, Windows 10 Pro 19044.1706).",
                 "updated": 1687641760339
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos hakkındaki ilk izlenimim: Superalgos'un benim tesislerimde çalışması ve tüm işlemlerin Superalgos klasörümde gerçekleşmesi hoşuma gitti. Talimatları izleyerek kurulumu ve ayarlamayı kolay buldum. Ayrıca koda da bir göz attım ve iyi yapılandırılmış ve anlaşılması kolay görünüyor.\n \nGörsel komut dosyası ortamını sevdiğimden emin değilim. Şimdiye kadar arka planda neler olduğunu pek anlamadan sadece GUI'yi öğrenmek için çok zaman harcadım. Düğümlerin görsel temsilini çok ayrıntılı buluyorum. Düğümler bazen çok uzak ve düğümler arasındaki ilişki benim için her zaman net değil. Hiyerarşiler de çok derin görünüyor, işlerin daha düz bir şekilde organize edilebileceğini hissediyorum. GUI aracılığıyla referans oluştururken sorun yaşıyordum.\n\nEğitimlerin sonundaki İleri düğmesi hiçbir şey yapmıyor (Chrome Sürüm 102.0.5005.61, Windows 10 Pro 19044.1706 kullanıyorum).",
+                "updated": 1696017547729
             }
         ]
     },

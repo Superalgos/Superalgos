@@ -4,9 +4,12 @@
         {
             "action": "Add Missing Plugin Trading Systems",
             "label": "Add Missing Trading Systems",
+            "translationKey": "add.missing.tradingSystems",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "iconPathOn": "trading-system",
             "iconPathOff": "trading-system",
             "iconProject": "Algorithmic-Trading",
@@ -18,7 +21,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

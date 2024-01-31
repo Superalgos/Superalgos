@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sosyal Ticaret Botları (Social Trading Bots), Ticaret Sinyalleri (Trading Signals) sürecinde kullanılan yeni bir bot türüdür. Bir Sosyal Ticaret Botu, bir sinyal sağlayıcı ve alıcı arasındaki ana arayüzdür.",
                 "updated": 1666700995751
+            },
+            {
+                "language": "DE",
+                "text": "Social Trading Bots sind eine neue Art von Bot, die im Rahmen des Handelssignalprozesses (Trading Signals process) eingesetzt werden. Ein Social Trading Bot ist die Hauptschnittstelle zwischen einem Signalanbieter und dem Empfänger.",
+                "updated": 1705958390329
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bir Sosyal Ticaret Botu hakkında düşünmenin temel yolu, bir sinyaller koleksiyonunun yanı sıra bir alıcının abone olması ve bu sinyalleri almak için ihtiyaç duyacağı tüm bilgileri barındırır.",
                     "updated": 1666701057189
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundsätzlich kann man sich einen Social Trading Bot als eine Sammlung von Signalen vorstellen, sowie als alle Informationen, die ein Empfänger benötigt, um diese Signale zu abonnieren und zu empfangen.",
+                    "updated": 1705958434138
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Her Sosyal Ticaret Botu aşağıdaki bilgileri tanımlar:",
                     "updated": 1666701080677
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Social Trading Bot definiert die folgenden Informationen:",
+                    "updated": 1705958442754
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Botun İmzalama Hesabı (Signing Account).",
                     "updated": 1666701101440
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Signing Account des Bots.",
+                    "updated": 1705958457378
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Bu bot tarafından sağlanan Mevcut Sinyaller (Available Signals).",
                     "updated": 1666701128086
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfügbare Signale (Available Signals), die von diesem Bot bereitgestellt werden.",
+                    "updated": 1705958477099
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "Sinyal içeriğinin kaydedildiği açık depolama konumu.",
                     "updated": 1666701151899
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ort des offenen Speichers, an dem der Signalinhalt gespeichert wird.",
+                    "updated": 1705958487570
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Takip edilen diğer Sosyal Ticaret Botları (Social Trading Bots)",
                     "updated": 1666701173746
+                },
+                {
+                    "language": "DE",
+                    "text": "Andere Social Trading Bots folgten.",
+                    "updated": 1705958523610
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "TR",
                     "text": "Bu Sosyal Ticaret Botları (Social Trading Bots), göndericinin Kullanıcı Profili (User Profile) altında tanımlanır. Göndericinin profilinde yaşadıkları ve alıcılar tarafından referans alınabildikleri için Sosyal Ticaret Botu, gönderici ve alıcı arasındaki tek arayüzdür. Bu, yalnızca sinyal verilerinin paylaşıldığı, başka hiçbir hassas verinin veya yapılandırma ayrıntılarının ağda savunmasız olmadığı veya herkese açık olarak kaydedilmediği anlamına gelir.",
                     "updated": 1666701239551
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Social Trading Bots werden unter dem Benutzerprofil (User Profile) des Anbieters definiert. Da sie im Profil des Anbieters leben und von den Empfängern referenziert werden können, ist der Social Trading Bot die einzige Schnittstelle zwischen dem Anbieter und dem Empfänger. Das bedeutet, dass nur Signaldaten ausgetauscht werden, keine anderen sensiblen Daten oder Konfigurationsdetails sind im Netzwerk angreifbar oder öffentlich gespeichert.",
+                    "updated": 1705958548386
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "TR",
                     "text": "Sosyal Ticaret Botu Yapılandırması",
                     "updated": 1666701273878
+                },
+                {
+                    "language": "DE",
+                    "text": "Social Trading Bot Konfiguration",
+                    "updated": 1705958560607
                 }
             ]
         },
@@ -169,6 +214,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1666701299916
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1705958569399
                 }
             ]
         },
@@ -185,6 +235,11 @@
                     "language": "TR",
                     "text": "codeName Bu bot, kullanıcının Superalgos Platformu arayüzünde dahili olarak kullanacağı addır.",
                     "updated": 1666701319387
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName Dies ist der Name, den der Bot intern in der Instanz der Superalgos-Plattform des Benutzers verwenden wird.",
+                    "updated": 1705958583375
                 }
             ]
         },
@@ -202,6 +257,11 @@
                     "language": "TR",
                     "text": "handle Bu, botun Superalgos eşler arası ağda kullanacağı adıdır.",
                     "updated": 1666701674356
+                },
+                {
+                    "language": "DE",
+                    "text": "handle Dies ist der Name, den der Bot im Superalgos Peer-to-Peer-Netzwerk verwenden wird.",
+                    "updated": 1705958592503
                 }
             ]
         }

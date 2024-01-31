@@ -1,37 +1,40 @@
 {
-  "type": "API Authorization Key",
-  "menuItems": [
-    {
-      "action": "Configure",
-      "label": "Configure",
-      "iconPathOn": "configuration",
-      "iconPathOff": "configuration",
-      "dontShowAtFullscreen": true,
-      "actionFunction": "uiObject.configEditor.activate"
+    "type": "API Authorization Key",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
     },
-    {
-      "action": "Delete UI Object",
-      "actionProject": "Visual-Scripting",
-      "askConfirmation": true,
-      "confirmationLabel": "Confirm to Delete",
-      "label": "Delete",
-      "iconPathOn": "delete-entity",
-      "iconPathOff": "delete-entity",
-      "actionFunction": "payload.executeAction"
-    }
-  ],
-  "editors": {
-    "config": true
-  },
-  "initialValues": {
-    "config": "{ \n    \"api_key\": \"\",\n    \"api_key_secret\": \"\",\n    \"bearer_token\": \"\"\n}"
-  },
-  "addLeftIcons": true,
-  "level": 1,
-  "attachingRules": {
-    "compatibleTypes": "->APIs->"
-  },
-  "propertyNameAtParent": "apiAuthorizationKey",
-  "isPersonalData": true,
-  "icon": "exchange-account-key"
+    "initialValues": {
+        "config": "{ \n    \"api_key\": \"\",\n    \"api_key_secret\": \"\",\n    \"bearer_token\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->APIs->"
+    },
+    "propertyNameAtParent": "apiAuthorizationKey",
+    "isPersonalData": true,
+    "icon": "exchange-account-key"
 }

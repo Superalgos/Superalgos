@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Her mesajlaşma uygulaması için botları tanımlamak üzere bir Sosyal Botlar düğümü kullanılır. Bu mesajlaşma botları, Superalgos ile etkileşim kurmak için kullanılan duyuruları göndermek ve komutları almak için kullanılır.",
                 "updated": 1654396388417
+            },
+            {
+                "language": "DE",
+                "text": "Ein Social Bots-Knoten wird verwendet, um die Bots für jede Messaging-Anwendung zu definieren. Diese Messaging-Bots werden verwendet, um Ankündigungen zu senden und Befehle zu empfangen, die zur Interaktion mit Superalgos verwendet werden.",
+                "updated": 1705873179043
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Sosyal Botlar düğümü, her bir mesajlaşma botu için alt düğümler içerir. Bu mesajlaşma botları, duyuru göndermek ve gelen komutları almak için kullanılan üçüncü taraf uygulamalarını yapılandırmak için kullanılır.",
                     "updated": 1654396394146,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten Soziale Bots enthält untergeordnete Knoten für jeden Messaging-Bot. Diese Messaging-Bots werden verwendet, um die Anwendungen von Drittanbietern zu konfigurieren, die zum Senden von Ankündigungen und Empfangen eingehender Befehle verwendet werden.",
+                    "updated": 1705873192841
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "text": "Superalgos şu anda yalnızca Telegram, Discord ve Slack mesajlaşma uygulamalarını desteklemektedir.",
                     "updated": 1654396400192,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zurzeit unterstützt Superalgos nur die Messaging-Anwendungen Telegram, Discord und Slack.",
+                    "updated": 1705873200643
                 }
             ]
         }

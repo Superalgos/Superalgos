@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "The indicator uses a non-linear regression analysis to predict the average of the price based on previous data samples. It then applies a GK-YZ historial volatility filter to help reduce noise in the price action."
+            "text": "The indicator uses a non-linear regression analysis to predict the average of the price based on previous data samples. It then applies a GK-YZ historical volatility filter to help reduce noise in the price action.",
+            "updated": 1693780118090
         },
         {
             "style": "Png",
@@ -32,9 +33,10 @@
         },
         {
             "style": "Text",
-            "text": "The `signal` value indicates a potential \"go long\" or \"go short\" entry."
+            "text": "The \"signal\" value indicates a potential \"go long\" or \"go short\" entry.",
+            "updated": 1693780127042
         },
-		{
+        {
             "style": "Text",
             "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"GK YZ Channels\" Procedure Loop."
         },

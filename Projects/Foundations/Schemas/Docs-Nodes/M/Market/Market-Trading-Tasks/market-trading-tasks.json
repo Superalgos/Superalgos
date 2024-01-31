@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Market Trading Tasks группирует торговые задачи, работающие на определенном рынке.",
                 "updated": 1638375441341
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa alım satım görevleri düğümü, belirli bir piyasada faaliyet gösteren alım satım görevlerini gruplar.",
+                "updated": 1701087845458
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Узел Market Trading Tasks должен ссылаться на рынок, определенный в иерархии Crypto Ecosystem.",
                     "updated": 1638375522710
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa alım satım görevleri düğümü, Kripto Ekosistemi ( Crypto Ecosystem ) hiyerarşisinde tanımlanmış bir piyasaya referans vermelidir.",
+                    "updated": 1701087865787
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Этот узел может порождать отдельные информационные продукты или может массово развертывать информационные продукты, организованные добычей данных и ботами. См. Подробности в узле продуктов данных Data Product.",
                     "updated": 1638375752498
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm tek tek veri ürünleri oluşturabilir veya veri madeni ve botlar tarafından düzenlenen veri ürünlerini toplu olarak dağıtabilir. Ayrıntılar için veri ürünleri düğümüne bakın.",
+                    "updated": 1701087869963
                 }
             ]
         },

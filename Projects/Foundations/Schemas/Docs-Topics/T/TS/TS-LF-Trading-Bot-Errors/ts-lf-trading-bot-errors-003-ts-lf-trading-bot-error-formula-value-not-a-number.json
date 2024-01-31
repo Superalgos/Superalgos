@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Formüller her zaman bir sayı olarak değerlendirilmelidir. Yapmadıklarında, bu hata olur.",
                 "updated": 1647971212383
+            },
+            {
+                "language": "DE",
+                "text": "Formeln müssen immer zu einer Zahl ausgewertet werden. Wenn sie das nicht tun, tritt dieser Fehler auf.",
+                "updated": 1699995314375
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "TS'de çalışırken, LF Ticaret Botu ( LF Trading Bot )  tanımlanan formüllerden birini değerlendirmeye çalışırken bir hatayla karşılaştı. Formüllerin sayısal bir değer döndürmesi beklenir.",
                     "updated": 1647971376291
+                },
+                {
+                    "language": "DE",
+                    "text": "Während der Ausführung im TS ist der LF Trading Bot beim Versuch, eine der im Handelssystem (Trading System) definierten Formeln auszuwerten, auf einen Fehler gestoßen. Von Formeln wird erwartet, dass sie einen numerischen Wert zurückgeben.",
+                    "updated": 1699995362984
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1647971484921
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1699995374240
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1647971504897
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1699995538599
                 }
             ]
         },
@@ -69,6 +89,11 @@
                     "language": "TR",
                     "text": "Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1647971525901
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1699995551919
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "TR",
                     "text": "Düğüm Adı",
                     "updated": 1647971542134
+                },
+                {
+                    "language": "DE",
+                    "text": "Name des Knotens",
+                    "updated": 1699995585685
                 }
             ]
         },
@@ -93,6 +123,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1648041719161
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Name des Knotens (Node), der am meisten mit diesem Fehler zu tun hat:",
+                    "updated": 1699995590141
                 }
             ]
         },
@@ -108,6 +143,11 @@
                     "language": "TR",
                     "text": "Düğüm Kodu",
                     "updated": 1647971576068
+                },
+                {
+                    "language": "DE",
+                    "text": "Code des Knotens",
+                    "updated": 1699995609671
                 }
             ]
         },
@@ -120,6 +160,11 @@
                     "language": "TR",
                     "text": "LF Ticaret Bot'ta (LF Trading Bot ) hatayı üreten düğümde depolanan kod aşağıdadır:",
                     "updated": 1647971711533
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Code aufgeführt, der an dem Knoten gespeichert ist, der den Fehler beim LF Trading Bot verursacht hat:",
+                    "updated": 1699995627904
                 }
             ]
         },
@@ -137,6 +182,11 @@
                     "language": "TR",
                     "text": "Düğüm Değeri",
                     "updated": 1647971738712
+                },
+                {
+                    "language": "DE",
+                    "text": "Knoten-Wert",
+                    "updated": 1699995662944
                 }
             ]
         },
@@ -149,6 +199,11 @@
                     "language": "TR",
                     "text": "LF Ticaret Botun'da (LF Trading Bot )  bu hatanın meydana geldiği andaki düğümün değeri aşağıdadır:",
                     "updated": 1647971875037
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Wert des Knotens zu dem Zeitpunkt, an dem der Fehler im LF Trading Bot auftrat:",
+                    "updated": 1699995672393
                 }
             ]
         },

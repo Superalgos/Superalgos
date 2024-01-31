@@ -159,3 +159,5 @@ function newGovernanceFunctionLibraryWeights() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryWeights = newGovernanceFunctionLibraryWeights

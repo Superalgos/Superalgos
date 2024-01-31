@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
                 "updated": 1687641917984
+            },
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1696017710437
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Los geht's mit der SuperAlgos Review!",
                     "updated": 1687641926115
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte SuperAlgos İncelemesine başlıyoruz!",
+                    "updated": 1696017717377
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "DE",
                     "text": "Nach einer Neuinstallation funktioniert alles!",
                     "updated": 1687641934699
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir kurulumdan sonra her şey çalışıyor!",
+                    "updated": 1696017723238
                 }
             ]
         },

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düğümü ve tüm yavru düğümlerini siler. Ek bir tıklama şeklinde onay gereklidir.",
                 "updated": 1671218554714
+            },
+            {
+                "language": "DE",
+                "text": "Löscht den Knoten und alle seine Nachkommen. Eine Bestätigung in Form eines zusätzlichen Klicks ist erforderlich.",
+                "updated": 1696955464138
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "Bu işlem geri alınamaz.",
                     "updated": 1654390977256,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Vorgang kann nicht rückgängig gemacht werden.",
+                    "updated": 1696955464280,
                     "style": "Warning"
                 }
             ]

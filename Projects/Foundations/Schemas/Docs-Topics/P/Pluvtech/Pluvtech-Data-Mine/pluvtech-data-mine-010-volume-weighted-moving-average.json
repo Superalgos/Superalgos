@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der volumengewichtete gleitende Durchschnitt (VWMA) hebt das Volumen hervor, indem er die Preise auf der Grundlage der Handelsaktivität in einem bestimmten Zeitraum gewichtet. In Zeiten geringen Marktvolumens liegen der SMA und der VWMA im Wert nahe beieinander. Der Indikator kann verwendet werden, um Trends zu erkennen und zu handeln.",
                 "updated": 1647934752292
+            },
+            {
+                "language": "TR",
+                "text": "Hacim Ağırlıklı Hareketli Ortalama (VWMA), belirli bir zaman dilimindeki alım satım faaliyeti miktarına göre fiyatları tartarak hacmi vurgular. Piyasa hacminin düşük olduğu dönemlerde, SMA ve VWMA birbirine yakın değerdedir. Gösterge, trendleri belirlemek ve ticaret yapmak için kullanılabilir.",
+                "updated": 1697835253995
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des Volume Weighted Moving Average Indikators kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter  ’VWMA’ Product Definition suchen und öffnen.",
                     "updated": 1647934853144
+                },
+                {
+                    "language": "TR",
+                    "text": "Hacim Ağırlıklı Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'VWMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835284806
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647934888477
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835293378
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647934897259
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835296311
                 }
             ]
         },
@@ -115,6 +135,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647934962038
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835301022
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "language": "DE",
                     "text": "Der VWMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des VWMA schließt:",
                     "updated": 1647934981008
+                },
+                {
+                    "language": "TR",
+                    "text": "VWMA göstergesi, bir mum VWMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697835304618
                 }
             ]
         },

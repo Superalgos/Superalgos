@@ -5,6 +5,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add P2P Network",
+            "translationKey": "add.p2pNetwork",
             "relatedUiObject": "P2P Network",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Network"
@@ -14,8 +15,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

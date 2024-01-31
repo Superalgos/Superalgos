@@ -4,8 +4,10 @@
         {
             "action": "Run Super Action",
             "label": "Run",
+            "translationKey": "general.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Super Action Executed",
             "iconPathOn": "run",
             "iconPathOff": "run",
@@ -16,7 +18,9 @@
 "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

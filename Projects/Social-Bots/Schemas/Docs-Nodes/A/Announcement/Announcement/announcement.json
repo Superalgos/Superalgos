@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir Duyuru düğümü, Sosyal Botlar tarafından gönderilen mesajların içeriğini ve koşullarını tanımlamak için kullanılır.",
                 "updated": 1654396100274
+            },
+            {
+                "language": "DE",
+                "text": "Ein Ankündigungsknoten wird verwendet, um den Inhalt und die Bedingungen zu definieren, mit denen Nachrichten von Social Bots gesendet werden.",
+                "updated": 1706370107733
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Duyuru düğümü, İşlem Oturumu altında yapılandırılan tüm Sosyal Botlar tarafından gönderilecek olan mesajın varsayılan metin içeriğini yapılandırmak için kullanılır.",
                     "updated": 1654396106703,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ankündigungsknoten wird verwendet, um den Standardtextinhalt der Nachricht zu konfigurieren, die von allen Social Bots gesendet wird, die unter der Handelssitzung (Trading Session) konfiguriert sind.",
+                    "updated": 1706370146853
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "text": "Duyuru düğümü isteğe bağlı olarak daha spesifik duyuru formülü (içeriği) ve duyuru koşulları tanımlamak için alt düğümler de içerebilir.",
                     "updated": 1654396113763,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ankündigungsknoten kann auch optionale Unterknoten enthalten, um spezifischere Ankündigungsformeln (Inhalt) und Ankündigungsbedingungen zu definieren.",
+                    "updated": 1706370160316
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "text": "Duyuru Formülü alt düğümü, gönderilecek mesajın içeriğini tanımlayan Javascript metin dizesi formülünü içerir.",
                     "updated": 1654396120241,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein untergeordneter Knoten Ankündigungsformel (Announcement Formula) enthält die Javascript-Textformel, die den Inhalt der zu versendenden Nachricht definiert.",
+                    "updated": 1706370170172
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "text": "Bir Duyuru Koşulu alt düğümü, mesajın gönderileceği koşulu tanımlar.",
                     "updated": 1654396125950,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein untergeordneter Knoten Ankündigungsbedingung (Announcement Condition) definiert die Bedingung, unter der die Nachricht gesendet wird.",
+                    "updated": 1706370179329
                 }
             ]
         },
@@ -104,32 +129,72 @@
                     "text": "Duyuru formülü alt düğümü <u>yapılandırılmamışsa</u> veya; duyuru formülü veya duyuru koşulunun değerlendirilmesinde bir <u>hata</u> varsa, bunun yerine üst duyuru düğümünün varsayılan metin yapılandırması gönderilir.",
                     "updated": 1654396132056,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der untergeordnete Knoten für die Bekanntmachungsformel nicht konfiguriert ist oder wenn ein Fehler bei der Auswertung der Bekanntmachungsformel oder der Bekanntmachungsbedingung auftritt, wird stattdessen die Standardtextkonfiguration des übergeordneten Bekanntmachungsknotens selbst gesendet.",
+                    "updated": 1706370206036
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1706370226877
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<code class=\"docs-code\">text</code> content of message to be sent when there is no formula.",
-            "updated": 1665712360976
+            "updated": 1665712360976,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "\"text content\" Textinhalt der Nachricht, die gesendet werden soll, wenn es keine Formel gibt.",
+                    "updated": 1706370375856
+                }
+            ]
         },
         {
             "style": "List",
             "text": "onEnter define if message will be sent on node enter.",
-            "updated": 1665712405525
+            "updated": 1665712405525,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "onEnter legt fest, ob beim Betreten des Knotens eine Nachricht gesendet werden soll.",
+                    "updated": 1706370278414
+                }
+            ]
         },
         {
             "style": "List",
             "text": "onExit define if message will be sent on node exit.",
-            "updated": 1665712422683
+            "updated": 1665712422683,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "onExit definiert, ob beim Verlassen des Knotens eine Nachricht gesendet wird.",
+                    "updated": 1706370393368
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<code class=\"docs-code\">delay</code> define the amount of delay before sending an announcement in milliseconds.",
-            "updated": 1667316202210
+            "updated": 1667316202210,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "\"delay\" die Verzögerungszeit vor dem Senden einer Ankündigung in Millisekunden.",
+                    "updated": 1706370417672
+                }
+            ]
         },
         {
             "style": "Subtitle",

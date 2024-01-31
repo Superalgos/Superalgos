@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Tanımlanmışsa, bu katmandan önce eklenecek bir girdi katmanı oluşturmak için kullanılır. Hem Girdi Şekli hem de batchInputShape tanımlanmışsa, Toplu Girdi Şekli kullanılır. Bu bağımsız değişken yalnızca girdi katmanları (bir modelin ilk katmanı) için geçerlidir.",
                 "updated": 1654396666556
+            },
+            {
+                "language": "DE",
+                "text": "Falls definiert, wird damit eine Eingabeschicht erstellt, die vor dieser Schicht eingefügt wird. Wenn sowohl Input Shape als auch batchInputShape definiert sind, wird Batch Input Shape verwendet. Dieses Argument gilt nur für Eingabeschichten (die erste Schicht eines Modells).",
+                "updated": 1706371461226
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396673298,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1706371470017
                 }
             ]
         },

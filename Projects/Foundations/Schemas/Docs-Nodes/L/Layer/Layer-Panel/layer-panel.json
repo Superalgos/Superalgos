@@ -9,6 +9,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1645167212506
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contrib kullanabilirsiniz.",
+                    "updated": 1701084605446
                 }
             ]
         }
@@ -20,6 +25,11 @@
                 "language": "RU",
                 "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы отредактировать этот текст. Замените его на определение / резюме. Нажмите ESC, чтобы выйти из режима редактирования.",
                 "updated": 1645167206161
+            },
+            {
+                "language": "TR",
+                "text": "Bu metni düzenlemek için sağ tıklayın ve kalem düğmesini seçin. Bunu bir tanım / özet ile değiştirin. Düzenleme modundan çıkmak için ESC tuşuna basın.",
+                "updated": 1701084599293
             }
         ]
     }

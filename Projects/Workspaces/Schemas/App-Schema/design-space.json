@@ -6,6 +6,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "spaceStyle",
             "label": "Add Space Style",
+            "translationKey": "add.spaceStyle",
             "relatedUiObject": "Space Style",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -16,6 +17,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "spaceSettings",
             "label": "Add Space Settings",
+            "translationKey": "add.spaceSettings",
             "relatedUiObject": "Space Settings",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -26,8 +28,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

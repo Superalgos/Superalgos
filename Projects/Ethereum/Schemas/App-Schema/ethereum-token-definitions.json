@@ -5,6 +5,7 @@
             "action": "Add Missing Children",
             "actionProject": "Visual-Scripting",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Ethereum Token Definitions",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -14,7 +15,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

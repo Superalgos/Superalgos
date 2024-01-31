@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Diese Seite ist meine Rezension des Tutorials.",
                 "updated": 1687641664653
+            },
+            {
+                "language": "TR",
+                "text": "Bu sayfa eğitime ilişkin incelememdir.",
+                "updated": 1696017334721
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Das Durcharbeiten dieses Tutorials war eine großartige Einführung in SuperAlgos.",
                     "updated": 1687641672698
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu eğitim boyunca çalışmak SuperAlgos'a harika bir giriş oldu.",
+                    "updated": 1696017452115
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Ich freue mich darauf, es zu vervollständigen und meine erste Strategie zu entwickeln.",
                     "updated": 1687641680175
+                },
+                {
+                    "language": "TR",
+                    "text": "Tamamlamayı ve ilk stratejimi oluşturmayı dört gözle bekliyorum.",
+                    "updated": 1696017464162
                 }
             ]
         },

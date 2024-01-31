@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Sipariş Koteli Varlık ( Order Quoted Asset ) düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1649105001560
+            },
+            {
+                "language": "DE",
+                "text": "An dem Knoten, von dem der Fehler ausging, wurde ein Order Quoted Asset -Knoten erwartet, aber nicht gefunden. ",
+                "updated": 1700512567013
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Sipariş Alıntılanan Varlık Düğümü Eksik. ( Order Quoted Asset Node Missing )",
                     "updated": 1649105070366
+                },
+                {
+                    "language": "DE",
+                    "text": "Order Quoted Asset -Knoten fehlt (Order Quoted Asset Node Missing)",
+                    "updated": 1700294757310
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1649105098760
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700294773271
                 }
             ]
         }

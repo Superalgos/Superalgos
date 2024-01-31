@@ -24,6 +24,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -33,9 +34,12 @@
             "action": "Add Missing Workspace Projects",
             "actionProject": "Workspaces",
             "label": "Add Missing Projects",
+            "translationKey": "add.missing.projects",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -44,6 +48,7 @@
             "action": "Add Specified Project",
             "actionProject": "Workspaces",
             "label": "Add Specified Project",
+            "translationKey": "add.specifiedProject",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -52,6 +57,7 @@
             "action": "Check For Missing References",
             "actionProject": "Workspaces",
             "label": "Check For Missing References",
+            "translationKey": "check.forMissingReferences",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -60,6 +66,7 @@
             "action": "Fix Missing References",
             "actionProject": "Workspaces",
             "label": "Fix Missing References",
+            "translationKey": "fix.missingReferences",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"

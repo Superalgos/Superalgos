@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Layer",
+            "translationKey": "add.layer",
             "relatedUiObject": "Layer",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -20,6 +22,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Bot Layers",
+            "translationKey": "add.layers.bot",
             "relatedUiObject": "Bot Layers",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -28,9 +31,12 @@
         {
             "action": "Add All Mine Layers",
             "label": "Add All Mine Layers",
+            "translationKey": "add.layers.allMine",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Data Mine Products",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -40,7 +46,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

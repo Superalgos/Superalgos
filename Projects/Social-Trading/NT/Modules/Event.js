@@ -184,10 +184,18 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 Remove Social Persona Post
                 */
                 if (
-                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_USER_POST
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_SOCIAL_PERSONA_POST
                 ) {
                     originSocialPersona.removePost(
-                        thisObject.originPostHash
+                        thisObject.originSocialPersonaId,
+                        thisObject.targetSocialPersonaId,
+                        thisObject.originSocialTradingBotId,
+                        thisObject.targetSocialTradingBotId,
+                        thisObject.originPostHash,
+                        thisObject.targetPostHash,
+                        thisObject.eventType - 14,
+                        thisObject.timestamp,
+                        thisObject.fileKeys
                     )
                     return true
                 }

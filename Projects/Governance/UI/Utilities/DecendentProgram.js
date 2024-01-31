@@ -469,3 +469,5 @@ function newGovernanceUtilitiesDecendentProgram() {
         }
     }
 }
+
+exports.newGovernanceUtilitiesDecendentProgram = newGovernanceUtilitiesDecendentProgram

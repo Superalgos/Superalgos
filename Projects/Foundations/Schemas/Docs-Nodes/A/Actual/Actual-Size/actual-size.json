@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Gerçek Boyut, senkronizasyon sırasında değişim tarafından rapor edilen boyut veya simülasyon durumunda, değişim ile senkronizasyonun simülasyonundan kaynaklanan boyuttur.",
                 "updated": 1652017793503
+            },
+            {
+                "language": "DE",
+                "text": "Die tatsächliche Größe ist die von der Börse während der Synchronisierung gemeldete Größe oder die Größe, die sich aus der Simulation der Synchronisierung mit der Börse ergibt, wenn es sich um Simulationen handelt.",
+                "updated": 1701930791493
             }
         ]
     },
@@ -34,6 +39,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
                     "updated": 1652017801876
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern.",
+                    "updated": 1701930791714,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,6 +67,12 @@
                     "language": "TR",
                     "text": "Gerçek Boyut Yapılandırması",
                     "updated": 1652017810250
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration Actual Size",
+                    "updated": 1701930791891,
+                    "style": "Title"
                 }
             ]
         },
@@ -73,6 +90,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652017817805
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930792000,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -90,6 +113,12 @@
                     "language": "TR",
                     "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652017827494
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930792111,
+                    "style": "List"
                 }
             ]
         }

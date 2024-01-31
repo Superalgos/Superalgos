@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Diese Bollinger Bänder sind mit Fibonacci Retracements versehen, die sehr deutlich die Bereiche der Unterstützung und des Widerstands zeigen. Die Basis wird anhand des Volume Weighted Moving Average berechnet. Die Bänder liegen 3 Standardabweichungen vom Mittelwert entfernt. 99,73% der Beobachtungen sollten in diesem Bereich liegen.",
                 "updated": 1647935119135
+            },
+            {
+                "language": "TR",
+                "text": "Bu Bollinger bantları, destek ve direnç alanlarını çok net bir şekilde göstermek için Fibonacci geri çekilmelerine sahiptir. Temel, Hacim Ağırlıklı Hareketli Ortalamadan ( Volume Weighted Moving Average ) hesaplanır. Bantlar ortalamadan 3 standart sapma uzaktadır. Gözlemlerin %99,73'ü bu aralıkta olmalıdır.",
+                "updated": 1697835350090
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610980518
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697835363586
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "DE",
                     "text": "Die folgenden Fibonacci Werte werden zur Berechnung der Widerstands/Rücklauf Niveaus verwendet: 0,236, 0,382, 0,5, 0,618, 0,764, 1,0",
                     "updated": 1647935428290
+                },
+                {
+                    "language": "TR",
+                    "text": "Direnç/düzeltme seviyelerini hesaplamak için aşağıdaki fibonacci değerleri kullanılır: 0,236, 0,382, 0,5, 0,618, 0,764, 1,0",
+                    "updated": 1697835368192
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "DE",
                     "text": "Die Perioden und Multiplikatorvariablen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’Fibonacci-Bollinger’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647935515253
+                },
+                {
+                    "language": "TR",
+                    "text": "Periyotlar ve çarpan değişkenleri, 'Fibonacci-Bollinger' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835404922
                 }
             ]
         },
@@ -94,6 +114,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647935544025
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835411018
                 }
             ]
         },
@@ -110,6 +135,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647935553535
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835415537
                 }
             ]
         },
@@ -139,6 +169,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647935616067
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835420265
                 }
             ]
         },

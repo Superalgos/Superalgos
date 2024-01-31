@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionProject": "Foundations",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "dontShowAtFullscreen": true,
@@ -17,6 +18,7 @@
             "propertyToCheckFor": "socialGraph",
             "actionFunction": "payload.executeAction",
             "label": "Add Social Graph",
+            "translationKey": "add.socialGraph",
             "relatedUiObject": "Social Graph",
             "relatedUiObjectProject": "Network"
         },  
@@ -27,6 +29,7 @@
             "propertyToCheckFor": "machineLearning",
             "actionFunction": "payload.executeAction",
             "label": "Add Machine Learning",
+            "translationKey": "add.machineLearning",
             "relatedUiObject": "Machine Learning",
             "relatedUiObjectProject": "Network"
         },          
@@ -37,6 +40,7 @@
             "propertyToCheckFor": "tradingSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Trading Signals",
+            "translationKey": "add.tradingSignals",
             "relatedUiObject": "Trading Signals",
             "relatedUiObjectProject": "Network"
         },  
@@ -47,6 +51,7 @@
             "propertyToCheckFor": "onlineWorkspaces",
             "actionFunction": "payload.executeAction",
             "label": "Add Online Workspaces",
+            "translationKey": "add.onlineWorkspaces",
             "relatedUiObject": "Online Workspaces",
             "relatedUiObjectProject": "Network"
         },       
@@ -55,7 +60,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

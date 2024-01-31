@@ -4,9 +4,12 @@
         {
             "action": "Run All Learning Mine Tasks",
             "label": "Run All Learning Mine Tasks",
+            "translationKey": "tasks.all.mine.learning.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Run Request Sent",
+            "workDoneLabelTranslationKey": "general.runRequestSent",
             "iconPathOn": "run",
             "iconPathOff": "run",
             "actionFunction": "payload.executeAction"
@@ -14,9 +17,12 @@
         {
             "action": "Stop All Learning Mine Tasks",
             "label": "Stop All Learning Mine Tasks",
+            "translationKey": "tasks.all.mine.learning.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
+            "confirmationLabelTranslationKey": "general.confirm.stop",
             "workDoneLabel": "Stop Request Sent",
+            "workDoneLabelTranslationKey": "general.stopRequestSent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
             "actionFunction": "payload.executeAction"
@@ -24,6 +30,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Learning Mine Tasks",
+            "translationKey": "add.tasks.learningMine",
             "relatedUiObject": "Learning Mine Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -32,9 +39,12 @@
         {
             "action": "Add Missing Learning Mine Tasks",
             "label": "Add Missing Learning Mine Tasks",
+            "translationKey": "add.missing.learningMineTasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Learning Mine Tasks",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -44,7 +54,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Üretim Modu, performans lehine model doğrulama, NaN kontrolleri ve diğer doğruluk kontrollerini kaldıracaktır.",
                 "updated": 1654397455604
+            },
+            {
+                "language": "DE",
+                "text": "Im Produktionsmodus werden Modellvalidierung, NaN-Prüfungen und andere Korrektheitsprüfungen zugunsten der Leistung entfernt.",
+                "updated": 1705266839892
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397461656,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705266849186
                 }
             ]
         }

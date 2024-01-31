@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bu hatanın kaynaklandığı Aşamaya Geçiş Olayı ( Move To Phase Event ) düğümünün bir Aşama ( Phase ) düğümüne referans vermesi beklenir, böylece tüm koşullar karşılandığında LF Ticaret Botu ( LF Trading Bot ) referans verilen Aşamaya ( Phase ) geçebilir.",
                 "updated": 1647976804952
+            },
+            {
+                "language": "DE",
+                "text": "Es wird erwartet, dass der Ereignisknoten \"Move To Phase Event\", bei dem dieser Fehler auftrat, auf einen Phasenknoten (Phase node) verweist, so dass der LF Trading Bot - wenn alle Bedingungen erfüllt sind - in die referenzierte Phase wechseln kann.",
+                "updated": 1699995750286
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bunu düzeltmek için Aşamaya Geçiş Olayı ( Move To Phase Event ) düğümünden bir Aşama ( Phase ) düğümüne bir referans oluşturun.",
                     "updated": 1647973579274
+                },
+                {
+                    "language": "DE",
+                    "text": "Um dieses Problem zu beheben, stellen Sie einen Verweis vom Ereignisknoten In Phase verschieben auf einen Phasenknoten (Phase node) her.",
+                    "updated": 1699995782079
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Daha fazla bilgi edin",
                     "updated": 1647973653980
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1699995789427
                 }
             ]
         },
@@ -58,6 +73,11 @@
                     "language": "TR",
                     "text": "Referansları Oluşturun ve Kaldırın ( Establish and Remove References )",
                     "updated": 1648042001264
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen und Entfernen von Referenzen (Establish and Remove References)",
+                    "updated": 1699995821903
                 }
             ]
         },
@@ -69,6 +89,11 @@
                     "language": "TR",
                     "text": "Aşama Etkinliğine Taşı ( Move To Phase Event )",
                     "updated": 1648042046185
+                },
+                {
+                    "language": "DE",
+                    "text": "Ereignis in Phase verschieben (Move To Phase Event)",
+                    "updated": 1699995830702
                 }
             ]
         }

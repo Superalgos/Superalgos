@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "API çağrıları yanıtlar üretir. Bu düğüm altında, haritanızın API'den gelen farklı yanıtları nasıl yorumlayacağını tanımlayabilirsiniz.",
                 "updated": 1652021955072
+            },
+            {
+                "language": "DE",
+                "text": "API-Aufrufe erzeugen Antworten. Unter diesem Knoten können Sie festlegen, wie Ihre Karte verschiedene Antworten von der API interpretieren soll.",
+                "updated": 1701930782175
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "Tek bir API Uç Noktası ( API Endpoint  ) için bir API Sunucusunun ( API Server ) farklı olası yanıtları olabilir. Her yanıt türü, yanıt kodu/durumu ile birbirinden ayrılır.",
                     "updated": 1652022027347
+                },
+                {
+                    "language": "DE",
+                    "text": "Für einen einzelnen API Endpunkt kann ein API Server verschiedene mögliche Antworten haben. Jeder Antworttyp wird durch den Antwortcode/Status voneinander unterschieden.",
+                    "updated": 1701930782314,
+                    "style": "Text"
                 }
             ]
         },
@@ -48,6 +59,12 @@
                     "language": "TR",
                     "text": "İpucu: Birkaç yaygın örnek: 200 başarılı yanıt anlamına gelir, 404 sayfa bulunamadı anlamına gelir ve 429 api hız sınırı aşıldı anlamına gelir.",
                     "updated": 1652022038349
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein paar gängige Beispiele sind: 200 für eine erfolgreiche Antwort, 404 für eine nicht gefundene Seite und 429 für eine Überschreitung der Api-Limit.",
+                    "updated": 1701930782435,
+                    "style": "Success"
                 }
             ]
         },
@@ -65,6 +82,12 @@
                     "language": "TR",
                     "text": "Bu düğümün her çocuğu, API Sunucusundan ( API Server ) farklı bir yanıt kodunu/durumunu işleyecektir. Bu API Uç Noktasını test etmeye başlamak için kullanıcıların en azından en yaygın yanıt kodunu (200) eklemesi gerekir. Bundan sonra, diğer tüm yanıt kodlarını da eklemeniz önerilir, aksi takdirde, işlenmeyen bir yanıt kodu alındığında API Veri Alıcısı Botu ( API Data Fetcher Bot ) duracaktır.",
                     "updated": 1652022168688
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes Kind dieses Knotens verarbeitet einen anderen Antwortcode/Status vom API Server. Benutzer müssen mindestens den häufigsten Antwortcode (200) hinzufügen, um mit dem Testen dieses API Endpoint (API Endpunktes) zu beginnen. Danach wird empfohlen, auch alle anderen Antwortcodes hinzuzufügen, da der API Data Fetcher Bot andernfalls anhält, wenn ein unbehandelter Antwortcode empfangen wird.",
+                    "updated": 1701930782604,
+                    "style": "Text"
                 }
             ]
         }

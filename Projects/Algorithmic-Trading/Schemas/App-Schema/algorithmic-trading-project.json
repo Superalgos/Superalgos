@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missingChildren",
             "iconPathOn": "algorithmic-trading-project",
             "iconPathOff": "algorithmic-trading-project",
             "iconProject": "Algorithmic-Trading",
@@ -13,6 +14,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Trading Mine",
+            "translationKey": "add.trading.mine",
             "relatedUiObject": "Trading Mine",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
@@ -21,6 +23,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Trading Engine",
+            "translationKey": "add.trading.engine",
             "relatedUiObject": "Trading Engine",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
@@ -29,6 +32,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Trading System",
+            "translationKey": "add.trading.system",
             "relatedUiObject": "Trading System",
             "relatedUiObjectProject": "Algorithmic-Trading",
             "actionFunction": "payload.executeAction",
@@ -39,8 +43,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

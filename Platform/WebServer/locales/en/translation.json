@@ -1,0 +1,885 @@
+{
+    "nav": {
+        "workspaces": {
+            "title": "Workspaces",
+            "user": "User Workspaces",
+            "native": "Native Workspaces",
+            "collapseNodes": "Collapse All Root Nodes",
+            "undoRedo": "Undo/Redo",
+            "save": "Save Workspace"
+        },
+        "contributions": {
+            "title": "Contributions",
+            "contribute": "Contribute all changes",
+            "update": "Update App",
+            "reset": "Reset Local Repository"
+        }
+    },
+    "general": {
+        "done": "Done",
+        "enabled": "Enabled",
+        "requestSent": "Request Sent",
+        "sessionRunning": "Session Running",
+        "runRequestSent": "Run Request Sent",
+        "stopRequestSent": "Stop Request Sent",
+        "resumeRequestSent": "Resume Request Sent",
+        "sessionCannotBeRun": "Session Cannot be Run",
+        "sessionStopped": "Session Stopped",
+        "sessionCannotBeStopped": "Session Cannot be Stopped",
+        "sessionCannotBeResumed": "Session Cannot be Resumed",
+        "disableSavingWithWorkspace": "Disable Saving With Workspace",
+        "sendingMessage": "Sending Message",
+        "messageSent": "Message Sent",
+        "messageNotDelivered": "Message not Delivered",
+        "disabled": "Disabled",
+        "previous": "Previous",
+        "next": "Next",
+        "stop": "Stop",
+        "stopping": "Stopping...",
+        "skip": "Skip",
+        "play": "Play",
+        "resume": "Resume",
+        "run": "Run",
+        "configure": "Configure",
+        "delete": "Delete",
+        "edit": "Edit",
+        "debug": "Debug",
+        "debugging": "Debugging",
+        "debugRequestSent": "Debug Request Sent",
+        "confirm": {
+            "delete": "Confirm to Delete",
+            "proceed": "Confirm to Proceed",
+            "run": "Confirm to Run",
+            "stop": "Confirm to Stop",
+            "install": "Confirm to Install",
+            "save": "Confirm to Save"
+        },
+        "updateCheck": "Check for Updates"
+    },
+    "docs": {
+        "space": {
+            "style": "Add Docs Space Style",
+            "settings": "Add Docs Space Settings",
+            "add": "Add Docs Space"
+        }
+    },
+    "install": {
+        "signingAccounts": "Install Signing Account",
+        "missingVotes": "Install Missing Votes",
+        "asPlugin": "Install as Plugin",
+        "missingAssets": "Install Missing Assets",
+        "missingClaims": "Install Missing Claims",
+        "apiResponseFieldRefs": "Install API Response Field Refs",
+        "marketPair": "Install Pair (Market)",
+        "market": "Install Market",
+        "product": "Install Product"
+    },
+    "uninstall": {
+        "marketPair": "Uninstall Pair (Market)",
+        "market": "Uninstall Market"
+    },
+    "sessions": {
+        "managed": {
+            "stop": "Stop Managed Sessions",
+            "run": "Run Managed Sessions",
+            "reference": "Managed Session Reference"
+        }
+    },
+    "check": {
+        "forMissingReferences": "Check For Missing References"
+    },
+    "fix": {
+        "missingReferences": "Fix Missing References"
+    },
+    "add": {
+        "takePositionSignal": "Add Take Position Signal",
+        "triggerOffSignal": "Add Trigger Off Signal",
+        "triggerOnSignal": "Add Trigger On Signal",
+        "moveToPhaseSignal": "Add Move To Phase Signal",
+        "nextPhaseSignal": "Add Next Phase Signal",
+        "signalContextFormula": "Add Signal Context Formula",
+        "phaseSignal": "Add Phase Signal",
+        "closeStageSignal": "Add Close Stage Signal",
+        "targetRateSignal": "Add Target Rate Signal",
+        "targetSizeInQuotedAssetSignal": "Add Target Size In Quoted Asset Signal",
+        "targetSizeInBaseAssetSignal": "Add Target Size In Base Asset Signal",
+        "tradingSystemSignals": "Add Trading System Signals",
+        "specifiedProject": "Add Specified Project",
+        "desktopApps": "Add Desktop Apps",
+        "mobileApps": "Add Mobile Apps",
+        "serverApps": "Add Server Apps",
+        "taskServerApp": "Add Task Server App",
+        "socialTradingServerApp": "Add Social Trading Server App",
+        "socialTradingMobileApp": "Add Social Trading Mobile App",
+        "socialTradingDesktopApp": "Add Social Trading Desktop App",
+        "algoTradersPlatformApp": "Add Algo Traders Platform App",
+        "executionEnvironment": "Add Execution Environment",
+        "supervisedLearning": "Add Supervised Learning",
+        "unsupervisedLearning": "Add Unsupervised Learning",
+        "selfLearning": "Add Self Learning",
+        "reinforcementLearning": "Add Reinforcement Learning",
+        "inputLayer": "Add Input Layer",
+        "sequentialLayer": "Add Sequential layer",
+        "outputLayer": "Add Output Layer",
+        "activationlayers": "Add Activation Layers",
+        "basicLayers": "Add Basic Layers",
+        "convolutionalLayers": "Add Convolutional Layers",
+        "tensor": "Add Tensor",
+        "logicRegression": "Add Logistic Regression",
+        "artificialNeuralNetwork": "Add Artificial Neural Network",
+        "outputLabels": "Add Output Labels",
+        "dataLabel": "Add Data Label",
+        "optimizerByName": "Add Optimizer by Name",
+        "sgdInstance": "Add SGD Instance",
+        "momentumInstance": "Add Momentum Instance",
+        "adagradInstance": "Add Adagrad Instance",
+        "adadeltaInstance": "Add Adadelta Instance",
+        "adamInstance": "Add Adam Instance",
+        "rmspropInstance": "Add Rmsprop Instance",
+        "layersApi": "Add Layers API",
+        "coreApi": "Add Core API",
+        "compile": "Add Compile",
+        "fitDataset": "Add Fit Dataset",
+        "dataReporting": "Add Data Reporting",
+        "library": "Add Library",
+        "sequentialModel": "Add Sequential Model",
+        "functionalModel": "Add Functional Model",
+        "kernelInitializer": "Add Kernel Initializer",
+        "kernelConstraint": "Add Kernel Constraint",
+        "kernelRegularizer": "Add Kernel Regularizer",
+        "inputFeatures": "Add Input Features",
+        "inputShape": "Add Input Shape",
+        "batchInputShape": "Add Batch Input Shape",
+        "collectionCondition": "Add Collection Condition",
+        "dataFeature": "Add Data Feature",
+        "datasetArgs": "Add Dataset Args",
+        "verbose": "Add Verbose",
+        "epochs": "Add Epochs",
+        "callbacks": "Add Callbacks",
+        "minMaxScaler": "Add MinMax Scaler",
+        "standardScaler": "Add Standard Scaler",
+        "webglBackend": "Add WebGL Backend",
+        "nodejsBackend": "Add NodeJS Backend",
+        "wasmBackend": "Add WASM Backend",
+        "cpuBackend": "Add CPU Backend",
+        "environmentFlags": "Add Environment Flags",
+        "debugMode": "Add Debug Mode",
+        "productionMode": "Add Production Mode",
+        "dimensionalityUnits": "Add Dimensionality Units",
+        "activationFunction": "Add Activation Function",
+        "kernel": "Add Kernel",
+        "bias": "Add Bias",
+        "batchSize": "Add Batch Size",
+        "dtype": "Add Dtype",
+        "trainable": "Add Trainable",
+        "weights": "Add Weights",
+        "batcheSizePerGradientUpdate": "Add Batch Size Per Gradient Update",
+        "shuffle": "Add Shuffle",
+        "labelFormula": "Add Label Formula",
+        "featureFormula": "Add Feature Formula",
+        "featurePreprocessing": "Add Feature Preprocessing",
+        "conv1DLayer": "Add Conv 1D Layer",
+        "conv2DLayer": "Add Conv 2D Layer",
+        "conv2DTransposeLayer": "Add Conv 2D Transpose Layer",
+        "conv3DLayer": "Add Conv 3D Layer",
+        "cropping2DLayer": "Add Cropping 2D Layer",
+        "depthwiseConv2DLayer": "Add Depthwise Conv 2D Layer",
+        "separableConv2DLayer": "Add Separable Conv 2D Layer",
+        "upSampling2DLayer": "Add Up Sampling 2D Layer",
+        "optimizer": "Add Optimizer",
+        "lossFunction": "Add Loss Function",
+        "metrics": "Add Metrics",
+        "biasInitializer": "Add Bias Initializer",
+        "biasConstraint": "Add Bias Constraint",
+        "biasRegularizer": "Add Bias Regularizer",
+        "spatialDropout1DLayer": "Add Spatial Dropout 1D Layer",
+        "reshapeLayer": "Add Reshape Layer",
+        "repeatVectorLayer": "Add Repeat Vector Layer",
+        "permuteLayer": "Add Permute Layer",
+        "flattenLayer": "Add Flatten Layer",
+        "embeddingLayer": "Add Embedding Layer",
+        "dropoutLayer": "Add Dropout Layer",
+        "denseLayer": "Add Dense Layer",
+        "activationLayer": "Add Activation Layer",
+        "model": "Add Model",
+        "thresholdedReluLayer": "Add Thresholded Relu Layer",
+        "softmaxLayer": "Add Softmax Layer",
+        "reluLayer": "Add Relu Layer",
+        "preluLayer": "Add Prelu Layer",
+        "socialTradingBot": "Add Social Trading Bot",
+        "followedBotReference": "Add Followed Bot Reference",
+        "socialPersona": "Add Social Persona",
+        "timerAccouncement": "Add Timer Announcement",
+        "socialBotCommand": "Add Social Bot Command",
+        "twitterBot": "Add Twitter Bot",
+        "slackBot": "Add Slack Bot",
+        "discordBot": "Add Discord Bot",
+        "telegramBot": "Add Telegram Bot",
+        "announcementCondition": "Add Announcement Condition",
+        "announcementFormula": "Add Announcement Formula",
+        "portfolioBot": "Add Portfolio Bot",
+        "projectPortfolioProducts": "Add Project Portfolio Products",
+        "allPortfolioMineProducts": "Add All Portfolio Mine Products",
+        "portfolioMineProducts": "Add Portfolio Mine Products",
+        "dataProduct": "Add Data Product",
+        "userDefinedCode": "Add User Defined Code",
+        "exchangePortfolioProducts": "Add Exchange Portfolio Products",
+        "setEventReference": "Add Set Event Reference",
+        "setFormulaReference": "Add Set Formula Reference",
+        "code": "Add Code",
+        "portfolioEngine": "Add Portfolio Engine",
+        "portfolioMine": "Add Portfolio Mine",
+        "portfolioSystem": "Add Portfolio System",
+        "portfolioSessionReference": "Add Portfolio Session Reference",
+        "managedTradingBotAdd Missing Sessions": "Add Managed Trading Bot",
+        "managedTradingBotEngine": "Add Managed Trading Bot Engine",
+        "eventsManager": "Add Events Manager",
+        "formulasManager": "Add Formulas Manager",
+        "managedAsset": "Add Managed Asset",
+        "setFormulaRules": "Add Set Formula Rules",
+        "confirmFormulaRules": "Add Confirm Formula Rules",
+        "exchangeManagedAsset": "Add Exchange Managed Asset",
+        "confirmEventRules": "Add Confirm Event Rules",
+        "setEventRules": "Add Set Event Rules",
+        "confirmFormulaReference": "Add Confirm Formula Reference",
+        "confirmEventReference": "Add Confirm Event Reference",
+        "managedSessions": "Add Managed Sessions",
+        "confirmFormula": "Add Confirm Formula",
+        "setFormula": "Add Set Formula",
+        "confirmEvent": "Add Confirm Event",
+        "setEvent": "Add Set Event",
+        "superalgosStorage": "Add Superalgos Storage",
+        "githubStorage": "Add Github Storage",
+        "superalgosStorageContainer": "Add Superalgos Storage Container",
+        "githubStorageContainer": "Add Github Storage Container",
+        "storageContainerReference": "Add Storage Container Reference",
+        "socialGraph": "Add Social Graph",
+        "machineLearning": "Add Machine Learning",
+        "tradingSignals": "Add Trading Signals",
+        "onlineWorkspaces": "Add Online Workspaces",
+        "httpNetworkInterface": "Add Http Network Interface",
+        "webrtcNetworkInterface": "Add Webrtc Network Interface",
+        "websocketsNetworkInterface": "Add Websockets Network Interface",
+        "featureWeightVote": "Add Feature Weight Vote",
+        "assetWeightVote": "Add Asset Weight Vote",
+        "positionWeightVote": "Add Position Weight Vote",
+        "poolWeightVote": "Add Pool Weight Vote",
+        "userProfileVotesSwitch": "Add User Profile Votes Switch",
+        "weightVotesSwitch": "Add Weight Votes Switch",
+        "votesSwitch": "Add Votes Switch",
+        "claimsProgram": "Add Claims Program",
+        "votingProgram": "Add Voting Program",
+        "forecastsProviders": "Add Forecasts Providers",
+        "userStorage": "Add User Storage",
+        "permissionedP2pNetworks": "Add Permissioned P2P Networks",
+        "p2pNetwork": "Add P2P Network",
+        "p2pNetworkNode": "Add P2P Network Node",
+        "p2pNetworkNodes": "Add P2P Network Nodes",
+        "permissionGroup": "Add Permission Group",
+        "permissionGranted": "Add Permission Granted",
+        "permissionedP2PNetwork": "Add Permissioned P2P Network",
+        "socialPersonas": "Add Social Personas",
+        "userBots": "Add User Bots",
+        "userApps": "Add User Apps",
+        "tokensMined": "Add Tokens Mined",
+        "child": "Add Child",
+        "userProfileVote": "Add User Profile Vote",
+        "userProfilesVotesSwitch": "Add User Profile Votes Switch",
+        "socialTradingBots": "Add Social Trading Bots",
+        "tokenPowerSwitch": "Add Token Power Switch",
+        "userSupporter": "Add User Supporter",
+        "userReferrer": "Add User Referrer",
+        "positionClass": "Add Position Class",
+        "position": "Add Position",
+        "positionContributionClaim": "Add Position Contribution Claim",
+        "pool": "Add Pool",
+        "poolClass": "Add Pool Class",
+        "githubProgram": "Add Github Program",
+        "airdropProgram": "Add Airdrop Program",
+        "userMentor": "Add User Mentor",
+        "liquidityProgram": "Add Liquidity Program",
+        "userInfluencer": "Add User Influencer",
+        "pools": "Add Pools",
+        "assets": "Add Assets",
+        "features": "Add Features",
+        "positions": "Add Positions",
+        "profileConstructor": "Add Profile Constructor",
+        "bitcoinFactoryForecasts": "Add Bitcoin Factory Forecasts",
+        "delegationProgram": "Add Delegation Program",
+        "stakingProgram": "Add Staking Program",
+        "featureClass": "Add Feature Class",
+        "featureContributionClaim": "Add Feature Contribution Claim",
+        "tokenBonus": "Add Tokens Bonus",
+        "userDelegate": "Add User Delegate",
+        "delegatePowerSwitch": "Add Delegate Power Switch",
+        "influencerProgram": "Add Influencer Program",
+        "mentorshipProgram": "Add Mentorship Program",
+        "supportProgram": "Add Support Program",
+        "referralProgram": "Add Referral Program",
+        "positionClaimsFolder": "Add Position Claims Folder",
+        "featureClaimsFolder": "Add Feature Claims Folder",
+        "featureClaimVote": "Add Feature Claim Vote",
+        "assetClaimVote": "Add Asset Claim Vote",
+        "positionClaimVote": "Add Position Claim Vote",
+        "claimVotesSwitch": "Add Claim Votes Switch",
+        "computingProgram": "Add Computing Program",
+        "testClientInstance": "Add Test Client Instance",
+        "forecastClientInstance": "Add Forecast Client Instance",
+        "assetClass": "Add Asset Class",
+        "assetContributionClaim": "Add Asset Contribution Claim",
+        "assetClaimsFolder": "Add Asset Claims Folder",
+        "tokensAwarded": "Add Tokens Awarded",
+        "userAssets": "Add User Assets",
+        "userKeys": "Add User Keys",
+        "layerManager": "Add Layer Manager",
+        "timeScale": "Add Time Scale",
+        "rateScale": "Add Rate Scale",
+        "timeFrameScale": "Add Time Frame Scale",
+        "timelineChart": "Add Timeline Chart",
+        "p2pNetworkClient": "Add P2P Network Client",
+        "p2pNetworkReference": "Add P2P Network Reference",
+        "p2pNetworkNodeReference": "Add P2P Network Node Reference",
+        "networkServices": "Add Network Services",
+        "networkInterfaces": "Add Network Interfaces",
+        "availableStorage": "Add Available Storage",
+        "keyReference": "Add Key Reference",
+        "learningBotInstance": "Add Learning Bot Instance",
+        "portfolioBotInstance": "Add Portfolio Bot Instance",
+        "tradingBotInstance": "Add Trading Bot Instance",
+        "studyBotInstance": "Add Study Bot Instance",
+        "indicatorBotInstance": "Add Indicator Bot Instance",
+        "apiDataFetcherBot": "Add API Data Fetcher Bot",
+        "sensorBotInstance": "Add Sensor Bot Instance",
+        "botInstance": "Add Bot Instance",
+        "textFormula": "Add Text Formula",
+        "textPosition": "Add Text Position",
+        "textCondition": "Add Text Condition",
+        "templateTarget": "Add Template Target",
+        "templateStructure": "Add Template Structure",
+        "scriptsLibrary": "Add Scripts Library",
+        "superAction": "Add Super Action",
+        "timeFramesFilter": "Add Time Frames Filter",
+        "designSpace": "Add Design Space",
+        "chartingSpace": "Add Charting Space",
+        "condition": "Add Condition",
+        "text": "Add Text",
+        "chartPoints": "Add Chart Points",
+        "socialTradingBotReference": "Add Social Trading Bot Reference",
+        "masterScript": "Add Master Script",
+        "fieldReference": "Add Field Reference",
+        "recordProperty": "Add Record Property",
+        "dashboard": "Add Dashboard",
+        "datasetDefinition": "Add Dataset Definition",
+        "recordDefinition": "Add Record Definition",
+        "allOutputDatasets": "Add All Output Datasets",
+        "variable": "Add Variable",
+        "key": "Add Key",
+        "statusDependency": "Add Status Dependency",
+        "prediction": "Add Prediction",
+        "style": "Add Style",
+        "styleCondition": "Add Style Condition",
+        "pointFormula": "Add Point Formula",
+        "plotterModule": "Add Plotter Module",
+        "panelData": "Add Panel Data",
+        "plotterPanel": "Add Plotter Panel",
+        "shapes": "Add Shapes",
+        "moveToPhaseEvent": "Add Move To Phase Event",
+        "nextPhaseEvent": "Add Next Phase Event",
+        "textStyle": "Add Text Style",
+        "outputDataset": "Add Output Dataset",
+        "outputDatasetFolder": "Add Output Dataset Folder",
+        "network": "Add Network",
+        "cryptoEcosystem": "Add Crypto Ecosystem",
+        "apis": "Add APIs",
+        "apiMap": "Add API Map",
+        "periods": "Add Periods",
+        "tradingMine": "Add Trading Mine",
+        "learningMine": "Add Learning Mine",
+        "templateScript": "Add Template Script",
+        "javascriptCode": "Add Javascript Code",
+        "quotedAsset": "Add Quoted Asset",
+        "baseAsset": "Add Base Asset",
+        "tradingSessionReference": "Add Trading Session Reference",
+        "taskReference": "Add Task Reference",
+        "phase": "Add Phase",
+        "sessionReference": "Add Session Reference",
+        "userDefinedStatistic": "Add User Defined Statistic",
+        "userDefinedCounter": "Add User Defined Counter",
+        "lanNetworkNode": "Add LAN Network Node",
+        "timeFrameFilter": "Add Time Frames Filter",
+        "formula": "Add Formula",
+        "feature": "Add Feature",
+        "asset": "Add Asset",
+        "label": "Add Label",
+        "userAccount": "Add User Account",
+        "indicatorFunction": "Add Indicator Function",
+        "taskManager": "Add Task Manager",
+        "allTasks": "Add All Tasks",
+        "botProducts": "Add Bot Products",
+        "timeMachine": "Add Time Machine",
+        "cryptoExchanges": "Add Crypto Exchanges",
+        "executionAlgorithm": "Add Execution Algorithm",
+        "viewport": "Add Viewport",
+        "spaceStyle": "Add Space Style",
+        "spaceSettings": "Add Space Settings",
+        "projectDashboards": "Add Project Dashboards",
+        "point": "Add Point",
+        "announcement": "Add Announcement",
+        "situation": "Add Situation",
+        "askPortfolioManager": "Add Ask Portfolio Manager",
+        "procedureInitialization": "Add Procedure Initialization",
+        "procedureLoop": "Add Procedure Loop",
+        "layer": "Add Layer",
+        "socialBots": "Add Social Bots",
+        "sensorBot": "Add Sensor Bot",
+        "studyBot": "Add Study Bot",
+        "indicatorBot": "Add Indicator Bot",
+        "fetcherBot": "Add API Data Fetcher Bot",
+        "pluginFilePosition": "Add Plugin File Position",
+        "plotter": "Add Plotter",
+        "missingChildren": "Add Missing Children",
+        "dynamicIndicators": "Add Dynamic Indicators",
+        "portfolioManagedSystem": "Add Portfolio Managed System",
+        "plugins": "Add Plugins",
+        "dataMine": "Add Data Mine",
+        "defiWallet": "Add DeFi Wallet",
+        "swapPair": "Add Swap Pair",
+        "swapPairs": "Add Swap Pairs",
+        "token": "Add Token",
+        "tokens": "Add Tokens",
+        "tokenOutBaseAsset": "Add Token Out (Base Asset)",
+        "tokenInQuotedAsset": "Add Token In (Quoted Asset)",
+        "ethBalance": "Add ETH Balance",
+        "tokenBalance": "Add Token Balance",
+        "solidarityCode": "Add Solidity Code",
+        "networkClient": "Add Network Client",
+        "blockchainScannerBot": "Add Blockchain Scanner Bot",
+        "blockchainNetwork": "Add Blockchain Network",
+        "blockchain": "Add Blockchain",
+        "ethereumToken": "Add Ethereum Token",
+        "smartContract": "Add Smart Contract",
+        "childReference": "Add Client Reference",
+        "walletAccount": "Add Wallet Account",
+        "wallet": "Add Wallet",
+        "tokenDefinitions": "Add Token Definitions",
+        "decentralizedApplication": "Add Decentralized Application",
+        "processInstance": "Add Process Instance",
+        "apiMapReference": "Add API Map Reference",
+        "apiQueryResponses": "Add API Query Responses",
+        "apiQueryResponse": "Add API Query Response",
+        "apiPathParameters": "Add API Path Parameters",
+        "apiPathParameter": "Add API Path Parameter",
+        "apiQueryParameters": "Add API Query Parameters",
+        "apiQueryParameter": "Add API Query Parameter",
+        "apiResponseField": "Add API Response Field",
+        "apiResponseSchema": "Add API Response Schema",
+        "apiVersion": "Add API Version",
+        "apiEndpoint": "Add API Endpoint",
+        "githubAPI": "Add GitHub API",
+        "web3API": "Add Web3 API",
+        "apiAuthorizationKey": "Add API Authorization Key",
+        "limitOrder": "Add Limit Order",
+        "marketOrder": "Add Market Order",
+        "session": {
+            "backTesting": "Add Backtesting Session",
+            "backtestingPortfolio": "Add Backtesting Portfolio Session",
+            "liveTrading": "Add Live Trading Session",
+            "livePortfolio": "Add Live Portfolio Session",
+            "paperTrading": "Add Paper Trading Session",
+            "forwardTrading": "Add Forward Testing Session"
+        },
+        "polygon": {
+            "defaut": "Add Polygon",
+            "condition": "Add Polygon Condition",
+            "body": "Add Polygon Body",
+            "border": "Add Polygon Border",
+            "vertex": "Add Polygon Vertex"
+        },
+        "execution": {
+            "event": {
+                "started": "Add Execution Started Event"
+            }
+        },
+        "project": {
+            "tradingProducts": "Add Project Trading Products",
+            "learningProducts": "Add Project Learning Products"
+        },
+        "layers": {
+            "folder": "Add Layer Folder",
+            "allMine": "Add All Mine Layers",
+            "bot": "Add Bot Layers",
+            "allPanels": "Add All Layer Panels",
+            "panel": "Add Layer Panel",
+            "polygon": "Add Layer Polygon",
+            "allPolygons": "Add All Layer Polygons"
+            
+        },
+        "market": {
+            "default": "Add Market",
+            "learningProducts": "Add Market Learning Products",
+            "tradingProducts": "Add Market Trading Products",
+            "tradingTasks": "Add Market Trading Tasks",
+            "learningTasks": "Add Market Learning Tasks",
+            "portfolioProducts": "Add Market Portfolio Products"
+        },
+        "missing": {
+            "dashboards": "Add Missing Dashboards",
+            "stages": "Add Missing Stages",
+            "events": "Add Missing Events",
+            "sessions": "Add Missing Sessions",
+            "markets": "Add Missing Markets",
+            "timeMachines": "Add Missing Time Machines",
+            "exchanges": "Add Missing Exchanges",
+            "apiMaps": "Add Missing API Maps",
+            "assets": "Add Missing Assets",
+            "dataMines": "Add Missing Data Mines",
+            "dataMineTasks": "Add Missing Data Mine Tasks",
+            "features": "Add Missing Features",
+            "learningEngines": "Add Missing Learning Engines",
+            "learningMines": "Add Missing Learning Mines",
+            "learningMineTasks": "Add Missing Learning Mine Tasks",
+            "learningSystems": "Add Missing Learning Systems",
+            "p2pNetworks": "Add Missing P2P Networks",
+            "parameters": "Add Missing Parameters",
+            "pools": "Add Missing Pools",
+            "portfolioEngines": "Add Missing Portfolio Engines",
+            "portfolioMines": "Add Missing Portfolio Mines",
+            "portfolioSystems": "Add Missing Portfolio Systems",
+            "positions": "Add Missing Positions",
+            "pluginTypes": "Add Missing Plugin Types",
+            "tradingEngines": "Add Missing Trading Engines",
+            "tradingMines": "Add Missing Trading Mines",
+            "tradingMineTasks": "Add Missing Trading Mine Tasks",
+            "tradingSystems": "Add Missing Trading Systems",
+            "tutorials": "Add Missing Tutorials",
+            "tokens": "Add Missing Tokens",
+            "userProfiles": "Add Missing User Profiles",
+            "children": "Add Missing Children",
+            "projects": "Add Missing Projects",
+            "swapPairs": "Add Missing Swap Pairs",
+            "items": "Add Missing Items",
+            "portfolioMineTasks": "Add Missing Portfolio Mine Tasks",
+            "projectPortfolioTasks": "Add Missing Project Portfolio Tasks"
+        },
+        "learning": {
+            "session": {
+                "reference": "Add Learning Session Reference",
+                "back": "Add Back Learning Session",
+                "live": "Add Live Learning Session"
+            },
+            "mine": {
+                "default": "Add Learning Mine",
+                "products": "Add Learning Mine Products",
+                "allProducts": "Add All Learning Mine Products"
+            },
+            "project": {
+                "tasks": "Add Project Learning Tasks"
+            },
+            "system": "Add Learning System",
+            "engine": "Add Learning Engine",
+            "bot":"Add Learning Bot"
+        },
+        "tasks": {
+            "portfolioMine": "Add Portfolio Mine Tasks",
+            "serverAppReference": "Add Task Server App Reference",
+            "managed": "Add Managed Tasks",
+            "default": "Add Tasks",
+            "data": "Add Data Tasks",
+            "learning": "Add Learning Tasks",
+            "learningMine": "Add Learning Mine Tasks",
+            "tradingMine": "Add Trading Mine Tasks",
+            "testingTrading": "Add Testing Trading Tasks",
+            "projectTrading": "Add Project Trading Tasks",
+            "productionTrading": "Add Production Trading Tasks",
+            "testingPortfolio": "Add Testing Portfolio Tasks",
+            "exchangePortfolio": "Add Exchange Portfolio Tasks",
+            "productionPortfolio": "Add Production Portfolio Tasks",
+            "projectPortfolio": "Add Project Portfolio Tasks",
+            "marketPortfolio": "Add Market Portfolio Tasks"
+        },
+        "exchange": {
+            "tradingTasks": "Add Exchange Trading Tasks",
+            "tradingProducts": "Add Exchange Trading Products",
+            "learningTasks": "Add Exchange Learning Tasks",
+            "learningProducts": "Add Exchange Learning Products",
+            "dataTasks": "Add Exchange Data Tasks",
+            "dataProducts": "Add Exchange Data Products",
+            "accounts": "Add Exchange Accounts",
+            "assets": "Add Exchange Assets",
+            "centralized": "Add Centralized Exchange",
+            "decentralized": "Add Decentralized Exchange",
+            "markets": "Add Exchange Markets"
+        },
+        "specified": {
+            "pluginDataMine": "Add Specified Plugin Data Mine",
+            "p2pNetwork": "Add Specified P2P Network",
+            "userProfile": "Add Specified User Profile"
+        },
+        "process": {
+            "definition": "Add Process Definition"
+        },
+        "product": {
+            "definition": "Add Product Definition",
+            "definitionFolder": "Add Product Definition Folder"
+        },
+        "trading": {
+            "bot": "Add Trading Bot",
+            "engine": "Add Trading Engine",
+            "mine": "Add Trading Mine",
+            "mineProducts": "Add Trading Mine Products",
+            "allMineProducts": "Add All Trading Mine Products",
+            "strategy": "Add Trading Strategy",
+            "system": "Add Trading System"
+        },
+        "signals": {
+            "label": "Add Trading Strategy Signals",
+            "closeStage": "Add Close Stage Signals",
+            "manageStage": "Add Manage Stage Signals",
+            "triggerStage": "Add Trigger Stage Signals",
+            "openStage": "Add Open Stage Signals",
+            "provider": "Add Signals Provider",
+            "providers": "Add Signals Providers",
+            "outgoing": "Add Outgoing Signals",
+            "incoming": "Add Incoming Signals",
+            "available": "Add Available Signals",
+            "outgoingReference": "Add Outgoing Signal Reference",
+            "incomingReference": "Add Incoming Signal Reference",
+            "managedStopLoss": "Add Managed Stop Loss Signals",
+            "managedTakeProfit": "Add Managed Take Profit Signals"
+        },
+        "data": {
+            "allMineDependencies": "Add All Data Mine Dependencies",
+            "mineDependencies": "Add Data Mine Dependencies",
+            "formula": "Add Data Formula",
+            "storage": "Add Data Storage",
+            "marketTasks": "Add Market Data Tasks",
+            "marketProducts": "Add Market Data Products",
+            "dependency": "Add Data Dependency",
+            "dependencyFolder": "Add Data Dependency Folder",
+            "product": "Add Data Product",
+            "productFolder": "Add Data Product Folder",
+            "allDependencies": "Add All Data Dependencies",
+            "botDependencies": "Add Bot Data Dependencies",
+            "allProducts": "Add All Data Products",
+            "projectProducts": "Add Project Data Products",
+            "dataMines": "Add Data Mines Data",
+            "mineTasks": "Add Data Mine Tasks",
+            "tradingMines": "Add Trading Mines Data",
+            "portfolioMines": "Add Portfolio Mines Data",
+            "learningMines": "Add Learning Mines Data",
+            "projectTasks": "Add Project Data Tasks",
+            "mineProducts": "Add Data Mine Products",
+            "allMineProducts": "Add All Data Mine Products"
+        },
+        "fetch": {
+            "fromJavascriptCode": "Fetch from Javascript Code"
+        },
+        "push": {
+            "toJavascriptCode": "Push to Javascript Code"
+        },
+        "orders": {
+            "limit": {
+                "buy": "Add Limit Buy Orders",
+                "sell": "Add Limit Sell Orders",
+                "buySignals": "Add Limit Buy Order Signals",
+                "sellSignals": "Add Limit Sell Order Signals"
+            },
+            "market": {
+                "buy": "Add Market Buy Orders",
+                "sell": "Add Market Sell Orders",
+                "buySignals": "Add Market Buy Order Signals",
+                "sellSignals": "Add Market Sell Order Signals"
+            }
+        },
+        "order": {
+            "limit": {
+                "buy": "Add Limit Buy Order",
+                "sell": "Add Limit Sell Order"
+            },
+            "market": {
+                "buy": "Add Market Buy Order",
+                "sell": "Add Market Sell Order"
+            },
+            "rate": "Add Order Rate",
+            "rateSignal": "Add Order Rate Signal",
+            "event": {
+                "create": "Add Create Order Event",
+                "cancel": "Add Cancel Order Event"
+            },
+            "signal": {
+                "create": "Add Create Order Signal",
+                "cancel": "Add Cancel Order Signal"
+            }
+        },
+        "simulated": {
+            "events": "Add Simulated Events",
+            "partialFill": "Add Simulated Partial Fill",
+            "actualRate": "Add Simulated Actual Rate",
+            "feesPaid": "Add Simulated Fees Paid"
+        },
+        "image": {
+            "condition": "Add Image Condition",
+            "formula": "Add Image Formula",
+            "position": "Add Image Position"
+        },
+        "programs": {
+            "bitcoinFactory": "Add Bitcoin Factory Programs",
+            "liquidity": "Add Liquidity Programs",
+            "financial": "Add Financial Programs",
+            "votesAndClaims": "Add Votes And Claims Programs",
+            "communityBuilding": "Add Community Building Programs",
+            "onboarding": "Add Onboarding Programs"
+        }
+    },
+    "import": {
+        "existing": {
+            "wallet": {
+                "mnemonic": "Import Existing Wallet from Mnemonic",
+                "privateKey": "Import Existing Wallet from Private Key"
+            }
+        }
+    },
+    "create": {
+        "newWallet": "Create New Wallet"
+    },
+    "switch": {
+        "to": {
+            "paperTrading": "Switch To Paper Trading",
+            "liveTrading": "Switch To Live Trading",
+            "forwardTesting": "Switch To Forward Testing",
+            "backTesting": "Switch To Backtesting",
+            "livePortfolio": "Switch To Live Portfolio",
+            "backtestingPortfolio": "Switch To Backtesting Portfolio"
+        }
+    },
+    "copy": {
+        "node": {
+            "path": "Copy Node Path",
+            "value": "Copy Node Value",
+            "type": "Copy Node Type"
+        }
+    },
+    "save": {
+        "plugin": "Save Plugin",
+        "enableWithWorkspace": "Enable Saving With Workspace",
+        "pluginFile": "Save Plugin File"
+    },
+    "tutorial": {
+        "add": "Add Tutorial",
+        "reset": "Reset Tutorial Progress",
+        "step": {
+            "add": "Add Tutorial Step"
+        },
+        "topic": {
+            "add": "Add Tutorial Topic"
+        },
+        "confirmation": {
+            "reset": "Confirm to Reset"
+        }
+    },
+    "task": {
+        "all": {
+            "run": "Run All Tasks",
+            "stop": "Stop All Tasks",
+            "exchange": {
+                "data": {
+                    "run": "Run All Exchange Data Tasks",
+                    "stop": "Stop All Exchange Data Tasks"
+                },
+                "learning": {
+                    "run": "Run All Exchange Learning Tasks",
+                    "stop": "Stop All Exchange Learning Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Exchange Portfolio Tasks",
+                    "stop": "Stop All Exchange Portfolio Tasks"
+                },
+                "trading": {
+                    "run": "Run All Exchange Trading Tasks",
+                    "stop": "Stop All Exchange Trading Tasks"
+                }
+            },
+            "managed": {
+                "run": "Run All Managed Tasks",
+                "stop": "Stop All Managed Tasks"               
+            },
+            "managers": {
+                "run": "Run All Task Managers",
+                "stop": "Stop All Task Managers"               
+            },
+            "project": {
+                "data": {
+                    "run": "Run All Project Data Tasks",
+                    "stop": "Stop All Project Data Tasks"
+                },
+                "learning": {
+                    "run": "Run All Project Learning Tasks",
+                    "stop": "Stop All Project Learning Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Project Portfolio Tasks",
+                    "stop": "Stop All Project Portfolio Tasks"
+                },
+                "trading": {
+                    "run": "Run All Project Trading Tasks",
+                    "stop": "Stop All Project Trading Tasks"
+                }
+            },
+            "market": {
+                "data": {
+                    "run": "Run All Market Data Tasks",
+                    "stop": "Stop All Market Data Tasks"
+                },
+                "learning": {
+                    "run": "Run All Market Learning Tasks",
+                    "stop": "Stop All Market Learning Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Market Portfolio Tasks",
+                    "stop": "Stop All Market Portfolio Tasks"
+                },
+                "trading": {
+                    "run": "Run All Market Trading Tasks",
+                    "stop": "Stop All Market Trading Tasks"
+                }
+            },
+            "mine": {
+                "data": {
+                    "run": "Run All Data Mine Tasks",
+                    "stop": "Stop All Data Mine Tasks"
+                },
+                "trading": {
+                    "run": "Run All Trading Mine Tasks",
+                    "stop": "Stop All Trading Mine Tasks"
+                },
+                "learning": {
+                    "run": "Run All Learning Mine Tasks",
+                    "stop": "Stop All Learning Mine Tasks"
+                },
+                "portfolio": {
+                    "run": "Run All Portfolio Mine Tasks",
+                    "stop": "Stop All Portfolio Mine Tasks"
+                }
+            }
+        },
+        "running": "Task Running",
+        "cannotBeRun": "Task Cannot be Run",
+        "stopped": "Task Stopping",
+        "cannotBeStopped": "Task Cannot be Stopped",
+        "cannotBeDebugged": "Task Cannot be Debugged"
+    },
+    "send": {
+        "message": {
+            "telegramTest": "Send Telegram Test Message",
+            "slackTest": "Send Slack Test Message",
+            "discordTest": "Send Discord Test Message",
+            "twitterTest": "Send Twitter Test Message",
+            "text": "Send Test Message"
+        }
+    },
+    "build": {
+        "profileWithWalletConnect": "Build Profile with WalletConnect",
+        "profileWithMnemonic": "Build Profile with Mnemonic",
+        "profileAndNewWallet": "Build Profile and New Wallet"
+    }
+}

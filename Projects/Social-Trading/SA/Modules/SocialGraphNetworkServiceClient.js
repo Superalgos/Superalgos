@@ -326,6 +326,30 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         return response
                     }
                 }
+
+                /*
+              Remove Social Persona Post or Social Trading Bot Post
+                */
+                if (
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REPOST_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT_REPOST 
+                ) {
+                    let response = await SA.projects.socialTrading.functionLibraries.postsStorage.removePostAtStorage(
+                        eventMessage,
+                        socialEntity
+                    )
+                    /*
+                    If we couldn't remove the Post using the Open Storage, then there is no point in 
+                    sending this message to the P2P Network.
+                    */
+                    if (response.result !== "Ok") {
+                        SA.logger.warn('Post could not be removed. Reason: ' + response.message)
+                        return response
+                    }
+                }
+                
                 /*
                 Timestamp is required so that the Signature is not vulnerable to Man in the Middle attacks.
                 */
@@ -334,7 +358,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
                 /*
-                Social Entity Signature is required in order for this event to be considered at all 
+                A Social Entity Signature is required in order for this event to be considered at all 
                 nodes of the P2P network and not only at the one we are connected to.
                 */
                 let web3 = new SA.nodeModules.web3()

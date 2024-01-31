@@ -4,6 +4,7 @@
         {
             "action": "Edit",
             "label": "Edit",
+            "translationKey": "general.edit",
             "iconPathOn": "javascript-code",
             "iconPathOff": "javascript-code",
             "dontShowAtFullscreen": true,
@@ -14,7 +15,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

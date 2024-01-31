@@ -2,7 +2,8 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
     let thisObject = {
         saveFile: saveFile,
-        loadFile: loadFile
+        loadFile: loadFile,
+        removeFile: removeFile
     }
 
     return thisObject
@@ -128,5 +129,91 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
         })
 
         return promise
+    }
+
+    async function removeFile(fileName, filePath, storageContainer) {       
+    
+        return new Promise(async (resolve, reject) => {
+            const secret = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName);
+    
+            if (secret === undefined) {
+                console.log('Secret is undefined');
+                SA.logger.warn(`You need to have a record for codeName = ${storageContainer.config.codeName} in the Apis Secrets File.`);
+                reject();
+                return;
+            }
+    
+            const token = secret.apiToken;
+            const { Octokit } = SA.nodeModules.octokit;
+            const octokit = new Octokit({
+                auth: token,
+                userAgent: `Superalgos ${SA.version}`,
+            });
+    
+            const repo = storageContainer.config.repositoryName;
+            const owner = storageContainer.config.githubUserName;
+            const branch = 'main';
+            const message = 'Open Storage: Deleting File.';
+            const completePath = filePath + '/' + fileName + '.json';    
+    
+            try {
+                const { data: contentData } = await octokit.repos.getContent({
+                    owner,
+                    repo,
+                    path: completePath,
+                    ref: branch,
+                }); 
+
+                const sha = contentData.sha;
+                
+                await octokit.repos.deleteFile({
+                    owner,
+                    repo,
+                    path: completePath,
+                    message,
+                    branch,
+                    sha,
+                });
+    
+                SA.logger.info(`File just got removed on Github. completePath = ${completePath}`);
+                console.log('Deletion complete');
+                setTimeout(resolve, 3000);
+    
+            } catch (error) {
+                if (error.status === 404) {
+                    console.log('File not found, retrying...');
+                    await removeFile();
+                } else {
+                    console.log('Error:', error);
+                    SA.logger.error(`File could not be deleted at Github.com. -> err.stack = ${error.stack}`);
+                    reject(error);
+                }
+            }
+    
+            async function removeFile() {
+                const { data: contentData } = await octokit.repos.getContent({
+                    owner,
+                    repo,
+                    path: completePath,
+                    ref: branch,
+                });
+                    
+                const sha = contentData.sha;
+                
+                console.log('Retrying with sha:', sha);
+                await octokit.repos.deleteFile({
+                    owner,
+                    repo,
+                    path: completePath,
+                    message,
+                    branch,
+                    sha,
+                });
+    
+                SA.logger.info(`File just removed on Github. completePath = ${completePath}`);
+                console.log('Deletion complete');
+                setTimeout(resolve, 3000);
+            }
+        });
     }
 }

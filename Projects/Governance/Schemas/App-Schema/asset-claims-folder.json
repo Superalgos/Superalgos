@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,15 +14,18 @@
             "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Install Missing Claims",
+            "translationKey": "install.missingClaims",
             "relatedUiObject": "Asset Contribution Claim",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
+            "confirmationLabelTranslationKey": "general.confirm.install",
             "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Claims Folder",
+            "translationKey": "add.assetClaimsFolder",
             "relatedUiObject": "Asset Claims Folder",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Governance"
@@ -30,6 +34,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Contribution Claim",
+            "translationKey": "add.assetContributionClaim",
             "relatedUiObject": "Asset Contribution Claim",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Governance"
@@ -39,7 +44,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

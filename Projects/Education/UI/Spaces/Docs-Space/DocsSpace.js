@@ -299,6 +299,9 @@ function newEducationDocSpace() {
 
     function changeLanguage(pLanguage) {
         UI.projects.education.spaces.docsSpace.language = pLanguage
+        
+        i18next.changeLanguage(pLanguage.toLowerCase()).then(() => translate()) // calls the global function to trigger changing of the system translations
+        
         UI.projects.education.spaces.docsSpace.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type)
 
         let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode

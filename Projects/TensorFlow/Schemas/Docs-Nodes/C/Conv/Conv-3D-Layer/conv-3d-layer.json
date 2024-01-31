@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "3D konvolüsyon katmanı (örneğin hacimler üzerinde uzamsal konvolüsyon). Bu katman, bir çıktı tensörü üretmek için katman girdisi ile konvolüsyonlanan bir konvolüsyon çekirdeği oluşturur.",
                 "updated": 1654396830560
+            },
+            {
+                "language": "DE",
+                "text": "3D-Faltungsschicht (z. B. räumliche Faltung über Volumen). Diese Schicht erzeugt einen Faltungs-Kernel, der mit der Schicht-Eingabe gefaltet wird, um einen Tensor von Ausgaben zu erzeugen.",
+                "updated": 1706357457614
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396837369,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706357473769
                 }
             ]
         }

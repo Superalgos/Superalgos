@@ -29,6 +29,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -38,6 +39,7 @@
             "propertyToCheckFor": "plotterPanelJavascriptCode",
             "actionFunction": "payload.executeAction",
             "label": "Add Javascript Code",
+            "translationKey": "add.javascriptCode",
             "relatedUiObject": "Plotter Panel Javascript Code",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -46,6 +48,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Panel Data",
+            "translationKey": "add.panelData",
             "relatedUiObject": "Panel Data",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -56,7 +59,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

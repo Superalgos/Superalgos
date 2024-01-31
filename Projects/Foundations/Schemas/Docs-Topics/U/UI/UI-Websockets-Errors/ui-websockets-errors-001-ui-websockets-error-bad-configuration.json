@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Kullanıcı arabiriminden ( UI ) Superalgos İstemcilerine ( Client ) websockets iletişimini etkinleştirmek için Ağ Düğümü yapılandırmasını okumamız gerekir. Bu yapılandırmayla ilgili herhangi bir sorun varsa, Kullanıcı Arabirimi Web yuvaları aracılığıyla İstemci ile iletişim kuramaz ve Görev ( Task ) çalıştırmak gibi pek çok şey mümkün olmaz.",
                 "updated": 1647093544443
+            },
+            {
+                "language": "DE",
+                "text": "Um die Websockets-Kommunikation zwischen der Benutzeroberfläche (UI) und den Superalgos-Clients zu ermöglichen, müssen wir die Konfiguration des Netzwerkknotens (Network Node) lesen. Wenn irgendetwas mit dieser Konfiguration nicht stimmt, kann die Benutzeroberfläche nicht mit dem Client über Websockets kommunizieren und viele Dinge, wie das Ausführen eines Task s, sind nicht möglich.",
+                "updated": 1704581385882
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "UI Web Sockets Client'ın Kötü Yapılandırma hatası bildirmesinin birkaç nedeni vardır. Hepsi aşağıda listelenmiştir.",
                     "updated": 1647093608002
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt mehrere Gründe, warum der UI Web Sockets Client einen Fehler bei der Konfiguration meldet. Sie sind alle unten aufgeführt. ",
+                    "updated": 1704581389882
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "TR",
                     "text": "Neden #1: Geçersiz JSON Formatı",
                     "updated": 1647093648363
+                },
+                {
+                    "language": "DE",
+                    "text": "Grund #1: Ungültiges JSON-Format",
+                    "updated": 1702934639282
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Arabiriminden ( UI ) Superalgos İstemcilerine websockets iletişimini etkinleştirmek için Ağ Düğümü yapılandırmasını okumamız gerekir. Bu durumda, JSON'da doğru biçimlendirilmediği için bu yapılandırma okunamaz.",
                     "updated": 1647093699461
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Websockets-Kommunikation von der UI zu den Superalgos-Clients zu ermöglichen, müssen wir die Konfiguration des Netzwerkknotens (Node) lesen. In diesem Fall ist diese Konfiguration nicht lesbar, da sie nicht korrekt in JSON formatiert ist.",
+                    "updated": 1702934702331
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Hata: Kötü Yapılandırma - Geçersiz JSON Biçimi",
                     "updated": 1647093713319
+                },
+                {
+                    "language": "DE",
+                    "text": "Schlechte Konfiguration - Ungültiges JSON-Format",
+                    "updated": 1702934713976
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "İpucu: Yapılandırmayı düzenleyin ve doğru biçimlendirildiğini iki kez kontrol edin. Gerekirse, sorunun ne olduğunu açıkça görmek için metni çevrimiçi bir JSON biçimlendiricisine kopyalayın.",
                     "updated": 1647093752376
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearbeiten Sie die Konfiguration und überprüfen Sie, ob sie korrekt formatiert ist. Kopieren Sie den Text bei Bedarf in einen Online-JSON-Formatierer, um das Problem eindeutig zu erkennen.",
+                    "updated": 1702934762556
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Not: Bu sayfa birkaç hata koşulu içerir. Bir düğümde Hata Mesajına tıkladığınızda, bu sayfa içerisinde o düğümde meydana gelen hatanın açıklandığı bölüme yönlendirilirsiniz.",
                     "updated": 1647093785771
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Seite enthält mehrere Fehlerbedingungen. Wenn Sie auf die Fehlermeldung eines Knotens klicken, werden Sie innerhalb dieser Seite zu dem Abschnitt weitergeleitet, in dem der Fehler, der bei diesem Knoten auftritt, erklärt wird.",
+                    "updated": 1702934775739
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "TR",
                     "text": "Neden #2: Ana Bilgisayar Özelliği Bulunamadı",
                     "updated": 1647093828556
+                },
+                {
+                    "language": "DE",
+                    "text": "Grund Nr. 2: Host-Eigenschaft nicht gefunden",
+                    "updated": 1702934786339
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "TR",
                     "text": "Ağ Düğümü ( Node ) yapılandırmasında aşağıdaki özellik bekleniyordu ve bulunamadı:",
                     "updated": 1647093860919
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgende Eigenschaft wurde erwartet und in der Netzwerkknotenkonfiguration (Network Node) nicht gefunden:",
+                    "updated": 1702934831124
                 }
             ]
         },
@@ -168,6 +213,11 @@
                     "language": "TR",
                     "text": "Hata: Kötü Yapılandırma - Ana Bilgisayar Özelliği Bulunamadı",
                     "updated": 1647093891538
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler: Schlechte Konfiguration - Host-Eigenschaft nicht gefunden",
+                    "updated": 1702934856325
                 }
             ]
         },
@@ -185,6 +235,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu özelliği yanlış yazmadığınızı iki kez kontrol edin. Değeri, Superalgos İstemcisini barındıran bilgisayarın / sunucunun hostName veya IP numarası olmalıdır.",
                     "updated": 1647093917308
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass Sie diese Eigenschaft nicht falsch geschrieben haben. Der Wert sollte der Hostname oder die IP-Nummer des Computers/Servers sein, auf dem der Superalgos Client läuft.",
+                    "updated": 1702934871130
                 }
             ]
         },
@@ -201,6 +256,11 @@
                     "language": "TR",
                     "text": "Not: Bu sayfa birkaç hata koşulu içerir. Bir düğümde Hata Mesajına tıkladığınızda, bu sayfa içerisinde o düğümde meydana gelen hatanın açıklandığı bölüme yönlendirilirsiniz.",
                     "updated": 1647093933503
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Seite enthält mehrere Fehlerbedingungen. Wenn Sie auf die Fehlermeldung eines Knotens klicken, werden Sie innerhalb dieser Seite zu dem Abschnitt weitergeleitet, in dem der Fehler, der bei diesem Knoten auftritt, erklärt wird.",
+                    "updated": 1702934989861
                 }
             ]
         },
@@ -222,6 +282,11 @@
                     "language": "TR",
                     "text": "Neden #3: WebSocketsPort Özelliği Bulunamadı",
                     "updated": 1647093959786
+                },
+                {
+                    "language": "DE",
+                    "text": "Grund Nr. 3: WebSocketsPort-Eigenschaft nicht gefunden",
+                    "updated": 1702935064507
                 }
             ]
         },
@@ -233,6 +298,11 @@
                     "language": "RU",
                     "text": "В конфигурации сетевого узла ожидалось и не было найдено следующее свойство:",
                     "updated": 1640358294252
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgende Eigenschaft wurde erwartet und in der Netzwerkknotenkonfiguration (Network Node config) nicht gefunden:",
+                    "updated": 1702935112533
                 }
             ]
         },
@@ -250,6 +320,11 @@
                     "language": "TR",
                     "text": "Hata: Hata: Kötü Yapılandırma - WebSocketsPort Özelliği Bulunamadı",
                     "updated": 1647094013435
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgende Eigenschaft wurde erwartet und in der Netzwerkknotenkonfiguration nicht gefunden:",
+                    "updated": 1702935130757
                 }
             ]
         },
@@ -267,6 +342,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu özelliği yanlış yazmadığınızı iki kez kontrol edin. Değeri, istemci ( Client ) Websockets Arayüzü için yapılandırılan bağlantı noktası numarası olmalıdır.",
                     "updated": 1647094101105
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass Sie diese Eigenschaft nicht falsch geschrieben haben. Der Wert sollte die Portnummer sein, die für die Client-Websockets-Schnittstelle (Client Websockets Interface) konfiguriert ist.",
+                    "updated": 1702935155092
                 }
             ]
         },
@@ -283,6 +363,11 @@
                     "language": "TR",
                     "text": "Not: Bu sayfa birkaç hata koşulu içerir. Bir düğümde Hata Mesajına tıkladığınızda, bu sayfa içerisinde o düğümde meydana gelen hatanın açıklandığı bölüme yönlendirilirsiniz.",
                     "updated": 1647094115229
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Seite enthält mehrere Fehlerbedingungen. Wenn Sie auf die Fehlermeldung eines Knotens klicken, werden Sie innerhalb dieser Seite zu dem Abschnitt weitergeleitet, in dem der Fehler, der bei diesem Knoten auftritt, erklärt wird.",
+                    "updated": 1702935165896
                 }
             ]
         }

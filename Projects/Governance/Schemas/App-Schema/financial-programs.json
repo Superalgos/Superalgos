@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "stakingProgram",
             "label": "Add Staking Program",
+            "translationKey": "add.stakingProgram",
             "relatedUiObject": "Staking Program",
             "relatedUiObjectProject": "Governance"
         },
@@ -25,6 +27,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "delegationProgram",
             "label": "Add Delegation Program",
+            "translationKey": "add.delegationProgram",
             "relatedUiObject": "Delegation Program",
             "relatedUiObjectProject": "Governance"
         },
@@ -33,7 +36,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

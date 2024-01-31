@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, bir Ticaret Sistemi içinde gelen bir Sinyalin kullanıma sunulacağı konumu tanımlar.",
                 "updated": 1654397677256
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten definiert den Ort innerhalb eines Handelssystems (Trading System), an dem ein eingehendes Signal zur Verfügung gestellt wird.",
+                "updated": 1705146675617
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "text": "Başka bir deyişle, bir Gelen Sinyal düğümü sinyal bilgilerini alır ve daha sonra bu verileri bir ticaret sisteminin belirli bir bölümüne enjekte eder.",
                     "updated": 1654397683031,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten, ein Knoten für eingehende Signale empfängt die Signalinformationen und leitet diese Daten dann an einen bestimmten Teil eines Handelssystems weiter.",
+                    "updated": 1705146688723
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Sinyal Türleri",
                     "updated": 1654397689125,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Arten von Signalen",
+                    "updated": 1705146698082
                 }
             ]
         },
@@ -62,6 +77,11 @@
                     "text": "Alınabilecek üç tür sinyal vardır:",
                     "updated": 1654397694915,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei Arten von Signalen, die empfangen werden können:",
+                    "updated": 1705146706148
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "text": "Sağlayıcı ve alıcı botlarını aynı mum üzerinde tutmak, alım satım sinyallerinin gerçekten yararlı olması için hayati önem taşır. Bu nedenle, Mum Senkronizasyon sinyalleri Gelen Sinyal düğümünün temel kullanımıdır. Mevcut gelen sinyalin ait olduğu mumu iletir. Bu, botlarınızın, sağlayıcının sinyali gönderdiği aynı mumu tanımlamasına olanak tanıyarak sizin ve sağlayıcının botunun senkronize kalmasını sağlar.",
                     "updated": 1654397706610,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit Handelssignale tatsächlich nützlich sind, ist es wichtig, dass die Bots des Anbieters und des Empfängers auf derselben Kerze stehen. Daher sind Candle -Sync-Signale die grundlegende Verwendung des Knotens für eingehende Signale. Er teilt die Kerze mit, zu der das aktuelle eingehende Signal gehört. Dadurch können Ihre Bots genau die gleiche Kerze identifizieren, an der der Anbieter das Signal gesendet hat, so dass Ihr Bot und der des Anbieters synchron bleiben.",
+                    "updated": 1705146728186
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "text": "Bir mum senkronizasyon sinyalinin alınması, bir Ticaret Sistemi düğümüne bir Gelen Sinyal düğümü eklenerek gerçekleştirilebilir. Ardından bir alt Giden Sinyal Referans düğümü eklenir. Ardından Gelen Sinyal Referansı düğümünden sağlayıcının Sosyal Ticaret Botu altında tutulan Ticaret Sistemi Sinyali düğümüne bir referans oluşturulur.",
                     "updated": 1654397712827,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Empfang eines Kerzensynchronisationssignals kann erreicht werden, indem ein Knoten Eingehendes Signal an einen Handelssystemknoten (Trading System node) angehängt wird. Dann fügen Sie einen untergeordneten Knoten Ausgehendes Signal Referenz (Outgoing Signal Reference node) hinzu. Anschließend wird ein Verweis vom Knoten Eingehendes Signal-Referenzsignal (Incoming Signal Reference node) auf den Knoten Handelssystem-Signal (Trading System Signal node) unter dem Social Trading Bot (Social Trading Bot) des Anbieters hergestellt.",
+                    "updated": 1705146836355
                 }
             ]
         },
@@ -107,7 +137,13 @@
             "style": "Note",
             "text": "You can think of this node as the one that activates the Trading Signals functionality in your Trading System.",
             "updated": 1647052377015,
-            "translations": [ ]
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können sich diesen Knoten als den Knoten vorstellen, der die Handelssignalfunktionalität (Trading Signals functionality) in Ihrem Handelssystem (Trading System) aktiviert.",
+                    "updated": 1705146879922
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -118,6 +154,11 @@
                     "text": "Olay Sinyalleri",
                     "updated": 1654397732531,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ereignis-Signale",
+                    "updated": 1705146913944
                 }
             ]
         },
@@ -130,6 +171,11 @@
                     "text": "Olay sinyalleri, sinyal sağlayıcının ticaret sistemi olaylarıyla ilgili bilgi göndermesine olanak tanır. Bu tür olaylara örnek olarak Tetik Açma Olayı, Tetik Kapatma Olayı, Pozisyon Alma Olayı vb. verilebilir.",
                     "updated": 1654397738262,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ereignissignale ermöglichen es dem Signalanbieter, Informationen über Ereignisse im Handelssystem zu senden. Beispiele für solche Ereignisse sind das Trigger On Event, das Trigger Off Event, das Take Position Event, etc.",
+                    "updated": 1705146930871
                 }
             ]
         },
@@ -143,6 +189,11 @@
                     "text": "Olay sinyallerini almak çok basittir.  Aşağıdaki adımları izleyin:",
                     "updated": 1654397743921,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Empfang von Ereignissignalen ist sehr einfach. Folgen Sie diesen Schritten:",
+                    "updated": 1705146938963
                 }
             ]
         },
@@ -155,6 +206,11 @@
                     "text": "Sağlayıcının Sosyal Ticaret Botundan almak istediğiniz etkinliği bulun.",
                     "updated": 1654397750089,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie das Ereignis, das Sie vom Social Trading Bot des Anbieters erhalten möchten.",
+                    "updated": 1705146952184
                 }
             ]
         },
@@ -167,6 +223,11 @@
                     "text": "Ticaret sisteminizdeki uygun olaya bir Gelen Sinyaller düğümü ekleyin.",
                     "updated": 1654397755962,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie einen Knoten \"Eingehende Signale\" zum entsprechenden Ereignis in Ihrem Handelssystem hinzu.",
+                    "updated": 1705146963298
                 }
             ]
         },
@@ -179,6 +240,11 @@
                     "text": "Bir alt Gelen Sinyal Referansı düğümü ekleyin.",
                     "updated": 1654397761635,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie einen untergeordneten Knoten \"Referenz für eingehende Signale\" (Incoming Signal Reference) hinzu.",
+                    "updated": 1705146989458
                 }
             ]
         },
@@ -191,6 +257,11 @@
                     "text": "Gelen Sinyal Referansı düğümünden Sağlayıcının Sosyal Ticaret Botu altındaki uygun Ticaret Stratejisi Sinyalleri düğümüne bir referans oluşturun.",
                     "updated": 1654397767562,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie einen Verweis vom Knoten Eingehende Signalreferenz (Incoming Signal Reference node) auf den entsprechenden Knoten für Handelsstrategiesignale (Trading Strategy Signals node) unter dem Social Trading Bot des Anbieters her.",
+                    "updated": 1705147080154
                 }
             ]
         },
@@ -204,6 +275,11 @@
                     "text": "Son olarak, Ticaret Sisteminizin sinyal bilgilerini nasıl yorumlamasını istediğinizi yapılandırın:",
                     "updated": 1654397773449,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Legen Sie schließlich fest, wie Ihr Handelssystem (Trading System) die Signalinformationen interpretieren soll:",
+                    "updated": 1705147145506
                 }
             ]
         },
@@ -217,6 +293,11 @@
                     "text": "Sinyaller, ticaret sisteminizi herhangi bir şey yapmaya zorlamaz. Sinyalden gelen bilgileri nasıl kullanacağınız tamamen size bağlıdır.",
                     "updated": 1654397780883,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Signale zwingen Ihr Handelssystem nicht, etwas zu tun. Es liegt ganz bei Ihnen, wie Sie die ",
+                    "updated": 1705147154847
                 }
             ]
         },
@@ -230,6 +311,11 @@
                     "text": "Sinyal bilgilerini kullanmak için, Olay'ın Koşul düğümünün Javascript Kodu düğümünde sinyali yorumlayacak mantığı ayarlayın.",
                     "updated": 1654397786603,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Signalinformationen zu verwenden, richten Sie die Logik zur Interpretation des Signals im Javascript Code -Knoten des Bedingungsknotens des Ereignisses (Event's Condition node) ein.",
+                    "updated": 1705147196975
                 }
             ]
         },
@@ -242,6 +328,11 @@
                     "text": "İşte olay sinyali alındığında kayıtların doğru olduğu temel bir örnek.",
                     "updated": 1654397792447,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein einfaches Beispiel, bei dem die Register true sind, wenn das Ereignissignal empfangen wird.",
+                    "updated": 1705147222586
                 }
             ]
         },
@@ -272,6 +363,11 @@
                     "text": "Formül Sinyalleri, sinyal sağlayıcının ticaret sistemi formüllerinden çıkan bilgileri göndermesine izin verir. Bu tür formüllere örnek olarak Hedef Oran, Emir Oranı, Temel Varlıktaki Hedef Büyüklük vb. verilebilir.",
                     "updated": 1654397804493,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit Formelsignalen (Formula Signals) kann der Signalanbieter Informationen senden, die aus Formeln des Handelssystems stammen. Beispiele für solche Formeln sind: Zielkurs, Auftragskurs, Zielgröße im Basiswert (Target Rate, Order Rate, Target Size In Base Asset), usw.",
+                    "updated": 1705147284169
                 }
             ]
         },
@@ -285,6 +381,11 @@
                     "text": "Bir formül sinyali almak, gelen sinyal verilerini yorumlamak için mantığın nasıl kurulacağı konusunda birkaç farkla bir olay sinyali almakla aynıdır.",
                     "updated": 1654397810117,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Empfang eines Formelsignals ist derselbe wie der eines Ereignissignals, mit einigen Unterschieden bei der Einrichtung der Logik zur Interpretation der eingehenden Signaldaten.",
+                    "updated": 1705147297070
                 }
             ]
         },
@@ -298,6 +399,11 @@
                     "text": "Formül Sinyali verilerini kullanmak için mantığı, Ticaret Sisteminin o bölümünün ilişkili Formül düğümü içinde kurun.",
                     "updated": 1654397815962,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Verwendung von Formelsignaldaten (Formula Signal data) richten Sie die Logik innerhalb des zugehörigen Formelknotens (Formula node) dieses Teils des Handelssystems (Trading System) ein.",
+                    "updated": 1705147352964
                 }
             ]
         },
@@ -311,6 +417,11 @@
                     "text": "İşte bu verileri alıp lastSignalFormulaValue adlı değişkene koymanın temel bir örneği:",
                     "updated": 1654397822866,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein einfaches Beispiel für den Empfang dieser Daten und ihre Aufnahme in die Variable lastSignalFormulaValue:",
+                    "updated": 1705147364340
                 }
             ]
         },
@@ -329,6 +440,11 @@
                     "text": "Sinyal nesnesi, alım satım sinyali tarafından iletilen tüm bilgileri tutan bir JavaScript nesnesidir. Bu nesnenin çeşitli özelliklerine erişmek, sinyal tarafından sağlanan tüm bilgileri kullanmanıza olanak tanır. Örneğin, bir formül sinyali tarafından gönderilen değeri toplamak için şu özelliklere erişebilirsiniz: signal.source.tradingSystem.node.formula.value",
                     "updated": 1654397829146,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Signal-Objekt ist ein JavaScript-Objekt, das alle Informationen enthält, die das Handelssignal liefert. Durch den Zugriff auf verschiedene Eigenschaften dieses Objekts können Sie auf alle vom Signal gelieferten Informationen zugreifen. Um zum Beispiel den von einem Formelsignal gesendeten Wert zu erfassen, würden Sie auf diese Eigenschaften zugreifen: signal.source.tradingSystem.node.formula.value",
+                    "updated": 1705147376218
                 }
             ]
         },
@@ -341,6 +457,11 @@
                     "text": "Bağlam verileri sağlayan Formül Sinyallerinin ek değişkenlere ek değerler atanarak ele alınması gerekecektir.",
                     "updated": 1654397834716,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Formelsignale (Formula Signals), die Kontextdaten liefern, müssen durch Zuweisung zusätzlicher Werte an zusätzliche Variablen behandelt werden.",
+                    "updated": 1705147404799
                 }
             ]
         }

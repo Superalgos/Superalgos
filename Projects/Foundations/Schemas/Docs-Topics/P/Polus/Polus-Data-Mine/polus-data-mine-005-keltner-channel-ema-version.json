@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "6",
+    "pageNumber": 5,
     "type": "Keltner Channel - EMA version",
     "definition": {
         "text": "Keltner Channel using Exponential Moving Average (EMA).",

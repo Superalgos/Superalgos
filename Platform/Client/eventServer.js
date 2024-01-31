@@ -76,6 +76,12 @@
                         eventHandler = newEventHandler()
                         eventHandler.deleteWhenAllListenersAreGone = true
                         eventHandlers.set(command.eventHandlerName, eventHandler)
+                    } else {
+                        /*
+                        This is added due to possible race conditions when multiple subscribers are listening to the same eventHandler.
+                        It avoids deletion of eventHandlers by concurrent stopListening requests while a new upcoming listener is not yet recorded.
+                        */
+                        eventHandler.deleteProtection = true
                     }
                     eventSubscriptionId = eventHandler.listenToEvent(command.eventHandlerName, command.eventType, command.callerId, handlerFunction, command.extraData)
 
@@ -113,10 +119,10 @@
                     eventHandler.stopListening(command.eventHandlerName, command.eventType, command.callerId, command.eventSubscriptionId)
 
                     /*
-                    We check here if there are no more listeners and the event handler original Origin Social Entity is also gone, then we need to delete
-                    this event handlers since chances are that is not needed anymore.
+                    We check here if there are no more listeners, the event handler original Origin Social Entity is also gone, and there is no delete protection
+                    for new listeners currently getting established. If all is confirmed, suspected unneccesary eventHandlers get deleted.
                     */
-                    if (eventHandler.listeners.length === 0 && eventHandler.deleteWhenAllListenersAreGone === true) {
+                    if (eventHandler.listeners.length === 0 && eventHandler.deleteWhenAllListenersAreGone === true && eventHandler.deleteProtection === false) {
                         eventHandlers.delete(command.eventHandlerName)
                     }
 
@@ -164,6 +170,7 @@
         let thisObject = {
             name: undefined,                            // This is for debugging purposes only.
             deleteWhenAllListenersAreGone: false,
+            deleteProtection: false,                    // Used to block Event Handlers from getting deleted, needed to avoid race conditions
             listeners: [],                              // Here we store all the functions we will call when an event is raised.
             listenToEvent: listenToEvent,
             stopListening: stopListening,
@@ -190,10 +197,10 @@
                     break
                 }
             }
-
-             
+            
             thisObject.listeners.push([eventHandlerName, eventType, callerId, handler, extraData, eventSubscriptionId])
-         
+            /* Remove temporary delete protection of the eventHandler after the new listener has been added to the array. */
+            thisObject.deleteProtection = false
 
             return eventSubscriptionId
         }

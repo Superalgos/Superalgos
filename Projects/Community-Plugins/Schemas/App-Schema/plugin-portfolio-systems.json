@@ -4,9 +4,12 @@
         {
             "action": "Add Missing Plugin Portfolio Systems",
             "label": "Add Missing Portfolio Systems",
+            "translationKey": "add.missing.portfolioSystems",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "iconPathOn": "portfolio-system",
             "iconPathOff": "portfolio-system",
             "iconProject": "Portfolio-Management",
@@ -18,7 +21,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

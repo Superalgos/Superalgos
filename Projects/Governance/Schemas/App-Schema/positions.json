@@ -6,6 +6,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Class",
+            "translationKey": "add.positionClass",
             "relatedUiObject": "Position Class",
             "relatedUiObjectProject": "Governance"
         },
@@ -13,6 +14,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Position",
+            "translationKey": "add.position",
             "relatedUiObject": "Position",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Governance"
@@ -22,7 +24,9 @@
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
+            "confirmationLabelTranslationKey": "general.confirm.install",
             "label": "Install as Plugin",
+            "translationKey": "install.asPlugin",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "payload.executeAction"
@@ -32,7 +36,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

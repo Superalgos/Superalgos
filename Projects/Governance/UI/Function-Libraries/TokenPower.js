@@ -364,3 +364,5 @@ function newGovernanceFunctionLibraryTokenPower() {
         }
     }    
 }
+
+exports.newGovernanceFunctionLibraryTokenPower = newGovernanceFunctionLibraryTokenPower

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Social Trading Bots содержит все определения Social Trading Bot, связанные с данным профилем пользователя.",
                 "updated": 1645195136088
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Social Trading Bots enthält alle Social Trading Bot -Definitionen, die mit diesem Benutzerprofil (User Profile) verbunden sind.",
+                "updated": 1705958779896
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645195141859
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705958790975
                 }
             ]
         }

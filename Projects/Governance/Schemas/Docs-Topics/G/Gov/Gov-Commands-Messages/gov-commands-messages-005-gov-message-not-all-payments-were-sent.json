@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ödeme çalıştırması güncellendi, ancak tüm ödemeler gönderilmedi. Düzeltmek için işlem çıktısını kontrol etmeniz ve muhtemelen tekrar çalıştırmanız gerekir.",
                 "updated": 1646741771969
+            },
+            {
+                "language": "DE",
+                "text": "Die Aktualisierungszahlung wurde ausgeführt, aber nicht alle Zahlungen wurden gesendet. Sie müssen die Prozessausgabe überprüfen, um das Problem zu beheben, und den Prozess wahrscheinlich erneut ausführen.",
+                "updated": 1700773002704
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Güncelsiniz. İstemciyi ( Client ) yeniden başlatmaya veya kullanıcı arayüzü ( UI ) sayfasını yenilemeye gerek yok.",
                     "updated": 1646741834233
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sind auf dem neuesten Stand. Sie müssen den Client nicht neu starten oder die Workspace (UI) -Seite aktualisieren.",
+                    "updated": 1700773052288
                 }
             ]
         }

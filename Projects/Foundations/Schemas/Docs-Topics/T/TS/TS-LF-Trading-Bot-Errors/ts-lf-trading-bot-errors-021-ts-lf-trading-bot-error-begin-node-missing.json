@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Bir Başlangıç ( Begin ) ​​düğümü bekleniyordu, ancak hatanın kaynaklandığı düğümde bulunamadı.",
                 "updated": 1648673474204
+            },
+            {
+                "language": "DE",
+                "text": "Ein Start-Knoten (Begin node) wurde erwartet, aber an dem Knoten, von dem der Fehler ausging, nicht gefunden.",
+                "updated": 1700081591638
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Düğüm Eksik Başla. ( Begin Node Missing )",
                     "updated": 1648673548456
+                },
+                {
+                    "language": "DE",
+                    "text": "Start- bzw. erster Knoten fehlt (Begin Node Missing)",
+                    "updated": 1700081553304
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Eksik düğümü ekleyin ve tekrar deneyin.",
                     "updated": 1648673577245
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700081614182
                 }
             ]
         }

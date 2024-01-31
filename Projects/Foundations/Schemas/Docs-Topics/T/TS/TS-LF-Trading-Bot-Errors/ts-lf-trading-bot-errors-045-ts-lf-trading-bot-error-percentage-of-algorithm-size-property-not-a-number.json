@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Yürütme Algoritması ( Execution Algorithm ) tarafından işlenen Boyutun ( Size ) yüzde kaçının Sipariş tarafından işleneceğini belirtmelisiniz.",
                 "updated": 1649626480383
+            },
+            {
+                "language": "DE",
+                "text": "Sie müssen angeben, welcher Prozentsatz der vom Ausführungsalgorithmus (Execution Algorithm) bearbeiteten Größe (Size) von der Order bearbeitet werden soll. ",
+                "updated": 1700512599330
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Aşama Hedef Boyutu Yüzdesi Özelliği Sayı Değil. ( Target Size Property Not A Number )",
                     "updated": 1649626561649
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaft \"Prozentsatz der Algorithmusgröße\" ist keine Zahl (Percentage Of Algorithm Size Property Not A Number)",
+                    "updated": 1700296814093
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Algoritmanın yapılandırmasını kontrol edin ve aşma dışı hedef boyutun yüzdesi özelliğinin var olduğundan ve sıfırdan büyük bir sayıyla tanımlandığından emin olun.",
                     "updated": 1649626642798
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Auftragskonfiguration und stellen Sie sicher, dass die Eigenschaft percentageOfAlgorithmSize existiert und mit einer Zahl größer als Null definiert ist.",
+                    "updated": 1700296850015
                 }
             ]
         }

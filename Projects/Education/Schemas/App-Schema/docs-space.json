@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "docsSpaceStyle",
             "label": "Add Docs Space Style",
+            "translationKey": "docs.space.style",
             "relatedUiObject": "Docs Space Style",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Education"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "docsSpaceSettings",
             "label": "Add Docs Space Settings",
+            "translationKey": "docs.space.settings",
             "relatedUiObject": "Docs Space Settings",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Education"
@@ -26,8 +28,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

@@ -1,4 +1,4 @@
-# :small_orange_diamond: Superalgos 1.5.0
+# :small_orange_diamond: Superalgos 1.6.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -115,7 +115,9 @@ Follow the installation wizards to install the latest NodeJS and Git. Make sure 
 
 - [Google Chrome download page](https://www.google.com/chrome/)
 
-> :white_check_mark: **ENVIRONMENT-SPECIFIC NOTES**: Additional notes about installing prerequisites on specific environments and edge cases can be found in the [Prerequisites Notes](#small_orange_diamond-prerequisites-notes) section in the Appendix.
+If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
+
+> :white_check_mark: **ENVIRONMENT-SPECIFIC NOTES**: Additional notes about installing prerequisites on specific environments, distributions and edge cases can be found in the [Prerequisites Notes](#small_orange_diamond-prerequisites-notes) section in the Appendix. We recommend checking these instructions before installing prerequisites manually from the above websites.
 
 > :white_check_mark: **TENSORFLOW NOTE**: If you wish to test the (partial and incomplete) TensorFlow integration, you will also need Python 3.
 
@@ -129,7 +131,7 @@ Make sure you give it the repo and workflow scopes. Check the clip below for cla
 
 ![github-personal-access-token](https://user-images.githubusercontent.com/13994516/161605002-734ddc2a-9cb1-49ec-ac6a-d127850ab64a.gif)
 
-Once you get the token, copy it and save it somewhere on your local machine. You will need to retrieve it later on.
+Once you get the token, copy it and save it somewhere on your local machine. You will need it for later steps of the installation process and from time to time also when using Superalgos.
 
 ## Superalgos Platform Client Installation
 
@@ -226,7 +228,7 @@ For example:
 node setupPlugins John ghz_2pBD4Sas0iYtwQGPjTq1Xlm3Ot4KpH3RLcr5
 ```
 
-> :white_check_mark: **NOTE**: This is the token you created on earlier steps!`
+> :white_check_mark: **NOTE**: This is the token you created during earlier steps!
 
 This script is going to fork all Community Plugins repositories into your own Github account, and then it will clone each of these repositories into your local `Superalgos/Plugins` folder. The process is designed in a way that if someday a new type of plugin is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
 
@@ -388,101 +390,85 @@ brew bundle
 
 > :white_check_mark: **NOTE**: You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
 
-## Linux (e.g. Ubuntu, or Raspberry Pi running Raspberry Pi OS/Raspbian) Prerequisites
+## Linux (e.g. Debian, Ubuntu, or Raspberry Pi running Raspberry Pi OS) Prerequisites
 
-[Follow the Node.js package manager install instructions](https://nodejs.org/en/download/package-manager/) for your distribution to ensure you are getting the latest version of Node.js. Many distributions only maintain an older version in their default repositories.
+Installing Superalgos is easiest when using a Linux distribution already including Node.js in a version >= 16. We successfully tested this for these distributions:
 
-> :white_check_mark: **NOTE**: Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
+* Debian version >= 12 ("Bookworm")
+* Fedora version >= 39
+* Rocky Linux >= 9
+* AlmaLinux >= 9
 
-```sh
-curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get \
-install -y \
-nodejs npm git python3
-```
-
-You may verify the installed versions with this command string:
+For Debian-based distributions (e.g. Debian, Ubuntu), run the following command to install required dependencies:
 
 ```sh
-node \
--v && npm \
--v && git --version
+apt-get install nodejs npm git
 ```
 
-If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
+When using RHEL-oriented distributions (e.g. Fedora, CentOS, Rocky Linux, AlmaLinux), run the following command to install required dependencies:
+```sh
+dnf install nodejs git
+```
 
-Alternatively, you can use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to set up a tool for using Bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian-based Distro. Nymea also has tools for automation of IoT products to allow setting up Superalgos as a timed function without needing to learn how to code.
+Node.js installation instructions for [many other distributions](https://nodejs.org/en/download/package-manager/) are available.
 
+> :white_check_mark: **NOTE**: You need to have sufficient privileges on your system to install new packages. It may be required to precede above commands by **sudo** for them to work.
+>
+> :white_check_mark: **NOTE**: While some distributions package **npm** together with **node**, other distributions require you to install **npm** separately.
+>
+> :white_check_mark: **NOTE**: You may additionally install the package "python3". Python 3 is only required for testing the (partial and incomplete) TensorFlow integration.
+
+
+You may now verify the successful installations and the installed software versions with these commands:
+
+```sh
+node -v
+npm -v
+git --version
+```
+
+All three commands should execute successfully and return a version number. If the version number of node is < 16, please proceed with the below instructions for [setting up a newer version of Node.js](#installing-newer-versions-of-nodejs). At the time of writing, particularly **Ubuntu users** will need to do these additional steps as the node version shipped with Ubuntu is outdated.
+
+If you want to run Superalgos on a machine different from a standard PC with x86 chipset, such as on ARM-based machines, please ensure to install the [additional prerequisites for non-standard chipsets](#additional-prerequisites-for-non-standard-chipsets).
+
+After all prerequisites are successfully installed, continue with obtaining your [Github Personal Access Token](#two-get-your-githubcom-personal-access-token) and proceed with the Superalgos Platform Client Installation.
+
+### Installing Newer Versions of Node.js
+Users of Linux distributions shipping outdated versions of Node.js (e.g. Ubuntu) will need to install a newer version of Node.js manually. We recommend using the Node Version Manager (nvm) to do this. For installing nvm, execute one of these commands (depending on the availability of curl or wget on your system):
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+or
+```sh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
 > :white_check_mark: **IMPORTANT**: 
 > 
-> If you are having node version errors there is a chance you may need to read the information in the Debian Prerequisites section and use NVM to handle node versions. This is due to some distributions having out-of-date repositories in the package manager lists.
+> After installing nvm, you need to close your current terminal and open a new one (log out and log in again) for the installation to take effect.
 
-## Debian or Debian WSL/WSL2 Prerequisites
-(NVM & NPM Fix)
-
-Debian distributions have been found to have some additional issues with installing the right version of NodeJS needed to run Superalgos. What follows are the steps to fix this issue.
-
-For this to work you will need to [use NVM to install and control node] (https://github.com/nvm-sh/nvm)
-
-- You will need to remove any versions of Node already installed on Debian due to the repositories currently being out of date.
-
-- __This is necessary before proceeding.__ 
-
+With nvm successfully set up, you can now easily obtain a newer version of node by running **nvm install**, followed by the version number you'd like to set up. For example to install Node.js v20:
 ```sh
-sudo apt remove nodejs -y
+nvm install 20
+```
+Last but not least, check if the active version of node is now meeting your needs:
+```sh
+node -v
 ```
 
+
+### Additional Prerequisites for Non-Standard Chipsets
+Users running machines with chipsets **different from a standard PC (x86)**, e.g. users of arm64-based machines, will additionally need to install **make, gcc and g++** to successfully complete the setup process.
+
+For Debian-based distributions (e.g. Debian, Ubuntu) running on machines with chipsets other than x86:
 ```sh
-sudo apt \
-update && apt upgrade \
--y sudo apt \
-install npm -y
+apt-get install build-essential
 ```
-
+For RHEL-oriented distributions (e.g. Fedora, CentOS, Rocky Linux, AlmaLinux) running on machines with chipsets other than x86:
 ```sh
-sudo apt \
-autoremove -y && \
-sudo apt autoclean -y
+dnf install make gcc gcc-c++
 ```
+For any other distribution, please investigate the package names for **make, gcc and g++** and install these packages accordingly.
 
-```sh
-sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-```
-
-_Without running the next 3 commands, you will need to logout off your shell/WSL2 user account before you are to use NVM_
- 
-```sh
-export NVM_DIR="$HOME/.nvm"
-```
-
-```sh
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-```
-
-```sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-```
-
-_Make sure things are up to date and packages not needed are removed_
-
-
-```sh
-sudo apt update &&\
-sudo apt upgrade && \
-apt autoremove -y
-```
-
-```sh
-cd Superalgos
-```
-
-into the directory of SuperAlgos
-and __run the install commands as follows__:
-
-```sh
-nvm run node <command string/var>
-```
-
-> :white_check_mark: **NOTE**: This is for node.js/node only, npm should work fine with Debian.
 
 # :small_orange_diamond: Troubleshooting Dependencies Installation
 
@@ -493,6 +479,8 @@ nvm run node <command string/var>
 > :white_check_mark: **NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** To avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup shortcuts`.
 
 > :white_check_mark: **NOTE FOR USERS INSTALLING ON LINUX:** If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
+
+> :white_check_mark: **NOTE FOR USERS INSTALLING ON LINUX MACHINES WITH NON-STANDARD CHIPSETS:** If after running `node setup` you are receiving error messages pointing to applications like make, cc or gcc missing, check the [additional prerequisites for non-standard chipsets](#additional-prerequisites-for-non-standard-chipsets).
 
 > :white_check_mark: **NOTE FOR USERS INSTALLING ON COMPUTERS WITH 1GB OF RAM** Superalgos has just about outgrown computers with only 1GB of RAM. For Instance a Raspberry Pi 3 does run the Getting Started Tutorials, but over time (Into 2023) this may significantly slow and could even stop. If still wish to use a computer with only 1GB of RAM (you have been warned), you will need to use version 16.x of Node.js as version 18.x needs well over 1 GB of RAM during setup. 
 

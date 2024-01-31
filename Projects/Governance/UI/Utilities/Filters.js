@@ -35,3 +35,5 @@ function newGovernanceUtilitiesFilters() {
         return passedFilters
     }
 }
+
+exports.newGovernanceUtilitiesFilters = newGovernanceUtilitiesFilters

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Oran düğümü altında geçerli bir Formül ( Formula ) kullanarak sipariş için bir Oranı ( Rate ) düzgün bir şekilde tanımlamanız gerekir.",
                 "updated": 1649105567440
+            },
+            {
+                "language": "DE",
+                "text": "Sie müssen einen Kurs (Rate) für den Auftrag richtig definieren, indem Sie eine gültige Formel (Formula) unter dem Knoten Kurs (Rate) verwenden. ",
+                "updated": 1700512578067
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Oran değeri tanımsız. ( Rate Value Undefined )",
                     "updated": 1649105651375
+                },
+                {
+                    "language": "DE",
+                    "text": "Rate Value undefiniert (Rate Value Undefined)",
+                    "updated": 1700294891917
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Oranı ( Rate ) düğümünün altındaki Formülü ( Formula ) düzeltin ve tekrar deneyin.",
                     "updated": 1649105753568
+                },
+                {
+                    "language": "DE",
+                    "text": "Korrigieren Sie die Formel (Formula) unter dem Knoten Rate und versuchen Sie es erneut.",
+                    "updated": 1700294936918
                 }
             ]
         }

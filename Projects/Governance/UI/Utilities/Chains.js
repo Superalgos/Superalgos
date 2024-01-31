@@ -44,3 +44,5 @@ function newGovernanceUtilitiesChains() {
     }
 
 }
+
+exports.newGovernanceUtilitiesChains = newGovernanceUtilitiesChains

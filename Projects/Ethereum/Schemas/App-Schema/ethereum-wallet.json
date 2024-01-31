@@ -5,6 +5,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Client Reference",
+            "translationKey": "add.childReference",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "networkClientReference",
             "relatedUiObject": "Network Client Reference",
@@ -15,6 +16,7 @@
             "action": "Create Wallet Account",
             "actionProject": "Ethereum",
             "label": "Add Wallet Account",
+            "translationKey": "add.walletAccount",
             "relatedUiObject": "Wallet Account",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Ethereum"
@@ -24,7 +26,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

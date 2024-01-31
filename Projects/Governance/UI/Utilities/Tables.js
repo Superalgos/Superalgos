@@ -172,3 +172,5 @@ function newGovernanceUtilitiesTables() {
         return { HTML: HTML, resultCounter: resultCounter }
     }
 }
+
+exports.newGovernanceUtilitiesTables = newGovernanceUtilitiesTables

@@ -5,12 +5,14 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Add UI Object",
             "label": "Add Asset",
+            "translationKey": "add.asset",
             "relatedUiObject": "Asset",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction",
@@ -19,9 +21,12 @@
         {
             "action": "Add Missing Assets",
             "label": "Add Missing Assets",
+            "translationKey": "add.missing.assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Asset",
             "relatedUiObjectProject": "Foundations",
             "actionFunction": "payload.executeAction"
@@ -31,7 +36,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

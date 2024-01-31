@@ -1,0 +1,39 @@
+{
+    "topic": "Trends AI Data Mine",
+    "pageNumber": "1",
+    "type": "Trends AI by @quantum8",
+    "definition": {
+        "text": "The Trends AI Data Mine features trend indicators to help identify upward or downward price action in the market. The indicators featured in this data mine make use of Machine Learning (ML), or Artificial Intelligence (AI) algorithms to self adapt to changing market conditions in order to make an improved decision on the current trend.\nThe parameters of each indicator can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node.",
+        "updated": 1695016916823
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Trends:"
+        },
+        {
+            "style": "List",
+            "text": "1.) Nadaraya-Watson Volatility Envelope"
+        },
+        {
+            "style": "List",
+            "text": "2) Nadaraya-Watson Envelope"
+        },
+        {
+            "style": "List",
+            "text": "3) Lorentzian Classification"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

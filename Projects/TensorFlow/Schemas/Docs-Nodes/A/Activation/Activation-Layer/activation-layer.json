@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir çıktıya bir aktivasyon fonksiyonu uygular.",
                 "updated": 1654396620804
+            },
+            {
+                "language": "DE",
+                "text": "Wendet eine Aktivierungsfunktion auf eine Ausgabe an.",
+                "updated": 1705959242948
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Bu katman eleman bazında aktivasyon fonksiyonu uygular. Başta yoğun olmak üzere diğer katmanlar da aktivasyon fonksiyonları uygulayabilir. Aktivasyondan önceki ve sonraki değerleri çıkarmak için bu yalıtılmış aktivasyon fonksiyonunu kullanın.",
                     "updated": 1654396626756,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Schicht wendet eine elementweise Aktivierungsfunktion an. Andere Schichten, insbesondere die dichte, können ebenfalls Aktivierungsfunktionen anwenden. Verwenden Sie diese isolierte Aktivierungsfunktion, um die Werte vor und nach der Aktivierung zu extrahieren.",
+                    "updated": 1705959253313
                 }
             ]
         }

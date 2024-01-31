@@ -29,6 +29,16 @@ const createPost = async (req, res) => {
     }
 };
 
+const deletePost = async (req, res) => {
+    try {
+        const result = await postService.deletePost(req.query);
+        res.send(result);
+    } catch (error) {
+        console.log(error)
+    }
+    
+};
+
 const createReply = async (req, res) => {
     try {
         const result = await postService.createReply(req.body);
@@ -70,6 +80,7 @@ const createRepost = async (req, res) => {
 module.exports = {
     getPosts,
     createPost,
+    deletePost,
     getFeed,
     getReplies,
     createReply,

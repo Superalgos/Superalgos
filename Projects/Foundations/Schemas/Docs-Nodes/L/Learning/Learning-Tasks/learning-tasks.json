@@ -10,6 +10,11 @@
                     "language": "RU",
                     "text": "В настоящее время реализуется инфраструктура для алгоритмов машинного обучения Machine Learning.",
                     "updated": 1638355526174
+                },
+                {
+                    "language": "TR",
+                    "text": "Makine Öğrenimi ( Machine Learning ) algoritmaları için altyapı şu anda uygulanmaktadır.",
+                    "updated": 1701084986642
                 }
             ]
         }
@@ -22,6 +27,11 @@
                 "language": "RU",
                 "text": "Learning Tasks - после их выполнения - будут управлять обучающими ботами, выполняющими алгоритм обучения с подкреплением.",
                 "updated": 1638356503064
+            },
+            {
+                "language": "TR",
+                "text": "Öğrenme görevleri -uygulandıktan sonra- bir takviye öğrenme algoritması çalıştıran Öğrenme Botlarını kontrol edecektir.",
+                "updated": 1701084969267
             }
         ]
     }

@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Als ich Superalgos entdeckte, war ich vom ersten Eindruck an begeistert. Wie leistungsfähig diese Software ist und wie einzigartig ihr Ansatz ist.",
                 "updated": 1687642771776
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u keşfettiğimde, ilk izlenimden itibaren hayran kaldım. Bu yazılımın ne kadar güçlü olduğu ve benzersiz yaklaşımı.",
+                "updated": 1696018003639
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste und wählen Sie \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
                     "updated": 1687642786096
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contrib kullanabilirsiniz.",
+                    "updated": 1696018010289
                 }
             ]
         },

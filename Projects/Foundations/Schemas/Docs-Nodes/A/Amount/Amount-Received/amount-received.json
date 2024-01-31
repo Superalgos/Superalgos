@@ -7,6 +7,11 @@
                 "language": "TR",
                 "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
                 "updated": 1652018390329
+            },
+            {
+                "language": "DE",
+                "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern.",
+                "updated": 1701930793290
             }
         ]
     },
@@ -23,6 +28,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
                     "updated": 1652018400683
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern.",
+                    "updated": 1701930793428,
+                    "style": "Text"
                 }
             ]
         },
@@ -40,6 +51,12 @@
                     "language": "TR",
                     "text": "Alınan Konfigürasyon Tutarı",
                     "updated": 1652018407708
+                },
+                {
+                    "language": "de",
+                    "text": "Empfangener Betrag (Amount Received) Konfiguration",
+                    "updated": 1701930793593,
+                    "style": "Title"
                 }
             ]
         },
@@ -52,6 +69,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652018413152
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930793680,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -64,6 +87,12 @@
                     "language": "TR",
                     "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652018423388
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930793762,
+                    "style": "List"
                 }
             ]
         }

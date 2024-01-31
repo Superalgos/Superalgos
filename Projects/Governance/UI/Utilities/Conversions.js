@@ -12,3 +12,5 @@ function newGovernanceUtilitiesConversions () {
         return   BTC.toFixed(3)  
     }
 }
+
+exports.newGovernanceUtilitiesConversions = newGovernanceUtilitiesConversions

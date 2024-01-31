@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -12,9 +13,12 @@
             "action": "Install Missing Assets",
             "actionProject": "Governance",
             "label": "Install Missing Assets",
+            "translationKey": "install.missingAssets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Asset",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Governance"
@@ -23,6 +27,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
+            "translationKey": "add.assetClass",
             "relatedUiObject": "Asset Class",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Governance"
@@ -31,6 +36,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
+            "translationKey": "add.asset",
             "relatedUiObject": "Asset",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Governance"
@@ -40,7 +46,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

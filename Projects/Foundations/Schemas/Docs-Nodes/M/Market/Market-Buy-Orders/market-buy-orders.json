@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Рыночные ордера на покупку - это раздел структуры данных, который отслеживает данный конкретный тип ордеров.",
                 "updated": 1645168331710
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa alım emirleri, veri yapısının bu özel emir türünü takip eden bölümüdür.",
+                "updated": 1701087439146
             }
         ]
     },
@@ -19,6 +24,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
                     "updated": 1645168336740
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1701087443323
                 }
             ]
         }

@@ -110,6 +110,40 @@ const createPost = async (body, res) => {
     }
 };
 
+const deletePost = async (body, res) => {
+        
+    try {
+        let eventMessage;
+        let event;
+        eventMessage = {
+            eventType: SA.projects.socialTrading.globals.eventTypes.REMOVE_SOCIAL_PERSONA_POST,
+            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+            timestamp: (new Date()).valueOf(),
+            originPostHash: body.originPostHash,
+            originSocialPersonaId: body.originSocialPersonaId,
+            fileKeys: body.fileKeys
+
+        }
+                
+        event = {
+            networkService: 'Social Graph',
+            requestType: 'Event',
+            eventMessage: JSON.stringify(eventMessage)
+        }
+
+        const result = await webAppInterface.sendMessage(
+            JSON.stringify(event)
+        )
+            res = result
+            
+            return res
+
+    } catch (e) {
+        console.log(e);
+        return {status: 'Ko'};
+    }
+}
+
 
 const getReplies = async (body, res) => {
     try {
@@ -235,6 +269,7 @@ const createRepost = async (body, res) => {
 module.exports = {
     getPosts,
     createPost,
+    deletePost,
     getFeed,
     getReplies,
     createReply,

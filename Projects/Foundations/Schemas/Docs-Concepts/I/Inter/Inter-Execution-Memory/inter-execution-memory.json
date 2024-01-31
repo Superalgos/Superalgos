@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bazı botların Ana Döngülerinin ( Main Loop ) bir sonraki döngüsünde uyandıktan sonra işlemlerine devam edebilmeleri için ihtiyaç duydukları bir veri yapısıdır.",
                 "updated": 1670331944709
+            },
+            {
+                "language": "DE",
+                "text": "Es handelt sich um eine Datenstruktur, die einige Bots benötigen, um ihre Operationen wieder aufzunehmen, nachdem sie im nächsten Zyklus ihrer Hauptschleife ( Main Loop ) aufgeweckt wurden.",
+                "updated": 1696955470044
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "Bu veri yapısı şu anda Botun Durum Raporunun içine kaydedilmiştir. Her bot genellikle her çalıştırmada kendi Durum Raporunu okuduğundan, bununla birlikte, bir önceki çalıştırmada kaydedilen Yürütmeler Arası Bellek veri yapısına erişebilir.",
                     "updated": 1654391178356,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Datenstruktur wird derzeit im Statusreport (Status Report) des Bots gespeichert. Da jeder Bot normalerweise bei jedem Lauf seinen eigenen Statusbericht liest, hat er damit Zugriff auf die Datenstruktur des Ausführungsspeichers, die er selbst beim vorherigen Lauf gespeichert hat.",
+                    "updated": 1696955470217,
                     "style": "Text"
                 }
             ]

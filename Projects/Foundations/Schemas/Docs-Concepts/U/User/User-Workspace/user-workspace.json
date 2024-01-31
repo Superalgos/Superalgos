@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bir kullanıcı tarafından oluşturulan ve yerel olarak My-Workspaces klasöründe depolanan bir Çalışma Alanına  ( Workspace ) atıfta bulunur.",
                 "updated": 1639232992091
+            },
+            {
+                "language": "DE",
+                "text": "Bezieht sich auf einen Arbeitsbereich, der von einem Benutzer erstellt und lokal im Ordner Platform/My- Workspace ´s gespeichert wurde.",
+                "updated": 1701013124824
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638300182641
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1701013137160
                 }
             ]
         }

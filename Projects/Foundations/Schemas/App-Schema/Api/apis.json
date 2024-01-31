@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Github API",
+            "translationKey": "add.githubAPI",
             "relatedUiObject": "Github API",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "githubAPI",
@@ -14,6 +15,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Web3 API",
+            "translationKey": "add.web3API",
             "relatedUiObject": "Web3 API",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "web3API",
@@ -24,6 +26,7 @@
         {
             "action": "Add UI Object",
             "label": "Add API Authorization Key",
+            "translationKey": "add.apiAuthorizationKey",
             "relatedUiObject": "API Authorization Key",
             "iconPathOn": "exchange-account-key",
             "iconPathOff": "exchange-account-key",
@@ -36,7 +39,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

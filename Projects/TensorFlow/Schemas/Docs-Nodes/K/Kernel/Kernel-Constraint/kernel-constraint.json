@@ -13,12 +13,17 @@
                 "language": "TR",
                 "text": "Çekirdek ağırlıkları için kısıtlama.",
                 "updated": 1654397218766
+            },
+            {
+                "language": "DE",
+                "text": "Einschränkung für die Kernelgewichte.",
+                "updated": 1707239942771
             }
         ]
     },
     "paragraphs": [
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Possible Values",
             "updated": 1613244375424,
             "translations": [
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654397226581,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1707239954675
                 }
             ]
         },

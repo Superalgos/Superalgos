@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir TensorFlow.js programı yürütüldüğünde, belirli yapılandırmaya yürütme ortamı denir. Yürütme Ortamı, tek bir global arka ucun yanı sıra TensorFlow.js'nin ince taneli özelliklerini kontrol eden bir dizi bayraktan oluşur.",
                 "updated": 1654397100984
+            },
+            {
+                "language": "DE",
+                "text": "Wenn ein TensorFlow.js Programm ausgeführt wird, wird die spezifische Konfiguration als Ausführungsumgebung bezeichnet. Die Ausführungsumgebung besteht aus einem einzigen globalen Backend sowie einer Reihe von Flags, die feinkörnige Eigenschaften von TensorFlow.js steuern.",
+                "updated": 1707239488565
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397108633,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239496944
                 }
             ]
         }

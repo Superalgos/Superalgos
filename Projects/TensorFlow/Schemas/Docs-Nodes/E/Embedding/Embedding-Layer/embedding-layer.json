@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Pozitif tamsayıları (indisleri) sabit boyutlu yoğun vektörlere eşler.",
                 "updated": 1654397049777
+            },
+            {
+                "language": "DE",
+                "text": "Bildet positive ganze Zahlen (Indizes) in dichte Vektoren fester Größe ab.",
+                "updated": 1707239394126
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Örnek",
                     "updated": 1654397055884,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel",
+                    "updated": 1707239401844
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "text": "Girdi şekli:* Şekilli 2B tensör: [batchSize, sequenceLength].",
                     "updated": 1654397062269,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform:* 2D-Tensor mit Form: [batchSize, sequenceLength].",
+                    "updated": 1707239409275
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "text": "Çıktı şekli:* Şekilli 3B tensör: [batchSize, sequenceLength, outputDim].",
                     "updated": 1654397068202,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgabeform:* 3D-Tensor mit Form: [batchSize, sequenceLength, outputDim].",
+                    "updated": 1707239416162
                 }
             ]
         }

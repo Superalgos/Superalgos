@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir veri kümesi nesnesi kullanarak modeli eğitir.",
                 "updated": 1654397140184
+            },
+            {
+                "language": "DE",
+                "text": "Trainiert das Modell anhand eines Datensatzobjekts.",
+                "updated": 1707239647272
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397145934,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239655307
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "İşlevsel ve Sıralı Model arasındaki temel fark, İşlevsel Modellerin, döngüleri olmadığı sürece rastgele bir katman grafiği oluşturmanıza izin vermesidir.",
                 "updated": 1654397166948
+            },
+            {
+                "language": "DE",
+                "text": "Der Hauptunterschied zwischen einem funktionalen und einem sequenziellen Modell (Sequential Model) besteht darin, dass Sie mit funktionalen Modellen einen beliebigen Graphen von Ebenen erstellen können, solange diese keine Zyklen haben.",
+                "updated": 1707239728435
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397172859,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239739112
                 }
             ]
         }

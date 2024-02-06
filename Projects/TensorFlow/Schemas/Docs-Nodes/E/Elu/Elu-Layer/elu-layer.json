@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Üstel Doğrusal Birim (ELU).",
                 "updated": 1654397021818
+            },
+            {
+                "language": "DE",
+                "text": "Exponential-Linear-Einheit (ELU).",
+                "updated": 1707239331121
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Takip Ediyor",
                     "updated": 1654397028129,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt",
+                    "updated": 1707239336462
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
                     "updated": 1654397035120,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: Beliebig. Verwenden Sie die Konfiguration inputShape, wenn Sie diese Ebene als erste Ebene in einem Modell verwenden.",
+                    "updated": 1707239367340
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "text": "Çıkış şekli: Giriş ile aynı şekil.",
                     "updated": 1654397040997,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Form der Ausgabe: Gleiche Form wie bei der Eingabe.",
+                    "updated": 1707239374396
                 }
             ]
         }

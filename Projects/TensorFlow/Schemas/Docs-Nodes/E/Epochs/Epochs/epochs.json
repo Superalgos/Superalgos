@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Makine Öğreniminde bir epok, tüm eğitim setinin öğrenme algoritması tarafından işlenmesinin tamamıdır. ... Makine Öğrenimi alanında uzun süredir kullanılmaktadır. Bir epok, eğitim setindeki tüm örneklerden her geçtiğinde artırılan zaman adımıdır.",
                 "updated": 1654397087655
+            },
+            {
+                "language": "DE",
+                "text": "Beim maschinellen Lernen (Machine Learning) ist eine Epoche die gesamte Verarbeitung des gesamten Zuges durch den Lernalgorithmus.... Sie wird seit langem im Bereich des maschinellen Lernens (Machine Learning) verwendet. Eine Epoche ist der Zeitschritt, der jedes Mal erhöht wird, wenn der Algorithmus alle Proben des Trainingssatzes durchlaufen hat.",
+                "updated": 1707239461748
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397094618,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239469579
                 }
             ]
         }

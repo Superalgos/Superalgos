@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Makineler bir kayıp fonksiyonu aracılığıyla öğrenir. Bu, belirli bir algoritmanın verilen verileri ne kadar iyi modellediğini değerlendiren bir yöntemdir. Tahminler gerçek sonuçlardan çok fazla saparsa, kayıp fonksiyonu çok büyük bir sayı verir.",
                 "updated": 1654397314158
+            },
+            {
+                "language": "DE",
+                "text": "Maschinelles Lernen mit Hilfe einer Verlustfunktion. Sie ist eine Methode zur Bewertung, wie gut ein bestimmter Algorithmus die gegebenen Daten modelliert. Wenn die Vorhersagen zu sehr von den tatsächlichen Ergebnissen abweichen, würde die Verlustfunktion eine sehr hohe Zahl ausspucken.",
+                "updated": 1707240466797
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397320258,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707240425551
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Girişi düzleştirir. Yığın boyutunu etkilemez. Bir Flatten katmanı, girdilerindeki her bir yığını 1D'ye düzleştirir (çıktıyı 2D yapar).",
                 "updated": 1654397155257
+            },
+            {
+                "language": "DE",
+                "text": "Glättet die Eingabe. Beeinflusst nicht die Chargengröße. Eine Ebene \"Verflachen\" verflacht jede Charge in ihren Eingaben auf 1D (wodurch die Ausgabe 2D wird).",
+                "updated": 1707239673963
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397160954,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239683663
                 }
             ]
         }

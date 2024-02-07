@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir Yapay Sinir Ağındaki ilk katman (giriş verilerini alan katman).",
                 "updated": 1654397191062
+            },
+            {
+                "language": "DE",
+                "text": "Die erste Schicht (die Schicht, die die Eingabedaten empfängt) in einem künstlichen neuronalen Netz (Artificial Neural Network).",
+                "updated": 1707239863146
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397198529,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239872595
                 }
             ]
         }

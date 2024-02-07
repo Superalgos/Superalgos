@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Doğrultulmuş lineer ünitenin sızdıran versiyonu.",
                 "updated": 1654397286783
+            },
+            {
+                "language": "DE",
+                "text": "Undichte Version einer gleichgerichteten Lineareinheit.",
+                "updated": 1707240355914
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Ünite aktif değilken küçük bir eğime izin verir:",
                     "updated": 1654397293584,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie ermöglicht ein geringes Gefälle, wenn das Gerät nicht aktiv ist:",
+                    "updated": 1707240363212
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
                     "updated": 1654397299673,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: Beliebig. Verwenden Sie die Konfiguration inputShape, wenn Sie diese Ebene als erste Ebene in einem Modell verwenden.",
+                    "updated": 1707240387492
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "text": "Çıkış şekli: Giriş ile aynı şekil.",
                     "updated": 1654397308313,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Form der Ausgabe: Gleiche Form wie bei der Eingabe.",
+                    "updated": 1707240395306
                 }
             ]
         }

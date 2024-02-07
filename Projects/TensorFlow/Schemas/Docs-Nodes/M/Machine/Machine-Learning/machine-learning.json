@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Machine Learning - это программа или система, которая строит (обучает) прогностическую модель на основе входных данных. Система использует выученную модель для составления полезных прогнозов на основе новых (ранее не встречавшихся) данных, взятых из того же распределения, которое использовалось для обучения модели. Машинное обучение также относится к области исследований, связанных с этими программами или системами.",
                 "updated": 1645248932641
+            },
+            {
+                "language": "DE",
+                "text": "Ein Programm oder System, das aus Eingabedaten ein Vorhersagemodell erstellt (trainiert). Das System verwendet das gelernte Modell, um nützliche Vorhersagen aus neuen (noch nie zuvor gesehenen) Daten zu treffen, die aus derselben Verteilung stammen wie die, die zum Trainieren des Modells verwendet wurde. Maschinelles Lernen bezieht sich auch auf das Studiengebiet, das sich mit diesen Programmen oder Systemen befasst.",
+                "updated": 1707240501649
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397325885,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707240509123
                 }
             ]
         }

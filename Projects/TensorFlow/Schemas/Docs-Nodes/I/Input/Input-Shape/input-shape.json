@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Modeldeki ilk katmanın bir inputShape'e ihtiyacı vardır. InputShape'i sağlarken batch boyutunu hariç tuttuğunuzdan emin olun. Örneğin, modeli [B, 784] şeklindeki tensörlerle beslemeyi planlıyorsanız, burada B herhangi bir yığın boyutu olabilir, modeli oluştururken inputShape'i [784] olarak belirtin.",
                 "updated": 1654397204415
+            },
+            {
+                "language": "DE",
+                "text": "Die erste Schicht des Modells benötigt eine inputShape. Vergewissern Sie sich, dass Sie die Losgröße bei der Angabe der inputShape ausschließen. Wenn Sie zum Beispiel planen, das Modell mit Tensoren der Form [B, 784] zu füttern, wobei B eine beliebige Losgröße sein kann, geben Sie bei der Erstellung des Modells als inputShape [784] an.",
+                "updated": 1707239895431
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397211611,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239903845
                 }
             ]
         }

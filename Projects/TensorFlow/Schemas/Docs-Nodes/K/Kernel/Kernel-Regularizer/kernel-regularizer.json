@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Çekirdek ağırlıkları matrisine uygulanan düzenleyici işlevi.",
                 "updated": 1654397249361
+            },
+            {
+                "language": "DE",
+                "text": "Regularisierungsfunktion, die auf die Matrix der Kernelgewichte angewendet wird.",
+                "updated": 1707240000803
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654397255278,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1707240008106
                 }
             ]
         },

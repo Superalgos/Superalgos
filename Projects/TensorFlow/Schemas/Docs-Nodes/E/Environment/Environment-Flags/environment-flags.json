@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "TensorFlow.js, otomatik olarak değerlendirilen ve mevcut platformdaki en iyi yapılandırmayı belirleyen bir dizi ortam bayrağına sahiptir. Bu bayraklar çoğunlukla dahili olmakla birlikte, birkaç global bayrak genel API ile kontrol edilebilir.",
                 "updated": 1654397074057
+            },
+            {
+                "language": "DE",
+                "text": "TensorFlow.js hat eine Reihe von Umgebungsflags, die automatisch ausgewertet werden und die beste Konfiguration für die aktuelle Plattform bestimmen. Diese Flags sind größtenteils intern, aber ein paar globale Flags können mit der öffentlichen API kontrolliert werden.",
+                "updated": 1707239436208
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397080880,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239443044
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Kullanıcıların, göstergelere erişmek için Superalgos tarafından sağlanan Veri Yapılarından herhangi birini kullanarak bir Veri Özelliğinin giriş değerini belirtmelerine olanak tanıyan bir formül.",
                 "updated": 1654397114503
+            },
+            {
+                "language": "DE",
+                "text": "Eine Formel, die es dem Benutzer ermöglicht, einen Eingabewert für ein Datenmerkmal (Data Feature) anzugeben und dabei eine der von Superalgos bereitgestellten Datenstrukturen für den Zugriff auf Indikatoren zu verwenden.",
+                "updated": 1707239610955
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397120600,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239620885
                 }
             ]
         }

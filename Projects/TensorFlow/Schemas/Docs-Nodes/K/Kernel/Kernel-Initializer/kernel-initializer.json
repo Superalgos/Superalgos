@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Çekirdek ağırlıkları matrisi için başlatıcı.",
                 "updated": 1654397236072
+            },
+            {
+                "language": "DE",
+                "text": "Initialisierer für die Matrix der Kernelgewichte.",
+                "updated": 1707239975468
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654397243040,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1707239983298
                 }
             ]
         },

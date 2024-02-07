@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Özellikler, tahminlerin yapılmasında kullanılan girdi değişkenleridir.",
                 "updated": 1654397179140
+            },
+            {
+                "language": "DE",
+                "text": "Merkmale (Features) sind Eingabevariablen, die bei der Erstellung von Vorhersagen verwendet werden.",
+                "updated": 1707239821557
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397185239,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239828604
                 }
             ]
         }

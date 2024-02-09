@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Вам нужно добавить новый элемент меню в определение узла в App Schema.",
                 "updated": 1640760767490
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Sie müssen ein Menu Item (Menüpunkt) in der Knotendefinition des App Schema hinzufügen.",
+                "updated": 1674162552107
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Найдите схему приложения",
                     "updated": 1640760889404
+                },
+                {
+                    "language": "DE",
+                    "text": "App-Schema lokalisieren",
+                    "updated": 1674162559820
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Ознакомьтесь со страницей описания концепции App Schema. После этого найдите файл App Schema, который вам нужно отредактировать, в папке Projects. Для каждого проекта существует один файл App Schema, выберите нужный и отредактируйте его с помощью VS Code.",
                     "updated": 1640760882835
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie sich die Seite des App Schema -Konzepts an. Suchen Sie danach die App Schema -Datei, die Sie im Ordner Projekte bearbeiten müssen. Es gibt eine App Schema -Datei für jedes Project. Wählen Sie die richtige Datei aus und bearbeiten Sie sie mit VS Code.",
+                    "updated": 1674162570975
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Будьте осторожны, чтобы ничего не повредить в файле App Schema при его редактировании. В противном случае у вас возникнут проблемы. Это может не только привести к тому, что пользовательский интерфейс не загрузится, но и повредить рабочее пространство, в котором вы работаете.",
                     "updated": 1640760917946
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, dass Sie bei der Bearbeitung der App Schema -Datei nichts beschädigen. Dadurch können Probleme entstehen. Dies kann nicht nur dazu führen, dass die UI (User-Interface => Bedienoberfläche) nicht geladen wird, sondern auch den Arbeitsbereich, in dem Sie arbeiten, beschädigt wird.",
+                    "updated": 1674162598164
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Если вы не уверены, к какому проекту принадлежит определенный узел, есть один трюк, чтобы найти его: закройте вкладку Docs и установите фокус на узле, к которому вы хотите добавить действие. Находясь в фокусе, используйте Ctrl + Shift + Alt + F12 для входа в консоль браузера объекта Node. Осмотрите его, чтобы увидеть свойство проекта. Скорее всего, это будет узел проекта Foundations.",
                     "updated": 1640760972419
+                },
+                {
+                    "language": "DE",
+                    "text": "Während der Fokus auf dem Knoten liegt, verwenden Sie Ctrl + Shift + Alt + F12 um sich in der Browserkonsole des Knotenobjekts anzumelden. Prüfen Sie dies, um die Eigenschaften des Projekts zu sehen. Vermutlich handelt es sich um einen Knoten der bei der Entwicklung der Software angelegt wurde.",
+                    "updated": 1674162713534
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Добавить пункт меню",
                     "updated": 1640760983963
+                },
+                {
+                    "language": "DE",
+                    "text": "Menüpunkt hinzufügen",
+                    "updated": 1674162738566
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Найдите в файле определение типа узла, к которому вы хотите добавить новое действие. После его нахождения добавьте объект пункта меню в массив menuItems, как показано в следующем примере:",
                     "updated": 1640761029157
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie innerhalb der Datei die Definition des Node Type (Knotentyp), dem Sie die neue Action hinzufügen. Fügen Sie dem Menüpunkt-Objekt ein menuItems array hinzu, wie im folgenden Beispiel:",
+                    "updated": 1674162827994
                 }
             ]
         },
@@ -99,6 +134,11 @@
                     "language": "RU",
                     "text": "Приведенный выше пример, скорее всего, является тем, что вам нужно добавить, за исключением того, что вам нужно будет ввести правильные значения для каждого из этих 4 свойств. Для полноты картины вот список свойств, которыми может обладать этот объект:",
                     "updated": 1640761050848
+                },
+                {
+                    "language": "DE",
+                    "text": "Das obige Beispiel entspricht höchstwahrscheinlich dem, was Sie hinzufügen müssen, mit dem Unterschied, dass Sie die richtigen Werte für jede dieser 4 Eigenschaften eingeben müssen. Der Vollständigkeit halber ist dies die Liste der Eigenschaften, die dieses Objekt haben kann:",
+                    "updated": 1674162857164
                 }
             ]
         },
@@ -111,6 +151,11 @@
                     "language": "RU",
                     "text": "action: определите название вашего действия. Пожалуйста, пишите первую букву с заглавной буквы. Пользователям это не будет видно.",
                     "updated": 1640761257086
+                },
+                {
+                    "language": "DE",
+                    "text": "action: Definieren Sie einen Namen für Ihre Aktion. Bitte schreiben Sie jeden Anfangsbuchstaben groß. Dies wird von den Benutzern nicht gesehen.",
+                    "updated": 1674162884174
                 }
             ]
         },
@@ -122,6 +167,11 @@
                     "language": "RU",
                     "text": "actionFunction: используйте стандартную функцию \"payload.executeAction\", если только вы не знакомы с системой и не хотите сделать что-то свое.",
                     "updated": 1640761152351
+                },
+                {
+                    "language": "DE",
+                    "text": "actionFunction: Verwenden Sie die Standardfunktion \"payload.executeAction\", es sei denn, Sie kennen sich mit dem System aus und möchten einige benutzerdefinierte Einstellungen vornehmen.",
+                    "updated": 1674162892274
                 }
             ]
         },
@@ -134,6 +184,11 @@
                     "language": "RU",
                     "text": "label: это то, что будет прочитано пользователями в меню узла.",
                     "updated": 1640761164436
+                },
+                {
+                    "language": "DE",
+                    "text": "label: Dies sollte von den Benutzern im Menü gelesen werden.",
+                    "updated": 1674162900492
                 }
             ]
         },
@@ -146,6 +201,11 @@
                     "language": "RU",
                     "text": "relatedUiObject: необязательный. Здесь вы можете определить тип узла. Система будет использовать для пиктограммы пункта меню изображение, связанное с типом узла, который вы здесь определили.",
                     "updated": 1640761186679
+                },
+                {
+                    "language": "DE",
+                    "text": "relatedUiObject: (optional) Sie können hier einen Node Type definieren. Das System verwendet für das Symbol des Menu Item, das Bild, welches mit dem hier definierten Node Type verknüpft ist.",
+                    "updated": 1674162908897
                 }
             ]
         },
@@ -158,6 +218,11 @@
                     "language": "RU",
                     "text": "askConfirmation: true, если вы хотите, чтобы пользователи подтверждали свои действия дополнительным щелчком мыши.",
                     "updated": 1640761201270
+                },
+                {
+                    "language": "DE",
+                    "text": "askConfirmation: Die Nutzer können die Eingabe mit einem Doppelklick bestätigen.",
+                    "updated": 1674162919785
                 }
             ]
         },
@@ -170,6 +235,11 @@
                     "language": "RU",
                     "text": "confirmationLabel: текст, который пользователи будут читать, когда их попросят подтвердить.",
                     "updated": 1640761274625
+                },
+                {
+                    "language": "DE",
+                    "text": "confirmationLabel: Die Nutzer lesen den Text, wenn sie zu einer Bestätigung aufgefordert werden.",
+                    "updated": 1674162934085
                 }
             ]
         },
@@ -181,6 +251,11 @@
                     "language": "RU",
                     "text": "iconPathOn: название изображения, которое будет отображаться, когда этот пункт меню включен (в случаях, когда он работает как переключатель).",
                     "updated": 1640761307268
+                },
+                {
+                    "language": "DE",
+                    "text": "iconPathOn: Dies ist der Name des Bildes, welches dargestellt werden soll, wenn dieser Menüpunkt eingeschaltet ist (wenn die Möglichkeit zur Auswahl steht)",
+                    "updated": 1674162949387
                 }
             ]
         },
@@ -192,6 +267,11 @@
                     "language": "RU",
                     "text": "iconPathOff: название изображения, которое будет отображаться, когда этот пункт меню выключен (в случаях, когда работает как переключатель).",
                     "updated": 1640761328519
+                },
+                {
+                    "language": "DE",
+                    "text": "iconPathOff: Dies ist der Name des Bildes, welches dargestellt werden soll, wenn dieser Menüpunkt ausgeschaltet ist (wenn die Möglichkeit zur Auswahl steht)",
+                    "updated": 1674162962272
                 }
             ]
         },
@@ -204,6 +284,11 @@
                     "language": "RU",
                     "text": "disableIfPropertyIsDefined: true, если вы хотите, чтобы пункт меню был отключен, если определенное свойство объекта Node определено во время выполнения. Это свойство используется в сочетании со свойством propertyToCheckFor в особой ситуации, когда пункт меню используется для создания дочернего объекта Node, который не является частью массива дочерних объектов и может быть только один дочерний объект такого типа.",
                     "updated": 1640761365996
+                },
+                {
+                    "language": "DE",
+                    "text": "disableIfPropertyIsDefined: wahr, wenn das Menu Item deaktiviert werden soll, wenn eine bestimmte Eigenschaft des Node (Knoten) zur Laufzeit definiert ist. Dies wird in Kombination mit der Eigenschaft [...] geprüft, wenn das Menu Item verwendet wird, um ein untergeordnetes Element für diesen Node zu erstellen, dass nicht Teil einer Reihe von untergeordneten Elementen ist und es nur ein untergeordnetes Element dieses Typs geben kann.",
+                    "updated": 1674162990593
                 }
             ]
         },
@@ -215,6 +300,11 @@
                     "language": "RU",
                     "text": "propertyToCheckFor: читаем предыдущее свойство.",
                     "updated": 1640761397718
+                },
+                {
+                    "language": "DE",
+                    "text": "propertyToCheckFor: lesen Sie die vorhergehende Eigenschaft.",
+                    "updated": 1674162998215
                 }
             ]
         },
@@ -227,6 +317,11 @@
                     "language": "RU",
                     "text": "workDoneLabel: текст для отображения при завершении действия",
                     "updated": 1640761413864
+                },
+                {
+                    "language": "DE",
+                    "text": "workDoneLabel: Text, der angezeigt wird, wenn die Aktion abgeschlossen ist",
+                    "updated": 1674163006537
                 }
             ]
         }

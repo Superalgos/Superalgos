@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Çalışma alanında yanlışlıkla bir şeyi bozmuş olabileceğinizi düşünüyorsanız, orijinal sürüm ayarlarına kolayca geri dönebilirsiniz.",
                 "updated": 1647866444269
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie glauben, dass Sie versehentlich etwas im Arbeitsbereich beschädigt haben, können Sie ganz einfach zu den ursprünglichen Freigabeeinstellungen zurückkehren.",
+                "updated": 1678647455538
             }
         ]
     },
@@ -33,22 +38,32 @@
                     "language": "TR",
                     "text": "Superalgos büyük bir sistemdir ve öğrenme eğrisi biraz dik olabilir. Başlangıçta kendinizi biraz kaybolmuş hissedebilirsiniz ve bir şeyin işe yaraması için yanlışlıkla düğümleri hiyerarşilerinden ayırabilir, referansları kaldırabilir, düğümleri silebilir ve hatta tüm veri yapılarını silebilirsiniz.",
                     "updated": 1647866476972
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein umfangreiches System, und die Lernkurve kann ein wenig steil sein. Am Anfang fühlen Sie sich vielleicht etwas verloren, und bei dem Versuch, etwas zum Laufen zu bringen, lösen Sie vielleicht versehentlich Knoten aus ihren Hierarchien, entfernen Referenzen, löschen Knoten oder sogar ganze Datenstrukturen.",
+                    "updated": 1678647467183
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started plugin workspace by selecting it from the Workspaces Tab on the left-hand side of the screen.",
+            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started Native Workspace by selecting it from the Workspaces Tab on the left-hand side of the screen.",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Если основные компоненты работают не так, как ожидалось, и вы думаете, что проблема может заключаться в том, что вы случайно что-то сломали, не паникуйте! Вы всегда можете вернуться к исходным настройкам релиза, восстановив рабочее пространство Getting Started Plugin Workspace, выбрав его на вкладке Workspaces в левой части экрана.",
+                    "text": "Если основные компоненты работают не так, как ожидалось, и вы думаете, что проблема может заключаться в том, что вы случайно что-то сломали, не паникуйте! Вы всегда можете вернуться к исходным настройкам релиза, восстановив рабочее пространство Getting Started Native Workspace, выбрав его на вкладке Workspaces в левой части экрана.",
                     "updated": 1640538248209
                 },
                 {
                     "language": "TR",
                     "text": "Temel şeyler beklediğiniz gibi çalışmıyorsa ve sorunun yanlışlıkla bir şeyi bozmuş olmanız olabileceğini düşünüyorsanız, panik yapmayın! Başlarken eklentisi çalışma alanını ekranın sol tarafındaki Çalışma Alanları ( Workspaces ) Sekmesinden seçerek bir çalışma alanını geri yükleyerek her zaman orijinal sürüm ayarlarına geri dönebilirsiniz.",
                     "updated": 1647866571979
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn grundlegende Dinge nicht wie erwartet funktionieren und Sie glauben, dass das Problem darin liegt, dass Sie versehentlich etwas kaputt gemacht haben, geraten Sie nicht in Panik! Sie können jederzeit zu den ursprünglichen Versionseinstellungen zurückkehren, indem Sie den Arbeitsbereich des Plugins \"Erste Schritte\" wiederherstellen, indem Sie ihn auf der Registerkarte \"Arbeitsbereiche\" (Workspaces) auf der linken Seite des Bildschirms auswählen.",
+                    "updated": 1678647481038
                 }
             ]
         }

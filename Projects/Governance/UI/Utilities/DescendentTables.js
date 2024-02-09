@@ -40,7 +40,7 @@ function newGovernanceUtilitiesDecendentTables() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "incoming",
@@ -48,7 +48,7 @@ function newGovernanceUtilitiesDecendentTables() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "tokensAwarded",
@@ -56,7 +56,7 @@ function newGovernanceUtilitiesDecendentTables() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 },
                 {
                     "name": "decendants",
@@ -72,7 +72,7 @@ function newGovernanceUtilitiesDecendentTables() {
                     "type": "number",
                     "order": "descending",
                     "textAlign": "center",
-                    "format": "2 decimals"
+                    "format": "integer"
                 }
             ]
         }
@@ -95,11 +95,11 @@ function newGovernanceUtilitiesDecendentTables() {
 
             let tableRecord = {
                 "name": userProfile.name,
-                "ownPower": program.payload[programPropertyName].ownPower | 0,
-                "incoming": program.payload[programPropertyName].incomingPower | 0,
-                "tokensAwarded": program.payload[programPropertyName].awarded.tokens | 0,
-                "decendants": program.payload[programPropertyName].awarded.count | 0,
-                "tokensBonus": program.payload[programPropertyName].bonus.tokens | 0
+                "ownPower": program.payload[programPropertyName].ownPower || 0,
+                "incoming": program.payload[programPropertyName].incomingPower || 0,
+                "tokensAwarded": program.payload[programPropertyName].awarded.tokens || 0,
+                "decendants": program.payload[programPropertyName].awarded.count || 0,
+                "tokensBonus": program.payload[programPropertyName].bonus.tokens || 0
             }
 
             if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {
@@ -129,3 +129,5 @@ function newGovernanceUtilitiesDecendentTables() {
         )
     }
 }
+
+exports.newGovernanceUtilitiesDecendentTables = newGovernanceUtilitiesDecendentTables

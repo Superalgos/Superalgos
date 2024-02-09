@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы практически готовы запустить новый бэктест, на этот раз с полными определениями на всех этапах!",
                 "updated": 1642943579552
+            },
+            {
+                "language": "ES",
+                "text": "Estamos prácticamente listos para realizar un nuevo backtest, esta vez, ¡con definiciones completas en todas las etapas!",
+                "updated": 1681055261321
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Прежде чем мы это сделаем, давайте удалим событие Close Stage Event, поскольку мы не собираемся его использовать!",
                     "updated": 1642943592068
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de hacerlo, vamos a eliminar el Close Stage Event, ya que tampoco lo vamos a utilizar.",
+                    "updated": 1681055289856
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Вот и все! Это было совсем не сложно, верно? Эта базовая настройка подходит для тестирования простых торговых идей. В следующих нескольких уроках мы рассмотрим более сложные настройки управления и исполнения!",
                     "updated": 1642943606876
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ya está! No ha sido nada difícil, ¿verdad? Esta configuración básica está bien para probar ideas simples de trading. ¡En los próximos tutoriales, vamos a ir a través de la gestión más elaborada y configuraciones de ejecución!",
+                    "updated": 1681055309395
                 }
             ]
         }

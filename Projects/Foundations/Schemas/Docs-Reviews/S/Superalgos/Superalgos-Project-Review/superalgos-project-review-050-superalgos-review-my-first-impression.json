@@ -1,0 +1,129 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 50,
+    "type": "Superalgos Review - My First Impression",
+    "definition": {
+        "text": "Write a summary for this review page.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1687642616921
+            },
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1696017857698
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Love for the first sight? Not necessarly :)",
+            "updated": 1674687103853,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Liebe auf den ersten Blick? Nicht unbedingt :)",
+                    "updated": 1687642625554
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk görüşte aşk mı? Şart değil :)",
+                    "updated": 1696017929305
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "I've read some reviews about Superalgos before I opened it, and knew, that it has a step learning curve so I haven't expected that will be easy and straightforward and gues what... it is NOT at all, absolutely :D",
+            "updated": 1674687872509,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe einige Bewertungen über Superalgos gelesen, bevor ich es öffnete, und wusste, dass es eine Stufe Lernkurve hat, so dass ich nicht erwartet habe, dass es einfach und unkompliziert sein wird, und ratet mal, was... es ist überhaupt nicht so, absolut:D",
+                    "updated": 1687642637432
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u açmadan önce hakkında bazı yorumlar okudum ve bir adım öğrenme eğrisi olduğunu biliyordum, bu yüzden kolay ve anlaşılır olmasını beklemiyordum ve tahmin edin ne oldu... hiç de öyle değil, kesinlikle:D",
+                    "updated": 1696017935014
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It is hard to get the idea at the beginning but from my perspective, the way how you navigate through the Design Space doesn't make this task easier. Fortunately I forgot about it after some time.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Am Anfang ist es schwer, den Überblick zu behalten, aber aus meiner Sicht macht die Art und Weise, wie man durch den Designbereich navigiert, diese Aufgabe nicht einfacher. Zum Glück habe ich das nach einiger Zeit vergessen.",
+                    "updated": 1687642647945
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıçta fikir edinmek zor ama benim bakış açıma göre, Tasarım Alanı'nda ( Design Space  ) gezinme şekliniz bu görevi kolaylaştırmıyor. Neyse ki bir süre sonra bunu unuttum.",
+                    "updated": 1696017974560
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "What I don't still get used to is this \"pop up\" menu, displayed after the hover any element. It is really annoying when there are few elements close to each other and when I want to display menu of the specific one, I have to conduct mousre pointer over the free places, around other elements just to get the interesting one. And when by accident I display menu of other element, I have to move mouse outside this big circle to make it disappear and try again. I hope that I just do not know everything about navigating or maybe I also need more time.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Woran ich mich immer noch nicht gewöhnt habe, ist dieses \"Pop-up\"-Menü, das angezeigt wird, wenn man mit der Maus über ein beliebiges Element fährt. Es ist wirklich ärgerlich, wenn es einige Elemente nahe beieinander gibt und wenn ich das Menü eines bestimmten Elements anzeigen möchte, muss ich den Mauszeiger über die freien Stellen führen, um andere Elemente herum, nur um das interessante Element zu erhalten. Und wenn ich aus Versehen das Menü eines anderen Elements anzeige, muss ich die Maus außerhalb dieses großen Kreises bewegen, damit es verschwindet, und es erneut versuchen. Ich hoffe, dass ich einfach nicht alles über das Navigieren weiß oder vielleicht brauche ich auch mehr Zeit.",
+                    "updated": 1687642660265
+                },
+                {
+                    "language": "TR",
+                    "text": "Hala alışamadığım şey, herhangi bir öğenin üzerine gelindiğinde görüntülenen bu \"açılır\" menü. Birbirine yakın birkaç öğe olduğunda ve belirli bir öğenin menüsünü görüntülemek istediğimde, ilginç olanı elde etmek için fare işaretçisini boş yerlerde, diğer öğelerin etrafında gezdirmem gerektiğinde gerçekten can sıkıcı oluyor. Ve kazara başka bir öğenin menüsünü görüntülediğimde, kaybolmasını sağlamak için fareyi bu büyük dairenin dışına taşımam ve tekrar denemem gerekiyor. Umarım gezinme hakkında her şeyi bilmiyorumdur ya da belki de daha fazla zamana ihtiyacım vardır.",
+                    "updated": 1696017983418
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I cannot say much more right know about usability because I'm still at the beginning of this adventure but what I know for sure that it has tons of features and I know that I will find here what I'm looking for:)",
+            "updated": 1674688565381,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich kann nicht viel mehr Recht über die Benutzerfreundlichkeit wissen, weil ich immer noch am Anfang dieses Abenteuers, aber was ich sicher weiß, dass es Tonnen von Funktionen hat und ich weiß, dass ich hier finden, was ich suche:)",
+                    "updated": 1687642670668
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanılabilirlik hakkında çok fazla şey söyleyemem çünkü hala bu maceranın başındayım ama emin olduğum şey tonlarca özelliğe sahip olduğu ve aradığım şeyi burada bulacağımı biliyorum:)",
+                    "updated": 1696017989448
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "BTW - Tutorials are great!!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "BTW - Tutorials sind großartig!!",
+                    "updated": 1687642680326
+                },
+                {
+                    "language": "TR",
+                    "text": "BTW - Öğreticiler harika!!!",
+                    "updated": 1696017995754
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "splywaczyk"
+        }
+    ]
+}

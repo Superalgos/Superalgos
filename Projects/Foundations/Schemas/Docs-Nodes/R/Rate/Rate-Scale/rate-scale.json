@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Rate Scale управляет масштабом вертикальной оси, т.е. масштабом действующего актива, либо машины времени, либо диаграммы временной шкалы, в зависимости от того, где расположен узел.",
                 "updated": 1639379614347
+            },
+            {
+                "language": "TR",
+                "text": "Fiyat ölçeği, düğümün bulunduğu yere bağlı olarak dikey eksenin ölçeğini, yani zaman makinesinin veya zaman çizelgesi grafiğinin alıntılanan varlığının ölçeğini kontrol eder.",
+                "updated": 1674917578790
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Шкалы Rate могут существовать как на уровне машины времени Time Mshine, так и на уровне временной шкалы Time Scale, каждая из которых влияет на соответствующую концепцию.",
                     "updated": 1639380493637
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat ( Rate ) ölçekleri hem bir zaman makinesi düzeyinde hem de bir zaman çizelgesi grafiği düzeyinde mevcut olabilir ve her biri ilgili kavramı etkiler.",
+                    "updated": 1674917659700
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "При установке на уровне машины времени настройки масштаба влияют на все графики в машине времени. При установке на уровне временной шкалы настройки имеют приоритет над шкалой ставок на уровне машины времени.",
                     "updated": 1639380511738
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman makinesi düzeyinde ayarlandığında, ölçek ayarları zaman makinesindeki tüm grafikleri etkiler. Zaman çizelgesi grafiği düzeyinde ayarlandığında, ayarlar zaman makinesi düzeyindeki fiyat ölçeğini geçersiz kılar.",
+                    "updated": 1674917705112
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Это позволяет иметь несколько графиков на одной машине времени, каждая с разными шкалами ставок. Это способ настройки индикаторов, которые предназначены для шкалы, отличной от шкалы курса активов на рынке. Например, индикаторы RSI и Percentage Bandwidth колеблются между 0 и 100.",
                     "updated": 1639380594317
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, aynı zaman makinesinde her biri farklı oran ölçeklerine sahip birden fazla grafiğe sahip olmayı sağlar. Bu, piyasadaki varlıkların fiyatından farklı bir ölçek için tasarlanmış göstergeleri kurmanın yoludur. Örneğin, RSI ve Yüzdesel Bant Genişliği göstergeleri 0 ile 100 arasında değişir.",
+                    "updated": 1674917833286
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "language": "RU",
                     "text": "Минимальные и максимальные значения шкалы",
                     "updated": 1639380608134
+                },
+                {
+                    "language": "TR",
+                    "text": "Minimum ve Maksimum Değerleri Ölçeklendirme (Scale Minimum and Maximum Values)",
+                    "updated": 1674917879119
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "Шкала ставок имеет минимальное и максимальное значение. Минимальное значение - это значение внизу диаграммы. Максимум - это значение в верхней части диаграммы.",
                     "updated": 1639380620689
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat ölçeğinin bir minimum ve bir maksimum değeri vardır. Minimum değer, grafiğin altındaki değerdir. Maksimum değer, grafiğin en üstündeki değerdir.",
+                    "updated": 1674917978033
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "С технической точки зрения, минимальные и максимальные значения шкалы постоянно меняются, поскольку всякий раз, когда вы панорамируете диаграммы по вертикали, вы напрямую влияете на минимальные и максимальные значения шкалы. При этом фактический масштаб может меняться динамически или нет, в зависимости от настроек автоматизации масштабирования.",
                     "updated": 1639380635575
+                },
+                {
+                    "language": "TR",
+                    "text": "Teknik açıdan, minimum ve maksimum ölçek değerleri sürekli olarak değişmektedir, çünkü grafikleri dikey olarak kaydırdığınızda, minimum ve maksimum ölçek değerlerini doğrudan etkilersiniz. Bununla birlikte, gerçek ölçek, ölçek otomasyon ayarlarına bağlı olarak dinamik olarak değişebilir veya değişmeyebilir.",
+                    "updated": 1674918038348
                 }
             ]
         },
@@ -97,18 +132,28 @@
                     "language": "RU",
                     "text": "Автоматическое масштабирование",
                     "updated": 1639380670893
+                },
+                {
+                    "language": "TR",
+                    "text": "Otomatik Ölçek (Automatic Scale)",
+                    "updated": 1674918090054
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, on both, or on none (manual mode).",
+            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Native Workspaces. The scale may be automatic in its minimum value, in its maximum value, on both, or on none (manual mode).",
             "updated": 1616513013651,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Plugin Workspaces. Шкала может быть автоматической по минимальному значению, по максимальному значению, по обоим параметрам или по отсутствию (ручной режим).",
+                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Native Workspaces. Шкала может быть автоматической по минимальному значению, по максимальному значению, по обоим параметрам или по отсутствию (ручной режим).",
                     "updated": 1639380722929
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, bazı Eklenti Çalışma Alanlarında ( Native Workspace ) varsayılan olarak açık olan otomatik bir ölçek ayarına sahiptir. Ölçek minimum değerinde, maksimum değerinde, her ikisinde veya hiçbirinde (manuel mod) otomatik olabilir.",
+                    "updated": 1674918209092
                 }
             ]
         },
@@ -120,6 +165,11 @@
                     "language": "RU",
                     "text": "Когда шкала устанавливается автоматически на минимальное значение, масштаб настраивается таким образом, чтобы никакая часть информации в диапазоне диаграммы никогда не оставалась ниже ее нижнего края. В результате самая низкая точка данных совпадает с нижней частью диаграммы.",
                     "updated": 1639380734826
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçek minimum değerde otomatik olduğunda, ölçek, grafiğin açıklığındaki hiçbir bilgi parçası grafiğin alt kısmının altında kalmayacak şekilde ayarlanır. Sonuç olarak, en düşük veri noktası grafiğin alt kısmıyla hizalanır.",
+                    "updated": 1674918263191
                 }
             ]
         },
@@ -131,6 +181,11 @@
                     "language": "RU",
                     "text": "Когда шкала устанавливается автоматически на максимальное значение, масштаб настраивается таким образом, чтобы никакая часть информации в диапазоне диаграммы никогда не оставалась выше ее верха. В результате самая высокая точка данных совпадает с верхней частью диаграммы.",
                     "updated": 1639380747076
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçek maksimum değerde otomatik olduğunda, ölçek, grafik aralığındaki hiçbir bilgi parçası grafiğin üst kısmının üzerinde kalmayacak şekilde ayarlanır. Sonuç olarak, en yüksek veri noktası grafiğin üst kısmıyla hizalanır.",
+                    "updated": 1674918300950
                 }
             ]
         },
@@ -142,6 +197,11 @@
                     "language": "RU",
                     "text": "Шкала может быть автоматизирована по одному или по минимальному и максимальному значениям одновременно. В последнем случае ни одна точка данных в диапазоне диаграммы никогда не остается вне видимой области диаграммы, так как самая низкая точка данных совпадает с нижней частью диаграммы, а самая высокая - с верхней.",
                     "updated": 1639380761446
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçek aynı anda minimum ve maksimum değerlerden birinde veya her ikisinde de otomatikleştirilebilir. Daha sonraki durumda, en düşük veri noktası grafiğin alt kısmıyla ve en yüksek veri noktası da üst kısmıyla hizalandığından, grafik kapsamındaki hiçbir veri noktası grafiğin görünür alanının dışında kalmaz.",
+                    "updated": 1674918355129
                 }
             ]
         },
@@ -153,6 +213,11 @@
                     "language": "RU",
                     "text": "Ручное масштабирование",
                     "updated": 1639380774026
+                },
+                {
+                    "language": "TR",
+                    "text": "Manuel Ölçek (Manual Scale)",
+                    "updated": 1674918422886
                 }
             ]
         },
@@ -164,6 +229,11 @@
                     "language": "RU",
                     "text": "В системе также есть ручной режим. В ручном режиме масштаб не меняется, даже если минимальное и максимальное значения меняются при перемещении по графику. Эта конструктивная особенность позволяет сравнивать разные периоды с использованием одной и той же шкалы, что во многих случаях может оказаться полезным.",
                     "updated": 1639380787439
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem ayrıca bir manuel moda sahiptir. Manuel moddayken, bir grafik üzerinde kaydırma yaparken minimum ve maksimum değerler değişse bile ölçek değişmez. Bu tasarım özelliği, birçok durumda değerli olabilecek aynı ölçeği kullanarak farklı dönemleri karşılaştırmaya olanak tanır.",
+                    "updated": 1674918476004
                 }
             ]
         },
@@ -175,6 +245,11 @@
                     "language": "RU",
                     "text": "Смещение шкалы",
                     "updated": 1639380852063
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçek Dengeleme (Scale Offset)",
+                    "updated": 1674918905233
                 }
             ]
         },
@@ -186,6 +261,11 @@
                     "language": "RU",
                     "text": "Смещение - это особенность шкалы ставок, с помощью которой шкала может быть сдвинута вверх или вниз. В результате диаграммы, выровненные по вертикальной оси, синхронизированные по дате и времени общей машиной времени, могут располагаться одна над другой. С технической точки зрения, происходит смещение шкалы вверх или вниз.",
                     "updated": 1639380844864
+                },
+                {
+                    "language": "TR",
+                    "text": "Dengeleme, ölçeğin yukarı veya aşağı kaydırılabildiği oran ölçeğinin bir özelliğidir. Sonuç olarak, dikey eksende hizalanan grafikler (paylaşılan bir zaman makinesi tarafından tarih saatinde senkronize edilen) birbirinin üzerine yerleştirilebilir. Teknik açıdan, olan şey ölçeğin yukarı veya aşağı doğru kaydırılmasıdır.",
+                    "updated": 1674918872320
                 }
             ]
         },
@@ -202,13 +282,25 @@
                     "language": "RU",
                     "text": "Rate Scale на графиках",
                     "updated": 1639380898533
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Fiyat Ölçeği (Rate Scale at the Charts)",
+                    "updated": 1674918992439
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Automatic Scale",
-            "updated": 1609783271471
+            "updated": 1609783271471,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Otomatik Ölçek (Automatic Scale)",
+                    "updated": 1674919030480
+                }
+            ]
         },
         {
             "style": "Text",
@@ -219,6 +311,11 @@
                     "language": "RU",
                     "text": "Чтобы изменить настройки автоматического масштабирования, наведите указатель мыши на соответствующую машину времени или поле скорости графика временной шкалы, нажмите клавишу Shift и медленно прокрутите колесико мыши. Действие циклически перебирает различные возможные настройки автоматизации масштабирования.",
                     "updated": 1639380911381
+                },
+                {
+                    "language": "TR",
+                    "text": "Otomatik ölçek ayarlarını değiştirmek için, fare imlecini ilgili zaman makinesi veya zaman çizelgesi grafik oranı kutusunun üzerine getirin, <kbd>Shift</kbd> tuşuna basın ve farenin tekerleğini yavaşça kaydırın. Eylem, farklı olası ölçek otomasyon ayarları arasında geçiş yapar.",
+                    "updated": 1674919681248
                 }
             ]
         },
@@ -231,6 +328,11 @@
                     "language": "RU",
                     "text": "Вы также можете поместить указатель мыши на рамку шкалы и использовать боковые стрелки ← → для переключения между различными настройками автоматизации.",
                     "updated": 1639380920263
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca fare imlecini ölçek kutusunun üzerine getirebilir ve farklı otomasyon ayarları arasında geçiş yapmak için <kbd>←</kbd> <kbd>→</kbd> yan oklarını kullanabilirsiniz.",
+                    "updated": 1674919850179
                 }
             ]
         },
@@ -242,6 +344,11 @@
                     "language": "RU",
                     "text": "Обратите внимание на крошечный зеленый треугольник под и / или над значком шкалы ставок.",
                     "updated": 1639380932607
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat ölçeği simgesinin altında ve/veya üstünde küçük yeşil bir üçgene dikkat edin.",
+                    "updated": 1674919906338
                 }
             ]
         },
@@ -253,6 +360,11 @@
                     "language": "RU",
                     "text": "Треугольник, направленный вверх, означает, что максимальное значение шкалы установлено автоматически.",
                     "updated": 1639380945547
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarı bakan bir üçgen, ölçeğin maksimum değerinin otomatik olduğu anlamına gelir.",
+                    "updated": 1674919935098
                 }
             ]
         },
@@ -264,6 +376,11 @@
                     "language": "RU",
                     "text": "Треугольник, направленный вниз, означает, что минимальное значение шкалы установлено автоматически.",
                     "updated": 1639380955238
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağı bakan bir üçgen, ölçeğin minimum değerinin otomatik olduğu anlamına gelir.",
+                    "updated": 1674919963960
                 }
             ]
         },
@@ -275,6 +392,11 @@
                     "language": "RU",
                     "text": "Наличие обоих треугольников одновременно означает, что и минимальное, и максимальное значения устанавливаются автоматически.",
                     "updated": 1639380965285
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki üçgenin aynı anda mevcut olması, hem minimum hem de maksimum değerlerin otomatik olduğu anlamına gelir.",
+                    "updated": 1674919989679
                 }
             ]
         },
@@ -286,13 +408,25 @@
                     "language": "RU",
                     "text": "Отсутствие треугольника означает, что и минимальное, и максимальное значения указаны в ручном режиме.",
                     "updated": 1639380976657
+                },
+                {
+                    "language": "TR",
+                    "text": "Üçgen olmaması, hem minimum hem de maksimum değerlerin manuel modda olduğu anlamına gelir.",
+                    "updated": 1674920035480
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Manual Scale",
-            "updated": 1609783276345
+            "updated": 1609783276345,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Manuel Ölçek (Manual Scale)",
+                    "updated": 1674920046743
+                }
+            ]
         },
         {
             "style": "Text",
@@ -303,6 +437,11 @@
                     "language": "RU",
                     "text": "Чтобы настроить шкалу, убедитесь, что одно или оба минимального и максимального значений указаны в ручном режиме. Наведите указатель мыши на соответствующую машину времени или поле скорости графика шкалы времени и прокрутите колесико мыши. Масштаб будет соответственно увеличиваться или уменьшаться в зависимости от того, какие значения установлены вручную.",
                     "updated": 1639380990310
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçeği ayarlamak için, minimum ve maksimum değerlerden birinin veya her ikisinin de manuel modda olduğundan emin olun. Fare imlecini ilgili zaman makinesi veya zaman çizelgesi grafik değeri kutusunun üzerine getirin ve farenin tekerleğini kaydırın. Hangi değerlerin manuel olarak ayarlandığına bağlı olarak ölçek buna göre artacak veya azalacaktır.",
+                    "updated": 1674920123765
                 }
             ]
         },
@@ -315,6 +454,11 @@
                     "language": "RU",
                     "text": "Как вариант, вы также можете поместить указатель мыши на рамку шкалы и использовать вертикальные стрелки ↑ ↓, чтобы изменить масштаб.",
                     "updated": 1639381001347
+                },
+                {
+                    "language": "TR",
+                    "text": "Alternatif olarak, fare imlecini ölçek kutusunun üzerine getirebilir ve ölçeği etkilemek için dikey okları <kbd>↑</kbd> <kbd>↓</kbd> kullanabilirsiniz.",
+                    "updated": 1674920224803
                 }
             ]
         },
@@ -326,6 +470,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что при изменении шкалы отображается число, заменяющее фактический курс. Это эталонное значение шкалы, которое может служить для целей сравнения со шкалами на других диаграммах.",
                     "updated": 1639381034339
+                },
+                {
+                    "language": "TR",
+                    "text": "Ölçeği değiştirirken, gerçek değerin yerine bir sayı görüntülendiğine dikkat edin. Bu, diğer grafiklerdeki ölçeklerle karşılaştırma amacıyla kullanılabilecek ölçeğin referans değeridir.",
+                    "updated": 1674920264030
                 }
             ]
         },
@@ -337,13 +486,25 @@
                     "language": "RU",
                     "text": "Это действие не имеет эффекта, если как минимальное, так и максимальное значения установлены в автоматический режим.",
                     "updated": 1639381070320
+                },
+                {
+                    "language": "TR",
+                    "text": "Minimum ve maksimum değerlerin her ikisi de otomatik moda ayarlandığında bu eylemin bir etkisi yoktur.",
+                    "updated": 1674920299924
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Scale Offset",
-            "updated": 1609783281780
+            "updated": 1609783281780,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ölçek Dengeleme (Scale Offset)",
+                    "updated": 1674920370499
+                }
+            ]
         },
         {
             "style": "Text",
@@ -354,6 +515,11 @@
                     "language": "RU",
                     "text": "Чтобы сдвинуть или сместить временную шкалу по вертикальной оси, поместите указатель мыши на поле скорости, щелкните левой кнопкой мыши и перетащите вверх или вниз по желанию. График временной шкалы сместится в указанном направлении, в то время как остальные графики останутся в том же положении.",
                     "updated": 1639381096649
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir zaman çizelgesi grafiğini dikey eksende kaydırmak veya dengelemek için fare işaretçisini oran kutusunun üzerine getirin, sol tıklayın ve istediğiniz gibi yukarı veya aşağı sürükleyin. Diğer grafikler aynı konumda kalırken zaman çizelgesi grafiği belirtilen yönde kayacaktır.",
+                    "updated": 1674920479626
                 }
             ]
         },
@@ -365,6 +531,11 @@
                     "language": "RU",
                     "text": "Установка смещения на временной шкале имеет смысл только в контексте машины времени с несколькими диаграммами. То есть, если вы просматриваете одну диаграмму, смещение ведет себя так же, как перемещение одной диаграммы вверх или вниз.",
                     "updated": 1639381114042
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir zaman çizelgesi grafiğinde bir dengeleme ayarlamak yalnızca birden fazla grafik içeren zaman makinesi bağlamında anlamlıdır. Yani, tek bir grafiğe göz atıyorsanız, dengeleme tek bir grafiği yukarı veya aşağı hareket ettirmekle aynı şekilde davranır.",
+                    "updated": 1674920621017
                 }
             ]
         },
@@ -382,6 +553,11 @@
                     "language": "RU",
                     "text": "Конфигурация Rate Scale",
                     "updated": 1639381130182
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat Ölçeği Yapılandırması (Rate Scale Configuration)",
+                    "updated": 1674920667581
                 }
             ]
         },
@@ -393,6 +569,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639381136449
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674920686847
                 }
             ]
         },
@@ -405,6 +586,11 @@
                     "language": "RU",
                     "text": "minValue - это числовое значение, представляющее значение шкалы в нижней части диаграммы.",
                     "updated": 1639381146369
+                },
+                {
+                    "language": "TR",
+                    "text": "minValue grafiğin altındaki ölçeğin değerini temsil eden sayısal bir değerdir.",
+                    "updated": 1674920881071
                 }
             ]
         },
@@ -416,6 +602,11 @@
                     "language": "RU",
                     "text": "maxValue - это числовое значение, представляющее значение шкалы в верхней части диаграммы.",
                     "updated": 1639381157641
+                },
+                {
+                    "language": "TR",
+                    "text": "maxValue  grafiğin üst kısmındaki ölçeğin değerini temsil eden sayısal bir değerdir.",
+                    "updated": 1674920918593
                 }
             ]
         },
@@ -427,6 +618,11 @@
                     "language": "RU",
                     "text": "autoMinScale устанавливает режим шкалы по минимальному значению; true устанавливает значение автоматически, false устанавливает значение вручную.",
                     "updated": 1639381175780
+                },
+                {
+                    "language": "TR",
+                    "text": "autoMinScale minimum değer için ölçek modunu ayarlar; doğru değeri otomatik olarak ayarlar, yanlış değeri manuel olarak ayarlar.",
+                    "updated": 1674920977809
                 }
             ]
         },
@@ -438,6 +634,11 @@
                     "language": "RU",
                     "text": "autoMaxScale устанавливает режим шкалы на максимальное значение; true устанавливает значение автоматически, false устанавливает значение вручную.",
                     "updated": 1639381185257
+                },
+                {
+                    "language": "TR",
+                    "text": "autoMaxScale maksimum değer için ölçek modunu ayarlar; doğru değeri otomatik olarak ayarlar, yanlış değeri manuel olarak ayarlar.",
+                    "updated": 1674921012210
                 }
             ]
         }

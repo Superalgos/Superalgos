@@ -1,0 +1,68 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "7",
+    "type": "Trend Confirmation Index",
+    "definition": {
+        "text": "The Trend Confirmation Index (TCI) helps identify strong and weak trends and displays the results as a histogram. Values outside the grey \"Crabzone\" box are considered a strong trend."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "TCI on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator calculates performs various EMA calculations using the (high+low+close)/3 as the input, as well as the difference between the EMAs and current HLC3 values to produce its final output result."
+        },
+        {
+            "style": "Text",
+            "text": "The resulting output oscillates around a value of 50, where values above 50 indicate an upward trend and vice versa. Additionally, values above 70 is considered a strong uptrend, where values below 30 indicate a strong downward trend.",
+            "updated": 1670817637325
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-tci-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| TCI | tci | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's moving averages can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"TCI\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-tci-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above the value of 70:",
+            "updated": 1670818390433
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.tci.value > 70 && chart.at01hs.tci.previous.value <= 70"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

@@ -3,12 +3,12 @@
     "pageNumber": 27,
     "type": "Tutorial Step - Contributable files?",
     "definition": {
-        "text": "Most files within the Superalgos folder are subject to be modified and contributed to the project! That includes code, images, documentation, etc.",
+        "text": "Most files within the Superalgos folder are subject to be modified and contributed to the project, including code, images, docs, etc.",
         "icon": {
             "name": "Data\\dataset",
             "project": "Foundations"
         },
-        "updated": 1610823292611,
+        "updated": 1688040906136,
         "translations": [
             {
                 "language": "IT",
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Hampir semua file dalam folder Superalgos merupakan subyek untuk dimodifikasi dan dikontribusikan ke proyek! temasuk juga kode, gambar, dokuemtasi, dll.",
                 "updated": 1668996035688
+            },
+            {
+                "language": "NL",
+                "text": "De meeste bestanden in de map Superalgos kunnen worden gewijzigd en worden toegevoegd aan het project! Dat omvat code, afbeeldingen, documentatie, enz.",
+                "updated": 1669750025584
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Estas carpetas están exentas de ser aportadas: My-Workspaces, Data-Storage y Log-Files.",
-                    "updated": 1628192469502,
+                    "text": "Estas carpetas están exentas de contribución: My-Workspaces, My-Data-Storage y My-Log-Files, dentro de la carpeta Platform.",
+                    "updated": 1675454504667,
                     "style": "Callout"
                 },
                 {
@@ -81,13 +86,18 @@
                     "language": "ID",
                     "text": "Folder-folder ini dikecualikan dari kontribusi: My-Workspaces, My-Data-Storage, dan My-Log-Files, dalam folder Platform.",
                     "updated": 1668996043301
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze mappen hoeven niet te worden bijgedragen: My-Workspaces, My-Data-Storage en My-Log-Files, binnen de map Platform.",
+                    "updated": 1669750045272
                 }
             ]
         },
         {
-            "style": "Important",
-            "text": "Do not use the Superalgos folder to store personal stuff or files that are not meant to be part of the Superalgos software! Anything that you include in the Superalgos folder (save for the noted exempted folders) is subject to be committed as a change, sent to your fork on GitHub.com, and included in a Pull Request, both publicly accessible!",
-            "updated": 1616948683272,
+            "style": "Warning",
+            "text": "Do not use the Superalgos folder to store personal stuff! Whatever you include in the Superalgos folder (save for the noted exempted folders) is likely to be committed to your fork on GitHub.com, and included in a Pull Request, both publicly accessible — once you hit the Contribute button! Nothing ever gets uploaded otherwise.",
+            "updated": 1688040981191,
             "translations": [
                 {
                     "language": "IT",
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡No use la carpeta de Superalgos para almacenar cosas personales o archivos que no deben ser parte del software de Superalgos! Lo que incluyas en la carpeta de Superalgos (excepto las carpetas exentas indicadas) está sujeto a enviarse a tu fork en GitHub.com e incluirse en una solicitud de extracción, ¡ambos de acceso público!",
-                    "updated": 1628194028189,
+                    "text": "¡No uses la carpeta de Superalgos para almacenar cosas personales o archivos que no deben ser parte del software de Superalgos! Lo que incluyas en la carpeta de Superalgos (excepto las carpetas exentas indicadas) está sujeto a enviarse a tu fork en GitHub.com e incluirse en una solicitud de extracción, ¡ambos de acceso público!",
+                    "updated": 1675454526336,
                     "style": "Important"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Jangankan gunakan folder Superalgos untuk menyimpan file pribadi yang tidak seharusnya bagian dari software Superalgos! Apapun yang kamu masukkan kedalam folder Superalgos (simpan untuk folder yang dikecualikan yang dicatat) jika diinginkan untuk menjadi perubahan, maka akan terkirim ke fork kamu di GIthub.com, dan disertakan dalam Pull Request, keduanya dapat diakses secara publik!",
                     "updated": 1668996049837
+                },
+                {
+                    "language": "NL",
+                    "text": "Gebruik de Superalgos-map niet om persoonlijke dingen of bestanden op te slaan die niet bedoeld zijn als onderdeel van de Superalgos-software! Alles wat u in de Superalgos-map opneemt (behalve de vermelde vrijgestelde mappen) kan als wijziging worden vastgelegd, naar uw fork op GitHub.com worden verzonden en worden opgenomen in een Pull Request, welke beide openbaar toegankelijk zijn!",
+                    "updated": 1669750082770
                 }
             ]
         }

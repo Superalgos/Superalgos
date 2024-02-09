@@ -41,6 +41,16 @@
                 "language": "RU",
                 "text": "Рабочее пространство можно поменять!",
                 "updated": 1640632880649
+            },
+            {
+                "language": "NL",
+                "text": "Workspaces kunnen worden gewijzigd!",
+                "updated": 1670772846891
+            },
+            {
+                "language": "ID",
+                "text": "Workspace dapat diubah!",
+                "updated": 1670299182378
             }
         ]
     },
@@ -58,8 +68,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Arreglé el workspace de una manera ligeramente diferente en comparación con Getting Started. Es una buena práctica personalizar el workspace para mantenerlo ordenado y limpio. Recuerda que cada jerarquía, nodo o descendencia puede afectar los recursos de tu máquina.",
-                    "updated": 1629344864911,
+                    "text": "Arreglé el Workspace de una manera ligeramente diferente en comparación con Getting Started. Es una buena práctica personalizar el workspace para mantenerlo ordenado y limpio. Recuerda que cada jerarquía, nodo o descendencia puede afectar los recursos de tu máquina.",
+                    "updated": 1682357632691,
                     "style": "Text"
                 },
                 {
@@ -81,6 +91,16 @@
                     "language": "RU",
                     "text": "Я расположил рабочее пространство несколько иначе, чем в Getting Started Tutorial. Это хорошая практика - настраивать рабочее пространство, чтобы сохранить его опрятным и чистым. Помните, что каждая иерархия, узел или потомок могут повлиять на ресурсы вашей машины.",
                     "updated": 1640632949728
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik heb de werkruimte op een iets andere manier ingericht ten opzichte van Getting Started. Het is een goede gewoonte om de werkruimte aan te passen om deze netjes en schoon te houden. Onthoud dat elke hiërarchie, node of nakomeling van invloed kan zijn op uw systeem prestaties.",
+                    "updated": 1670772903307
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku mengatur workspace sedikit berbeda dengan Getting Started. Itu adalah praktek bagus untuk mengkostumisasi workspace agar tetap rapi dan bersih. Ingatlah bahwa setiap hirarki, node, atau turunan dapat berpengaruh pada sumber daya mesinmu.",
+                    "updated": 1670299195984
                 }
             ]
         },
@@ -120,6 +140,16 @@
                     "language": "RU",
                     "text": "Осмотритесь, щелкните правой кнопкой мыши на пустом месте и изучите рабочее пространство, которое я организовал для вас!",
                     "updated": 1640632964362
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk rond, klik met de rechtermuisknop op de lege ruimte en verken de Workspace die ik voor je heb geregeld!",
+                    "updated": 1670772928668
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah sekeliling, click kanan pada tempat kosong dan jelajahi Workspace yang telah aku atur untukmu!",
+                    "updated": 1670299210338
                 }
             ]
         },

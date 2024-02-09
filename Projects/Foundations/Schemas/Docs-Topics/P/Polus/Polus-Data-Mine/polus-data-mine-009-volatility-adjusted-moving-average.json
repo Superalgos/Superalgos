@@ -1,0 +1,187 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 9,
+    "type": "Volatility Adjusted Moving Average",
+    "definition": {
+        "text": "The Volatility Adjusted Moving Average (VAMA) is an indicator that takes into account both short and long term volatility. It creates a moving average that attempts to gauge an area of price action that is expected to produce a reaction when interacting with it.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Volatility Adjusted Moving Average (VAMA) - это индикатор, который учитывает как краткосрочную, так и долгосрочную волатильность. Он создает скользящую среднюю, которая пытается определить область ценового действия, при взаимодействии с которой ожидается реакция.",
+                "updated": 1645715944178
+            },
+            {
+                "language": "DE",
+                "text": "Der volatilitätsangepasste gleitende Durchschnitt (VAMA) ist ein Indikator, der sowohl die kurzfristige als auch die langfristige Volatilität berücksichtigt. Er erstellt einen gleitenden Durchschnitt, der versucht, einen Bereich der Preisaktion zu messen, von dem erwartet wird, dass er eine Reaktion hervorruft, wenn er mit ihm interagiert.",
+                "updated": 1671346814192
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645715953580
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Volatility Adjusted Moving Average (VAMA) is a technical indicator originally created by Tushar S. Chande. Commonly referred to as the Variable Index Moving Average, it is a powerful indicator that uses two standard deviation periods to account for recent volatility.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скользящая средняя с поправкой на волатильность (VAMA) - это технический индикатор, первоначально созданный Тушаром С. Чанде. Обычно его называют скользящим средним с переменным индексом, это мощный индикатор, который использует два периода стандартного отклонения для учета недавней волатильности.",
+                    "updated": 1645715962047
+                },
+                {
+                    "language": "DE",
+                    "text": "Der volatilitätsbereinigte gleitende Durchschnitt (VAMA) ist ein technischer Indikator, der ursprünglich von Tushar S. Chande entwickelt wurde. Er wird auch als Variable Index Moving Average bezeichnet und ist ein leistungsstarker Indikator, der zwei Standardabweichungszeiträume verwendet, um die jüngste Volatilität zu berücksichtigen.",
+                    "updated": 1671346932763
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-VAMA.png"
+        },
+        {
+            "style": "Text",
+            "text": "The Long period (L) and Short period (S) parameters of the VAMA can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Volatility Adjusted MA’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры Long period (L) и Short period (S) VAMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Volatility Adjusted MA' Product Definition.",
+                    "updated": 1645715970004
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter \"Lange Periode\" (L) und \"Kurze Periode\" (S) des VAMA können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Volatility Adjusted MA’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671347001209
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-VAMA-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645715979250
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671347032019
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645715985085
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671347050284
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Adjusted MA | VAMA | vama, trend |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volatility Adjusted MA | VAMA | vama, trend |",
+                    "updated": 1671347067488
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645715990643
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671347090140
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when the trend is positive:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена таким образом, чтобы открывать сделку при положительном тренде:",
+                    "updated": 1645715998363
+                },
+                {
+                    "language": "DE",
+                    "text": "Es könnte eine einfache Strategie entwickelt werden, um einen Handel zu eröffnen, wenn der Trend positiv ist:",
+                    "updated": 1671347110562
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.VAMA.trend > 0"
+        },
+        {
+            "style": "Text",
+            "text": "Another example for a stop loss when the price action goes below the VAMA:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другой пример для стоп-лосса, когда ценовое действие идет ниже VAMA:",
+                    "updated": 1645716005962
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein weiteres Beispiel für einen Stop-Loss, wenn der Kurs unter den VAMA fällt:",
+                    "updated": 1671347133535
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.VAMA.vama"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671347151000
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

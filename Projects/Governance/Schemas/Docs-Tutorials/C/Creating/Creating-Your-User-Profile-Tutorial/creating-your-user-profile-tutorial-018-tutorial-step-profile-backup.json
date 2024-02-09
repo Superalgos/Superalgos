@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Tus Superalgos SA Token irán a la dirección que acabas de generar, debes almacenar de forma segura la clave privada que utilizará para acceder a la dirección.",
-                "updated": 1630891338657,
+                "text": " Tus tokens de recompensa irán a la dirección que acabas de generar o vincular, por lo que debes almacenar de forma segura la clave privada que necesitas para acceder a la dirección. ",
+                "updated": 1682520532069,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Ihre Superalgos SA Token Belohnungen gehen an die Adresse, die Sie gerade generiert haben, daher sollten Sie den privaten Schlüssel, den Sie für den Zugriff auf die Adresse verwenden, sicher aufbewahren.",
                 "updated": 1640077305680
+            },
+            {
+                "language": "ID",
+                "text": "Hadiah token kamu akan dikirim ke alamat yang telah kamu hasilkan atau tautkan, sehingga kamu harus menyimpan private key yang kamu butuhkan untuk mengakses alamat dengan aman.",
+                "updated": 1671442360826
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No ofrecemos una solución integrada para realizar copias de seguridad de tus claves privadas de forma segura. El sistema genera un par de dirección BSC / clave privada y lo entrega en la configuración del Profile Constructor. Depende de ti decidir cómo manejar esta información confidencial.",
-                    "updated": 1630890942338,
+                    "text": "Superalgos no ofrece una solución integrada para realizar copias de seguridad de sus claves privadas. El sistema genera un par dirección / clave privada compatible con EVM y lo entrega en la configuración del Constructor de perfiles. Depende de ti decidir cómo vas a manejar esta información sensible.",
+                    "updated": 1682520559776,
                     "style": "Important"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Superalgos bietet keine eingebaute Lösung, um Ihre privaten Schlüssel sicher zu sichern. Das System generiert ein BSC-Adress-/Privatschlüssel-Paar und liefert es in der Konfiguration des Profile Constructor . Es liegt an Ihnen zu entscheiden, wie Sie mit diesen sensiblen Informationen umgehen wollen.",
                     "updated": 1640077324949
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos tidak memberikan solusi bawaan untuk mencadangkan private key kamu dengan aman. Sistem menghasilkan EVM address compatibel / pasangan private key dan mengirimkannya ke konfigurasi dari Profile Constructor. Terserah kamu untuk memutuskan bagaimana kamu akan menangani informasi sensitif ini.",
+                    "updated": 1671442366760
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Accede a la configuración del Profile Constructor. Busca la dirección y la clave privada, y has una copia de seguridad de la información de la forma que consideres conveniente.",
-                    "updated": 1630890851074,
+                    "text": "Accede a la configuración del Profile Constructor. Busca la dirección y la clave privada, y haz una copia de seguridad de la información de la forma que consideres conveniente.",
+                    "updated": 1682520581519,
                     "style": "Callout"
                 },
                 {
@@ -80,13 +90,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Получите доступ к конфигурации Profile Constructor. Найдите адрес и закрытый ключ и сделайте резервную копию информации любым удобным для вас способом.",
+                    "text": "Получите д��ступ к конфигурации Profile Constructor. Найдите адрес и закрытый ключ и сделайте резервную копию информации любым удобным для вас способом.",
                     "updated": 1639047907170
                 },
                 {
                     "language": "DE",
                     "text": "Rufen Sie die Konfiguration des Profile Constructor auf. Suchen Sie die Adresse und den privaten Schlüssel und sichern Sie die Informationen auf die Art, die Sie für angemessen halten.",
                     "updated": 1640077337255
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses konfigurasi dari Profile Constructor. Temukan alamat dan private key, serta cadangkan informasi dengan cara apa pun yang kamu inginkan.",
+                    "updated": 1671442372772
                 }
             ]
         },

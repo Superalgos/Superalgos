@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Иерархия User Bots хранит определения всех ботов, связанных с текущим профилем пользователя, доступным в одноранговой сети Superalgos.",
                 "updated": 1645184004558
+            },
+            {
+                "language": "TR",
+                "text": "Kullanıcı Botları hiyerarşisi, Superalgos Eşler Arası Ağda mevcut Kullanıcı Profili ( User Profile ) ile ilişkili tüm Botlar için tanımları saklar.",
+                "updated": 1671809045455
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "В отличие от ботов, находящихся внутри Superalgos Platfrom (как описано в статье Bots In Superalgos), боты, находящиеся в этой иерархии, работают в контексте одноранговой сети Superalgos.",
                     "updated": 1645184024486
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Platfromunda bulunan botların aksine (Superalgos'taki Botlar ( Bots In Superalgos ) makalesinde açıklandığı gibi), bu hiyerarşide tutulan botlar Superalgos Eşler Arası Ağ bağlamında çalışır.",
+                    "updated": 1671809163220
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "RU",
                     "text": "Полезный способ отличить эти виды ботов - помнить, что боты, работающие в платформе, выполняют задачи внутри платформы. В то время как боты, работающие в сети, выполняют задачи в сети.",
                     "updated": 1645184039379
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür botları ayırt etmenin yararlı bir yolu, platformda çalışan botların platform içindeki görevleri tamamladığını hatırlamaktır. Ağ üzerinde çalışan botlar ise ağ üzerindeki görevleri tamamlar.",
+                    "updated": 1671809234258
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Это означает, что боты этой иерархии должны быть обнаруживаемы в одноранговой сети Superalgos. Это позволяет этим ботам делать такие вещи, как отправлять торговые сигналы по сети или взаимодействовать с другими ботами в сети в социальных торговых операциях.",
                     "updated": 1645184063901
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun anlamı, bu hiyerarşi altındaki botların Superalgos Eşler Arası Ağda keşfedilebilir olması gerektiğidir. Bu, bu botların ağ üzerinden ticaret sinyalleri göndermek veya sosyal ticaret faaliyetlerinde ağdaki diğer botlarla etkileşim kurmak gibi şeyler yapmasına olanak tanır.",
+                    "updated": 1671809459085
                 }
             ]
         }

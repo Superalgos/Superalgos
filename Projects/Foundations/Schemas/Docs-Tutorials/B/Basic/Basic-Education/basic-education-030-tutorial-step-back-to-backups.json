@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "30",
+    "pageNumber": 30,
     "type": "Tutorial Step - Back to Backups!",
     "definition": {
         "text": "Now that you understand references, we can go deeper into Backups, and maybe even discuss the differences with Clones!",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que comprendes las referencias, podemos profundizar en Backups,tal vez incluso discutir las diferencias con Clones!",
-                "updated": 1626568459683,
+                "text": "Ahora que comprendes las referencias, podemos profundizar en Backups, tal vez incluso discutir las diferencias con los  Clones!",
+                "updated": 1675376952493,
                 "style": "Definition"
             },
             {
@@ -152,8 +152,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Outgoing references: Siempre se mantienen intactos.",
-                    "updated": 1626569183871,
+                    "text": "Referencias de salida: Siempre se mantienen intactos.",
+                    "updated": 1675376984455,
                     "style": "List"
                 },
                 {
@@ -196,8 +196,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Incoming references: Se conservan solo cuando se elimina la estructura original antes de restaurar la copia de seguridad.",
-                    "updated": 1626613813084,
+                    "text": "Referencias de entrada: Se conservan solo cuando se elimina la estructura original antes de restaurar la copia de seguridad.",
+                    "updated": 1675376995575,
                     "style": "List"
                 },
                 {
@@ -240,8 +240,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Internal references: Permanecen internos, solo cuando la estructura original se elimina primero.",
-                    "updated": 1626613836362,
+                    "text": "Referencias internas: Permanecen internos, solo cuando la estructura original se elimina primero.",
+                    "updated": 1675377007308,
                     "style": "List"
                 },
                 {

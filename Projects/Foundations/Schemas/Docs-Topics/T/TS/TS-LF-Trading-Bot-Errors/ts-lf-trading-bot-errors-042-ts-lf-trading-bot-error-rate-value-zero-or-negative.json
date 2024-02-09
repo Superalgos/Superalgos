@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Emrin Oranı ( Rate ) sıfır veya negatif bir sayı olamaz.",
                 "updated": 1649277356299
+            },
+            {
+                "language": "DE",
+                "text": "Der Kurs (Rate) der Order kann nicht Null oder eine negative Zahl sein. ",
+                "updated": 1700512586780
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Oran Değeri Sıfır veya Negatif. ( Rate Value Zero Or Negative )",
                     "updated": 1649277418174
+                },
+                {
+                    "language": "DE",
+                    "text": "Ratenwert Null oder Negativ (Rate Value Zero Or Negative)",
+                    "updated": 1700295287186
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Oran ( Rate ) düğümü altındaki Formülü ( Formula ) kontrol edin ve sıfırdan büyük bir sayı olarak değerlendirdiğinden emin olun.",
                     "updated": 1649277529811
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Formel (Formula) unter dem Rate -Knoten und stellen Sie sicher, dass sie eine Zahl größer als Null ergibt.",
+                    "updated": 1700295294077
                 }
             ]
         }

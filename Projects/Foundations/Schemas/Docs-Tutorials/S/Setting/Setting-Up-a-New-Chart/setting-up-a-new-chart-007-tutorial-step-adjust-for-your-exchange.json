@@ -40,8 +40,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Este espacio de trabajo fue construido usando binance.com. Si ese es su intercambio, continúe y omita este paso. Sin embargo, si sus datos están almacenados en binance.us, deberá realizar un ajuste rápido.",
-                    "updated": 1628639619761
+                    "text": "Este espacio de trabajo fue construido usando binance.com. Si ese es su intercambio, continúa y omite este paso. Sin embargo, si tus datos están almacenados en binance.us, deberás realizar un ajuste rápido.",
+                    "updated": 1682429707520
                 },
                 {
                     "language": "DE",
@@ -67,8 +67,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Configure el nodo Binance a tu izquierda.",
-                    "updated": 1628639643918
+                    "text": "Configura el nodo Binance a tu izquierda.",
+                    "updated": 1682429714571
                 },
                 {
                     "language": "DE",
@@ -94,8 +94,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Open la configuración y cambiar la codeName a binanceus. Mueva el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente.",
-                    "updated": 1628639735404
+                    "text": "Open la configuración y cambia la codeName a binanceus. Mueve el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente.",
+                    "updated": 1682429776307
                 },
                 {
                     "language": "DE",
@@ -121,8 +121,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Clic en Edit de la etiqueta del nodo a leer Binanceus.",
-                    "updated": 1628639820319
+                    "text": "Edita la etiqueta del nodo para que diga Binanceus.",
+                    "updated": 1682429905059
                 },
                 {
                     "language": "DE",

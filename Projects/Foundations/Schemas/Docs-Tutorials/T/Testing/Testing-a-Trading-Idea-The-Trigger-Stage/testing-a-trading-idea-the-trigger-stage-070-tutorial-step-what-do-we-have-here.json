@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "İlk geriye dönük testimizde, strateji 26 Şubat'ta günlük mum kapandıktan sonra tetiklendi. Bu sefer de değişmemeli!",
-                "updated": 1641664175979
+                "text": "İlk geriye dönük testimizde, strateji 26 Şubat'ta günlük mum kapandıktan sonra tetiklendi. Bu sefer de değişmeyerek aynı mumda tetiklenmeli!",
+                "updated": 1669668675602
             },
             {
                 "language": "RU",
                 "text": "В нашем первом бэктесте стратегия сработала после закрытия дневной свечи 26 февраля. В этом случае ситуация не должна измениться!",
                 "updated": 1642662397951
+            },
+            {
+                "language": "ES",
+                "text": "En nuestro primer backtest, la estrategia se activó tras el cierre de la vela diaria del 26 de febrero. Esto no debería cambiar en este caso.",
+                "updated": 1679253018126
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Взгляните! Стратегия срабатывает, как только закрывается последняя часовая свеча от 26 февраля!",
                     "updated": 1642662412949
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echa un vistazo! La estrategia se activa en cuanto cierra la última vela horaria del 26 de febrero.",
+                    "updated": 1679253010174
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Elbette, tetikleyicinin saatlik mumun kapanmasıyla hiçbir ilgisi yoktur, ancak gün mumunun (aynı anda kapanır) her iki tetikleme koşulunu da doğru olarak onaylamasıyla ilgilidir. Hangi grafiğe baktığınız veya işlem seansının hangi zaman diliminde gerçekleştiği önemli değildir. Ticaret botu, tanımlanan zaman çerçevesi için her ifadeyi doğrular.",
-                    "updated": 1641664196193
+                    "text": "Elbette, tetiklemenin saatlik mum kapanışıyla hiçbir ilgisi yoktur, ancak günlük mum (aynı anda kapanır) her iki tetikleyicinin de doğru olduğunu doğrular. Hangi grafiğe baktığınız veya işlem seansının hangi zaman diliminde çalıştığı önemli değildir. Ticaret botu, tanımlanan zaman dilimindeki her ifadeyi doğrular.",
+                    "updated": 1669668774407
                 },
                 {
                     "language": "RU",
                     "text": "Конечно, срабатывание не связано с закрытием часовой свечи, но с дневной свечой (которая закрывается в то же время), подтверждающей истинность (true) обоих условий срабатывания. Не имеет значения, на какой график вы смотрите и на каком таймфрейме проходит торговая сессия. Торговый бот проверяет каждое из условий на определенном таймфрейме.",
                     "updated": 1642662531513
+                },
+                {
+                    "language": "ES",
+                    "text": "Por supuesto, la activación no tiene nada que ver con el cierre de la vela horaria, sino con la vela diaria (que cierra al mismo tiempo) validando ambas condiciones de activación como true. No importa qué gráfico se está viendo o en qué marco de tiempo se ejecuta la sesión de trading. El bot de trading valida cada condición en el marco de tiempo definido.",
+                    "updated": 1679253039292
                 }
             ]
         }

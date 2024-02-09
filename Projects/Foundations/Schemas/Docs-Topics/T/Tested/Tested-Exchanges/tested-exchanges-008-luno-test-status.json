@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Luno, veri madenciliği ve canlı ticaret için test edilmiştir - ancak, API'lerindeki son değişiklikler nedeniyle, geriye dönük test için neredeyse işe yaramaz hale geldi ve canlı ticaret için çok daha iyi değil. Açıklama için aşağıya bakın.",
                 "updated": 1650571264948
+            },
+            {
+                "language": "DE",
+                "text": "Luno wurde für Data Mining und für den Live-Handel getestet - aufgrund der jüngsten Änderungen an der API ist es jedoch für Backtests praktisch unbrauchbar geworden und für den Live-Handel nicht viel besser. Siehe unten für eine Erklärung.",
+                "updated": 1690357271188
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650571279943
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357276674
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet - ancak ciddi kısıtlamalarla. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği, artık 24 saatten eski işlemleri getiremeyeceğiniz için ciddi şekilde kısıtlandı.",
                     "updated": 1650571283783
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja - aber mit starken Einschränkungen. Die Möglichkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde nun stark eingeschränkt, da Sie keine Trades mehr abrufen können, die älter als 24 Stunden sind.",
+                    "updated": 1690357286448
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği [**]: Evet - ancak kısıtlamalarla. Canlı ticaret modunda stratejiler yürütme yeteneği artık mümkün. Superalgos tarafından kullanılan CCXT kitaplığının sürümünün 1.42.77 veya daha iyi olduğundan emin olun - bu kitaplığın önceki sürümleri, sipariş oluşturmak için belirtilen miktarlarda borsanın hassas ayarlarını doğru şekilde uygulamadı.",
                     "updated": 1650571332292
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsfähigkeit (Trading Capability) [**]: Ja - aber mit Einschränkungen. Die Fähigkeit, Strategien im Live-Handelsmodus auszuführen, ist jetzt möglich. Stellen Sie sicher, dass die Version der CCXT -Bibliothek, die von Superalgos verwendet wird, 1.42.77 oder besser ist - frühere Versionen dieser Bibliothek wendeten die Präzisionseinstellungen der Börse nicht korrekt in den für die Erstellung von Aufträgen angegebenen Beträgen an.",
+                    "updated": 1690357298625
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla istenebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle son derece yavaştır. Eskiden bir günlük Raw Data'nın indirilmesi yaklaşık 5 dakika sürerdi. Ancak, yakın zamanda yapılan bir yükseltmeden beri (15 Mayıs 2021 civarında bir yerde), 24 saatten daha eski ham alım satımları almak artık mümkün değil. Bu, bir başlangıç gününün tam olarak belirtilmesi gerektiği (yani hem tarih hem de saat) ve geçerli tarih/saatin 24 saatten daha az olması gerektiği anlamına gelir. Bir başlangıç tarihi belirlerken bunu aklınızda bulundurun. Bunun nedeni, OHCLV verilerinin alınmasını desteklememeleridir - bu verilerin bireysel işlemler getirilerek derlenmesi gerekir. İşlemlerin getirilmesi, istek başına 100 işlem ile sınırlıdır ve oran limiti 1 saniyedir. Ayrıca, herhangi bir işlem yapmaya başlamadan önce en az 24 saat veri madenciliği yapmanız gerekecektir.",
                     "updated": 1650571350854
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Die Gewinnung von Rohdaten (Raw Data) ist extrem langsam, da die Anzahl der Daten, die über die Rest-API angefordert werden können, durch Austauschbeschränkungen der API begrenzt ist. Das Herunterladen von Rohdaten für einen Tag dauerte früher etwa 5 Minuten. Seit einem kürzlichen Upgrade (um den 15. Mai 2021) ist es jedoch nicht mehr möglich, Rohdaten (Raw Data) abzurufen, die älter als 24 Stunden sind. Das bedeutet, dass der Starttag vollständig angegeben werden muss (d. h. sowohl Datum als auch Uhrzeit) und weniger als 24 Stunden hinter dem aktuellen Datum/Uhrzeit liegen muss. Beachten Sie dies, wenn Sie ein Startdatum festlegen. Der Grund dafür ist, dass sie den Abruf von OHCLV-Daten nicht unterstützen - diese Daten müssen durch den Abruf einzelner Abschlüsse zusammengestellt werden. Das Abrufen von Abschlüssen ist auf 100 Abschlüsse pro Anfrage beschränkt, und die Geschwindigkeit ist auf 1 Sekunde begrenzt. Außerdem müssen Sie das Data Mining mindestens 24 Stunden lang laufen lassen, bevor Sie mit dem Handel beginnen können.",
+                    "updated": 1690357310874
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "ÖNERİ: Luno geliştiricileri, OHLCV verilerini almak için doğru API'yi uygulayana kadar, Luno artık SuperAlgos ile kullanım için uygun değildir.",
                     "updated": 1650571370331
+                },
+                {
+                    "language": "DE",
+                    "text": "EMPFEHLUNG: Luno ist nicht mehr für die Verwendung mit SuperAlgos geeignet, bis die Luno-Entwickler die korrekte API für den Abruf von OHLCV-Daten implementieren.",
+                    "updated": 1690357325531
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650571379150
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357331240
                 }
             ]
         },

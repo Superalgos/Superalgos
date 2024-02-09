@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Projeler, oluşturulması ve sürdürülmesi gereken veya olması gereken her varlığı belirterek atomik düzeyde tanımlar üretebilir.",
                 "updated": 1646740361762
+            },
+            {
+                "language": "ES",
+                "text": "Los proyectos pueden producir definiciones a nivel atómico, especificando cada activo que es o necesita ser creado y mantenido.",
+                "updated": 1682595587134
             }
         ]
     },

@@ -1,0 +1,64 @@
+{
+    "topic": "Aggregated Data Mine",
+    "pageNumber": "4",
+    "type": "PPO Aggregate",
+    "definition": {
+        "text": "This indicator calculates a scaled aggregated of the PPO (Price Percentage Oscillator), center of gravity, a scaled RSI and the mean slope of the price action.",
+        "updated": 1679372821944
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "PPO Aggregate on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator contains many components, and as such can be used in a manner of different ways, that is up to the trader."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aggregated-ppo-aggregate.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| PPO_Aggregate | ppo_agg | ppoWeighted, ppoReweighted, div, signal, thresholdValue, AggregateLR |"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the individual indicators can be adjusted by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"PPO Aggregate\" Procedure Loop.",
+            "updated": 1679372881293
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aggregated-ppo-aggregate-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry condition could be performed with the following example, when the signal thresholdVal is not zero and the ppoWeighted line is above the ppoReweighted line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.ppo_agg.thresholdVal > 0 && chart.at01hs.ppo_agg.ppoWeighted > chart.at01hs.ppo_agg.ppoReweighted"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

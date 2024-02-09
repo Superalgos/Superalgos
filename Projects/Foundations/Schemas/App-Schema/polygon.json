@@ -38,6 +38,7 @@
             "propertyToCheckFor": "polygonCondition",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Condition",
+            "translationKey": "add.polygon.condition",
             "relatedUiObject": "Polygon Condition",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -48,6 +49,7 @@
             "propertyToCheckFor": "polygonBody",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Body",
+            "translationKey": "add.polygon.body",
             "relatedUiObject": "Polygon Body",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -58,6 +60,7 @@
             "propertyToCheckFor": "polygonBorder",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Border",
+            "translationKey": "add.polygon.border",
             "relatedUiObject": "Polygon Border",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -66,6 +69,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Polygon Vertex",
+            "translationKey": "add.polygon.vertex",
             "relatedUiObject": "Polygon Vertex",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -76,7 +80,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

@@ -1,0 +1,92 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 1,
+    "type": "Polus by @Raplh2502 ",
+    "definition": {
+        "text": "The Polus Data Mine features several indicators as listed below. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node.",
+        "updated": 1622696926695,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Polus Data Mine verfügt über mehrere Indikatoren, die unten aufgeführt sind. Die Parameter dieser Indikatoren können in der Indicator Bot Instance unter dem entsprechenden Data Mining Task Node angepasst werden.",
+                "updated": 1673449286514
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Polus Indicators:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "List",
+            "text": " 1.) Fisher MFI",
+            "updated": 1622481793076
+        },
+        {
+            "style": "List",
+            "text": " 2.) Monte Carlo Forecast"
+        },
+        {
+            "style": "List",
+            "text": " 3.) Keltner - Pluv"
+        },
+        {
+            "style": "List",
+            "text": " 4.) Keltner - MAMA"
+        },
+        {
+            "style": "List",
+            "text": " 5.) Keltner - EMA"
+        },
+        {
+            "style": "List",
+            "text": " 6.) One Min Counters"
+        },
+        {
+            "style": "List",
+            "text": " 7.) Volatility Index"
+        },
+        {
+            "style": "List",
+            "text": " 8.) Weighted Volatility Oscillator"
+        },
+        {
+            "style": "List",
+            "text": " 9.) Volatility Adjusted Moving Average"
+        },
+        {
+            "style": "List",
+            "text": "10.) Relative Vigor Index (RVI)"
+        },
+        {
+            "style": "List",
+            "text": "11.) Volatility Bands"
+        },
+        {
+            "style": "List",
+            "text": "12.) Ehlers signal-to-noise"
+        },
+        {
+            "style": "List",
+            "text": "13-18.) Price Probabilities"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1673449405674
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

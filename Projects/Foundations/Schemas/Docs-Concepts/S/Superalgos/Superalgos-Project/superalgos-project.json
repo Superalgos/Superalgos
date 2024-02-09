@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Superalgos Projesi, açık Topluluktur.",
                 "updated": 1642712290455
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos-Projekt ist die offene Gemeinschaft (Community), zusammen mit ihrem Werk.",
+                "updated": 1701031268283
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
                     "updated": 1638298676197
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1701031278778
                 }
             ]
         }

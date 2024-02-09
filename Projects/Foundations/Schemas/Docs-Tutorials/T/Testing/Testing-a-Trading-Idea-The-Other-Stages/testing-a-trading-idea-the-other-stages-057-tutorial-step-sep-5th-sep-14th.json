@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Это последние несколько сделок за тестируемый период, и все три - явные провалы.",
                 "updated": 1642945456430
+            },
+            {
+                "language": "ES",
+                "text": "Estas son las últimas operaciones del periodo analizado, y las tres son claros fracasos.",
+                "updated": 1681734320886
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Пора проверить контекст на таймфрейме 24H!",
                     "updated": 1642945472323
+                },
+                {
+                    "language": "ES",
+                    "text": "Es hora de comprobar el contexto en el plazo de 24 horas.",
+                    "updated": 1681734334830
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "На мой взгляд, неясно, подходит ли контекст для Swing Short или нет!",
                     "updated": 1642945498858
+                },
+                {
+                    "language": "ES",
+                    "text": "A mí me parece que no está claro si el contexto es adecuado para un swing short o no.",
+                    "updated": 1681734380262
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Итак, что мы можем сделать из этого первого теста? Давайте сравним результаты с прогнозами гипотезы.",
                     "updated": 1642945520687
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué conclusión sacamos de esta primera prueba? Comparemos los resultados con las predicciones de la hipótesis.",
+                    "updated": 1681734397796
                 }
             ]
         }

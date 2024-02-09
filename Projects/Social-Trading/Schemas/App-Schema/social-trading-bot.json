@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "propertyToCheckFor": "availableSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Available Signals",
+            "translationKey": "add.signals.available",
             "relatedUiObject": "Available Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },    
@@ -25,15 +27,27 @@
             "propertyToCheckFor": "availableStorage",
             "actionFunction": "payload.executeAction",
             "label": "Add Available Storage",
+            "translationKey": "add.availableStorage",
             "relatedUiObject": "Available Storage",
             "relatedUiObjectProject": "Open-Storage"
-        },    
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Followed Bot Reference",
+            "translationKey": "add.followedBotReference",
+            "relatedUiObject": "Followed Bot Reference",
+            "relatedUiObjectProject": "Social-Trading"
+        },     
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -71,6 +85,13 @@
             "type": "node",
             "childType": "Available Storage",
             "actionProject": "Open-Storage",
+            "autoAdd": false
+        },
+        {
+            "name": "followedBotReference",
+            "type": "array",
+            "childType": "Followed Bot Reference",
+            "project": "Social-Trading",
             "autoAdd": false
         }
     ]

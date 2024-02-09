@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Alınan Tutar düğümü ( Amount Received ) bekleniyordu ancak hatanın kaynaklandığı düğümde bulunamadı. ",
                 "updated": 1649104489474
+            },
+            {
+                "language": "DE",
+                "text": "Ein Amount Received -Knoten wurde erwartet, aber nicht an dem Knoten gefunden, an dem der Fehler auftrat. ",
+                "updated": 1700512555685
             }
         ]
     },
@@ -23,12 +28,24 @@
                     "language": "TR",
                     "text": "Alınan Düğüm Tutarı Eksik. ( Amount Received Node Missing )",
                     "updated": 1649104552445
+                },
+                {
+                    "language": "DE",
+                    "text": "Amount Received -Knoten fehlt (Amount Received Node Missing)",
+                    "updated": 1700294395407
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie den fehlenden Knoten hinzu und versuchen Sie es erneut.",
+                    "updated": 1700294405023
+                }
+            ]
         }
     ]
 }

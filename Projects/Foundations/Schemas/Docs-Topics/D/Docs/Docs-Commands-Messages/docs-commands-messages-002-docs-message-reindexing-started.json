@@ -32,6 +32,11 @@
                 "language": "TR",
                 "text": "docs.reindex komutu, Dokümanlar Arama Motoru Dizini'nin ( Docs Search Engine Index ) yeniden oluşturulmasını başlattı.",
                 "updated": 1652203608030
+            },
+            {
+                "language": "ES",
+                "text": "El comando docs.reindex ha iniciado la reconstrucción del Docs Search Engine Index.",
+                "updated": 1677427939877
             }
         ]
     },
@@ -67,6 +72,11 @@
                     "language": "TR",
                     "text": "Yeniden indeksleme, kaynak yoğun bir süreçtir. İşlem çalışırken, tüm CPU kaynakları dizini mümkün olduğunca hızlı bir şekilde yeniden oluşturmaya tahsis edildiğinden, arayüzü kullanamayacaksınız.",
                     "updated": 1652203664851
+                },
+                {
+                    "language": "ES",
+                    "text": "La re-indexación es un proceso que consume muchos recursos. Mientras se ejecuta el proceso, no podrás utilizar la interfaz ya que todos los recursos de la CPU se dedican a recrear el índice lo más rápido posible.",
+                    "updated": 1677427953749
                 }
             ]
         },
@@ -100,6 +110,11 @@
                     "language": "TR",
                     "text": "Çalışma alanındaki her düğümün taranması gerektiğinden, çalışma alanınızın ağırlığı, içeriği yeniden indekslemek için gereken süreyi etkiler. Tüm kod ve konfigürasyonlar indekslenir.",
                     "updated": 1652203694833
+                },
+                {
+                    "language": "ES",
+                    "text": "El peso de tu Workspace impacta en el tiempo requerido para reindexar el contenido ya que cada nodo del Workspace debe ser escaneado. Se indexan todos los códigos y configuraciones.",
+                    "updated": 1677427961783
                 }
             ]
         },
@@ -121,8 +136,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Warten sie paar Sekunden, bis der Vorgang abgeschlossen ist. Sie erhalten eine neue Nachricht, wenn der Vorgang abgeschlossen ist.",
-                    "updated": 1633902493282
+                    "text": "Warten sie paar Sekunden, bis der Vorgang abgeschlossen ist. Sie erhalten eine Information, wenn der Vorgang abgeschlossen ist.",
+                    "updated": 1677190867386
                 },
                 {
                     "language": "RU",
@@ -133,6 +148,11 @@
                     "language": "TR",
                     "text": "İşlem bitene kadar birkaç saniye bekleyin. Bittiğinde yeni bir mesaj alacaksınız.",
                     "updated": 1652203718218
+                },
+                {
+                    "language": "ES",
+                    "text": "Espera unos segundos hasta que finalice el proceso. Recibirás un nuevo mensaje cuando haya terminado.",
+                    "updated": 1677427967021
                 }
             ]
         }

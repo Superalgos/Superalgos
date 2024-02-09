@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Bir katman kaldı... Episodes! Bölümün süresini belirtir ve birkaç çizici paneli içerir...",
                 "updated": 1642502569443
+            },
+            {
+                "language": "ID",
+                "text": "Ada satu layer yang terlupakan... Episodes! Ini menandai durasi episode dan menampilkan fitur untuk beberapa panel plotter...",
+                "updated": 1673951701186
+            },
+            {
+                "language": "ES",
+                "text": "Queda una capa... ¡Episodios! Marca la duración del episodio y presenta varios paneles de trazado...",
+                "updated": 1675467520527
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "\"Episodes\" katmanını açın!",
                     "updated": 1642502595675
+                },
+                {
+                    "language": "ID",
+                    "text": "Aktifkan layer \"Episode\"!",
+                    "updated": 1673951708917
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Activa la capa \"Episodios\"!",
+                    "updated": 1675467570473
                 }
             ]
         },
@@ -68,6 +88,16 @@
                     "language": "TR",
                     "text": "Bu durumda, bölüm altı ay uzunluğundadır, bu nedenle tek göreceğiniz ekranın alt kısmındaki bir çizgidir ve her iki taraftaki bölüm simgesi bölümün ekranda gösterilen süreden daha uzun olduğunu belirtir.",
                     "updated": 1642502623529
+                },
+                {
+                    "language": "ID",
+                    "text": "Dalam hal ini, episode tersebut berdurasi enam bulan, jadi yang akan kamu lihat hanyalah garis di bagian bawah layar, dan ikon episode di kedua sisi, menandakan episode tersebut lebih panjang dari periode yang ditampilkan di layar.",
+                    "updated": 1673951715971
+                },
+                {
+                    "language": "ES",
+                    "text": "En este caso, el episodio dura seis meses, por lo que todo lo que verás es una línea en la parte inferior de la pantalla, y el icono del episodio a ambos lados, señalando que el episodio es más largo que el periodo representado en pantalla.",
+                    "updated": 1675467573788
                 }
             ]
         },
@@ -90,6 +120,16 @@
                     "language": "TR",
                     "text": "Her zamanki gibi, çizici panelleri, belgelerin TTrading Engine bölümünde açıklanan bilgileri içerir.",
                     "updated": 1642502659971
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti biasa, panel plotter menampilkan informasi yang dijelaskan di bagian Dokumentasi Trading Engine.",
+                    "updated": 1673951723348
+                },
+                {
+                    "language": "ES",
+                    "text": "Como es habitual, los paneles del plotter contienen información que se explica en la sección Trading Engine de la documentación.",
+                    "updated": 1675467596011
                 }
             ]
         }

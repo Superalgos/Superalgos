@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Ahora está listo para enviar tu nuevo perfil al repositorio principal de Superalgos!",
-                "updated": 1630898921155,
+                "text": "¡Ahora estás listo para enviar tu nuevo perfil al repositorio principal de Superalgos!",
+                "updated": 1682522044756,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Artık yeni profilinizi ana Superalgos deposuna göndermeye hazırsınız!",
                 "updated": 1645104050413
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kamu siap untuk memasukkan profil barumu ke repositori Superalgos!",
+                "updated": 1671545395111
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Configure tus credenciales de API de Github para prepararte para contribuir con tu perfil!",
-                    "updated": 1630898955283,
+                    "text": " Haz clic en la pestaña Contribuciones y, si aún no lo has hecho, configura tus credenciales de la API de Github para prepararte para contribuir con tu perfil.",
+                    "updated": 1682522066106,
                     "style": "Callout"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Profilinizi göndermeye hazırlanmak için Github API kimlik bilgilerinizi ayarlayın!",
                     "updated": 1645104091131
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik tab Contributions dan, jika kamu belum melakukannya, siapkan kredensial Github API kamu untuk bersiap berkontribusi pada profilmu!",
+                    "updated": 1671545415651
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si no sabe de lo que estoy hablando, es posible que necesites un repaso sobre cómo enviar una contribución a Superalgos. Lee estos pasos tomados del Tutorial Beyond the Basics para recordarte cómo es el proceso de autenticación de GitHub.",
-                    "updated": 1630899010292,
+                    "text": "Si no sabes de qué estoy hablando, puede que necesites un repaso sobre cómo enviar una contribución a Superalgos. Si ese es el caso, es posible que desees volver a ver el tutorial más allá de lo básico para recordar el proceso de autenticación de GitHub.",
+                    "updated": 1682522099393,
                     "style": "Warning"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Ne hakkında konuştuğumu bilmiyorsanız, Superalgos'a nasıl katkıda bulunacağınız konusunda bir tazelemeye ihtiyacınız olabilir. GitHub kimlik doğrulama sürecinin nasıl olduğunu hatırlatmak için Temel Bilgilerin Ötesinde ( Beyond the Basics Tutorial) eğitimine göz atabilirsiniz. Bunu sizin için sağ tarafta açtım.",
                     "updated": 1645104390381
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu belum memahami apa yang kuberitahu, kamu mungkin memerlukan penyegaran kembali tentang cara mengirimkan kontribusi ke Superalgos. Jika demikian, kamu mungkin ingin mengunjungi kembali Beyond the Basics Tutorial untuk mengingatkanmu kembali tentang proses autentikasi GitHub.",
+                    "updated": 1671545422295
                 }
             ]
         },

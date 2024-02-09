@@ -1,12 +1,15 @@
 {
-    "type": "Plugin P2P-Networks",
+    "type": "Plugin P2P Networks",
     "menuItems": [
         {
             "action": "Add Missing Plugin P2P Networks",
             "label": "Add Missing P2P Networks",
+            "translationKey": "add.missing.p2pNetworks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "iconPathOn": "p2p-network",
             "iconPathOff": "p2p-network",
             "iconProject": "Network",
@@ -14,11 +17,24 @@
             "actionProject": "Community-Plugins"
         },
         {
+            "action": "Add Specified P2P Network",
+            "label": "Add Specified P2P Network",
+            "translationKey": "add.specified.p2pNetwork",
+            "iconPathOn": "p2p-network",
+            "iconPathOff": "p2p-network",
+            "iconProject": "Network",
+            "actionProject": "Network",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -29,6 +45,9 @@
     "propertyNameAtParent": "pluginP2PNetworks",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
+    },
+    "editors": {
+        "list": true
     },
     "childrenNodesProperties": [
         {

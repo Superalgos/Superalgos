@@ -5,14 +5,27 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "translationKey": "add.formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "createOrderEvent",
             "label": "Add Create Order Event",
+            "translationKey": "add.order.event.create",
             "relatedUiObject": "Create Order Event",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,6 +36,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "simulatedExchangeEvents",
             "label": "Add Simulated Events",
+            "translationKey": "add.simulated.events",
             "relatedUiObject": "Simulated Exchange Events",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -33,7 +47,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -55,6 +71,12 @@
     },
     "propertyNameAtParent": "marketBuyOrders",
     "childrenNodesProperties": [
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula",
+            "autoAdd": false
+        },
         {
             "name": "createOrderEvent",
             "type": "node",

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Serinin ikinci öğreticisini yapmadıysanız, bunu yapmak için ihtiyacınız olan verileri kaçırma ihtimaliniz yüksektir!",
                 "updated": 1641062779714
+            },
+            {
+                "language": "ES",
+                "text": "Si no hiciste el segundo tutorial de la serie, ¡es muy probable que te falten los datos que necesitas para hacer éste!",
+                "updated": 1675621306352
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "İkinci öğreticiyi yaptıysanız, veri madenciliğini atlayabilirsiniz! Eğer yapmadıysanız, devam edin!",
                     "updated": 1641062854202
+                },
+                {
+                    "language": "ES",
+                    "text": "Si has hecho el segundo tutorial, puedes saltarte la extracción de datos. Si no lo hiciste, procede.",
+                    "updated": 1675621370910
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": " Not: Sensör botu 1 Ocak 2020'den itibaren BTC/USDT pazarında (Binance) çalışacaktır.",
                     "updated": 1641062890801
+                },
+                {
+                    "language": "ES",
+                    "text": "El Sensor Bot funcionará en el mercado BTC/USDT (Binance) a partir del 1 de enero de 2020.",
+                    "updated": 1675621373113
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Uyarı: Bu pazarda farklı bir zaman aralığında verileriniz varsa, bu verilerinizi etkileyebilir! Nasıl yapılacağını öğrenmek için sensör botu belgelerini okuyun!",
                     "updated": 1641062919302
+                },
+                {
+                    "language": "ES",
+                    "text": "Si tienes datos en este mercado pero en un rango de tiempo diferente, ¡esto puede afectar a tus datos! Lee la documentación del Sensor Bot para saber cómo hacerlo.",
+                    "updated": 1675621387837
                 }
             ]
         }

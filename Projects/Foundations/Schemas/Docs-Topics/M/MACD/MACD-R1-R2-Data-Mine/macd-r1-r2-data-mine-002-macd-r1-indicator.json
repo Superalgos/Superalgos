@@ -1,0 +1,82 @@
+{
+    "topic": "MACD R1 & R2 Data Mine",
+    "pageNumber": 2,
+    "type": "MACD R1 indicator",
+    "definition": {
+        "text": "This indicator produces the MACD R1 buy signals",
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Данный индикатор выдает сигналы на покупку MACD R1",
+                "updated": 1643523081092
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt die MACD R1 Kaufsignale",
+                "updated": 1702328276443
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MACD R1",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "The MACD R1, of refinement 1 does the following:",
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "MACD R1, уточнение 1, делает следующее:",
+                    "updated": 1643523095703
+                },
+                {
+                    "language": "DE",
+                    "text": "Der MACD R1 der Kategorie 1 tut Folgendes:",
+                    "updated": 1702328288027
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выжидает три (3) периода после пересечения, чтобы занять позицию, если в течение этого периода происходит другое пересечение, то ждет другого пересечения.",
+                    "updated": 1643523115994
+                },
+                {
+                    "language": "DE",
+                    "text": "Warten Sie drei (3) Perioden der Überschreitung ab, um eine Entscheidung (Position) zu treffen. Wenn während dieser Periode eine Überschreitung stattfindet, wird diese abgewartet.",
+                    "updated": 1702328296602
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/MACDR1-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "Because of the delayed nature of the indicator it is recommended to use a Take-Proft incase price falls quickly, of course this is up to the user. The underlying calculations uses the standard MACD settings, 12-26-9",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из-за запаздывающей природы индикатора рекомендуется использовать Take-Proft на случай быстрого падения цены, но это, конечно, на усмотрение пользователя. В расчетах используются стандартные настройки MACD, 12-26-9",
+                    "updated": 1643523135838
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufgrund der verzögerten Natur des Indikators wird empfohlen, einen Limit-Order (Take-Proft) zu verwenden, falls der Preis schnell fällt. Die zugrunde liegenden Berechnungen verwenden die Standard-MACD-Einstellungen, 12-26-9",
+                    "updated": 1702328307146
+                }
+            ]
+        }
+    ]
+}

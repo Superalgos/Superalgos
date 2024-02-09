@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Platformun kontrolü sizde olduğunda olasılıklar sonsuzdur. Superalgos, son kullanıcının geçmiş piyasa verilerine dayanan yerleşik geriye dönük test yeteneklerine sahip görsel bir tasarımcı aracılığıyla gelişmiş ticaret stratejileri oluşturmasına olanak tanır.",
                 "updated": 1669191862738
+            },
+            {
+                "language": "DE",
+                "text": "Die Möglichkeiten sind endlos, wenn Sie die Kontrolle über die Plattform haben. Superalgos ermöglicht es dem Endbenutzer, anspruchsvolle Handelsstrategien über einen visuellen Designer mit integrierten Backtesting-Funktionen auf der Grundlage historischer Marktdaten zu erstellen.",
+                "updated": 1685391764547
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Kripto alım satımlarını manuel olarak gerçekleştirdiğimi kabul etmek istemediğim kadar çok zaman geçirdikten sonra, başarılı yatırımcıların piyasa göstergelerini hızlı bir şekilde tanımak ve bunlara yanıt vermek için hangi araçlardan yararlanabildiğini merak etmeye başladım. Alım satım yapmak için yararlanabileceğim bir alım satım botu aramaya başladım, ancak bugün mevcut olan yazılımların çoğunun hesap bilgilerimi başka biri tarafından barındırılan bir hizmete vermemi gerektirdiğini hemen fark ettim.",
                     "updated": 1669191911163
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachdem ich mehr Zeit damit verbracht hatte, Krypto-Trades manuell auszuführen, als ich zugeben möchte, begann ich mich zu fragen, welche Tools erfolgreiche Trader nutzen konnten, um Marktindikatoren schnell zu erkennen und darauf zu reagieren. Ich begann, nach einem Trading-Bot zu suchen, den ich für den Handel nutzen konnte, stellte aber schnell fest, dass die meisten der heute verfügbaren Softwareprogramme voraussetzten, dass ich meine Kontoinformationen an einen Dienst weitergab, der von jemand anderem gehostet wurde.",
+                    "updated": 1685391780430
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Topluluk tarafından geliştirilen açık kaynaklı bir proje olan Superalgos, hiç de bu şekilde çalışmıyor. SA ile gerekli altyapı için kimseye güvenmeden yazılımı kendi cihazımdan çalıştırabiliyorum. Aylık abonelik ödemem gerekmiyor ve ticaret hesabı güvenliğimin risk altında olması konusunda endişelenmeme gerek yok.",
                     "updated": 1669191960853
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos, ein von der Gemeinschaft entwickeltes Open-Source-Projekt, funktioniert überhaupt nicht auf diese Weise. Mit SA bin ich in der Lage, die Software von meinem eigenen Gerät aus zu betreiben, ohne mich für die notwendige Infrastruktur auf jemand anderen verlassen zu müssen. Ich brauche kein monatliches Abonnement zu bezahlen und muss mir keine Sorgen machen, dass die Sicherheit meines Handelskontos gefährdet ist.",
+                    "updated": 1685391798899
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Bununla birlikte, temel kavramları anlamak biraz sabır ve dikkat gerektirir. Kodlamaya, özellikle Javascript'e aşina olmak faydalıdır, ancak başarılı stratejiler uygulamak için gerekli değildir. Araç, kendi stratejilerinizi ve göstergelerinizi oluşturmanıza ve hata ayıklamanıza yardımcı olacak tamamen görsel bir komut dosyası tasarımcısına sahiptir. Stratejiniz tasarlandıktan sonra araç, indirilen geçmiş piyasa verilerinden yararlanan yerleşik geriye dönük test etme özelliklerine sahiptir ve canlı ticarete geçmeden önce stratejinizin tamamen test edildiğinden emin olmanızı sağlar",
                     "updated": 1669191994162
+                },
+                {
+                    "language": "DE",
+                    "text": "Es erfordert jedoch ein wenig Geduld und Aufmerksamkeit, um ein Verständnis für die grundlegenden Konzepte zu erlangen. Eine Vertrautheit mit der Programmierung, insbesondere in Javascript, ist hilfreich, aber nicht notwendig, um erfolgreiche Strategien auszuführen. Das Tool verfügt über einen vollständig visuellen Skript-Designer, mit dem Sie Ihre eigenen Strategien und Indikatoren erstellen und debuggen können. Sobald Ihre Strategie entworfen ist, verfügt das Tool über integrierte Backtesting-Funktionen, die heruntergeladene historische Marktdaten nutzen und Ihnen die Gewissheit geben, dass Ihre Strategie vollständig getestet ist, bevor Sie zum Live-Handel übergehen.",
+                    "updated": 1685391812243
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Kutudan çıkar çıkmaz, öğrenmek için topluluk tarafından oluşturulmuş birkaç strateji vardır. Aslında topluluk, araca dahil edilen belki de en fazla küçümsenen özelliktir! Sağlıklı bir katılımcı grubu ve zamanını ve çabasını paylaşmaya ve katkıda bulunmaya istekli özel bir kullanıcı grubu, bu projenin hızlı bir şekilde büyümesini sağladı.",
                     "updated": 1669192027637
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt mehrere von der Gemeinschaft entwickelte Strategien, von denen man lernen kann. In der Tat ist die Community vielleicht die am meisten unterschätzte Funktion des Tools! Eine gesunde Anzahl von Mitwirkenden und eine engagierte Gruppe von Nutzern, die bereit sind, ihre Zeit und ihren Einsatz zu teilen und beizusteuern, haben diesem Projekt ein schnelles Wachstum beschert.",
+                    "updated": 1685391826795
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Özelliklerin geliştirilme hızı ve sorunların ele alınabilmesi konusunda kişisel deneyimim var; oldukça şaşırtıcı! Açık kaynaklı bir proje olarak Superalgos'un yetenekleri sınırsızdır.",
                     "updated": 1669192052529
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe persönliche Erfahrungen mit der Geschwindigkeit, mit der Funktionen entwickelt und Probleme gelöst werden können; es ist wirklich erstaunlich! Als Open-Source-Projekt sind die Möglichkeiten von Superalgos grenzenlos.",
+                    "updated": 1685391838185
                 }
             ]
         },

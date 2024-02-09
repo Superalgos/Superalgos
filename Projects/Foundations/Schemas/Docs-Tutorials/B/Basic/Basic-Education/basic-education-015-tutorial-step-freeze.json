@@ -1,0 +1,181 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Freeze!",
+    "definition": {
+        "text": "The freeze button makes sense under very specific circumstances: when physics are activated at the level of the Design Space.",
+        "updated": 1615543120064,
+        "icon": {
+            "name": "freeze-structure-of-nodes",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La proprietà freeze ha senso in circostanze molto specifiche: quando le animazioni sono attive a livello del Design Space.",
+                "updated": 1619461541404,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El botón de congelación tiene sentido en circunstancias muy específicas: cuando la física se activa al nivel del Design Space.",
+                "updated": 1626040673536,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Schaltfläche \"Einfrieren\" ist nur unter ganz bestimmten Umständen sinnvoll: wenn die Physik auf der Ebene des Design Space aktiviert ist.",
+                "updated": 1634333134069
+            },
+            {
+                "language": "TR",
+                "text": "Dondur düğmesi çok özel koşullar altında anlamlıdır.",
+                "updated": 1636752747872
+            },
+            {
+                "language": "RU",
+                "text": "Кнопка замораживания имеет смысл при очень специфических обстоятельствах: когда физические свойства активируются на уровне пространства проектирования.",
+                "updated": 1640867294871
+            },
+            {
+                "language": "ID",
+                "text": "Tombol freeze masuk akal dalam keadaan yang sangat spesifik: ketika fisika diaktifkan di tingkat Design Space.",
+                "updated": 1644515306175
+            },
+            {
+                "language": "NL",
+                "text": "De bevriezingsknop is zinvol onder zeer specifieke omstandigheden: wanneer fysica wordt geactiveerd op het niveau van de Design Space.",
+                "updated": 1668336863505
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Design Space offers some customization features, one of which is activating the physics of the universe. When physics is on, the whole space becomes alive!",
+            "updated": 1615544003132,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Design Space offre diverse personalizzazioni, tra le quali l'attivazione dell'animazione dell'universo. Quando è attiva, l'intero spazio diventa vivo!",
+                    "updated": 1619461604832,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Design Space ofrece algunas funciones de personalización, una de las cuales es activar la física del universo. Cuando la física está activada, ¡todo el espacio cobra vida!",
+                    "updated": 1626040738666,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Design Space bietet einige Anpassungsmöglichkeiten, von denen eine die Aktivierung der Physik des Universums ist. Wenn die Physik aktiviert ist, wird der ganze Raum lebendig!",
+                    "updated": 1634333140802
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı ( Design Space ), biri evrenin fiziğini etkinleştiren bazı özelleştirme özellikleri sunar. Fizik açıkken, tüm uzay canlanır!",
+                    "updated": 1636752835468
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство проектирования (Design Space) предлагает некоторые возможности настройки, одна из которых - включение физики вселенной. Когда физика включена, все пространство становится живым!",
+                    "updated": 1640867354540
+                },
+                {
+                    "language": "ID",
+                    "text": "Design Space menawarkan beberapa fitur penyesuaian, salah satunya adalah mengaktifkan fisika alam semesta. Ketika fisika menyala, seluruh ruang menjadi hidup!",
+                    "updated": 1644515365526
+                },
+                {
+                    "language": "NL",
+                    "text": "De Design Space biedt enkele aanpassingsopties, waaronder het activeren van de fysica van het universum. Als  fysica aan staat, komt de hele ruimte tot leven!",
+                    "updated": 1668336931185
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "We won't go into that rabbit hole at this point as it's not in the basic education curriculum!",
+            "updated": 1615544598765,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non approfondiremo la materia ora: non è parte del curriculum di educazione base!",
+                    "updated": 1619461641768,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡No entraremos en eso en ya que no estás en el plan de estudios de educación básica!",
+                    "updated": 1675375944132,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden an dieser Stelle nicht auf dieses Thema eingehen, da es nicht im Lehrplan für die Grundausbildung enthalten ist!",
+                    "updated": 1634333147196
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel eğitim müfredatında olmadığı için bu noktada o tavşan deliğine girmeyeceğiz!",
+                    "updated": 1636752855204
+                },
+                {
+                    "language": "ID",
+                    "text": "Kami tidak akan masuk ke hal yang tidak jelas pada saat ini karena tidak ada dalam kurikulum  basic education!",
+                    "updated": 1644515506552
+                },
+                {
+                    "language": "NL",
+                    "text": "We gaan nu niet de diepte in, want het staat niet in de basic education zelfstudie!",
+                    "updated": 1668337000919
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The freeze option freezes the node’s chain connections with its parent and offspring and connecting lines turn blue. Freezing releases CPU resources when physics animations are on, as the system stops calculating nodes' positions and status.",
+            "updated": 1615544553909,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'opzione freeze blocca le connessioni del nodo con il padre e i propri figli: le linee di collegamento diventano blu. Quando le animazioni sono attive, questa opzione rilascia le risorse della CPU perchè il sistema smette di calcolare la posizione e lo stato del nodo.",
+                    "updated": 1619461763901,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La opción de congelación congela las conexiones en cadena del nodo con su padre y su descendencia y las líneas de conexión se vuelven azules. La congelación libera los recursos de la CPU cuando las animaciones físicas están activadas, ya que el sistema deja de calcular las posiciones y el estado de los nodos.",
+                    "updated": 1626043017042,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Option Einfrieren friert die Kettenverbindungen des Knotens mit seinen Über- und Unterknoten ein, und die Verbindungslinien werden blau. Das Einfrieren setzt CPU-Ressourcen frei, wenn die Physik-Animationen eingeschaltet sind, da das System aufhört, die Positionen und den Status der Knoten zu berechnen.",
+                    "updated": 1634333202786
+                },
+                {
+                    "language": "TR",
+                    "text": "Dondur seçeneği, düğümün ebeveyni ile zincir bağlantılarını dondurur ve yavrular ve bağlantı hatları maviye döner. Fizik animasyonları açıkken dondurma işlemi, sistem düğümlerin konumlarını ve durumunu hesaplamayı durdurduğundan CPU kaynaklarını serbest bırakır.",
+                    "updated": 1636752891025
+                },
+                {
+                    "language": "RU",
+                    "text": "Опция замораживания замораживает цепные связи узла с его родителем и потомками, и соединительные линии становятся синими. Замораживание освобождает ресурсы процессора в случае включенной анимации физики, так как система перестает вычислять положение и состояние узлов.",
+                    "updated": 1640867425269
+                },
+                {
+                    "language": "ID",
+                    "text": "Opsi freeze membekukan koneksi rantai node dengan induk dan turunannya serta garis penghubung berubah menjadi biru. Pembekuan melepaskan sumber daya CPU ketika animasi fisika aktif, karena sistem berhenti menghitung posisi dan status node.",
+                    "updated": 1644515615478
+                },
+                {
+                    "language": "NL",
+                    "text": "De bevriezingsoptie bevriest de kettingverbindingen van het knooppunt met zijn ouder en sub-knooppunten en verbindingslijnen worden blauw. Bevriezen maakt CPU-bronnen vrij wanneer fysica animaties zijn ingeschakeld, omdat het systeem stopt met het berekenen van de posities en status van knooppunten.",
+                    "updated": 1668337254071
+                }
+            ]
+        }
+    ]
+}

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Canlı Alım Satım Testinden Geçildi ancak Geçmiş Veriler Sınırlı",
                 "updated": 1650572070315
+            },
+            {
+                "language": "DE",
+                "text": "Bestandener Live-Handelstest (Live Trading Test), aber begrenzte historische Daten",
+                "updated": 1690357683406
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650572035042
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357689656
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Hayır. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği mümkün değildir.",
                     "updated": 1650572080452
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Nein. Die Möglichkeit, historische Daten für Backtesting-Zwecke abzurufen, ist nicht gegeben.",
+                    "updated": 1690357703184
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: O günden itibaren geçmiş verileri madenciliğe başlayacaksınız.",
                     "updated": 1650572093253
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Von diesem Tag an können Sie mit der Auswertung historischer Daten beginnen",
+                    "updated": 1690357710715
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği: Evet Canlı alım satım modunda piyasa emirleri verme, limit emirleri oluşturma ve iptal etme yeteneği doğrulandı.",
                     "updated": 1650572114193
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading-Fähigkeit (Trading Capability): Ja Die Fähigkeit, im Live-Handel Marktaufträge zu erteilen, Limitaufträge zu erstellen und zu stornieren, wurde überprüft.",
+                    "updated": 1690357717964
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Ham Veri madenciliği, API'lerinde Rest API aracılığıyla talep edilebilecek veri sayısını sınırlayan değişim kısıtlamaları nedeniyle birkaç dakika ile sınırlıdır.",
                     "updated": 1650572126080
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Die Gewinnung von Rohdaten (Raw Data) ist auf wenige Minuten beschränkt, da die Anzahl der Daten, die über die Rest-API angefordert werden können, durch die Austauschbeschränkungen der API begrenzt ist.",
+                    "updated": 1690357725120
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650572027019
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357734769
                 }
             ]
         },
@@ -99,6 +134,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Exchange Hesabı Yapılandırması",
                     "updated": 1650572159270
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration des Exchange-Benutzerkontos",
+                    "updated": 1690357743985
                 }
             ]
         },
@@ -115,6 +155,11 @@
                     "language": "TR",
                     "text": "Not: PASSPHRASE'inizin, kullanıcı değiştirici hesap yapılandırmasındaki şifreniz olduğunu",
                     "updated": 1650572190962
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre PASSPHRASE ist Ihr Passwort in der Konfiguration des Benutzeraustauschkontos.",
+                    "updated": 1690357751521
                 }
             ]
         }

@@ -1,0 +1,57 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 63,
+    "type": "Tutorial Step - Welcome Charts Layer Panels",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video in modalità schermo intero.",
+                "updated": 1615964155592,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634218191658
+            },
+            {
+                "language": "TR",
+                "text": "Bu videoda Plotter'ın ne olduğunu ve kullanımını görüyorsun.",
+                "updated": 1636096787151
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636567631982
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582640987
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1666787904314
+            },
+            {
+                "language": "FR",
+                "text": "Cette étape jouera une vidéo en mode plein écran.",
+                "updated": 1668414120857
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675277837565
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-charts-layer-panels.gif"
+        }
+    ]
+}

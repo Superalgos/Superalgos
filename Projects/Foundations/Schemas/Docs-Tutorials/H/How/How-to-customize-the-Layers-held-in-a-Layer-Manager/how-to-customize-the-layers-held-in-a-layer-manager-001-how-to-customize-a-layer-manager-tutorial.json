@@ -16,6 +16,11 @@
                 "text": "Bu Eğitimde, bir Zaman Çizelgesi Grafiğinin Katman Yöneticisinde bulunan katmanları özelleştirme konusunda size yol gösterilecektir.",
                 "updated": 1654394022335,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Tutorial lernen Sie, wie Sie die im Ebenenmanager eines Zeitachsendiagramms (Timeline Chart's Layer Manager) verfügbaren Ebenen anpassen.",
+                "updated": 1703089450682
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "text": "Bu Öğretici Çalışma Alanı TBD'de bulunabilir",
                     "updated": 1654394028352,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Tutorial befindet sich im Arbeitsbereich (Workspace) TBD",
+                    "updated": 1703089470154
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Ticaret sistemi ( Trading System ) Sistemindeki her emrin, Ticaret Motoru ( Trading Engine ) Veri Yapısında aynı türden bir siparişi referans alması beklenir. Bu referans, sisteme bot çalışırken sipariş özelliklerinin değerlerini nerede izleyeceğini söyler.",
                 "updated": 1648672018182
+            },
+            {
+                "language": "DE",
+                "text": "Von jedem Auftrag im Handelssystem (Trading System) wird erwartet, dass er auf einen Auftrag desselben Typs in der Datenstruktur der Handelsmaschine (Trading Engine) verweist. Dieser Verweis teilt dem System mit, wo es die Werte der Auftragseigenschaften verfolgen soll, während der Bot läuft.",
+                "updated": 1700080271430
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Sipariş Referansı Eksik. ( Reference Missing )",
                     "updated": 1648650987615
+                },
+                {
+                    "language": "DE",
+                    "text": "Bestellnummer fehlt (Order Reference Missing)",
+                    "updated": 1700080297445
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Ticaret Motorunda ( Trading Engine ) aynı türden bir emir için referansı ayarlayın ve tekrar deneyin. Referansları Nasıl Oluşturacağınızı ve Kaldıracağınızı ( Establish and Remove References ) öğrenin.",
                     "updated": 1648651181928
+                },
+                {
+                    "language": "DE",
+                    "text": "Richten Sie den Verweis auf einen Auftrag desselben Typs in der Trading Engine ein und versuchen Sie es erneut. Erfahren Sie, wie man Referenzen (Establish and Remove References) einrichtet und entfernt.",
+                    "updated": 1700080345221
                 }
             ]
         }

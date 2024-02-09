@@ -175,3 +175,5 @@ function newGovernanceFunctionLibraryComputingProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryComputingProgram = newGovernanceFunctionLibraryComputingProgram

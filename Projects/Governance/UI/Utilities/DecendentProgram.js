@@ -279,15 +279,18 @@ function newGovernanceUtilitiesDecendentProgram() {
                             at their config, and check that all percentages don't add more than 100.
                             */
                             let totalPercentage = 0
+                            let totalAmount = 0
                             let totalNodesWithoutPercentage = 0
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'descendent', programPropertyName)
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
-                                }
+                                }  
                             }
                             if (totalPercentage > 100) {
                                 node.payload.uiObject.setErrorMessage(
@@ -300,19 +303,35 @@ function newGovernanceUtilitiesDecendentProgram() {
                             if (totalNodesWithoutPercentage > 0) {
                                 defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
                             }
+                            let percentagePower = 0
+                            let amountShare = 1
+                            if (totalAmount > programPower && totalAmount > 0) {
+                                amountShare = programPower / totalAmount
+                            } else {
+                                percentagePower = programPower - totalAmount
+                            }
                             /*
                             Here we do the actual distribution.
                             */
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'descendent', programPropertyName)
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
                                     currentProgramNode, 
                                     childNode, 
-                                    programPower * percentage / 100, 
+                                    distributionAmount, 
                                     0, 
                                     percentage, 
                                     generation
@@ -323,10 +342,21 @@ function newGovernanceUtilitiesDecendentProgram() {
                     }
                     case userNodeType: {
                         let previousOutgoing = node.payload[programPropertyName].outgoingPower
-                        node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower * percentage / 100
+                        node.payload[programPropertyName].outgoingPower = node.payload[programPropertyName].outgoingPower + programPower
 
                         drawUserNode(node, percentage)
                         if (node.payload.referenceParent !== undefined) {
+                            /*
+                            Here we will validate users are not referencing themselves as a program beneficiary.
+                            */
+                            let currentUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(currentProgramNode)
+                            let referencedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+                            if (referencedUserProfile === undefined || currentUserProfile === undefined) { return }
+                            if (currentUserProfile.id === referencedUserProfile.id) {
+                                node.payload.uiObject.setErrorMessage('Referencing your own profile is not allowed.')
+                                return
+                            }
+                                                       
                             /*
                             We want to accumulate the usedPower, but to keep the right balance, everytime we add to it the outgoingPower
                             we need to subtract the previous one, since this might be executed at every user profile and also recursively.
@@ -403,12 +433,7 @@ function newGovernanceUtilitiesDecendentProgram() {
 
                 node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-                node.payload.uiObject.percentageAngleOffset = 180
-                node.payload.uiObject.percentageAtAngle = true
-
-                node.payload.uiObject.setPercentage(percentage,
-                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                    )
+                UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = true
@@ -444,3 +469,5 @@ function newGovernanceUtilitiesDecendentProgram() {
         }
     }
 }
+
+exports.newGovernanceUtilitiesDecendentProgram = newGovernanceUtilitiesDecendentProgram

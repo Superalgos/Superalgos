@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Pozisyon alma olayını (take position event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var!",
-                "updated": 1641664867597
+                "text": "Pozisyon alma olayını (Take Position Event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var!",
+                "updated": 1669668869133
             },
             {
                 "language": "RU",
                 "text": "Давайте проведем быструю проверку события Take Position Event, а затем обратимся к слону в комнате: у нас есть ошибки!",
                 "updated": 1642662586685
+            },
+            {
+                "language": "ES",
+                "text": "Hagamos una comprobación rápida del \"Take Position Event\" y luego hablemos del elefante en la habitación: ¡tenemos errores!",
+                "updated": 1679253204084
             }
         ]
     },
@@ -38,13 +43,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon alma olayının (take position event) veya tetikleme olayının (trigger off event ) doğru olduğu onaylanırsa tetik aşamasının kapanacağını daha önce belirtmiştik.",
-                    "updated": 1641664878623
+                    "text": "Pozisyon alma olayının (Take Position Event) veya \"Trigger Off\" olayının doğru olduğu onaylanırsa tetikleme aşamasının kapanacağını daha önce belirtmiştik.",
+                    "updated": 1669669020027
                 },
                 {
                     "language": "RU",
                     "text": "Ранее мы упоминали, что когда либо событие взятия позиции, либо событие срабатывания триггера становится true, триггерный этап (Trigger Stage) закрывается.",
                     "updated": 1642662680696
+                },
+                {
+                    "language": "ES",
+                    "text": "Ya hemos mencionado que cuando el evento de toma de posición o el evento de desactivación se validan como true, la etapa de activación se cierra.",
+                    "updated": 1679253197259
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz ... alt bandın altında art arda iki saatlik kapanış fiyatından hemen sonra! Çok uzak çok iyi!",
-                    "updated": 1641664892452
+                    "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz... alt bandın altında art arda iki saatlik kapanıştan hemen sonra! Şimdiye kadar çok iyi!",
+                    "updated": 1669669108774
                 },
                 {
                     "language": "RU",
                     "text": "Ну, мы видим закрытие Trigger Stage 28 февраля, в 9 часов... сразу после двух последовательных закрытий ниже нижней полосы! Пока все хорошо!",
                     "updated": 1642662737314
+                },
+                {
+                    "language": "ES",
+                    "text": "Bien, podemos ver el cierre de la Etapa de Disparo el 28 de Febrero, a las 9 hs... ¡justo después de dos cierres horarios consecutivos por debajo de la banda inferior! ¡Hasta aquí todo bien!",
+                    "updated": 1679253190919
                 }
             ]
         },
@@ -80,13 +95,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Uyarı: Ancak hatalar hemen ardından ortaya çıkıyor! burada neler olduğunu bulabilir misin",
-                    "updated": 1641664903289
+                    "text": "Ancak hemen ardından hatalar ortaya çıkıyor! Neler olduğunu bulabilir misin?",
+                    "updated": 1669669188246
                 },
                 {
                     "language": "RU",
                     "text": "Но сразу после этого у нас возникают ошибки! Вы можете выяснить, что происходит?",
                     "updated": 1642662753145
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero tenemos errores inmediatamente después! ¿Puedes descifrar qué está pasando?",
+                    "updated": 1679253184373
                 }
             ]
         }

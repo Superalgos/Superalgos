@@ -1,0 +1,68 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "22",
+    "type": "GK YZ Channels",
+    "definition": {
+        "text": "The Garman Klass/Yang Zhang (GK YZ) Channels features a GKYZ filtered, non linear regression moving average as well as an upper and lower channel with entry and exit signals."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "GK YZ Channels on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator uses a non-linear regression analysis to predict the average of the price based on previous data samples. It then applies a GK-YZ historical volatility filter to help reduce noise in the price action.",
+            "updated": 1693780118090
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-GK-YZ-Channels.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| GKYZChannels | GKYZ | value, upper, lower, signal |"
+        },
+        {
+            "style": "Text",
+            "text": "The \"signal\" value indicates a potential \"go long\" or \"go short\" entry.",
+            "updated": 1693780127042
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"GK YZ Channels\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-GK-YZ-Channels-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point for a trade could be when the signal value has a value of 1:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.GKYZ.signal == 1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

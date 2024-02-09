@@ -1,0 +1,203 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 8,
+    "type": "Volatility Oscillator",
+    "definition": {
+        "text": "The Weighted Volatility Oscillator is a modification of the standard volatility index but weighted by the position of the price in the Bollinger Band.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Взвешенный осциллятор волатильности - это модификация стандартного индекса волатильности, но взвешенная по положению цены в полосе Боллинджера.",
+                "updated": 1645715859186
+            },
+            {
+                "language": "DE",
+                "text": "Der gewichtete Volatilitäts Oszillator ist eine Abwandlung des Standard Volatilitätsindex, jedoch gewichtet nach der Position des Kurses im Bollinger Band.",
+                "updated": 1671346353316
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645715864527
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The weighted volatility oscillator provides three signals, Top, Bottom, and Histogram. The crossover of the top signal with the bottom signal causes the histogram to turn green, and potentially signal an upward movement in price.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Взвешенный осциллятор волатильности подает три сигнала: верхний, нижний и гистограмму. При пересечении верхнего сигнала с нижним сигналом гистограмма становится зеленой и потенциально сигнализирует о восходящем движении цены.",
+                    "updated": 1645715871350
+                },
+                {
+                    "language": "DE",
+                    "text": "Der gewichtete Volatilitätsoszillator liefert drei Signale: Top, Bottom und Histogramm. Das Überkreuzen des Top-Signals mit dem Bottom Signal bewirkt, dass das Histogramm grün wird und möglicherweise eine Aufwärtsbewegung des Preises signalisiert.",
+                    "updated": 1671346418972
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The reverse is potentially true for signalling a fall in price action. When the Top and Bottom signals are closely aligned, price action enters the consolidation phase.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратное потенциально верно для сигналов падения цены. Когда сигналы сверху и снизу тесно совпадают, ценовое действие входит в фазу консолидации.",
+                    "updated": 1645715880270
+                },
+                {
+                    "language": "DE",
+                    "text": "Der umgekehrte Fall ist potenziell wahr, um einen Kursrückgang zu signalisieren. Wenn das obere und das untere Signal eng beieinander liegen, tritt die Kursbewegung in die Konsolidierungsphase ein.",
+                    "updated": 1671346525517
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Oscillator-Weighted.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the weighted volatility oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Weighted Volatility Oscillator’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры взвешенного осциллятора волатильности можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в Product Definition 'Weighted Volatility Oscillator'.",
+                    "updated": 1645715895269
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des gewichteten Volatilitätsoszillators können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Weighted Volatility Oscillator’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671346600250
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Oscillator-Weighted-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645715901104
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671346624326
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645715907107
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671346646084
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Weighted Volatility Oscillator | WeightedVolatilityOscillator | histogram, wto, wbo |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Weighted Volatility Oscillator | WeightedVolatilityOscillator | histogram, wto, wbo |",
+                    "updated": 1671346665723
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645715912665
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671346690346
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built when the histogram rises above the zero line:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена, когда гистограмма поднимается выше нулевой линии:",
+                    "updated": 1645715923354
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie könnte entwickelt werden, wenn das Histogramm über die Nulllinie ansteigt:",
+                    "updated": 1671346714492
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at05min.WeightedVolatilityOscillator.histogram > 0 && chart.at05min.WeightedVolatilityOscillator.previous.histogram == 0"
+        },
+        {
+            "style": "Text",
+            "text": "Another example when the Top signal rises above the bottom signal:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другой пример, когда верхний сигнал поднимается выше нижнего:",
+                    "updated": 1645715930004
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein weiteres Beispiel ist, wenn das Top Signal über das Bottom Signal ansteigt:",
+                    "updated": 1671346740727
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.WeightedVolatilityOscillator.wto > chart.at15min.WeightedVolatilityOscillator.wbo"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671346760125
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

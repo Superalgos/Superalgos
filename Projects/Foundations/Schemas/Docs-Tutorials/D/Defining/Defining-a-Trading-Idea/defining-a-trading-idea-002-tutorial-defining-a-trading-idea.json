@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Antes de que puedas crear una estrategia comercial, primero debe tener una idea comercial clara y comprobable.",
-                "updated": 1630376694793
+                "text": "Antes de que puedas crear una estrategia de trading, primero debes tener una idea de trading clara y comprobable.",
+                "updated": 1675205030378
             },
             {
                 "language": "DE",
@@ -29,6 +29,21 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Stratejisi ( Trading Strategy ) oluşturmadan önce, net ve test edilebilir bir ticaret fikri bulmanız gerekir.",
                 "updated": 1640858579634
+            },
+            {
+                "language": "IT",
+                "text": "Prima di poter costruire una Trading Strategy, devi prima trovare un'idea di trading chiara e verificabile.",
+                "updated": 1669885262513
+            },
+            {
+                "language": "NL",
+                "text": "Voordat u een Trading Strategy kunt opstellen, moet u eerst met een duidelijk en testbaar handelsidee komen.",
+                "updated": 1670783046377
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu dapat membangun Trading Strategy, pertama-tama kamu harus memiliki ide trading yang jelas dan dapat diuji.",
+                "updated": 1674638112509
             }
         ]
     },
@@ -40,8 +55,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Una idea trading es un precursor de una estrategia comercial. Si bien una estrategia completa implica las reglas para tomar, administrar y salir de una posición, una idea trading se ocupa únicamente del primero de esos aspectos.",
-                    "updated": 1630376730606
+                    "text": "Una idea trading es un precursor de una estrategia de trading. Si bien una estrategia completa implica las reglas para tomar, administrar y salir de una posición, una idea trading se ocupa únicamente del primero de esos aspectos.",
+                    "updated": 1675205055733
                 },
                 {
                     "language": "DE",
@@ -57,6 +72,21 @@
                     "language": "TR",
                     "text": "Bir ticaret fikri, bir ticaret stratejisinin habercisidir. Eksiksiz bir strateji, bir pozisyonu alma, yönetme ve pozisyondan çıkma kurallarını içerirken, bir ticaret fikri sadece bu konulardan ilkiyle ilgilenir.",
                     "updated": 1640858655481
+                },
+                {
+                    "language": "IT",
+                    "text": "Un'idea di trading è il precursore di una strategia di trading. Mentre una strategia completa comporta le regole per prendere, gestire ed uscire da una posizione, un'idea di trading riguarda solo la prima di queste questioni.",
+                    "updated": 1669885284956
+                },
+                {
+                    "language": "NL",
+                    "text": "Een handelsidee is een voorloper van een handelsstrategie. Hoewel een volledige strategie de regels omvat voor het innemen, beheren en verlaten van een positie, heeft een handelsidee alleen betrekking op de eerste van deze kwesties.",
+                    "updated": 1670783074649
+                },
+                {
+                    "language": "ID",
+                    "text": "Ide trading adalah pendahulu untuk trading strategy. Sementara strategi lengkap memerlukan aturan untuk mengambil, mengelola, dan keluar dari posisi, ide trading hanya berkaitan dengan masalah pertama saja.",
+                    "updated": 1674638147492
                 }
             ]
         },
@@ -84,6 +114,21 @@
                     "language": "TR",
                     "text": "Eksiksiz bir strateji oluşturmaya karar vermeden önce bir ticaret fikrini test etmek mantıklı bir yaklaşımdır çünkü hedeflediğiniz şey başarısız girişleri yönetmek ve bunlardan çıkmak değildir!",
                     "updated": 1640858741535
+                },
+                {
+                    "language": "IT",
+                    "text": "Testare un'idea di trading prima di impegnarsi a costruire una strategia completa è l'approccio logico perché la gestione e l'uscita dalle entrate fallite non è ciò a cui dovresti mirare!",
+                    "updated": 1669885293742
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een logische aanpak om een handelsidee te testen alvorens een complete strategie op te bouwen, omdat het beheren en beëindigen van mislukte transacties niet is waar u naar zou moeten streven!",
+                    "updated": 1670783101261
+                },
+                {
+                    "language": "ID",
+                    "text": "Menguji ide trading sebelum berkomitmen untuk membangun strategi yang lengkap adalah pendekatan logis karena mengelola dan keluar dari entri yang gagal bukanlah tujuanmu!",
+                    "updated": 1674638126729
                 }
             ]
         },
@@ -94,8 +139,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Este tutorial explica cómo formular correctamente una idea trading que luego se puede probar.",
-                    "updated": 1630376776923
+                    "text": "Este tutorial explica cómo formular correctamente una idea trading que luego pueda ser probada.",
+                    "updated": 1675205087339
                 },
                 {
                     "language": "DE",
@@ -111,6 +156,21 @@
                     "language": "TR",
                     "text": "Bu eğitim, daha sonra test edilebilecek bir ticaret fikrinin nasıl düzgün bir şekilde formüle edileceğini açıklar.",
                     "updated": 1640858782623
+                },
+                {
+                    "language": "IT",
+                    "text": "Questo tutorial spiega come formulare correttamente un'idea di trading che potrebbe essere successivamente testata.",
+                    "updated": 1669885315689
+                },
+                {
+                    "language": "NL",
+                    "text": "In deze tutorial wordt uitgelegd hoe u een handelsidee op de juiste manier formuleert dat later kan worden getest.",
+                    "updated": 1670783113868
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial ini menjelaskan cara merumuskan ide trading dengan benar yang nantinya dapat diuji.",
+                    "updated": 1674638137223
                 }
             ]
         }

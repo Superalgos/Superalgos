@@ -1,0 +1,202 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 58,
+    "type": "Tutorial Step - Switching Gears...",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-manager",
+            "project": "Foundations"
+        },
+        "text": "Leaving scales behind, let's take a look at how the system makes data available on the charts.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora diamo un'occhiata al modo in cui il sistema rappresenta i dati sui grafici.",
+                "updated": 1615963273716,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Dejando atrás las escalas, echemos un vistazo a cómo el sistema hace que los datos estén disponibles en los gráficos.",
+                "updated": 1624409028040,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Lassen wir die Skalen hinter uns und schauen wir uns an, wie das System Daten in den Diagrammen verfügbar macht.",
+                "updated": 1634217725509
+            },
+            {
+                "language": "TR",
+                "text": "Ölçekleri geride bırakarak, sistemin verileri grafiklerde nasıl kullanılabilir hale getirdiğine bir göz atalım.",
+                "updated": 1636096145748
+            },
+            {
+                "language": "RU",
+                "text": "Оставив весы позади, давайте посмотрим, как система делает данные доступными на графиках.",
+                "updated": 1636564273949
+            },
+            {
+                "language": "ID",
+                "text": "Tinggalkan pembahasan skala terlebih dahulu, mari kita lihat bagaimana sistem membuat data tersedia di chart.",
+                "updated": 1639586978562
+            },
+            {
+                "language": "NL",
+                "text": "Laten we de as-schaal achter ons laten en eens kijken hoe het systeem gegevens beschikbaar stelt in de grafieken.",
+                "updated": 1666787375286
+            },
+            {
+                "language": "FR",
+                "text": "Laissons de côté les échelles, examinons comment le système rend les données disponibles sur les graphiques.",
+                "updated": 1668413597977
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Every Timeline Chart has an associated Layer Manager, which is represented as a drop-down menu listing multiple layers.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni Timeline Chart ha un corrispondente Layer Manager, rappresentato come un menù a tendina che mostra i vari layers.",
+                    "updated": 1615963369522,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada Timeline Chart tiene un Layer Manager asociado, que se representa como un menú desplegable que enumera varias capas.",
+                    "updated": 1624409085765,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedem Timeline Chart ist ein Layer Manager zugeordnet, der in Form eines Drop-Down-Menüs mit mehreren Layern dargestellt wird.",
+                    "updated": 1634217734286
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Zaman Çizelgesi ( Timeline Chart ) grafiği, birden çok katmanı görebileceğiniz, açılır menü şeklinde bir Katman Yöneticisine (Layer Manager) sahiptir.",
+                    "updated": 1669842377970
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый Timeline Chart имеет соответствующий Layer Manager, который представлен в виде раскрывающегося меню со списком нескольких слоев.",
+                    "updated": 1636564352556
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap Timeline Chart memiliki Layer Manager terkait, yang direpresentasikan sebagai menu bercabang yang mencantumkan banyak lapisan.",
+                    "updated": 1639587068431
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke Timeline Chart heeft een bijbehorende Layer Manager, die wordt weergegeven als een vervolgkeuzemenu met meerdere lagen.",
+                    "updated": 1666787406582
+                },
+                {
+                    "language": "FR",
+                    "text": "Chaque graphique (Timeline Chart) est associé à un gestionnaire de calques (Layer Manager), qui est représenté sous la forme d'un menu déroulant répertoriant plusieurs couches.",
+                    "updated": 1668413700026
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To open a layers manager, scroll the wheel of the mouse on its header. Use the wheel of the mouse to scroll through its content too!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per aprire un layer manager, scorri la rotella del mouse sulla sua testata. Usa la rotella del mouse anche per scorrere i suoi contenuti!",
+                    "updated": 1615963411220,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para abrir un Layer Manager, desplaza la rueda del mouse en su encabezado. ¡También usa la rueda del mouse para desplazarte por su contenido!",
+                    "updated": 1675277615825,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Ebenenmanager zu öffnen, fahren Sie mit dem Mausrad über seine Kopfzeile. Verwenden Sie das Mausrad auch, um durch den Inhalt zu blättern!",
+                    "updated": 1634217743759
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir katman yöneticisi (sol üstteki siyah kutular) açmak için farenin tekerleğini kutuların üstüne getirerek çevirin. İçeriğinde gezinmek için de fareyi açılan menünün üzerine getirin ve tekrar tekerleğini kullanın!",
+                    "updated": 1669842507616
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы открыть менеджер слоев, прокрутите колесико мыши на его заголовке. Таким же способом можете прокручивать и его содержимое.",
+                    "updated": 1636565702384
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk membuka layers manager, scroll mouse wheel pada headernya. Gunakan mouse wheel untuk menggulir kontennya juga!",
+                    "updated": 1639587173937
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een lagenmanager te openen, scrolt u met het wiel van de muis op de koptekst. Gebruik het wiel van de muis om ook door de inhoud te scrollen!",
+                    "updated": 1666787437155
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour ouvrir un gestionnaire de calques, faites défiler la molette de la souris sur son en-tête. Utilisez également la molette de la souris pour faire défiler son contenu !",
+                    "updated": 1668413695263
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "See the video on the next step for clarity...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Guarda il prossimo video per dettagli più chiari...",
+                    "updated": 1615963431549,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Mira el video en el siguiente paso para mayor claridad...",
+                    "updated": 1675277629435,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Verdeutlichung sehen Sie sich das Video im nächsten Schritt an...",
+                    "updated": 1634217753499
+                },
+                {
+                    "language": "TR",
+                    "text": "Netlik için bir sonraki adımdaki videoyu izleyin...",
+                    "updated": 1636096131626
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите видео на следующем шаге для большей ясности...",
+                    "updated": 1636565759888
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat video pada langkah selanjutnya untuk memperjelas ...",
+                    "updated": 1639587199142
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie de video in de volgende stap voor meer duidelijkheid...",
+                    "updated": 1666787460059
+                },
+                {
+                    "language": "FR",
+                    "text": "Voir la vidéo sur la prochaine étape pour plus de clarté...",
+                    "updated": 1668413714449
+                }
+            ]
+        }
+    ]
+}

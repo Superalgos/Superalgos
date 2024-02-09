@@ -1,0 +1,192 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 86,
+    "type": "Tutorial Step - Simplifying Complexity",
+    "definition": {
+        "icon": {
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
+        },
+        "text": "We haven't discussed trading systems as a framework, but a feature relevant to this explanation is that they may handle multiple strategies.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Non abbiamo discusso dei Trading System come dei framework, ma un feature di rilievo in questo senso è che possono gestire diverse strategie.",
+                "updated": 1618065765945,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "No hemos hablado de los Trading System como un marco, pero una característica relevante para esta explicación es que pueden manejar múltiples estrategias.",
+                "updated": 1675360963867,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben noch nicht über Handelssysteme als Rahmenwerk gesprochen, aber ein für diese Erklärung relevantes Merkmal ist, dass sie mehrere Strategien handhaben können.",
+                "updated": 1634225842126
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret sistemlerini bir çerçeve olarak anlattık, ancak bu açıklamayla ilgili bir hatılatma : bir tiacaret sistemi birden fazla stratejiyi ele alabilir.",
+                "updated": 1636210282829
+            },
+            {
+                "language": "ID",
+                "text": "Kita belum membahas trading systems sebagai framework, tetapi fitur yang relevan dengan penjelasan ini yaitu mereka dapat menangani banyak strategi.",
+                "updated": 1640566149032
+            },
+            {
+                "language": "RU",
+                "text": "Мы не обсуждали торговые системы как структуру, но особенность, имеющая отношение к данному объяснению, заключается в том, что они могут работать с несколькими стратегиями.",
+                "updated": 1642768818669
+            },
+            {
+                "language": "NL",
+                "text": "We hebben handelssystemen niet als een raamwerk besproken, maar een functie die relevant is voor deze uitleg is dat ze meerdere strategieën kunnen hanteren.",
+                "updated": 1667127887994
+            },
+            {
+                "language": "FR",
+                "text": "Nous n'avons pas abordé les systèmes de trading en tant que structure, mais une caractéristique pertinente pour cette explication est qu'ils peuvent gérer plusieurs stratégies.",
+                "updated": 1676958143429
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each strategy features an Open Stage and a Close Stage, each with its own execution definitions. Each stage may feature multiple execution algorithms, and each algorithm may handle multiple orders.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni strategia ha un Open Stage e un Close Stage, ognuno dei quali ha i propri metodi di esecuzione. Ogni stage può avere diversi execution algorithms e ognuno di questi può gestire vari ordini.",
+                    "updated": 1618065861963,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada estrategia presenta un Open Stage y un Close Stage, cada uno con sus propias definiciones de ejecución. Cada etapa puede presentar múltiples algoritmos de ejecución y cada algoritmo puede manejar múltiples órdenes.",
+                    "updated": 1624460372216,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Strategie verfügt über eine Open Stage und eine Close Stage, die jeweils eigene Ausführungsdefinitionen haben. Jede Phase kann mehrere Ausführungsalgorithmen enthalten, und jeder Algorithmus kann mehrere Aufträge verarbeiten.",
+                    "updated": 1634225846386
+                },
+                {
+                    "language": "TR",
+                    "text": "Her strateji, her biri kendi yürütme tanımlarına sahip bir Açık Aşama ( Open Stage ) ve bir Kapatma Aşaması ( Close Stage ) içerir. Her aşama birden fazla yürütme algoritması içerebilir ve her algoritma birden fazla siparişi işleyebilir.",
+                    "updated": 1636210854492
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap strategi menampilkan Open Stage dan Close Stage, masing-masing dengan definisi eksekusi sendiri. Setiap stage dapat menampilkan multiple execution algoritha, dan setiap algoritma dapat menangani multiple order.",
+                    "updated": 1640566280344
+                },
+                {
+                    "language": "RU",
+                    "text": "В каждой стратегии есть стадия открытия (Open Stage) и стадия закрытия (Close Stage), каждая из которых имеет свои собственные определения исполнения. Каждый этап может иметь несколько алгоритмов исполнения, и каждый алгоритм может обрабатывать несколько ордеров.",
+                    "updated": 1642768868693
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke strategie heeft een Open Stage en een Close Stage, elk met zijn eigen uitvoeringsdefinities. Elke fase kan meerdere uitvoeringsalgoritmen bevatten en elk algoritme kan meerdere orders verwerken.",
+                    "updated": 1667127913392
+                },
+                {
+                    "language": "FR",
+                    "text": "Chaque stratégie comporte une phase d'ouverture et une phase de fermeture, chacune avec ses propres définitions d'exécution. Chaque étape peut comporter plusieurs algorithmes d'exécution, et chaque algorithme peut traiter plusieurs ordres.",
+                    "updated": 1676958175843
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Do you see the pattern? We call it granularity.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Riesci a vedere lo schema? Noi lo chiamiamo granularità.",
+                    "updated": 1618065885044,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Ves el patrón? Lo llamamos granularidad.",
+                    "updated": 1624460392079,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erkennen Sie das Muster? Wir nennen es Granularität.",
+                    "updated": 1634225855936
+                },
+                {
+                    "language": "TR",
+                    "text": "Kalıbı görüyor musun? Biz buna parçacılık diyoruz.",
+                    "updated": 1670009154595
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu melihat pattern yang ada? Kami menyebutnya Granularity.",
+                    "updated": 1640566371054
+                },
+                {
+                    "language": "RU",
+                    "text": "Видите ли вы закономерность? Мы называем это гранулярностью.",
+                    "updated": 1642768893340
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous voyez le concept ? Nous l'appelons la granularité.",
+                    "updated": 1676958197585
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos breaks down each issue to the minimum expression, and integrates the solutions. This is how it allows you to design, deploy, and manage both simple and the most complex trading setups you may envision.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos decompone ogni problema al minimo, e integra le soluzioni. In questo modo ti permette di progettare, rilasciare e gestire ogni tipo di trading setup, semplice o complesso, che vuoi implementare!",
+                    "updated": 1618065967425,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos desglosa cada tema a la mínima expresión e integra las soluciones. Así es como te permite diseñar, implementar y administrar configuraciones de trading tan simples y tan complejas como puedas imaginar.",
+                    "updated": 1675360959694,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos bricht jedes Problem auf den kleinsten Ausdruck herunter und integriert die Lösungen. Auf diese Weise können Sie sowohl einfache als auch die komplexesten Handels-Setups entwerfen, einsetzen und verwalten, die Sie sich vorstellen können.",
+                    "updated": 1634225869664
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, her konuyu minimum ifadeye ayırır ve çözümleri bütünleştirir. Bu şekilde hem basit hem de hayal edebileceğiniz en karmaşık ticaret kurulumlarını tasarlamanıza, dağıtmanıza ve yönetmenize olanak tanır.",
+                    "updated": 1636210999536
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos memecah setiap masalah ke ekspresi minimum, dan mengintegrasikan solusi. Ini adalah bagaimana hal ini memungkinkan kamu untuk design, deploy, dan manage trading setup dari sederhana hingga paling kompleks yang mungkin kamu bayangkan.",
+                    "updated": 1640566531213
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos разбивает каждую проблему до минимального выражения и интегрирует решения. Таким образом, он позволяет вам разрабатывать, внедрять и управлять как простыми, так и самыми сложными торговыми сетапами, которые вы только можете себе представить.",
+                    "updated": 1642769002941
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos splitst elk probleem in kleine stukken en integreert de oplossingen. Op deze manier kunt u zowel eenvoudige als de meest complexe handel strategieën die u zich kunt voorstellen, ontwerpen, implementeren en beheren.",
+                    "updated": 1667128078913
+                }
+            ]
+        }
+    ]
+}

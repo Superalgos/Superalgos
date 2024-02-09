@@ -4,7 +4,14 @@
     "type": "Trading Session Parameters",
     "definition": {
         "text": "Parameters control the behavior of trading sessions and improve the quality of simulations.",
-        "updated": 1610120140431
+        "updated": 1610120140431,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Parametreler ticaret seanslarının davranışını kontrol eder ve simülasyonların kalitesini artırır.",
+                "updated": 1672263762624
+            }
+        ]
     },
     "paragraphs": [
         {

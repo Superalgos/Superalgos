@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Прежде чем пытаться отладить этот Sensor Bot, необходимо провести небольшое изучение вашей любимой биржи.",
                 "updated": 1640360550468
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie versuchen, diesen Sensor Bot zu debuggen, müssen Sie einige Nachforschungen über Ihre bevorzugte Börse anstellen.",
+                "updated": 1687720563043
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Вот что бы я сделал, и в таком порядке:",
                     "updated": 1640360599372
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich würde Folgendes tun, und zwar in dieser Reihenfolge:",
+                    "updated": 1687720575763
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "1. Спросите у разработчиков",
                     "updated": 1640360639857
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Fragen Sie die Entwickler",
+                    "updated": 1687720584396
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Спросите в группе Develop Telegram Group, не пытался ли кто-нибудь уже подключиться к вашей любимой бирже. Возможно, кто-то уже делал это и сможет сэкономить ваше время.",
                     "updated": 1640360689516
+                },
+                {
+                    "language": "DE",
+                    "text": "Fragen Sie in der Develop Telegram Group, ob bereits jemand versucht hat, eine Verbindung zu Ihrem Lieblingsaustausch herzustellen. Vielleicht hat es schon jemand versucht und kann dir Zeit sparen.",
+                    "updated": 1687720599395
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "2. Проверьте Untested",
                     "updated": 1640360742307
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Prüfen Sie das Feld \"Untested\"",
+                    "updated": 1687720793574
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "В иерархии Crypto Ecosystem есть узел Crypto Exchanges под названием Untested, в котором собрано множество бирж, ожидающих, пока их протестируют. Если ваша биржа находится в этом списке, это хороший знак, поскольку она, по крайней мере, обладает необходимыми функциями, например, предоставляет исторические данные в виде OHLCV. Хотите верьте, хотите нет, но некоторые биржи не предоставляют даже этой информации.",
                     "updated": 1640361554039
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Crypto Ecosystem gibt es einen Knotenpunkt für Krypto-Börsen (Crypto Exchanges) namens Untested (Ungetestet), in dem viele Börsen darauf warten, dass jemand sie testet. Wenn Ihre Börse auf dieser Liste steht, ist das ein gutes Zeichen, da sie zumindest die benötigten Funktionen hat, wie zum Beispiel die Bereitstellung historischer Daten in Form von OHLCVs. Ob Sie es glauben oder nicht, einige Börsen stellen nicht einmal diese Informationen zur Verfügung.",
+                    "updated": 1687720914561
                 }
             ]
         },
@@ -79,6 +109,11 @@
                     "language": "RU",
                     "text": "Другими причинами отсутствия могут быть:",
                     "updated": 1640361577168
+                },
+                {
+                    "language": "DE",
+                    "text": "Andere Gründe für die Abwesenheit könnten sein:",
+                    "updated": 1687720926064
                 }
             ]
         },
@@ -90,6 +125,11 @@
                     "language": "RU",
                     "text": "Не предоставление 1-минутных свечей (что в настоящее время является обязательным требованием). Некоторые биржи начинают, например, с 5 минут)",
                     "updated": 1640361594712
+                },
+                {
+                    "language": "DE",
+                    "text": "Nicht Bereitstellung von 1-Minuten-Kerzen (was derzeit eine Anforderung ist). Einige Börsen beginnen zum Beispiel bei 5 Minuten)",
+                    "updated": 1687720937419
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Не предоставляет список рынков. Это необходимо для того, чтобы вы могли в дальнейшем установить рынок.",
                     "updated": 1640361620173
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird keine Liste der Märkte bereitgestellt. Dies ist erforderlich, damit Sie später einen Markt (Market) installieren können.",
+                    "updated": 1687720959756
                 }
             ]
         },
@@ -113,6 +158,11 @@
                     "language": "RU",
                     "text": "3. Проверьте документацию CCXT",
                     "updated": 1640361630927
+                },
+                {
+                    "language": "DE",
+                    "text": "3. CCXT-Dokumente prüfen",
+                    "updated": 1687720969042
                 }
             ]
         },
@@ -125,6 +175,11 @@
                     "language": "RU",
                     "text": "Поищите там любую информацию, связанную с вашей любимой биржей. Возможно, вам также понадобится разобраться в различных типах параметров, которые вы можете послать в CCXT, чтобы адаптировать его поведение при выполнении конкретной команды получения объектов OHLCV.",
                     "updated": 1640361664675
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie dort nach Informationen, die sich auf Ihre bevorzugte Börse beziehen. Sie müssen wahrscheinlich auch die verschiedenen Arten von Parametern verstehen, die Sie an CCXT senden können, um sein Verhalten bei dem spezifischen Befehl zum Abrufen von OHLCVs-Objekten anzupassen.",
+                    "updated": 1687720981002
                 }
             ]
         },
@@ -140,6 +195,11 @@
                     "language": "RU",
                     "text": "4. Проверьте документацию вашей биржи",
                     "updated": 1640361725875
+                },
+                {
+                    "language": "DE",
+                    "text": "4. Überprüfen Sie Ihre Exchange-Dokumente",
+                    "updated": 1687720991029
                 }
             ]
         },
@@ -151,6 +211,11 @@
                     "language": "RU",
                     "text": "Ищите информацию, связанную с получением исторических данных, какие данные они предоставляют, каковы ограничения по количеству времени, в течение которого вы можете запрашивать данные, и тому подобное.",
                     "updated": 1640361764878
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie insbesondere auf Informationen über den Abruf historischer Daten, die Menge der zur Verfügung gestellten Daten, die zeitliche Begrenzung der Datenabfrage und dergleichen mehr.",
+                    "updated": 1687721001620
                 }
             ]
         }

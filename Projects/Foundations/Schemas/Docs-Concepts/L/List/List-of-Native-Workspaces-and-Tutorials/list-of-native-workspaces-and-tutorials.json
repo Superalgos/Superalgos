@@ -1,0 +1,370 @@
+{
+    "type": "List of Native Workspaces and Tutorials",
+    "definition": {
+        "text": "Tutorials exist within specific workspaces. This is a list of the workspaces shipping with Superalgos and the tutorials each of them feature.",
+        "updated": 1640708135058,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los tutoriales existen dentro de workspaces específicos. Esta es una lista de los espacios de workspaces que se envían con Superalgosy los tutoriales que cada uno de ellos configura.",
+                "updated": 1636718450838
+            },
+            {
+                "language": "RU",
+                "text": "Учебники существуют в определенных рабочих пространствах. Здесь приведен список рабочих пространств, поставляемых с Superalgos, и учебников, которые есть в каждом из них.",
+                "updated": 1641834556463
+            },
+            {
+                "language": "TR",
+                "text": "Öğreticiler belirli çalışma alanlarında bulunur. Bu, Superalgos ile birlikte gönderilen çalışma alanlarının ve her birinin içerdiği öğreticilerin bir listesidir.\n\n",
+                "updated": 1666685692419
+            },
+            {
+                "language": "DE",
+                "text": "Tutorials existieren innerhalb bestimmter Arbeitsbereiche. Dies ist eine Liste der Arbeitsbereiche, die mit Superalgos ausgeliefert werden, und der Tutorials, die jeder von ihnen enthält.",
+                "updated": 1696955471214
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610955289507
+        },
+        {
+            "style": "Subtitle",
+            "text": "Getting Started Tutorials",
+            "updated": 1622390292753,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Getting Started Tutorials  (Tutoriales de introducción)",
+                    "updated": 1636718478967
+                },
+                {
+                    "language": "DE",
+                    "text": "Getting Started Tutorials (Erste Schritte Tutorials)",
+                    "updated": 1696955471398,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Welcome to Superalgos Tutorial",
+            "updated": 1616703643988,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Welcome to Superalgos Tutorial  (Tutorial de Bienvenida a Superalgos)",
+                    "updated": 1636718556593
+                },
+                {
+                    "language": "DE",
+                    "text": "Welcome to Superalgos Tutorial (Willkommen bei Superalgos Tutorial)",
+                    "updated": 1696955471507,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Basic Education Tutorial",
+            "updated": 1616695524660,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Basic Education Tutorial (Tutorial de educación básica)",
+                    "updated": 1636718592094
+                },
+                {
+                    "language": "DE",
+                    "text": "Basic Education Tutorial (Tutorial Grundbildung)",
+                    "updated": 1696955471602,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Beyond the Basics Tutorial",
+            "updated": 1616703652140,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Beyond the Basics Tutorial ( Tutorial más allá de lo básico)",
+                    "updated": 1636718623300
+                },
+                {
+                    "language": "DE",
+                    "text": "Beyond the Basics Tutorial (Tutorial über die Grundlagen hinaus)",
+                    "updated": 1696955471696,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading Bot Layers Tutorial",
+            "updated": 1622625461403,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Trading Bot Layers Tutorial ( Tutorial de capas de bot de trading)",
+                    "updated": 1636718660152
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Bot Layers Tutorial (Trading Bot Schichten Tutorial)",
+                    "updated": 1696955471823,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Bot Layers Tutorial",
+            "updated": 1616703658875,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Trading Bot Layers Tutorial  (Tutorial de capas de bot  de trading)",
+                    "updated": 1636718679520
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Bot Layers Tutorial (Trading Bot Schichten Tutorial)",
+                    "updated": 1696955471941,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading System Design Tutorials",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Trading System Design Tutorials (Tutoriales de diseño de sistemas de trading)",
+                    "updated": 1636718706737
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading System Design Tutorials (Tutorials zum Entwurf von Handelssystemen)",
+                    "updated": 1696955472091,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Intro to Trading Systems Tutorial",
+            "updated": 1616703668889,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Intro to Trading Systems Tutorial ( tutorial de introducción a los sistemas de trading)",
+                    "updated": 1636718747561
+                },
+                {
+                    "language": "DE",
+                    "text": "Intro to Trading Systems Tutorial (Einführung in Handelssysteme Tutorial)",
+                    "updated": 1696955472185,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Defining a Trading Idea Tutorial",
+            "updated": 1616703676357,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Defining a Trading Idea Tutorial ( Tutorial definiendo una idea de trading)",
+                    "updated": 1636718791780
+                },
+                {
+                    "language": "DE",
+                    "text": "Defining a Trading Idea Tutorial (Tutorial zur Definition einer Handelsidee)",
+                    "updated": 1696955472311,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Trigger Stage Tutorial",
+            "updated": 1616703683018,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing a Trading Idea - The Trigger Stage Tutorial ( Testeando una idea de trading - Tutorial de la etapa gatillo)",
+                    "updated": 1636718838679
+                },
+                {
+                    "language": "DE",
+                    "text": "Testing a Trading Idea - The Trigger Stage Tutorial (Testen einer Handelsidee - Das Trigger Stage Tutorial)",
+                    "updated": 1696955472452,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Other Stages Tutorial",
+            "updated": 1616703689861,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing a Trading Idea - The Other Stages Tutorial ( Testeando una idea de trading - Tutorial de las otras etapas",
+                    "updated": 1636718875307
+                },
+                {
+                    "language": "DE",
+                    "text": "Testing a Trading Idea - The Other Stages Tutorial (Testen einer Handelsidee - Die anderen Phasen Tutorial)",
+                    "updated": 1696955472594,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Hello World Tutorial",
+            "updated": 1636633400046,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hello World Tutorial ( Tutorial Hola al mundo)",
+                    "updated": 1636718894897
+                },
+                {
+                    "language": "DE",
+                    "text": "Hello World Tutorial (Hallo Welt Tutorial)",
+                    "updated": 1696955472720,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hello World Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hello World Tutorial  ( Tutorial Hola al mundo)",
+                    "updated": 1636718910947
+                },
+                {
+                    "language": "DE",
+                    "text": "Hello World Tutorial (Hallo Welt Tutorial)",
+                    "updated": 1696955472876,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Install a New Market Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Install a New Market Tutorial  (Instalar un tutorial de mercado nuevo) ",
+                    "updated": 1636718968812
+                },
+                {
+                    "language": "DE",
+                    "text": "Install a New Market Tutorial (Ein neuen Markt installieren Tutorial)",
+                    "updated": 1696955472972,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market Tutorial",
+            "updated": 1616703698477,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Install a New Market Tutorial   (Instalar un tutorial de mercado nuevo) ",
+                    "updated": 1636718974855
+                },
+                {
+                    "language": "DE",
+                    "text": "Install a New Market Tutorial (Ein neuen Markt installieren Tutorial)",
+                    "updated": 1696955473129,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Custom Charts Tutorials",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Custom Charts Tutorials ( Tutoriales de gráficos personalizados)",
+                    "updated": 1636719020130
+                },
+                {
+                    "language": "DE",
+                    "text": "Custom Charts Tutorial (Benutzerdefinierte Diagramme Tutorials)",
+                    "updated": 1696955473255,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Setting Up a New Chart Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Setting Up a New Chart Tutorial  (Cómo configurar un tutorial de gráficos nuevos)",
+                    "updated": 1636719106615
+                },
+                {
+                    "language": "DE",
+                    "text": "Setting Up a New Chart Tutorial (Einrichten eines neuen Charts Tutorial)",
+                    "updated": 1696955473397,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Token Distribution Superalgos",
+            "updated": 1640708153705,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Token Distribution Superalgos (Token Verteilung Superalgos)",
+                    "updated": 1696955473491,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Creating Your User Profile Tutorial",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Creating Your User Profile Tutorial (Tutorial zum Erstellen Ihres Benutzerprofils)",
+                    "updated": 1696955473618,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

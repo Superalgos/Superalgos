@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Sapma vektörü için kısıtlama.",
                 "updated": 1654396696568
+            },
+            {
+                "language": "DE",
+                "text": "Einschränkung für den Bias-Vektor.",
+                "updated": 1706371793941
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396702374,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1706371801257
                 }
             ]
         },

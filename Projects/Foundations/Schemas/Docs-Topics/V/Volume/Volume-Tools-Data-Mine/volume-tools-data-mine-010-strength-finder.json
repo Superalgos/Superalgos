@@ -1,0 +1,63 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "10",
+    "type": "Strength Finder",
+    "definition": {
+        "text": "This indicator compares the price action and direction before applying volume weighting to calculate the strength of the buyers vs the strength of the sellers.",
+        "updated": 1676260660009
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Strength finder Index on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The resulting output of this indicator shows the relative strength of the buyers vs the sellers. If a buyer's value is above 50%, then buyers currently have the higher strength."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-strength.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Strength_Finder | StrengthFinder | buyVol, sellVol, buyPerc, sellPerc |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Strength Finder\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-strength-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the buy volume percent is above 50:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.StrengthFinder.buyPerc > 50"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

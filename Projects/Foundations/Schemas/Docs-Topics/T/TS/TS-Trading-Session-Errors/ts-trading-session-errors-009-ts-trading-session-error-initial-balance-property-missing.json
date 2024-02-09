@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Oturum Temel Varlık ( Session Base Asset ) ve Oturum Alıntılanan Varlık Düğümü ( Session Quoted Asset Node ) yapılandırmasında initialBalance adlı bir özellik bekleniyor.",
                 "updated": 1647100883852
+            },
+            {
+                "language": "DE",
+                "text": "Eine Eigenschaft namens initialBalance wird in der Konfiguration des Session Base Asset und des Session Quoted Asset Node erwartet.",
+                "updated": 1701116694882
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu hatayı bildiren Düğümdeki yapılandırmayı kontrol edin ve bu özelliğin var olduğundan emin olun.",
                     "updated": 1647100903821
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Konfiguration des Knotens (Node), der diesen Fehler meldet, und stellen Sie sicher, dass diese Eigenschaft vorhanden ist. ",
+                    "updated": 1701116732063
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Özellik Eksik",
                     "updated": 1647100919629
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlende Eigenschaft",
+                    "updated": 1701116717482
                 }
             ]
         },

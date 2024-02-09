@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Superalgos işleri basit tutmaya çalışır ve siz de böyle yapmalısınız çünkü artan karmaşıklıkla başa çıkmanın en iyi yolu budur!",
                 "updated": 1641654461543
+            },
+            {
+                "language": "ES",
+                "text": "Superalgos se esfuerza por simplificar las cosas, y tú también deberías hacerlo, ya que es la mejor manera de gestionar la complejidad del sistema.",
+                "updated": 1677100764758
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Koşullar mümkün olduğunca basit ama ayrıntılı olmalıdır, çünkü:",
                     "updated": 1641654483527
+                },
+                {
+                    "language": "ES",
+                    "text": "Las condiciones deben ser lo más granulares posible porque:",
+                    "updated": 1677100787538
                 }
             ]
         },
@@ -64,8 +74,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sözdiziminde hata ayıklamayı kolaylaştırır: mantığı tek bir koşulda topladığınızda, eklemiş olabileceğiniz herhangi bir hatayı bulmak zordur.",
-                    "updated": 1641654501372
+                    "text": "Söz diziminde hata ayıklamayı kolaylaştırır: tüm kodları tek bir koşulda topladığınızda, ortaya çıkan sorunun hangi koşuldan kaynaklandığını bulmanız zorlaşacaktır. Bu yüzden her koşulu ayrı bir düğümde tanımlamak iyi bir seçenektir.",
+                    "updated": 1669580320629
+                },
+                {
+                    "language": "ES",
+                    "text": "Facilita la depuración de la sintaxis: cuando amontonas lógica en una sola condición, es difícil encontrar los errores que puedas haber introducido.",
+                    "updated": 1677100784940
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Stratejide hata ayıklamayı kolaylaştırır: mantığı farklı koşullara bölerseniz, mantığın tam olarak hangi bölümünün doğru veya yanlış olduğunu görebilirsiniz.",
                     "updated": 1641654517648
+                },
+                {
+                    "language": "ES",
+                    "text": "Facilita la depuración de la estrategia: si se mantiene la lógica segregada en diferentes condiciones, se podrá ver con precisión qué parte de la lógica valida verdadero o falso.",
+                    "updated": 1677100802104
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Stratejiyi sürdürmeyi ve yükseltmeyi kolaylaştırır: ayrıntılı koşullar, her şeyin anlaşılmasını ve takip edilmesini kolaylaştırır.",
                     "updated": 1641654533068
+                },
+                {
+                    "language": "ES",
+                    "text": "Hace que la estrategia sea más fácil de mantener y actualizar: las condiciones granulares hacen que todo sea más fácil de entender y seguir.",
+                    "updated": 1677100742488
                 }
             ]
         }

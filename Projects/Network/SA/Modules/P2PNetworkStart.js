@@ -100,7 +100,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                     DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                     */
                     /*
-                    console.log('[INFO] Checking if the Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' is reachable via http to be ready to send a message to the ' + networkService + ' network service.')
+                    SA.logger.info('Checking if the Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' is reachable via http to be ready to send a message to the ' + networkService + ' network service.')
                     */
                     if (isPeerConnected(peer) === true) { continue }
 
@@ -110,13 +110,13 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
 
                     function isOnline() {
                         /*
-                        console.log('[INFO] This node is reponding to PING messages via http. Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is reachable via http.')
+                        SA.logger.info('This node is reponding to PING messages via http. Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is reachable via http.')
                         */
                         peers.push(peer)
                     }
                     function isOffline() {
                         /*
-                        console.log('[WARN] Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is NOT reachable via http.')
+                        SA.logger.warn('Network Node belonging to User Profile ' + peer.p2pNetworkNode.userProfile.name + ' it is NOT reachable via http.')
                         */
                     }
                 }
@@ -201,7 +201,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         messagesToBeDelivered.push(messageHeader)
 
         if (peer === undefined) {
-            console.log('[ERROR] Message can not be delivered to the P2P Network because the peer selected is undefined. Maybe there are no peers for the Network Service that wants to be accesed?')
+            SA.logger.error('Message can not be delivered to the P2P Network because the peer selected is undefined. Maybe there are no peers for the Network Service that wants to be accessed?')
             return
         }
         /*

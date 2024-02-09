@@ -28,6 +28,11 @@
                 "language": "TR",
                 "text": "Kullanım Kılavuzu, kapsamlı bir şekilde A'dan Z'ye Superalgos'u anlatır. Kitap, her bir hiyerarşinin açıklamasıyla birlikte işlevsellik ve özellikleri kapsar. Sürekli okuma için düzenlenmiştir ve sizi başlangıç ​​seviyesinden ileri Superalgos kullanıcı seviyesine götürecektir.",
                 "updated": 1666643078983
+            },
+            {
+                "language": "PL",
+                "text": "Podręcznik użytkownika opisuje Superalgos od A do Z, zaczynając od kompleksowego wprowadzenia do jego koncepcji. Obejmuje także funkcjonalności i cechy, oraz omawia zależności jakie między nimi występują. Jest zorganizowany w sposób umożliwiający czytanie go jak książki - od początku do końca, to najlepszy sposób żeby z początkującego zostać zaawansowanym użytkownikiem Superalgos.",
+                "updated": 1674739578866
             }
         ]
     },

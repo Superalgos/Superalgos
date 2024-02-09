@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Optimize ediciler, belirli bir modeli eğitmek için ek bilgiler içeren genişletilmiş sınıftır. Optimizer sınıfı verilen parametrelerle başlatılır ancak Tensör gerekmediğini unutmamak önemlidir. Optimize ediciler, belirli bir modeli eğitmek için hız ve performansı artırmak amacıyla kullanılır.",
                 "updated": 1654397381840
+            },
+            {
+                "language": "DE",
+                "text": "Optimierer sind die erweiterte Klasse, die zusätzliche Informationen enthalten, um ein spezifisches Modell zu trainieren. Die Optimiererklasse wird mit gegebenen Parametern initialisiert, aber es ist wichtig, sich daran zu erinnern, dass kein Tensor benötigt wird. Die Optimierer werden verwendet, um die Geschwindigkeit und Leistung beim Training eines bestimmten Modells zu verbessern.",
+                "updated": 1705267177963
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397387878,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705267186404
                 }
             ]
         }

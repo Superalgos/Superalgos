@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Aku akan memberikanmu beberapa petunjuk tentang cara mengedit halaman! Klik kanan pada paragraf untuk mendapatkan styles menu. Si Pensil akan memulai mode edit...",
                 "updated": 1668848857606
+            },
+            {
+                "language": "NL",
+                "text": "Ik zal je een paar tips geven over hoe je de pagina kunt bewerken! Klik met de rechtermuisknop op een alinea om het stijlenmenu te openen. Het potlood start de bewerkingsmodus...",
+                "updated": 1669747731330
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "ID",
                     "text": "Ini adalah H1... H2 lebih kecil!",
                     "updated": 1668848866546
+                },
+                {
+                    "language": "NL",
+                    "text": "Dit is een H1... H2 is kleiner!",
+                    "updated": 1669747746429
                 }
             ]
         },
@@ -108,6 +118,16 @@
                     "language": "ID",
                     "text": "Ab|: membuat bullet list seperti ini!",
                     "updated": 1668848878865
+                },
+                {
+                    "language": "NL",
+                    "text": "Ab|: maakt bullet-lijsten zoals deze!",
+                    "updated": 1669747757103
+                },
+                {
+                    "language": "ES",
+                    "text": "Ab|: crea listas de viñetas como ésta.",
+                    "updated": 1675452651174
                 }
             ]
         },
@@ -147,6 +167,11 @@
                     "language": "ID",
                     "text": "Kolom keempat memiliki fitur note(seperti ini), dengan beberapa box tips, kepentingan, dan peringatan.",
                     "updated": 1668848906562
+                },
+                {
+                    "language": "NL",
+                    "text": "De vierde kolom bevat notities (zoals deze), samen met tips, belangrijke en waarschuwingsvensters.",
+                    "updated": 1669747769677
                 }
             ]
         },
@@ -214,6 +239,11 @@
                     "language": "ID",
                     "text": "Abc| mengubah paragraf kembali ke text biasa. Semua ini seharusnya cukup untuk membuat review kamu terlihat hebat! Aku akan menjelaskan menu lainnya di waktu yang lain!",
                     "updated": 1668848980721
+                },
+                {
+                    "language": "NL",
+                    "text": "Abc| verandert de alinea terug in platte tekst. Dat zou genoeg moeten zijn om uw recensie er goed uit te laten zien! De rest van het menu leg ik later uit!",
+                    "updated": 1669747789761
                 }
             ]
         }

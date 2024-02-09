@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Platform",
+            "skipFiles": [
+                "<node_internals>/**",
+                ".github/**",
+                ".mocks/**",
+                ".tests/**",
+                "App-Management/**",
+                "Bitcoin-Factory/**",
+                "build/**",
+                "Dashboards/**",
+                "Docker/**",
+                "Exports/**",
+                "Launch-Scripts/**",
+                "Network/**",
+                "Profile-Scripts/**",
+                "Plugins/**",
+                "Social-Trading/**",
+                "Translator/**",
+                "Platform/UI/**",
+                "Platform/WebServer/**",
+                "Projects/**/Bots-Plotters-Code/**",
+                "Projects/**/GIFs/**",
+                "Projects/**/Icons/**",
+                "Projects/**/Icons-SVG-Sources/**",
+                "Projects/**/NT/**",
+                "Projects/**/PNGs/**",
+                "Projects/**/Schemas/**",
+                "Projects/**/UI/**"
+            ],
+            "program": "${workspaceFolder}/platform.js",
+            "args": ["minMemo", "noBrowser"]
+        }
+    ]
+}

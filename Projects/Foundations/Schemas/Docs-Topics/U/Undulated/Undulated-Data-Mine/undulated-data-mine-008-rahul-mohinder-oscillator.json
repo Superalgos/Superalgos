@@ -1,0 +1,66 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "8",
+    "type": "Rahul Mohinder Oscillator",
+    "definition": {
+        "text": "Rahul Mohinder Oscillator (RMO) takes an average of ten recurseively calculated simple moving averages (SMA)  and calculates the average rate of change on the result.",
+        "updated": 1670818318825
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "RMO on the Charts",
+            "updated": 1670818561127
+        },
+        {
+            "style": "Text",
+            "text": "This indicator calculates displays the result of the ratio of the SMA calculations as a hitogram to show the overall trend of the price action."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-rmo-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| RMO | rmo | value, trend |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's moving averages can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Rahul Mohinder Oscillator\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-rmo-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above zero:",
+            "updated": 1670818358743
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.rmo.value > 0 && chart.at01hs.rmo.previous.value <= 0",
+            "updated": 1670818364208
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

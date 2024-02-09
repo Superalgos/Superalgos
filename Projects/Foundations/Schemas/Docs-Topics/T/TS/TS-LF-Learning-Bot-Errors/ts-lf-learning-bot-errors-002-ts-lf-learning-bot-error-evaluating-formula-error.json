@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Öğrenme Sisteminde ( Learning System ) kullanıcı tanımlı bir Formül ( Formula ) değerlendirilirken bir hata oluştu.",
                 "updated": 1647419503303
+            },
+            {
+                "language": "DE",
+                "text": "Bei der Auswertung einer benutzerdefinierten Formel (Formula) im Lernsystem (Learning System) ist ein Fehler aufgetreten.",
+                "updated": 1690564635957
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "LF Öğrenme Botu ( LF Learning Bot ), TS'de çalışırken, Öğrenme Sisteminde ( Learning System ) tanımlanan formüllerden birini değerlendirmeye çalışırken bir hatayla karşılaştı. Formüller, kullanıcıların yazabileceği isteğe bağlı Javascript Kodudur ( Javascript Code ). Kod, Node JS için geçerli Javascript olmalıdır.",
                     "updated": 1647420025944
+                },
+                {
+                    "language": "DE",
+                    "text": "Während der Ausführung im TS ist der LF-Lernbot (LF Learning Bot) beim Versuch, eine der im Lernsystem (LF Learning Bot) definierten Formeln auszuwerten, auf einen Fehler gestoßen. Formeln sind beliebiger Javascript Code, den Benutzer schreiben können. Der Code muss gültiges Javascript für Node JS sein.",
+                    "updated": 1690564749652
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Hata: Formül ( Formula ) Hatası Değerlendiriliyor",
                     "updated": 1647420047984
+                },
+                {
+                    "language": "DE",
+                    "text": "Auswerten von Formelfehlern (Formula Error)",
+                    "updated": 1690565312553
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1647420077798
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1690564825727
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1647420085867
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1690564891945
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "TR",
                     "text": "İpucu: Bilgileri yalnızca bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1647420097368
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1690564902209
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "TR",
                     "text": "Hata Mesajı",
                     "updated": 1647420110655
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1690565011431
                 }
             ]
         },
@@ -92,6 +127,11 @@
                     "language": "TR",
                     "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
                     "updated": 1647420177672
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt die Fehlermeldung der Ausnahme, die beim LF-Lernbot (LF Learning Bot) aufgetreten ist:",
+                    "updated": 1690565096015
                 }
             ]
         },
@@ -107,6 +147,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1647420162855
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerstapel",
+                    "updated": 1690565111927
                 }
             ]
         },
@@ -119,6 +164,11 @@
                     "language": "TR",
                     "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
                     "updated": 1647420211885
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Fehlerstapel der Ausnahme, die beim LF-Lernbot (LF Learning Bot) aufgetreten ist:",
+                    "updated": 1690565148601
                 }
             ]
         },
@@ -134,6 +184,11 @@
                     "language": "TR",
                     "text": "Hata Kodu",
                     "updated": 1647420217607
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1690565152048
                 }
             ]
         },
@@ -146,6 +201,11 @@
                     "language": "TR",
                     "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
                     "updated": 1647420241123
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird der Fehlercode der Ausnahme angegeben, die beim LF-Lernbot (LF Learning Bot) aufgetreten ist:",
+                    "updated": 1690565177286
                 }
             ]
         },
@@ -161,6 +221,11 @@
                     "language": "TR",
                     "text": "Hata Detayları",
                     "updated": 1647420251967
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1690565186541
                 }
             ]
         },
@@ -173,6 +238,11 @@
                     "language": "TR",
                     "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
                     "updated": 1647420266692
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie alle Fehlerdetails der Ausnahme, die beim LF-Lernbot (LF Learning Bot) aufgetreten ist:",
+                    "updated": 1690565211750
                 }
             ]
         },
@@ -201,6 +271,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1647420304264
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Name des Knotens (Node), der am meisten mit diesem Fehler zu tun hat:",
+                    "updated": 1690565226726
                 }
             ]
         },
@@ -228,6 +303,11 @@
                     "language": "TR",
                     "text": "LF Öğrenme Bot'tunda ( LF Learning Bot ) hatayı üreten düğümde depolanan kod aşağıdadır:",
                     "updated": 1647420710341
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt der Code, der an dem Knoten gespeichert ist, der den Fehler beim LF Learning Bot verursacht hat:",
+                    "updated": 1690565249854
                 }
             ]
         },

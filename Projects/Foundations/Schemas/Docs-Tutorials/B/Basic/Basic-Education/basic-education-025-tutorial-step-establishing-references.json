@@ -1,0 +1,190 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Establishing References",
+    "definition": {
+        "text": "At some point, you will need to establish a reference, so let's do some basic training to develop the formidable skills required!",
+        "updated": 1615806228297,
+        "icon": {
+            "name": "delink-node",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "A un certo punto, dovrai stabilire tu una reference con un nodo. Quindi tanto vale imparare subito come si fa!",
+                "updated": 1619501421155,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "En algún momento, deberás establecer una referencia, ¡así que hagamos un entrenamiento básico para desarrollar las habilidades requeridas!",
+                "updated": 1626533505140,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Irgendwann werden Sie eine Referenz erstellen müssen, also lassen Sie uns ein paar grundlegende Übungen durchführen, um die erforderlichen Fähigkeiten zu entwickeln!",
+                "updated": 1634334474059
+            },
+            {
+                "language": "TR",
+                "text": "Bir noktada, bir referans oluşturmanız gerekecek, bu yüzden gereken zorlu becerileri geliştirmek için bazı temel eğitimler yapalım!",
+                "updated": 1639486721337
+            },
+            {
+                "language": "RU",
+                "text": "В какой-то момент вам понадобится создать справочник, поэтому давайте проведем базовую подготовку, чтобы развить необходимые важные навыки!",
+                "updated": 1640869395851
+            },
+            {
+                "language": "ID",
+                "text": "Pada sisi tertentu, kamu perlu membuat referensi, jadi mari kita lakukan beberapa latihan dasar untuk mengembangkan keterampilan hebat yang diperlukan!",
+                "updated": 1644948619494
+            },
+            {
+                "language": "NL",
+                "text": "Op een gegeven moment zul je een referentie moeten opbouwen, dus laten we wat basistraining doen om de formidabele vaardigheden te ontwikkelen die nodig zijn!",
+                "updated": 1669542014138
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Double-click the delink button on the menu of the Trading System Reference node!",
+            "updated": 1622373319578,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai doppio click sul bottone \"delink\" nel menù del nodo Trading System Reference!",
+                    "updated": 1666638814404,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz doble clic en el botón de desvincular \"Detach\" en el menú del nodo Trading System Reference!",
+                    "updated": 1675376535519,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doppelklicken Sie auf die Schaltfläche Delink im Menü des Knotens Trading System Reference!",
+                    "updated": 1634334490234
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Sistemi Referans ( Trading System Reference ) düğümünün menüsündeki bağlantı kesme düğmesine çift tıklayın!",
+                    "updated": 1639486776130
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды нажмите кнопку отсоединения в меню узла Trading System Reference!",
+                    "updated": 1640869430370
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik dua kali tombol delink pada menu node Trading System Reference!",
+                    "updated": 1644948646978
+                },
+                {
+                    "language": "NL",
+                    "text": "Dubbelklik op de delink knop in het menu van het Trading System Reference knooppunt!",
+                    "updated": 1669542056725
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You just broke the reference! But don't worry... we'll recreate it in the next steps!",
+            "updated": 1615806406944,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Hai rotto la reference! Ma non preoccuparti...la ricreeremo nei prossimi step!",
+                    "updated": 1619501479311,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Acabas de romper la referencia! Tranquilo, lo volveremos a crear en los próximos pasos!",
+                    "updated": 1626534167277,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie haben gerade die Referenz zerstört! Aber keine Sorge... wir werden sie in den nächsten Schritten wiederherstellen!",
+                    "updated": 1634334499633
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Referansı kaldırdınız! Ama merak etmeyin... sonraki adımlarda yeniden oluşturacağız!",
+                    "updated": 1639486829739
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы только что сломали ссылку! Но не волнуйтесь... мы восстановим ее в следующих шагах!",
+                    "updated": 1640869454260
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu baru saja merusak referensi! Tapi jangan khawatir... kita akan membuatnya kembali di langkah selanjutnya!",
+                    "updated": 1644948684013
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt zojuist de referentie verbroken! Maar maak je geen zorgen... we maken het opnieuw in de volgende stappen!",
+                    "updated": 1669542074927
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To establish a reference, follow the same process you use to attach a node. That is, right-click on the node where the reference will originate, drag it close to the node with which the reference will be established, and release the click once the orange ring shows up!",
+            "updated": 1615806699660,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per stabilire una reference, segui lo stesso processo usato per collegare un nodo: clicca con il tasto destro sul nodo da cui la reference avrà origine, trascinala vicino al nodo con cui vuoi stabilire il collegamento e rilascia quando vedi un anello arancione!",
+                    "updated": 1619501669049,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para establecer una referencia, sige el mismo proceso que usas para adjuntar un nodo. Haz clic con el botón derecho en el nodo donde se originará la referencia, arrástralo cerca del nodo con el que se establecerá la referencia y suelta cuando aparezca el anillo naranja.",
+                    "updated": 1626534977269,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Referenz zu erstellen, folgen Sie demselben Prozess, den Sie zum Anhängen eines Knotens verwenden. Klicken Sie also mit der rechten Maustaste auf den Knoten, von dem die Referenz ausgehen soll, ziehen Sie ihn in die Nähe des Knotens, mit dem die Referenz hergestellt werden soll, und lassen Sie den Klick los, sobald der orangefarbene Ring erscheint!",
+                    "updated": 1634334505328
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir referans oluşturmak için, bir düğüm eklerken kullandığınız yolun aynısını izleyin. Yani, referansın başlayacağı düğüme sağ tıklayın, referansın oluşturulacağı düğümün yakınına sürükleyin ve turuncu halka göründüğünde tıklamayı bırakın. (Düğümü, farenizin sağ tuşuna basılı şekilde CTRL+ sağ,sol,aşağı ve yukarı ok tuşlarını kullanarak sürükleyebilirsiniz.)",
+                    "updated": 1639487060734
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы создать ссылку, выполните те же действия, что и для присоединения узла. То есть щелкните правой кнопкой мыши на узле, от которого будет исходить ссылка, перетащите его близко к узлу, с которым будет установлена ссылка, и отпустите кнопку, как только появится оранжевое кольцо!",
+                    "updated": 1640869478583
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk membuat referensi, ikuti proses yang sama yang kamu gunakan untuk attach node. Yaitu, klik kanan pada node tempat referensi akan berasal, seret dekat ke simpul yang dengannya referensi akan dibuat, dan lepaskan klik setelah cincin oranye muncul!",
+                    "updated": 1644948783921
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een referentie tot stand te brengen, volgt u hetzelfde proces dat u gebruikt om een knooppunt aan te sluiten. Dat wil zeggen, klik met de rechtermuisknop op het knooppunt waar de referentie vandaan komt, sleep het dicht bij het knooppunt waarmee de referentie tot stand wordt gebracht en laat de klik los zodra de oranje ring verschijnt!",
+                    "updated": 1669542100674
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

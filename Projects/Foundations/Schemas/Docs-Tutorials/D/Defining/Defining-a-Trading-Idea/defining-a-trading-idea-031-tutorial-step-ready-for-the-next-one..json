@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "El tutorial de la derecha es el siguiente de la serie sobre el diseño de sistemas de trading. ¿Continuamos?",
                 "updated": 1668194163913
+            },
+            {
+                "language": "IT",
+                "text": "Il tutorial a destra è il successivo della serie sulla progettazione di sistemi di trading. Continuiamo?",
+                "updated": 1669901978758
+            },
+            {
+                "language": "NL",
+                "text": "De tutorial aan de rechterkant is de volgende in de serie over het ontwerpen van handelssystemen. Zullen we doorgaan?",
+                "updated": 1670787769003
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial di sebelah kanan adalah seri berikutnya tentang merancang sistem trading. Akankah kita terus lanjut?",
+                "updated": 1674701417093
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "El siguiente tutorial de la serie trata sobre la implementación de las ideas que acabamos de concebir en un sistema de trading (Trading System) para poder probarlas.",
                     "updated": 1668194200867
+                },
+                {
+                    "language": "IT",
+                    "text": "Il prossimo tutorial della serie riguarda l'implementazione delle idee che abbiamo appena avuto su un Trading System in modo che possano essere testate.",
+                    "updated": 1669901998322
+                },
+                {
+                    "language": "NL",
+                    "text": "De volgende zelfstudie in de serie gaat over het implementeren van de ideeën die we zojuist hebben bedacht in een Trading System, zodat ze kunnen worden getest.",
+                    "updated": 1670787818998
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial berikutnya dalam seri ini adalah tentang mengimplementasikan ide-ide yang baru saja kita dapatkan pada Trading System sehingga dapat diuji.",
+                    "updated": 1674701422704
                 }
             ]
         },
@@ -79,8 +109,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga clic en Next para terminar este tutorial, y seleccione Play en el siguiente cuando esté listo.",
-                    "updated": 1668194246533
+                    "text": "Haz clic en Next para terminar este tutorial, y seleccione Play en el siguiente cuando estés listo.",
+                    "updated": 1675206149255
+                },
+                {
+                    "language": "IT",
+                    "text": "Fai clic su Avanti per terminare questo tutorial e seleziona Riproduci nel prossimo quando sei pronto!",
+                    "updated": 1669902015140
+                },
+                {
+                    "language": "NL",
+                    "text": "Click Next om deze zelfstudie te beëindigen, en selecteer Play in de volgende als je er klaar voor bent!",
+                    "updated": 1670787890238
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik Next untuk menyelesaikan tutorial ini, dan pilih Play di tutorial berikutnya saat kamu siap!",
+                    "updated": 1674701429292
                 }
             ]
         }

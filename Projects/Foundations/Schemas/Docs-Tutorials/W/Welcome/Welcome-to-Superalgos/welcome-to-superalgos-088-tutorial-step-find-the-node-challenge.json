@@ -1,0 +1,161 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 88,
+    "type": "Tutorial Step - Find the Node Challenge",
+    "definition": {
+        "icon": {
+            "name": "trading-engine",
+            "project": "Algorithmic-Trading"
+        },
+        "text": "The Trading Engine is the data structure that keeps runtime info, making it accessible to users and trading systems.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il Trading Engine gestisce la complessità del trading automatico rendendo le informazioni accessibili agli utenti e ai sistemi di trading.",
+                "updated": 1618067277865,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El Trading Engine administra la complejidad que conlleva el trading automatizado al hacer que la información sea accesible para usuarios y Trading System.",
+                "updated": 1675361060668,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Trading Engine verwaltet die Komplexität, die der automatisierte Handel mit sich bringt, indem sie Informationen für Benutzer und Handelssysteme zugänglich macht.",
+                "updated": 1634226103084
+            },
+            {
+                "language": "TR",
+                "text": "Alım Satım Motoru ( Trading Engine ), bilgileri kullanıcılar ve alım satım sistemleri için erişilebilir hale getirerek otomatik alım satımın gerektirdiği karmaşıklığı yönetir.",
+                "updated": 1636211481328
+            },
+            {
+                "language": "ID",
+                "text": "The Trading Engine mengelola kompleksitas yang disyaratkan dalam automated trading dengan membuat informasi dapat diakses oleh pengguna dan trading systems.",
+                "updated": 1640566966022
+            },
+            {
+                "language": "RU",
+                "text": "Trading Engine управляет сложностями, связанными с автоматизированной торговлей, делая информацию доступной для пользователей и торговых систем.",
+                "updated": 1642769208149
+            },
+            {
+                "language": "NL",
+                "text": "De Trading Engine beheert de complexiteit die gepaard gaat met geautomatiseerde handel door informatie toegankelijk te maken voor gebruikers en handelssystemen.",
+                "updated": 1667128343136
+            },
+            {
+                "language": "FR",
+                "text": "Le Trading Engine gère la complexité inhérente au trading automatisé en rendant les informations accessibles aux utilisateurs et aux systèmes de trading.",
+                "updated": 1676958407017
+            }
+        ],
+        "updated": 1687723172475
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Remember my comments about granularity? Remember how the formula on the trading system fetched the value of the exit target rate? Here's a quick reminder:",
+            "updated": 1622228180200,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ricordi i miei commenti sulla granularità? Ricordi come la formula del trading system prendeva il valore dell'Exit Target Rate? Ecco un promemoria:",
+                    "updated": 1618067378217,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Recuerdas mis comentarios sobre la granularidad? ¿Cómo la fórmula del Trading System obtuvo el valor de la tasa objetivo de salida? Recordatorio rápido:",
+                    "updated": 1624461423083,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erinnern Sie sich an meine Bemerkungen zur Granularität? Erinnern Sie sich daran, wie die Formel des Handelssystems den Wert des Exit-Zielkurses ermittelt hat? Hier ist eine kurze Erinnerung:",
+                    "updated": 1634226111996
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıntı düzeyi hakkındaki yorumlarımı hatırlıyor musunuz? Ticaret sistemindeki formülün çıkış hedef oranının değerini nasıl aldığını hatırlıyor musunuz? İşte kısa bir hatırlatma:",
+                    "updated": 1636211506020
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat komentar saya tentang granularity? Ingat bagaimana formula pada trading system mengambil nilai dari exit target rate? Ini pengingat singkat :",
+                    "updated": 1640567056696
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните мои комментарии о гранулярности? Помните, как формула торговой системы вычисляла значение целевой ставки выхода (Exit Target Rate)? Вот краткое напоминание:",
+                    "updated": 1642769268803
+                },
+                {
+                    "language": "NL",
+                    "text": "Herinner je je mijn opmerkingen over granulariteit nog? Weet je nog hoe de formule op het handelssysteem de waarde van de exit-streefwaarde ophaalde? Hier is een snelle herinnering:",
+                    "updated": 1667128400200
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous vous souvenez de mes commentaires sur la granularité ? Vous vous souvenez que la formule du système de trading permettait d'obtenir la valeur du taux cible de sortie ? Voici un petit rappel :",
+                    "updated": 1676958441424
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value"
+        },
+        {
+            "style": "Callout",
+            "text": "This string holds the path to that piece of information in the data structure of the Trading Engine hierarchy! Can you find the Exit Target Rate node? Expand the hierarchy and follow the breadcrumb trail!",
+            "updated": 1616429836465,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questa stringa contiene il percorso a quel dato nel contesto della struttura della gerarchia del Trading Engine! Riesci a trovare il nodo dell'Exit Target Rate? Espandi la gerarchia e seguila!",
+                    "updated": 1618067490282,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta cadena contiene la ruta a esa pieza de información en la estructura de datos de la jerarquia Trading Engine! ¿Puedes encontrar el nodo Exit Target Rate? ¡Expande la jerarquía y sigue el rastro de migas de pan!",
+                    "updated": 1624461765098,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser String enthält den Pfad zu dieser Information in der Datenstruktur der Trading Engine Hierarchie! Können Sie den Knoten Exit Target Rate finden? Erweitern Sie die Hierarchie und folgen Sie dem Brotkrumen-Pfad!",
+                    "updated": 1634226148267
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu dizi, Trading Engine hiyerarşisinin veri yapısındaki o bilgi parçasının yolunu tutar! Çıkış Hedef Hızı ( Exit Target Rate ) düğümünü bulabilir misiniz? Hiyerarşiyi genişletin ve izini takip edin!",
+                    "updated": 1636211761179
+                },
+                {
+                    "language": "ID",
+                    "text": "String ini memegang jalur ke informasi itu dalam data structure dari Trading Engine hierarchy! Bisakah kamu menemukan  Exit Target Rate node? Expand hierarki dan ikuti breadcrumb trail!",
+                    "updated": 1640567181383
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта строка содержит путь к данному фрагменту информации в структуре данных иерархии Trading Engine! Можете ли вы найти узел Exit Target Rate? Разверните иерархию и следуйте по \"хлебным крошкам\"!",
+                    "updated": 1642769299874
+                },
+                {
+                    "language": "NL",
+                    "text": "Deze string bevat het pad naar dat stukje informatie in de datastructuur van de Trading Engine hiërarchie! Kunt u het knooppunt Exit Target Rate vinden? Klap de hiërarchie uit en volg het pad door de verschillende knooppunten!",
+                    "updated": 1667128494615
+                },
+                {
+                    "language": "FR",
+                    "text": "Cette formule contient le chemin d'accès à cet élément d'information dans la structure de données de la hiérarchie du Trading Engine ! Pouvez-vous trouver le nœud Exit Target Rate ? Développez la hiérarchie et suivez le fil d'Ariane !",
+                    "updated": 1676958479360
+                }
+            ]
+        }
+    ]
+}

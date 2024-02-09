@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "El cuarto aspecto a considerar es lo que esperamos de esta idea, y esto depende en gran medida del tipo de estrategia.",
                 "updated": 1668189338990
+            },
+            {
+                "language": "IT",
+                "text": "Il quarto aspetto da considerare è quello che ci aspettiamo da questa idea, e questo dipende fortemente dal tipo di strategia.",
+                "updated": 1669887857817
+            },
+            {
+                "language": "NL",
+                "text": "Het vierde aspect om te overwegen is wat we van dit idee verwachten, en dit is sterk afhankelijk van het type strategie.",
+                "updated": 1670784170881
+            },
+            {
+                "language": "ID",
+                "text": "Aspek keempat yang perlu dipertimbangkan adalah apa yang kita harapkan dari ide ini, dan ini sangat bergantung pada jenis strateginya.",
+                "updated": 1674688769897
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Por ejemplo, para una estrategia de swing, tomar una posición dos veces al mes con una proporción de aciertos del 50% puede ser aceptable, pero no para una estrategia de scalping.",
                     "updated": 1668189375636
+                },
+                {
+                    "language": "IT",
+                    "text": "Ad esempio, per una strategia swing, può essere accettabile aprire una posizione due volte al mese con un hit ratio del 50%, ma non vale lo stesso per una strategia scalping.",
+                    "updated": 1669887882711
+                },
+                {
+                    "language": "NL",
+                    "text": "Voor een swingstrategie kan het bijvoorbeeld acceptabel zijn om twee keer per maand een positie in te nemen met een hitratio van 50%, maar niet voor een scalpeerstrategie.",
+                    "updated": 1670784187248
+                },
+                {
+                    "language": "ID",
+                    "text": "Misalnya, untuk swing strategy, mengambil posisi dua kali per bulan dengan hit ratio 50% mungkin dapat diterima, tetapi tidak untuk strategi scalping.",
+                    "updated": 1674688775933
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "Definir lo que esperamos de la estrategia en términos de frecuencia de negociación y porcentaje de aciertos ayuda a determinar si la estrategia merece la pena o no.",
                     "updated": 1668189404660
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire cosa ci aspettiamo dalla strategia in termini di frequenza di trading e hit ratio aiuta a determinare se vale la pena perseguire o meno la strategia.",
+                    "updated": 1669887899848
+                },
+                {
+                    "language": "NL",
+                    "text": "Door te definiëren wat we van de strategie verwachten in termen van handelsfrequentie en hitratio, kunnen we bepalen of de strategie de moeite waard is om na te streven of niet.",
+                    "updated": 1670784218641
+                },
+                {
+                    "language": "ID",
+                    "text": "Mendefinisikan apa yang kita harapkan dari strategi dalam hal frekuensi trading dan rasio hit membantu menentukan apakah strategi tersebut layak untuk dijalankan atau tidak.",
+                    "updated": 1674688785282
                 }
             ]
         },
@@ -105,8 +150,18 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si las pruebas demuestran que la idea no produce tantas operaciones o tantas entradas buenas como sería deseable, es posible que se quiera plantear una nueva idea.",
-                    "updated": 1668189442540
+                    "text": "Si las pruebas demuestran que la idea no produce tantas operaciones o tantas entradas buenas como sería deseable, es posible que se quieras plantear una nueva idea.",
+                    "updated": 1675205504904
+                },
+                {
+                    "language": "NL",
+                    "text": "Als uit de tests blijkt dat het idee niet zoveel transacties of zoveel goede posities oplevert als wenselijk is, wilt u misschien met een nieuw idee komen.",
+                    "updated": 1670784260625
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika tes menunjukkan bahwa ide tersebut tidak menghasilkan banyak trade atau entri bagus sebanyak yang diinginkan, kamu mungkin ingin memunculkan ide baru.",
+                    "updated": 1674688792673
                 }
             ]
         }

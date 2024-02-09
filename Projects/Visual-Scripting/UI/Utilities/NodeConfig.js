@@ -25,3 +25,5 @@ function newVisualScriptingUtilitiesNodeConfig() {
         }
     }
 }
+
+exports.newVisualScriptingUtilitiesNodeConfig = newVisualScriptingUtilitiesNodeConfig

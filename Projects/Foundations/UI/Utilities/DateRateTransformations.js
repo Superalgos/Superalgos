@@ -64,3 +64,5 @@ function newFoundationsUtilitiesDateRateTransformations() {
         return point.x
     }
 }
+
+exports.newFoundationsUtilitiesDateRateTransformations = newFoundationsUtilitiesDateRateTransformations

@@ -1,0 +1,183 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 5,
+    "type": "Keltner Channel - EMA version",
+    "definition": {
+        "text": "Keltner Channel using Exponential Moving Average (EMA).",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Канал Кельтнера с использованием экспоненциальной скользящей средней (EMA).",
+                "updated": 1645715649156
+            },
+            {
+                "language": "DE",
+                "text": "Keltner Kanal mit Exponential Moving Average (EMA).",
+                "updated": 1671292944844
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645715654521
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “Keltner Channels are volitility based bands that are placed on either side of an asset's price and can aid in determining the direction of a trend.”",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"Каналы Кельтнера - это полосы волатильности, которые располагаются по обе стороны от цены актива и могут помочь в определении направления тренда\".",
+                    "updated": 1645715664617
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia sind \"Keltner Kanäle auf der Volatilität basierende Bänder, die auf beiden Seiten des Preises eines Vermögenswerts platziert werden und bei der Bestimmung der Richtung eines Trends helfen können.\"",
+                    "updated": 1671292973464
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This indicator uses the exponential moving average as a base of calculation to calulate the Average True Range (ATR).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор использует экспоненциальную скользящую среднюю в качестве базы для расчета Average True Range (ATR).",
+                    "updated": 1645715673545
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator verwendet den exponentiellen gleitenden Durchschnitt als Berechnungsgrundlage für die Berechnung der Average True Range (ATR).",
+                    "updated": 1671294103328
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Keltner-EMA.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Keltner EMA indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Keltner EMA’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры индикатора Keltner EMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом 'Keltner EMA' Product Definition.",
+                    "updated": 1645715683615
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Keltner EMA Indikators können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Keltner EMA’ Product Definition suchen und öffnen.",
+                    "updated": 1671294327960
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Keltner-EMA-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645715689249
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671294364052
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645715694682
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671294384467
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Keltner EMA | keltnerema | ema, upper, lower |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Keltner EMA | keltnerema | ema, upper, lower |",
+                    "updated": 1671294405281
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645715701096
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671294430207
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built using the price action breaking through the upper threshold:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена на основе ценового действия, пробивающего верхний порог:",
+                    "updated": 1645715707460
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie könnte auf der Grundlage des Durchbruchs der oberen Schwelle durch die Kursbewegung entwickelt werden:",
+                    "updated": 1671294452864
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.candle.close > chart.at30min.keltnerema.upper &&\n chart.at30min.candle.open < chart.at30min.keltnerema.upper &&\n chart.at30min.candle.previous.close < chart.at30min.keltnerema.previous.upper"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671294470907
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

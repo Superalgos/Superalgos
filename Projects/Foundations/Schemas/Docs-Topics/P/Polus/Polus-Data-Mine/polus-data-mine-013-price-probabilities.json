@@ -1,0 +1,172 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 13,
+    "type": "Price Probabilities",
+    "definition": {
+        "text": "This is an indicator that uses Exponential Moving Average (EMA) and Average True Range (ATR) to provide probability bands around the price action based on standard deviations.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это индикатор, который использует экспоненциальное скользящее среднее (EMA) и средний истинный диапазон (ATR) для обеспечения полос вероятности вокруг ценового действия на основе стандартных отклонений.",
+                "updated": 1645716319531
+            },
+            {
+                "language": "DE",
+                "text": "Es handelt sich um einen Indikator, der den Exponential Moving Average (EMA) und die Average True Range (ATR) verwendet, um auf der Grundlage von Standardabweichungen Wahrscheinlichkeitsbandbreiten um die Preisaktion zu liefern.",
+                "updated": 1671432359833
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Price Probabilities on the Charts:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ценовые вероятности на графиках:",
+                    "updated": 1645716333471
+                },
+                {
+                    "language": "DE",
+                    "text": "Preiswahrscheinlichkeiten auf den Charts:",
+                    "updated": 1671432546359
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The produced probability bands are not unlike bollinger bands in which they show the volatility level in the price action.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Созданные полосы вероятности не отличаются от полос Боллинджера тем, что они показывают уровень волатильности в ценовом действии.",
+                    "updated": 1645716345294
+                },
+                {
+                    "language": "DE",
+                    "text": "Die erstellten Wahrscheinlichkeitsbänder sind den Bollinger Bändern nicht unähnlich, da sie das Volatilitätsniveau in der Preisaktion anzeigen.",
+                    "updated": 1671432484494
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Price-Probabilities.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the ATR and the period of the EMA can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Price probabilities’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Период ATR и период EMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Price probabilities' Product Definition.",
+                    "updated": 1645716381882
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des ATR und die Periode des EMA können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Price probabilities’ Product Definition suchen und öffnen.",
+                    "updated": 1671432628062
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Price-Probabilities-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645716391324
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671432656376
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645716408573
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671432674075
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Price probabilities | PPB | l1, l30, h1, h30, l01, l02, h01, h02 |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Price probabilities | PPB | l1, l30, h1, h30, l01, l02, h01, h02 |",
+                    "updated": 1671432698518
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645716416023
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671432722210
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Examples of accessing this indicator can be found below:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры обращения к этому показателю приведены ниже:",
+                    "updated": 1645716423617
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele für den Zugriff auf diesen Indikator finden Sie unten:",
+                    "updated": 1671432745033
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.PPB.l1 \nchart.at10min.PPB.l30 \nchart.at04hs.PPB.h30 \nchart.at45min.PPB.h02"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671432768809
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

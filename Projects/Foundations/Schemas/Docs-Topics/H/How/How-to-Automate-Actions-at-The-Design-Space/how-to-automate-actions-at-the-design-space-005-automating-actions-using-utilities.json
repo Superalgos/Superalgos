@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Функциональность более низкого уровня упакована в файлы Utilities по темам. Уже существует множество файлов утилит с операциями, которые сэкономят ваше время при попытке реализовать собственный Action.",
                 "updated": 1640762253740
+            },
+            {
+                "language": "DE",
+                "text": "Funktionen der unteren Ebene sind in Dienstprogrammdateien nach Themen gepackt. Es gibt bereits viele Dienstprogrammdateien mit Operationen, die Ihnen Zeit sparen, wenn Sie versuchen, Ihre eigene Action zu implementieren.",
+                "updated": 1674247064968
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Очень хорошей идеей будет потратить некоторое время на папку Utilities, просмотреть файлы в ней, чтобы увидеть, что уже доступно для использования в ваших действиях. Вы увидите, что другие действия в библиотеках функций в значительной степени зависят от функций, определенных в одном из файлов папки Utilities.",
                     "updated": 1640762295489
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist sinnvoll sich den Ordner Utilities anzusehen und die darin enthaltenen Dateien zu durchsuchen, um zu sehen, was Sie bereits für Ihre Aktionen verwenden können. Sie werden sehen, dass andere Aktionen in Funktionsbibliotheken in hohem Maße auf Dienstprogrammfunktionen angewiesen sind, die in einer der Dateien im Ordner Utilities definiert sind.",
+                    "updated": 1674247149238
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Как вызвать функцию утилиты?",
                     "updated": 1640762333403
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie ruft man eine Dienstprogrammfunktion auf?",
+                    "updated": 1674247158330
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Во время выполнения все объекты утилиты уже будут созданны к моменту выполнения кода вашей функции Action. Вам просто нужно добраться до объекта, в котором находится утилита-функция, которую вы хотите выполнить, через доступный вам глобальный объект UI. Например:",
                     "updated": 1640762385539
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Laufzeit werden alle Utility-Objekte bereits instanziiert sein, wenn Ihr Action -Funktionscode ausgeführt wird. Sie müssen lediglich über das Ihnen zur Verfügung stehende UI Global Object zu dem Objekt gelangen, das die auszuführende Utility-Funktion bereitstellt. Zum Beispiel:",
+                    "updated": 1674247181309
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "Выяснить, какое имя является именем свойства определенного объекта утилиты, можно, прочитав определения в файле Project Schema File (файл схемы проекта). Объект утилиты, содержащий функцию nodeBranchToArray, использованную в приведенном выше примере, определен в файле схемы проекта таким образом:",
                     "updated": 1640762527967
+                },
+                {
+                    "language": "DE",
+                    "text": "Um herauszufinden, wie der Name eines bestimmten Utility-Objekts lautet, müssen Sie die Definitionen in der Project Schema File (Projektschemadatei) lesen. Das Utility-Objekt, welche die im obigen Beispiel verwendete Funktion nodeBranchToArray bereitstellt, ist in der Project Schema File auf diese Weise definiert:",
+                    "updated": 1674247281334
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "RU",
                     "text": "PropertyName - это то, что вам нужно знать, чтобы получить ссылку на объект утилиты во время ее работы и выполнить ее функции.",
                     "updated": 1640762585267
+                },
+                {
+                    "language": "DE",
+                    "text": "Der propertyName ist das, was Sie wissen müssen, um an die Laufzeitreferenz des Utility-Objekts zu gelangen und dessen Funktionen auszuführen.",
+                    "updated": 1674247327626
                 }
             ]
         },
@@ -93,6 +123,11 @@
                     "language": "RU",
                     "text": "Пример: Изменение конфигурации узла",
                     "updated": 1640762596266
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel: Ändern der Konfiguration eines Knotens",
+                    "updated": 1674247341853
                 }
             ]
         },
@@ -104,6 +139,11 @@
                     "language": "RU",
                     "text": "Это способ, с помощью которого вы программно управляете конфигурацией узла:",
                     "updated": 1640762624713
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist die Art und Weise, wie Sie die Konfiguration eines Node programmatisch manipulieren:",
+                    "updated": 1674247358518
                 }
             ]
         },

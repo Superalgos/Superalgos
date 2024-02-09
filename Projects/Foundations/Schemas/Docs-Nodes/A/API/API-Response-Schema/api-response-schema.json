@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, API yanıtı için haritayı temsil eder. API'ler verilerini bir JSON nesnesi kullanarak gönderir. Bu düğümün çocukları bu JSON nesnesini eşler, böylece API Getirici Botu istediğiniz verileri nasıl çıkaracağını bilir.",
                 "updated": 1652022760873
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten stellt die Karte für die API response (API-Antwort) dar. APIs senden ihre Daten mithilfe eines JSON Objekts. Die untergeordneten Elemente dieses Knotens bilden dieses JSON Objekt ab, damit der API Fetcher Bot weiß, wie er die gewünschten Daten extrahieren kann.",
+                "updated": 1701930786542
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "API Haritası, API Sunucusunun JSON'da biçimlendirilmiş dizeyle yanıt vereceğini varsayar. Bu, yanıtın yuvalanmış nesnelerin ve dizilerin bir veri yapısı olacağı anlamına gelir. Kullanıcıların, bu düğüme ve bu düğümün alt öğelerine alt öğeleri ekleyerek yanıt biçimini bir API Yanıt Şeması ile eşleştirmeleri gerekecektir. Tüm bu torunlar aynı Düğüm Tipi API Yanıt Alanına aittir.",
                     "updated": 1652022771543
+                },
+                {
+                    "language": "DE",
+                    "text": "Die API Map geht davon aus, dass der API Server mit einem in JSON formatierten String antwortet. Das bedeutet, dass die Antwort eine Datenstruktur aus verschachtelten Objekten und Arrays sein wird. Die Benutzer müssen das Antwortformat in ein API Response Schema (API-Antwortschema) abbilden, indem sie diesem Knoten und den Unterknoten dieses Knotens Unterknoten hinzufügen. Alle diese Nachkommen haben denselben Knotentyp API Response Field (API-Antwortfeld).",
+                    "updated": 1701930786749,
+                    "style": "Text"
                 }
             ]
         },
@@ -48,6 +59,12 @@
                     "language": "TR",
                     "text": "İşte bir API'nin JSON yanıtına bir örnek:",
                     "updated": 1652022779265
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein Beispiel für die JSON Antwort einer API:",
+                    "updated": 1701930786963,
+                    "style": "Text"
                 }
             ]
         },
@@ -70,6 +87,12 @@
                     "language": "TR",
                     "text": "Ana nesne, her şeyi kapsayan ilk küme parantezleri { } kümesidir. Gördüğünüz gibi, bunun altında status ve data adında iki nesne özelliği var. Durum bir nesnedir ve başlık bilgilerini içerir. Veri bir dizidir ve peşinde olduğumuz gerçek verileri tutar. API Yanıt Şeması düğümünüze API Yanıt Alanı düğümleri olarak, buna benzer bir API yanıtı eşleyeceksiniz.",
                     "updated": 1652022789268
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Hauptobjekt ist die erste Gruppe von geschweiften Klammern { }, die alles einschließen. Wie Sie sehen können, gibt es darunter zwei Objekteigenschaften namens status und data. Status ist ein Objekt und enthält die Kopfinformationen. Data ist ein Array und enthält die eigentlichen Daten, die wir suchen. Wenn Sie die API Response Field Ihrem API Response Schema zuordnen, werden Sie eine API Antwort ähnlich wie diese abbilden.",
+                    "updated": 1701930787083,
+                    "style": "Text"
                 }
             ]
         },
@@ -86,6 +109,12 @@
                     "language": "TR",
                     "text": "İpucu: Belgeleri okurken veya JSON'da tutulan ham verilere bakarken, küme parantezlerinin { } nesneleri, köşeli parantezlerin [ ] dizileri tanımladığını hatırlamak önemlidir.",
                     "updated": 1652022797175
+                },
+                {
+                    "language": "DE",
+                    "text": "Beim Lesen von Dokumentationen oder beim Betrachten von Rohdaten in JSON ist es wichtig, daran zu denken, dass geschweifte Klammern { } Objekte definieren, während eckige Klammern [ ] Arrays definieren.",
+                    "updated": 1701930787293,
+                    "style": "Success"
                 }
             ]
         },
@@ -103,6 +132,12 @@
                     "language": "TR",
                     "text": "API Yanıt Şeması Yapılandırması",
                     "updated": 1652022803916
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration des API Response Schema",
+                    "updated": 1701930787489,
+                    "style": "Title"
                 }
             ]
         },
@@ -119,6 +154,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652022810342
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930787662,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -136,6 +177,12 @@
                     "language": "TR",
                     "text": "nodePath: sunucudan gelen yanıt, istenen gerçek verilere ek olarak bazı başlık türü verileri içerebilir. Yanıt bir JSON nesnesi olduğundan, gerçek veriler o nesnenin yapısı içinde bir yerde bulunabilir. Bu özellik, başlık benzeri bilgileri atlamak için istenen gerçek verilere giden yolu bildirmenize olanak tanır.",
                     "updated": 1652022819680
+                },
+                {
+                    "language": "DE",
+                    "text": "nodePath: Die Antwort des Servers kann neben den eigentlichen angeforderten Daten auch einige Kopfdaten enthalten. Da es sich bei der Antwort um ein JSON Objekt handelt, befinden sich die eigentlichen Daten möglicherweise irgendwo in der Struktur dieses Objekts. Mit dieser Eigenschaft können Sie den Pfad zu den tatsächlich angeforderten Daten angeben, um die Header-ähnlichen Informationen zu überspringen.",
+                    "updated": 1701930787790,
+                    "style": "List"
                 }
             ]
         },
@@ -153,6 +200,12 @@
                     "language": "TR",
                     "text": "Neden Başlığı Atlamamız Gerekiyor?",
                     "updated": 1652022827118
+                },
+                {
+                    "language": "DE",
+                    "text": "Warum müssen wir die Kopfzeile überspringen?",
+                    "updated": 1701930787988,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -170,6 +223,12 @@
                     "language": "TR",
                     "text": "Çoğu durumda, tüm verileri almak için API Sunucusuna birkaç sorgu yapmak gerekecektir (sayfalandırmayı düşünün). Her veri sayfası, yanıt veri yapısı içinde belirli bir konuma gelir. Bu konum, Veri Kökü olarak kabul ettiğimiz konumdur.",
                     "updated": 1652022838873
+                },
+                {
+                    "language": "DE",
+                    "text": "In vielen Fällen werden mehrere Abfragen an den API Server erforderlich sein, um alle Daten abzurufen (man denke an die Seitennummerierung). Jede Seite der Daten kommt an einer bestimmten Stelle innerhalb der Antwortdatenstruktur an. Diesen Ort haben wir als Data Root (Datenstamm) bezeichnet.",
+                    "updated": 1701930788084,
+                    "style": "Text"
                 }
             ]
         },
@@ -187,6 +246,12 @@
                     "language": "TR",
                     "text": "Uç Noktanız sayfalandırmayı desteklemiyorsa, JSON nesnesinin hangi bölümünün Veri Kökü olduğunu tanımlamak yine de iyi bir uygulamadır.",
                     "updated": 1652022846479
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihr Endpunkt keine Seitennummerierung unterstützt, ist es dennoch eine gute Praxis, zu definieren, welcher Teil des JSON-Objekts die Data Root ist.",
+                    "updated": 1701930788427,
+                    "style": "Text"
                 }
             ]
         },
@@ -204,6 +269,12 @@
                     "language": "TR",
                     "text": "Önemli: Çoğu Kayıt Özelliği, tanımladığınız Veri Kökü altındaki API Yanıt Alanı ( API Response Field  ) düğümlerine başvurur, ancak orada olmayan bir veya iki tane olabilir. Bunun yerine bu değerler genel olarak yanıt veri yapısının altında veya başlık olarak kabul edilebilecek bir bölümde olabilir. Bu durumda, izlemeniz gereken bazı özel adımlar vardır. API Response Field Reference düğüm yapılandırmasında, aşağıda açıklandığı gibi bir nodePath özelliği ayarlamanız gerekecektir.",
                     "updated": 1652022880839
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Datensatzeigenschaften (Record Properties) verweisen auf API-Antwortfeldknoten (API Response Field), die sich unter der von Ihnen definierten Data Root befinden, aber es gibt vielleicht ein oder zwei, die sich nicht dort befinden.  Vielmehr können sich diese Werte unter der Antwortdatenstruktur im Allgemeinen oder in einem Abschnitt befinden, der als Kopfzeile betrachtet werden könnte. In diesem Fall müssen Sie einige spezielle Schritte befolgen. In der API Response Field Reference node config müssen Sie eine nodePath-Eigenschaft einrichten, wie unten beschrieben.",
+                    "updated": 1701930788628,
+                    "style": "Important"
                 }
             ]
         },
@@ -221,6 +292,12 @@
                     "language": "TR",
                     "text": "Bu özelliğin nasıl kurulacağına ilişkin ayrıntılar için API Yanıt Alanı Referansı ( API Response Field Reference ) düğümüne bakın.",
                     "updated": 1652022932645
+                },
+                {
+                    "language": "DE",
+                    "text": "Weitere Informationen zur Einrichtung dieser Eigenschaft finden Sie im Knoten API Response Field Reference.",
+                    "updated": 1701930788913,
+                    "style": "Text"
                 }
             ]
         }

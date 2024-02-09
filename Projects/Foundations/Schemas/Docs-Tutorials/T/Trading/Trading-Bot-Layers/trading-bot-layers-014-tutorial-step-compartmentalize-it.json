@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Hiyerarşideki değerlere erişimin katmanlar halinde bölümlere ayrılmasının nedeni, katmanların bot tarafından çıkarılan veri ürünlerine karşılık gelmesidir.",
                 "updated": 1641993616380
+            },
+            {
+                "language": "ID",
+                "text": "Alasan mengapa akses ke nilai dalam hierarki dikelompokkan dalam beberapa layers adalah karena layers sesuai dengan keluaran produk data oleh bot.",
+                "updated": 1673856112269
+            },
+            {
+                "language": "ES",
+                "text": "La razón por la que el acceso a los valores de la jerarquía está compartimentado en capas es que éstas corresponden a productos de datos emitidos por el bot.",
+                "updated": 1675464389437
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Tanımların ve genel olarak bilginin bölümlere ayrılması, karmaşıklığın başarıyla yönetildiği mekanizmalardan biri olduğu için sistem genelinde tema bu şekildedir.",
                     "updated": 1641993666059
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengelompokan definisi—dan informasi secara umum—merupakan tema tersendiri di seluruh sistem, karena merupakan salah satu mekanisme di mana kompleksitas dikelola dengan sukses.",
+                    "updated": 1673856120317
+                },
+                {
+                    "language": "ES",
+                    "text": "La compartimentación de las definiciones -y de la información en general- es un tema en sí mismo en todo el sistema, ya que es uno de los mecanismos por los que se administra con éxito la complejidad.",
+                    "updated": 1675464412504
                 }
             ]
         },
@@ -70,6 +90,16 @@
                     "language": "TR",
                     "text": "Trading Engine hiyerarşisindeki değerleri takip etmek için bu özelliği kullanmanız gerektiğinde, aynı anda birden fazla katmanı açmayı seçebilirsiniz... dilerseniz hepsini açabilisiniz! Ne kadar çok katmanı açarsanız, kullanıcı arayüzünün o kadar çok dosya okuduğunu ve dolayısıyla donanımınıza o kadar fazla yük bindirdiğinizi unutmayın!",
                     "updated": 1641993714855
+                },
+                {
+                    "language": "ID",
+                    "text": "Sesaat kamu perlu menggunakan fitur ini untuk melacak nilai pada hierarki Trading Engine, kamu dapat memilih untuk mengaktifkan beberapa layers sekaligus... bahkan semuanya jika kamu mau! Perlu diingat bahwa semakin banyak layers yang kamu aktifkan, semakin banyak file yang dibaca UI, sehingga semakin banyak beban yang kamu berikan pada perangkat-mu!",
+                    "updated": 1673856126564
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando necesites utilizar esta característica para rastrear valores en la jerarquía del Trading Engine, puedes optar por activar varias capas a la vez... ¡incluso todas si lo deseas! Sólo ten en cuenta que cuantas más capas actives, más archivos leerá la interfaz de usuario y, por lo tanto, ¡más carga supondrá para tu hardware!",
+                    "updated": 1675464444102
                 }
             ]
         }

@@ -8,6 +8,16 @@
                 "language": "RU",
                 "text": "Это свойство используется в конфигурациях API Path Parameter и API Query Parameter. Это позволяет вам дать команду API Fetcher Bot установить значение для этого параметра на основе контекстной информации, которая не может быть предопределена в Data Mine или на API Map. Например,\nэта контекстная информация может быть текущим используемым базовым активом Asset или текущим временем current Time.",
                 "updated": 1638289110366
+            },
+            {
+                "language": "TR",
+                "text": "Bu özellik, API Yol Parametresi ( API Path Parameter ) ve API Sorgu Parametresi ( API Query Parameter ) yapılandırmalarında kullanılır. API Getirici Bot'a ( API Fetcher Bot ), Veri Madeni ( Data Mine ) veya API Haritasında ( API Map ) önceden tanımlanamayan bağlamsal bilgilere dayalı olarak bu parametre için bir değer ayarlama talimatı vermenizi sağlar. Örneğin, bu bağlamsal bilgi kullanılan geçerli Temel Varlık ( Base Asset ) veya geçerli Saat olabilir.",
+                "updated": 1671109482571
+            },
+            {
+                "language": "DE",
+                "text": "Diese Eigenschaft wird in API Path Parameter und API Query Parameter Configs verwendet. Sie ermöglicht es Ihnen, den API Fetcher Bot anzuweisen, einen Wert für diesen Parameter auf der Grundlage von Kontextinformationen festzulegen, die in der Data Mine oder der API Map nicht vordefiniert werden können. Diese Kontextinformationen können zum Beispiel das aktuell verwendete Basis-Asset (Base Asset) oder die aktuelle Uhrzeit sein.",
+                "updated": 1698006771662
             }
         ]
     },
@@ -25,6 +35,11 @@
                     "language": "RU",
                     "text": "Использование replaceBy Config Property",
                     "updated": 1638289184828
+                },
+                {
+                    "language": "TR",
+                    "text": "replaceBy Config Özelliğinin Kullanımı ( replaceBy Config Property Usage )",
+                    "updated": 1671109596298
                 }
             ]
         },
@@ -37,6 +52,16 @@
                     "language": "RU",
                     "text": "Это свойство является необязательным, что означает, что бот будет использовать значение по умолчанию, когда оно отсутствует. Значение по умолчанию для API Query Parameter и  API Path Parameter - это свойство конфигурации codeName. Пример того, как это будет выглядеть в конфигурации, выглядит следующим образом:",
                     "updated": 1638289278885
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özellik isteğe bağlıdır, yani mevcut olmadığında Bot varsayılan değeri kullanacaktır. Hem API Sorgu Parametresi ( API Query Parameter ) hem de API Yol Parametresi ( API Path Parameter ) için varsayılan değer codeName yapılandırma özelliğidir. Bunun bir yapılandırmada nasıl görüneceğine dair örnek aşağıdaki gibidir:",
+                    "updated": 1671115062486
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Eigenschaft ist optional, d. h., wenn sie nicht vorhanden ist, verwendet der Bot den Standardwert. Der Standardwert für API-Abfrageparameter (API Query Parameter) und API-Pfadparameter (API Path Parameter) ist die Konfigurationseigenschaft codeName. Ein Beispiel dafür, wie dies in einer Konfiguration aussehen würde, ist wie folgt",
+                    "updated": 1698006891928
                 }
             ]
         },
@@ -54,6 +79,16 @@
                     "language": "RU",
                     "text": "В следующем списке перечислены все возможные значения, которые вы можете использовать в свойстве replaceBy.",
                     "updated": 1638289306389
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki liste replaceBy özelliği içinde kullanabileceğiniz tüm olası değerleri ortaya koymaktadır. ",
+                    "updated": 1671110045171
+                },
+                {
+                    "language": "DE",
+                    "text": "In der folgenden Liste sind alle möglichen Werte aufgeführt, die Sie in der Eigenschaft replaceBy verwenden können.",
+                    "updated": 1698006913875
                 }
             ]
         },
@@ -65,6 +100,11 @@
                     "language": "RU",
                     "text": "Для Base Asset",
                     "updated": 1638289343847
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Varlık için ( For Base Asset )",
+                    "updated": 1671110130643
                 }
             ]
         },
@@ -76,6 +116,16 @@
                     "language": "RU",
                     "text": "@BaseAsset: Это заставит бота использовать текущий базовый актив Base asset.",
                     "updated": 1638289382754
+                },
+                {
+                    "language": "TR",
+                    "text": "@BaseAsset: Bu, Botu mevcut Temel Varlığı ( Base Asset ) kullanmaya zorlayacaktır.",
+                    "updated": 1671110272326
+                },
+                {
+                    "language": "DE",
+                    "text": "@BaseAsset: Hiermit wird der Bot gezwungen, das aktuelle Base Asset zu verwenden.",
+                    "updated": 1698006965628
                 }
             ]
         },
@@ -93,6 +143,16 @@
                     "language": "RU",
                     "text": "@BaseAssetNameUppercase: Это заставит бота использовать текущее имя базового актива Base asset, начинающееся с заглавной буквы.",
                     "updated": 1638289415971
+                },
+                {
+                    "language": "TR",
+                    "text": "@BaseAssetNameUppercase: Bu, Bot'u Temel Varlığın ( Base Asset ) büyük harfle başlayan geçerli adını kullanmaya zorlayacaktır.",
+                    "updated": 1671110351694
+                },
+                {
+                    "language": "DE",
+                    "text": "@BaseAssetNameUppercase: Hiermit wird der Bot gezwungen, den aktuellen Namen des Base Asset zu verwenden, der mit einem Großbuchstaben beginnt.",
+                    "updated": 1698006994947
                 }
             ]
         },
@@ -110,6 +170,16 @@
                     "language": "RU",
                     "text": "@BaseAssetNameLowercase: Это заставит бота использовать имя текущего базового актива Base Asset, начинающееся со строчной буквы.",
                     "updated": 1638289441227
+                },
+                {
+                    "language": "TR",
+                    "text": "@BaseAssetNameLowercase: Bu, Bot'u küçük harfle başlayan geçerli Temel Varlığın ( Base Asset ) adını kullanmaya zorlayacaktır.",
+                    "updated": 1671110468061
+                },
+                {
+                    "language": "DE",
+                    "text": "@BaseAssetNameLowercase: Hiermit wird der Bot gezwungen, den Namen des aktuellen Base Asset zu verwenden, der mit einem Kleinbuchstaben beginnt.",
+                    "updated": 1698007041578
                 }
             ]
         },
@@ -127,6 +197,11 @@
                     "language": "RU",
                     "text": "Для Quoted Asset",
                     "updated": 1638289450122
+                },
+                {
+                    "language": "TR",
+                    "text": "Kote Edilen Varlık İçin ( For Quoted Asset )",
+                    "updated": 1671110684782
                 }
             ]
         },
@@ -138,6 +213,16 @@
                     "language": "RU",
                     "text": "@QuotedAsset: Это заставит бота использовать текущий котируемый актив Quoted Asset.",
                     "updated": 1638289476733
+                },
+                {
+                    "language": "TR",
+                    "text": "@QuotedAsset: Bu, Bot'u mevcut Kote Edilen Varlığı ( Quoted Asset ) kullanmaya zorlayacaktır.",
+                    "updated": 1671111054211
+                },
+                {
+                    "language": "DE",
+                    "text": "@QuotedAsset: Damit wird der Bot gezwungen, das aktuelle Quoted Asset zu verwenden.",
+                    "updated": 1698007061175
                 }
             ]
         },
@@ -155,6 +240,16 @@
                     "language": "RU",
                     "text": "@QuotedAssetNameUppercase: Это заставит бота использовать имя текущего базового актива Base Asset, начинающееся с заглавной буквы.",
                     "updated": 1638289509603
+                },
+                {
+                    "language": "TR",
+                    "text": "@QuotedAssetNameUppercase: Bu, Bot'u büyük harfle başlayan geçerli Temel Varlığın ( Base Asset ) adını kullanmaya zorlayacaktır.",
+                    "updated": 1671111735186
+                },
+                {
+                    "language": "DE",
+                    "text": "@QuotedAssetNameUppercase: Hiermit wird der Bot gezwungen, den Namen des aktuellen Base Asset zu verwenden, der mit einem Großbuchstaben beginnt.",
+                    "updated": 1698007094306
                 }
             ]
         },
@@ -172,6 +267,16 @@
                     "language": "RU",
                     "text": "@QuotedAssetNameLowercase: Это заставит бота использовать имя текущего базового актива Base Asset, начинающееся со строчной буквы.",
                     "updated": 1638289532913
+                },
+                {
+                    "language": "TR",
+                    "text": "@QuotedAssetNameLowercase: Bu, Bot'u küçük harfle başlayan geçerli Temel Varlığın ( Base Asset ) adını kullanmaya zorlayacaktır.",
+                    "updated": 1671112024012
+                },
+                {
+                    "language": "DE",
+                    "text": "@QuotedAssetNameLowercase: Hiermit wird der Bot gezwungen, den Namen des aktuellen Base Asset zu verwenden, der mit einem Kleinbuchstaben beginnt.",
+                    "updated": 1698007119040
                 }
             ]
         },
@@ -189,6 +294,11 @@
                     "language": "RU",
                     "text": "Для Exchange",
                     "updated": 1638289543787
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa için ( For Exchange )",
+                    "updated": 1671113185380
                 }
             ]
         },
@@ -200,6 +310,16 @@
                     "language": "RU",
                     "text": "@Exchange: Это заставит бота использовать текущую биржу current Exchange.",
                     "updated": 1638289613398
+                },
+                {
+                    "language": "TR",
+                    "text": "@Exchange: Bu, Bot'u mevcut Borsayı kullanmaya zorlayacaktır.",
+                    "updated": 1671113232229
+                },
+                {
+                    "language": "DE",
+                    "text": "@Börse: Damit wird der Bot gezwungen, die aktuelle Börse zu verwenden.",
+                    "updated": 1698007138747
                 }
             ]
         },
@@ -217,6 +337,16 @@
                     "language": "RU",
                     "text": "@ExchangeNameUppercase: Это заставит бота использовать название текущей биржи currentExchange, начинающееся с заглавной буквы.",
                     "updated": 1638289732975
+                },
+                {
+                    "language": "TR",
+                    "text": "@ExchangeNameUppercase: Bu, Bot'u büyük harfle başlayan geçerli Borsa adını kullanmaya zorlayacaktır.",
+                    "updated": 1671113277486
+                },
+                {
+                    "language": "DE",
+                    "text": "@ExchangeNameUppercase: Damit wird der Bot gezwungen, den Namen des aktuellen Exchange zu verwenden, der mit einem Großbuchstaben beginnt.",
+                    "updated": 1698007154990
                 }
             ]
         },
@@ -234,6 +364,16 @@
                     "language": "RU",
                     "text": "@ExchangeNameLowercase: Это заставит бота использовать название текущей биржи current Exchange, начинающееся со строчной буквы.",
                     "updated": 1638289717842
+                },
+                {
+                    "language": "TR",
+                    "text": "@ExchangeNameLowercase: Bu, Bot'u küçük harfle başlayan geçerli Borsa adını kullanmaya zorlayacaktır.",
+                    "updated": 1671113329244
+                },
+                {
+                    "language": "DE",
+                    "text": "@ExchangeNameLowercase: Damit wird der Bot gezwungen, den Namen des aktuellen Exchange zu verwenden, der mit einem Kleinbuchstaben beginnt.",
+                    "updated": 1698007177555
                 }
             ]
         },
@@ -251,6 +391,11 @@
                     "language": "RU",
                     "text": "Для Timestamp",
                     "updated": 1638289705527
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Damgası için ( For Timestamp )",
+                    "updated": 1671113436387
                 }
             ]
         },
@@ -262,6 +407,16 @@
                     "language": "RU",
                     "text": "@BeginCurrentMinute: Это проинструктирует бота использовать метку времени в начале текущей минуты.",
                     "updated": 1638289783999
+                },
+                {
+                    "language": "TR",
+                    "text": "@BeginCurrentMinute: Bu, Bot'a geçerli dakikanın başında bir zaman damgası kullanması talimatını verecektir.",
+                    "updated": 1671113493676
+                },
+                {
+                    "language": "DE",
+                    "text": "@BeginCurrentMinute: Hiermit wird der Bot angewiesen, einen Zeitstempel am Anfang der aktuellen Minute zu verwenden.",
+                    "updated": 1698007198525
                 }
             ]
         },
@@ -279,6 +434,16 @@
                     "language": "RU",
                     "text": "@EndCurrentMinute: Это проинструктирует бота использовать метку времени в конце текущей минуты.",
                     "updated": 1638289798649
+                },
+                {
+                    "language": "TR",
+                    "text": "@EndCurrentMinute: Bu, Bot'a geçerli dakikanın sonunda bir zaman damgası kullanması talimatını verecektir.",
+                    "updated": 1671113960143
+                },
+                {
+                    "language": "DE",
+                    "text": "@EndCurrentMinute: Hiermit wird der Bot angewiesen, einen Zeitstempel am Ende der aktuellen Minute zu verwenden.",
+                    "updated": 1698007282429
                 }
             ]
         },
@@ -296,6 +461,16 @@
                     "language": "RU",
                     "text": "Если пользователи получают доступ к значению, которого нет в списке выше, свойство будет проигнорировано и будет использоваться значение по умолчанию.",
                     "updated": 1638289815391
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar yukarıda listelenmeyen bir değere erişirse, özellik yok sayılır ve varsayılan değer kullanılır.",
+                    "updated": 1671114023807
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Benutzer auf einen Wert zugreifen, der oben nicht aufgeführt ist, wird die Eigenschaft ignoriert und der Standardwert verwendet.",
+                    "updated": 1698007302172
                 }
             ]
         },
@@ -308,6 +483,16 @@
                     "language": "RU",
                     "text": "Значения имен берутся из меток активов, хранящихся в узле Exchange Assets.",
                     "updated": 1638289855629
+                },
+                {
+                    "language": "TR",
+                    "text": "Ad değerleri, Borsa Varlıkları ( Exchange Assets ) düğümünde tutulan varlık etiketlerinden alınır",
+                    "updated": 1671114608913
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Namenswerte werden aus den Asset-Etiketten des Knotens Exchange Assets gezogen.",
+                    "updated": 1698007325491
                 }
             ]
         },

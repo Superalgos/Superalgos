@@ -60,14 +60,14 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 to retrieve it's id from the secrets file. 
                 */
                 if (queryMessage.originSocialPersonaId === undefined) {
-                    queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
-                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your QUERY Message because adding a default one will be deprecated at the next release.')
+                    queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA).nodeId
+                    SA.logger.warn('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your QUERY Message because adding a default one will be deprecated at the next release.')
                 }
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
+                // SA.logger.info('- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
                 switch (queryMessage.queryType) {
 
@@ -93,8 +93,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                 let response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(event.fileKeys)
 
                                 if (response.result === "Ok") {
-                                    event.postText = response.postText
-                                    eventsWithNoProblem.push(event)
+                                    event.postText = response.postText;
+                                    event.postImage = response.postImage;
+                                    event.userName = response.userName;
+                                    event.reactions = event.originPost.reactions;
+                                    eventsWithNoProblem.push(event);
                                 }
                             } else {
                                 eventsWithNoProblem.push(event)
@@ -152,6 +155,8 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
                             if (response.result === "Ok") {
                                 post.postText = response.postText
+                                post.userName = response.userName
+                                post.postImage = response.postImage
                                 postsWithNoProblem.push(post)
                             }
                         }
@@ -182,6 +187,53 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         }
                         break
                     }
+                    case SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONAS: {
+
+                        let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+
+                        let responseArray = []
+
+                        // Stepping through all user profiles in network nodes memory
+                        for (let i = 0; i < userProfiles.length; i++) {
+                            let thisProfile = userProfiles[i];
+                            // If the account has social personas we have more to do.
+                            if (thisProfile[1].socialPersonas !== undefined) {
+
+                                let govAccountSocialPersonas = thisProfile[1].socialPersonas.socialPersonas
+
+                                // Here we loop through all different personas at this governance profile.
+                                for (let j = 0; j < govAccountSocialPersonas.length; j++) {
+                                    let thisPersona = govAccountSocialPersonas[j];
+
+                                    // We set the profileMessage to gather data from GitHub storage.
+                                    let profileMessage = {
+                                        originSocialPersonaId: thisPersona.id
+                                    }
+
+                                    // Retrieve data from GitHub Storage.
+                                    let response = await SA.projects.socialTrading.functionLibraries.userProfile.getUserProfileInfo(profileMessage);
+
+                                    if(response.result === "Ok") {
+                                        // Add the blockchain account to the response
+                                        response.blockchainAccount = thisProfile[1].blockchainAccount;
+                                        // Add the SA balance to the reponse
+                                        response.accountBalance = SA.projects.governance.utilities.balances.toSABalanceString(thisProfile[1].balance);
+
+                                        responseArray.push(response)
+                                    } else {
+                                        console.log("ERROR encountered fetching profile data from GitHub storage.")
+                                    }
+                                }
+                            }
+                        }
+                        // We prepare the response to send back to the client.
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: responseArray
+                        }
+                        break;
+                    }
                     default: {
                         /*
                         In general, all Queries go to the P2P Network to fetch information from the Social Graph. 
@@ -196,7 +248,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     }
                 }
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Response Sent', JSON.stringify(response))
+                // SA.logger.info('- Web App Interface', '- Query Response Sent', JSON.stringify(response))
 
                 return response
             }
@@ -220,8 +272,8 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 to retrieve it's id from the secrets file. 
                 */
                 if (eventMessage.originSocialPersonaId === undefined) {
-                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
-                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
+                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.SOCIALTRADING_DEFAULT_SOCIAL_PERSONA).nodeId
+                    SA.logger.warn('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
                 }
                 /*
                 We need the Origin Social Entity so as to be able to sign this event. And for Post related
@@ -270,10 +322,34 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     sending this message to the P2P Network.
                     */
                     if (response.result !== "Ok") {
-                        console.log((new Date()).toISOString(), '[WARN] Post could not be saved. Reason: ' + response.message)
+                        SA.logger.warn('Post could not be saved. Reason: ' + response.message)
                         return response
                     }
                 }
+
+                /*
+              Remove Social Persona Post or Social Trading Bot Post
+                */
+                if (
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REPOST_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_BOT_REPOST 
+                ) {
+                    let response = await SA.projects.socialTrading.functionLibraries.postsStorage.removePostAtStorage(
+                        eventMessage,
+                        socialEntity
+                    )
+                    /*
+                    If we couldn't remove the Post using the Open Storage, then there is no point in 
+                    sending this message to the P2P Network.
+                    */
+                    if (response.result !== "Ok") {
+                        SA.logger.warn('Post could not be removed. Reason: ' + response.message)
+                        return response
+                    }
+                }
+                
                 /*
                 Timestamp is required so that the Signature is not vulnerable to Man in the Middle attacks.
                 */
@@ -282,7 +358,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
                 /*
-                Social Entity Signature is required in order for this event to be considered at all 
+                A Social Entity Signature is required in order for this event to be considered at all 
                 nodes of the P2P network and not only at the one we are connected to.
                 */
                 let web3 = new SA.nodeModules.web3()

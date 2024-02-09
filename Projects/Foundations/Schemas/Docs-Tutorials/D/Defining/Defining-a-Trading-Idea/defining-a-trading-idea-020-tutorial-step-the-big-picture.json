@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "El gráfico de 4H mostró un claro cambio de tendencia tras la ruptura, pero... ¿qué pasa con el largo plazo? Revisemos el gráfico diario.",
                 "updated": 1668191695631
+            },
+            {
+                "language": "IT",
+                "text": "Il grafico 4H ha mostrato un netto cambiamento di tendenza dopo il crollo, ma... per quanto riguarda il lungo termine? Controlliamo il grafico giornaliero!",
+                "updated": 1669900748385
+            },
+            {
+                "language": "NL",
+                "text": "De 4H-grafiek toonde een duidelijke verschuiving in de trend na de neerwaartse beweging, maar... hoe zit het met de lange termijn? Laten we de daggrafiek eens bekijken!",
+                "updated": 1670785862699
+            },
+            {
+                "language": "ID",
+                "text": "Chart 4H menunjukkan pergeseran tren yang jelas setelah breakdown, tapi... bagaimana dengan jangka panjang? Mari kita periksa chart harian (daily chart)!",
+                "updated": 1674694466569
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Busque la vela del 10 de abril y tómese un minuto para pensar en lo que significa -en el panorama general- lo que acabamos de analizar en los marcos temporales inferiores. Esto es lo que veo:",
                     "updated": 1668191726119
+                },
+                {
+                    "language": "IT",
+                    "text": "Trova la candela del 10 aprile e prenditi un minuto per pensare a cosa significava, nel quadro generale, ciò che abbiamo appena analizzato nei tempi inferiori. Questo è quello che vedo:",
+                    "updated": 1669900762994
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek de candle van 10 april en neem even de tijd om na te denken over wat het betekende - in het grote geheel - wat we zojuist in de lagere tijdsbestekken hebben geanalyseerd. Dit is wat ik zie:",
+                    "updated": 1670785889963
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan candle 10 April dan luangkan waktu sejenak untuk memikirkan apa artinya—dalam gambaran besar—apa yang baru saja kita analisis dalam timeframe yang lebih rendah. Inilah yang saya lihat:",
+                    "updated": 1674694475526
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "El paseo: El período de oscilación que vimos desde el 7 hasta el 10 de abril fue de hecho un pequeño paseo en la banda superior diaria. Según las reglas del BB, esto significa que el precio es relativamente alto en este marco de tiempo.",
                     "updated": 1668191784150
+                },
+                {
+                    "language": "IT",
+                    "text": "La passeggiata: Il periodo che abbiamo visto dal 7 al 10 aprile è stato infatti una piccola passeggiata sulla fascia alta giornaliera. Secondo le regole BB, ciò significa che il prezzo è relativamente alto in questo lasso di tempo.",
+                    "updated": 1669900778238
+                },
+                {
+                    "language": "NL",
+                    "text": "The walk: De variërende periode die we zagen van 7 tot 10 april was eigenlijk een kleine wandeling op de dagelijkse bovenband. Volgens de BB-regels betekent dit dat de prijs in dit tijdsbestek relatief hoog is.",
+                    "updated": 1670785921515
+                },
+                {
+                    "language": "ID",
+                    "text": "The walk:  Periode mulai yang kami lihat dari tanggal 7 hingga 10 April sebenarnya adalah sedikit perubahan di upper band harian. Menurut aturan BB, ini berarti harga relatif tinggi dalam timeframe ini.",
+                    "updated": 1674694488554
                 }
             ]
         },
@@ -107,6 +152,21 @@
                     "language": "ES",
                     "text": "Retroceso: La ruptura en los marcos temporales inferiores marcó el pullback desde la banda superior diaria.",
                     "updated": 1668191798545
+                },
+                {
+                    "language": "IT",
+                    "text": "Pullback: la rottura nei time frame inferiori ha segnato il pullback dalla banda superiore giornaliera.",
+                    "updated": 1669900796852
+                },
+                {
+                    "language": "NL",
+                    "text": "Pullback: De neerwaartse beweging in de lagere tijdframes markeerde een verlaging van de dagelijkse bovenste band.",
+                    "updated": 1670785973331
+                },
+                {
+                    "language": "ID",
+                    "text": "Pullback: Breakdown pada time frame bawah menandai pullback dari upper band harian.",
+                    "updated": 1674694506330
                 }
             ]
         },
@@ -133,6 +193,16 @@
                     "language": "ES",
                     "text": "Continuación: La acción del precio en el marco de tiempo mayor terminó siendo un retroceso normal y una continuación, apenas cruzando la media móvil.",
                     "updated": 1668191823413
+                },
+                {
+                    "language": "NL",
+                    "text": "Continuation: De prijsactie in het grotere tijdsbestek werd uiteindelijk een normale terugval en voortzetting, die nauwelijks het voortschrijdend gemiddelde overschreed.",
+                    "updated": 1670786008858
+                },
+                {
+                    "language": "ID",
+                    "text": "Continuation: Price range dalam timeframe yang lebih besar akhirnya menjadi pullback dan kelanjutan yang normal (continuation), hampir tidak melewati moving average.",
+                    "updated": 1674694540499
                 }
             ]
         }

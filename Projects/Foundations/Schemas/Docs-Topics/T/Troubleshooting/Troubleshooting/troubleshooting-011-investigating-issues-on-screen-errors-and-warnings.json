@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bir görevi yürütürken veya bir strateji üzerinde çalışırken, oturumdaki hatalar veya koşul ve formüllerin sözdizimi, sorunlu düğümde bildirilir.",
                 "updated": 1647866597833
+            },
+            {
+                "language": "DE",
+                "text": "Beim Ausführen einer Aufgabe oder bei der Arbeit an einer Strategie werden Fehler in der Sitzung oder in der Syntax von Bedingungen und Formeln an dem betreffenden Knoten gemeldet.",
+                "updated": 1678647509684
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Ön uç uygulaması, kusurlu düğümün etrafına kırmızı bir halka çizerek hataları işaretler ve ekranda hatanın kısa bir açıklamasını sunar. Aynı zamanda, dokümantasyon sekmesinde hata ayrıntılarını açıklayan bir sayfa açılır.",
                     "updated": 1647866641862
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Frontend-Anwendung kennzeichnet Fehler, indem sie einen roten Ring um den fehlerhaften Knoten zeichnet und eine kurze Beschreibung des Fehlers auf dem Bildschirm anzeigt. Gleichzeitig wird auf der Registerkarte \"Dokumentation\" eine Seite mit einer Beschreibung der Fehlerdetails zur Verfügung gestellt. Bei der Ausführung einer Handelssitzung ist der Sitzungsknoten in der Regel derjenige, der die Fehlermeldung enthält.",
+                    "updated": 1678647518184
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Bir ticaret oturumu çalıştırırken, oturum düğümü genellikle hata bildirimini gösteren düğümdür.",
                     "updated": 1647866661806
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei der Ausführung einer Handelssitzung ist der Sitzungsknoten in der Regel derjenige, der die Fehlermeldung enthält.",
+                    "updated": 1678647562642
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Bir strateji üzerinde çalışırken, koşulların ve formüllerin sözdizimindeki veya mantığındaki hatalar benzer şekilde görüntülenir. Böyle bir bağlamda, ilgili oturumun Ticaret Sistemi ( Trading System ) Hataları ve Ticaret Sistemi Uyarıları katmanlarını açtığınızdan emin olun ve çalışma alanınıza bakın. Fare işaretçisini kırmızı bir halka ile düğümün üzerine getirin ve beklenmeyen davranışa neyin neden olduğuna dair bir açıklama almalısınız.",
                     "updated": 1647866759735
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei der Arbeit an einer Strategie werden Fehler in der Syntax oder Logik von Bedingungen und Formeln auf ähnliche Weise angezeigt. Schalten Sie in einem solchen Fall die Ebenen \"Handelssystemfehler\" (Trading System Errors)und \"Handelssystemwarnungen\" (Trading System Warnings) der entsprechenden Sitzung ein und sehen Sie sich in Ihrem Arbeitsbereich um. Bewegen Sie den Mauszeiger über den Knoten mit dem roten Ring und Sie sollten eine Beschreibung der Ursache für das unerwartete Verhalten sehen.",
+                    "updated": 1678647576136
                 }
             ]
         }

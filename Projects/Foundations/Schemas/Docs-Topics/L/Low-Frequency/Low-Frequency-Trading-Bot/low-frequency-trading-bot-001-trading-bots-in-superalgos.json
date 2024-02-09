@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Ein Trading-Bot nutzt die Superalgos-Infrastruktur, um den Benutzern fortschrittliche Handelsfunktionen zu bieten.",
                 "updated": 1645480627393
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret botu, kullanıcılara gelişmiş ticaret özellikleri sağlamak için Superalgos altyapısından yararlanır.",
+                "updated": 1671967288075
             }
         ]
     },

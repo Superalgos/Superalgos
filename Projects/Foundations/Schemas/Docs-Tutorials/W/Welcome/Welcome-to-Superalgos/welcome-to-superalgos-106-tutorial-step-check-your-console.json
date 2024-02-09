@@ -1,0 +1,182 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 106,
+    "type": "Tutorial Step - Check Your Console!",
+    "definition": {
+        "icon": {
+            "name": "Trading\\trading-process-instance",
+            "project": "Foundations"
+        },
+        "text": "If you don't see any errors on the Trading Process Instance, chances are everything is working fine!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Se non vedi alcun errore sulla Trading Process Instance, probabilmente sta andando tutto bene!",
+                "updated": 1618071552567,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si no ves ningún error en el Trading Process Instance, ¡Lo más probable es que todo funcione bien!",
+                "updated": 1627319344987,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie keine Fehler in der Trading Process Instance sehen, ist die Wahrscheinlichkeit groß, dass alles einwandfrei funktioniert!",
+                "updated": 1634245167087
+            },
+            {
+                "language": "TR",
+                "text": "İşlem Süreci Eşgörünümünde ( Trading Process Instance ) herhangi bir hata görmüyorsanız, muhtemelen her şey yolunda gidiyor demektir!",
+                "updated": 1636575842336
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu tidak melihat error pada Trading Process Instance, kemungkinan semuanya berjalan dengan baik!",
+                "updated": 1640576908731
+            },
+            {
+                "language": "RU",
+                "text": "Если вы не видите никаких ошибок на экземпляре торгового процесса, скорее всего, все работает нормально!",
+                "updated": 1642771724304
+            },
+            {
+                "language": "NL",
+                "text": "Als u geen fouten ziet in de Trading Process Instance, is de kans groot dat alles goed werkt!",
+                "updated": 1667135418072
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, you may want to take a look at your console application and see if you notice anything out of the norm.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Comunque, puoi controllare sulla console application e vedere se noti qualcosa di anomalo.",
+                    "updated": 1618071581430,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, es posible que desees echar un vistazo a la aplicación de su consola y ver si notas algo fuera de lo normal.",
+                    "updated": 1627319354994,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie jedoch einen Blick auf Ihre Komandozeile, um zu sehen, ob Ihnen etwas Ungewöhnliches auffällt.",
+                    "updated": 1634245193653
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, konsol uygulamanıza bir göz atmak ve normların dışında bir şey fark edip etmediğinizi görmek isteyebilirsiniz.",
+                    "updated": 1636575862276
+                },
+                {
+                    "language": "ID",
+                    "text": "Namun, kamu mungkin ingin melihat console application kamu dan melihat apakah kamu melihat sesuatu yang tidak normal.",
+                    "updated": 1640576964490
+                },
+                {
+                    "language": "RU",
+                    "text": "Тем не менее, вы можете взглянуть на свое консольное приложение и посмотреть, не заметите ли вы чего-нибудь необычного.",
+                    "updated": 1642771736433
+                },
+                {
+                    "language": "NL",
+                    "text": "Misschien wilt u echter uw console applicatie bekijken en kijken of u iets buiten de norm opmerkt.",
+                    "updated": 1667135465395
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Take a look at your console app!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata alla console app!",
+                    "updated": 1618071594539,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echa un vistazo a la aplicación de tu consola!",
+                    "updated": 1624496957961,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf Ihre Kommandozeile!",
+                    "updated": 1634245211481
+                },
+                {
+                    "language": "TR",
+                    "text": "Konsol uygulamanıza bir göz atın!",
+                    "updated": 1636575893503
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah console app-mu!",
+                    "updated": 1640576979252
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на свое консольное приложение!",
+                    "updated": 1642771803756
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk eens naar je console-app!",
+                    "updated": 1667135480061
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You should be able to see the alternating executions of the Candles-Volumes and Resistances-And-Support indicators, with the Low-Frequency Trading Bot",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dovresti vedere le esecuzioni alternate delle Candles-Volumes e degli indicatori Resistances-And-Supports, con il Low-Frequency Trading Bot.",
+                    "updated": 1618071644756,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Deberías poder ver las ejecuciones alternas de los indicadores Candles-Volumes y Resistances-And-Support, con el Low-Frequency Trading Bot",
+                    "updated": 1624484628678,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten in der Lage sein, die abwechselnden Ausführungen der Indikatoren Candles-Volumes und Resistances-And-Support mit dem Low-Frequency Trading Bot zu sehen.",
+                    "updated": 1634245229635
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşük Frekanslı Ticaret Botu ( Low-Fequency Trading Bot ) ile Mumlar-Hacimler (Candles-Volumes) ve Dirençler-Destekler (Resistance And Support) göstergelerinin alternatif uygulamalarını görebilmeniz gerekir.",
+                    "updated": 1636576040494
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus dapat melihat eksekusi bergantian dari Candles-Volume dan indikator Resistances-And-Support, dengan Low-Frequency Trading Bot.",
+                    "updated": 1640577043848
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны видеть чередующиеся исполнения индикаторов Candles-Volumes и Resistances-And-Support с помощью бота Low-Frequency Trading Bot.",
+                    "updated": 1642771836331
+                },
+                {
+                    "language": "NL",
+                    "text": "U zou de afwisselende uitvoeringen van de Candles-Volumes en Resistances-and-Support-indicatoren moeten kunnen zien, met de Low-Frequency Trading Bot",
+                    "updated": 1667135514388
+                }
+            ]
+        }
+    ]
+}

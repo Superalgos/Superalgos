@@ -15,17 +15,18 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
     */
     let thisObject = {
         p2pNetworkNode: undefined,
+        p2pNetworkReachableNodes: undefined,
+        openStorageClient: undefined,
         initialize: initialize,
         finalize: finalize
     }
-
-    let indexLastSavedEvent = -1
-    let gitCommandRunning = false
 
     return thisObject
 
     function finalize() {
         thisObject.p2pNetworkNode = undefined
+        thisObject.p2pNetworkReachableNodes = undefined
+        thisObject.openStorageClient = undefined
     }
 
     async function initialize(
@@ -33,23 +34,27 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         p2pNetworkReachableNodes
     ) {
         thisObject.p2pNetworkNode = p2pNetworkNode
-        /*
-        The strategy to syncronize this node with the rest of the network is like this:
+        thisObject.p2pNetworkReachableNodes = p2pNetworkReachableNodes
+        thisObject.openStorageClient = SA.projects.openStorage.modules.openStorageNetworkClient.newOpenStorageModulesOpenStorageNetworkClient()
+        thisObject.openStorageClient.initialize()
 
-        * First we will locate the most up to date node, download its events, and override
+        /*
+        The strategy to synchronize this node with the rest of the network is like this:
+
+        * First we will locate the most up-to-date node, download its events, and override
         the ones we might have, with those events.
 
         * Second we will load and apply to the social graph all these events.
 
-        * Third we will run the service and start processing online events. We know that 
-        there might be a hole on the dataset caused by the download time.
+        * Third we will run the service and start processing online events. We know  
+        there might be a hole in the dataset caused by the download time.
         
         * Fourth to fill the hole in the dataset, we will repeat the previous process after
         5 minutes.
         */
         await syncronizeWithTheNetwork()
         setInterval(saveEventsAtStorage, 60 * 1000)
-        setTimeout(syncronizeWithTheNetwork, 5 * 60 * 1000)
+        setInterval(syncronizeWithTheNetwork, 5 * 60 * 1000)
 
         async function syncronizeWithTheNetwork() {
             await syncronizeOurStorageWithAnUpToDateNode()
@@ -57,6 +62,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         }
 
         async function syncronizeOurStorageWithAnUpToDateNode() {
+            SA.logger.info("Synchronizing storage")
             /*
             Our mission here is to update this node storage and to do that we need to
             know which is the single node that has the most complete history. Note
@@ -65,7 +71,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             let p2pNetworkNodeMostUpToDate
             let maxDataRangeEnd = 0
             /*
-            Check if we have the Data Range file, to know how up to date is this node.
+            Check if we have the Data Range file, to know how up-to-date this node is.
             */
             const fileName = "Data.Range" + ".json"
             let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/'
@@ -79,14 +85,18 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 // This means the file does not exist.
             }
 
+            SA.logger.info("MOST UP TO DATE NETWORK NODE = " + p2pNetworkNodeMostUpToDate)
+
             for (let i = 0; i < p2pNetworkReachableNodes.p2pNodesToConnect.length; i++) {
                 let p2pNetworkNode = p2pNetworkReachableNodes.p2pNodesToConnect[i]
                 let p2pNetworkNodeCodeName = p2pNetworkNode.node.config.codeName
                 let userProfileCodeName = p2pNetworkNode.userProfile.config.codeName
                 let dataRangeFile = await loadFileFromGithubRepository('Data.Range', '/Nodes/' + p2pNetworkNodeCodeName, userProfileCodeName)
+                SA.logger.info(userProfileCodeName)
                 /*
                 Searching for the node that is most up-to-date
                 */
+               SA.logger.info("IS DATA RANGE FILE UNDEFINED? " + dataRangeFile)
                 if (dataRangeFile !== undefined) {
                     if (maxDataRangeEnd < dataRangeFile.end) {
                         maxDataRangeEnd = dataRangeFile.end
@@ -97,17 +107,19 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             /*
             We can not continue if we cannot identify the most up to date node.
             */
+            SA.logger.info("MOST UP TO DATE NETWORK NODE #2 = " + p2pNetworkNodeMostUpToDate)
             if (p2pNetworkNodeMostUpToDate === undefined){
                 return
             }
             /*
-            We will check that the node most up to date is not ourselves.
+            We will check that the node most up-to-date is not ourselves.
             */
             if (p2pNetworkNodeMostUpToDate.node.id === thisObject.p2pNetworkNode.node.id) {
                 /*
-                There is no need to update ourselves from some other node, because no other
-                is more up to date than ourselves.
+                There is no need to update ourselves from some other node because no other
+                is more up-to-date than ourselves.
                 */
+                SA.logger.info("WE ARE THE MOST UP TO DATE NETWORK NODE")
                 return
             }
             /*
@@ -115,11 +127,14 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             */
             let p2pNetworkNodeCodeName = p2pNetworkNodeMostUpToDate.node.config.codeName
             let userProfileCodeName = p2pNetworkNodeMostUpToDate.userProfile.config.codeName
+            SA.logger.info("USER PROFILE MOST UPDATED = " + userProfileCodeName)
             await cloneNetworkNodeRepo(userProfileCodeName)
             await transferFilesFromClonnedRepo(p2pNetworkNodeCodeName)
             deleteTemporaryFiles()
 
             async function loadFileFromGithubRepository(fileName, filePath, owner) {
+
+                SA.logger.info("Loading files from Github repo")
 
                 const completePath = filePath + '/' + fileName + '.json'
                 const repo = 'My-Network-Nodes-Data'
@@ -147,6 +162,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
 
             async function cloneNetworkNodeRepo(username) {
 
+                SA.logger.info("Cloning " + username + "'s repo!")
+
                 return new Promise(promiseWork)
 
                 async function promiseWork(resolve, reject) {
@@ -166,13 +183,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         },
                         async function (error) {
                             if (error) {
-                                console.log('')
-                                console.log("[ERROR] There was an error clonning this Network node repo. " + repoURL);
-                                console.log('')
-                                console.log(error)
+                                SA.logger.error('')
+                                SA.logger.error("There was an error cloning " + username + "'s Network node repo. " + repoURL);
+                                SA.logger.error('')
+                                SA.logger.error(error)
                                 throw (error)
                             } else {
-                                console.log((new Date()).toISOString(), '[INFO] Clonning repo ' + repoURL + ' succeed.')
+                                SA.logger.info("Cloning "+ username +"'s repo @ " + repoURL + "was successful.")
                                 resolve()
                             }
                         })
@@ -182,6 +199,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             async function transferFilesFromClonnedRepo(p2pNetworkNodeCodeName) {
                 const path = require("path")
                 const repo = 'My-Network-Nodes-Data'
+                SA.logger.info("Transferring from cloned repo!")
 
                 let originPath = path.join('./Temp', repo, 'Nodes', p2pNetworkNodeCodeName)
                 let targetPath = path.join(repo, 'Nodes', thisObject.p2pNetworkNode.node.config.codeName)
@@ -224,87 +242,124 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         }
 
         async function loadEventsFromStorageAndApplyThemToTheSocialGraph() {
-
-            return new Promise(promiseWork)
-
+            SA.logger.info("Loading events to apply to social graph!");
+            return new Promise(promiseWork);
+        
             function promiseWork(resolve, reject) {
+                const baseDirectory = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/';
+                getAllFilesInDirectoryAndSubdirectories(baseDirectory, onFiles);
 
-                SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories('./My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/', onFiles)
-
-                function onFiles(fileList) {
-
+                async function onFiles(fileList) {
                     for (let i = 0; i < fileList.length; i++) {
-                        let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + fileList[i]
-
-                        for (let k = 0; k < 5; k++) {
-                            filePath = filePath.replace('\\', '/')
-                        }
-
-                        let fileContent = SA.nodeModules.fs.readFileSync(filePath)
-
-                        let eventsList = JSON.parse(fileContent)
-
-                        for (let j = 0; j < eventsList.length; j++) {
-                            let storedEvent = eventsList[j]
-
-                            try {
-                                let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
-                                event.initialize(storedEvent)
-
-                                if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(storedEvent.eventId) === undefined) {
-                                    event.run()
-
-                                    SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                                    SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
-                                    indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
-                                }
-
-                            } catch (err) {
-                                if (err.stack !== undefined) {
-                                    console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
-                                }
-                                let errorMessage = err.message
-                                if (errorMessage === undefined) {
-                                    errorMessage = err
-                                }
-                                console.log('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + event.id)
+                        const filePath = fileList[i];
+                        SA.logger.info("Load events filePath = " + filePath);
+        
+                        try {
+                            const fileContent = await SA.nodeModules.fs.promises.readFile(filePath);
+                            
+                            if (fileContent.length === 0 || fileContent === '[]') {
+                                SA.logger.info("Empty file. Skipping..." + filePath );
+                                continue;
                             }
+
+                            const eventsList = JSON.parse(fileContent);
+        
+                            console.table(eventsList);
+        
+                            for (let j = 0; j < eventsList.length; j++) {
+                                const storedEvent = eventsList[j];
+                                
+                                SA.logger.info("Stored Event = " + storedEvent );
+                                
+                                try {
+                                    const event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent();
+                                    event.initialize(storedEvent);
+        
+                                    SA.logger.info("EVENT = " + event );
+        
+                                    if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(storedEvent.eventId) === undefined) {
+                                        event.run();
+        
+                                        SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event);
+                                        SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event);
+                                    }
+                                } catch (err) {
+                                    if (err.stack !== undefined) {
+                                        SA.logger.error('Client Interface -> err.stack = ' + err.stack);
+                                    }
+                                    let errorMessage = err.message;
+                                    if (errorMessage === undefined) {
+                                        errorMessage = err;
+                                    }
+                                    SA.logger.error('Could not apply the event from storage. -> errorMessage = ' + errorMessage + ' -> event.id = ' + storedEvent.eventId);
+                                    continue;
+                                }
+                            }
+                        } catch (err) {
+                            if (err.stack !== undefined) {
+                                SA.logger.error('Client Interface -> err.stack = ' + err.stack);
+                            }
+                            let errorMessage = err.message;
+                            if (errorMessage === undefined) {
+                                errorMessage = err;
+                            }
+                            SA.logger.error('Could not read file. -> errorMessage = ' + errorMessage + ' -> filePath = ' + filePath);
+                            continue;
                         }
                     }
-                    resolve()
+        
+                    resolve();
                 }
+            }
+        }
+        
+        function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
+            const { promisify } = SA.nodeModules.util;
+            const { resolve } = SA.nodeModules.path;
+            const fs = SA.nodeModules.fs;
+            const readdir = promisify(fs.readdir);
+            const stat = promisify(fs.stat);
+        
+            getFiles(dir)
+                .then(files => {
+                    const pathAndNames = files.map(file => resolve(dir, file));
+                    callback(pathAndNames);
+                })
+                .catch(e => {
+                    callback([]);
+                });
+        
+            async function getFiles(dir) {
+                const subdirs = await readdir(dir);
+                const files = await Promise.all(subdirs.map(async (subdir) => {
+                    const res = resolve(dir, subdir);
+                    return (await stat(res)).isDirectory() ? getFiles(res) : res;
+                }));
+                return files.reduce((a, f) => a.concat(f), []);
             }
         }
     }
 
     async function saveEventsAtStorage() {
-
+        SA.logger.debug('Saving events at storage!')
         await saveOneMinuteOfEvents()
-        await doGit()
 
         function saveOneMinuteOfEvents() {
+            /*
+            Here we will save all the events that were not saved before,
+            in one minute batched files.
+            */
+            let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
+            let eventsToSaveByTimestamp = {}
+    
             return new Promise(promiseWork)
 
             async function promiseWork(resolve, reject) {
 
-
-                /*
-                Here we will save all the events that were not saved before,
-                in one minute batched files.
-                */
-                let lastMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1
-                let lastLastMinute = lastMinute - 1
-                let lastTimestamp = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                let lastLastTimestamp = lastLastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                let eventsFromLastMinute = []
-                let eventsFromLastLastMinute = []
-                let dontMoveIndexForward = false
-
-                for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
-                    let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
-                    let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                for (let i = 0; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.length; i++) {
+                    let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE[i]
                     /*
-                    We will save events only of the last last closed minute.
+                    We will save all events that have not been saved yet.
                     */
                     let eventToSave = {
                         eventId: event.eventId,
@@ -321,35 +376,83 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         botExchange: event.botExchange,
                         botEnabled: event.botEnabled
                     }
-                    if (
-                        eventMinute === lastMinute
-                    ) {
-                        eventsFromLastMinute.push(eventToSave)
-                        dontMoveIndexForward = true
-                    }
-                    if (
-                        eventMinute === lastLastMinute
-                    ) {
-                        eventsFromLastLastMinute.push(eventToSave)
-                        if (dontMoveIndexForward === false) {
-                            indexLastSavedEvent = i
-                        }
+
+                    
+                    SA.logger.info("Timestamp = " + event.timestamp)
+                    SA.logger.info("Event to save = " + JSON.stringify(eventToSave))
+                    
+
+                    if (event.timestamp in eventsToSaveByTimestamp) {
+                        // If timestamp exists then we add this event to the timestamp's array
+                        eventsToSaveByTimestamp[event.timestamp].push(eventToSave)
+                    } else {
+                        // This timestamp does not have any other events associated with it so we will make a new entry
+                        eventsToSaveByTimestamp[event.timestamp] = [eventToSave]
                     }
                 }
 
-                saveEventsFile(eventsFromLastLastMinute, lastLastTimestamp)
-                saveEventsFile(eventsFromLastMinute, lastTimestamp)
-                saveDataRangeFile()
+                // Empty que of events needing saved
+                SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.splice(0, SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.length)
 
-                function saveEventsFile(eventsToSave, timestamp) {
+                saveEventsFile(eventsToSaveByTimestamp)
+                
 
-                    const fileContent = JSON.stringify(eventsToSave, undefined, 4)
-                    const fileName = "Events" + ".json"
+                function saveEventsFile(eventsToSaveByTimestamp) {
+                    for (let timestamp in eventsToSaveByTimestamp) {
+                        let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(Number(timestamp))
+                        let openStorageFilePath =  "./Nodes/" + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(Number(timestamp))
+                        let eventsToSave = eventsToSaveByTimestamp[timestamp]
+                        const fileContent = JSON.stringify(eventsToSave, undefined, 4)
+                        const fileName = "Events" + ".json"
 
-                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+                        try {
+                            SA.logger.info('Are we saving to an old file? ' + SA.nodeModules.fs.existsSync(filePath))
+                            if ( SA.nodeModules.fs.existsSync(filePath) /*check if timestamp already has a file*/ ) {
+                                // If the path exists then we load the old file and append new events
+                                if (eventsToSave.length !== 0) { 
+                                    // Load and merge events
+                                    let storedContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+    
+                                    let eventsList = JSON.parse(storedContent)
+                                    let joinedEventsArray = eventsList.concat(eventsToSave)
+                                    const updatedFileContent = JSON.stringify(joinedEventsArray, undefined, 4)
 
-                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                    // Save Events locally           
+                                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, updatedFileContent)
+                                    SA.logger.info("Local Events file path = " + filePath + '/' + fileName )
+                                                                        
+                                    SA.logger.info("Open Storage Event file path = " + openStorageFilePath + '/' + fileName )
+                                    
+                                    // Save Events in Open Storage
+                                    thisObject.openStorageClient.persistSocialGraph(openStorageFilePath, fileName, updatedFileContent)
+
+                                    saveDataRangeFile()
+                                }       
+                            } else {
+                                // Create a new file for this timestamp
+                                if (eventsToSave.length !== 0) { 
+                                    // Save Events locally                    
+                                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                   
+                                    SA.logger.info("Made Open Storage Event file directory = " + openStorageFilePath + '/' + fileName )
+                                    
+                                    // Save Events in Open Storage
+                                    thisObject.openStorageClient.persistSocialGraph(openStorageFilePath, fileName, fileContent)
+                                    
+                                    SA.logger.info("Github Event file path = " + openStorageFilePath + '/' + fileName )
+
+                                    saveDataRangeFile()
+                                }
+                            }
+                        } catch (error) {
+                            // Add unsaved events back to queue
+                            SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(eventsToSave)
+                            SA.logger.error("Something went wrong while saving event:")
+                            SA.logger.error(error)
+                            continue
+                        }
+                    }
                 }
 
                 function saveDataRangeFile() {
@@ -357,46 +460,34 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         begin: 0,
                         end: 0
                     }
-                    firstEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS[0]
+                    let firstEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS[0]
                     if (firstEvent !== undefined) {
                         dataRange.begin = Math.trunc(firstEvent.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
-                        dataRange.end = (Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS) - 1) * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                        dataRange.end = lastMinute * SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
                     } else {
                         return
                     }
 
-                    const fileContent = JSON.stringify(dataRange, undefined, 4)
-                    const fileName = "Data.Range" + ".json"
+                    try {
+                        const fileContent = JSON.stringify(dataRange, undefined, 4)
+                        const fileName = "Data.Range" + ".json"
 
-                    let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName + '/'
+                        let filePath = './My-Network-Nodes-Data/Nodes/' + thisObject.p2pNetworkNode.node.config.codeName
+                        let openStorageFilePath = './Nodes/' + thisObject.p2pNetworkNode.node.config.codeName 
 
-                    SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+                        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                        SA.logger.info("Local DataRange file path = " + filePath + '/' + fileName )
+                        // Save data range file in open storage
+                        thisObject.openStorageClient.persistSocialGraph(openStorageFilePath, fileName, fileContent)
+                        SA.logger.info("Github DataRange file path = " + openStorageFilePath + '/' + fileName )
+                    } catch (error) {
+                        SA.logger.error("Something went wrong while saving Data Range file:")
+                        SA.logger.error(error)
+                    }
                     resolve()
                 }
             }
-        }
-
-        async function doGit() {
-            if (gitCommandRunning === true) {
-                return
-            }
-            gitCommandRunning = true
-            const options = {
-                baseDir: process.cwd() + '/My-Network-Nodes-Data',
-                binary: 'git',
-                maxConcurrentProcesses: 6,
-            }
-            const commitMessage = 'New Events'
-            const git = SA.nodeModules.simpleGit(options)
-
-            let status = await git.status();
-            if (!status.files.some(file => file.path.includes('My-Network-Nodes-Data'))) return
-
-            await git.add('./*')
-            await git.commit(commitMessage)
-            await git.push('origin')
-            gitCommandRunning = false
         }
     }
 }

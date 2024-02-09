@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "3",
+    "pageNumber": 3,
     "type": "Monte Carlo Forecast",
     "definition": {
         "text": "The Monte-Carlo simulation is an algorithmic method used to approximate a numerical value with random processes.",
@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Моделирование Монте-Карло - это алгоритмический метод, используемый для аппроксимации числовой величины случайными процессами.",
                 "updated": 1645714821304
+            },
+            {
+                "language": "DE",
+                "text": "Die Monte-Carlo Simulation ist eine algorithmische Methode zur Annäherung an einen numerischen Wert mit zufälligen Prozessen.",
+                "updated": 1671291293464
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "RU",
                     "text": "Монте-Карло используется там, где решение традиционных аналитических задач затруднено для конкретных детерминированных задач или процессов со случайным распределением исходов.",
                     "updated": 1645714905747
+                },
+                {
+                    "language": "DE",
+                    "text": "Monte-Carlo wird dort eingesetzt, wo die traditionelle analytische Problemlösung für bestimmte deterministische Probleme oder Prozesse mit einer Zufallsverteilung der Ergebnisse schwierig ist.",
+                    "updated": 1671291326616
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Из investopedia: Имитация Монте-Карло используется для моделирования вероятности различных исходов в процессе, который не может быть легко предсказан из-за вмешательства случайных переменных. Этот метод используется для понимания влияния риска и неопределенности в моделях прогнозирования и предсказания.",
                     "updated": 1645714913366
+                },
+                {
+                    "language": "DE",
+                    "text": "Monte-Carlo Simulationen werden verwendet, um die Wahrscheinlichkeit verschiedener Ergebnisse in einem Prozess zu modellieren, der aufgrund der Intervention von Zufallsvariablen nicht einfach vorhergesagt werden kann. Es ist eine Technik, die verwendet wird, um die Auswirkungen von Risiko und Unsicherheit in Vorhersage- und Prognosemodellen zu verstehen.",
+                    "updated": 1671291377186
                 }
             ]
         },
@@ -60,6 +75,11 @@
                     "language": "RU",
                     "text": "Для более глубокого изучения моделирования Монте-Карло ознакомьтесь со статьей на Medium:",
                     "updated": 1645714919708
+                },
+                {
+                    "language": "DE",
+                    "text": "Einen ausführlichen Überblick über die Monte-Carlo Simulation finden Sie in diesem Mediumartikel:",
+                    "updated": 1671291452051
                 }
             ]
         },
@@ -80,6 +100,11 @@
                     "language": "RU",
                     "text": "Параметры прогноза Монте-Карло можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом 'Monte Carlo Forecast' Product Definition.",
                     "updated": 1645714955100
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter der Monte Carlo Prognose können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Monte Carlo Forecast’ Product Definition suchen und öffnen.",
+                    "updated": 1671291975590
                 }
             ]
         },
@@ -96,6 +121,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645714962530
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671292009572
                 }
             ]
         },
@@ -107,13 +137,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645714968459
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671292037721
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Monte Carlo Forecast | MonteCarloForecast | forecast1, price1, price5, price10, price20, price30, price40, price45, price1d, price5d, price10d, price20d, price30d, price40d, price45d |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Monte Carlo Forecast | MonteCarloForecast | forecast1, price1, price5, price10, price20, price30, price40, price45, price1d, price5d, price10d, price20d, price30d, price40d, price45d |",
+                    "updated": 1671292059554
+                }
+            ]
         },
         {
             "style": "Text",
@@ -124,6 +166,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645714974843
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671292080869
                 }
             ]
         },
@@ -135,6 +182,11 @@
                     "language": "RU",
                     "text": "Примеры обращения к этому показателю приведены ниже:",
                     "updated": 1645714981142
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele für den Zugriff auf diesen Indikator finden Sie unten:",
+                    "updated": 1671292106024
                 }
             ]
         },
@@ -150,7 +202,14 @@
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671292132627
+                }
+            ]
         },
         {
             "style": "Link",

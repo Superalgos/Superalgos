@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, bir API Veri Alıcısı Botu ( API Data Fetcher Bot ) örneğini temsil eder.",
                 "updated": 1652018645014
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten stellt eine Instanz eines API Data Fetcher Bot dar.",
+                "updated": 1701930765715
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "Bu botun nasıl çalıştığına dair daha ayrıntılı bir açıklama için lütfen API Veri Alıcısı Bot ( API Data Fetcher Bot ) sayfasına bakın.",
                     "updated": 1652018673911
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine ausführlichere Beschreibung der Funktionsweise dieses Bots finden Sie auf der Seite API Data Fetcher Bot.",
+                    "updated": 1701930765878,
+                    "style": "Text"
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Обслуживание смоделированных ордеров следует той же логике, что и обслуживание реальных ордеров, используя определения в параметрах торговой сессии и в торговой системе для выполнения требуемого задания.",
                 "updated": 1640331712057
+            },
+            {
+                "language": "DE",
+                "text": "Die Pflege von simulierten Aufträgen folgt der gleichen Logik wie die Pflege von realen Aufträgen, wobei Definitionen in den Parametern der Handelssitzung und im Handelssystem verwendet werden, um die erforderlichen Annahmen zu vervollständigen.",
+                "updated": 1679758542751
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "На страницах этого раздела описано, как торговый бот имитирует сопровождение ордеров в случае бэктестинга и бумажных торговых сессий.",
                     "updated": 1640331733571
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Seiten in diesem Abschnitt beschreiben, wie der Trading-Bot die Aufrechterhaltung von Aufträgen im Falle von Backtesting und Papierhandelssitzungen simuliert.",
+                    "updated": 1679758556378
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Настоятельно рекомендуется сначала прочитать раздел Maintaining Live Orders, так как там более подробно и детально объясняется, что и зачем вычисляется.",
                     "updated": 1640331789105
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird dringend empfohlen, zuerst den Abschnitt Pflege von Live-Aufträgen (Maintaining Live Orders) zu lesen, da die Erläuterungen, was berechnet wird und warum, dort ausführlicher und detaillierter sind.",
+                    "updated": 1679758566948
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "При проведении бэктестинга или бумажных торговых сессий биржа не участвует, так как ордера не размещаются в реальности, а живут только в рамках симуляции.",
                     "updated": 1640331811318
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Backtesting- oder Papierhandelssitzungen findet kein Austausch statt, da die Aufträge nicht tatsächlich erteilt werden, sondern nur innerhalb der Simulation.",
+                    "updated": 1679758579504
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Однако, чтобы сделать моделирование максимально реалистичным и точным, система проходит через аналогичный процесс, как при взаимодействии с биржей, выполняет аналогичные проверки, производит аналогичные расчеты и ведет аналогичные счета, имитируя при этом ответ биржи в соответствии с определениями в торговой системе.",
                     "updated": 1640331836275
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Simulationen jedoch so realistisch und genau wie möglich zu gestalten, durchläuft das System einen ähnlichen Prozess wie bei der Interaktion mit einer Börse, führt ähnliche Prüfungen durch, macht ähnliche Berechnungen und führt ähnliche Konten - und simuliert dabei die Reaktion der Börse gemäß den Definitionen im Handelssystem.",
+                    "updated": 1679758589891
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "Определения, которые непосредственно влияют на моделирование, следующие:",
                     "updated": 1640331848949
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Definitionen, die sich direkt auf Simulationen auswirken, sind:",
+                    "updated": 1679758601245
                 }
             ]
         },
@@ -79,6 +109,11 @@
                     "language": "RU",
                     "text": "Параметры проскальзывания и структуры комиссии на уровне торговой сессии.",
                     "updated": 1640331886551
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter für Slippage und Gebührenstruktur auf der Ebene der Handelssitzung.",
+                    "updated": 1679758611896
                 }
             ]
         },
@@ -90,6 +125,11 @@
                     "language": "RU",
                     "text": "Имитация биржевых событий на уровне торговой системы, где могут быть определены имитация частичного заполнения, имитация фактического курса и имитация уплаченных комиссий.",
                     "updated": 1640331907384
+                },
+                {
+                    "language": "DE",
+                    "text": "Die simulierten Börsenereignisse auf der Ebene des Handelssystems, bei denen ein simulierter Teilfüllungsgrad, ein simulierter tatsächlicher Kurs und ein simuliertes gezahltes Entgelt festgelegt werden können.",
+                    "updated": 1679758623829
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "CPU Arka Ucu, 'cpu', en düşük performanslı arka uçtur, ancak en basit olanıdır. İşlemlerin tümü vanilla JavaScript'te uygulanır, bu da onları daha az paralelleştirilebilir hale getirir.",
                 "updated": 1654396742400
+            },
+            {
+                "language": "DE",
+                "text": "Das CPU-Backend \"cpu\" ist das leistungsschwächste, aber auch das einfachste backend. Alle Operationen sind in Vanilla JavaScript implementiert, was sie weniger parallelisierbar macht.",
+                "updated": 1706358674554
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396749059,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706358642474
                 }
             ]
         }

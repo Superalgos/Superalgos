@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Раздел иерархии Data Mines Data контролирует, где и как боты-сенсоры и индикаторы хранят производимые ими данные.",
                 "updated": 1639561802972
+            },
+            {
+                "language": "TR",
+                "text": "Hiyerarşinin Veri Madenleri Verileri bölümü ( Data Mines Data ), sensör ve gösterge botlarının ürettikleri verileri nerede ve nasıl saklayacaklarını kontrol eder.\n",
+                "updated": 1672265333227
             }
         ]
     },

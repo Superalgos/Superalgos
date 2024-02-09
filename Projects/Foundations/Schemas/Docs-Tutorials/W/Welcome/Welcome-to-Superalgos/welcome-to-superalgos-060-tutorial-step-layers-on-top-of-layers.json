@@ -1,0 +1,208 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 60,
+    "type": "Tutorial Step - Layers on Top of Layers",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer",
+            "project": "Foundations"
+        },
+        "text": "Your data mining operation features bots making data products. Each product is made available on the charts through a Layer in a Layer Manager.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Le operazioni di data mining coinvolgono bots che creano data products. Ogni product è accessibile dal grafico attraverso un Layer nel Layer Manager.",
+                "updated": 1618648641710,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Tu operación de minería incluye Bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
+                "updated": 1675277694818,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ihre Data-Mining-Operation umfasst Bots, die Datenprodukte erstellen. Jedes Produkt wird in den Diagrammen durch einen Layer in einem Layer Manager verfügbar gemacht.",
+                "updated": 1634217919050,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliği operasyonunuz, veri ürünleri yaratan botlara sahiptir. Her ürün, Katman Yöneticisindeki (Layer Manager) bir Katman (Layer) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
+                "updated": 1669842934924
+            },
+            {
+                "language": "RU",
+                "text": "В Вашей операции интеллектуального анализа данных используются боты, создающие продукты данных. Каждый продукт доступен на диаграммах через Layer в Layer Manager.",
+                "updated": 1636566107941
+            },
+            {
+                "language": "ID",
+                "text": "Operasi penambangan data kamu menampilkan bot yang membuat produk data. Setiap produk tersedia di chart melalui Layer di Layer Manager.",
+                "updated": 1639587301848
+            },
+            {
+                "language": "NL",
+                "text": "Uw datamining-operatie bevat bots die dataproducten maken. Elk product wordt op de grafieken beschikbaar gesteld via een Layer in een Layer Manager.",
+                "updated": 1666787548875
+            },
+            {
+                "language": "FR",
+                "text": "Votre opération de minage de données comprend des robots qui fabriquent des produits de données. Chaque produit est mis à disposition sur les cartes via un calque (Layer) dans un gestionnaire de calques (Layer Manager).",
+                "updated": 1668413815482
+            }
+        ],
+        "updated": 1616427338175
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first and second layer managers to the left feature two layers each. Those layers represent the data products that the Trading System we are going to test later on uses to make trading decisions.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il primo Layer Manager alla sinistra di questa Time Machine contiene tre layers. Questi layer rappresentano i data products che il Trading System, che testeremo più tardi, usa per fare le sue scelte.",
+                    "updated": 1615963760779,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El primer Layer Manager de este Time Machine presenta tres capas que representan los productos de datos del Trading System que veremos mas adelante.",
+                    "updated": 1675277707997,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der erste Layer-Manager auf der linken Seite dieser Time Machine besteht aus drei Layern. Diese Layer stellen die Datenprodukte dar, die das Handelssystem, das wir später testen werden, verwendet, um Handelsentscheidungen zu treffen.",
+                    "updated": 1634217907919,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu zaman makinesinin en sağdan ikinci katman yöneticisi (Masters Data) iki katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin (Trading System) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
+                    "updated": 1669843334058
+                },
+                {
+                    "language": "RU",
+                    "text": "Первый менеджер слоев слева от это машины времени содержит три слоя. Это слои представляют собой продукты данных, которые Trading System использует для принятия торговых решений.",
+                    "updated": 1636566329971
+                },
+                {
+                    "language": "ID",
+                    "text": "Layer Manager pertama di sebelah kiri mesin waktu ini memiliki tiga layer. Layer-layer tersebut mewakili produk data yang akan digunakan oleh Trading System yang akan kita uji nanti untuk membuat keputusan trading.",
+                    "updated": 1639587517441
+                },
+                {
+                    "language": "NL",
+                    "text": "De eerst manager aan de linkerkant van deze time machine heeft drie lagen. Die lagen vertegenwoordigen de gegevensproducten die het Trading System dat we later gaan testen, gebruikt om handelsbeslissingen te nemen.",
+                    "updated": 1666787627820
+                },
+                {
+                    "language": "FR",
+                    "text": "Le premier gestionnaire de calques à gauche de cette Time Machine comporte trois calques. Ces calques représentent les produits de données du système de trading que nous allons tester plus tard.",
+                    "updated": 1668413908501
+                }
+            ],
+            "updated": 1687698699721
+        },
+        {
+            "style": "Callout",
+            "text": "To turn layers on and off, left-click on them!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per attivare e disattivare i layers, cliccaci sopra!",
+                    "updated": 1615963587655,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Para activar y desactivar las capas, haz clic izquierdo en ellas!",
+                    "updated": 1624495289554,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Ebenen ein- und auszuschalten, klicken Sie mit der linken Maustaste auf sie!",
+                    "updated": 1634221550537
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları açmak ve kapatmak için üzerlerine mouse'un sol tuşuyla tıklayın!",
+                    "updated": 1636096510159
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы включать и выключать слои, щелкните по ним левой кнопкой мыши!",
+                    "updated": 1636566368102
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menghidupkan dan mematikan layer, klik kiri pada mereka!",
+                    "updated": 1639587352062
+                },
+                {
+                    "language": "NL",
+                    "text": "Om lagen aan en uit te zetten, klik je erop met de linkermuisknop!",
+                    "updated": 1666787645627
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour activer et désactiver les calques, faites un clic gauche dessus !",
+                    "updated": 1668413923324
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos ships with many more indicators, but they are not configured in this Workspace. You will learn about them later!",
+            "updated": 1610622819519,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos è provvisto di molti più indicatori, ma non sono configurati in questo Workspace. Ne parleremo più tardi!",
+                    "updated": 1615963772691,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Workspace. ¡Aprenderás sobre ellos más tarde!",
+                    "updated": 1675277733307,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos wird mit vielen weiteren Indikatoren ausgeliefert, die jedoch in diesem Workspace nicht konfiguriert sind. Sie werden sie später kennenlernen!",
+                    "updated": 1634217927340,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos birçok indikatör/osilatör gibi araçlarla birlikte gelir, ancak bunlar bu çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
+                    "updated": 1669843147164
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos поставляется со многими другими индикаторами, но они не настроены в этом Workspace. Вы ознакомитесь с ними позднее.",
+                    "updated": 1636566459062
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos berkerja dengan lebih banyak indikator, tetapi tidak dikonfigurasi di Workspace ini. Kamu akan belajar tentang mereka nanti!",
+                    "updated": 1639587415189
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos wordt geleverd met veel meer indicatoren, maar deze zijn niet geconfigureerd in deze Workspace. Je leert er later meer over!",
+                    "updated": 1666787677538
+                },
+                {
+                    "language": "FR",
+                    "text": "Superalgos est livré avec beaucoup plus d'indicateurs, mais ils ne sont pas configurés dans cet espace de travail. Vous les découvrirez plus tard !",
+                    "updated": 1668413949584
+                }
+            ]
+        }
+    ]
+}

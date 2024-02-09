@@ -119,8 +119,8 @@ Whatever network you choose to send signals over, or even if you just want to re
 For example the following was used for Permissioned P2P Network hosted by the user Blaa:
 
 ```js
-DESKTOP_TARGET_NETWORK_TYPE: 'Permissioned P2P Network',
-DESKTOP_TARGET_NETWORK_CODENAME: 'BlaaSignals',
+SOCIALTRADING_TARGET_NETWORK_TYPE: 'Permissioned P2P Network',
+SOCIALTRADING_TARGET_NETWORK_CODENAME: 'BlaaSignals',
 TASK_SERVER_TARGET_NETWORK_TYPE: 'Permissioned P2P Network',
 TASK_SERVER_TARGET_NETWORK_CODENAME: 'BlaaSignals',
 ```

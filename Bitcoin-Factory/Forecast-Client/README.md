@@ -42,7 +42,7 @@ This section describes how to install the Farecast Client. It is assumed that do
 ```
 **Note:** At that terminal there is no further action required.
 
-### Forecast Client'inin çalıştırılması.
+### Running The Forecast Client
 For your Forecast Client App to work and be able to connect to the Test Server you need to:
 
 1. Update your User Profile with several nodes that today you might not have.
@@ -78,7 +78,11 @@ Then add the following configuration within the Task Server App node's config:
 4. User Profile -> Forecast Providers
 5. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts
 
-Hover over the Bitcoin Factory Forcasts node and rename it using the following name: "Testnet"
+Hover over the Bitcoin Factory Forecasts node and rename it using the following name: "Testnet"
+
+**Forecast Client Instance**
+6. User Profile -> Forecast Providers -> Bitcoin Factory Forecasts -> Add Forecast Client Instance
+7. Rename "New Forecast Client Instance" to something you can recognise and identify, you will need this name later in the guide
 
 ### Signing Accounts
 
@@ -115,8 +119,8 @@ After that, open the config of the Forecast-Client Sensor Bot Instance. It looks
 }
 ```
 
-* clientInstanceForecaster: **IMPORTANT:** Change this to match the name you gave to your Test Client Instance node you created at your user profile.
-* clientInstanceBuilder: **IMPORTANT:** Change this to match the name you gave to your Test Client Instance node you created at your user profile.
+* clientInstanceForecaster: **IMPORTANT:** Change this to match the name you gave to your New Forecast Client Instance node you created at your user profile.
+* clientInstanceBuilder: **IMPORTANT:** Change this to match the name you gave to your New Forecast Client Instance node you created at your user profile.
 
 **IMPORTANT:** If you are going to be using 2 or more computers, you need to take care of the Signing Accounts file that needs to be present at both / all computers (This is the one that lives in your My-Secrets file). In other words, you cannot generate the signing account at one computer and then generate it again at the second one. If you generate it at one computer and contributed your profile, then you need to copy the file inside the My-Secrets folder to the second computer/s.
 

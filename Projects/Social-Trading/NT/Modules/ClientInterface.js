@@ -134,7 +134,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let query = NT.projects.socialTrading.modules.query.newSocialTradingModulesQuery()
             query.initialize(queryReceived)
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
+            // SA.logger.info((new Date()).toISOString(), '- Client Interface', '- Query Message Received', queryMessage)
 
             let response = {
                 result: 'Ok',
@@ -142,7 +142,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 data: query.run()
             }
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
+            // SA.logger.info((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
             query.finalize()
             return response
 
@@ -151,7 +151,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             Any exception that happens while trying to run the query.
             */
             if (err.stack !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                SA.logger.error('Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }
@@ -213,7 +213,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
         }
         /*
-        We wiil check that the Social Entity exists.
+        We will check that the Social Entity exists.
         */
         if (socialEntityId === undefined) {
             let response = {
@@ -282,6 +282,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
             SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
             SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            console.log('Pushing new event to save in client interface')
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS_TO_SAVE.push(event)
 
             let response = {
                 result: 'Ok',
@@ -289,7 +291,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }
 
             event.finalize()
-            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
+            // TODO: need to work on follower broadcast returns empty on current tests
+            let boradcastToFollowers = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
                 connectedUserProfiles,
                 socialEntity
             )
@@ -302,7 +305,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                SA.logger.error('Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

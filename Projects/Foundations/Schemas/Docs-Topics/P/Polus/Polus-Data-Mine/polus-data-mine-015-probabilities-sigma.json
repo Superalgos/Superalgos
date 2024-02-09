@@ -1,0 +1,74 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 15,
+    "type": "Probabilities - Sigma",
+    "definition": {
+        "text": "This is an indicator that uses the Typical Price (TP), Moving Average (MA) of 200 periods and Standard Deviation to calculate it's output value."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Sigma on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator produces an output value, Z, by using the Typical Price, the 200MA and the sigma (standard deviation) value."
+        },
+        {
+            "style": "List",
+            "text": "Typical Price: this is calculated using the following formula: (candle.max + candle.min + candle.close) / 3 "
+        },
+        {
+            "style": "List",
+            "text": "Sigma: The sigma value is calculated by finding the standard deviation of the past price action (defaulting to 200 periods)."
+        },
+        {
+            "style": "List",
+            "text": "Z Value: The z value is then calculated by finding the difference between the current candle.close and the 200MA, then dividing result by the sigma value: z = (TP - MA) / sigma"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Sigma.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Sigma_Probabilities’ Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Periodic-return-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Sigma_Probabilities | ProdSigma | Z |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple buy signal could be triggered when the signal line crosses the red -2.34 line from below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.ProdSigma.previous.Z < -2.34 && chart.at01hs.ProdSigma.Z > -2.34"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

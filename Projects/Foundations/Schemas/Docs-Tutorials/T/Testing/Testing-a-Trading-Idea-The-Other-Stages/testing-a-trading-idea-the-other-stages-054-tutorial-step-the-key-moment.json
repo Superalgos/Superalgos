@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Это ключевой момент в тестируемом периоде. В марте 2020 года наблюдался явный нисходящий тренд, который закончился огромным обвалом рынка!",
                 "updated": 1642945212392
+            },
+            {
+                "language": "ES",
+                "text": "Este es el momento clave del periodo analizado. En marzo de 2020 se produjo una clara tendencia bajista que terminó con un enorme desplome del mercado.",
+                "updated": 1681734056890
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Хорошая новость заключается в том, что, как мы видели в предыдущем руководстве, две хорошие записи предвосхитили крах, используя очень простые правила, которые мы определили. Как по мне, это выглядит многообещающе, но судите сами!",
                     "updated": 1642945234257
+                },
+                {
+                    "language": "ES",
+                    "text": "La buena noticia es que, como habíamos visto en el tutorial anterior, dos buenas entradas se anticiparon al choque, con las reglas tan sencillas que definimos. En mi opinión, esto parece prometedor, ¡pero juzga tú mismo!",
+                    "updated": 1681734076020
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Найдите время, чтобы поработать с этими позициями! Начните думать о том, как вы можете управлять этими сделками.",
                     "updated": 1642945246003
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate tu tiempo para juguetear con estas posiciones. Empieza a pensar en cómo puedes gestionar estas operaciones.",
+                    "updated": 1681734116586
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Как только вы закончите пировать глазами, мы бросим беглый взгляд на остальной протестированный период!",
                     "updated": 1642945262564
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que hayas terminado de deleitar tus ojos, ¡vamos a echar un rápido vistazo al resto del periodo analizado!",
+                    "updated": 1681734130034
                 }
             ]
         }

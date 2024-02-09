@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Адаптивная скользящая средняя MESA (MAMA) - это индикатор, характеризующийся способностью адаптироваться к движению цены базового актива.",
                 "updated": 1645611273235
+            },
+            {
+                "language": "TR",
+                "text": "MESA Uyarlanabilir Hareketli Ortalama (MAMA), dayanak varlığın fiyat hareketine uyum sağlama yeteneği ile karakterize edilen bir göstergedir.",
+                "updated": 1697835723589
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "MAMA на графиках:",
                     "updated": 1645611310287
+                },
+                {
+                    "language": "TR",
+                    "text": "MAMA :",
+                    "updated": 1697835789385
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Для определения скорости изменения цены адаптивная скользящая средняя MESA использует дискриминатор с преобразованием Гильберта для определения среднего значения и сигнализирует о рыночных тенденциях.",
                     "updated": 1645611324866
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat değişim oranını belirlemek için MESA Uyarlanabilir Hareketli Ortalama, ortalama değeri belirlemek ve piyasa eğilimlerini işaret etmek için bir Hilbert Dönüşümü Ayrıştırıcısı kullanır.",
+                    "updated": 1697835797169
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Этот индикатор состоит из пары графических линий, MAMA и FAMA (Following Adaptive Moving Average), которые подают сигналы на покупку/продажу.",
                     "updated": 1645611335573
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge, al/sat sinyalleri veren MAMA ve FAMA (Uyarlanabilir Hareketli Ortalamanın Ardından) (Following Adaptive Moving Average)  adlı bir çift çizgili çizgiden oluşur.",
+                    "updated": 1697835847730
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Параметры расчета показателя MAMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Initialization в разделе 'MAMA' Product Definition.",
                     "updated": 1645611356922
+                },
+                {
+                    "language": "TR",
+                    "text": "MAMA gösterge hesaplamasının parametreleri, 'MAMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835876193
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645611361815
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835881314
                 }
             ]
         },
@@ -88,6 +118,11 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645611367808
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835884793
                 }
             ]
         },
@@ -105,6 +140,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645611374838
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835888945
                 }
             ]
         },
@@ -116,6 +156,11 @@
                     "language": "RU",
                     "text": "Индикатор MAMA можно использовать для генерирования сигнала на покупку, когда MAMA пересекается выше FAMA:",
                     "updated": 1645611380948
+                },
+                {
+                    "language": "TR",
+                    "text": "MAMA göstergesi, MAMA FAMA'nın üzerine çıktığında bir alım sinyali üretmek için kullanılabilir:",
+                    "updated": 1697835900225
                 }
             ]
         },

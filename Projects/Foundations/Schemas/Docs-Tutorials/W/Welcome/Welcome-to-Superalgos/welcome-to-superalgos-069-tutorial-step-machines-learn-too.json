@@ -1,0 +1,157 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 69,
+    "type": "Tutorial Step - Machines Learn Too!",
+    "definition": {
+        "icon": {
+            "name": "tensorflow",
+            "project": "TensorFlow"
+        },
+        "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",
+        "updated": 1616691534660,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "L'ultima versione di Superalgos presenta un integrazione sperimentale per sfruttare il machine learning.",
+                "updated": 1618058419040,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡La última versión de Superalgos presenta una integración experimental de TensorFlow para aprovechar ML desde la aplicación!",
+                "updated": 1624415664853,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die neueste Version von Superalgos bietet eine experimentelle Integration von TensorFlow zur Nutzung von ML innerhalb der App!",
+                "updated": 1634220174054
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir!",
+                "updated": 1639221072679
+            },
+            {
+                "language": "RU",
+                "text": "Последняя версия Superalgos включает эксперементальную интеграцию TensorFlow \nдля использования ML из приложения!",
+                "updated": 1636748037813
+            },
+            {
+                "language": "ID",
+                "text": "Versi terbaru Superalgos menampilkan integrasi eksperimental TensorFlow untuk memanfaatkan leverage ML dari dalam aplikasi!",
+                "updated": 1639746338118
+            },
+            {
+                "language": "NL",
+                "text": "De nieuwste versie van Superalgos bevat een experimentele integratie van TensorFlow om ML vanuit de app te benutten!",
+                "updated": 1666786652446
+            },
+            {
+                "language": "FR",
+                "text": "La dernière version de Superalgos propose une intégration expérimentale de TensorFlow pour tirer parti de l'analyse ML à partir de l'application !",
+                "updated": 1676897985416
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The integration maps the definition of a NodeJS TensorFlow Library featuring a Supervised Learning algorithm and its Artificial Neural Network in the same kind of structure of nodes typical of Superalgos.",
+            "updated": 1616692845459,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'integrazione mappa la TensorFlow Library di NodeJS, che contiene un algoritmo di Supervised Learning e la relativa Artificial Neural Network, allo stesso tipo di struttura di nodi tipica di Superalgos.",
+                    "updated": 1618058443954,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La integración mapea la definición de un NodeJSTensorFlow Library acompañando un algoritmo Supervised Learning y sus Artificial Neural Network en la típica estructura de nodos de Superalgos.",
+                    "updated": 1624415970291,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Integration bildet die Definition einer NodeJS TensorFlow Library mit einem Supervised Learning Algorithmus und seinem Artificial Neural Network in der gleichen Art von Knotenstruktur ab, wie sie für Superalgos typisch ist.",
+                    "updated": 1634220190097
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegrasyon, Denetimli Öğrenme algoritması (Supervised Learning) ve Yapay Sinir Ağı (Artificial Neural Network) içeren bir NodeJS TensorFlow Kütüphanesinin tanımını Superalgos'a özgü aynı tür düğüm yapısıyla eşleştirir.",
+                    "updated": 1669920929925
+                },
+                {
+                    "language": "RU",
+                    "text": "Интеграция отображает определение NodeJS TensorFlow Library с алгоритмом Supervised Learning и его Artificial Neural Network в той же структуре узлов, типичной для Superalgos.",
+                    "updated": 1636749421416
+                },
+                {
+                    "language": "ID",
+                    "text": "Integrasi tersebut memetakan definisi NodeJS TensorFlow Library yang menampilkan algoritme Supervised Learning dan Artificial Neural Network dalam jenis struktur nodes yang sama dengan Superalgos.",
+                    "updated": 1639746418118
+                },
+                {
+                    "language": "NL",
+                    "text": "De integratie brengt de definitie van een NodeJS TensorFlow Library met een Supervised Learning algoritme en het Artificial Neural Network in kaart in dezelfde soort knooppuntenstructuur die typisch is voor Superalgos.",
+                    "updated": 1666786747652
+                },
+                {
+                    "language": "FR",
+                    "text": "L'intégration correspond à la définition d'une bibliothèque TensorFlow comportant un algorithme d'apprentissage supervisé et son réseau neuronal artificiel dans le même type de structure de nœuds typique de Superalgos.",
+                    "updated": 1676898025030
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The integration leverages the rest of the Superalgos infrastructure so that you may use your datasets to train ML algos and use the resulting models from within trading systems! You're welcome to join other developers to help complete the integration!",
+            "updated": 1687718874994,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'integrazione sfrutta l'infrastuttura di Superalgos, quindi puoi usare i tuoi datasets per fare il training degli algoritmi di ML e usarne i modelli direttamente dal Trading System.",
+                    "updated": 1618058363973,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "La integración aprovecha el resto de la infraestructura de Superalgos para que pueda utilizar sus conjuntos de datos para entrenar algoritmos de ML y utilizar los modelos resultantes desde los sistemas de negociación.",
+                    "updated": 1675278955552,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Integration nutzt den Rest der Superalgos-Infrastruktur, so dass Sie Ihre Datensätze verwenden können, um ML-Algorithmen zu trainieren und die resultierenden Modelle in Handelssystemen zu verwenden!",
+                    "updated": 1660475665696
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegrasyon, Superalgos altyapısından yararlanır. Böylece ML algoritmalarını eğitmek için veri kümelerinizi kullanabilir ve elde edilen modelleri ticaret sistemlerinden kullanabilirsiniz!",
+                    "updated": 1669921040029
+                },
+                {
+                    "language": "RU",
+                    "text": "Интеграция использует остальную инфраструктуру Superalgos, так что вы можете использовать свои наборы данных для обучения ML-алгоритмов и использовать полученные модели в торговых системах! ",
+                    "updated": 1662033307851
+                },
+                {
+                    "language": "ID",
+                    "text": "Integration leverages adalah sisa infrastruktur Superalgos, sehingga kamu dapat menggunakan kumpulan data untuk melatih ML algos dan menggunakan model yang dihasilkan dari dalam sistem trading!",
+                    "updated": 1639747091448
+                },
+                {
+                    "language": "NL",
+                    "text": "De integratie maakt gebruik van de rest van de Superalgos-infrastructuur, zodat u uw datasets kunt gebruiken om ML-algo's te trainen en de resulterende modellen te gebruiken in handelssystemen!",
+                    "updated": 1666786808238
+                },
+                {
+                    "language": "FR",
+                    "text": "L'intégration s'appuie sur le reste de l'infrastructure de Superalgos afin que vous puissiez utiliser vos ensembles de données pour entraîner des algos ML et utiliser les modèles résultants dans les systèmes de trading!",
+                    "updated": 1676898085649
+                }
+            ]
+        }
+    ]
+}

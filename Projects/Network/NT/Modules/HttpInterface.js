@@ -118,6 +118,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                         switch (socketMessage.networkService) {
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    SA.logger.debug('Network Http Client -> Network Client -> Message Received')
                                                     response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(payload, socketMessage)
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
@@ -137,6 +138,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                         switch (socketMessage.networkService) {
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    SA.logger.debug('Network Http Client -> Network Peer -> Message Received')
                                                     response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(socketMessage.payload, caller.userProfile)
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
@@ -155,9 +157,9 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 }
 
                             } catch (err) {
-                                console.log((new Date()).toISOString(), '[ERROR] P2P Node -> httpInterface -> Method call produced an error.')
-                                console.log((new Date()).toISOString(), '[ERROR] P2P Node -> httpInterface -> err.stack = ' + err.stack)
-                                console.log((new Date()).toISOString(), '[ERROR] P2P Node -> httpInterface -> Body Received = ' + bodyString)
+                                SA.logger.error('P2P Node -> httpInterface -> Method call produced an error.')
+                                SA.logger.error('P2P Node -> httpInterface -> err.stack = ' + err.stack)
+                                SA.logger.error('P2P Node -> httpInterface -> Body Received = ' + bodyString)
 
                                 let error = {
                                     result: 'Fail Because',
@@ -180,6 +182,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                         switch (networkService) {
                             case 'Trading Signals': {
                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                    SA.logger.debug('Network Http Client -> Trading Signals -> Ping Received')
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong" + "/"  + NT.networkApp.p2pNetworkNode.userProfile.config.codeName + "/" + NT.networkApp.p2pNetworkNode.node.config.codeName  , httpResponse)
                                 } else {
                                     let response = {
@@ -221,7 +224,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                     }
             }
         } catch (err) {
-            console.log(err.stack)
+            SA.logger.error(err.stack)
         }
     }
 }

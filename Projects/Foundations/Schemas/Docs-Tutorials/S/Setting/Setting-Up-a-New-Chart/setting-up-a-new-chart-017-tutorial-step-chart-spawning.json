@@ -67,8 +67,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si es necesario, mueva las máquinas del tiempo y busque el título que agregó a su máquina del tiempo en el Design Space.",
-                    "updated": 1628646350166
+                    "text": "Si es necesario, mueve las máquinas del tiempo y busca el título que agregaste a tu máquina del tiempo en el Design Space.",
+                    "updated": 1682430567070
                 },
                 {
                     "language": "RU",
@@ -98,8 +98,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Recuerde, para mover un gráfico, mantenga Shift y arrastre con un clic izquierdo.",
-                    "updated": 1628646377242
+                    "text": "Recuerda, para mover un gráfico, mantiene Shift y arrastra con un clic izquierdo.",
+                    "updated": 1682430606095
                 },
                 {
                     "language": "RU",

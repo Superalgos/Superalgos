@@ -33,6 +33,11 @@
                     "language": "ES",
                     "text": "El nodo Market Data Tasks debe hacer referencia a un Market definido en la jerarquía del Crypto Ecosystem.",
                     "updated": 1641153955075
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa veri görevleri düğümü, Kripto Ekosistemi ( Crypto Ecosystem ) hiyerarşisinde tanımlanmış bir piyasaya referans vermelidir.",
+                    "updated": 1701087566139
                 }
             ]
         },
@@ -44,6 +49,11 @@
                     "language": "ES",
                     "text": "Este nodo puede generar Data Products individuales o puede implementar Data Products en masa organizados por Data Mines y por Bots. Consulte el nodo de Data Products para conocer los detalles.",
                     "updated": 1641154026317
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğüm tek tek veri ürünleri oluşturabilir veya veri madeni ve botlar tarafından düzenlenen veri ürünlerini toplu olarak dağıtabilir. Ayrıntılar için veri ürünleri düğümüne bakın.",
+                    "updated": 1701087570683
                 }
             ]
         },

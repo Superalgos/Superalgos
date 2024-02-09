@@ -1,0 +1,155 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 80,
+    "type": "Tutorial Step - The Power of Data Mining",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-resistance",
+            "project": "Foundations"
+        },
+        "text": "Why do levels jump up and down? There's something I haven't told you yet, 'cos I'm afraid it may blow your mind!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Perchè i livelli saltano su e giù? C'è qualcosa che ancora non ti ho detto, e vedrai che ti farà impazzire!",
+                "updated": 1618064409000,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Por qué los niveles suben y bajan? Hay algo que aún no te he dicho, ¡porque me temo que te dejará boquiabierto!",
+                "updated": 1624458000076,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Warum springen die Pegel hoch und runter? Es gibt etwas, das ich Ihnen noch nicht gesagt habe, denn ich fürchte, es könnte Sie umhauen!",
+                "updated": 1634225275729
+            },
+            {
+                "language": "TR",
+                "text": "Seviyeler neden yukarı ve aşağı zıplıyor? Sana henüz söylemediğim bir şey var, bu aklını başından alacak.",
+                "updated": 1636205310660
+            },
+            {
+                "language": "RU",
+                "text": "Почему уровни прыгают вверх и вниз? Есть кое-что, о чем я еще не рассказал вам, потому что боюсь, что это может взорвать ваш мозг!",
+                "updated": 1637656806036
+            },
+            {
+                "language": "ID",
+                "text": "Mengapa level naik dan turun? Ada sesuatu yang belum aku katakan kepadamu, karena aku khawatir itu akan membuat kamu kebingungan!",
+                "updated": 1640563934168
+            },
+            {
+                "language": "NL",
+                "text": "Waarom springen niveaus op en neer? Er is iets dat ik je nog niet heb verteld, want ik ben bang dat het je versteld zal doen staan!",
+                "updated": 1666879285313
+            },
+            {
+                "language": "FR",
+                "text": "Pourquoi les niveaux sautent-ils de haut en bas ? Il y a quelque chose que je ne t'ai pas encore dit, parce que j'ai peur que ça te fasse perdre la tête !",
+                "updated": 1676899491608
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The bot keeps track of all support levels alive since the start of the dataset, but only shows you the five levels closest to the current price.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il bot tiene traccia di tutti i livelli di supporto esistenti dall'inizio del dataset, ma ti mostra solo i cinque livelli più vicini al prezzo corrente.",
+                    "updated": 1618062479544,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "El bot realiza un seguimiento de todos los niveles de soporte activos desde el inicio del conjunto de datos, pero solo le muestra los cinco niveles más cercanos al precio actual.",
+                    "updated": 1624458026149,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Bot verfolgt alle Unterstützungsniveaus seit Beginn des Datensatzes, zeigt Ihnen aber nur die fünf Niveaus, die dem aktuellen Kurs am nächsten liegen.",
+                    "updated": 1634225279501
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot, veri kümesinin başlangıcından bu yana tüm destek seviyelerini canlı olarak takip eder, ancak size yalnızca mevcut fiyata en yakın beş seviyeyi gösterir.",
+                    "updated": 1636205332521
+                },
+                {
+                    "language": "RU",
+                    "text": "Бот отслеживает все уровни поддержки с момента запуска набора данных, но показывает вам только пять уровней, наиболее близких к текущей цене.",
+                    "updated": 1637656876957
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot melacak semua level support aktif sejak awal dataset, tetapi hanya menunjukkan kepada kamu lima level yang paling dekat dengan harga saat ini.",
+                    "updated": 1640564010745
+                },
+                {
+                    "language": "NL",
+                    "text": "De bot houdt alle ondersteuningsniveaus in leven sinds het begin van de dataset, maar toont u alleen de vijf niveaus die het dichtst bij de huidige prijs liggen.",
+                    "updated": 1666879312170
+                },
+                {
+                    "language": "FR",
+                    "text": "Le robot garde la trace de tous les niveaux de supports existants depuis le début de l'ensemble de données, mais ne vous montre que les cinq niveaux les plus proches du prix actuel.",
+                    "updated": 1676899522001
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Keeping track of information for the whole span of the dataset—which may count years—is the extraordinary value of data mining, and the kind of things you wouldn't be able to calculate with a function, on the fly. The Plotter associated with the Indicator Bot dynamically shows the five levels of support closest to the price because those are the relevant levels for the context, and it's how the plotter is built!",
+            "updated": 1616429006453,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tenere traccia dei dati per tutto il periodo temporale definito dal dataset (che può essere di anni) è il grande potere del data mining, e il tipo di informazioni che non puoi ricavare facilmente. Il Plotter associato all'Indicator Bot mostra dinamicamente i cinque livelli più vicini al prezzo attuale perchè sono i più rilevanti, ed è così che il Plotter è stato configurato!",
+                    "updated": 1618064485684,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Hacer un seguimiento de la información para todo el conjunto de datos, que puede contar años, es el valor extraordinario de la minería de datos y el tipo de cosas que no podría calcular con una función sobre la marcha. El Plotter asociado con el Indicator Bot muestra dinámicamente los cinco niveles de soporte más cercanos al precio porque esos son los niveles relevantes para el contexto, ¡y así es como se construye el plotter!",
+                    "updated": 1675280757067,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verfolgung von Informationen über die gesamte Spanne des Datensatzes - die Jahre zählen kann - ist der außerordentliche Wert des Data Mining, und die Art von Dingen, die Sie nicht in der Lage wären, mit einer Funktion zu berechnen, on the fly. Der Plotter, der mit dem Indicator Bot verbunden ist, zeigt dynamisch die fünf Unterstützungsebenen an, die dem Preis am nächsten liegen, weil dies die relevanten Ebenen für den Kontext sind, und so ist der Plotter aufgebaut!",
+                    "updated": 1634225288547
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümesinin tüm aralığı için - ki bu yılları içerebilir - bilgi kaydını tutmak, veri madenciliğinin olağanüstü yeteneğidir ve bir fonksiyonla anında hesaplayamayacağınız türden şeylerdir. Gösterge Botu (Indicator Bot) ile ilişkili Plotter, fiyata en yakın beş destek seviyesini dinamik olarak gösterir, çünkü bunlar durumla ilgili seviyelerdir ve çizici bu şekilde inşa edilmiştir!",
+                    "updated": 1670008290698
+                },
+                {
+                    "language": "RU",
+                    "text": "Отслеживание информации за весь период набора данных, который может исчисляться годами - это исключительная ценность интеллектуального анализа данных и подобного рода вещи Вы не смогли бы вычислить \"на лету\". Plotter, связанный с Indicator Bot, динамически показывает пять уровней поддержки, наиболее близких к цене, потому что это соответствующие уровни для контекста, и именно так устроен плоттер.",
+                    "updated": 1637657295196
+                },
+                {
+                    "language": "ID",
+                    "text": "Melacak informasi untuk seluruh rentang dataset—yang dapat dihitung bertahun-tahun—adalah nilai luar biasa dari data mining, dan hal-hal yang tidak dapat kamu hitung dengan fungsi, secara cepat. Plotter yang terkait dengan Indicator Bot secara dinamis menunjukkan lima level dukungan yang paling dekat dengan harga karena itu adalah level yang relevan untuk konteksnya, dan begitulah cara plotter dibangun!",
+                    "updated": 1640564257307
+                },
+                {
+                    "language": "NL",
+                    "text": "Het bijhouden van informatie voor de hele periode van de dataset - die jaren kan bevatten - is de buitengewone waarde van datamining, en het soort dingen dat je niet meteen met een functie zou kunnen berekenen. De Plotter welke is gekoppeld aan de Indicator Bot toont dynamisch de vijf ondersteuningsniveaus die het dichtst bij de prijs liggen, omdat dit de relevante niveaus zijn voor de context, en zo is de plotter opgebouwd!",
+                    "updated": 1666879415866
+                },
+                {
+                    "language": "FR",
+                    "text": "Garder la trace des informations pour toute la durée de l'ensemble de données - qui peut compter des années - est la valeur extraordinaire du data mining, et le genre de choses que vous ne pourriez pas calculer avec une fonction, à la volée. Le traceur associé à l'Indicator Bot affiche dynamiquement les cinq niveaux de support les plus proches du prix, car ce sont les niveaux pertinents pour le contexte, et c'est ainsi que le traceur est construit !",
+                    "updated": 1676899558856
+                }
+            ]
+        }
+    ]
+}

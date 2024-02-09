@@ -184,10 +184,18 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 Remove Social Persona Post
                 */
                 if (
-                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_USER_POST
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_SOCIAL_PERSONA_POST
                 ) {
                     originSocialPersona.removePost(
-                        thisObject.originPostHash
+                        thisObject.originSocialPersonaId,
+                        thisObject.targetSocialPersonaId,
+                        thisObject.originSocialTradingBotId,
+                        thisObject.targetSocialTradingBotId,
+                        thisObject.originPostHash,
+                        thisObject.targetPostHash,
+                        thisObject.eventType - 14,
+                        thisObject.timestamp,
+                        thisObject.fileKeys
                     )
                     return true
                 }
@@ -308,11 +316,21 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LOVE ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HAHA ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_WOW ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SAD ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_ANGRY ||
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SMILE_SMALL_EYES ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_BIG_CHEESING || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_TEARS_OF_JOY || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HEART_EYES || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_PINOCCHIO || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CELEBRATION || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SURPRISED_GHOST || 
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_FRUSTRATED_MONKEY 
+
+                //TODO handle old reactions...
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_HAHA ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_WOW ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_SAD ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_ANGRY ||
+                // thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
 
                 let socialEntityId
@@ -328,7 +346,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.addReaction(thisObject.eventType - 100, socialEntityId)
+                targetPost.addReaction(thisObject.eventType - 700, socialEntityId)
 
                 return true
             }

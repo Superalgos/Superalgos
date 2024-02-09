@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Pada step ini, kamu akan menjalankan perintah pertamamu untuk membuat halaman review! Ini adalah halaman yang bisa kamu edit dikemudian hari!",
                 "updated": 1668788107543
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap ga je je eerste opdracht uitvoeren om een beoordelingspagina te maken! Deze pagina zal in de toekomst van jou zijn om te bewerken!",
+                "updated": 1669747256061
             }
         ]
     },
@@ -58,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡La sintaxis para escribir comandos es bastante coloquial! ¡Te encantará! ¡Compruébalo y sigue las instrucciones a continuación!",
-                    "updated": 1628187026752,
+                    "text": "¡La sintáxis para escribir comandos es bastante coloquial! ¡Te encantará! ¡Compruébalo y sigue las instrucciones a continuación!",
+                    "updated": 1675452412727,
                     "style": "Text"
                 },
                 {
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "syntax untuk menulis perintah seperti bahasa sehari-hari! Kamu akan menyukainya! Lihatlah dan ikuti instruksi dibawah ini!",
                     "updated": 1668788114946
+                },
+                {
+                    "language": "NL",
+                    "text": "De syntaxis om commando's te schrijven is vrij informeel! Je zult het geweldig vinden! Bekijk het en volg de onderstaande instructies!",
+                    "updated": 1669747277020
                 }
             ]
         },
@@ -102,8 +112,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "FIRST: Copia el comando anterior.",
-                    "updated": 1628187044978,
+                    "text": "PRIMERO: Si estás en la Instalación del Contribuyente, copia el comando anterior. ",
+                    "updated": 1675452456117,
                     "style": "List"
                 },
                 {
@@ -125,6 +135,11 @@
                     "language": "ID",
                     "text": "PERTAMA: Apabila kamu dari Penginstalan Kontributor, salin perintah diatas.",
                     "updated": 1668788128361
+                },
+                {
+                    "language": "NL",
+                    "text": "EERST: als u zich in de installatie van de Contributor's bevindt, kopieert u de bovenstaande opdracht.",
+                    "updated": 1669747307759
                 }
             ]
         },
@@ -141,8 +156,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "SECOND: Pégalo en un editor de texto.",
-                    "updated": 1628187089099,
+                    "text": "SEGUNDO: Pégalo en un editor de texto.",
+                    "updated": 1675452462483,
                     "style": "List"
                 },
                 {
@@ -164,6 +179,11 @@
                     "language": "ID",
                     "text": "KEDUA: Tempel itu di text editor.",
                     "updated": 1668788148614
+                },
+                {
+                    "language": "NL",
+                    "text": "TWEEDE: plak het in een teksteditor.",
+                    "updated": 1669747318668
                 }
             ]
         },
@@ -180,8 +200,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "THIRD: Reemplaza \"Your Review Title\" por un título significativo. ¡Los títulos deben ser únicos!",
-                    "updated": 1628187188266,
+                    "text": "TERCERO: Reemplaza \"Your Review Title\" por un título significativo. ¡Los títulos deben ser únicos!",
+                    "updated": 1675452469798,
                     "style": "List"
                 },
                 {
@@ -203,6 +223,11 @@
                     "language": "ID",
                     "text": "KETIGA: Ubahlah \"Your Review Title\" dengan judul yang lebih bermakna. Judul Review harus unik!",
                     "updated": 1668788165495
+                },
+                {
+                    "language": "NL",
+                    "text": "DERDE: Vervang \"Your Review Title\" door een betekenisvolle titel. Recensietitels moeten uniek zijn!",
+                    "updated": 1669747334052
                 }
             ]
         },
@@ -219,8 +244,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "FOURTH: Pega el comando actualizado en el cuadro de búsqueda / comando y presiona Enter.",
-                    "updated": 1628187252151,
+                    "text": "CUARTO: Pega el comando actualizado en el cuadro de búsqueda / comando y presiona Enter.",
+                    "updated": 1675452474658,
                     "style": "List"
                 },
                 {
@@ -242,6 +267,11 @@
                     "language": "ID",
                     "text": "KEEMPAT: Tempelkan perintah yang sudah diubah ke pencarian/command box dan tekan Enter.",
                     "updated": 1668788179874
+                },
+                {
+                    "language": "NL",
+                    "text": "VIERDE: Plak de bijgewerkte opdracht in het zoek-/opdrachtvenster en druk op Enter.",
+                    "updated": 1669747346319
                 }
             ]
         }

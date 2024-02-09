@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bağımlılık Filtresi, çalıştırıldığında hangi veri bağımlılıklarının bota yüklenmesi gerektiğini koddan almak için tüm koşulların, formüllerin ve Çalışma Botlarının kodunu analiz eden bir mekanizmadır.",
                 "updated": 1654390994290
+            },
+            {
+                "language": "DE",
+                "text": "Der Dependency Filter ist ein Mechanismus, der den Code aller Bedingungen, Formeln und Study Bots analysiert, um aus dem Code herauszufinden, welche Datenabhängigkeiten bei der Ausführung des Bots geladen werden müssen.",
+                "updated": 1696955464798
             }
         ]
     },
@@ -37,6 +42,12 @@
                     "text": "Bağımlılık Filtresi nedir?",
                     "updated": 1654391000493,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was ist der Abhängigkeitsfilter?",
+                    "updated": 1696955465017,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -54,6 +65,12 @@
                     "text": "Bağımlılık Filtresi, çalıştırıldığında hangi veri bağımlılıklarının bota yüklenmesi gerektiğini koddan almak için tüm koşulların, formüllerin ve Çalışma Botlarının kodunu analiz eden bir mekanizmadır. Prosedür, borsa, piyasa veya grafik nesnelerini aramak için her kod satırını tarar ve bunları bulduktan sonra, bot için hangi ürünün gerekli olacağını anlamak için kodu parçalar. Bu filtreler, kodda bu dosyaların çoğu açıkça kullanılmadığında botun tüm bağımlılık dosyalarını her zaman diliminde yüklemesini önlemek için gereklidir.",
                     "updated": 1654391007785,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Dependency Filter ist ein Mechanismus, der den Code aller Bedingungen, Formeln und Study Bots analysiert, um aus dem Code herauszufinden, welche Datenabhängigkeiten bei der Ausführung des Bots geladen werden müssen. Die Prozedur scannt jede Codezeile auf der Suche nach Börsen-, Markt- oder Chart-Objekten und sobald sie diese gefunden hat, wird sie aufgeschlüsselt, um zu verstehen, welches Produkt für den Bot benötigt wird. Diese Filter werden benötigt, um zu verhindern, dass der Bot alle Abhängigkeitsdateien zu allen Zeitpunkten lädt, obwohl viele dieser Dateien im Code offensichtlich nicht verwendet werden.",
+                    "updated": 1696955465165,
+                    "style": "Text"
                 }
             ]
         },
@@ -68,8 +85,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bağımlılık Filtresi, bir Stratejinin bağlı olduğu Göstergelerin ve Çalışmaların bir listesidir ve daha sonra Ticaret Botunun bağlı olduğu diğer tüm göstergeleri ve çalışmaları filtrelemek için kullanılır.",
-                    "updated": 1654391013976,
+                    "text": "Bağımlılık Filtresi, bir Stratejinin ( Strategy ) bağlı olduğu Göstergelerin ve Çalışmaların bir listesidir ve daha sonra Ticaret Botunun ( Trading Bot ) bağlı olduğu diğer tüm göstergeleri ve çalışmaları filtrelemek için kullanılır.",
+                    "updated": 1671217736521,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Abhängigkeitsfilter ist eine Liste von Indikatoren und Studien, von denen eine Strategy abhängt, und die später verwendet wird, um alle anderen Indikatoren und Studien herauszufiltern, von denen der Trading Bot abhängt.",
+                    "updated": 1696955465394,
                     "style": "Text"
                 }
             ]
@@ -86,8 +109,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fonksiyon, büyük olasılıkla bir Ticaret Sistemi olan bir düğüm dalını tarayacak ve her düğümün kod özelliğine bakacaktır. İçeriğini analiz edecek ve kod metninde bahsedilen tüm göstergelerin ve çalışmaların bir listesini ve hangi zaman dilimlerinde bahsedildiklerini yapmaya çalışacaktır.",
-                    "updated": 1654391020995,
+                    "text": "Fonksiyon, büyük olasılıkla bir Ticaret Sistemi ( Trading System ) olan bir düğüm dalını tarayacak ve her düğümün kod özelliğine bakacaktır. İçeriğini analiz edecek ve kod metninde bahsedilen tüm göstergelerin ve çalışmaların bir listesini ve hangi zaman dilimlerinde bahsedildiklerini yapmaya çalışacaktır.",
+                    "updated": 1671217821144,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktion scannt einen Knotenzweig, höchstwahrscheinlich ein Handelssystem ( Trading System ), und untersucht die Code-Eigenschaft jedes Knotens. Sie analysiert dessen Inhalt und versucht, eine Liste aller Indikatoren und Studien zu erstellen, die im Code-Text erwähnt werden und in welchen Zeitrahmen sie erwähnt werden.",
+                    "updated": 1696955465616,
                     "style": "Text"
                 }
             ]
@@ -107,6 +136,12 @@
                     "text": "Procedure Javascript, Javascript Code veya Formula türünde olmayan tüm düğümlerin göz ardı edileceğini unutmamak önemlidir.",
                     "updated": 1654391026650,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig zu beachten, dass alle Knoten, die nicht vom Typ Procedure Javascript, Javascript Code oder Formula sind, ignoriert werden.",
+                    "updated": 1696955465805,
+                    "style": "Text"
                 }
             ]
         },
@@ -123,6 +158,12 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1654391032270,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1696955465961,
                     "style": "Subtitle"
                 }
             ]
@@ -141,6 +182,12 @@
                     "text": "Bunlar, Bağımlılık Filtresinin herhangi bir sorun olmadan tanıyacağı talimatlardır:",
                     "updated": 1654391037866,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies sind Anweisungen, die der Abhängigkeitsfilter ohne Probleme erkennt:",
+                    "updated": 1696955466072,
+                    "style": "Text"
                 }
             ]
         },
@@ -152,6 +199,12 @@
                     "language": "TR",
                     "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100 < 10",
                     "updated": 1654391044225,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100 < 10",
+                    "updated": 1696955466213,
                     "style": "Text"
                 }
             ]
@@ -170,6 +223,12 @@
                     "text": "Talimatlar arasındaki boşlukları kaldırırsanız Bağımlılık Filtresinin kafası karışabilir ve kullanmaya çalıştığınız gösterge için tanımlanmamış bir değer alırsınız.",
                     "updated": 1654391050315,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Leerzeichen zwischen den Anweisungen entfernt haben, könnte der Abhängigkeitsfilter verwirrt werden und Sie erhalten einen undefinierten Wert für den Indikator, den Sie zu verwenden versuchen.",
+                    "updated": 1696955466448,
+                    "style": "Text"
                 }
             ]
         },
@@ -187,6 +246,12 @@
                     "text": "Önceden Kullanım",
                     "updated": 1654391056540,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vorzeitige Verwendung",
+                    "updated": 1696955466637,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -202,8 +267,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Temel Varlığı, Fiyat Teklifi Varlığını veya Zaman Çerçevesini kodluyor ve dinamik olarak seçiyorsanız, Bağımlılık Filtreleri hangi zaman diliminde hangi pazarlara ihtiyacınız olacağını tahmin edemeyeceğinden, Bağımlılık Filtresini nasıl etkileyeceğinize dair birkaç püf noktası vardır.",
-                    "updated": 1654391062516,
+                    "text": "Temel Varlığı ( Base Asset ), Fiyat Teklifi Varlığını ( Quote Asset ) veya Zaman Dilimini ( Time Frame ) kodluyor ve dinamik olarak seçiyorsanız, Bağımlılık Filtreleri hangi zaman diliminde hangi pazarlara ihtiyacınız olacağını tahmin edemeyeceğinden, Bağımlılık Filtresini nasıl etkileyeceğinize dair birkaç püf noktası vardır.",
+                    "updated": 1671218013966,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie kodieren und dynamisch den Basiswert ( Base Asset ), den Kurswert ( Quote Asset ) oder den Zeitrahmen ( Time Frame ) auswählen, gibt es ein paar Tricks für Sie. Da die Abhängigkeitsfilter nicht in der Lage sind, zu erraten, welche Märkte Sie in welchem Zeitrahmen benötigen, gibt es ein paar Tricks, wie Sie die Abhängigkeitsfilter beeinflussen können.",
+                    "updated": 1696955466731,
                     "style": "Success"
                 }
             ]
@@ -223,6 +294,12 @@
                     "text": "Kodun yorumlanmış bir alanının içine şöyle bir şey yazabilirsiniz:",
                     "updated": 1654391068628,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In einem kommentierten Bereich des Codes können Sie etwas wie dieses schreiben:",
+                    "updated": 1696955467046,
+                    "style": "Text"
                 }
             ]
         },
@@ -234,6 +311,12 @@
                     "language": "TR",
                     "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
                     "updated": 1654391074574,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "market.anyBaseAsset.BTC.chart.atAnyTimeFrame.candle",
+                    "updated": 1696955467172,
                     "style": "Text"
                 }
             ]
@@ -252,6 +335,12 @@
                     "text": "Geçerli anahtar çalışmalar şunlardır:",
                     "updated": 1654391080075,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die gültigen Schlüsselwörter sind:",
+                    "updated": 1696955467344,
+                    "style": "Text"
                 }
             ]
         },
@@ -263,6 +352,12 @@
                     "language": "TR",
                     "text": "anyBaseAsset",
                     "updated": 1654391085670,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "anyBaseAsset",
+                    "updated": 1696955467438,
                     "style": "Text"
                 }
             ]
@@ -276,6 +371,12 @@
                     "text": "anyQuotedAsset",
                     "updated": 1654391091700,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "anyQuotedAsset",
+                    "updated": 1696955467547,
+                    "style": "Text"
                 }
             ]
         },
@@ -287,6 +388,12 @@
                     "language": "TR",
                     "text": "atAnyTimeFrame",
                     "updated": 1654391097708,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "atAnyTimeFrame",
+                    "updated": 1696955467673,
                     "style": "Text"
                 }
             ]

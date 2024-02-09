@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Давайте уделим несколько минут анализу этой позиции, в частности, рассмотрим, чем отличается каждый этап...",
                 "updated": 1642943954014
+            },
+            {
+                "language": "ES",
+                "text": "Dediquemos unos minutos a diseccionar esta posición, analizando en particular las características de cada etapa...",
+                "updated": 1681056439383
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Trigger Stage: Открывается 27 февраля на 0 hs, потому что 24H Bollinger SubChannel развернулся вниз, а не в сторону. Проверьте, так ли это! Этап закроется 28 февраля в 9 часов, после того как второй пробой вызовет событие Take Position.",
                     "updated": 1642943977053
+                },
+                {
+                    "language": "ES",
+                    "text": "Trigger Stage: Abre el 27 de Febrero a las 0 hs porque el SubCanal de Bollinger de 24H giró a la Baja y no a Lateral. ¡Verifica si ese es el caso! La etapa se cierra el 28 de Febrero a las 9 hs, luego de que la segunda ruptura dispara el Evento de Take Position.",
+                    "updated": 1681056538212
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Open Stage: Открывается при закрытии стадии срабатывания и закрывается через час (!?) после размещения рыночного ордера на продажу.",
                     "updated": 1642943998462
+                },
+                {
+                    "language": "ES",
+                    "text": "Open Stage: Se abre cuando se cierra la etapa de activación, y se cierra una hora más tarde después de que se coloque la orden de venta a mercado.",
+                    "updated": 1681056610996
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Через час? Да! Помните, что мы запускаем симуляцию на таймфрейме 1H! Позже мы обсудим этот вопрос более подробно!",
                     "updated": 1642944023848
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Una hora más tarde? Sí. Recuerda que estamos realizando la simulación en el marco temporal de una hora. Discutiremos este asunto en profundidad más adelante.",
+                    "updated": 1681056640697
                 }
             ]
         }

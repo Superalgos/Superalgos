@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Eklenti ticaret mayınları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek ticaret mayınlarının tanımlarını içerir.",
                 "updated": 1651952035702
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Plugin trading mines enthält die Definitionen von Handelsminen, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639238943
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1651952047568
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf <i>Edit</i>, um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1674639277575
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: TaskManager projesini tercih ettiğiniz IDE'de çalıştırın ve görev menüsündeki Hata Ayıkla düğmesini kullanın.",
                 "updated": 1647870854493
+            },
+            {
+                "language": "DE",
+                "text": "Führen Sie das TaskManager-Projekt in Ihrer bevorzugten IDE aus und verwenden Sie die Schaltfläche Debuggen im Menü der Aufgabe.",
+                "updated": 1678649114125
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu adımları izleyerek ister veri madenciliği görevi ister ticaret görevi olsun herhangi bir görevde hata ayıklayabilirsiniz.",
                     "updated": 1647870866331
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können jede Aufgabe überprüfen, entweder eine Data-Mining-Aufgabe oder eine Handelsaufgabe, indem Sie diese Schritte ausführen.",
+                    "updated": 1678649124580
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1. Superalgos İstemcisini ( Client ) her zamanki gibi çalıştırın.",
                     "updated": 1647870886592
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Führen Sie den Superalgos- Client auf die übliche Weise aus.",
+                    "updated": 1678649142854
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "2. Tercih ettiğiniz IDE'de TaskServer projesini açın, kodun hata ayıklamak istediğiniz kısmına bir kesme noktası yerleştirin ve TaskServer'ı çalıştırın.",
                     "updated": 1647870902194
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Öffnen (Open) Sie das TaskServer-Projekt in Ihrer bevorzugten IDE, setzen Sie einen Haltepunkt in dem Teil des Codes, den Sie prüfen möchten, und starten Sie den TaskServer.",
+                    "updated": 1678649162315
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "3. Hata ayıklamak istediğiniz görevin menüsünde Hata Ayıkla düğmesine tıklayın. İstek, IDE'nizde çalışan TaskServer'a yönlendirilecektir.",
                     "updated": 1647870925205
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Klicken Sie auf die Schaltfläche Debuggen im Menü der Task, die Sie überprüfen möchten. Die Anfrage wird an den TaskServer weitergeleitet, der in Ihrer IDE läuft.",
+                    "updated": 1678649175663
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "TR",
                     "text": "4. Bir ticaret görevi olması durumunda ticaret oturumunu çalıştırın.",
                     "updated": 1647870943983
+                },
+                {
+                    "language": "DE",
+                    "text": "4. Starten Sie die Handelssitzung, sofern es sich um eine Handelsaufgabe handelt.",
+                    "updated": 1678649227792
                 }
             ]
         },
@@ -119,6 +149,11 @@
                     "language": "TR",
                     "text": "Birkaç saniye sonra, kesme noktasını koyduğunuz satırda yürütme durmalıdır. Sistemin hata ayıklama modunda daha yavaş çalıştığını unutmayın; bu nedenle, tüm bağımlılıkları yükledikten sonra oturumun işlemeye başlaması biraz zaman alabilir.",
                     "updated": 1647870959764
+                },
+                {
+                    "language": "DE",
+                    "text": "Nach ein paar Sekunden sollte die Ausführung in der Zeile anhalten, in der Sie den Haltepunkt gesetzt haben. Beachten Sie, dass das System im Debug-Modus langsamer läuft und es daher eine Weile dauern kann, bis die Sitzung nach dem Laden aller Zuordnungen mit der Verarbeitung beginnt.",
+                    "updated": 1678649235586
                 }
             ]
         },

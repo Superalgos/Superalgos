@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Giden Sinyal Referansı düğümü, Superalgos eşler arası ağ üzerinden gönderilmek üzere Kullanıcı Profili altında tutulan bir sinyal tanımına bir referans depolar.",
                 "updated": 1654397853031
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten \"Ausgehende Signalreferenz\" speichert einen Verweis auf eine im Benutzerprofil gespeicherte Signaldefinition, die über das Superalgos-Peer-to-Peer-Netzwerk gesendet werden soll. ",
+                "updated": 1705011815935
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Sinyalin Referans düğümünü, Sağlayıcının Sosyal Ticaret Botu altındaki eşleşen Sinyaller düğümüne bağlayın.",
                     "updated": 1654397859376,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vom Signal-Referenzknotens auf den entsprechenden Signalknoten unter dem Social Trading Bot des Anbieters.",
+                    "updated": 1705009991604
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "text": "Sinyal göndermek veya almak için sinyallerin eklenebileceği konumların her biri, Sosyal Ticaret Botları altında eşleşen bir Sinyal düğümüne sahiptir.",
                     "updated": 1654397866725,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder der Orte, an die Signale angehängt werden können, um Signale zu senden oder zu empfangen, hat einen passenden Signalknoten, der unter den Social Trading Bots verfügbar ist.",
+                    "updated": 1705010004409
                 }
             ]
         }

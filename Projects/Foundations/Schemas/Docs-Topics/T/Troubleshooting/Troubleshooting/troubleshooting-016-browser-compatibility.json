@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Kullanmak için önerilen bir tarayıcı yok!",
                 "updated": 1647871803851
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt keinen empfohlenen Browser für die Anwendung!",
+                "updated": 1678649611406
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos ile kullanılması önerilen bir tarayıcı bulunmamakla birlikte, geliştiriciler ve kullanıcılar için SA geliştirmek ve olası hataları gidermek için ortak bir temel kullanma ihtiyacı vardır. Bugün itibariyle Chrome, dünya çapında en çok kullanılan tarayıcılardan biridir ve bu yüzden kullanılması önerilir. Bazı kullanıcılar, krom projesine dayalı Edge ve Brave tarayıcısının hiç (veya küçük) sorunla çalıştığını bildirdi.",
                     "updated": 1647871822305
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt zwar keinen empfohlenen Browser für Superalgos, aber es ist notwendig, eine gemeinsame Basis für Entwickler und Benutzer zu verwenden, um SA zu entwickeln und mögliche Fehler zu beheben. Heutzutage ist Chrome einer der meistgenutzten Browser weltweit und deshalb wird seine Verwendung empfohlen. Einige Benutzer berichteten, dass Edge und Brave, die beide auf dem Chromium-Projekt basieren, ohne (oder mit nur geringen) Problemen funktionieren.",
+                    "updated": 1678649621815
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Chrome -> Geliştiriciler tarafından SA geliştirmek ve sorunları gidermek için kullanılan ortak temel tarayıcı",
                     "updated": 1647871841636
+                },
+                {
+                    "language": "DE",
+                    "text": "Chrome -> Gemeinsamer Basisbrowser, der von Entwicklern zur Entwicklung von SA und zur Fehlerbehebung verwendet wird",
+                    "updated": 1678649630725
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Edge -> Kroma dayalı, bilinmeyen sorunlar",
                     "updated": 1647871852239
+                },
+                {
+                    "language": "DE",
+                    "text": "Edge -> Basiert auf Chromium, unbekannte Probleme",
+                    "updated": 1678649638421
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Brave -> Kroma dayalı, bilinmeyen sorunlar. Shields kurulmalıdır",
                     "updated": 1647871900544
+                },
+                {
+                    "language": "DE",
+                    "text": "Brave -> Basiert auf Chromium, unbekannte Probleme. Schilde sollten abgestellt werden",
+                    "updated": 1678649647167
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Firefox -> Rapor yok, bilinmiyor",
                     "updated": 1647871909138
+                },
+                {
+                    "language": "DE",
+                    "text": "Firefox -> Keine Berichte, unbekannt",
+                    "updated": 1678649655933
                 }
             ]
         },

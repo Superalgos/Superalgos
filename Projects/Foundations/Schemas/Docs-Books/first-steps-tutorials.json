@@ -1,13 +1,13 @@
 {
     "type": "First Steps Tutorials",
     "definition": {
-        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tool to tackle the learning curve. Doing the tutorials in the order proposed is highly recommended.",
-        "updated": 1610915328705,
+        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tools to tackle the learning curve. Doing the tutorials in the proposed order is highly recommended.",
+        "updated": 1674742942350,
         "translations": [
             {
                 "language": "ES",
-                "text": "Este libro lo guiará por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
-                "updated": 1668187876379
+                "text": "Este libro te guiará por el camino que te ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
+                "updated": 1675204438524
             },
             {
                 "language": "RU",
@@ -28,6 +28,11 @@
                 "language": "DE",
                 "text": "Dieses Buch führt Sie durch den Weg, der Ihnen helfen wird, Superalgos auf die effizienteste Weise zu erlernen. Interaktive Tutorien sind das beste Mittel, um die Lernkurve zu bewältigen. Es wird dringend empfohlen, die Tutorials in der vorgeschlagenen Reihenfolge zu absolvieren.",
                 "updated": 1650359318804
+            },
+            {
+                "language": "PL",
+                "text": "Książka ta przeprowadzi Cię przez ścieżkę, która pomoże Ci poznać Superalgos w najbardziej efektywny sposób. Interaktywne samouczki to bardzo dobre narzędzia aby zmierzyć się procesem nauki. Bardzo mocno sugerujemy wykonywanie samouczków w zaproponowanej kolejności.",
+                "updated": 1674743098756
             }
         ]
     },
@@ -59,8 +64,13 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Como utilizar este libro",
-                    "updated": 1667506688738
+                    "text": "Cómo utilizar este libro",
+                    "updated": 1675274070182
+                },
+                {
+                    "language": "PL",
+                    "text": "Jak czytać tą książkę",
+                    "updated": 1674743089666
                 }
             ]
         },
@@ -92,18 +102,23 @@
                     "language": "DE",
                     "text": "Tutorials bieten die ultimative praktische Lernerfahrung. Es hat sich gezeigt, dass es am effektivsten ist, alle vorhandenen Tutorials zu absolvieren, um die Lernkurve zu bewältigen.",
                     "updated": 1650359363488
+                },
+                {
+                    "language": "PL",
+                    "text": "Samouczki dają możliwość nakui dzięki praktyce. Zostało dowiedzione, że wykonanie wszystkich samouczków jest najbardziej efektywną ścieżką nauki.",
+                    "updated": 1674743356586
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
-            "updated": 1617036749800,
+            "text": "To do a tutorial, load the corresponding Native Workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
+            "updated": 1688056171213,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para hacer un tutorial, cargue el correspondiente plugin workspace,busque el tutorial en la parte inferior del espacio de diseño y seleccione Play en el menu.",
-                    "updated": 1636560468727
+                    "text": "Para hacer un tutorial, carga el correspondiente Native Workspace, busca el tutorial en la parte inferior del espacio de diseño y selecciona Play en el menú.",
+                    "updated": 1675374016887
                 },
                 {
                     "language": "RU",
@@ -117,13 +132,18 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Untuk melakukan tutorial, muat plugin workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
+                    "text": "Untuk melakukan tutorial, muat Native Workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
                     "updated": 1640594831930
                 },
                 {
                     "language": "DE",
                     "text": "Um ein Tutorial zu absolvieren, laden Sie den entsprechenden Plugin-Arbeitsbereich, suchen Sie das Tutorial am unteren Rand des Designbereichs und wählen Sie im Menü die Option Abspielen.",
                     "updated": 1650359435458
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby wykonać samouczek, załaduj odpowiedni Native Workspace. Znajdź samouczek na dole Design Space i wciśnij Play w menu.",
+                    "updated": 1674743455800
                 }
             ]
         },
@@ -133,8 +153,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando necesite un repaso rápido, siempre puede volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puede escanear el contenido sin hacer el tutorial.",
-                    "updated": 1636560519878
+                    "text": "Cuando necesites un repaso rápido, siempre puedes volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puedes buscar directamente el contenido sin hacer el tutorial.",
+                    "updated": 1675204643270
                 },
                 {
                     "language": "RU",
@@ -155,6 +175,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine kurze Auffrischung benötigen, können Sie jederzeit zurückgehen und die gesamte Anleitung oder einige Schritte erneut durchführen. Da die Tutorials aus durchsuchbaren Seiten bestehen, können Sie den Inhalt auch durchsuchen, ohne das Tutorial tatsächlich durchzuführen.",
                     "updated": 1650359481329
+                },
+                {
+                    "language": "PL",
+                    "text": "Kiedy potrzebujesz przypomnienia, możesz zawsze wrócić i wykonać samouczek jeszcze raz, w całości albo tylko wybraną część. Samouczki są stworzone ze stron, które można przeszukiwać, możesz zawsze przeszukać zawartość bez wykonywania samouczka.",
+                    "updated": 1674744922879
                 }
             ]
         },
@@ -187,12 +212,17 @@
                     "language": "DE",
                     "text": "Die empfohlene Reihenfolge ist in der nachstehenden Liste angegeben, aber in Wahrheit kommt es vor allem darauf an, alle Übungen zu absolvieren - unabhängig von der Reihenfolge.",
                     "updated": 1650359562424
+                },
+                {
+                    "language": "PL",
+                    "text": "Zalecana kolejność wykonywania jest podana poniżej, ale tak naprawdę najważniejsze jest żebyś po prostu wykonał je wszystkie.",
+                    "updated": 1674744985315
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "List of Plugin Workspaces and Tutorials",
+            "text": "List of Native Workspaces and Tutorials",
             "translations": [
                 {
                     "language": "RU",
@@ -201,39 +231,44 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) ve Öğreticilerin (Tutorial) Listesi",
+                    "text": "Eklenti Çalışma Alanları (Native Workspaces) ve Öğreticilerin (Tutorial) Listesi",
                     "updated": 1638915383541
                 },
                 {
                     "language": "ID",
-                    "text": "Daftar Plugin Workspaces dan Tutorials",
+                    "text": "Daftar Native Workspaces dan Tutorials",
                     "updated": 1640595042286
                 },
                 {
                     "language": "DE",
-                    "text": "Liste der Plugin Workspaces und Tutorials",
+                    "text": "Liste der Native Workspaces und Tutorials",
                     "updated": 1650359575312
                 },
                 {
                     "language": "ES",
-                    "text": "Listado de Plugin Workspaces y Tutoriales",
+                    "text": "Listado de Native Workspaces y Tutoriales",
                     "updated": 1667506752109
+                },
+                {
+                    "language": "PL",
+                    "text": "Lista Native Workspaces oraz Samouczków",
+                    "updated": 1674745024051
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "For your convenience, find a relation of Plugin Workspaces and the tutorials each of them feature.",
+            "text": "For your convenience, find a relation of Native Workspaces and the tutorials each of them feature.",
             "updated": 1617105574778,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para su conveniencia, aquí tiene un listado con la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
-                    "updated": 1668187912910
+                    "text": "Para tu conveniencia, aquí tienes un listado de todos los Native Workspace y los tutoriales de cada uno de ellos.",
+                    "updated": 1675204702411
                 },
                 {
                     "language": "RU",
-                    "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Plugin Workspaces) и учебников, которые есть в каждом из них.",
+                    "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Native Workspaces) и учебников, которые есть в каждом из них.",
                     "updated": 1637920336885
                 },
                 {
@@ -243,25 +278,37 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Untuk kenyamanan kamu, temukan hubungan Plugin Workspaces dan tutorial dari masing-masing fitur.",
+                    "text": "Untuk kenyamanan kamu, temukan hubungan Native Workspaces dan tutorial dari masing-masing fitur.",
                     "updated": 1640595103045
                 },
                 {
                     "language": "DE",
-                    "text": "Zu Ihrer Erleichterung finden Sie hier eine Übersicht über die Plugin-Workspaces und die Tutorials, die in jedem von ihnen enthalten sind.",
+                    "text": "Zu Ihrer Erleichterung finden Sie hier eine Übersicht über die Native Workspaces und die Tutorials, die in jedem von ihnen enthalten sind.",
                     "updated": 1650359610718
+                },
+                {
+                    "language": "PL",
+                    "text": "Dla Twojej wygody przedstawiamy powiązanie danego Native Workspace z konkretnym samouczkiem.",
+                    "updated": 1674745571190
                 }
             ]
         },
         {
             "style": "Include",
-            "text": "Foundations->Concept->List of Plugin Workspaces and Tutorials->Content",
+            "text": "Foundations->Concept->List of Native Workspaces and Tutorials->Content",
             "updated": 1610955413534
         },
         {
             "style": "Chapter",
             "text": "I->Foundations->Tutorial->Welcome to Superalgos!->This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
-            "updated": 1617207891956
+            "updated": 1617207891956,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "I->Foundations->Tutorial->Welcome to Superalgos!->Este tutorial te introduce en el universo Superalgos. Te guía a través de las principales áreas del sistema, te enseña el funcionamiento básico, te guía a través del proceso de Backtesting de un Sistema de Trading de prueba, e incluso te prepara para tu primera Sesión de Trading en Vivo.",
+                    "updated": 1675627707815
+                }
+            ]
         },
         {
             "style": "Chapter",

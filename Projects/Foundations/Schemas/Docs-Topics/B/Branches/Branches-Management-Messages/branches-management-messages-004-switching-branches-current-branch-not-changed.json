@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Mevcut şubeyi değiştirmek mümkün değil. En olası neden, henüz katkıda bulunmadığınız değişikliklere sahip olmanızdır. Bu değişiklikleri ana depoya göndermek için App Contribute Komutunu ( App Contribute Command ) çalıştırın ve bu komutu tekrar deneyin.",
                 "updated": 1644420428590
+            },
+            {
+                "language": "DE",
+                "text": "Es war nicht möglich, den aktuellen Zweig zu ändern. Die wahrscheinlichste Ursache ist, dass Sie Änderungen haben, die Sie noch nicht beigetragen haben. Führen Sie den Befehl App Contribute Command aus, um diese Änderungen an das Hauptrepository zu senden, und versuchen Sie diesen Befehl erneut.",
+                "updated": 1680720007704
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu başarısızlığa neyin neden olduğu hakkında daha ayrıntılı bilgi aşağıda bulunabilir.",
                     "updated": 1644420447381
+                },
+                {
+                    "language": "DE",
+                    "text": "Detailliertere Informationen über die Ursache dieser Fehlschaltung finden Sie weiter unten.",
+                    "updated": 1680720019663
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi (Error Info)",
                     "updated": 1644420465326
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1680720025748
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1644420479093
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1680720035346
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1644420493090
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1680720043059
                 }
             ]
         },
@@ -93,6 +118,11 @@
                     "language": "TR",
                     "text": "Hata Mesajı (Error Message)",
                     "updated": 1644420507809
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1680720050833
                 }
             ]
         },
@@ -109,6 +139,11 @@
                     "language": "TR",
                     "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Mesajı aşağıdadır:",
                     "updated": 1644420592530
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Ausnahme angezeigt:",
+                    "updated": 1680720060777
                 }
             ]
         },
@@ -124,6 +159,11 @@
                     "language": "TR",
                     "text": "Hata Yığını (Error Stack)",
                     "updated": 1644420523584
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerstapel",
+                    "updated": 1680720090384
                 }
             ]
         },
@@ -140,6 +180,11 @@
                     "language": "TR",
                     "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Yığını aşağıdadır:",
                     "updated": 1644420614728
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Fehlerstapel der beim Client aufgetretenen Ausnahme dargestellt:",
+                    "updated": 1680720097227
                 }
             ]
         },
@@ -155,6 +200,11 @@
                     "language": "TR",
                     "text": "Hata Kodu (Error Code)",
                     "updated": 1644420536617
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1680720117640
                 }
             ]
         },
@@ -171,6 +221,11 @@
                     "language": "TR",
                     "text": "İstemcide ( Client ) meydana gelen İstisnanın Hata Kodu aşağıdadır:",
                     "updated": 1644420634066
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
+                    "updated": 1680720125234
                 }
             ]
         },
@@ -186,6 +241,11 @@
                     "language": "TR",
                     "text": "Hata Detayları (Error Details)",
                     "updated": 1644420556655
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1680720131356
                 }
             ]
         },
@@ -202,6 +262,11 @@
                     "language": "TR",
                     "text": "Aşağıdakiler, İstemcide ( Client ) meydana gelen İstisnanın tüm Hata ayrıntılarıdır:",
                     "updated": 1644420656174
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Ausnahme aufgeführt:",
+                    "updated": 1680720149937
                 }
             ]
         },

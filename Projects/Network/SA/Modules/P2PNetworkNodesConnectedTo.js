@@ -13,7 +13,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     of our pool of connected nodes. 
     */
     let thisObject = {
-        peers: undefined,
+        peers: [],
         sendMessage: sendMessage,
 
         /* Framework Functions */
@@ -64,10 +64,16 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
 
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
-                if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
+                if (peer.p2pNetworkNode.node.config.host === undefined) {
                     continue
-                }
-                if (isPeerConnected(peer) === true) {
+
+                } else if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
+                    continue
+
+                } else if (peer.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface === undefined) {
+                    continue
+                    
+                } else if (isPeerConnected(peer) === true) {
                     continue
                 }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
@@ -83,18 +89,19 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
                 function addPeer() {
                     thisObject.peers.push(peer)
+                    console.log('this is our connected network peers', thisObject.peers)
                 }
 
                 function onError(err) {
                     if (err !== undefined) {
-                        console.log((new Date()).toISOString(), '[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
+                        SA.logger.error('P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
                     } else {
                         /*
                         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                         */      
-                        /*                  
-                        console.log((new Date()).toISOString(), '[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
-                        */
+                        //SA.logger.debug           
+                        console.log('P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.name)
+                        
                     }
                 }
 
@@ -133,9 +140,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         }
     }
 
-    async function sendMessage(message, networkNodeUserProfile) {
+    async function sendMessage(message, networkNodeUserProfile, responseHandler) {
         if (thisObject.peers.length === 0) {
-            console.log((new Date()).toISOString(), '[WARN] There are no network nodes available to process this message. Please try again later.')
+            SA.logger.warn('There are no network nodes available to process this message. Please try again later.')
             let response = {
                 result: 'Error',
                 message: 'No Network Node Available.'
@@ -155,7 +162,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
             let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
             peer = thisObject.peers[peerIndex]
             if (peer === undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Ramdomly Selected Peer Undefined. Please try again later.')
+                SA.logger.error('Ramdomly Selected Peer Undefined. Please try again later.')
                 let response = {
                     result: 'Error',
                     message: 'Peer Undefined.'
@@ -174,7 +181,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
             }
             if (peer === undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] No Network Node belonging to User Profile = ' + networkNodeUserProfile + ' available at the moment. Please try again later.')
+                SA.logger.error('No Network Node belonging to User Profile = ' + networkNodeUserProfile + ' available at the moment. Please try again later.')
                 let response = {
                     result: 'Error',
                     message: 'Peer Undefined.'
@@ -183,7 +190,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
             }
         }
 
-        let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message)
+        let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message, responseHandler)
         if (response.result === 'Error' && response.message === 'Websockets Connection Not Ready.') {
             thisObject.peers.splice(peerIndex, 1)
         }

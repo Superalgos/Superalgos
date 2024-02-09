@@ -150,6 +150,17 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.referenceParent !== undefined &&
                     node.type === 'User Delegate'
                 ) {
+                    /*
+                    Here we will validate users are not delegating to themselves.
+                    */
+                    let currentUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(currentProgramNode)
+                    let referencedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+                    if (referencedUserProfile === undefined || currentUserProfile === undefined) { return }
+                    if (currentUserProfile.id === referencedUserProfile.id) {
+                        node.payload.uiObject.setErrorMessage('Delegating to your own profile is not allowed.')
+                        return
+                    }
+                                     
                     currentProgramNode.payload.delegationProgram.usedPower = currentProgramNode.payload.delegationProgram.usedPower + programPower
                     distributeProgramPower(
                         currentProgramNode, 
@@ -174,6 +185,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     at their config, and check that all percentages don't add more than 100.
                     */
                     let totalPercentage = 0
+                    let totalAmount = 0
                     let totalNodesWithoutPercentage = 0
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
@@ -183,12 +195,14 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
-                                }
+                                }  
                             }
                                 break
                             case 'array': {
@@ -198,9 +212,11 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                            totalPercentage = totalPercentage + percentage
+                                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            totalAmount = totalAmount + config.value
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            totalPercentage = totalPercentage + config.value
                                         } else {
                                             totalNodesWithoutPercentage++
                                         }
@@ -212,7 +228,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     }
                     if (totalPercentage > 100) {
                         node.payload.uiObject.setErrorMessage(
-                            'Delegate Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            'Delegate Power Switching Error. Total Percentage of children nodes is greater that 100.',
                             UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                             )
                         return
@@ -220,6 +236,15 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     let defaultPercentage = 0
                     if (totalNodesWithoutPercentage > 0) {
                         defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                    }
+                    /* If configured Amounts exceed the available Program Power, determine the share by which requests need to be reduced.
+                    Store the Program Power remaining for distribution via percentages after all amount requests have been served in percentagePower. */
+                    let percentagePower = 0
+                    let amountShare = 1
+                    if (totalAmount > programPower && totalAmount > 0) {
+                        amountShare = programPower / totalAmount
+                    } else {
+                        percentagePower = programPower - totalAmount
                     }
                     /*
                     Here we do the actual distribution.
@@ -232,14 +257,23 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
                                     currentProgramNode, 
                                     childNode, 
-                                    programPower * percentage / 100, 
+                                    distributionAmount, 
                                     percentage,
                                     generation
                                     )
@@ -252,14 +286,23 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                        let distributionAmount = 0
+                                        let percentage = 0
+                                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, false)
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            distributionAmount = config.value * amountShare
+                                            percentage = "fixed"
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            distributionAmount = percentagePower * config.value / 100
+                                            percentage = config.value
+                                        } else {
+                                            distributionAmount = percentagePower * defaultPercentage / 100
                                             percentage = defaultPercentage
                                         }
                                         distributeProgramPower(
                                             currentProgramNode, 
                                             childNode, 
-                                            programPower * percentage / 100, 
+                                            distributionAmount, 
                                             percentage,
                                             generation
                                             )
@@ -279,12 +322,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
 
                 if (node.type === 'Delegation Program') {
                     drawProgram(node)
-
-                    if (percentage !== undefined) {
-                        node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                        )
-                    }
+                    UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, undefined)
                     return
                 }
                 if (node.type === 'User Delegate') {
@@ -294,18 +332,11 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 if (node.type === 'Delegate Power Switch') {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
-                    node.payload.uiObject.percentageAngleOffset = 180
-                    node.payload.uiObject.percentageAtAngle = true
                     let powerType = 'Delegate Power'
 
                     const programPowerText = parseFloat(programPower.toFixed(0)).toLocaleString('en') + ' ' + powerType
                     node.payload.uiObject.setValue(programPowerText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
-
-                    if (percentage !== undefined) {
-                        node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                        )
-                    }
+                    UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
                 }
             }
 
@@ -319,12 +350,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
 
                     node.payload.uiObject.setValue(outgoingPowerText + ' Delegate Power', UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-                    node.payload.uiObject.percentageAngleOffset = 180
-                    node.payload.uiObject.percentageAtAngle = true
-
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                        )
+                    UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
@@ -349,3 +375,5 @@ function newGovernanceFunctionLibraryDelegationProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryDelegationProgram = newGovernanceFunctionLibraryDelegationProgram

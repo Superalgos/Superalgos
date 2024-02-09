@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Orijinal boyut negatif Bakiye ( Balance ) bırakacağından, ticaret botu Emir Boyutunu yeniden hesapladı. Emir Boyutu, kalan Bakiye değeriyle değiştirildi.",
                 "updated": 1647350120021
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading-Bot berechnete die Ordergröße (Size) neu, weil die ursprüngliche Größe einen negativen Saldo (Balance) hinterlassen hätte. Die Ordergröße (Size) wurde auf den Wert des verbleibenden Saldos (Balance) geändert.",
+                "updated": 1681146889284
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Ticaret botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar..",
                     "updated": 1647349991135
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681146905701
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Uyarı: Muhtemelen Eksi Bakiye ( Balance )",
                     "updated": 1647350298485
+                },
+                {
+                    "language": "DE",
+                    "text": "Möglicher negativer Saldo (Balance)",
+                    "updated": 1681146914570
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "İçerik Bilgisi",
                     "updated": 1647350172211
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681146922832
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
                     "updated": 1647350180996
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681146940060
                 }
             ]
         },
@@ -106,6 +131,11 @@
                     "language": "TR",
                     "text": "Daha Fazlasını Öğrenin",
                     "updated": 1647350274777
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681146955098
                 }
             ]
         },
@@ -122,6 +152,11 @@
                     "language": "TR",
                     "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
                     "updated": 1647350309311
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite:",
+                    "updated": 1681146961891
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "TR",
                     "text": "Exchange ile Senkronizasyonu Simüle Etme ( Simulating Sync With the Exchange )",
                     "updated": 1647350360945
+                },
+                {
+                    "language": "DE",
+                    "text": "Synchronisierung mit der Börse simulieren (Simulating Sync With the Exchange)",
+                    "updated": 1681146968422
                 }
             ]
         }

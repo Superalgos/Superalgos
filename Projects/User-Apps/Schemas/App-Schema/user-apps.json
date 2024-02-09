@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -12,9 +13,10 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialTradeApp",
+            "propertyToCheckFor": "desktopApps",
             "actionFunction": "payload.executeAction",
             "label": "Add Desktop Apps",
+            "translationKey": "add.desktopApps",
             "relatedUiObject": "Desktop Apps",
             "relatedUiObjectProject": "User-Apps"
         },
@@ -25,6 +27,7 @@
             "propertyToCheckFor": "mobileApps",
             "actionFunction": "payload.executeAction",
             "label": "Add Mobile Apps",
+            "translationKey": "add.mobileApps",
             "relatedUiObject": "Mobile Apps",
             "relatedUiObjectProject": "User-Apps"
         },
@@ -35,6 +38,7 @@
             "propertyToCheckFor": "serverApps",
             "actionFunction": "payload.executeAction",
             "label": "Add Server Apps",
+            "translationKey": "add.serverApps",
             "relatedUiObject": "Server Apps",
             "relatedUiObjectProject": "User-Apps"
         },
@@ -43,7 +47,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -63,7 +69,7 @@
     "propertyNameAtParent": "userApps",
     "childrenNodesProperties": [
         {
-            "name": "socialTradeApp",
+            "name": "desktopApps",
             "type": "node",
             "childType": "Desktop Apps",
             "project": "User-Apps",

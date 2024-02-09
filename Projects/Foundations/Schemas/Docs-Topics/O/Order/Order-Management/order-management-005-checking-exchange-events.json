@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Торговый бот отслеживает биржевые ордера для проверки их статуса, анализируя множество возможных сценариев.",
                 "updated": 1640186192767
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading-Bot überwacht Börsenaufträge, um ihren Status zu überprüfen und mehrere mögliche Szenarien zu analysieren.",
+                "updated": 1679593755563
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Для форвардного тестирования и реальных торговых сессий состояние ордеров на бирже проверяется при каждом запуске торгового бота.",
                     "updated": 1640186397883
+                },
+                {
+                    "language": "DE",
+                    "text": "Für Forward-Tests und Live-Handelssitzungen wird der Status der Aufträge an der Börse bei jeder Ausführung des Trading Bots überprüft.",
+                    "updated": 1679593780350
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Важно отметить, что при размещении ордера от биржи не поступает никакой соответствующей информации, кроме подтверждения того, что ордер был получен. Торговый бот должен запросить у биржи статус ордера через некоторое время после его размещения.",
                     "updated": 1640186423803
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig zu wissen, dass bei der Auftragserteilung außer der Bestätigung, dass der Auftrag eingegangen ist, keine relevanten Informationen von der Börse eingeholt werden. Der Trading-Bot muss die Börse einige Zeit nach der Auftragserteilung nach dem Status des Auftrags fragen.",
+                    "updated": 1679593793943
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Торговый бот размещает ордер во время второго цикла исполнения и спрашивает биржу об ордере во время следующего запуска бота, во время первого цикла исполнения. Это означает, что ордер проверяется через одну единицу таймфрейма торговой сессии после размещения ордера. Например, если сессия работает на 01-мин таймфрейме, ордер проверяется примерно через минуту после его размещения.",
                     "updated": 1640186653637
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trading-Bot platziert den Auftrag während des zweiten Ausführungszyklus und fragt die Börse im nächsten Lauf des Bots, während des ersten Ausführungszyklus, nach dem Auftrag. Das bedeutet, dass der Auftrag eine Einheit des Zeitrahmens der Handelssitzung geprüft wird, nachdem der Auftrag erteilt wurde. Wenn die Sitzung beispielsweise im Zeitrahmen von 01 Minuten läuft, wird der Auftrag etwa eine Minute nach seiner Erteilung geprüft.",
+                    "updated": 1679593844392
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Когда торговый бот получает ордер с биржи, он получает информацию об ордере в текстовом сообщении. Что же получает торговый бот от биржи?",
                     "updated": 1640186707865
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Trading-Bot einen Auftrag von der Börse abruft, erhält er die Auftragsinformationen in einer Textnachricht. Was erhält der Handelsroboter von der Börse?",
+                    "updated": 1679593857720
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "RU",
                     "text": "Это важный вопрос, поскольку ответ на него определяет, что торговый бот может или не может делать с каждым ордером, и как он может вести надежную систему внутреннего учета.",
                     "updated": 1640186730054
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine wichtige Frage, da die Antwort davon abhängt, was der Trading-Bot mit den einzelnen Aufträgen machen darf und wie er ein zuverlässiges internes Buchhaltungssystem führen kann.",
+                    "updated": 1679593871831
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Ордера согласно данным биржи",
                     "updated": 1640186759725
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufträge nach der Börse",
+                    "updated": 1679593883086
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "RU",
                     "text": "Ниже приведено несколько примеров, включая рыночный ордер на продажу, рыночный ордер на покупку, лимитный ордер на продажу и лимитный ордер на покупку, все на рынке BTC/USDT на Binance.",
                     "updated": 1640186789377
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie mehrere Beispiele, darunter einen Markt-Verkaufsauftrag, einen Markt-Kaufauftrag, einen Limit-Verkaufsauftrag und einen Limit-Kaufauftrag, alle auf dem BTC/USDT-Markt von Binance.",
+                    "updated": 1679593896290
                 }
             ]
         },
@@ -103,6 +143,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что раздел body предоставляется библиотекой CCXT и одинаков для всех бирж; раздел info предоставляется самой биржей и может отличаться для разных бирж.",
                     "updated": 1640186812411
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der Abschnitt body von der CCXT -Bibliothek bereitgestellt wird und für alle Börsen gleich ist; der Abschnitt info wird von der Börse selbst bereitgestellt und kann von Börse zu Börse variieren.",
+                    "updated": 1679593910209
                 }
             ]
         },
@@ -115,6 +160,11 @@
                     "language": "RU",
                     "text": "Рыночный ордер на продажу в размере 0,1 BTC",
                     "updated": 1640186874131
+                },
+                {
+                    "language": "DE",
+                    "text": "market-Verkaufs-Order für 0,1 BTC",
+                    "updated": 1679593945648
                 }
             ]
         },
@@ -132,6 +182,11 @@
                     "language": "RU",
                     "text": "Лимитный ордер на продажу в размере 0,1 BTC",
                     "updated": 1640186892255
+                },
+                {
+                    "language": "DE",
+                    "text": "Limit-Verkaufs-Order für 0.1 BTC",
+                    "updated": 1679593973775
                 }
             ]
         },
@@ -149,6 +204,11 @@
                     "language": "RU",
                     "text": "Проверки статуса",
                     "updated": 1640186938749
+                },
+                {
+                    "language": "DE",
+                    "text": "Statusprüfungen",
+                    "updated": 1679593983963
                 }
             ]
         },
@@ -160,6 +220,11 @@
                     "language": "RU",
                     "text": "После получения статуса ордера, как в одном из приведенных выше примеров, торговый бот выполняет множество проверок, каждая из которых приводит к определенным действиям. Ниже описаны конкретные случаи, которые были проанализированы, и предпринятые действия.",
                     "updated": 1640186930927
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald der Status des Auftrags wie in einem der obigen Beispiele eingegangen ist, führt der Trading Bot mehrere Prüfungen durch, die jeweils zu bestimmten Aktionen führen. Im Folgenden werden die analysierten Fälle und die ergriffenen Maßnahmen beschrieben.",
+                    "updated": 1679593993214
                 }
             ]
         },
@@ -171,6 +236,11 @@
                     "language": "RU",
                     "text": "Заполнено и закрыто (Filled and closed)",
                     "updated": 1640186959779
+                },
+                {
+                    "language": "DE",
+                    "text": "Gefüllt und geschlossen",
+                    "updated": 1679594001121
                 }
             ]
         },
@@ -182,6 +252,11 @@
                     "language": "RU",
                     "text": "Если ордер заполнен и закрыт, соответствующие структуры данных в торговом движке обновляются, чтобы обозначить это.",
                     "updated": 1640186988370
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Auftrag ausgeführt und geschlossen wird, werden die entsprechenden Datenstrukturen in der Trading Engine aktualisiert, um dies anzuzeigen.",
+                    "updated": 1679594010115
                 }
             ]
         },
@@ -198,6 +273,11 @@
                     "language": "RU",
                     "text": "Но, самое главное, детали в ордере обрабатываются для синхронизации информации в торговом движке - на данный момент состоящем в основном из информации, полученной из определений в торговой системе - с информацией, полученной от биржи.",
                     "updated": 1640187021951
+                },
+                {
+                    "language": "DE",
+                    "text": "Vor allem aber werden die Einzelheiten des Auftrags verarbeitet, um die Informationen im Handelssystem - das zu diesem Zeitpunkt größtenteils aus Informationen besteht, die aus den Definitionen des Handelssystems abgeleitet werden - mit den von der Börse erhaltenen Informationen zu synchronisieren.",
+                    "updated": 1679594019517
                 }
             ]
         },
@@ -209,6 +289,11 @@
                     "language": "RU",
                     "text": "Структуры данных, которые необходимо обновить, в основном связаны с фактической скоростью исполнения ордера, фактическим размером, который был исполнен, фактическими комиссиями, которые были списаны, и тем, как эти переменные влияют на балансы и общие счета в различных контекстах (ордер, стадия, позиция, эпизод и т.д.).",
                     "updated": 1640187093841
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei den zu aktualisierenden Datenstrukturen handelt es sich hauptsächlich um solche, die sich auf die tatsächliche Rate, mit der der Auftrag ausgeführt wurde, den tatsächlichen Umfang, der ausgeführt wurde, die tatsächlich erhobenen Gebühren und die Auswirkungen dieser Variablen auf die Salden und die Gesamtkonten in verschiedenen Kontexten (Auftrag, Phase, Position, Episode usw.) beziehen.",
+                    "updated": 1679594031063
                 }
             ]
         },
@@ -221,6 +306,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что определения в торговой системе - это в некотором смысле просто план. Ваши определения говорят торговому боту, что делать, но нет никакой уверенности в результате. Именно по этой причине первый набор счетов, записанный с помощью информации, полученной из торговой системы, должен синхронизироваться в каждом цикле выполнения с тем, что фактически произошло на бирже, пока ордер не будет закрыт.",
                     "updated": 1640187153047
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass Definitionen im Handelssystem in gewisser Weise nur ein Plan sind. Ihre Definitionen sagen dem Trading-Bot, was er tun soll, aber es gibt keine Gewissheit über das Ergebnis. Aus diesem Grund muss der erste Satz von Konten, die mit den vom Handelssystem abgeleiteten Informationen erfasst wurden, in jedem Ausführungszyklus mit den tatsächlichen Vorgängen an der Börse synchronisiert werden, bis der Auftrag geschlossen wird.",
+                    "updated": 1679594045627
                 }
             ]
         },
@@ -233,6 +323,11 @@
                     "language": "RU",
                     "text": "Вычисления, участвующие в процессе синхронизации, рассматриваются в разделе Syncing With the Exchange.",
                     "updated": 1640187176956
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Berechnungen, die mit dem Synchronisierungsprozess (Syncing With the Exchange) verbunden sind, werden in Synchronisierung mit Exchange behandelt.",
+                    "updated": 1679594077313
                 }
             ]
         },
@@ -244,6 +339,11 @@
                     "language": "RU",
                     "text": "Частично заполнен и закрыт (Partially filled and closed)",
                     "updated": 1640187208953
+                },
+                {
+                    "language": "DE",
+                    "text": "Teilweise gefüllt und geschlossen",
+                    "updated": 1679594087255
                 }
             ]
         },
@@ -255,6 +355,11 @@
                     "language": "RU",
                     "text": "Если ордер частично заполнен и закрыт, соответствующие структуры данных в торговом движке обновляются, чтобы указать на это.",
                     "updated": 1640187232652
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Auftrag teilweise erfüllt und geschlossen wird, werden die entsprechenden Datenstrukturen in der Trading Engine aktualisiert, um dies anzuzeigen.",
+                    "updated": 1679594102471
                 }
             ]
         },
@@ -271,6 +376,11 @@
                     "language": "RU",
                     "text": "Для того чтобы лимитный ордер был закрыт при частичном исполнении, он должен быть закрыт вручную пользователем непосредственно на бирже или принудительно закрыт самой биржей по какой-либо причине. Система обрабатывает такие случаи таким образом, чтобы они не нарушали ход торговой сессии или состояние счетов в Superalgos.",
                     "updated": 1640187360117
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit ein limitierter Auftrag geschlossen werden kann, obwohl er teilweise gefüllt ist, muss er manuell vom Benutzer direkt an der Börse geschlossen werden, oder er muss von der Börse selbst zwangsweise geschlossen werden, aus welchem Grund auch immer. Das System behandelt solche Vorfälle so, dass sie weder die Handelssitzung noch die Konten bei Superalgos stören.",
+                    "updated": 1679594111024
                 }
             ]
         },
@@ -282,6 +392,11 @@
                     "language": "RU",
                     "text": "Первое, что нужно сделать с таким ордером, - это обновить размер, размещенный на площадке, чтобы на площадке учитывалось только то количество, которое было заполнено, а не первоначальный размер ордера (см. раздел Accounting).",
                     "updated": 1640187538715
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei einem solchen Auftrag muss zunächst die auf der Bühne platzierte Größe aktualisiert werden, so dass die Bühne nur noch die gefüllte Menge und nicht mehr die ursprüngliche Größe des Auftrags berücksichtigt - siehe Buchhaltung (Accounting).",
+                    "updated": 1679594148345
                 }
             ]
         },
@@ -294,6 +409,11 @@
                     "language": "RU",
                     "text": "Затем необходимо применить тот же процесс синхронизации, который был описан ранее (см. раздел Syncing With the Exchange).",
                     "updated": 1640187647415
+                },
+                {
+                    "language": "DE",
+                    "text": "Und dann muss derselbe Synchronisierungsprozess wie oben beschrieben durchgeführt werden - siehe Synchronisierung mit Exchange (Syncing With the Exchange).",
+                    "updated": 1679594160415
                 }
             ]
         },
@@ -305,6 +425,11 @@
                     "language": "RU",
                     "text": "Отменен (Cancelled)",
                     "updated": 1640187675914
+                },
+                {
+                    "language": "DE",
+                    "text": "Abgesagt",
+                    "updated": 1679594169063
                 }
             ]
         },
@@ -316,6 +441,11 @@
                     "language": "RU",
                     "text": "Это лимитные ордера, отменяемые торговым ботом при срабатывании события отмены ордера. В таких случаях тип выхода устанавливается следующим образом:",
                     "updated": 1640187722404
+                },
+                {
+                    "language": "DE",
+                    "text": "Dabei handelt es sich um Limit-Aufträge, die vom Trading-Bot bei Auslösung des Auftragsstorno-Ereignisses storniert werden. In solchen Fällen wird der Exit-Typ wie folgt festgelegt:",
+                    "updated": 1679594185386
                 }
             ]
         },
@@ -332,6 +462,11 @@
                     "language": "RU",
                     "text": "Отмененные ордера проходят через те же процессы синхронизации (см. Syncing With the Exchange) и пересчета размера этапа (см. Accounting).",
                     "updated": 1640327066588
+                },
+                {
+                    "language": "DE",
+                    "text": "Stornierte Aufträge durchlaufen die gleichen Prozesse der Synchronisierung siehe Synchronisierung mit der Börse (Syncing With the Exchange) und der Neuberechnung der Größe der Stufe - siehe Buchhaltung (Accounting).",
+                    "updated": 1679594199166
                 }
             ]
         },
@@ -343,6 +478,11 @@
                     "language": "RU",
                     "text": "Все остальные случаи",
                     "updated": 1640327085470
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle anderen Instanzen",
+                    "updated": 1679594212037
                 }
             ]
         },
@@ -355,6 +495,11 @@
                     "language": "RU",
                     "text": "Описанные выше случаи относятся к ордерам с определенными характеристиками. Ордера, не соответствующие ни одному из вышеперечисленных критериев, запускают процесс синхронизации, описанный ранее (см. раздел Syncing With the Exchange).",
                     "updated": 1640327124828
+                },
+                {
+                    "language": "DE",
+                    "text": "Die oben beschriebenen Fälle beziehen sich auf Aufträge mit bestimmten Merkmalen. Aufträge (Orders), die keinem der oben genannten Kriterien entsprechen, lösen den oben beschriebenen Synchronisationsprozess aus - siehe Synchronisation mit der Börse (Syncing With the Exchange).",
+                    "updated": 1679594225716
                 }
             ]
         },

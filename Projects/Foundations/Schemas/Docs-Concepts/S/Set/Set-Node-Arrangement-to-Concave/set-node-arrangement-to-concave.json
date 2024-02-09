@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Düğüm, ana düğümünün çevresindeki bir yuvayı benimser. Simgenin grafiğinde turuncu nokta ana düğümü, mavi noktalar ise belirli düzenleme stilini benimseyen düğümü temsil eder.",
                 "updated": 1666905719117
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten nimmt einen Platz auf einem Kreis um seinen übergeordneten Knoten ein. In der Grafik des Symbols steht der orangefarbene Punkt für den übergeordneten Knoten und die blauen Punkte für den Knoten, der den spezifischen Anordnungsstil annimmt.",
+                "updated": 1701029738510
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638297660505
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701029747184
                 }
             ]
         }

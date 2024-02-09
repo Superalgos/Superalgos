@@ -1,0 +1,63 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "10",
+    "type": "Fisher Ribbons",
+    "definition": {
+        "text": "The Fisher Ribbons indicator uses four Fisher Transform calculations of varying lengths in an attempt to find local bottoms and tops of the price action."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Fisher Ribbons on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The Fisher Ribbons indicator shows the four value lines oscillating around the zero value.",
+            "updated": 1670822424520
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-fisher-ribbons-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| FisherRibbons | fisherRibbon | value1, value2, value3, value4 |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's calculationrs can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Fisher Ribbons\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-fisher-ribbons-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when value1 rises above zero:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.fisherRibbon.value1 > 0 && chart.at01hs.fisherRibbon.previous.value1 <= 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

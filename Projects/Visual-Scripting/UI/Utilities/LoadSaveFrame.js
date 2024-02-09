@@ -31,3 +31,5 @@ function newVisualScriptingUtilitiesLoadSaveFrame() {
         }
     }
 }
+
+exports.newVisualScriptingUtilitiesLoadSaveFrame = newVisualScriptingUtilitiesLoadSaveFrame

@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ve al menu del nodo Trading System Reference, haga clic en el botón de ayuda y desplácese hasta el final de la página.",
-                    "updated": 1626563954890,
+                    "text": "Ve al menu del nodo Trading System Reference, haz clic en el botón de ayuda y desplázate hasta el final de la página.",
+                    "updated": 1675376917889,
                     "style": "Callout"
                 },
                 {
@@ -96,8 +96,8 @@
         },
         {
             "style": "Note",
-            "text": "If you are a developer, you may want to know that Node Attaching Rules and Node Referencing Rules are defined in the AppSchema.json file in the Schema folder of a Project.",
-            "updated": 1615809761275,
+            "text": "Developers may want to know that Node Attaching Rules and Node Referencing Rules are defined in the AppSchema.json file in the Schema folder of each Project. The Docs dynamically builds the bottom section of each Docs Node Page with that info.",
+            "updated": 1687797494629,
             "translations": [
                 {
                     "language": "IT",

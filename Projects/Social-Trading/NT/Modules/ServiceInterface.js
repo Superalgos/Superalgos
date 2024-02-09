@@ -129,7 +129,7 @@ exports.newSocialTradingModulesServiceInterface = function newSocialTradingModul
             will be returned to the caller without doing anything else here.
             */
             if (err.stack !== undefined) {
-                console.log((new Date()).toISOString(), '[ERROR] Client Interface -> err.stack = ' + err.stack)
+                SA.logger.error('Client Interface -> err.stack = ' + err.stack)
             }
             let errorMessage = err.message
             if (errorMessage === undefined) { errorMessage = err }

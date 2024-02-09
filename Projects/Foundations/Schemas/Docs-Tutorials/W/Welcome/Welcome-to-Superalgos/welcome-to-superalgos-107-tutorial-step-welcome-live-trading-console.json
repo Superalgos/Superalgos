@@ -1,0 +1,52 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 107,
+    "type": "Tutorial Step - Welcome Live Trading Console",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video a schermo intero.",
+                "updated": 1618071661394,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634245263372
+            },
+            {
+                "language": "TR",
+                "text": "Konsola Baktığınıza akan verileri görüyorsun değil..enin için çalışıyorum :)",
+                "updated": 1636576397771
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582737198
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642771846143
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1667135645782
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675362510651
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-live-trading-console.gif"
+        }
+    ]
+}

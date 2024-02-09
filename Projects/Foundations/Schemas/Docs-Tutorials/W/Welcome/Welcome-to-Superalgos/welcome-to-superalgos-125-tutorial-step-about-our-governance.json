@@ -1,0 +1,225 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 125,
+    "type": "Tutorial Step - About our Governance",
+    "definition": {
+        "text": "Before I leave you with the next tutorial, you must know that Superalgos is a crypto project with distributed governance!",
+        "icon": {
+            "name": "\\governance-project",
+            "project": "Governance"
+        },
+        "updated": 1629835261024,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Antes de dejarte con el siguiente tutorial, debes saber que Superalgos es un proyecto Crypto con gobernanza distribuida!",
+                "updated": 1675367584782,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor ich Sie mit dem nächsten Tutorial verlasse, müssen Sie wissen, dass Superalgos ein Krypto-Projekt mit verteilter Governance ist!",
+                "updated": 1634248136269
+            },
+            {
+                "language": "TR",
+                "text": "Sizi bir sonraki öğretici ile baş başa bırakmadan önce, Superalgos'un dağıtık yönetime sahip bir kripto projesi olduğunu bilmelisiniz!",
+                "updated": 1670335533520
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum aku meninggalkan kamu dengan tutorial berikutnya, kamu harus tahu bahwa Superalgos adalah proyek crypto dengan distributed governance!",
+                "updated": 1640600837887
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем я оставлю вас со следующим уроком, вы должны знать, что Superalgos - это криптопроект с распределенным управлением!",
+                "updated": 1642774805232
+            },
+            {
+                "language": "IT",
+                "text": "Prima di lasciarvi con il prossimo tutorial, dovete sapere che Superalgos è un progetto crypto con governance distribuita!",
+                "updated": 1666396040405
+            },
+            {
+                "language": "NL",
+                "text": "Voordat ik je verlaat met de volgende tutorial, moet je weten dat Superalgos een cryptoproject is met gedistribueerd bestuur!",
+                "updated": 1667139247992
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "You may earn Superalgos SA Token rewards and Reputation by contributing to the project.",
+            "updated": 1660162455723,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puedes ganar Superalgos SA Token y Reputación contribuyendo al proyecto. ",
+                    "updated": 1675367622272,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Superalgos SA Token und Reputation verdienen, indem Sie zum Projekt beitragen.",
+                    "updated": 1634248142424
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye katkıda bulunarak Superalgos SA Token ödülleri ve İtibar kazanabilirsiniz.",
+                    "updated": 1670335557640
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat memperoleh Superalgos SA Tokens dan Reputation dengan berkontribusi pada proyek.",
+                    "updated": 1640600897495
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете заработать награды и репутацию Superalgos SA Token, внося свой вклад в проект.",
+                    "updated": 1662035978459
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi guadagnare Superalgos SA Token e Reputation contribuendo al progetto.",
+                    "updated": 1666396089475
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt Superalgos SA Token beloningen en Reputation verdienen door bij te dragen aan het project.",
+                    "updated": 1667139279599
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Then you may leverage your tokens and reputation to participate in Governance Programs.",
+            "updated": 1629834501563,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Entonces puedes aprovechar tus tokens y reputaci��n para participar en los Governance Programs.",
+                    "updated": 1675367640078,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dann können Sie Ihre Token und Ihren Ruf nutzen, um an Governance Programs teilzunehmen.",
+                    "updated": 1634248151994
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, Yönetişim Programlarına katılarak projeye ortak olabilirsiniz.",
+                    "updated": 1636663798196
+                },
+                {
+                    "language": "ID",
+                    "text": "Kemudian kamu dapat memanfaatkan token dan reputasi kamu untuk berpartisipasi dalam Governance Programs.",
+                    "updated": 1640600931238
+                },
+                {
+                    "language": "RU",
+                    "text": "Затем вы можете использовать свои токены и репутацию для участия в программах управления.",
+                    "updated": 1642774852208
+                },
+                {
+                    "language": "IT",
+                    "text": "Quindi puoi sfruttare i tuoi token e la tua reputazione per partecipare ai Governance Programs.",
+                    "updated": 1666396125725
+                },
+                {
+                    "language": "NL",
+                    "text": "Dan kunt u uw tokens en reputatie gebruiken om deel te nemen aan Governance Programs.",
+                    "updated": 1667139310279
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Participating in governance earns you more tokens, as helping direct the project is an important contribution in and of itself!",
+            "updated": 1629834600057,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Participando en la gobernanza ganas más tokens, ya que ayudar a dirigir el proyecto es una contribución importante en sí misma!",
+                    "updated": 1675367654665,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Teilnahme an Governance-Programmen bringt Ihnen mehr Token ein, da die Hilfe bei der Leitung des Projekts an sich schon ein wichtiger Beitrag ist!",
+                    "updated": 1634248158681
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye yardımcı olmak başlı başına önemli bir katkı olduğundan, yönetişime katılmak size daha fazla jeton kazandırır!",
+                    "updated": 1636663849195
+                },
+                {
+                    "language": "ID",
+                    "text": "Berpartisipasi dalam tata kelola memberi kamu lebih banyak token, karena membantu mengarahkan proyek adalah kontribusi penting dalam dan bagi dirinya sendiri!",
+                    "updated": 1640600973916
+                },
+                {
+                    "language": "RU",
+                    "text": "Участие в управлении приносит вам больше токенов, поскольку помощь в руководстве проектом сама по себе является важным вкладом!",
+                    "updated": 1642774867764
+                },
+                {
+                    "language": "IT",
+                    "text": "Partecipare alla governance ti fa guadagnare più token, dato che aiutare a dirigere il progetto è un contributo importante in sé e per sé!",
+                    "updated": 1666396197583
+                },
+                {
+                    "language": "NL",
+                    "text": "Door deel te nemen aan het bestuur verdien je meer tokens, omdat het helpen van het project op zich al een belangrijke bijdrage is!",
+                    "updated": 1667139333650
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You may earn your first few tokens with the Airdrop Program just by setting up your User Profile. But before you do that, you need to do a couple more tutorials to complete your education!",
+            "updated": 1660162505478,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puedes ganar tus primeros tokens con el Programa Airdrop simplemente configurando tu Perfil de Usuario. Pero antes de hacer eso, ¡necesitas hacer un par de tutoriales más para completar tu educación!",
+                    "updated": 1675367674110,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Ihre ersten Token mit dem Airdrops-Programm verdienen, indem Sie einfach Ihr User Profile einrichten. Aber bevor Sie das tun, müssen Sie noch ein paar Tutorials machen, um Ihre Ausbildung zu vervollständigen!",
+                    "updated": 1634248167434
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece Kullanıcı Profilinizi oluşturarak Airdrop Programı ile ilk birkaç jetonunuzu kazanabilirsiniz. Ancak bunu yapmadan önce, eğitiminizi tamamlamak için birkaç ders daha yapmanız gerekiyor!",
+                    "updated": 1670335626195
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat memperoleh beberapa token pertama kamu dengan Program Airdrops hanya dengan mengatur User Profile. Tetapi sebelum kamu melakukan itu, kamu perlu melakukan beberapa tutorial lagi untuk menyelesaikan pendidikanmu!",
+                    "updated": 1640601046482
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете заработать свои первые несколько токенов в рамках программы Airdrop, просто создав свой профиль пользователя. Но прежде чем это сделать, вам нужно пройти еще несколько уроков, чтобы завершить свое обучение!",
+                    "updated": 1662036000342
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi guadagnare i tuoi primi token con l' Airdrop Program semplicemente impostando il tuo profilo utente. Ma prima di farlo, devi fare un altro paio di tutorial per completare la tua formazione!",
+                    "updated": 1666396250141
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt uw eerste paar tokens verdienen met het Airdrop Program door uw User Profile in te stellen. Maar voordat je dat doet, moet je nog een paar handleidingen doen om je opleiding te voltooien!",
+                    "updated": 1667139379823
+                }
+            ]
+        }
+    ]
+}

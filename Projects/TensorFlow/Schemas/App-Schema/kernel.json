@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "kernelInitializer",
             "label": "Add Kernel Initializer",
+            "translationKey": "add.kernelInitializer",
             "relatedUiObject": "Kernel Initializer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -17,6 +18,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "kernelConstraint",
             "label": "Add Kernel Constraint",
+            "translationKey": "add.kernelConstraint",
             "relatedUiObject": "Kernel Constraint",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -27,6 +29,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "kernelRegularizer",
             "label": "Add Kernel Regularizer",
+            "translationKey": "add.kernelRegularizer",
             "relatedUiObject": "Kernel Regularizer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -36,7 +39,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

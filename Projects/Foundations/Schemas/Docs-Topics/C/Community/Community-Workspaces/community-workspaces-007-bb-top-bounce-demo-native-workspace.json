@@ -1,0 +1,76 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "7",
+    "type": "BB Top Bounce Demo Native Workspace",
+    "definition": {
+        "text": "This workspace features the BTC-USDT - BB Top Bounce - BBTB Trading System setup for backtesting in Binance and the USDT/BTC market.",
+        "updated": 1616149302461,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В этом рабочем пространстве представлена ​​настройка торговой системы BTC-USDT - BB Top Bounce - BBTB для тестирования на истории на Binance и на рынке USDT / BTC.",
+                "updated": 1639056454335
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, Binance ve USDT/BTC piyasasında geriye dönük test için BTC-USDT - BB Top Bounce - BBTB Ticaret Sistemi kurulumunu içerir.",
+                "updated": 1644676097452
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält das BTC-USDT - BB Top Bounce - BBTB Trading System -Setup zum Backtesting auf Binance und dem USDT/BTC-Markt.",
+                "updated": 1688936272172
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Learn about the BTC-USDT - BB Top Bounce - BBTB strategy before using this workspace!",
+            "updated": 1616149471944,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте о стратегии BTC-USDT - BB Top Bounce - BBTB, прежде чем использовать это рабочее пространство!",
+                    "updated": 1639056468497
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu çalışma alanını kullanmadan önce BTC-USDT - BB Top Bounce - BBTB stratejisi hakkında bilgi edinin!",
+                    "updated": 1644676124036
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr über die BTC-USDT - BB Top Bounce - BBTB Strategie, bevor Sie diesen Arbeitsbereich nutzen!",
+                    "updated": 1688936282136
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Trading System Disclaimer"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616153683894,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056486690
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936346351
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622623292203
+        }
+    ]
+}

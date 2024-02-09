@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir Yapay Sinir Ağının \"son\" katmanı. Cevap(lar)ı içeren katman.",
                 "updated": 1654397405588
+            },
+            {
+                "language": "DE",
+                "text": "Die \"letzte\" Schicht eines künstlichen neuronalen Netzes (Artificial Neural Network). Die Schicht, die die Antwort(en) enthält.",
+                "updated": 1705267318999
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397411352,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705267332582
                 }
             ]
         }

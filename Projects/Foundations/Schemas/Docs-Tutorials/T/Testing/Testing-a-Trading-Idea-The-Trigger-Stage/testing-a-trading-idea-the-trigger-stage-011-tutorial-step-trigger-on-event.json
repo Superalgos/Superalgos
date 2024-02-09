@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Tetikleme Olayı ( Trigger On Event ), Ticaret Stratejisinin ( Trading Strategy ) tetikleneceği piyasa Durumunu tanımlar.",
                 "updated": 1641652333999
+            },
+            {
+                "language": "ES",
+                "text": "El Trigger On Event define la Situación de mercado en la que la Trading Strategy se activará.",
+                "updated": 1675621833911
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Temel kavramları yenileyelim! Bir stratejinin tetiklenmesinin iki ana unsuru vardır.",
                     "updated": 1641652360560
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a refrescar los conceptos básicos! La activación de una estrategia tiene dos implicaciones principales:",
+                    "updated": 1675621844232
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "TR",
                     "text": "Strateji, Ticaret Sistemi'ndeki ( Trading System ) diğer stratejiler arasından seçilir ve işlem oturumu için mevcut sermayeye atanır. Bu önemlidir, çünkü sonunda ticaret sisteminde iki stratejimiz olacak!",
                     "updated": 1641652374968
+                },
+                {
+                    "language": "ES",
+                    "text": "La estrategia es seleccionada entre otras estrategias del Sistema de Trading y se le asigna el capital disponible para la sesión de trading. Esto es importante porque ¡al final tendremos dos estrategias en el sistema de trading!",
+                    "updated": 1675621879464
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "TR",
                     "text": "Bir strateji tetiklenir tetiklenmez, ticaret botu pozisyon alma olayını ( Take Position Event ) ve tetikleme olayını ( Trigger Off Event ) değerlendirmeye başlar. Bu iki olaydan biri gerçekleşirse strateji tetikleme aşamasından ( Trigger Stage ) çıkar!",
                     "updated": 1641652389370
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que se activa una estrategia, el Trading Bot comienza a evaluar el Take Position Event y el Trigger Off Event. Cuando cualquiera de los dos se valida como verdadero, ¡la estrategia sale de la Trigger Stage!",
+                    "updated": 1675621917911
                 }
             ]
         }

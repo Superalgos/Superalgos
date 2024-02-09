@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "В Node.js  TensorFlow.js поддерживает привязку непосредственно к API TensorFlow или работает с более медленными реализациями центрального процессора vanilla.",
                 "updated": 1636748173302
+            },
+            {
+                "language": "DE",
+                "text": "In Node.js unterstützt TensorFlow.js die direkte Anbindung an die TensorFlow API oder die langsameren Vanilla-CPU-Implementierungen.",
+                "updated": 1705143162544
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите кнопку с карандашом, чтобы перейти в режим редактирования.",
                     "updated": 1645252153804
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705143187077
                 }
             ]
         }

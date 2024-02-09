@@ -4,6 +4,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Foundations Project",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -13,6 +14,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Machine Learning",
+            "translationKey": "add.machineLearning",
             "relatedUiObject": "Machine Learning",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -22,8 +24,10 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "actionFunction": "payload.executeAction",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

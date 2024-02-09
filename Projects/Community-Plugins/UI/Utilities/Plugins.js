@@ -157,7 +157,7 @@ function newPluginsUtilitiesPlugins() {
             undefined,
             4)
 
-        httpRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
+        httpCompressedRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
@@ -172,3 +172,5 @@ function newPluginsUtilitiesPlugins() {
         }
     }
 }
+
+exports.newPluginsUtilitiesPlugins = newPluginsUtilitiesPlugins

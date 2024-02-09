@@ -1,0 +1,52 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 93,
+    "type": "Tutorial Step - Welcome Backtesting Trading Engine Visualization 02",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step riprodurrà un video a schermo intero.",
+                "updated": 1618068335719,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634226544774
+            },
+            {
+                "language": "TR",
+                "text": "Bu videoda neler olduğunu görüyorsun.",
+                "updated": 1636403532355
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582690077
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642769703899
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1667125644761
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675361400619
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-backtesting-trading-engine-visualization-02.gif"
+        }
+    ]
+}

@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet:Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
-                "updated": 1641662918760
+                "text": "Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
+                "updated": 1669663888636
             },
             {
                 "language": "RU",
                 "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса!",
                 "updated": 1642660544027
+            },
+            {
+                "language": "ES",
+                "text": "¿Cómo se describe una vela que cierra por debajo de la banda inferior? ¡Veamos cómo se describe la banda inferior!",
+                "updated": 1679100311513
             }
         ]
     },
@@ -38,13 +43,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger Bantlarının açıklaması, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altında iki standart sapma olduğunu açıklar. MA'yı moveAverage kapasitesinde sunulduğu için biliyoruz. Standart sapma, standardDeviation özelliğinde sunulur.",
-                    "updated": 1641662933434
+                    "text": "Bollinger Bantları, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altındaki iki standart sapmadan oluşur. MA movingAverage 'dır. Standart sapma, standardDeviation olarak tanımlanır.",
+                    "updated": 1669664049840
                 },
                 {
                     "language": "RU",
                     "text": "Описание полос Боллинджера объясняет, что верхняя и нижняя полосы расположены на два стандартных отклонения выше и ниже скользящей средней (MA) соответственно. Мы знаем MA, которая предлагается в свойстве movingAverage. Стандартное отклонение предлагается в свойстве standardDeviation.",
                     "updated": 1642660569247
+                },
+                {
+                    "language": "ES",
+                    "text": "La descripción de las Bandas de Bollinger explica que las bandas superior e inferior están situadas dos desviaciones estándar por encima y por debajo de la media móvil (MA) respectivamente. Conocemos la media móvil (MA), ya que se ofrece en la propiedad movingAverage. La desviación estándar se ofrece en la propiedad standardDeviation.",
+                    "updated": 1679100303542
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "alt bant, MA'nın altında iki standart sapmadır. Daha sonra alt bant, MA eksi standart sapma çarpı iki'ye eşittir.",
-                    "updated": 1641662944330
+                    "text": "alt bant, MA'nın altında K kadar standart sapmadır. Yani alt bant, MA - Standart sapma'ya eşittir.",
+                    "updated": 1669664487496
                 },
                 {
                     "language": "RU",
                     "text": "Нижняя полоса располагается на два стандартных отклонения ниже МА. Тогда нижняя полоса равна МА минус стандартное отклонение, умноженное на два.",
                     "updated": 1642660586039
+                },
+                {
+                    "language": "ES",
+                    "text": "La banda inferior se sitúa dos desviaciones estándar por debajo de la MA. Entonces la banda inferior es igual a la MA menos la desviación estándar multiplicada por dos.",
+                    "updated": 1679100292087
                 }
             ]
         }

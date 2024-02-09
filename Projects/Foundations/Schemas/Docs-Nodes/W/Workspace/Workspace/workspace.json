@@ -158,154 +158,19 @@
         },
         {
             "style": "Title",
-            "text": "Loading Workspaces",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Loading Workspaces  (Subiendo espacios de trabajo)",
-                    "updated": 1633089674625,
-                    "style": "Title"
-                },
-                {
-                    "language": "RU",
-                    "text": "Загрузка Workspace",
-                    "updated": 1638344760638
-                },
-                {
-                    "language": "DE",
-                    "text": "Workspaces laden",
-                    "updated": 1639344347107
-                },
-                {
-                    "language": "TR",
-                    "text": "Çalışma Alanlarını Yükleme",
-                    "updated": 1639746981742
-                },
-                {
-                    "language": "EL",
-                    "text": "Loading Workspaces (Φόρτωση Χώρων Εργασίας)",
-                    "updated": 1641829840251
-                }
-            ]
+            "text": "Native Workspaces"
         },
         {
             "style": "Text",
-            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Los usuarios pueden trabajar en muchos workspaces al mismo tiempo, pero uno solo debe ser subido al sistema en cualquier  momento.",
-                    "updated": 1633089722388,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "Пользователи могут управлять несколькими рабочими пространствами, но в любой момент в систему может быть загружено только одно рабочее пространство.",
-                    "updated": 1638344784954
-                },
-                {
-                    "language": "DE",
-                    "text": "Benutzer können mehrere workspaces verwalten, aber es kann immer nur ein workspace im System geladen sein.",
-                    "updated": 1639344394941
-                },
-                {
-                    "language": "TR",
-                    "text": "Kullanıcılar birden fazla çalışma alanınına sahip olabilir ve yönetebilirler, ancak sisteme yalnızca bir çalışma alanı yüklenebilir. İkinci bie çalışma alanı açma şansınız yoktur. Çalıştığınız çalışma alanını kapatarak yeni bir çalışma alanı yüklersiniz.",
-                    "updated": 1639747065664
-                },
-                {
-                    "language": "EL",
-                    "text": "Οι χρήστες μπορούν να διαχειρίζονται πολλούς χώρους εργασίας, αλλά μόνο ένας χώρος εργασίας μπορεί να φορτωθεί στο σύστημα σε οποιοδήποτε σημείο.",
-                    "updated": 1641829867667
-                }
-            ]
+            "text": "Superalgos ships with several Native Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on."
         },
         {
             "style": "Text",
-            "text": "To load a workspace, click the workspaces tab on the left-hand side of the screen and select one of the available files.",
-            "updated": 1624469374859,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Чтобы загрузить рабочее пространство, щелкните вкладку Workspaces в левой части экрана и выберите один из доступных файлов.",
-                    "updated": 1638344838274
-                },
-                {
-                    "language": "DE",
-                    "text": "Um einen Workspace zu laden, klicken Sie auf die Registerkarte \"Workspaces\" auf der linken Seite des Bildschirms und wählen eine der verfügbaren Dateien aus.",
-                    "updated": 1639344445509
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir çalışma alanı yüklemek için ekranın sol tarafındaki çalışma alanları (Workspaces) sekmesine tıklayın ve mevcut dosyalardan birini seçin.",
-                    "updated": 1639747628768
-                },
-                {
-                    "language": "EL",
-                    "text": "Για να φορτώσετε έναν χώρο εργασίας, κάντε κλικ στην καρτέλα Χώροι Εργασίας στην αριστερή πλευρά της οθόνης και επιλέξτε ένα από τα διαθέσιμα αρχεία.",
-                    "updated": 1641829880312
-                }
-            ]
+            "text": "Native workspaces are stored in the Plugins folder, organized by Project. For instance, the Getting Started Tutorials Native Workspace is stored in the following location:"
         },
         {
-            "style": "Success",
-            "text": "To load a workspace you got from a third party, you may place the file in the My-Workspaces folder so that you may open it from the workspaces tab. You may also drag the file and drop it on the design space.",
-            "updated": 1615892822939,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "El workspace que obtenga de un tercero puede incluirlo en su carpeta de mis workspaces, para poderlos abrir desde el tabulador. También puedes sostener el archivo y soltarlo en el workspace",
-                    "updated": 1633106859191,
-                    "style": "Success"
-                },
-                {
-                    "language": "RU",
-                    "text": "Чтобы загрузить рабочее пространство, полученное от третьего лица, вы можете поместить файл в папку My-Workspaces, чтобы его можно было открывать на вкладке Worcspaces. Вы также можете перетащить файл в пространство проектирования.",
-                    "updated": 1638344920643
-                },
-                {
-                    "language": "DE",
-                    "text": "Um einen Workspace zu laden, den Sie von einem \"Drittanbieter\" erhalten haben, können Sie die Datei im Ordner My-Workspaces ablegen, so dass Sie sie über die Registerkarte Workspaces öffnen können. Sie können die Datei auch in den Design Space ziehen und dort ablegen.",
-                    "updated": 1639344555403
-                },
-                {
-                    "language": "TR",
-                    "text": "Üçüncü şahıslardan edindiğiniz bir çalışma alanını yüklemek için dosyayı Çalışma Alanlarım klasörüne yerleştirebilir ve çalışma alanları sekmesinden açabilirsiniz. Ayrıca dosyayı sürükleyip tasarım alanına bırakabilirsiniz.",
-                    "updated": 1639747661767
-                },
-                {
-                    "language": "EL",
-                    "text": "Για να φορτώσετε έναν χώρο εργασίας που λάβατε από τρίτο μέρος, μπορείτε να τοποθετήσετε το αρχείο στο φάκελο My-Workspaces, ώστε να μπορείτε να το ανοίξετε από την καρτέλα Χώροι εργασίας. Μπορείτε επίσης να σύρετε το αρχείο και να το αποθέσετε στον χώρο σχεδίασης.",
-                    "updated": 1641829891511
-                }
-            ]
-        },
-        {
-            "style": "Warning",
-            "text": "It is not recommended to launch multiple instances of the UI in separate browser tabs to load different workspaces at the same time. The system is not prepared to handle this type of use and it may behave erratically as a consequence.",
-            "updated": 1629892156573,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Не рекомендуется запускать несколько экземпляров пользовательского интерфейса UI на отдельных вкладках браузера для одновременной загрузки разных рабочих пространств. Система не подготовлена ​​к такому типу использования и, как следствие, может работать нестабильно.",
-                    "updated": 1638344959315
-                },
-                {
-                    "language": "DE",
-                    "text": "Es wird nicht empfohlen, mehrere Instanzen der Benutzeroberfläche(UI) in separaten Browser-Tabs zu starten, um verschiedene Workspaces gleichzeitig zu laden. Das System ist auf diese Art der Nutzung nicht vorbereitet und kann sich infolgedessen fehlerhaft verhalten.",
-                    "updated": 1639344694210
-                },
-                {
-                    "language": "TR",
-                    "text": "Farklı çalışma alanlarını aynı anda yüklemek için farklı tarayıcı sekmelerinde birden çok UI örneğini başlatmanız önerilmez. Sistem bu tür bir kullanımı işlemeye hazır değildir ve sonuç olarak kararsız davranabilir.",
-                    "updated": 1639747682544
-                },
-                {
-                    "language": "EL",
-                    "text": "Δεν συνιστάται η εκκίνηση πολλαπλών παρουσιών της διεπαφής χρήστη σε ξεχωριστές καρτέλες του προγράμματος περιήγησης για τη φόρτωση διαφορετικών χώρων εργασίας ταυτόχρονα. Το σύστημα δεν είναι προετοιμασμένο να χειριστεί αυτόν τον τύπο χρήσης και ως συνέπεια μπορεί να συμπεριφέρεται ακανόνιστα.",
-                    "updated": 1641829921156
-                }
-            ]
+            "style": "Json",
+            "text": "Plugins/Foundations/Workspaces"
         },
         {
             "style": "Title",
@@ -378,41 +243,8 @@
         },
         {
             "style": "Note",
-            "text": "User workspaces feature a purple background in the workspaces tab.",
-            "updated": 1624469335347,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Todo user workspace tiene fondo violeta en el menú de los workspaces a la izquierda.",
-                    "updated": 1633107024679,
-                    "style": "Note"
-                },
-                {
-                    "language": "RU",
-                    "text": "Пользовательские рабочие пространства имеют фиолетовый фон на вкладке рабочих пространств.",
-                    "updated": 1638345054880
-                },
-                {
-                    "language": "DE",
-                    "text": "User workspaces haben einen violetten Hintergrund auf der Registerkarte Workspaces.",
-                    "updated": 1639344782730
-                },
-                {
-                    "language": "TR",
-                    "text": "Kullanıcı çalışma alanları, çalışma alanları sekmesinde mor bir arka plana sahiptir.",
-                    "updated": 1639747731565
-                },
-                {
-                    "language": "EL",
-                    "text": "Οι χώροι εργασίας χρήστη διαθέτουν μωβ φόντο στην καρτέλα χώρων εργασίας.",
-                    "updated": 1641829982552
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "Workspaces are saved as JSON files in the My-Workspaces folder.",
-            "updated": 1615891202642,
+            "text": "Workspaces are saved as JSON files in the Platform/My-Workspaces folder.",
+            "updated": 1687798464799,
             "translations": [
                 {
                     "language": "ES",
@@ -444,8 +276,8 @@
         },
         {
             "style": "Text",
-            "text": "You may save a workspace manually using the following hot-key combination:",
-            "updated": 1629892197901,
+            "text": "To save a workspace, use the Save Workspace option under the Workspaces menu, or use the following hot-key combination:",
+            "updated": 1687798787980,
             "translations": [
                 {
                     "language": "ES",
@@ -509,130 +341,62 @@
             ]
         },
         {
+            "style": "Important",
+            "text": "When you load, modify, and save a Native Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the Platform/My-Workspaces folder. This file is a copy of the Native Workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
+            "updated": 1687798576929
+        },
+        {
             "style": "Title",
-            "text": "Plugin Workspaces",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Plugin Workspaces ( Conectando espacios de trabajo)",
-                    "updated": 1633107189340,
-                    "style": "Title"
-                },
-                {
-                    "language": "RU",
-                    "text": "Плагины Workspace",
-                    "updated": 1638345161193
-                },
-                {
-                    "language": "EL",
-                    "text": "Plugin Workspaces (Χώροι Εργασίας Πρόσθετων)",
-                    "updated": 1641830046311
-                },
-                {
-                    "language": "TR",
-                    "text": "Eklenti Çalışma Alanları",
-                    "updated": 1654762697160
-                }
-            ]
+            "text": "Loading Workspaces",
+            "updated": 1687798809487
         },
         {
             "style": "Text",
-            "text": "Superalgos ships with several Plugin Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
-            "updated": 1629893908384,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Superalgos incluye un abanico de plugin workspaces. Estos son workspaces pre-configurados montados para propósitos determinados, por ejemplo, para contener tutoriales, estrategias demo, proyectos específicos, y otros.",
-                    "updated": 1633107236673,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "Superalgos поставляется с несколькими рабочими пространствами плагинов Plugin Workspaces. Это предварительно настроенные рабочие пространства, созданные для определенных целей, например, для размещения учебных пособий, демонстрационных стратегий, конкретных проектов и т. д.",
-                    "updated": 1638345229136
-                },
-                {
-                    "language": "DE",
-                    "text": "Superalgos wird mit mehreren Plugin-Workspaces ausgeliefert. Dies sind vorkonfigurierte Workspaces, die für bestimmte Zwecke erstellt wurden, z. B. um Tutorials, Demostrategien, bestimmte Projekte usw. zu hosten.",
-                    "updated": 1639345052372
-                },
-                {
-                    "language": "EL",
-                    "text": "Το Superalgos έρχεται με πολλούς Plugin Workspaces (Χώρους Εργασίας Πρόσθετων). Αυτοί είναι προ διαμορφωμένοι χώροι εργασίας που έχουν δημιουργηθεί για συγκεκριμένους σκοπούς, για παράδειγμα, για τη φιλοξενία σεμιναρίων, στρατηγικών επίδειξης, συγκεκριμένων έργων και ούτω καθεξής.",
-                    "updated": 1641830073316
-                },
-                {
-                    "language": "TR",
-                    "text": "Superalgos çeşitli Eklenti Çalışma Alanları (Plugin Workspaces) ile birlikte gelir. Bunlar belirli amaçlar için önceden yapılandırılmış çalışma alanlarıdır, örneğin öğreticileri, demo stratejilerini, belirli projeleri vb. barındırmak için.",
-                    "updated": 1654762734451
-                }
-            ]
+            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point."
         },
         {
-            "style": "Note",
-            "text": "In the workspaces tab, plugin workspaces are marked with the words \"Plugin Workspace\", and feature a black background so that you may differentiate them from your own workspaces.",
-            "updated": 1622634983432,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "En el tabulador de workspaces, los plugin workspaces estan mencionados así sobre un fondo negro que los diferencia de tus propios workspaces.",
-                    "updated": 1633107278282,
-                    "style": "Note"
-                },
-                {
-                    "language": "RU",
-                    "text": "На вкладке \"Workspaces\" отмечены словами «Plugin Workspaces» и имеют черный фон, чтобы вы могли отличить их от ваших собственных рабочих пространств.",
-                    "updated": 1638345341385
-                },
-                {
-                    "language": "DE",
-                    "text": "Auf der Registerkarte \"Workspaces\" sind Plugin Workspaces mit den Worten \"Plugin Workspace\" gekennzeichnet und haben einen schwarzen Hintergrund, damit Sie sie von Ihren eigenen Workspaces unterscheiden können.",
-                    "updated": 1639345123503
-                },
-                {
-                    "language": "EL",
-                    "text": "Στην καρτέλα Χώροι εργασίας, οι χώροι εργασίας των πρόσθετων επισημαίνονται με τις λέξεις \"χώρος εργασίας προσθήκης\" και διαθέτουν μαύρο φόντο, ώστε να μπορείτε να τους διαφοροποιήσετε από τους δικούς σας χώρους εργασίας.",
-                    "updated": 1641830085955
-                },
-                {
-                    "language": "TR",
-                    "text": "Çalışma alanları (Workspace) sekmesinde, eklenti çalışma alanları \"Eklenti Çalışma Alanı\" (Plugin Workspace) sözcükleriyle işaretlenir ve kaydettiğiniz kendi çalışma alanlarınızdan ayırt edebilmeniz için siyah bir arka plana sahiptir.",
-                    "updated": 1654762797930
-                }
-            ]
+            "style": "Callout",
+            "text": "To load a workspace, use the Native Workspaces or the User Workspace option on the Workspaces menu.",
+            "updated": 1687798877373
         },
         {
-            "style": "Important",
-            "text": "When you load, modify, and save a Plugin Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the My-Workspaces folder. This file is a copy of the plugin workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
-            "updated": 1629894244406,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Cuando sube, modifica y guarda un plugin workspace, el plugin permanece intacto, esto significa que el plugin no se modifica sino que un nuevo archivo se crea en tu carpeta de My-workspaces. Este archivo es una copia del plugin con las modificaciones que ha introducido. La copia está guardada con el nombre del nodo de workspace, que normalmente es el mismo nombre del plugin. Para grabarlo con un nombre diferente debe cambiar el título del nodo y guardarlo",
-                    "updated": 1633107369531,
-                    "style": "Important"
-                },
-                {
-                    "language": "RU",
-                    "text": "Когда вы загружаете, изменяете и сохраняете Plugin Workspace, фактический файл плагина остается нетронутым, то есть плагин не изменяется. Вместо этого в папке «My-Workspaces» создается новый файл. Этот файл является копией рабочего пространства плагина с внесенными вами изменениями. Копия сохраняется с именем узла Workspace, имя обычно совпадает с названием плагина. Чтобы сохранить рабочее пространство под другим именем, необходимо изменить имя узла рабочего пространства и сохранить.",
-                    "updated": 1638345532766
-                },
-                {
-                    "language": "DE",
-                    "text": "Wenn Sie einen Plugin Workspace laden, ändern und speichern, bleibt die eigentliche Plugin-Datei intakt, d. h. das Plugin wird nicht geändert. Stattdessen wird eine neue Datei im Ordner My-Workspaces erstellt. Diese Datei ist eine Kopie des Plugin-Arbeitsbereichs mit den von Ihnen vorgenommenen Änderungen. Die Kopie wird unter dem Namen der Node  Workspace gespeichert, der in der Regel derselbe ist wie der Name des Plugins. Um den Workspace unter einem anderen Namen zu speichern, müssen Sie den Namen der Workspace Node ändern und speichern.",
-                    "updated": 1639345443024
-                },
-                {
-                    "language": "EL",
-                    "text": "Όταν φορτώνετε, τροποποιείτε και αποθηκεύετε έναν Plugin Workspace (Χώρο Εργασίας Πρόσθετων), το πραγματικό αρχείο του πρόσθετου παραμένει άθικτο, δηλαδή, το πρόσθετο δεν τροποποιείται. Αντίθετα, δημιουργείται ένα νέο αρχείο στο φάκελο My-Workspaces. Αυτό το αρχείο είναι ένα αντίγραφο του χώρου εργασίας του πρόσθετου που περιλαμβάνει τις τροποποιήσεις που εισαγάγατε. Το αντίγραφο αποθηκεύεται με το όνομα του κόμβου Χώρου Εργασίας, το οποίο είναι συνήθως το ίδιο όνομα με το πρόσθετο. Για να αποθηκεύσετε το χώρο εργασίας με διαφορετικό όνομα, πρέπει να αλλάξετε το όνομα του κόμβου του χώρου εργασίας και να το αποθηκεύσετε.",
-                    "updated": 1641830110805
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir Eklenti Çalışma Alanını (Plugin Workspace) yüklediğinizde, değiştirdiğinizde ve kaydettiğinizde, asıl eklenti dosyası olduğu gibi kalır, yani eklenti değiştirilmez. Bunun yerine, My-Workspaces klasöründe yeni bir dosya oluşturulur. Bu dosya, eklenti çalışma alanının sizin yaptığınız değişiklikleri içeren bir kopyasıdır. Kopya, genellikle eklentiyle aynı ad olan Çalışma Alanı düğümünün adıyla kaydedilir. Çalışma alanını farklı bir adla kaydetmek için Çalışma Alanı düğümünün adını değiştirmeniz ve kaydetmeniz gerekir.",
-                    "updated": 1654762862636
-                }
-            ]
+            "style": "Success",
+            "text": "To load a workspace you got from a third party, you may place the file in the Platform/My-Workspaces folder so that you may open it from the User Workspace menu. You may also drag the file and drop it on the Design Space.",
+            "updated": 1687798940870
+        },
+        {
+            "style": "Warning",
+            "text": "It is not recommended to launch multiple instances of the UI in separate browser tabs to load different workspaces at the same time. The system is not prepared to handle this type of use and it may behave erratically as a consequence.",
+            "updated": 1687798954286
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1687798668404
+        },
+        {
+            "style": "Text",
+            "text": "A workspace can have the following configuration properties, all are optional:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\",\n    \"location\": \"tutorials\"\n}",
+            "updated": 1679579295030
+        },
+        {
+            "style": "List",
+            "text": "<strong>docsLanuage</strong>: sets the language for the documentation",
+            "updated": 1679579295030
+        },
+        {
+            "style": "List",
+            "text": "<strong>contributionsBranch</strong>: sets the git branch for making your contributions",
+            "updated": 1679579295030
+        },
+        {
+            "style": "List",
+            "text": "<strong>location</strong>: a specific folder location for this workspace to live. If you want this to be nested in multiple folders, examples would be <i>copy-trading/live</i>, <i>copy-trading/paper</i>.",
+            "updated": 1679579295030
         },
         {
             "style": "Title",
@@ -694,17 +458,17 @@
         },
         {
             "style": "Success",
-            "text": "The Blank Template Plugin Workspace is the best to start with if you wish to create your own setup.",
+            "text": "The Blank Template Native Workspace is the best to start with if you wish to create your own setup.",
             "updated": 1629894382983,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Для начала лучше всего использовать шаблон Blank Template Plugin Workspace, если вы хотите создать свою собственную настройку.",
+                    "text": "Для начала лучше всего использовать шаблон Blank Template Native Workspace, если вы хотите создать свою собственную настройку.",
                     "updated": 1638345758533
                 },
                 {
                     "language": "DE",
-                    "text": "Der Blank Template Plugin Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
+                    "text": "Der Blank Template Native Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
                     "updated": 1639347042936
                 },
                 {
@@ -714,7 +478,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Boş Şablon Eklentisi Çalışma Alanı (The Blank Template Plugin Workspace) , kendi kurulumunuzu oluşturmak istiyorsanız başlamak için en iyisidir.",
+                    "text": "Boş Şablon Eklentisi Çalışma Alanı (The Blank Template Native Workspace) , kendi kurulumunuzu oluşturmak istiyorsanız başlamak için en iyisidir.",
                     "updated": 1654763011045
                 }
             ]

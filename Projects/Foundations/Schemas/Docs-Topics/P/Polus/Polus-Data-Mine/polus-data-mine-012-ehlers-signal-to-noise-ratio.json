@@ -1,0 +1,205 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 12,
+    "type": "Ehlers Signal-to-noise Ratio",
+    "definition": {
+        "text": "This is a volatility indicator created by John Ehlers and published in his book ’Rocket Science for Traders, p81-82.’",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist ein Volatilitätsindikator, der von John Ehlers entwickelt und in seinem Buch \"Rocket Science for Traders, S. 81-82\" veröffentlicht wurde.",
+                "updated": 1671431890401
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645716156790
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The Signal To Noise Ratio was authored by John Ehlers; it is derived from his Hilbert Transform Indicator. Highs, lows, Eulers logarithms, factors and feedback are applied to Hilbert's complex number calculations to produce this indicator's amplitude value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Автором показателя Signal To Noise Ratio является Джон Элерс; он получен на основе его индикатора преобразования Гильберта. Высокие и низкие частоты, логарифмы Эйлерса, коэффициенты и обратная связь применяются к вычислениям комплексных чисел Гильберта для получения значения амплитуды этого индикатора.",
+                    "updated": 1645716165978
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Signal Rausch Verhältnis wurde von John Ehlers entwickelt; es leitet sich von seinem Hilbert Transformationsindikator ab. Hochs, Tiefs, Eulers Logarithmen, Faktoren und Rückkopplungen werden auf Hilberts komplexe Zahlenberechnungen angewendet, um den Amplitudenwert dieses Indikators zu ermitteln.",
+                    "updated": 1671431969409
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This indicator will show the asset's level of volatility and provide possible buy and sell entries.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор покажет уровень волатильности актива и обеспечит возможные входы на покупку и продажу.",
+                    "updated": 1645716172098
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator zeigt den Grad der Volatilität des Vermögenswerts an und liefert mögliche Kauf- und Verkaufspositionen.",
+                    "updated": 1671432003595
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If the indicator crosses over the zero line then the asset is volatile. For a consolidating market, the indicator will be below the zero. The color of the indicator shows potential buy and sell entries: green for buy and red for sell.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если индикатор пересекает нулевую линию, значит, актив волатилен. При консолидирующемся рынке индикатор будет находиться ниже нулевой линии. Цвет индикатора показывает потенциальные входы на покупку и продажу: зеленый - на покупку, красный - на продажу.",
+                    "updated": 1645716181356
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Indikator die Nulllinie überquert, ist der Vermögenswert volatil. Bei einem sich konsolidierenden Markt liegt der Indikator unter der Nulllinie. Die Farbe des Indikators zeigt potenzielle Kauf- und Verkaufspositionen an: grün für Kauf und rot für Verkauf.",
+                    "updated": 1671432054935
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Ehlers-SNR.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the transform and the period can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Ehlers Signal to Noise’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Длину преобразования и период можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Ehlers Signal to Noise' Product Definition.",
+                    "updated": 1645716192909
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Transformation und die Periode können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Ehlers Signal to Noise’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671432124455
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Ehlers-SNR-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "The zero line could also be changed to 6 or higher to provide more conservative trend threshold. This is done in the plotter under Ehlers Signal to Noise plotter -> SNR Shapes -> Chart Points -> Zero Begin/End -> Point Formula",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Nulllinie könnte auch auf 6 oder höher geändert werden, um eine konservativere Trendschwelle zu erhalten. Dies geschieht im Plotter unter Ehlers Signal to Noise plotter -> SNR Shapes -> Chart Points -> Zero Begin/End -> Point Formula",
+                    "updated": 1671432190907
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645716205502
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671432220690
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645716211100
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671432239657
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Polus-Ehlers-SNR | EhlersSignalToNoise | snr, h1, smooth |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Polus-Ehlers-SNR | EhlersSignalToNoise | snr, h1, smooth |",
+                    "updated": 1671432257958
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645716221361
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671432278650
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when the indicator rises above the threshold value and the signal turns green:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Можно построить простую стратегию, которая будет открывать сделку, когда индикатор поднимется выше порогового значения и сигнал станет зеленым:",
+                    "updated": 1645716229749
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie könnte so aufgebaut werden, dass ein Handel eröffnet wird, wenn der Indikator über den Schwellenwert steigt und das Signal grün wird:",
+                    "updated": 1671432301449
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.EhlersSignalToNoise.previous.snr < 6 && chart.at24hs.EhlersSignalToNoise.snr > 6 && \n chart.at24hs.EhlersSignalToNoise.h1 < chart.at24hs.EhlersSignalToNoise.smooth"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671432322820
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

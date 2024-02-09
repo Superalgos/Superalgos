@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Mevcut düğümün İşlem Çıktısı ( Process Output ) türünde eksik olan bir alt düğüm var. API Veri Alıcısı Botunun ( API Data Fetcher Bot ) düzgün çalışabilmesi için bu alt düğümü ekleyin.",
                 "updated": 1647599526946
+            },
+            {
+                "language": "DE",
+                "text": "Es fehlt ein untergeordneter Knoten des Typs Prozessausgabe (Process Output) des aktuellen Knotens. Fügen Sie diesen untergeordneten Knoten hinzu, damit der API Data Fetcher Bot ordnungsgemäß ausgeführt werden kann. ",
+                "updated": 1679246213967
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Hata: API Sürüm Düğümü Yok ( API Version Node Missing )",
                     "updated": 1647599432196
+                },
+                {
+                    "language": "DE",
+                    "text": "API-Versionsknoten fehlt (API Version Node Missing)",
+                    "updated": 1679224605833
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "TR",
                     "text": "Hata Bilgisi",
                     "updated": 1647600703372
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1679224616338
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki bölümde, hata oluştuğunda kaydedilen bilgileri bulacaksınız.",
                     "updated": 1647599397348
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1679224624817
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "TR",
                     "text": "Bilgileri ancak bu sayfayı gerçekten oluşan hatanın bir sonucu olarak açtıysanız göreceksiniz.",
                     "updated": 1647599388270
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1679224636156
                 }
             ]
         },
@@ -68,6 +93,11 @@
                     "language": "TR",
                     "text": "Hata Mesajı",
                     "updated": 1647599373213
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlermeldung",
+                    "updated": 1679224650230
                 }
             ]
         },
@@ -79,6 +109,11 @@
                     "language": "TR",
                     "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata mesajı aşağıdadır:",
                     "updated": 1647599366931
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird die Fehlermeldung der Ausnahme angezeigt, die beim API Data Fetcher Bot aufgetreten ist:",
+                    "updated": 1679224658413
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "TR",
                     "text": "Hata Yığını",
                     "updated": 1647599354876
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlerstapel",
+                    "updated": 1679224669989
                 }
             ]
         },
@@ -105,6 +145,11 @@
                     "language": "TR",
                     "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata yığını aşağıdadır:",
                     "updated": 1647599347023
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend ist der Fehlerstapel der Ausnahme aufgeführt, die beim API Data Fetcher Bot aufgetreten ist:",
+                    "updated": 1679224681447
                 }
             ]
         },
@@ -120,6 +165,11 @@
                     "language": "TR",
                     "text": "Hata Kodu",
                     "updated": 1647599336854
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1679224692407
                 }
             ]
         },
@@ -131,6 +181,11 @@
                     "language": "TR",
                     "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata kodu aşağıdadır:",
                     "updated": 1647599331814
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Fehlercode der Ausnahme aufgeführt, die beim API Data Fetcher Bot aufgetreten ist:",
+                    "updated": 1679224704248
                 }
             ]
         },
@@ -146,6 +201,11 @@
                     "language": "TR",
                     "text": "Hata Detayları",
                     "updated": 1647599318756
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1679224713803
                 }
             ]
         },
@@ -157,6 +217,11 @@
                     "language": "TR",
                     "text": "API Veri Alıcı Botunda ( API Data Fetcher Bot ) meydana gelen İstisnanın Hata detayları aşağıdadır:",
                     "updated": 1647599311578
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden werden alle Fehlerdetails der Ausnahme aufgeführt, die beim API Data Fetcher Bot aufgetreten ist:",
+                    "updated": 1679224724555
                 }
             ]
         },
@@ -183,6 +248,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki, bu hatayla en çok ilgili olan Düğümün ( Node ) adıdır:",
                     "updated": 1647599290079
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Name des Knotens (Node) aufgeführt, der am meisten mit diesem Fehler in Verbindung steht:",
+                    "updated": 1679224811998
                 }
             ]
         },
@@ -198,6 +268,11 @@
                     "language": "TR",
                     "text": "Düğüm Kodu",
                     "updated": 1647599279148
+                },
+                {
+                    "language": "DE",
+                    "text": "Knoten Code",
+                    "updated": 1679224749028
                 }
             ]
         },
@@ -209,6 +284,11 @@
                     "language": "TR",
                     "text": "API Veri Alıcısı Botunda ( API Data Fetcher Bot ) hatayı oluşturan düğümde depolanan kod aşağıda verilmiştir:",
                     "updated": 1647599271538
+                },
+                {
+                    "language": "DE",
+                    "text": "Der folgende Code ist auf dem Knoten gespeichert, der den Fehler im API Data Fetcher Bot verursacht hat:",
+                    "updated": 1679224768744
                 }
             ]
         },

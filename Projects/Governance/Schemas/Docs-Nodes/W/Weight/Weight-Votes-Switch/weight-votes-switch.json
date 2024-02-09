@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот переключатель для создания различных типов Weight Votes и для ссылки на типы узлов класса в любой из иерархий Project Definition для сопоставления больших структур определений.",
                 "updated": 1639137065780
+            },
+            {
+                "language": "TR",
+                "text": "Farklı Ağırlık Oyları ( Weight Votes ) türlerini ortaya çıkarmak ve büyük tanım yapılarını eşlemek için Proje Tanımı Hiyerarşilerinden ( Project Definition Hierarchies ) herhangi biri içindeki Sınıf düğüm türlerine başvurmak için bu anahtarı kullanın.",
+                "updated": 1671559302289
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать этот переключатель для трех разных целей:",
                     "updated": 1639137077505
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu anahtarı üç farklı amaç için kullanabilirsiniz:",
+                    "updated": 1671559331009
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "В качестве организационного устройства: вы можете создавать произвольные схемы голосов, порождая больше переключателей и голосов.",
                     "updated": 1639137104002
+                },
+                {
+                    "language": "TR",
+                    "text": "Organizasyonel bir araç olarak (As an organizational device): Daha fazla anahtar ve oy üreterek keyfi oy düzenlemeleri oluşturabilirsiniz.",
+                    "updated": 1671559511434
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "RU",
                     "text": "В качестве переключателя: вы можете управлять потоком Weight Power, почти так же, как с помощью переключателя Token Power Switch, но в рамках программы Voting Program. Если вам нужно напоминание, прочитайте пояснения Token Power Flows.",
                     "updated": 1639137292102
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir anahtar olarak (As a switch): Ağırlık Gücü ( Weight Power ) akışını, tıpkı bir Token Güç Anahtarında ( Token Power Switch ) olduğu gibi, ancak Oylama Programı ( Voting Program ) içinde kontrol edebilirsiniz. Hatırlatmaya ihtiyacınız varsa, Token Gücünün ( Token Power Flows ) nasıl aktığını okuyun.",
+                    "updated": 1671560118608
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "В качестве средства отображения структуры данных: используйте узел для ссылки на типы узлов классов в иерархиях Project Definition Hierarchies для отображения целых структур определений.",
                     "updated": 1639137355275
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir veri yapısı eşleyicisi olarak (As a data-structure mapper): Tanımların tüm yapılarını eşleştirmek için Proje Tanımı Hiyerarşileri ( Project Definition Hierarchies ) içindeki Sınıf tipi düğümlere başvurmak için bu düğümü kullanın.",
+                    "updated": 1671560491019
                 }
             ]
         },
@@ -70,6 +95,11 @@
                     "language": "RU",
                     "text": "Первые два варианта использования не требуют пояснений. Рассмотрим третий подробнее.",
                     "updated": 1639137367996
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk iki kullanım durumu kendi kendini açıklamaktadır. Üçüncüsünü daha ayrıntılı olarak inceleyelim.",
+                    "updated": 1671560725274
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "RU",
                     "text": "Используйте узел Weight Votes Switch, чтобы установить ссылку на узел типа Class — Pool Class, Position Class, Feature Class или Asset Class — в иерархиях Project Definition Hierarchies. Затем используйте опцию Install Missing Votes в меню переключателя Weight Votes Switch, чтобы отобразить весь раздел «Class» в иерархии!",
                     "updated": 1639137558513
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje Tanımı Hiyerarşileri ( Project Definition Hierarchies ) içinde bir Sınıf tipi düğümle -Havuz Sınıfı ( Pool Class ), Pozisyon Sınıfı ( Position Class ), Özellik Sınıfı ( Feature Class ) veya Varlık Sınıfı ( Asset Class )- referansı oluşturmak için bir Ağırlık Oyları Anahtarı düğümü kullanın. Ardından hiyerarşinin tüm Sınıf bölümünü eşlemek için Ağırlık Oyları Anahtarı menüsündeki Eksik Oyları Yükle seçeneğini kullanın!",
+                    "updated": 1671561308162
                 }
             ]
         },
@@ -93,6 +128,11 @@
                     "language": "RU",
                     "text": "Процесс создает Weight Votes Switch для каждого узла типа Class и соответствующие Weight Votes для каждого Asset, Feature, Position или Pool, определенных в каждом узле Class.",
                     "updated": 1639137705778
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem, her Sınıf düğümü türü için bir Ağırlık Oyları Anahtarı ve her Sınıf düğümü içinde tanımlanan tüm Varlık ( Asset ), Özellik ( Feature ), Pozisyon ( Position ) veya Havuz ( Pool ) için eşleşen Ağırlık Oylarını ( Weight Votes ) oluşturur.",
+                    "updated": 1671561786488
                 }
             ]
         },
@@ -104,6 +144,11 @@
                     "language": "RU",
                     "text": "Если что-то изменится в определениях, вы всегда можете вернуться к процессу Install Missing Votes еще раз. Процесс изменит отображение структуры с соответствующими голосами и переключателями.",
                     "updated": 1639137749014
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımlar tarafında bir şey değişirse, her zaman geri dönüp Eksik Oyları Yükle işlemini tekrar çalıştırabilirsiniz. İşlem, yapıyı uygun oylarla ve anahtarlarla yeniden eşleştirecektir.",
+                    "updated": 1671561869807
                 }
             ]
         },

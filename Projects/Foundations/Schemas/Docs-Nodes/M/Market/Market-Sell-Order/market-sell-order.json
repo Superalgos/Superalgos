@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Market Sell Order - это распоряжение, отправленное на биржу для продажи базового актива с целью немедленного исполнения по текущим рыночным ценам.",
                 "updated": 1639841489842
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa satış emri, temel varlığı satmak için borsaya gönderilen ve cari piyasa fiyatlarından derhal gerçekleştirilecek bir talimattır.",
+                "updated": 1701087701867
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, прочитайте определение Market Buy Order для получения соответствующей информации о том, как работают ордера в целом и в частности рыночные ордера.",
                     "updated": 1639841738841
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak emirlerin, özel olarak da piyasa emirlerinin nasıl işlediği hakkında bilgi edinmek için lütfen Piyasa Alış Emri ( Market Buy Order  ) tanımını okuyun.",
+                    "updated": 1701087721763
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Конфигурация Market Sell Order",
                     "updated": 1639841593496
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa Satış Emri Yapılandırması",
+                    "updated": 1701087726546
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639841600484
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1701087730971
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "language": "RU",
                     "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного ордера. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
                     "updated": 1639841631317
+                },
+                {
+                    "language": "TR",
+                    "text": "percentageOfAlgorithmSize, algoritma tarafından işlenen boyutun ne kadarının bu özel sıraya tahsis edileceğinin tanımıdır. Olası değerler, uç değerler de dahil olmak üzere 0 ile 100 arasındaki gerçek sayılardır. Değeri 0 olarak ayarlarsanız, emir yürütülmeyecektir.",
+                    "updated": 1701087735858
                 }
             ]
         },
@@ -79,6 +104,11 @@
                     "language": "RU",
                     "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
                     "updated": 1639841649174
+                },
+                {
+                    "language": "TR",
+                    "text": "spawnMultipleOrders, ilave emirlerin oluşturulmasına izin verilip verilmediğini (true) veya izin verilmediğini (false) gösteren parametredir.",
+                    "updated": 1701087739840
                 }
             ]
         }

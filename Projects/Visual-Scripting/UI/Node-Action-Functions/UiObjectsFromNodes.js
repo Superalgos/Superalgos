@@ -1005,7 +1005,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                 let tutorial = {
                     status: node.savedPayload.tutorial.status
                 }
-                UI.projects.foundations.utilities.tutorial.saveTutorial(payload, tutorial)
+                UI.projects.education.utilities.tutorial.saveTutorial(payload, tutorial)
             }
         }
 

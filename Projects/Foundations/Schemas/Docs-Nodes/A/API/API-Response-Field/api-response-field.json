@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "API, bir JSON nesnesiyle yanıt verir. Nesnenin her özelliği, bu türden bir düğüm olarak eşlenir. Bu düğüm, kullanıcıların karmaşık bir veri yapısını eşlemelerine olanak tanıyan aynı türde düğümlere sahip olabilir.",
                 "updated": 1652022243031
+            },
+            {
+                "language": "DE",
+                "text": "Die API antwortet mit einem JSON Objekt. Jede Eigenschaft des Objekts wird als ein Knoten dieses Typs abgebildet. Dieser Knoten kann Kinder desselben Typs haben, so dass die Benutzer eine komplexe Datenstruktur abbilden können.",
+                "updated": 1701930784536
             }
         ]
     },
@@ -31,6 +36,12 @@
                     "language": "TR",
                     "text": "API Yanıt Alanı Yapılandırması",
                     "updated": 1652022260041
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der API Response Field (API-Antwortfelder)",
+                    "updated": 1701930784682,
+                    "style": "Title"
                 }
             ]
         },
@@ -47,6 +58,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652022268714
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930784797,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -64,6 +81,12 @@
                     "language": "TR",
                     "text": "codeName: codeName, yanıt JSON nesnesinde tutulan özelliğin tam adı olmalıdır.",
                     "updated": 1652022279967
+                },
+                {
+                    "language": "dDEe",
+                    "text": "codeName: Der codeName muss der genaue Name der Eigenschaft sein, die im JSON Objekt der Antwort enthalten ist.",
+                    "updated": 1701930784901,
+                    "style": "List"
                 }
             ]
         },
@@ -80,6 +103,12 @@
                     "language": "TR",
                     "text": "Not: İlk nesne için, özel bir durum olduğundan, genellikle rootObject'in codeName'ini kullanırız.",
                     "updated": 1652022288990
+                },
+                {
+                    "language": "DE",
+                    "text": "Für das erste Objekt, das einen Sonderfall darstellt, verwenden wir in der Regel den codeName von rootObject.",
+                    "updated": 1701930785103,
+                    "style": "Note"
                 }
             ]
         },
@@ -97,6 +126,12 @@
                     "language": "TR",
                     "text": "fieldType: Bu özellik, verilerin bir sayı, dize, nesne veya dizi olup olmadığını bildirir.",
                     "updated": 1652022299562
+                },
+                {
+                    "language": "DE",
+                    "text": "fieldType: Diese Eigenschaft gibt an, ob die Daten eine Zahl, eine Zeichenkette, ein Objekt oder ein Array sind.",
+                    "updated": 1701930785342,
+                    "style": "List"
                 }
             ]
         },
@@ -113,6 +148,12 @@
                     "language": "TR",
                     "text": "description: API Haritasının ( API Map ) yalnızca oluşturan kullanıcı tarafından değil, bir kez Eklenti olarak katkıda bulunan diğer tüm kullanıcılar tarafından kullanılması beklenir. Bu özellik, diğer kullanıcıların gidip onu aramasını önlemek için API Sunucusu ( API Server ) belgelerinde yazıldığı gibi bu alanın açıklamasını saklamak için kullanışlıdır.",
                     "updated": 1652022330487
+                },
+                {
+                    "language": "DE",
+                    "text": "description: Es wird erwartet, dass die API Map nicht nur von dem Benutzer verwendet wird, der sie erstellt hat, sondern, sobald sie als Plugin bereitgestellt wurde, auch von allen anderen Benutzern. Diese Eigenschaft ist nützlich, um die Beschreibung dieses Feldes so zu speichern, wie sie in der API Server Dokumentation verfasst wurde, damit andere Benutzer nicht danach suchen müssen.",
+                    "updated": 1701930785486,
+                    "style": "List"
                 }
             ]
         },
@@ -130,6 +171,12 @@
                     "language": "TR",
                     "text": "Alan Türü Özelliği için Olası Değerler",
                     "updated": 1652022339779
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte für die Eigenschaft Field Type",
+                    "updated": 1701930785712,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -147,6 +194,12 @@
                     "language": "TR",
                     "text": "Bu özellik çok önemlidir ve çok iyi tanımlanması gerekir. Bu özellik, yanıt veri yapısının yapısını tanımlar ve çok kesin olması gerekir. Olası değerler şunlardır:",
                     "updated": 1652022347799
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Eigenschaft ist sehr wichtig und muss sehr gut definiert werden. Diese Eigenschaft definiert die Struktur der Antwortdatenstruktur und muss sehr genau sein. Die möglichen Werte sind:",
+                    "updated": 1701930785824,
+                    "style": "Text"
                 }
             ]
         },
@@ -164,6 +217,12 @@
                     "language": "TR",
                     "text": "number: Sayılardaki tarih zaman damgaları da dahil olmak üzere her tür sayı bu kategoriye girer.",
                     "updated": 1652022358353
+                },
+                {
+                    "language": "DE",
+                    "text": "number: Alle Arten von Zahlen fallen in diese Kategorie, einschließlich Datumsangaben und Zeitstempel in Zahlen.",
+                    "updated": 1701930785967,
+                    "style": "List"
                 }
             ]
         },
@@ -181,6 +240,12 @@
                     "language": "TR",
                     "text": "string: Dize biçimindeki tarihler de dahil olmak üzere tüm dizeler bu kategoriye girer.",
                     "updated": 1652022367641
+                },
+                {
+                    "language": "DE",
+                    "text": "string: Alle Zeichenketten fallen in diese Kategorie, einschließlich Datumsangaben im String-Format.",
+                    "updated": 1701930786112,
+                    "style": "List"
                 }
             ]
         },
@@ -198,6 +263,12 @@
                     "language": "TR",
                     "text": "object: Alanın { and } içinde bir JSON nesnesi tuttuğunu bulduğunuzda bu değeri kullanın.",
                     "updated": 1652022384324
+                },
+                {
+                    "language": "DE",
+                    "text": "object: Verwenden Sie diesen Wert, wenn Sie feststellen, dass das Feld ein JSON-Objekt enthält, das in { and }",
+                    "updated": 1701930786228,
+                    "style": "List"
                 }
             ]
         },
@@ -215,6 +286,12 @@
                     "language": "TR",
                     "text": "array: Alanın değeri, [ and ] içine alınmış bir JSON dizisi olduğunda bu türü kullanın.",
                     "updated": 1652022397371
+                },
+                {
+                    "language": "DE",
+                    "text": "array: Verwenden Sie diesen Typ, wenn der Wert des Feldes ein JSON-Array ist, das in [ and ] eingeschlossen ist.",
+                    "updated": 1701930786367,
+                    "style": "List"
                 }
             ]
         }

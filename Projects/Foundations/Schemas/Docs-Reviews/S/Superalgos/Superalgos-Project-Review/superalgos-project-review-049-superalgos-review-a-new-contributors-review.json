@@ -1,0 +1,138 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 49,
+    "type": "Superalgos Review - A New Contributor's Review",
+    "definition": {
+        "text": "A review from a very impressed JavaScript developer, potentially a new contributor",
+        "updated": 1678915688197,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein Bericht von einem sehr beeindruckten JavaScript-Entwickler, der möglicherweise einen neuen Beitrag leisten wird",
+                "updated": 1687642324586
+            },
+            {
+                "language": "TR",
+                "text": "Çok etkilenmiş bir JavaScript geliştiricisinden, potansiyel olarak yeni bir katılımcıdan bir inceleme",
+                "updated": 1696017748969
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Amazing work! Well done! I want to contribute to this project, if I find what others may benefit from. So far I'm deeply impressed.",
+            "updated": 1678915894312,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erstaunliche Arbeit! Gut gemacht! Ich möchte zu diesem Projekt beitragen, wenn ich finde, dass andere davon profitieren können. Bis jetzt bin ich tief beeindruckt.",
+                    "updated": 1687642337057
+                },
+                {
+                    "language": "TR",
+                    "text": "Harika bir çalışma! İyi iş çıkardınız! Başkalarının faydalanabileceği bir şey bulursam bu projeye katkıda bulunmak istiyorum. Şimdiye kadar çok etkilendim.",
+                    "updated": 1696017756113
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The only thing that annoys me to no end is that, whenever I enter something in the Search input field, I get this browser's pop-up dialog prompting me to save the password. I think that's probably because there are authentication input fields, like \"username\" and \"password\", in the same form. I see this page doesn't use form at all, so the whole document becomes a form, and the username/password fields trigger this pop-up on submit.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Einzige, was mich unendlich ärgert, ist, dass ich jedes Mal, wenn ich etwas in das Eingabefeld \"Suchen\" eingebe, ein Popup-Fenster des Browsers erhalte, in dem ich aufgefordert werde, das Passwort zu speichern. Ich denke, das liegt wahrscheinlich daran, dass es in demselben Formular Eingabefelder für die Authentifizierung gibt, wie \"Benutzername\" und \"Passwort\". Wie ich sehe, verwendet diese Seite überhaupt kein Formular, so dass das gesamte Dokument zu einem Formular wird, und die Felder \"Benutzername\" und \"Kennwort\" lösen beim Absenden dieses Popup-Fenster aus.",
+                    "updated": 1687642347000
+                },
+                {
+                    "language": "TR",
+                    "text": "Beni son derece rahatsız eden tek şey, Arama giriş alanına ne zaman bir şey girsem, bu tarayıcının açılır iletişim kutusunun benden şifreyi kaydetmemi istemesi. Sanırım bunun nedeni aynı formda \"kullanıcı adı\" ve \"şifre\" gibi kimlik doğrulama giriş alanları olması. Bu sayfanın hiç form kullanmadığını görüyorum, bu yüzden tüm belge bir form haline geliyor ve kullanıcı adı/parola alanları gönderme sırasında bu açılır pencereyi tetikliyor.",
+                    "updated": 1696017763330
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Sorry for polluting develop branch with my PRs, it took me an effort to figure out the github error I kept getting on app.contribute, all superalgos reported was the following",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es tut mir leid, dass ich den Entwicklungszweig mit meinen PRs verunreinigt habe. Es hat mich einige Mühe gekostet, den Github-Fehler herauszufinden, den ich bei app.contribute immer wieder bekam, alles, was superalgos berichtete, war das Folgende",
+                    "updated": 1687642360865
+                },
+                {
+                    "language": "TR",
+                    "text": "PR'larımla geliştirme dalını kirlettiğim için özür dilerim, app.contrib'da almaya devam ettiğim github hatasını çözmek için çaba sarf etmem gerekti, superalgos'un bildirdiği tek şey şuydu",
+                    "updated": 1696017805889
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Error: Logon failed, use ctrl+c to cancel basic credential prompt.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "2023-03-16T15:13:57.102Z [ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = Fehler: Anmeldung fehlgeschlagen, verwenden Sie ctrl+c, um die Eingabeaufforderung für grundlegende Anmeldeinformationen abzubrechen.",
+                    "updated": 1687642372681
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "bash: /dev/tty: No such device or address"
+        },
+        {
+            "style": "Text",
+            "text": "error: failed to execute prompt script (exit code 1)"
+        },
+        {
+            "style": "Text",
+            "text": "fatal: could not read Username for 'https://github.com': No such file or directory"
+        },
+        {
+            "style": "Text",
+            "text": "Google helped to find the solution, I had to do git remote set-url origin with my github token authenticated https url, ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Google half bei der Suche nach der Lösung, ich musste git remote set-url origin mit meinem Github-Token authentifiziert https url zu tun,",
+                    "updated": 1687642399961
+                },
+                {
+                    "language": "TR",
+                    "text": "Google çözümü bulmama yardımcı oldu, github token kimlik doğrulamalı https url'imle git remote set-url origin yapmak zorunda kaldım,",
+                    "updated": 1696017825682
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "like this:",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bunun gibi:",
+                    "updated": 1696017834410
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "git remote set-url origin https://fzaitsev:<my github token>@github.com/fzaitsev/Superalgos.git"
+        },
+        {
+            "style": "Text",
+            "text": "Fedor Zaitsev"
+        },
+        {
+            "style": "Text",
+            "text": "fzaitsev"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

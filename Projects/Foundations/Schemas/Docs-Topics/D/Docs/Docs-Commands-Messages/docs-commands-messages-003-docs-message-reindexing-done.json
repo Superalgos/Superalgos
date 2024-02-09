@@ -33,6 +33,11 @@
                 "language": "RU",
                 "text": "Команда docs.reindex завершила восстановление индекса поисковой системы Docs Search Engine Index.",
                 "updated": 1638461422815
+            },
+            {
+                "language": "ES",
+                "text": "El comando docs.reindex ha terminado de reconstruir el Docs Search Engine Index.",
+                "updated": 1677428006143
             }
         ]
     },
@@ -56,8 +61,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Der Index wurde neu erstellt und enthält nun alle Änderungen, die Sie seit dem Öffnen der Benutzeroberfläche (UI) oder seit der letzten Ausführung des Befehls docs.reindex vorgenommen haben. Das bedeutet, dass neu erstellte Inhalte jetzt durchsuchbar sind. Änderungen im Workspace wurden ebenfalls in den Index aufgenommen.",
-                    "updated": 1633903028672,
+                    "text": "Der Index wurde neu erstellt und enthält nun alle Änderungen, die sie seit dem Öffnen der Benutzeroberfläche (UI) oder seit der letzten Ausführung des Befehls docs.reindex vorgenommen haben. Das bedeutet, dass neu erstellte Inhalte jetzt durchsuchbar sind. Änderungen im Workspace wurden ebenfalls in den Index aufgenommen.",
+                    "updated": 1677190932198,
                     "style": "Success"
                 },
                 {
@@ -67,8 +72,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Индекс был перестроен и теперь включает все последние изменения, внесенные вами с момента открытия пользовательского интерфейса UI или с момента последнего запуска команды docs.reindex. Это означает, что новый созданный контент теперь доступен для поиска. Изменения в Workspace  также были внесены в индекс.",
+                    "text": "Индекс был ��ерестроен и теперь включает все последние изменения, внесенные вами с момента открытия пользовательского интерфейса UI или с момента последнего запуска команды docs.reindex. Это означает, что новый созданный контент теперь доступен для поиска. Изменения в Workspace  также были внесены в индекс.",
                     "updated": 1638461517763
+                },
+                {
+                    "language": "ES",
+                    "text": "El índice se ha reconstruido y ahora incluye todos los últimos cambios realizados desde que se abrió la interfaz de usuario o desde la última vez que se ejecutó el comando docs.reindex. Esto significa que ahora se pueden realizar búsquedas en los nuevos contenidos creados. Los cambios en el Workspace también se han introducido en el índice.",
+                    "updated": 1677428035986
                 }
             ]
         }

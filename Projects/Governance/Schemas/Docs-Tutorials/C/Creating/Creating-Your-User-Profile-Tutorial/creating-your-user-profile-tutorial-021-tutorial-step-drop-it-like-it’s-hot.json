@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Die Teilnahme an der Governance ist ein wertvoller Beitrag! Daher belohnt das Airdrop Program Sie bei jedem Release mit Token!",
                 "updated": 1640077970895
+            },
+            {
+                "language": "ID",
+                "text": "Menjadi bagian dari governance merupakan kontribusi yang sangatlah berharga! Seperti, Airdrop Program yang memberi kamu token pada setiap rilis!",
+                "updated": 1671443988616
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Wir sind kein Fan von sinnlosen Airdrops. Da Sie sich jedoch die Zeit genommen haben, Superalgos zu erlernen und Ihr Benutzerprofil zu erstellen, haben Sie eine Belohnung verdient!",
                     "updated": 1640078007186
+                },
+                {
+                    "language": "ID",
+                    "text": "Kami bukan penggemar airdrop yang tidak berarti. Namun, karena kamu meluangkan waktu untuk mempelajari Superalgos dan membuat User Profile, kamu berhak mendapatkan hadiah!",
+                    "updated": 1671443995600
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Auf dem Knoten Onboarding Programs klicken Sie auf <i> Add Airdrop Program</i>.",
                     "updated": 1640078064695
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada node Onboarding Programs klik Add Airdrop Program.",
+                    "updated": 1671444003034
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "DE",
                     "text": "Allein durch die Bereitstellung des Programms sind Sie bereit, bis zu 1.000 SA-Token beim nächsten Distribution Event und bei jeder weiteren zukünftigen Veröffentlichung zu erhalten, sofern Sie Ihr Benutzerprofil einreichen!",
                     "updated": 1640078087677
+                },
+                {
+                    "language": "ID",
+                    "text": "Hanya dengan men-deploy program, kamu siap mendapatkan hingga 1,000 token SA pada Distribution Event selanjutnya dan pada setiap perilisan mendatang lainnya asalkan kamu memasukkan User Profile kamu!",
+                    "updated": 1671444009599
                 }
             ]
         }

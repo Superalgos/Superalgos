@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Point Formula - это узел, используемый для ввода координат [x,y] точки Point.",
                 "updated": 1639726401405
+            },
+            {
+                "language": "TR",
+                "text": "Nokta formülü, bir noktanın [x,y] koordinatlarını girmek için kullanılan bir düğümdür.\n",
+                "updated": 1674590952322
             }
         ]
     },
@@ -24,6 +29,11 @@
                     "language": "RU",
                     "text": "Чтобы представить некоторую форму изменения цены или производной цены во времени, типичная формула точки состоит из следующих двух координат:",
                     "updated": 1639726449305
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyatın veya bir fiyat türevinin zaman içindeki bir çeşit değişimini temsil etmek için tipik bir nokta formülü aşağıdaki iki koordinattan oluşur:",
+                    "updated": 1674590988327
                 }
             ]
         },
@@ -35,12 +45,24 @@
                     "language": "RU",
                     "text": "x = datetime",
                     "updated": 1639726466851
+                },
+                {
+                    "language": "TR",
+                    "text": "x = tarih saat ve",
+                    "updated": 1674591128753
                 }
             ]
         },
         {
             "style": "List",
-            "text": "y = rate."
+            "text": "y = rate.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "y = oran.",
+                    "updated": 1674591149653
+                }
+            ]
         },
         {
             "style": "Title",
@@ -51,12 +73,24 @@
                     "language": "RU",
                     "text": "Например:",
                     "updated": 1639726481630
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak",
+                    "updated": 1674591180143
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Point SMA 20 Begin "
+            "text": "Point SMA 20 Begin ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "SMA 20 Noktası Başlangıç (Point SMA 20 Begin)",
+                    "updated": 1674591992862
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -71,6 +105,11 @@
                     "language": "RU",
                     "text": "В примере выше показано определение первой из двух точек, необходимых для построения сегмента кривой 20-периодной SMA для любого конкретного периода или свечи. В данном случае x = record.begin - это время начала периода, а y = record.previous.sma20 - это значение 20-периодной SMA предыдущего периода.",
                     "updated": 1639726590989
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki örnek, herhangi bir dönem veya mum için 20 dönemlik SMA eğrisinin segmentini çizmek için gerekli iki noktadan ilkinin tanımını göstermektedir. Bu durumda, x = record.begin dönemin başlangıç tarihidir ve y = record.previous.sma20 önceki dönemin 20 dönemlik SMA oranıdır.",
+                    "updated": 1674591435614
                 }
             ]
         },
@@ -82,6 +121,11 @@
                     "language": "RU",
                     "text": "Приведенные выше переменные строятся на основе информации, полученной из определения продукта Product Definition, которое ссылается на соответствующий модуль плоттера.",
                     "updated": 1639726670401
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki değişkenler, ilgili çizici (plotter) modülüne atıfta bulunan ürün tanımından kaynaklanan bilgilerle oluşturulmuştur.",
+                    "updated": 1674591511112
                 }
             ]
         },
@@ -93,12 +137,24 @@
                     "language": "RU",
                     "text": "Для завершения сегмента линии, соответствующего одному периоду, требуется дата закрытия периода и курс закрытия для 20-периодной SMA:",
                     "updated": 1639726734547
+                },
+                {
+                    "language": "TR",
+                    "text": "Tek bir döneme karşılık gelen çizgi segmentini tamamlamak için, dönemin kapanış tarihi ve 20 dönemlik SMA için kapanış oranı gereklidir:",
+                    "updated": 1674591548679
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Point SMA 20 End "
+            "text": "Point SMA 20 End ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "SMA 20 Noktası Sonu (Point SMA 20 End)",
+                    "updated": 1674592058967
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -113,6 +169,11 @@
                     "language": "RU",
                     "text": "Приведенная выше система очень хорошо работает для построения всевозможной информации по свечам, на графиках.",
                     "updated": 1639726803651
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sistem, her türlü bilgiyi mumlar üzerinde, grafiklerde çizmek için çok iyi çalışır.",
+                    "updated": 1674591584671
                 }
             ]
         },
@@ -124,6 +185,11 @@
                     "language": "RU",
                     "text": "Такой осциллятор, как RSI, тоже нуждается в определении времени начала и окончания периода в качестве значения для оси x. Однако значение для оси y соответствует другой шкале.",
                     "updated": 1639726842173
+                },
+                {
+                    "language": "TR",
+                    "text": "RSI gibi bir osilatör de x ekseni için değer olarak dönemin başlangıç ve bitiş tarihlerinin tanımına ihtiyaç duyar. Ancak, y ekseni için değer farklı bir ölçeğe uyar.",
+                    "updated": 1674591621066
                 }
             ]
         },
@@ -135,12 +201,24 @@
                     "language": "RU",
                     "text": "В любом случае, определение точек такое же простое, например:",
                     "updated": 1639726871803
+                },
+                {
+                    "language": "TR",
+                    "text": "Her neyse, örneğin nokta tanımı da aynı şekilde basittir:",
+                    "updated": 1674591658550
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Point RSI Begin "
+            "text": "Point RSI Begin ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "RSI Başlangıç Noktası (Point RSI Begin)",
+                    "updated": 1674592107172
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -149,7 +227,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Point RSI End "
+            "text": "Point RSI End ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "RSI Bitiş Noktası (Point RSI End)",
+                    "updated": 1674592139315
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -164,12 +249,24 @@
                     "language": "RU",
                     "text": "Точки не обязательно должны ссылаться на значения в наборе данных, созданных соответствующим продуктом данных. Например, абсолютные значения для оси y могут быть использованы для описания фиксированных графических элементов, например, горизонтальной линии или рамки.",
                     "updated": 1639726926280
+                },
+                {
+                    "language": "TR",
+                    "text": "Noktaların, ilgili veri ürünü tarafından üretilen veri kümesindeki değerlere atıfta bulunması gerekmez. Örneğin, y ekseni için mutlak değerler, örneğin yatay bir çizgi veya bir kutu gibi sabit grafik öğelerini tanımlamak için kullanılabilir.",
+                    "updated": 1674591725303
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Point Begin 20 "
+            "text": "Point Begin 20 ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Başlangıç Noktası 20 (Point Begin 20)",
+                    "updated": 1674592169640
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -178,7 +275,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Point End 20 "
+            "text": "Point End 20 ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitiş Noktası 20 (Point End 20)",
+                    "updated": 1674592258081
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -187,7 +291,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Point Begin 30 "
+            "text": "Point Begin 30 ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Başlangıç Noktası 30 (Point Begin 30)",
+                    "updated": 1674592298839
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -196,7 +307,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Point End 30 "
+            "text": "Point End 30 ",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bitiş Noktası 30 (Point End 30)",
+                    "updated": 1674592336833
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -211,6 +329,11 @@
                     "language": "RU",
                     "text": "Указанные выше четыре точки используются для рисования границ диапазона значений от 20 до 30 на графике RSI. Первые две точки также используются для построения пунктирной линии, обозначающей отметку 20 значений, а последние две - для пунктирной линии, обозначающей отметку 30 значений.",
                     "updated": 1639727072960
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki dört nokta, RSI grafiğinin 20 ila 30 değer aralığının arka planını boyamak için kullanılır. İlk iki nokta, 20 değer işaretini gösteren noktalı çizgiyi çizmek için de kullanılır ve son ikisi 30 değer işaretini gösteren noktalı çizgi için kullanılır.",
+                    "updated": 1674591823430
                 }
             ]
         },
@@ -222,6 +345,11 @@
                     "language": "RU",
                     "text": "Причина разделения определения точек и определения полигонов заключается в том, что любая точка может быть использована одним или несколькими полигонами.",
                     "updated": 1639727112033
+                },
+                {
+                    "language": "TR",
+                    "text": "Noktaların tanımını polygonların tanımından ayırmanın nedeni, herhangi bir noktanın bir veya daha fazla polygon tarafından kullanılabilmesidir.",
+                    "updated": 1674591901913
                 }
             ]
         }

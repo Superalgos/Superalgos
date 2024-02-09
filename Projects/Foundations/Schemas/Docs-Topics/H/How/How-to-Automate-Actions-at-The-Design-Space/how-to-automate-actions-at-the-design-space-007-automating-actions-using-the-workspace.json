@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Объект рабочего пространства даст вам доступ ко всем иерархиям узлов, и, попав туда, вы сможете манипулировать этими структурами по своему усмотрению.",
                 "updated": 1640764865030
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma alanı nesnesi size tüm düğüm hiyerarşilerine erişim sağlayacak ve bir kez orada bu yapıları istediğiniz gibi düzenleyebilirsiniz.",
+                "updated": 1673806397763
+            },
+            {
+                "language": "DE",
+                "text": "Die Arbeitsumgebung (Workspace) des Objektes gibt Ihnen den Zugang zu allen Knotenhierarchien. In diesem können Sie die Strukturen nach Belieben bearbeiten .",
+                "updated": 1676497208315
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "RU",
                     "text": "Вы можете получить доступ к объекту рабочего пространства таким образом:",
                     "updated": 1640764880192
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı nesnesine bu şekilde erişebilirsiniz:",
+                    "updated": 1673806417684
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können auf diese Weise auf die Arbeitsumgebung des Objektes zugreifen:",
+                    "updated": 1676494367577
                 }
             ]
         },
@@ -40,6 +60,16 @@
                     "language": "RU",
                     "text": "Проверьте, какие функции, определенные в thisObject, могут быть полезны в вашем случае.",
                     "updated": 1640764901852
+                },
+                {
+                    "language": "TR",
+                    "text": "thisObject'te tanımlanan işlevlerden sizin için yararlı olabilecekleri kontrol edin.",
+                    "updated": 1673806443580
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie welche Funktionen bei thisObject definiert sind und in Ihrem Fall nützlich sein können.",
+                    "updated": 1676494387324
                 }
             ]
         },
@@ -52,6 +82,16 @@
                     "language": "RU",
                     "text": "Использование объекта Workspace из Action не очень распространено, поскольку вы имеете доступ к массиву rootNodes непосредственно как к параметру вашей функции Action. Полезной функцией Workspace для этого случая может быть:",
                     "updated": 1640764922490
+                },
+                {
+                    "language": "TR",
+                    "text": "Aksiyon ( Action ) işlevinizin bir parametresi olarak rootNodes dizisine doğrudan erişebildiğiniz için, bir Aksiyon ( Action ) 'dan Çalışma Alanı ( Workspace ) nesnesini kullanmak çok yaygın değildir. Bu kullanım durumu için kullanışlı Çalışma Alanı ( Workspace ) işlevi şöyle olabilir:",
+                    "updated": 1673806616171
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist nicht üblich, das Workspace -Objekt von einer Action aus zu verwenden, da Sie als Parameter Ihrer Action-Funktion direkt auf das rootNodes Array zugreifen können. Eine nützliche Workspace-Funktion für diesen Anwendungsfall könnte sein:  ",
+                    "updated": 1676497172345
                 }
             ]
         },

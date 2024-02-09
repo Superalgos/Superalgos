@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Пометьте активы описательным названием монеты или токена для удобства использования. Например: Ether.",
                 "updated": 1643090384126
+            },
+            {
+                "language": "NL",
+                "text": "Label de token met de beschrijvende naam van de munt of token, voor gebruiksgemak. Bijvoorbeeld: ether.",
+                "updated": 1676121120490
             }
         ]
     },
@@ -39,8 +44,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Step 3: Etiqueta lols nodos",
-                    "updated": 1629163910016,
+                    "text": "Step 3: Etiqueta los nodos",
+                    "updated": 1682426153403,
                     "style": "List"
                 },
                 {
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Шаг 3: Маркировка узлов",
                     "updated": 1643090403296
+                },
+                {
+                    "language": "NL",
+                    "text": "Stap 3: Label de knooppunten",
+                    "updated": 1676121141479
                 }
             ]
         },
@@ -84,6 +94,11 @@
                     "language": "RU",
                     "text": "Поддержание опрятного рабочего пространства с соответствующими метками для значимых узлов помогает в управлении большими операциями и администрировании сложностей.",
                     "updated": 1643090419182
+                },
+                {
+                    "language": "NL",
+                    "text": "Een opgeruimde Workspace met de juiste labels voor belangrijke knooppunten helpt bij het beheren van grote bewerkingen en het beheren van complexiteit.",
+                    "updated": 1676121164207
                 }
             ]
         }

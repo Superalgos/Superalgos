@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Her Düğüm Türü ( Node Type ) hangi Düğüm Türüyle ( Node Type ) başvuru oluşturabileceğini tanımlayan bir kurallar kümesine sahip olabilir.",
                 "updated": 1652901804081
+            },
+            {
+                "language": "DE",
+                "text": "Jeder Knotentyp (Node Type) kann über eine Reihe von Regeln verfügen, die festlegen, mit welchem Knotentyp er einen Bezug herstellen kann.",
+                "updated": 1689421600448
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1652901839913
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1689421611035
                 }
             ]
         }

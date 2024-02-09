@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Eine Sensor-Bot-Instanz ist eine Referenz auf einen Sensor Bot, wie er in einer Data Mine definiert ist. Die Instanz des Bots führt die definierten Prozesse aus und erzeugt die definierten Datenprodukte.",
                 "updated": 1641595942810
+            },
+            {
+                "language": "NL",
+                "text": "Een instantie van een sensorbot is een verwijzing naar een sensorbot zoals gedefinieerd in een datamijn. De instantie van de bot voert de gedefinieerde processen uit en genereert de gedefinieerde gegevensproducten.",
+                "updated": 1670783239414
             }
         ]
     },

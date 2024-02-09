@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Superalgos gratis karena kami ingin bantuan dari kamu!, Kami ingin yang terbaik dari segi berpikir untuk membangunan dan membantu membuat platform trading otomatis terbaik!",
                 "updated": 1667873359601
+            },
+            {
+                "language": "NL",
+                "text": "Superalgos is gratis voor iedereen, want we willen jouw hulp! We willen de knapste koppen op aarde om ons te helpen het ultieme platform voor handelsautomatisering te bouwen!",
+                "updated": 1669573461285
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kontribusi pertamamu merupakan masukan terbaik!",
                     "updated": 1667873069728
+                },
+                {
+                    "language": "NL",
+                    "text": "Uw eerste bijdrage is uw feedback!",
+                    "updated": 1669573471883
                 }
             ]
         },
@@ -97,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": " ¡Queremos tener tu primera impresión, fresca de la experiencia reciente! Y queremos que sus comentarios iniciales sean la primera de muchas contribuciones al proyecto.",
-                    "updated": 1628117475146,
+                    "text": "¡Queremos tener tu primera impresión, fresca de la experiencia reciente! Y queremos que tus comentarios iniciales sean la primera de muchas contribuciones al proyecto.",
+                    "updated": 1675449384201,
                     "style": "Text"
                 },
                 {
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Kamu sepertinya akan berjam-jam belajar memahami Superalgos. Kami ingin mendengar kesan pertamamu, yang baru berdasarkan eksperiensimu! dan kami ingin kamu untuk memberik masukan pertama dari banyak kontributor di proyek ini.",
                     "updated": 1667898491867
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt waarschijnlijk uren besteed aan het ontdekken van Superalgos. We willen uw eerste indruk hebben, vers van de recente ervaring! En we willen dat uw eerste feedback de eerste is van vele bijdragen aan het project.",
+                    "updated": 1669573492946
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Kamu tidak perlu menjadi programmer yang handal dan menjadi trader profesional. Setiap user di inginkan untuk memberi kembali! Aku akan mempelajari caranya!",
                     "updated": 1667873097346
+                },
+                {
+                    "language": "NL",
+                    "text": "U hoeft geen sterprogrammeur of professionele handelaar te zijn om bij te dragen. Van elke gebruiker wordt verwacht dat hij iets teruggeeft! Ik zal je vertellen hoe!",
+                    "updated": 1669573510699
                 }
             ]
         }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел, чтобы установить ссылку на профиль пользователя User Profile коллеги. Этим голосованием вы передаете право голоса Voting Power непосредственно программе голосования Voting Program вашего коллеги, эффективно делегируя свое право голоса Voting Power.",
                 "updated": 1639040685110
+            },
+            {
+                "language": "TR",
+                "text": "Bir iş arkadaşınızın Kullanıcı Profili ( User Profile ) ile referans oluşturmak için bu düğümü kullanın. Bu oylama ile Oylama Gücünü ( Voting Power ) doğrudan iş arkadaşınızın Oylama Programına ( Voting Program ) aktararak Oylama Gücünüzü ( Voting Power ) etkin bir şekilde devretmiş olursunuz.",
+                "updated": 1671458833079
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Вы можете делегировать свое право голоса Voting Power, чтобы усилить голоса, которым вы доверяете! Доверенные члены сообщества могут эффективно использовать ваш Voting Power, особенно если вы чувствуете, что у вас нет времени или опыта, чтобы быть в курсе определенных аспектов управления.",
                     "updated": 1639041659802
+                },
+                {
+                    "language": "TR",
+                    "text": "Güvendiğiniz kişileri yetkilendirmek için Oylama Gücünüzü ( Voting Power ) devredebilirsiniz! Topluluğun ( Community ) güvendiğiniz üyeleri, özellikle yönetimin belirli yönleriyle ilgilenmek için zamanınız veya uzmanlığınız olmadığını düşünüyorsanız, Oylama Gücünüzü ( Voting Power ) iyi bir şekilde kullanabilir.",
+                    "updated": 1671459210014
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "RU",
                     "text": "Одно и то же право голоса Voting Power может быть делегировано несколько раз с оговоркой в поле предупреждения ниже. Делегирование также может быть отозвано в любой момент, просто удалив узел User Profile Vote или его ссылку.",
                     "updated": 1639041775223
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı Oylama Gücü ( Voting Power ), aşağıdaki uyarı kutusundaki uyarı ile birden fazla kez devredilebilir. Yetkilendirme, Kullanıcı Profili Oy düğümü veya referansı kaldırılarak herhangi bir noktada geri çekilebilir.",
+                    "updated": 1671459923618
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "language": "RU",
                     "text": "Только 10% Voting Power, который вы вкладываете в узел User Profile Vote, достигает профиля пользователя получателя. Это сделано для предотвращения мошенничества, которое может возникнуть, связанного с циркулярными декларациями, поддельными профилями или торговлей голосами.",
                     "updated": 1639041878013
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Kullanıcı Profili ( User Profile ) Oy düğümüne yönlendirdiğiniz Oylama Gücünün ( Voting Power ) sadece %10'u alıcı Kullanıcı Profiline ( User Profile ) ulaşır. Bu, döngüsel beyanlar, sahte profiller veya oy ticareti gibi ortaya çıkabilecek hileli davranışları caydırmak içindir.",
+                    "updated": 1671460064764
                 }
             ]
         },

@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": " Avancemos con la definición del proceso de trading y el contexto en el que deben operar estas ideas.",
                 "updated": 1668193438103
+            },
+            {
+                "language": "IT",
+                "text": "Andiamo avanti con la definizione del processo di trading e del contesto in cui queste idee dovrebbero operare.",
+                "updated": 1669901675099
+            },
+            {
+                "language": "NL",
+                "text": "Laten we verder gaan met de definitie van het handelsproces en de context waarin deze ideeën zouden moeten werken.",
+                "updated": 1670787220165
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lanjutkan dengan definisi proses trading dan konteks di mana ide-ide ini harus beroperasi.",
+                "updated": 1674700664046
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Proceso de Trading: Dado que nos basamos en las tendencias de los gráficos de 24H, esta será una estrategia swing, con posiciones abiertas -potencialmente- durante varios días.",
                     "updated": 1668193480562
+                },
+                {
+                    "language": "IT",
+                    "text": "Processo di trading: poiché ci affidiamo alle tendenze nei grafici 24H, questa sarà una strategia swing, con posizioni aperte, potenzialmente, per diversi giorni.",
+                    "updated": 1669901703466
+                },
+                {
+                    "language": "NL",
+                    "text": "Trading process: Aangezien we vertrouwen op trends in de 24H-grafieken, wordt dit een swingstrategie, met posities die mogelijk meerdere dagen openstaan.",
+                    "updated": 1670787239150
+                },
+                {
+                    "language": "ID",
+                    "text": "Proses trading: Karena kita mengandalkan tren di chart 24H, ini akan menjadi strategi swing, dengan open position—berpotensi—selama beberapa hari.",
+                    "updated": 1674700672222
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "Contexto: La primera hipótesis es para tendencias alcistas en el gráfico de 24H. La segunda, para tendencias bajistas y probablemente también para mercados oscilantes. Dejaremos la definición de cómo se determinan las tendencias para más adelante, cuando se familiarice con las herramientas disponibles en Superalgos.",
                     "updated": 1668193548570
+                },
+                {
+                    "language": "IT",
+                    "text": "Contesto: la prima ipotesi è per i trend rialzisti nel grafico a 24 ore. Il secondo, per le tendenze al ribasso e probabilmente anche per i mercati variabili. Lasceremo la definizione di come determinare le tendenze per dopo, una volta acquisita familiarità con gli strumenti disponibili in Superalgos.",
+                    "updated": 1669901716964
+                },
+                {
+                    "language": "NL",
+                    "text": "Context: De eerste hypothese is voor opwaartse trends in de 24H-grafiek. De tweede, voor neerwaartse trends en waarschijnlijk ook voor verschillende markten. We laten de definitie van hoe de trends moeten worden bepaald voor later, zodra u bekend raakt met de tools die beschikbaar zijn in Superalgos.",
+                    "updated": 1670787264061
+                },
+                {
+                    "language": "ID",
+                    "text": "Konteks: Hipotesis pertama adalah untuk uptrend di chart 24H. Yang kedua, untuk downtrend dan kemungkinan juga untuk ranging market. Kita akan meninggalkan definisi tentang bagaimana tren ditentukan untuk nantinya, setelah kamu terbiasa dengan alat yang tersedia di Superalgos.",
+                    "updated": 1674700679806
                 }
             ]
         },
@@ -107,6 +152,21 @@
                     "language": "ES",
                     "text": "El objetivo de la idea es acumular bitcoin vendiendo BTC para volver a comprar a un precio más barato.",
                     "updated": 1668193557416
+                },
+                {
+                    "language": "IT",
+                    "text": "L'obiettivo dell'idea è accumulare bitcoin vendendo BTC per riacquistare a un prezzo più conveniente.",
+                    "updated": 1669901731779
+                },
+                {
+                    "language": "NL",
+                    "text": "Het doel van het idee is om bitcoin te verzamelen door BTC te verkopen om tegen een lagere prijs opnieuw te kopen.",
+                    "updated": 1670787284183
+                },
+                {
+                    "language": "ID",
+                    "text": "Tujuan dari ide ini adalah untuk akumulasi bitcoin yang menjual BTC untuk dibeli kembali dengan harga yang lebih murah.",
+                    "updated": 1674700693247
                 }
             ]
         }

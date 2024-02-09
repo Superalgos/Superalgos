@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Главный скрипт (сценарий) содержит определения любого количества шаблонных сценариев вместе с главным кодом JavaScript, обеспечивающим логику их реализации.",
                 "updated": 1645168640374
+            },
+            {
+                "language": "TR",
+                "text": "Bir ana komut dosyası, herhangi bir sayıda şablon komut dosyasının tanımlarını ve bunları uygulamak için mantık sağlayan ana JavaScript kodunu içerir.",
+                "updated": 1701087891003
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В общих чертах, мастер-скрипты служат для распыления сложности выполняемой задачи путем разделения задачи на любое количество конкретных областей, обрабатываемых отдельными шаблонными скриптами. Мастер-скрипт контролирует выполнение шаблонных скриптов и решает вопросы, выходящие за их рамки.",
                     "updated": 1645168656671
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel anlamda, ana komut dosyaları, görevi ayrı şablon komut dosyaları tarafından ele alınan herhangi bir sayıda özel kapsama bölerek eldeki görevin karmaşıklığını atomize etmeye hizmet eder. Ana komut dosyası, şablon komut dosyalarının yürütülmesini kontrol eder ve kapsamları dışındaki sorunları çözer.",
+                    "updated": 1701087895651
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Текущая реализация иерархии суперскриптов Masters включает два мастер-скрипта, которые вы можете использовать в качестве примеров. Мастер-скрипт Setup Market рассматривает все шаги, необходимые для установки нового рынка, а мастер-скрипт Delete Market Dependencies рассматривает удаление рынков.",
                     "updated": 1645168678498
+                },
+                {
+                    "language": "TR",
+                    "text": "Ustalar süper komut dosyaları hiyerarşisinin mevcut uygulamasında örnek olarak kullanabileceğiniz iki ana komut dosyası bulunmaktadır. Setup Market ana komut dosyası yeni bir market kurmak için gereken tüm adımlarla ilgilenirken, Delete Market Dependencies ana komut dosyası marketleri kaldırmakla ilgilenir.",
+                    "updated": 1701087901843
                 }
             ]
         }

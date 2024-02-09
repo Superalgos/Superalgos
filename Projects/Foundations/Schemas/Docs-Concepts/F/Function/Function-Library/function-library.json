@@ -11,8 +11,13 @@
             },
             {
                 "language": "TR",
-                "text": "Tek bir konuyla ilgili işlevler topluluğudur. Konu genellikle Fonksiyon Kütüphanesinin adında ifade edilir.",
-                "updated": 1654391133339
+                "text": "Tek bir konuyla ilgili fonksiyonların koleksiyonudur. Konu genellikle Fonksiyon Kütüphanesinin adında ifade edilir.",
+                "updated": 1670780883277
+            },
+            {
+                "language": "DE",
+                "text": "Das ist eine Sammlung von Funktionen, die sich auf ein bestimmtes Thema beziehen. Das Thema wird normalerweise durch den Namen der Funktionsbibliothek ausgedrückt.",
+                "updated": 1696955469244
             }
         ]
     },
@@ -29,8 +34,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Her entegre proje, mümkün olan 3 farklı seviyede İşlev Kütüphanelerine sahip olabilir: İstemci, TS ve UI. Superalgos söz konusu olduğunda, UI'de örneğin bu İşlev Kitaplıkları bulunur:",
-                    "updated": 1654391139086,
+                    "text": "Her entegre proje, mümkün olan 3 farklı seviyede Fonksiyon Kütüphanelerine sahip olabilir: İstemci ( Client ), TS ve UI. Superalgos söz konusu olduğunda, UI'de örneğin bu Fonksiyon Kitaplıkları bulunur:",
+                    "updated": 1670781046205,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes integrierte Projekt kann Funktionsbibliotheken auf den 3 möglichen Ebenen haben: Client, TS und UI. Im Fall von Superalgos gibt es auf der Benutzeroberfläche beispielsweise diese Funktionsbibliotheken:",
+                    "updated": 1696955469417,
                     "style": "Text"
                 }
             ]
@@ -46,8 +57,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Uzay Fonksiyonları Grafiği",
-                    "updated": 1654391145418,
+                    "text": "Grafik Alanı ( Charting Space ) Fonksiyonları",
+                    "updated": 1670781148696,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Charting Space Funktionen",
+                    "updated": 1696955469575,
                     "style": "List"
                 }
             ]
@@ -63,8 +80,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kripto Ekosistem Fonksiyonları",
-                    "updated": 1654391150973,
+                    "text": "Kripto Ekosistemi ( Crypto Ecosystem ) Fonksiyonları",
+                    "updated": 1670781213769,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Funktionen des Krypto-Ökosystems ( Crypto Ecosystem )",
+                    "updated": 1696955469676,
                     "style": "List"
                 }
             ]
@@ -81,8 +104,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Eklentiler Fonksiyonlar",
-                    "updated": 1654391158125,
+                    "text": "Eklenti ( Plugins ) Fonksiyonlar",
+                    "updated": 1670781265843,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Plugins Funktionen",
+                    "updated": 1696955469793,
                     "style": "List"
                 }
             ]
@@ -100,6 +129,12 @@
                     "language": "TR",
                     "text": "Fonksiyon Kütüphaneleri tanım gereği durumsuzdur.",
                     "updated": 1654391163667,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Funktionsbibliotheken sind per Definition zustandslos.",
+                    "updated": 1696955469919,
                     "style": "Note"
                 }
             ]

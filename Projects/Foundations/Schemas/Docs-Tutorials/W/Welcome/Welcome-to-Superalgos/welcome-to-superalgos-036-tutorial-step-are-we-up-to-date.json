@@ -1,0 +1,232 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 36,
+    "type": "Tutorial Step - Are We Up to Date?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "indicator-process-instance"
+        },
+        "text": "If your machine and connection are fast, chances are all processes may already be at 100%. When that happens, the data mining operation is \"up to date\".",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ormai tutti i processi dovrebbero essere al 100%. Quando ciò accade, l'operazione di data mining si trova in uno stato \"up to date\"",
+                "updated": 1618646312962,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Seharusnya sekarang semua proses sudah di 100%. Disaat hal itu terjadi, kita harus kembali ke data mining operation yang \"up to date\".",
+                "updated": 1616773354182,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "A estas alturas, todos los procesos deberían estar al 100%. Cuando eso sucede, nos referimos a la operación de minería de datos como \"actualizada\".",
+                "updated": 1624327535007,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Inzwischen sollten alle Prozesse zu 100 % laufen. Wenn dies der Fall ist, bezeichnen wir die Data-Mining-Operation als \"up to date\".",
+                "updated": 1634170269450,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Şimdiye kadar tüm süreçler %100'e ulaşmış olmalıdır. Bu gerçekleştiğinde, veri madenciliği işlemini \"güncel\" olarak adlandırırız.",
+                "updated": 1669838207549
+            },
+            {
+                "language": "RU",
+                "text": "К этому моменту все процессы должны быть выполнены на 100%. Когда это произойдет, мы будем называть добытые данные \"актуальными\"",
+                "updated": 1641810835813
+            },
+            {
+                "language": "NL",
+                "text": "Ondertussen horen alle processen op 100% te staan. We noemen de datamijn operatie dan \"up to date\".",
+                "updated": 1637500003121
+            },
+            {
+                "language": "FR",
+                "text": "A présent, tous les processus devraient être à 100%. Lorsque cela se produit, on dit que l'opération de minage de données est \"à jour\".",
+                "updated": 1667987510876
+            },
+            {
+                "language": "PL",
+                "text": "W tym momencie wszystkie procesy powinny być już skończone w 100%. Kiedy tak się stanie, określamy operację gromadzenia danych jako \"aktualną\".",
+                "updated": 1675078216101
+            }
+        ],
+        "updated": 1687634236798
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When all processes are up to date, the bots keep running, processing information in realtime as it is produced at the exchange. That is, the data mining operation doesn't stop unless you stop it!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando i processi sono up to date, i bots continuano a lavorare e processare dati in tempo reale man mano che sono prodotti dall'exchange. Quindi l'operazione di mining non si ferma a meno che non la stoppi tu!",
+                    "updated": 1614845991321,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Disaat semua proses up to date, bot tetap berjalan, dan memproses informasi secara realtime yang dihasilkan di exchange. Itu dia, data mining operation tidak akan berhenti kecuali kamu menghentikannya!",
+                    "updated": 1616773455412,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando todos los procesos están actualizados, los bots siguen funcionando y procesan la información en tiempo real a medida que se produce en el exchange, es decir, ¡la operación de minería de datos no se detiene a menos que tú la detengas!",
+                    "updated": 1624493869548,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alle Prozesse auf dem neuesten Stand sind, laufen die Bots weiter und verarbeiten Informationen in Echtzeit, während sie an der Börse produziert werden. Das heißt, die Data-Mining-Operation stoppt nur, wenn Sie sie stoppen!",
+                    "updated": 1634170281567,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm süreçler güncel olduğunda, botlar çalışmaya devam eder ve bilgiyi borsada üretildiği gibi gerçek zamanlı olarak işler. Yani, siz durdurmadığınız sürece veri madenciliği işlemi durmaz!",
+                    "updated": 1636015476681
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда все процессы обновлены, боты продолжают работать, обрабатывая информацию в режиме реального времени по мере ее получения на бирже. То есть операция по добыче данных не остановится, пока Вы ее не остановите!",
+                    "updated": 1641810548850
+                },
+                {
+                    "language": "NL",
+                    "text": "Als alle processen up to date zijn, blijven de bots draaien om informatie van de exchange realtime te verwerken. De datamijn operatie blijft doorgaan tenzij je het zelf stopt!",
+                    "updated": 1637500291829
+                },
+                {
+                    "language": "FR",
+                    "text": "Lorsque tous les processus sont à jour, les bots continuent de fonctionner, traitant les informations en temps réel au fur et à mesure qu'elles sont produites sur l'exchange. En d'autres termes, l'opération de minage des données ne s'arrête que si vous l'arrêtez !",
+                    "updated": 1667987548888
+                },
+                {
+                    "language": "PL",
+                    "text": "Gdy wszystkie operacje są aktualne, boty działają dalej, przetwarzając informacje w czasie rzeczywistym, zaraz po odebraniu ich z giełdy. Oznacza to, że operacja gromadzenia danych działa cały czas, chyba że ją zatrzymasz!",
+                    "updated": 1675078854700
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Look around and see if all processes are at 100%",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Controlla se tutti i processi sono al 100%",
+                    "updated": 1614846041698,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat apakah semua proses sudah 100%",
+                    "updated": 1616773494236,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Revisa si todos los procesos están al 100%",
+                    "updated": 1675208022652,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich um und prüfen Sie, ob alle Prozesse zu 100% laufen.",
+                    "updated": 1634170288448,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını kontgrol edin.",
+                    "updated": 1644910164470
+                },
+                {
+                    "language": "RU",
+                    "text": "Оглянитесь вокруг и посмотрите, все ли процессы работают на 100%.",
+                    "updated": 1636194193682
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk en controleer of alle processen op 100% staan.",
+                    "updated": 1637500340878
+                },
+                {
+                    "language": "FR",
+                    "text": "Regardez autour de vous et voyez si tous les processus sont à 100%.",
+                    "updated": 1667987569679
+                },
+                {
+                    "language": "PL",
+                    "text": "Rozejrzyj się i sprawdź, czy wszystkie procesy gotowe 100%.",
+                    "updated": 1675078868897
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "If they're not there yet, go grab some coffee and come back later! Do not continue until all tasks are at 100%",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per una Live Trading Session hai bisogno di un feed costante di dati dall'exchange, processati in tempo reale cosicchè cosicchè il Trading Bot possa applicare le regole del tuo Trading System per prendere decisioni. ",
+                    "updated": 1618646375123,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menjalankan Live Trading Session, kamu butuh informasi konstan dari exchange yang memproses secara realtime sehingga Trading Bot akan menerapkan aturanmu di Trading System untuk membuat keputusan di live trading.",
+                    "updated": 1616773677042,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para ejecutar un Live Trading Session, necesitas un suministro constante de información del exchange procesado en tiempo real para que el Trading Bot pueda aplicar las reglas de tu Trading System  para hacer decisiones en vivo.",
+                    "updated": 1624327897194,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Live Trading Session durchzuführen, benötigen Sie eine ständige Zufuhr von Informationen von der Börse, die in Echtzeit verarbeitet werden, damit der Trading Bot die Regeln Ihres Trading System anwenden kann, um Live-Handelsentscheidungen zu treffen.",
+                    "updated": 1634170296952,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Ticaret Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak borsadan sürekli bir bilgi akışına ihtiyacı vardır.",
+                    "updated": 1669838321608
+                },
+                {
+                    "language": "RU",
+                    "text": "...Для проведения реальной торговой сессии вам необходим постоянный поток информации с биржи, обрабатываемый в режиме реального времени, чтобы торговый бот мог применять правила вашей торговой системы для принятия торговых решений в реальном времени.",
+                    "updated": 1641810791470
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een Live Trading Session te draaien, heb je een constante stroom van informatie van de exchange nodig die realtime verwerkt wordt zodat de Trading Bot de regels van jouw Trading System kan toepassen om live trading beslissingen te maken.",
+                    "updated": 1637501395384
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour exécuter une Live Trading Session, vous avez besoin d'un flux constant d'informations provenant de l'exchange traitées en temps réel, afin que le Trading Bot puisse appliquer les règles de votre système de trading pour prendre des décisions de trading en direct.",
+                    "updated": 1667987619432
+                },
+                {
+                    "language": "PL",
+                    "text": "Aby uruchomić Live Trading Session, potrzebujesz stałego dopływu informacji z giełdy, które są przetwarzane w czasie rzeczywistym, tak aby Trading Bot mógł zastosować reguły zdefiniowane w Twoim Trading System do podejmowania na żywo decyzji handlowych.",
+                    "updated": 1675079135158
+                }
+            ],
+            "updated": 1687634575655
+        }
+    ]
+}

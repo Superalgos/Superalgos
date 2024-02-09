@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Um einen Node abzutrennen, klicken Sie auf die Schaltfläche \"Trennen\" im Menü des Nodes. Um einen Node anzuhängen, klicken Sie mit der rechten Maustaste auf den Node und ziehen ihn näher an den Node, an den Sie ihn anhängen möchten. Lassen Sie die rechte Maustaste los, wenn der Ziel-Node hervorgehoben ist.",
                 "updated": 1641768187741
+            },
+            {
+                "language": "TR",
+                "text": "Bir düğüm, piyasa bilgileri, ticari işlem zekası, sistemin işleyişi veya diğer kavramlarla ilgili olabilecek bilgileri içeren küçük bir veri yapısıdır. Tasarım alanında görsel olarak simgelerle temsil edilirler.",
+                "updated": 1671962503169
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Struktur von Nodes (Knoten)",
                     "updated": 1641767511260
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümlerin Yapısı",
+                    "updated": 1671962518105
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "DE",
                     "text": "Nodes können miteinander verkettet werden und bilden so eine Struktur von Nodes. In jeder Struktur von Nodes gibt es einen Eltern-Node mit Nachkommen. Das heißt, eine Node-Struktur ist eine Datenstruktur, die aus einem beliebigen Node und seinen Nachkommen besteht.",
                     "updated": 1641767534896
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler, düğüm yapıları oluşturacak şekilde birbirine zincirlenebilir. Her düğüm yapısında alt düğümleri olan bir ana düğüm vardır. Yani, bir düğüm yapısı, herhangi bir düğüm ve onun alt düğümlerinden oluşan bir veri yapısıdır.",
+                    "updated": 1671962556030
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "DE",
                     "text": "Folglich sind Strukturen von Nodes hierarchische Strukturen und eine logische Darstellung der Beziehungen zwischen den Konzepten, die von jedem Node verkörpert werden.",
                     "updated": 1641767548520
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonuç olarak, düğüm yapıları hiyerarşik yapılardır ve her bir düğüm tarafından somutlaştırılan kavramların birbirleriyle nasıl ilişkili olduğunun mantıksal bir temsilidir.",
+                    "updated": 1671962576236
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "DE",
                     "text": "Eltern-Nachkommen-Beziehungen",
                     "updated": 1641767565254
+                },
+                {
+                    "language": "TR",
+                    "text": "Ebeveyn-Çocuk İlişkileri ( Parent-Offspring Relationships )",
+                    "updated": 1698699604394
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "DE",
                     "text": "Die Nodes in Strukturen von Nodes sind durch sogenannte Parent-Offspring-Beziehungen miteinander verkettet. Diese Beziehungen werden visuell durch orangefarbene gepunktete Linien dargestellt, die sich je nach bestimmten Visualisierungseigenschaften, die der Benutzer steuern kann, gelb oder blau färben können. Wenn Nodes miteinander verkettet sind, bilden sie Strukturen von Nodes.",
                     "updated": 1641767780001
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm yapılarındaki düğümler, üst-alt ilişkileriyle birbirlerine zincirlenir. Bu ilişkiler görsel olarak turuncu noktalı çizgilerle temsil edilir ve kullanıcının kontrol edebileceği belirli görselleştirme özelliklerine bağlı olarak sarı veya maviye dönüşebilir. Düğümler birbirine zincirlendiğinde düğüm yapılarını oluştururlar.",
+                    "updated": 1671962618503
                 }
             ]
         },
@@ -148,6 +178,11 @@
                     "language": "DE",
                     "text": "Die Richtung der Beziehung wird in den meisten Fällen durch die Fähigkeit eines Nodes bestimmt, den Nachfolge-Node zu erzeugen. Das heißt, der übergeordnete Node ist derjenige, der aufgrund des Software-Designs den Nachfolge-Node erzeugen kann.",
                     "updated": 1641767809012
+                },
+                {
+                    "language": "TR",
+                    "text": "Aradaki bağlantının yönü, çoğu durumda, bir düğümün alt düğümü üretme kabiliyetine göre belirlenir. Yani, üst düğüm, yazılım tasarımı gereği alt düğümü üretebilen düğümdür.",
+                    "updated": 1671962661689
                 }
             ]
         },
@@ -169,6 +204,11 @@
                     "language": "DE",
                     "text": "Lösen und Verbinden von Nodes",
                     "updated": 1641767765640
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler Nasıl Ayrılır ve Eklenir",
+                    "updated": 1671962683406
                 }
             ]
         },

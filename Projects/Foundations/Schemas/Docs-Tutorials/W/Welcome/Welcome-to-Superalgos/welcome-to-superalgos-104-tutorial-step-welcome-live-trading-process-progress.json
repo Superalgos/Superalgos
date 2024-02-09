@@ -1,0 +1,52 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 104,
+    "type": "Tutorial Step - Welcome Live Trading Process Progress",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video a schermo intero.",
+                "updated": 1618071529941,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": " In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634245113542
+            },
+            {
+                "language": "TR",
+                "text": "Burada neler olduğunu görebilirsiniz.",
+                "updated": 1636574942361
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582727118
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642771593729
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1667135300137
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675362479043
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-live-trading-process-progress.gif"
+        }
+    ]
+}

@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Trading Engine kavramına aşinasınız, değil mi? Hangi katmanların hiyerarşinin hangi bölümlerini etkilediğini size öğreteceğim, böylece bilgilere erişebileceksiniz!",
                 "updated": 1641755390092
+            },
+            {
+                "language": "ID",
+                "text": "Kamu sudah familiar dengan konsep dari Trading Engine kan? Aku akan mengajarimu layers  mana yang memengaruhi bagian mana dari hierarki sehingga kamu dapat mengakses infonya!",
+                "updated": 1673831993470
+            },
+            {
+                "language": "ES",
+                "text": "¿Estás familiarizado con el concepto de \"Trading Engine\", verdad? ¡Voy a enseñarte qué capas afectan a qué secciones de la jerarquía para que puedas acceder a la información!",
+                "updated": 1675463801014
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Hoş Geldiniz eğitimini (Welcome Tutorial) tamamladığınızı varsayıyorum... Ekranı ikiye böldüğünüz zamanı hatırlıyor musunuz? Fare imlecini grafikteki mumların üzerine kaydırdınız ve her bir mum için ticaret motoru hiyerarşisindeki belirli düğümlerin değerini görebiliyordunuz, değil mi?",
                     "updated": 1641755469399
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku berasumsi kamu sudah menjalankan tutorial Welcome... Ingat ketika kamu membagi layar menjadi dua? kamu mengarahkan pointer mouse ke candle pada chart, dan untuk setiap candle, kamu dapat melihat value/nilai node tertentu dalam hierarki trading engine, bukan?",
+                    "updated": 1673831999893
+                },
+                {
+                    "language": "ES",
+                    "text": "Asumo que has hecho el tutorial de Bienvenida... ¿Recuerdas cuando dividiste la pantalla por la mitad? Deslizabas el puntero del ratón sobre las velas del gráfico y, para cada vela, podías ver el valor de determinados nodos de la jerarquía del motor de trading, ¿verdad?",
+                    "updated": 1675463807122
                 }
             ]
         },
@@ -69,6 +89,16 @@
                     "language": "TR",
                     "text": "Her şey bundan ibaret! Belirli bir katmanı açtığınızda, hiyerarşinin belirli bir bölümü için değerlerin görselleştirilmesini açarsınız.",
                     "updated": 1641755510121
+                },
+                {
+                    "language": "ID",
+                    "text": "Nah, itulah maksud dari semua ini! Saat kamu mengaktifkan layers tertentu, kamu mengaktifkan visualisasi dari nilai untuk bagian hierarki tertentu.",
+                    "updated": 1673832006133
+                },
+                {
+                    "language": "ES",
+                    "text": "Pues bien, ¡de eso se trata! Cuando activas una determinada capa, activas la visualización de valores para una determinada sección de la jerarquía.",
+                    "updated": 1675463821879
                 }
             ]
         },
@@ -91,6 +121,16 @@
                     "language": "TR",
                     "text": "Hadi daha yakından bakalım!",
                     "updated": 1641755527766
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita lihat lebih dekat!",
+                    "updated": 1673832015973
+                },
+                {
+                    "language": "ES",
+                    "text": "Veámoslo más de cerca.",
+                    "updated": 1675463828468
                 }
             ]
         }

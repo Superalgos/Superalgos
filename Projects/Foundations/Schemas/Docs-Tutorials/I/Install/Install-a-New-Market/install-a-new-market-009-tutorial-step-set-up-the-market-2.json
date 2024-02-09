@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Установите ссылку от узла Market Base Asset на только что определенном рынке к соответствующему узлу Asset, определенному в разделе Exchange Assets.",
                 "updated": 1643090538100
+            },
+            {
+                "language": "NL",
+                "text": "Breng een referentie tot stand van het Market Base Asset knooppunt in de markt die u zojuist hebt gedefinieerd naar het corresponderende Asset knooppunt dat is gedefinieerd onder Exchange Assets.",
+                "updated": 1676124594557
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Если вы не знакомы с созданием ссылок, пожалуйста, прочитайте об этом в документации.",
                     "updated": 1643090547251
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u niet bekend bent met het leggen van referenties, lees dan meer over het onderwerp in de documentatie.",
+                    "updated": 1676124614789
                 }
             ]
         }

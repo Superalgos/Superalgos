@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Github Storage",
+            "translationKey": "add.githubStorage",
             "relatedUiObject": "Github Storage",
             "relatedUiObjectProject": "Open-Storage"
         },
@@ -25,6 +27,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Superalgos Storage",
+            "translationKey": "add.superalgosStorage",
             "relatedUiObject": "Superalgos Storage",
             "relatedUiObjectProject": "Open-Storage"
         },        
@@ -33,7 +36,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

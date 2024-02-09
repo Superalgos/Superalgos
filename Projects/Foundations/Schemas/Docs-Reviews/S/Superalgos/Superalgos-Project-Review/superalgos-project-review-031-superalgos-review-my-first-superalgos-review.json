@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Şimdilik öğreticileri öğütüyorum, bazı geriye dönük testler yapmak için sabırsızlanıyorum. Bu yazılımın ne kadar karmaşık ama aynı zamanda kullanımının kolay olduğundan etkilendim. Bir geliştirici olarak, projeye katkıda bulunmak için de oldukça motiveyim.",
                 "updated": 1669312471574
+            },
+            {
+                "language": "DE",
+                "text": "Ich lese im Moment nur die Tutorials und kann es kaum erwarten, einige Backtests durchzuführen. Ich bin beeindruckt, wie komplex, aber auch einfach zu bedienen diese Software ist. Als Entwickler bin ich auch hoch motiviert, zum Projekt beizutragen.",
+                "updated": 1687638998815
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Saygılarımızla,",
                     "updated": 1669312481928
+                },
+                {
+                    "language": "DE",
+                    "text": "Herzliche Grüße,",
+                    "updated": 1687638989574
                 }
             ]
         },

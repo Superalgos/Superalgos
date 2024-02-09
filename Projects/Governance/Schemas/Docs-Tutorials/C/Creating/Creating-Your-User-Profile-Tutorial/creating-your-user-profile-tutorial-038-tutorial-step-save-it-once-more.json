@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "İşimiz bitti! Profilinizi göndermeden önce gidebileceğimiz en son yer burası. Şimdi devam etmeden önce kaydettiğinden emin olalım.",
                 "updated": 1645103335573
+            },
+            {
+                "language": "ID",
+                "text": "Kita sudah selesai! Ini sejauh yang kita lakukan sebelum mengirimkan profilmu. Sekarang pastikan kamu menyimpannya sebelum melanjutkan.",
+                "updated": 1671544586819
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Profilinizi son bir kez kaydetmek için Ctrl + Shift + Alt + Key-S tuşlarına basın!",
                     "updated": 1645102985520
+                },
+                {
+                    "language": "ID",
+                    "text": "Tekan Ctrl + Shift + Alt + Key-S untuk menyimpan User Profile kamu sekali lagi!",
+                    "updated": 1671544594530
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No harm in checking the file saved correctly, right? A file with your Github username and.json extension should exist in the below path!",
-                    "updated": 1630898402192,
+                    "text": "No pasa nada por comprobar que el archivo se ha guardado correctamente, ¿verdad? ¡Un archivo con su nombre de usuario de Github y la extensión json debe existir en la ruta de abajo!",
+                    "updated": 1682521987453,
                     "style": "Success"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Dosyanın doğru kaydedilip kaydedilmediğini kontrol etmenin bir zararı yok, değil mi? Aşağıdaki yolda Github_kullanıcı_adınız.json şeklinde bir dosya bulunmalıdır!",
                     "updated": 1645103424160
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada salahnya memeriksa file yang disimpan dengan benar, bukan? File dengan nama pengguna Github dan ekstensi json kamu harus ada pada jalur di bawah ini!",
+                    "updated": 1671544602533
                 }
             ]
         },

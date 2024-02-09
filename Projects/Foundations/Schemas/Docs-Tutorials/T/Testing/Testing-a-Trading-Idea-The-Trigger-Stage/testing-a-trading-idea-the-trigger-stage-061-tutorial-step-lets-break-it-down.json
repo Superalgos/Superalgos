@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimine getireceğiz!",
-                "updated": 1641663516896
+                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimini yazacağız!",
+                "updated": 1669664712041
             },
             {
                 "language": "RU",
                 "text": "Мы пройдем пошагово через утверждение и приведем его к правильному синтаксису!",
                 "updated": 1642660856072
+            },
+            {
+                "language": "ES",
+                "text": "¡Repasaremos la declaración paso a paso y la pondremos en la sintaxis adecuada!",
+                "updated": 1679100426499
             }
         ]
     },
@@ -39,13 +44,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Unutmayın, zaman önce gelir: 1H diyagramında!",
-                    "updated": 1641663535365
+                    "text": "Unutmayın, zaman her zaman önce yazılır: 1H zaman diliminde!",
+                    "updated": 1669664770192
                 },
                 {
                     "language": "RU",
                     "text": "Помните, время идет первым: в графике 1H!",
                     "updated": 1642660878963
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda, el tiempo va primero: ¡en el gráfico 1H!",
+                    "updated": 1679100443404
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Закрытие свечи меньше, чем:",
                     "updated": 1642660897026
+                },
+                {
+                    "language": "ES",
+                    "text": "El cierre de la vela es menor que:",
+                    "updated": 1679100452125
                 }
             ]
         },
@@ -96,9 +111,14 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Hareketli ortalama eksi sapma, her ifade için tanımlanmış bir zaman çerçevesi ile:",
-                    "updated": 1654394177301,
+                    "text": "Hareketli ortalama ( movingAverage ) - sapma ( deviation ), her ifade için zaman dilimini ilave etmeyi unutmayın:",
+                    "updated": 1669664892158,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "La media móvil menos la desviación, con un marco temporal definido para cada declaración:",
+                    "updated": 1679100459422
                 }
             ]
         },

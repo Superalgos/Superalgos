@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Superalgos hakkındaki ilk düşüncelerim.",
                 "updated": 1669193965114
+            },
+            {
+                "language": "DE",
+                "text": "Meine ersten Gedanken zu Superalgos.",
+                "updated": 1685392063929
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Aklıma gelen ilk düşünce Superalgos'un ne kadar iyi belgelenmiş, sade ve sunulmuş olduğuydu. Yeni bir kullanıcıya aktarılması gereken bilgi miktarı düşünüldüğünde, eğitimler bunaltmayacak şekilde doğru bir hızda ilerliyor.",
                     "updated": 1669194742313
+                },
+                {
+                    "language": "DE",
+                    "text": "Der erste Gedanke, der mir in den Sinn kam, war, wie gut dokumentiert, ausgefeilt und präsentiert Superalgos ist. In Anbetracht der schieren Menge an Wissen, die einem neuen Benutzer vermittelt werden muss, bewegen sich die Tutorials im richtigen Tempo, um ihn nicht zu überfordern.",
+                    "updated": 1685392073463
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Python kullanarak kendi temel ticaret arayüzümü ve botlarımı yazdıktan sonra, yazılımın uç durumları veya dikkate almadığım sonuçlar hakkında endişelenmek zorunda kalmamayı dört gözle bekliyorum. Sadece odaklanmış bir topluluk ekibinin çalışmasıyla bu sorunlar etkili bir şekilde çözülebilir.",
                     "updated": 1669194107584
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachdem ich meine eigene grundlegende Handelsschnittstelle und Bots mit Python geschrieben habe, freue ich mich darauf, mich nicht mehr um Software-Edge-Cases oder Ergebnisse kümmern zu müssen, die ich nicht bedacht hatte. Nur durch die Arbeit eines fokussierten Community-Teams können diese Probleme effektiv gelöst werden.",
+                    "updated": 1685392081890
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Keşke bunu daha önce bulsaydım. Kazmak için sabırsızlanıyorum.",
                     "updated": 1669194121546
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich wünschte, ich hätte das früher gefunden. Ich kann es kaum erwarten, loszulegen.",
+                    "updated": 1685392096058
                 }
             ]
         },

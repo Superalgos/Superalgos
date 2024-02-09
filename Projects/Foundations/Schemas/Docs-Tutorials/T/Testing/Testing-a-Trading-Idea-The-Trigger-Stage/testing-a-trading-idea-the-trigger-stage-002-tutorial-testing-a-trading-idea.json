@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Sonunda teoriyi pratiğe dökebileceğimiz noktaya geldik, hadi başlayalım!",
                 "updated": 1641062082892
+            },
+            {
+                "language": "ES",
+                "text": "Hemos llegado al punto en el que por fin podemos poner en práctica la teoría, así que ¡manos a la obra!",
+                "updated": 1675620977013
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Serinin ikinci eğitiminde, bir ticaret fikrinin test edilebilir olması için nasıl düzgün bir şekilde tanımlanacağını ele aldık. Ayrıca bir saha gezisine çıktık ve test etmek için uygun bir resmi teoriyle geri döndük.",
                     "updated": 1641062181384
+                },
+                {
+                    "language": "ES",
+                    "text": "En el segundo tutorial de la serie explicamos cómo definir correctamente una idea de trading para que se pueda probar. También nos fuimos de excursión y volvimos con una hipótesis formalizada para ponerla a prueba.",
+                    "updated": 1675621126413
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bu eğitimde varsayımı test edeceğiz!",
                     "updated": 1641062215027
+                },
+                {
+                    "language": "ES",
+                    "text": "En este tutorial, ¡pondremos a prueba la hipótesis!",
+                    "updated": 1675621133774
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Bunu yapmadan önce serideki birinci ve ikinci dersleri uygulamanızı şiddetle tavsiye ederim! Bütün hikaye birbiriyle ilişkilidir.",
                     "updated": 1641062291040
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Te recomiendo encarecidamente que hagas el primer y el segundo tutorial de la serie antes de hacer éste! La historia se desarrolla de uno a otro.",
+                    "updated": 1675621153384
                 }
             ]
         }

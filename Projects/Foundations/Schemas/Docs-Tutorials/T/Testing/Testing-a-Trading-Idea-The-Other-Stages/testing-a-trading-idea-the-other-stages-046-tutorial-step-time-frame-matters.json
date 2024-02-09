@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Таймфрейм торговой сессии определяет, как часто торговый бот делает то, что он делает!",
                 "updated": 1642944127180
+            },
+            {
+                "language": "ES",
+                "text": "El marco temporal de la trading session determina la frecuencia con la que el robot de trading hace lo que hace.",
+                "updated": 1681732336017
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Внимательно прочитайте эту страницу о таймфрейме (Time Frame)!",
                     "updated": 1642944184415
+                },
+                {
+                    "language": "ES",
+                    "text": "Lee atentamente esta página sobre los plazos.",
+                    "updated": 1681732374575
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "В одном из следующих уроков я расскажу вам, как преодолеть этот негативный аспект проведения бэктестинга на таймфрейме, отличном от реального времени.",
                     "updated": 1642944227384
+                },
+                {
+                    "language": "ES",
+                    "text": "En uno de los próximos tutoriales, te enseñaré un truco para superar este aspecto negativo de ejecutar sesiones de backtesting en un marco temporal diferente al de las sesiones en vivo.",
+                    "updated": 1681732393369
                 }
             ]
         }

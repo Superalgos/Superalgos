@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "На этой странице представлены фрагменты содержания, используемые в разделах, объясняющих, как работает документирование.",
                 "updated": 1647782402094
+            },
+            {
+                "language": "TR",
+                "text": "Bu sayfa, belgelemenin nasıl çalıştığını açıklayan bölümlerde kullanılan içerik parçacıklarını içerir.",
+                "updated": 1667992115120
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "В Superalgos мы гордимся качеством создаваемого нами продукта. Документация и учебники - важнейшие составляющие Superalgos.",
                     "updated": 1647782421386
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'ta, oluşturduğumuz ürünün kalitesiyle gurur duyuyoruz. Dokümanlar ve öğreticiler Superalgos'un çok önemli parçalarıdır.",
+                    "updated": 1667992400132
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "При этом мы понимаем, что для получения качественного продукта требуется время и усилия, поэтому итерации над ранними прототипами и реализация обратной связи на ранних стадиях - это хороший способ достичь желаемых стандартов качества.",
                     "updated": 1647782434526
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla birlikte, kaliteli bir ürüne ulaşmanın zaman ve çaba gerektirdiğini biliyoruz, bu nedenle erken prototipler üzerinde yineleme yapmak ve erken aşamadaki geri bildirimleri uygulamak, istenen kalite standartlarına ulaşmak için iyi bir yoldur.",
+                    "updated": 1667992505237
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "RU",
                     "text": "Когда вы пишете документацию или создаете учебник для Superalgos, вы становитесь сопровождающим того, что вы создали. Вы несете ответственность за поддержание материала в актуальном состоянии, а также за реализацию отзывов, которыми могут поделиться пользователи! Ваш материал должен стать основным ресурсом для изучения тем, которые он охватывает.",
                     "updated": 1647782450004
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos için bir döküman yazdığınızda veya bir öğretici oluşturduğunuzda, oluşturduğunuz şeyin koruyucusu olursunuz. Materyali sistemle güncel tutmak ve kullanıcıların paylaşabileceği geri bildirimleri uygulamak sizin sorumluluğunuzdadır! Materyaliniz, kapsadığı konuları öğrenmek için nihai kaynak haline gelmelidir.",
+                    "updated": 1667992685247
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "RU",
                     "text": "Конечная цель документации и учебников - предоставить пользователям практический опыт обучения, подробно освещая темы. В общем, мы знаем, что материал хорош - или достиг зрелого состояния - когда пользователи не задают вопросов о нем в группе поддержки Support Group.",
                     "updated": 1647782505828
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanların ve öğreticilerin nihai amacı, kullanıcılara konuları ayrıntılı olarak kapsayan uygulamalı bir öğrenme deneyimi sunmaktır. Genel anlamda, kullanıcılar Destek Grubunda ( Support Group ) bu konuda soru sormadığında materyalin iyi olduğunu veya olgun bir duruma ulaştığını biliriz.",
+                    "updated": 1667993647997
                 }
             ]
         },
@@ -96,6 +121,11 @@
                     "language": "RU",
                     "text": "Будьте точны и однозначны в формулировках. Перечитывайте свои тексты снова и снова в поисках фраз, которые могут быть не совсем понятны, или которые могут быть истолкованы по-разному. Улучшите предложения, чтобы сделать их как можно более понятными. Помните, что чем менее понятно вы пишете, тем больше вопросов возникает в группе поддержки.",
                     "updated": 1647782541843
+                },
+                {
+                    "language": "TR",
+                    "text": "Dil konusunda kesin ve net olun. Kolayca anlaşılmayan veya farklı şekillerde yorumlanabilecek ifadeleri bulmak için yazınızı tekrar tekrar okuyun. Cümleleri mümkün olduğunca açık hale getirmek için geliştirin. Unutmayın, yazınız ne kadar az anlaşılır olursa, Destek Grubunda ( Support Group ) o kadar çok sorumuz olur.",
+                    "updated": 1667993878956
                 }
             ]
         },
@@ -108,6 +138,11 @@
                     "language": "RU",
                     "text": "Будьте готовы повторять это снова и снова, пока материал не будет доведен до стабильного состояния. Это произойдет, когда в группе поддержки больше не будет вопросов по этой теме!",
                     "updated": 1647782587948
+                },
+                {
+                    "language": "TR",
+                    "text": "Materyal stabil hale gelene kadar tekrar tekrar yinelemeye hazır olun. Bu, Destek Grubunda ( Support Group )  konuyla ilgili başka soru kalmadığında gerçekleşecektir!",
+                    "updated": 1667994208708
                 }
             ]
         },
@@ -134,6 +169,11 @@
                     "language": "RU",
                     "text": "Цветные страницы выглядят великолепно, в то время как за белыми страницами, заполненными текстом, следить сложнее. Разнообразьте монотонность с помощью четырех различных стилей блоков:",
                     "updated": 1647782614902
+                },
+                {
+                    "language": "TR",
+                    "text": "Renkli sayfalar harika görünürken, metin dolu beyaz sayfaları takip etmek daha zordur. Dört farklı kutu stiliyle monotonluğu kırdığınızdan emin olun:",
+                    "updated": 1667994526483
                 }
             ]
         },
@@ -146,6 +186,11 @@
                     "language": "RU",
                     "text": "Это отличный вариант для дополнительных советов.",
                     "updated": 1647782623545
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, ek ipuçları için harikadır.",
+                    "updated": 1667994588402
                 }
             ]
         },
@@ -158,6 +203,11 @@
                     "language": "RU",
                     "text": "Используйте это время от времени, чтобы разбить большие участки обычного текста.",
                     "updated": 1647782643677
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu, düz metnin büyük bölümlerini ayırmak için arada bir kullanın.",
+                    "updated": 1667994735242
                 }
             ]
         },
@@ -170,6 +220,11 @@
                     "language": "RU",
                     "text": "Оставьте это поле для действительно важных вещей. То, что вы не хотите, чтобы пользователи пропустили или забыли.",
                     "updated": 1647782654742
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kutuyu gerçekten önemli şeyler için bırakın. Kullanıcıların gözden kaçırmasını veya unutmasını istemediğiniz şeyler.",
+                    "updated": 1667994824487
                 }
             ]
         },
@@ -182,6 +237,11 @@
                     "language": "RU",
                     "text": "А вот это оставьте для настоящих предупреждений. То, что может представлять угрозу или риск.",
                     "updated": 1647782671211
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu da gerçek uyarılar için saklayın. Tehlike veya risk oluşturabilecek şeyler.",
+                    "updated": 1667995141864
                 }
             ]
         },
@@ -208,6 +268,11 @@
                     "language": "RU",
                     "text": "Система распознает название всех объектов, имеющих страницу Docs Page, когда название объекта написано с заглавной буквы. Когда это происходит, система автоматически создает всплывающую подсказку для этой фразы. Это ценный ресурс, поскольку он предоставляет контекст, который вам не нужно объяснять.",
                     "updated": 1647782738631
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, Dokümanlar Sayfası ( Docs Page )  olan tüm varlıkların adını, varlığın adı büyük harfle yazıldığında tanır. Böyle bir durumda sistem otomatik olarak ifade için bir araç ipucu oluşturur. Bu, açıklamanıza gerek olmayan bir bağlam sağladığı için değerli bir kaynaktır.",
+                    "updated": 1667996173101
                 }
             ]
         },
@@ -219,6 +284,11 @@
                     "language": "RU",
                     "text": "Используйте этот ресурс с умом, так как слишком много всплывающих подсказок на одной странице может оказаться чрезмерным и, возможно, неактуальным.",
                     "updated": 1647782750354
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kaynağı akıllıca kullandığınızdan emin olun, çünkü tek bir sayfada çok fazla araç ipucu bunaltıcı ve muhtemelen ilgisiz olabilir.",
+                    "updated": 1667996355330
                 }
             ]
         },
@@ -231,6 +301,11 @@
                     "language": "RU",
                     "text": "Если вы считаете, что подсказка имеет значение, напишите название объекта с заглавной буквы. Если подсказка не имеет значения, напишите название строчными буквами.",
                     "updated": 1647782828826
+                },
+                {
+                    "language": "TR",
+                    "text": "Araç ipucunun alakalı olduğunu düşünüyorsanız, varlığın adını büyük harfle yazın. Araç ipucu alakalı değilse, varlığın adını küçük harfle yazın.",
+                    "updated": 1667996552403
                 }
             ]
         },
@@ -257,6 +332,11 @@
                     "language": "RU",
                     "text": "Есть как минимум две причины, по которым желательно иметь контент, проверенный на орфографию и грамматику:",
                     "updated": 1647782849141
+                },
+                {
+                    "language": "TR",
+                    "text": "Yazım ve dilbilgisi denetimi yapılmış içeriğe sahip olmanın istenmesinin en az iki nedeni vardır:",
+                    "updated": 1667996689974
                 }
             ]
         },
@@ -268,6 +348,11 @@
                     "language": "RU",
                     "text": "Правильный язык говорит о качестве продукта.",
                     "updated": 1647782855320
+                },
+                {
+                    "language": "TR",
+                    "text": "Doğru dil, ürünün kalitesine işaret eder.",
+                    "updated": 1667996803055
                 }
             ]
         },
@@ -279,6 +364,11 @@
                     "language": "RU",
                     "text": "Пользователи, не владеющие английским языком, могут использовать онлайн-переводчики, которые хорошо работают только при наличии правильного оригинала.",
                     "updated": 1647782904124
+                },
+                {
+                    "language": "TR",
+                    "text": "İngilizce bilmeyen kullanıcılar, yalnızca uygun bir kaynağa sahip olduklarında iyi performans gösteren çevrimiçi çevirmenleri kullanıyor olabilir.",
+                    "updated": 1667996902736
                 }
             ]
         },
@@ -291,6 +381,11 @@
                     "language": "RU",
                     "text": "Всегда используйте проверку грамматики и орфографии, чтобы убедиться, что ваш контент максимально корректен!",
                     "updated": 1647782914625
+                },
+                {
+                    "language": "TR",
+                    "text": "İçeriğinizin olabildiğince doğru olduğundan emin olmak için her zaman bir dilbilgisi ve yazım denetleyicisi kullanın!",
+                    "updated": 1667996995774
                 }
             ]
         },
@@ -319,6 +414,11 @@
                     "language": "RU",
                     "text": "Всегда используйте правильный регистр заголовков. Но что именно является правильным регистром заголовка? Давайте согласимся со стандартом, предложенным в этой статье блога:",
                     "updated": 1647782937737
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlıklar için her zaman uygun başlık harflerini kullanın. Peki, uygun başlık harfi tam olarak nedir? Bu blog yazısında önerilen standardı kabul edelim:",
+                    "updated": 1667997092555
                 }
             ]
         },
@@ -336,6 +436,11 @@
                     "language": "RU",
                     "text": "Заголовки лучше всего смотрятся, когда они занимают одну строку. Используйте двустрочные заголовки только в случае крайней необходимости!",
                     "updated": 1647782949075
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlıklar en iyi tek bir satıra yayıldıklarında görünür. İki satırlık başlıkları yalnızca kesinlikle gerekliyse kullanın!",
+                    "updated": 1667997200821
                 }
             ]
         }

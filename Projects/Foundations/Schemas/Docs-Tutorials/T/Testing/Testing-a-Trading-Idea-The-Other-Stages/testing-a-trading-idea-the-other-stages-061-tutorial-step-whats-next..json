@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "В следующем учебнике мы продолжим работу над этой идеей, включив в нее еще несколько фундаментальных соображений, оставленных до сих пор без внимания.",
                 "updated": 1642945870198
+            },
+            {
+                "language": "ES",
+                "text": "En el próximo tutorial, seguiremos trabajando sobre esta idea, incorporando algunas consideraciones más fundamentales dejadas de lado hasta ahora.",
+                "updated": 1682356106444
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы также собираемся проверить эту идею в более благоприятных условиях, то есть на реальном медвежьем рынке, чтобы лучше оценить ее потенциал.",
                     "updated": 1642945883129
+                },
+                {
+                    "language": "ES",
+                    "text": "También vamos a probar la idea en un entorno más favorable, es decir, un mercado bajista real, para poder evaluar mejor su potencial.",
+                    "updated": 1682356128963
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "На данном этапе вы изучили самые основы построения и тестирования стратегий. Хотя со временем появятся новые учебники, ничто не мешает вам расширить границы и продолжать учиться самостоятельно! Документация - ваш друг, и она охватывает работу Superalgos на такой глубине, до которой не могут дотянуться учебники!",
                     "updated": 1642945910618
+                },
+                {
+                    "language": "ES",
+                    "text": "En este punto, has cubierto los fundamentos de la construcción y prueba de estrategias. Aunque con el tiempo habrá más tutoriales disponibles, ¡nada te impide ir más allá y seguir aprendiendo por tu cuenta! La documentación es tu amiga, y cubre el funcionamiento de Superalgos con una profundidad que los tutoriales no pueden alcanzar.",
+                    "updated": 1682356150084
                 }
             ]
         }

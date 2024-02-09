@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "В производственной среде организуются ресурсы для развертывания стратегии, группируются задачи и связанные с ними форвард-тестирование и торговые сессии в реальном времени.",
                 "updated": 1638601275613
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma ortamı, strateji dağıtım kaynaklarınızı, gruplama görevlerini ve ilgili ileri test ve canlı ticaret oturumlarını düzenler.",
+                "updated": 1673807885567
             }
         ]
     },

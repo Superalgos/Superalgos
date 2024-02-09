@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Clones difieren de las copias de seguridad en que la función está diseñada para replicar estructuras de datos para que las copias se parezcan al original.",
-                "updated": 1626617648374,
+                "text": "Los Clones difieren de los Backups en que la función está diseñada para replicar estructuras de datos para que las copias se parezcan al original.",
+                "updated": 1675377178855,
                 "style": "Definition"
             },
             {
@@ -238,8 +238,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Siéntate libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos!",
-                    "updated": 1626617964519,
+                    "text": "Siéntete libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos!",
+                    "updated": 1675377210998,
                     "style": "Success"
                 },
                 {

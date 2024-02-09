@@ -107,8 +107,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el workspace!¡Plugins se cargan desde el archivo plugin cada vez que se carga el workspace!",
-                    "updated": 1626642734045,
+                    "text": "¡Si eliminas el nodo Trading System, volvería a aparecer la próxima vez que recargues el Workspace!¡Los Plugins se cargan desde el archivo plugin cada vez que se carga el Workspace!",
+                    "updated": 1675377679469,
                     "style": "Success"
                 },
                 {
@@ -151,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡No dudes en probarlo! Si lo desea, puedes eliminar el nodo Trading System y actualiza la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
-                    "updated": 1626642833516,
+                    "text": "¡No dudes en probarlo! Si lo deseas, puedes eliminar el nodo Trading System y actualizar la página. Ten en cuenta que deberás encontrar el Basic Education Tutorial y hacer clic en Resume en el menú para continuar!",
+                    "updated": 1675377698515,
                     "style": "Text"
                 },
                 {

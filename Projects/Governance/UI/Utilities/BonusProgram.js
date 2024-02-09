@@ -165,3 +165,5 @@ function newGovernanceUtilitiesBonusProgram() {
         }
     }
 }
+
+exports.newGovernanceUtilitiesBonusProgram = newGovernanceUtilitiesBonusProgram

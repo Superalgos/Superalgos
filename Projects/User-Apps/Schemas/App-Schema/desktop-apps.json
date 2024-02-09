@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Desktop App",
+            "translationKey": "add.socialTradingDesktopApp",
             "relatedUiObject": "Social Trading Desktop App",
             "relatedUiObjectProject": "User-Apps"
         },
@@ -21,6 +23,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Algo Traders Platform App",
+            "translationKey": "add.algoTradersPlatformApp",
             "relatedUiObject": "Algo Traders Platform App",
             "relatedUiObjectProject": "User-Apps"
         },        
@@ -29,7 +32,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"
@@ -46,7 +51,7 @@
     "attachingRules": {
         "compatibleTypes": "->User Apps->"
     },
-    "propertyNameAtParent": "socialTradeApp",
+    "propertyNameAtParent": "desktopApps",
     "childrenNodesProperties": [
         {
             "name": "socialTradingDesktopApps",

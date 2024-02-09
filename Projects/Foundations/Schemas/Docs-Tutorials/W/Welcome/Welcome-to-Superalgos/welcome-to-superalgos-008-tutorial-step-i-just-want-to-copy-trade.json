@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 8,
+    "type": "Tutorial Step - I Just Want to Copy Trade!",
+    "definition": {
+        "text": "Copy trading is a whole different story and should be a lot more accessible! The easier apps optimizing for UX are on the way!",
+        "icon": {
+            "name": "trading-bot-instance",
+            "project": "Foundations"
+        },
+        "updated": 1687696144006
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The social trading apps that will make copy trading a breeze are currently in the making. In the mean time, you will use this very same platform.",
+            "updated": 1687696237918
+        },
+        {
+            "style": "Important",
+            "text": "For the time being, you need to learn to move around the Superalgos Platform and grasp a few concepts, so that you can properly operate a copy trading setup.",
+            "updated": 1687696469337
+        },
+        {
+            "style": "Success",
+            "text": "The three tutorials in this workspace will get you up to speed!",
+            "updated": 1687696319732
+        }
+    ]
+}

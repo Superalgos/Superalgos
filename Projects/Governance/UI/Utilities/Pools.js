@@ -57,3 +57,5 @@ function newGovernanceUtilitiesPools() {
         }
     }
 }
+
+exports.newGovernanceUtilitiesPools = newGovernanceUtilitiesPools

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел User Referrer должен установить ссылку с профилем пользователя вашего реферера. Если у вас более одного реферера, добавьте больше узлов! Вот как вы устанавливаете, кто ваши рефереры.",
                 "updated": 1639127964342
+            },
+            {
+                "language": "TR",
+                "text": "Bir Kullanıcı Yönlendiren düğümü, yönlendireninizin Kullanıcı Profili ( User Profile ) ile bir referans oluşturmalıdır. Birden fazla yönlendireniniz varsa, daha fazla düğüm ekleyin! Yönlendirenlerinizin kim olduğunu bu şekilde belirlersiniz.",
+                "updated": 1671461278150
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Заявление хотя бы одного User Referrer является обязательным условием для участия в программе. Если вы не заявите хотя бы один, вы не имеете права на получение бонусов Tokens Bonus.",
                     "updated": 1639128030162
+                },
+                {
+                    "language": "TR",
+                    "text": " Programa katılmak için en az bir Kullanıcı Yönlendiren beyan etmek gerekliliktir. En az bir tanesini beyan etmezseniz, Token Bonus ( Tokens Bonus ) teşviklerine hak kazanamazsınız.",
+                    "updated": 1671461505863
                 }
             ]
         },

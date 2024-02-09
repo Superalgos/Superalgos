@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Ada beberapa hal yang harus kamu pikirkan setiap kali kamu mengubah branch! Ayo ke beberapa list pendek sebelum kamu memprosesnya!",
                 "updated": 1668505073963
+            },
+            {
+                "language": "NL",
+                "text": "Er zijn een paar dingen waar je rekening mee moet houden elke keer dat je van branche wisselt! Laten we een korte lijst doornemen voordat u verder gaat!",
+                "updated": 1669575179427
             }
         ]
     },
@@ -81,45 +86,55 @@
                     "language": "ID",
                     "text": "Bisa terjadi bahwa workspace atau data struktur di master branch tidak kompatibel dengan branch lainnnya.",
                     "updated": 1668505085430
+                },
+                {
+                    "language": "NL",
+                    "text": "Het kan voorkomen dat de werkruimten of andere datastructuren in de master branch niet compatibel zijn met die in de andere branch.",
+                    "updated": 1669575207131
                 }
             ]
         },
         {
             "style": "List",
-            "text": "If the current workspace is incompatible with the software in the other branch, the workspace may break upon reloading the app. In such a case, load one of the Plugin Workspaces of the new branch.",
+            "text": "If the current workspace is incompatible with the software in the other branch, the workspace may break upon reloading the app. In such a case, load one of the Native Workspaces of the new branch.",
             "updated": 1618158600251,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se il workspace corrente è incompatibile con il software di un altro branch, esso potrebbe corrompersi ricaricando l'app. In questo caso, carica uno dei Plugin Workspace del nuovo branch.",
+                    "text": "Se il workspace corrente è incompatibile con il software di un altro branch, esso potrebbe corrompersi ricaricando l'app. In questo caso, carica uno dei Native Workspace del nuovo branch.",
                     "updated": 1619634165746,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "Si el Workspace actual es incompatible con el software de la otra rama, puede romperse al volver a cargar la aplicación. En tal caso, carga uno de los Plugin Workspaces de la nueva rama.",
+                    "text": "Si el Workspace actual es incompatible con el software de la otra rama, puede romperse al volver a cargar la aplicación. En tal caso, carga uno de los Native Workspaces de la nueva rama.",
                     "updated": 1628204753630,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn der aktuelle Arbeitsbereich nicht mit der Software im anderen Zweig kompatibel ist, kann der Arbeitsbereich beim erneuten Laden der Anwendung abbrechen. Laden Sie in einem solchen Fall einen der Plugin Workspaces des neuen Zweigs.",
+                    "text": "Wenn der aktuelle Arbeitsbereich nicht mit der Software im anderen Zweig kompatibel ist, kann der Arbeitsbereich beim erneuten Laden der Anwendung abbrechen. Laden Sie in einem solchen Fall einen der Native Workspaces des neuen Zweigs.",
                     "updated": 1634821952256
                 },
                 {
                     "language": "RU",
-                    "text": "Если текущее рабочее пространство несовместимо с программным обеспечением в другой ветке, при перезагрузке приложения рабочее пространство может сломаться. В этом случае загрузите одно из рабочих пространств Plugin Workspaces новой ветки.",
+                    "text": "Если текущее рабочее пространство несовместимо с программным обеспечением в другой ветке, при перезагрузке приложения рабочее пространство может сломаться. В этом случае загрузите одно из рабочих пространств Native Workspaces новой ветки.",
                     "updated": 1640155742807
                 },
                 {
                     "language": "TR",
-                    "text": "Mevcut çalışma alanı diğer daldaki yazılımla uyumlu değilse, uygulama yeniden yüklendiğinde çalışma alanı bozulabilir. Böyle bir durumda yeni şubenin Plugin Workspace'lerinden birini yükleyin.",
+                    "text": "Mevcut çalışma alanı diğer daldaki yazılımla uyumlu değilse, uygulama yeniden yüklendiğinde çalışma alanı bozulabilir. Böyle bir durumda yeni şubenin Native Workspace'lerinden birini yükleyin.",
                     "updated": 1640417497181
                 },
                 {
                     "language": "ID",
-                    "text": "Jika workspace saat ini tidak kompatibel dengan software di branch lainnya, workspace mungkin rusak setelah dimuat ulang dalam aplikasi. Jika terjadi hal tersebut coba muat ulang pada Plugin Workspaces dari branch baru.",
+                    "text": "Jika workspace saat ini tidak kompatibel dengan software di branch lainnya, workspace mungkin rusak setelah dimuat ulang dalam aplikasi. Jika terjadi hal tersebut coba muat ulang pada Native Workspaces dari branch baru.",
                     "updated": 1668505092995
+                },
+                {
+                    "language": "NL",
+                    "text": "Als de huidige werkruimte niet compatibel is met de software in de andere branche, kan de werkruimte kapot gaan bij het opnieuw laden van de app. Laad in dat geval een van de Native Workspaces van de nieuwe branch.",
+                    "updated": 1669575232094
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Struktur dari data mine mungkin berubah!",
                     "updated": 1668505104515
+                },
+                {
+                    "language": "NL",
+                    "text": "De structuur van de verzamelde gegevens is mogelijk veranderd!",
+                    "updated": 1669575245911
                 }
             ]
         },
@@ -175,8 +195,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Lee el archivo README en la rama del repositorio al que deseas acceder para comentarios sobre la compatibilidad con versiones anteriores. ",
-                    "updated": 1628204891328,
+                    "text": "Lee el archivo README en la rama del repositorio al que deseas acceder para ver los  comentarios sobre la compatibilidad con versiones anteriores.",
+                    "updated": 1675451484980,
                     "style": "Important"
                 },
                 {
@@ -198,6 +218,11 @@
                     "language": "ID",
                     "text": "Selalu baca file README pada repository terhadap branch yang ingin kamu akses untuk mengetahui komenan dan perubahan kompatibilitas. Sebelum mengubah branch, cadangkan kerjamu!",
                     "updated": 1668505115799
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer altijd het README-bestand in de branche van de repository die u wilt openen voor eventuele opmerkingen over backward compatibiliteit. Maak een back-up van uw werk voordat u van branche wisselt!",
+                    "updated": 1669575317211
                 }
             ]
         }

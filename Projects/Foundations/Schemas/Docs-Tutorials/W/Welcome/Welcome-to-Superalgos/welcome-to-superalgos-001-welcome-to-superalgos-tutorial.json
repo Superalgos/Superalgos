@@ -1,6 +1,6 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Welcome to Superalgos Tutorial",
     "definition": {
         "text": "This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
@@ -14,8 +14,8 @@
             },
             {
                 "language": "ES",
-                "text": "Este tutorial le presenta el universo Superalgos. Te guiará a través de las áreas principales del sistema, te enseñará el funcionamiento básico y te guiará a través del proceso de backtesting. Practicarás con una demostración de Trading System, e incluso podrás configurar tu primer Live Trading Session.",
-                "updated": 1667506565492,
+                "text": "Este tutorial te presentará el universo Superalgos. Te guiará a través de las áreas principales del sistema, te enseñará el funcionamiento básico y te guiará a través del proceso de backtesting. Practicarás con una demostración de Trading System, e incluso podrás configurar tu primer Live Trading Session.",
+                "updated": 1675206470782,
                 "style": "Definition"
             },
             {
@@ -50,6 +50,11 @@
                 "language": "IT",
                 "text": "Questo tutorial ti introduce all'universo di Superalgos. Ti guida attraverso le aree principali del sistema, ti insegna le operazioni di base, ti guida attraverso il processo di backtesting di un sistema di trading demo e ti prepara anche con la tua prima sessione di trading dal vivo.",
                 "updated": 1666386340356
+            },
+            {
+                "language": "PL",
+                "text": "Ten samouczek wprowadzi Cię w świat Superalgos. Omawia główne obszary systemu, uczy podstawowych operacji, przedstawia proces testowania wstecznego demonstrując Trading System a nawet pomoże Ci skonfigurować Twoją pierwszę Live Trading Session.",
+                "updated": 1674745328936
             }
         ]
     },
@@ -73,19 +78,24 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sobre este Tutorial",
-                    "updated": 1667506139645
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620830103
+                },
+                {
+                    "language": "PL",
+                    "text": "O Samouczku",
+                    "updated": 1674745351707
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Tutorials Plugin Workspace.",
+            "text": "Workspace: Getting Started Tutorials Native Workspace.",
             "updated": 1622633723741,
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Espace de travail: Getting Started Tutorials Plugin Workspace.",
+                    "text": "Espace de travail: Getting Started Tutorials Native Workspace.",
                     "updated": 1623949967730,
                     "style": "List"
                 },
@@ -112,6 +122,16 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394220431,
                     "style": "List"
+                },
+                {
+                    "language": "PL",
+                    "text": "Osoba odpowiedzialna: @julianmolina (Telegram).",
+                    "updated": 1674745364841
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675448804379
                 }
             ]
         }

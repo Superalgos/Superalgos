@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Панель плоттера обычно отображает числовые представления данных на диаграммах в небольшом окне или панели. Узел панели плоттера содержит определения, позволяющие это сделать.",
                 "updated": 1636566746211
+            },
+            {
+                "language": "TR",
+                "text": "Bir çizici paneli genellikle verilerin sayısal gösterimlerini küçük bir pencere veya panel üzerindeki grafikler üzerinde gösterir. Çizici panel düğümü bunu mümkün kılmak için tanımlara sahiptir.",
+                "updated": 1674140664742
             }
         ]
     },
@@ -22,7 +27,14 @@
         },
         {
             "style": "Text",
-            "text": "Beyond the graphic representation of data over the charts, plotters may also feature a data panel, that is, a numerical representation of the data showing the exact figures corresponding to the column or period that is in focus (the point of the charts where the mouse pointer is at any point)."
+            "text": "Beyond the graphic representation of data over the charts, plotters may also feature a data panel, that is, a numerical representation of the data showing the exact figures corresponding to the column or period that is in focus (the point of the charts where the mouse pointer is at any point).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Grafikler üzerinde verilerin grafik temsilinin ötesinde, çiziciler ayrıca bir veri paneli, yani odaklanılan sütun veya döneme karşılık gelen kesin rakamları gösteren verilerin sayısal bir temsilini de içerebilir (grafiklerin herhangi bir noktasında fare imlecinin bulunduğu nokta).",
+                    "updated": 1674140746704
+                }
+            ]
         },
         {
             "style": "Block",

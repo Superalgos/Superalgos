@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 74,
+    "type": "Tutorial Step - Getting to the Fun Bits!",
+    "definition": {
+        "icon": {
+            "name": "Time\\time-machine",
+            "project": "Foundations"
+        },
+        "text": "I took the liberty of bringing you to a particular moment in time, relevant to what comes next.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mi sono preso la libertà di portarti in un particolare momento del tempo, per mostrarti cosa succede.",
+                "updated": 1618060917160,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Me he tomado la libertad de llevarte a un momento particular en el tiempo, interesante para lo que viene a continuación.",
+                "updated": 1675280338876,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe mir die Freiheit genommen, Sie zu einem bestimmten Zeitpunkt zu bringen, der interessant für das ist, was jetzt kommt.",
+                "updated": 1634222639833
+            },
+            {
+                "language": "TR",
+                "text": "Sizi zaman içinde belirli bir ana getirme cüretinde bulundum. Bundan sonra ilginç şeyler olacak.",
+                "updated": 1670007497347
+            },
+            {
+                "language": "RU",
+                "text": "Я взял на себя смелость привести Вас в определенный момент времени, интересный тем, что будет дальше...",
+                "updated": 1636930842187
+            },
+            {
+                "language": "ID",
+                "text": "Aku mengambil kebebasan membawa kamu ke saat tertentu dalam waktu, menarik untuk apa yang terjadi selanjutnya.",
+                "updated": 1639748404384
+            },
+            {
+                "language": "NL",
+                "text": "Ik ben zo vrij geweest je naar een bepaald moment in de tijd te brengen, interessant voor wat daarna komt.",
+                "updated": 1666875974821
+            },
+            {
+                "language": "FR",
+                "text": "J'ai pris la liberté de vous amener à un moment particulier dans le temps, intéressant pour la suite.",
+                "updated": 1676898789081
+            }
+        ],
+        "updated": 1687722253803
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You are about to be exposed to the beauty of simulations. Am I a simulation? Are you? Is this whole thing real?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Stai per assistere alla bellezza delle simulazioni. Sono una simulazione? O lo sei tu? È reale tutto ciò?",
+                    "updated": 1618060948467,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estás a punto de estar expuesto a la belleza de las simulaciones. ¿Soy una simulación? ¿Eres tú? ¿Es todo esto real?",
+                    "updated": 1624454971486,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden nun die Schönheit von Simulationen kennen lernen. Bin ich eine Simulation? Sind Sie eine? Ist die ganze Sache real?",
+                    "updated": 1634222646214
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyonların güzelliğine maruz kalmak üzeresiniz. Ben bir simülasyon muyum? Bütün bunlar gerçek mi?",
+                    "updated": 1636181003797
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы вот-вот окажетесь в красоте моделирования. Я - моделирование? А Вы? Все эти вещи реальны?",
+                    "updated": 1636931034464
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu akan disuguhi keindahan simulasi. Apakah aku simulasi? Apakah kamu? Apakah semua ini nyata?",
+                    "updated": 1639748437321
+                },
+                {
+                    "language": "NL",
+                    "text": "Je staat op het punt om te worden blootgesteld aan de schoonheid van simulaties. Ben ik een simulatie? Jij? Is dit hele ding echt?",
+                    "updated": 1666876017461
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous êtes sur le point d'être exposé à la beauté des simulations. Suis-je une simulation ? Et vous ? Est-ce que tout cela est réel ?",
+                    "updated": 1676898815893
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Look around and decide for yourself!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Guardati intorno e decidilo tu!",
+                    "updated": 1618060965103,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Mira a tu alrededor y decide por ti mismo!",
+                    "updated": 1624454989293,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich um und entscheiden Sie selbst!",
+                    "updated": 1634222649291
+                },
+                {
+                    "language": "TR",
+                    "text": "Etrafınıza bakın ve kendiniz karar verin!",
+                    "updated": 1636181015871
+                },
+                {
+                    "language": "RU",
+                    "text": "Оглянитесь вокруг и решайте сами!",
+                    "updated": 1636931122923
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah ke sekeliling dan putuskan sendiri!",
+                    "updated": 1639748452562
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk om je heen en oordeel zelf!",
+                    "updated": 1666876038356
+                },
+                {
+                    "language": "FR",
+                    "text": "Regardez autour de vous et décidez par vous-même !",
+                    "updated": 1676898829782
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "First of all, notice you are now in the 1-minute time frame, thus, these are 1-minute candles. The span of time in your screen is little more than one hour, at the beginning of September 1st 2020.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prima di tutto, nota che sei nel time frame 1-min, quindi queste sono candele da un minuto. L'intervallo di tempo sul tuo schermo è di circa un'ora, e si riferisce all'inizio del 1 settembre 2020.",
+                    "updated": 1618061043559,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "En primer lugar, observa que ahora te encuentras en el marco de tiempo de 1 minuto, por lo tanto, estas son velas de 1 minuto. El lapso de tiempo en tu pantalla es de poco más de una hora, a principios del 1 de septiembre de 2020.",
+                    "updated": 1627313698391,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie zunächst, dass Sie sich jetzt im 1-Minuten-Zeitrahmen befinden, es handelt sich also um 1-Minuten-Kerzen. Die Zeitspanne auf Ihrem Bildschirm ist etwas mehr als eine Stunde, zu Beginn des 1. September 2020.",
+                    "updated": 1634222657547
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şeyden önce, 1 dakikalık zaman diliminde olduğunuza dikkat edin, bu nedenle bunlar 1 dakikalık mumlardır.",
+                    "updated": 1636181143231
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде всего, обратите внимание, что сейчас Вы находитесь в 1-минутном временном интервале, т.о. это - 1-минутные свечи. Промежуток времени на Вашем экране составляет чуть более одного часа в начале 1 сентября 2020 года.",
+                    "updated": 1636931248383
+                },
+                {
+                    "language": "ID",
+                    "text": "Pertama-tama, perhatikan bahwa kamu sekarang berada dalam time frame 1 menit, dengan demikian, ini adalah candle 1 menit. Rentang waktu di layar Anda sedikit lebih dari satu jam, pada awal 1 September 2020.",
+                    "updated": 1639748508769
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk allereerst op dat u zich nu in het tijdsbestek van 1 minuut bevindt, dus dit zijn kaarsen van 1 minuut. De tijdspanne in je scherm is iets meer dan een uur, beginnend op 1 september 2020.",
+                    "updated": 1666876097388
+                },
+                {
+                    "language": "FR",
+                    "text": "Tout d'abord, remarquez que vous êtes maintenant dans l'échelle de temps d'une minute, donc, ce sont des bougies d'une minute. L'intervalle de temps dans votre écran est d'un peu plus d'une heure, au début du 1er septembre 2020.",
+                    "updated": 1676898850769
+                }
+            ]
+        }
+    ]
+}

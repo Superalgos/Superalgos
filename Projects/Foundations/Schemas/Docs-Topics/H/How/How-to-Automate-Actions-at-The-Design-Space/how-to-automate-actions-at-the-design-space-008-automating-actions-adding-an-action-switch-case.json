@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот шаг создает соответствие между именем функции actionFunction, которое вы определили в пункте меню узла для запуска вашего действия, и функцией, которую вы запрограммировали в библиотеке функций и которая будет выполнять код нового действия (Action).",
                 "updated": 1640764982098
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Schritt beschreibt die Zuordnung zwischen dem actionFunction-Namen, den Sie im Menüpunkt (Menu Item) definiert haben, der Ihre Aktion (Action) auslösen kann und der Funktion, die Sie in einer Funktionsbibliothek (Function Libary) codiert haben und die den Code für die neue Aktion (Action) ausführen wird. ",
+                "updated": 1676496458420
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Файл переключения действий",
                     "updated": 1640764992712
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktion Datei wechseln",
+                    "updated": 1676494529055
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Найдите файл ActionSwitch.js в папке Function-Libraries. В нем вы найдете гигантскую конструкцию \"switch\" с блоками \"case\" для каждого Action, доступного в текущем проекте.",
                     "updated": 1640765971284
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Datei \"ActionSwitch.js\" im Ordner Function-Libraries. Dort finden Sie eine riesige Switch-Anweisung mit einem Fallbeispiel für jede im aktuellen Projekt (Project) verfügbare Aktion (Action).",
+                    "updated": 1676494553609
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Найдите в списке блоков \"case\" те блоки, которые указывают на ту же функциональную библиотеку, в которой размещено ваше новое действие, чтобы вы могли добавить новый блок вместе с остальными.",
                     "updated": 1640766078865
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie in der Liste der Fallbeispiele einige der Fälle, die auf dieselbe Funktionsbibliothek (Function Library) verweisen, in der Ihre neue Aktion (Action) bereitgestellt wird, so dass Sie einen neuen Fall zusammen mit den anderen hinzufügen können.",
+                    "updated": 1676494564749
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Добавить новый блок \"case\"",
                     "updated": 1640766139515
+                },
+                {
+                    "language": "DE",
+                    "text": "Einen neuen Fall hinzufügen",
+                    "updated": 1676494580621
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Строка case должна соответствовать функции actionFunction, которую вы определили в пункте меню. Ваш вызов функции должен быть примерно таким:",
                     "updated": 1640766160135
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Fall-Anweisung muss mit der actionFunction übereinstimmen, die Sie im Menu Item definiert haben. Ihr Aufruf der Funktion sollte in etwa so aussehen:",
+                    "updated": 1676494670885
                 }
             ]
         },
@@ -84,8 +114,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Как вы видите, скорее всего, вы будете отправлять параметры node и rootNodes в функцию Action. Однако, возможно, вы захотите отправить в объект действия и другие параметры с данными, которые вы найдете доступными в системе на данный момент.",
+                    "text": "Как вы видите, скорее всего, вы будете отправлять параметры node и rootNodes в функцию Action. Однако, возможно, в�� захотите отправить в объект действия и другие параметры с данными, которые вы найдете доступными в системе на данный момент.",
                     "updated": 1640766203515
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Sie sehen können, werden Sie höchstwahrscheinlich die Parameter \"node\" und \"rootNodes\" an Ihre Action -Funktion senden. Möglicherweise möchten Sie aber auch andere Parameter mit Daten, die Sie zu diesem Zeitpunkt im System finden, an das Aktion-Objekt senden.",
+                    "updated": 1676494683340
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "RU",
                     "text": "Установка здесь точки останова в devTools Chrome - удобный способ проверить систему на наличие доступных данных.",
                     "updated": 1640766239078
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Setzen eines Haltepunkts in den \"devTools\" von Chrome ist eine bequeme Methode, um das System auf verfügbare Daten zu überprüfen.",
+                    "updated": 1676494699885
                 }
             ]
         },
@@ -108,6 +148,11 @@
                     "language": "RU",
                     "text": "Имя свойства, необходимое для получения ссылки на объект библиотеки функций во время работы, можно найти в определении этой библиотеки функций, расположенном в файле схемы проекта. Для примера, приведенного выше, подходит, например, вот это:",
                     "updated": 1640766269648
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Name der Eigenschaft, welcher benötigt wird, um zur Laufzeit auf die Referenz Ihrer Funktionsbibliothek (Function Library) zuzugreifen, ist in der Definition dieser Funktionsbibliothek (Function Library) in der Projektschema-Datei (Project Schema File) zu finden. Der Name, der dem obigen Beispiel entspricht, ist zum Beispiel dieser:",
+                    "updated": 1676494713885
                 }
             ]
         },
@@ -123,8 +168,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Вы можете использовать все, что вы найдете в propertyName, чтобы добраться до объекта библиотеки функций во время работы. На этом сопоставление завершено.",
+                    "text": "Вы можете использовать все, что вы найде��е в propertyName, чтобы добраться до объекта библиотеки функций во время работы. На этом сопоставление завершено.",
                     "updated": 1640766330098
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können alles, was Sie unter propertyName finden, verwenden, um zur Laufzeit auf das Objekt der Funktionsbibliothek (Function Library) zuzugreifen. Damit ist das Mapping abgeschlossen.  ",
+                    "updated": 1676497122806
                 }
             ]
         }

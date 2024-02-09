@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Hem temel varlığı hem de kote edilen varlığı konsolide eden popüler istatistikleri izleyin. Bu sayfada: Bölüm İstatistikleri, Konum İstatistikleri ve Sıra İstatistikleri ( Episode Statistics, Position Statistics, and Order Statistics ).",
                 "updated": 1650617131043
+            },
+            {
+                "language": "DE",
+                "text": "Verfolgen Sie beliebte Statistiken, die sowohl den Basiswert als auch den notierten Wert konsolidieren. Auf dieser Seite: Episodenstatistik, Positionsstatistik und Auftragsstatistik (Episode Statistics, Position Statistics, and Order Statistics).",
+                "updated": 1693255232494
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İstatistikler, temel varlık ile kote edilen varlığın konsolide edilmesiyle hesaplanan hesaplar ve performans ölçümleridir, yani her iki varlık da dikkate alınır.",
                     "updated": 1650617205169
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei den Statistiken handelt es sich um Konten und Leistungskennzahlen, die durch Konsolidierung des Basisvermögenswertes und des börsennotierten Vermögenswertes, d. h. unter Berücksichtigung beider Vermögenswerte, berechnet werden.",
+                    "updated": 1693257895514
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Her iki varlığın nasıl konsolide edildiğinin ve konsolidasyonun hesaplamaları nasıl etkilediğinin mekaniği, her bir kavramın tanımlarında açıklanmaktadır.",
                     "updated": 1650617222864
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Mechanismen, wie die beiden Vermögenswerte konsolidiert werden und wie sich die Konsolidierung auf die Berechnungen auswirkt, werden in den Definitionen der einzelnen Begriffe erläutert.",
+                    "updated": 1693258125601
                 }
             ]
         },
@@ -61,6 +76,11 @@
                     "language": "TR",
                     "text": "Ticaret Bölüm İstatistikleri ( Trading Episode Statistics )",
                     "updated": 1650617237311
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsepisoden-Statistik",
+                    "updated": 1693258139122
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "TR",
                     "text": "Pozisyon İstatistikleri ( Position Statistics )",
                     "updated": 1650617257962
+                },
+                {
+                    "language": "DE",
+                    "text": "Position Statistik",
+                    "updated": 1693258190894
                 }
             ]
         },
@@ -113,6 +138,11 @@
                     "language": "TR",
                     "text": "Emir İstatistikleri ( Order Statistics )",
                     "updated": 1650617309688
+                },
+                {
+                    "language": "DE",
+                    "text": "Statistik anzeigen",
+                    "updated": 1693258204963
                 }
             ]
         },

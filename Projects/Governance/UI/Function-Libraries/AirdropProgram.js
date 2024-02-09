@@ -201,3 +201,5 @@ function newGovernanceFunctionLibraryAirdropProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryAirdropProgram = newGovernanceFunctionLibraryAirdropProgram

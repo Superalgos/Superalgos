@@ -35,23 +35,23 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         
         function runInterface (response){
             if (response.event.isRunning === true) {
-                console.log('')
-                console.log(response.event.message)
+                SA.logger.info('')
+                SA.logger.info(response.event.message)
                 setUpWebSocketClient(url)
 
             } else if (response.event.isRunning === false) {
                 //Skip websocket client initalization
-                //console.log('')
-                //console.log(response.event.message)
+                //SA.logger.info('')
+                //SA.logger.info(response.event.message)
 
             } else {
-                console.log('[ERROR] Something went wrong running the Dashboard App Interface: ', response)
+                SA.logger.error('[ERROR] Something went wrong running the Dashboard App Interface: ', response)
             }
         }
 
 
         // Beginings of Task manager code
-            //console.log('can we get this object', tasksMap)
+            //SA.logger.info('can we get this object', tasksMap)
             //eventsServerClient.listenToEvent('Task Manager', 'Run Task', undefined, undefined, undefined, newMessage)
             //eventsServerClient.listenToEvent('Task Manager', 'Stop Task', undefined, undefined, undefined, newMessage)
             //eventsServerClient.listenToEvent('Task Manager', 'Task Status', undefined, undefined, undefined, newMessage)
@@ -61,7 +61,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             // eventsServerClient.raiseEvent('Task Client - ' + message.event.taskId, 'Task Status', event)
 
             /* function newMessage (message) {
-                console.log('this is the message in the dashboards client event listeners', message)
+                SA.logger.info('this is the message in the dashboards client event listeners', message)
             } */
 
   
@@ -142,22 +142,25 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             let message = (new Date()).toISOString() + '|*|Platform|*|Info|*|Platform Dashboards Client has been Opened'
             socketClient.send(message)
             
-            sendExample()
-            sendGlobals()
+            //sendExample()
+            //sendGlobals()
             // Resend every 10 minutes
-            setInterval(sendGlobals, 600000)
+            //setInterval(sendGlobals, 6000)
+
+            sendGovernance()
+            setInterval(sendGovernance, 6000)
         });
 
         socketClient.on('close', function (close) {
-            console.log('[INFO] Dashboard App has been disconnected.')
+            SA.logger.info('[INFO] Dashboard App has been disconnected.')
         })
 
         socketClient.on('error', function (error) {
-            console.log('[ERROR] Dashboards Client error: ', error.message, error.stack)
+            SA.logger.error('[ERROR] Dashboards Client error: ', error.message, error.stack)
         });
         
         socketClient.on('message', function (message) {
-            console.log('This is a message coming from the Dashboards App', message)
+            SA.logger.info('This is a message coming from the Dashboards App', message)
         });
     }
 
@@ -167,7 +170,7 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
         packedPL = packGlobalObj('PL', PL)
 
         //let parsed = JSON.parse(data)
-        //console.log('this is the parsed object', parsed)
+        //SA.logger.info('this is the parsed object', parsed)
         let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|Globals|*|' + packedSA + '|*|' + packedPL
         socketClient.send(messageToSend)
 
@@ -222,7 +225,27 @@ exports.newDashboardsInterface = function newDashboardsInterface() {
             }
         }
     }
+    async function sendGovernance() {
+        /*let test = {
+                                User1: {name: 'UserName', wallet: 'User BlockchainWallet', SAbalance: 123456789, TokenPower: 987654321},
+                                User2: {name: 'UserName', wallet: 'User BlockchainWallet', SAbalance: 'User Token Balance', TokenPower: 'User Token Power'},
+                                User3: {name: 'UserName', wallet: 'User BlockchainWallet', SAbalance: 'User Token Balance', TokenPower: 'User Token Power'},
 
+                            }
+        */
+        let userInfo1 = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+        let userInfo2 = await SA.projects.network.modules.AppBootstrapingProcess.extractInfoFromUserProfiles(userProfile)
+
+        userInfo2
+
+        let messageToSend = (new Date()).toISOString() + '|*|Platform|*|Data|*|Governance-UserInfo|*|'/* + JSON.stringify(test) */+ '|*|' + JSON.stringify(userInfo1) + '|*|' + JSON.stringify(userInfo2)
+        socketClient.send(messageToSend)
+
+        //SA.logger.info('from UserInfo to Dashboard APP:' , test)
+        SA.logger.info('from UserInfo 1 to Dashboard APP:' , userInfo1)
+        SA.logger.info('from UserInfo 2 to Dashboard APP:' , userInfo2)
+
+    }
     function sendExample() {
         let oneObjToSend = { 
                                 example1: 'string data', 

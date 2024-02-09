@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел, чтобы установить ссылку на Position Contribution Claim, размещенное вашим коллегой в разделе «Claims Program» своего профиля пользователя. Это голосование означает, что вы поддерживаете утверждение своего коллеги с помощью Claim Support Power, которую вы вводите в узел Claim Votes!",
                 "updated": 1639138239034
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğümü, çalışma arkadaşınız tarafından Kullanıcı Profilinin ( User Profile ) Talep Programı ( Claims Program ) bölümüne yerleştirilen bir Pozisyon Katkı Talebi ( Position Contribution Claim ) ile referans oluşturmak için kullanın. Bu oy, Çalışma arkadaşınızın talebini Talep Oyları ( Claim Votes ) düğümüne sürdüğünüz Talep Destek Gücü ( Claim Support Power ) ile desteklediğiniz anlamına gelir!",
+                "updated": 1672064838724
             }
         ]
     },

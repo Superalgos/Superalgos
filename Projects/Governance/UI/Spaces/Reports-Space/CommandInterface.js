@@ -204,12 +204,32 @@ function newGovernanceReportsCommmandInterface() {
             }
             if (command.indexOf('gov.pay') !== 0) { return 'Not Pay Commands' }
 
+            const commandParams = command.split(' ')
+            let blacklistArray = []
+            let whitelistArray = []
+            /* If present, process parameters to the payments command */
+            if (commandParams.length > 1) {
+                for (let x = 1; x < commandParams.length; x++) {
+                    let paramCommand = commandParams[x].split(':')
+                    if (paramCommand[0] === 'blacklist') {
+                        blacklistArray = paramCommand[1].split(',')
+                    } else if (paramCommand[0] === 'whitelist') {
+                        whitelistArray = paramCommand[1].split(',')
+                    } else {
+                        console.log("Invalid command parameters, not starting distribution")
+                        return
+                    }
+                }
+            }
+            
             UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Paying to Contributors')
 
             /*
             Let's create a list of payments to be made.
             */
             let paymentsArray = []
+            let paymentsBlacklist = []
+            let paymentsWhitelist = []
             /*
             Here we get from the workspace all User Profiles.
             */
@@ -248,8 +268,38 @@ function newGovernanceReportsCommmandInterface() {
                     "amount": (userProfile.tokensMined.payload.tokensMined.total | 0) * payoutChainDetails['decimalFactor']
                 }
 
+                /* Check if user was present in distribution blacklist or whitelist */
+                for (let a = blacklistArray.length - 1; a >= 0; --a) {
+                    if (userProfile.name.toLowerCase() === blacklistArray[a].toLowerCase()) {
+                        paymentsBlacklist.push(userProfile.name)
+                        blacklistArray.splice(a, 1)
+                    }
+                }
+                for (let b = whitelistArray.length - 1; b >= 0; --b) {
+                    if (userProfile.name.toLowerCase() === whitelistArray[b].toLowerCase()) {
+                        paymentsWhitelist.push(userProfile.name)
+                        whitelistArray.splice(b, 1)
+                    }                    
+                }
+
+                /* Add payment for this user to the list of payments */
                 paymentsArray.push(payment)
             }
+
+            /* Validating blacklist / whitelist for plausibility */
+            if (blacklistArray.length > 0) {
+                console.log("Aborting distribution - Blacklist contained unknown user names: " + blacklistArray)
+                return
+            }
+            if (whitelistArray.length > 0) {
+                console.log("Aborting distribution - Blacklist contained unknown user names: " + whitelistArray)
+                return
+            }
+            if (paymentsBlacklist.length > 0 && paymentsWhitelist.length > 0) {
+                console.log("Aborting distribution - Blacklist and Whitelist must not be entered simultaneously")
+                return
+            }
+
             /* Let's get the Mnemonic */
             let web3API = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
             let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(web3API.payload, 'mnemonic')
@@ -263,6 +313,8 @@ function newGovernanceReportsCommmandInterface() {
                 contractABIDict: contractABIDict,
                 decimalFactorDict: decimalFactorDict,
                 paymentsArray: paymentsArray,
+                paymentsBlacklist: paymentsBlacklist,
+                paymentsWhitelist: paymentsWhitelist,
                 mnemonic: mnemonic
             }
 

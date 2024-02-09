@@ -54,7 +54,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             Second, Raise Event 
             */
             message.messageId = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
-            onMessageFunctionsMap.set(message.messageId, onMenssageFunction)
+            onMessageFunctionsMap.set(message.messageId, onMessageFunction)
 
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                 SESSION_KEY,
@@ -64,7 +64,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             /* 
             Third, events Callback
             */
-            function onMenssageFunction(response) {
+            function onMessageFunction(response) {
 
                 if (response !== undefined) {
                     if (response.reason === undefined) {
@@ -104,11 +104,11 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
     }
 
     function onResponse(messageHeader) {
-        let onMenssageFunction = onMessageFunctionsMap.get(messageHeader.event.messageId)
+        let onMessageFunction = onMessageFunctionsMap.get(messageHeader.event.messageId)
 
-        if (onMenssageFunction !== undefined) {
+        if (onMessageFunction !== undefined) {
             onMessageFunctionsMap.delete(messageHeader.event.messageId)
-            onMenssageFunction(messageHeader.event)
+            onMessageFunction(messageHeader.event)
         } else {
             // This message does not have a request waiting for it, so it will be ignored.
         }

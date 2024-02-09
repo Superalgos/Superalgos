@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Используйте этот узел, чтобы установить ссылку на профиль пользователя коллеги. С помощью этой ссылки вы передаете Token Power непосредственно в профиль вашего коллеги, эффективно делегируя свой Token Power. Ваш коллега может использовать полномочия в любой из программ Governance Programs.",
                 "updated": 1639140208402
+            },
+            {
+                "language": "TR",
+                "text": "Bir iş arkadaşınızın Kullanıcı Profili ( User Profile ) ile bir referans oluşturmak için bu düğümü kullanın. Bu referans ile Token Gücünü ( Token Power ) doğrudan iş arkadaşınızın profiline aktararak Token Gücünüzü ( Token Power ) etkin bir şekilde devretmiş olursunuz. İş arkadaşınız bu gücü Yönetim Programlarından ( Governance Programs ) herhangi birinde kullanabilir.",
+                "updated": 1671806932778
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Основной случай делегирования Token Power - это когда наставники хотят помочь своим подопечным подать первые несколько Contribution Claims.",
                     "updated": 1639140265653
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünü ( Token Power ) devretmenin ana kullanım durumu, mentorların danışanlarının ilk birkaç Katkı Talebini ( Contribution Claims ) yapmalarına yardımcı olmak istemeleridir.",
+                    "updated": 1671807132608
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Для того, чтобы заявки были эффективными, участники должны использовать Claim Power в своих претензиях. Однако, когда они новички в Superalgos, у них может не хватить токенов для подтверждения своих требований.",
                     "updated": 1639140340069
+                },
+                {
+                    "language": "TR",
+                    "text": "Katılımcıların etkili olabilmeleri için Talep Gücünü ( Claim Power ) taleplerine yönlendirmeleri gerekir. Ancak Superalgos'ta yeni olduklarında, taleplerini desteklemek için yeterli tokene sahip olmayabilirler.",
+                    "updated": 1671807389751
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "RU",
                     "text": "Наставники рады помочь своим подопечным получить свои первые несколько токенов и получают вознаграждение за свой труд и щедрость в рамках программы Mentorship Program.",
                     "updated": 1639140412027
+                },
+                {
+                    "language": "TR",
+                    "text": "Mentorlar, danışanlarının ilk birkaç dağıtımda tokenlerini  almalarına yardımcı olmaktan mutluluk duyarlar ve Mentorluk Programı ( Mentorship Program ) aracılığıyla çalışmaları ve cömertlikleri için ödüllendirilirler.",
+                    "updated": 1671807632491
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Эта форма делегирования Token Power вдохновлена ​​концепцией Liquid Democracy, которая также реализована в программе Voting Program.",
                     "updated": 1639140462166
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücü ( Token Power ) yetkilendirmesinin bu biçimi, Oylama Programında ( Voting Program ) da uygulanan Şeffaf Demokrasi (Liquid Democracy) kavramından esinlenmiştir.",
+                    "updated": 1671807941680
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "RU",
                     "text": "Один и тот же Token Power может быть делегирована несколько раз с предупреждением в поле предупреждения ниже. Делегирование также можно отозвать в любой момент, просто удалив узел User Delegate или его ссылку.",
                     "updated": 1639140545561
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı Token Gücü ( Token Power ), aşağıdaki uyarı kutusundaki uyarı ile birden fazla kez yetkilendirilebilir. Yetkilendirme, Kullanıcı Temsilcisi düğümü veya referansı kaldırılarak herhangi bir noktada da geri çekilebilir.",
+                    "updated": 1671808079569
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "RU",
                     "text": "Только 10% Delegate Power, которые вы передаете узлу User Delegate, достигают профиля пользователя получателя. Это сделано для предотвращения мошенничества, которое может возникнуть, связанного с циркулярными декларациями, поддельными профилями или торговлей голосами.",
                     "updated": 1639140606025
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Kullanıcı Yetkilendirme düğümüne yönlendirdiğiniz Yetkilendirme Gücünün ( Delegate Power ) sadece %10'u alıcı Kullanıcı Profiline ( User Profile ) ulaşır. Bu, döngüsel beyanlar, sahte profiller veya oy ticareti gibi ortaya çıkabilecek hileli davranışları caydırmak içindir.",
+                    "updated": 1671808326703
                 }
             ]
         },

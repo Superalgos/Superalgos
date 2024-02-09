@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Как я уже говорил ранее, Target Rate - это концепция, которая подразумевает некоторую глубину, но пока мы будем придерживаться простого подхода!",
                 "updated": 1642776849154
+            },
+            {
+                "language": "ES",
+                "text": "Como he dicho antes, el \" Target Rate \" es un concepto que entraña cierta profundidad, pero de momento lo mantendremos sencillo.",
+                "updated": 1680704197359
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Целевая ставка служит нескольким целям. На данном этапе мы сосредоточимся на одной из них:",
                     "updated": 1642776868099
+                },
+                {
+                    "language": "ES",
+                    "text": "El  target rate tiene varias finalidades. En este punto, nos centraremos en uno de ellos:",
+                    "updated": 1680704250792
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Мы будем использовать целевую ставку в качестве базовой ставки.",
                     "updated": 1642776890212
+                },
+                {
+                    "language": "ES",
+                    "text": "Utilizaremos el target rate como tipo de referencia.",
+                    "updated": 1680704295380
                 }
             ]
         },

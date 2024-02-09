@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Kripto ekosistem hiyerarşisi, borsaların, pazarların ve kullanıcı hesaplarının altyapısını düzenler.",
                 "updated": 1645355831079
+            },
+            {
+                "language": "DE",
+                "text": "Die Hierarchie des Krypto-Ökosystems organisiert die Infrastruktur von Börsen, Märkten und Benutzerkonten.",
+                "updated": 1678465651607
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Kripto Borsaları",
                     "updated": 1645356516122
+                },
+                {
+                    "language": "DE",
+                    "text": "Krypto-Börsen",
+                    "updated": 1678465754979
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "TR",
                     "text": "Kripto Borsası",
                     "updated": 1645356540143
+                },
+                {
+                    "language": "DE",
+                    "text": "Krypto-Börse",
+                    "updated": 1678465774392
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "TR",
                     "text": "Borsa Varlıkları",
                     "updated": 1645356556020
+                },
+                {
+                    "language": "DE",
+                    "text": "Vermögenswerte austauschen",
+                    "updated": 1678465852225
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "TR",
                     "text": "Borsalar",
                     "updated": 1645356618222
+                },
+                {
+                    "language": "DE",
+                    "text": "Börsenmärkte",
+                    "updated": 1678465891876
                 }
             ]
         },
@@ -123,6 +148,11 @@
                     "language": "TR",
                     "text": "Hesap Değişimleri",
                     "updated": 1645356686988
+                },
+                {
+                    "language": "DE",
+                    "text": "Austausch von Konten",
+                    "updated": 1678465933109
                 }
             ]
         },

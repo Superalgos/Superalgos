@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Dondurmayı çöz seçeneğine tıklandığında bağlantılar çözülür. Bir düğümün çözme seçeneğine tıkladığınızda düğümün durumu değişmiyorsa, bunun nedeni hiyerarşideki daha yüksek bir düğümün hala donmuş olması olabilir.",
                 "updated": 1666869962320
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie auf die Option zum Aufheben des Einfrierens klicken, wird das Einfrieren von Verbindungen aufgehoben. Wenn Sie auf die Option zum Aufheben der Fixierung eines Knotens klicken und der Knoten seinen Status nicht ändert, liegt das möglicherweise daran, dass ein höherer Knoten in der Hierarchie noch fixiert ist.",
+                "updated": 1701012870837
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638299998130
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701012881361
                 }
             ]
         }

@@ -19,7 +19,7 @@ exports.newFoundationsFunctionLibrariesTaskFunctions = function () {
         }
         TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(key, 'Heartbeat', event)
         if (outputToConsole === undefined || outputToConsole === true) {
-            console.log((new Date()).toISOString(), '[INFO] taskHearBeat -> status = ' + status)
+            SA.logger.info('taskHearBeat -> status = ' + status)
         }
 
     }

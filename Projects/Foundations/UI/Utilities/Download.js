@@ -67,3 +67,5 @@ function newFoundationsUtilitiesDownload() {
         CURRENT_PANORAMA_POSITION = CURRENT_PANORAMA_POSITION + SECTION_WIDTH
     }
 }
+
+exports.newFoundationsUtilitiesDownload = newFoundationsUtilitiesDownload

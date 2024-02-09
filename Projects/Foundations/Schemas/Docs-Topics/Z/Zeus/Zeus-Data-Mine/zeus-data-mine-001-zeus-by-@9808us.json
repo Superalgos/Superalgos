@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Özet: Zeus veri madeninde yerleşik göstergeler arasında Yönlü Hareket İndeksi (Index )  (DMI), Donchian Kanalları, Ichimoku Bulutu, Dalga Trendi, Süper Trend bulunur.",
                 "updated": 1647086835920
+            },
+            {
+                "language": "DE",
+                "text": "Die in der Zeus-Datenmine erstellten Indikatoren umfassen Directional Movement Index (DMI), Donchian Channels, Ichimoku Cloud, Wave Trend, Super Trend.",
+                "updated": 1671200782168
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Zeus veri madeni @9808us tarafından sizin için geliştirildi...",
                     "updated": 1647086957637
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Zeus Datenmine wird präsentiert von...",
+                    "updated": 1671200840308
                 }
             ]
         },

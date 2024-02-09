@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Gelecekte kesinlikle tüm tescilli botları geride bırakacak inanılmaz bir platform. Açık kaynak topluluğunun gücünün gerçek bir kanıtı.",
                 "updated": 1669190600820
+            },
+            {
+                "language": "DE",
+                "text": "Erstaunliche Plattform, die in Zukunft definitiv alle proprietären Bots übertreffen wird. Ein wahrer Beweis für die Kraft der Open-Source-Community.",
+                "updated": 1685388700087
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Vay canına, bu projenin kapsamından çok etkilendim! Gerçek araçlardan çok dolandırıcılığa benzeyen pek çok ticaret botu platformu gördüm. Abartılı abonelik fiyatlarından tamamen gizli ticaret mantığına kadar. Superalgos temiz bir nefes. Ben hobici bir programcıyım ve sınırlı deneyimimle bile bu platforma giren büyük miktarda işi şimdiden görebiliyorum. Kullandığımız araçlarla kurduğumuz ilişkinin kör bir tüketicilik olmaması gerektiğine inanıyorum. Bu projenin arkasındaki topluluk dürtüsü, açık kaynakla neler başarılabileceğinin harika bir örneği. Bunu bulduğum için heyecanlıyım ve öğrenmeye ve geliştirmeye devam etmeyi dört gözle bekliyorum.",
                     "updated": 1669190698191
+                },
+                {
+                    "language": "DE",
+                    "text": "Wow, ich bin sehr beeindruckt von dem Umfang dieses Projekts! Ich habe so viele Trading-Bot-Plattformen gesehen, die mehr Betrug als tatsächliche Werkzeuge sind. Sei es von unverschämten Abonnementpreise zu völlig versteckten Handelslogik. Superalgos ist ein Hauch von frischer Luft. Ich bin ein Hobby-Programmierer und selbst mit meiner begrenzten Erfahrung kann ich die enorme Menge an Arbeit erkennen, die bereits in diese Plattform geflossen ist. Ich bin der festen Überzeugung, dass die Beziehung, die wir zu den Werkzeugen haben, die wir benutzen, kein blindes Konsumverhalten sein sollte. Der Antrieb der Gemeinschaft hinter diesem Projekt ist ein wunderbares Beispiel dafür, was mit Open Source erreicht werden kann. Ich bin begeistert, dass ich es gefunden habe und freue mich darauf, weiter zu lernen und es zu verbessern.",
+                    "updated": 1685388713791
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Superalgos beni ilk başta çok şaşırttı. Sadece sistemin büyüklüğü bile ilk başta kafanızı sarmanız için çok fazla. Ancak, eğitimler işleri parçalara ayırmak ve yavaş yavaş öğrenmek için mükemmel bir yöntem. Ayrıca belgelere kullanıcı arayüzünden doğrudan erişilebiliyor olması zaman kazandırıyor ve öğrenme engelini de azaltıyor.",
                     "updated": 1669190799111
+                },
+                {
+                    "language": "DE",
+                    "text": "Am Anfang war ich von Superalgos überwältigt. Allein die schiere Größe des Systems ist eine Menge, um den Kopf zu wickeln auf den ersten. Die Tutorials waren jedoch eine hervorragende Methode, um die Dinge aufzuschlüsseln und Stück für Stück zu lernen. Auch die Tatsache, dass die Dokumentation direkt über die Benutzeroberfläche zugänglich ist, spart viel Zeit und senkt die Lernschwelle.",
+                    "updated": 1685388740176
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Bununla birlikte, bu projenin giriş engelini daha az teknik kullanıcılar için biraz daha yönetilebilir hale getirmek için hala yapılması gereken bazı işler var. Github ve node.js ile biraz deneyim sahibi olmak, kurulumun teknik yönünü kendim için basit hale getirdi, ancak ticaret kavramlarını ve teknik kavramları aynı anda ele almanın ne kadar göz korkutucu olacağını hayal edebiliyorum.",
                     "updated": 1669190839282
+                },
+                {
+                    "language": "DE",
+                    "text": "Allerdings hat dieses Projekt noch einiges an Arbeit vor sich, um die Einstiegshürde für weniger technikaffine Nutzer ein wenig handhabbarer zu machen. Da ich einige Erfahrung mit github und node.js habe, war die technische Seite der Einrichtung für mich einfach, aber ich kann mir nur vorstellen, wie entmutigend es sein würde, zu versuchen, Handelskonzepte und technische Konzepte auf einmal zu übernehmen.",
+                    "updated": 1685388796223
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Görsel komut dosyasına odaklanmayı ve tasarım alanındaki sabit koddan ayrılmayı takdir ediyorum. Aynı anda kod yazmaya çalışmak zorunda kalmadan ticaret kavramlarını öğrenmeye çalışmayı çok daha kolay hale getirdi. Kripto ticareti konusunda çok yeniyim ve eğitimlerde öğrendiğim materyali desteklemeye yardımcı olmak için kendime ticaret kavramları ve fikirleri konusunda hızlandırılmış bir kurs vermek zorunda kaldım. Benim gibi yeni yatırımcıların, platformdaki ilk birkaç dakika içinde temel ticaret kavramları için daha kolay erişilebilir bazı kaynaklara sahip olması yararlı olacaktır. Belgelerde/eğitimlerde neler olduğunu ve kendi başıma neleri daha fazla araştırmam gerektiğini bulmak çok zamanımı aldı.",
                     "updated": 1669190893539
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich schätze den Fokus auf visuelle Skripte und die Trennung von hartem Code im Designbereich. Es hat den Versuch, die Konzepte des Handels zu lernen viel einfacher gemacht, ohne zu versuchen, und Code zur gleichen Zeit. Ich bin sehr neu im Bereich des Krypto-Handels und musste mir selbst einen Crash-Kurs in Handelskonzepten und -ideen geben, um das Material, das ich in Tutorials lerne, zu ergänzen. Es wäre hilfreich für neue Händler wie mich, wenn sie mehr Ressourcen für grundlegende Handelskonzepte hätten, die in den ersten Momenten auf der Plattform leichter zugänglich wären. Ich habe eine heiße Minute gebraucht, um herauszufinden, was in der Dokumentation/den Tutorials steht und was ich noch selbst recherchieren muss.",
+                    "updated": 1685388822970
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Genel olarak, Superalgos şimdiye kadar karşılaştığım en iyi kripto ticaret projesi. Hiçbir karşılaştırma yok. Projenin kontrol miktarı ve kapsamı kesinlikle büyülü. Proje büyüdükçe ve sertleştikçe, tüm dünya için ne kadar güçlü ve erişilebilir olacağını hayal edebiliyorum.",
                     "updated": 1669190931196
+                },
+                {
+                    "language": "DE",
+                    "text": "Insgesamt ist Superalgos das mit Abstand beste Krypto-Handelsprojekt, das mir begegnet ist. Es gibt keinen Vergleich. Das Ausmaß der Kontrolle und der Umfang des Projekts ist absolut magisch. Wenn das Projekt wächst und sich verfestigt, kann ich mir nur vorstellen, wie mächtig und zugänglich es für die ganze Welt sein wird.",
+                    "updated": 1685389222807
                 }
             ]
         },

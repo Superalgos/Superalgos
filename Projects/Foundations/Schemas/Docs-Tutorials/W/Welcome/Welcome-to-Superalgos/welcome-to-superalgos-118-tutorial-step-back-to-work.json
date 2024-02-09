@@ -1,0 +1,221 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 118,
+    "type": "Tutorial Step - Back to Work!",
+    "definition": {
+        "text": "Superalgos features an in-app, interactive, searchable, editable, and multi-language docs site &mdash; and a built-in command line!",
+        "updated": 1660156022125,
+        "icon": {
+            "name": "status-dependency",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Superalgos è provvisto di una documentazione interna, editabile e multilingua, e addirittura di una command line!",
+                "updated": 1666391635027,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Superalgos cuenta con un sitio web de documentación interactivo, editable, multilingüe y con una línea de comandos integrada.",
+                "updated": 1675364411800,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos bietet eine interaktive, durchsuchbare, bearbeitbare und mehrsprachige In-App-Dokumentation und eine integrierte Befehlszeile!",
+                "updated": 1660476467812
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, uygulama içi, etkileşimli, aranabilir, düzenlenebilir ve çok dilli bir dokümanlar sitesine ve yerleşik bir komut satırına sahiptir!",
+                "updated": 1670013182912
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos memiliki situs dokumentasi dalam aplikasi, dapat diedit, dan multi-bahasa, dan command line bawaan! Belajarlah menggunakan itu dan kamu akan menjadi masternya!",
+                "updated": 1640599441676
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos имеет встроенный интерактивный, и доступный для поиска, редактируемый и многоязычный сайт документации - и встроенную командную строку!",
+                "updated": 1662035569296
+            },
+            {
+                "language": "NL",
+                "text": "Superalgos heeft een in-app, interactieve, doorzoekbare, bewerkbare en meertalige documenten site - en een ingebouwde command line!",
+                "updated": 1667137569152
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Learn to use the Docs and the Command Line and you'll be the king of the hill!",
+            "updated": 1660156085131,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Impara a usare i documenti e la riga di comando e sarai a cavallo!",
+                    "updated": 1666391690128,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Aprende a utilizar los documentos y la línea de comandos y serás el rey de la colina.",
+                    "updated": 1675364424453,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lernen Sie, die Dokumentation und die Befehlszeile zu verwenden - schon sind Sie ganz vorn mit dabei!",
+                    "updated": 1660476557704
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanları ve Komut Satırını kullanmayı öğrenin.",
+                    "updated": 1670013510039
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu sudah menggunakan beberapa halaman documentation di panel Docs di sebelah kanan, tapi itu hanya puncak gunung es!",
+                    "updated": 1640599491971
+                },
+                {
+                    "language": "RU",
+                    "text": "Научитесь пользоваться Docs и командной строкой, и вы станете королем холма!",
+                    "updated": 1662035600849
+                },
+                {
+                    "language": "NL",
+                    "text": "Leer de Docs en de Command Line te gebruiken en je zult de koning te rijk zijn!",
+                    "updated": 1667137560558
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы уже использовали несколько страниц документации на панели Docs справа, но это только вершина айсберга!",
+                    "updated": 1662035614988
+                },
+                {
+                    "language": "IT",
+                    "text": "Hai già utilizzato un paio di pagine di documentazione nel pannello Documenti a destra, ma questa è solo la punta dell'iceberg!",
+                    "updated": 1666391721369
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt al een aantal documentatiepagina's gebruikt in het deelvenster Docs aan de rechterkant, maar dat is nog maar het topje van de ijsberg!",
+                    "updated": 1667137616262
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağdaki Dokümanlar panelinde birkaç dokümantasyon sayfasını zaten kullandınız, ancak bu buzdağının sadece görünen kısmı!",
+                    "updated": 1670013341870
+                },
+                {
+                    "language": "ES",
+                    "text": "Ya has utilizado un par de páginas de documentación en el panel Docs de la derecha, ¡pero eso es sólo la punta del iceberg!",
+                    "updated": 1675364449472
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's try it! Search for the word... network.",
+            "updated": 1610648926126,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Proviamo! Cerca la parola \"network\".",
+                    "updated": 1618072499244,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a intentarlo! Busca la palabra... Network.",
+                    "updated": 1675364457995,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren wir es aus! Suchen Sie nach dem Wort ... network.",
+                    "updated": 1634245899078
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi deneyelim! Ağ ( Network )kelimesini arayın.",
+                    "updated": 1636662526502
+                },
+                {
+                    "language": "ID",
+                    "text": "Ayo kita coba! Cari kata... network.",
+                    "updated": 1640599527316
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем! Найдите слово... network.",
+                    "updated": 1642773752339
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het proberen! Zoek naar het woord... network.",
+                    "updated": 1667137634972
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Not to brag, but the search engine is fast!",
+            "updated": 1660156175640,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non per vantarmi, ma la velocità del motore di ricerca è notevole!",
+                    "updated": 1666391765268,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "No es por presumir, pero el motor de búsqueda es rápido.",
+                    "updated": 1675364473700,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich will nicht prahlen, aber die Geschwindigkeit der Suchfunktion ist richtig schnell!",
+                    "updated": 1660476593321
+                },
+                {
+                    "language": "TR",
+                    "text": "Övünmek gibi olmasın ama arama motoru çok hızlı!",
+                    "updated": 1670013347836
+                },
+                {
+                    "language": "ID",
+                    "text": "Bukan untuk menyombongkan diri, tetapi kecepatan mesin pencari menyaingi mesin pencarian Google ;-)",
+                    "updated": 1640599583507
+                },
+                {
+                    "language": "RU",
+                    "text": "Не хочу хвастаться, но поисковая система работает быстро! ",
+                    "updated": 1662035637361
+                },
+                {
+                    "language": "NL",
+                    "text": "Niet om op te scheppen, maar de zoekmachine is snel!",
+                    "updated": 1667137649890
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

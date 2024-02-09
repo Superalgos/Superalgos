@@ -1,0 +1,156 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 52,
+    "type": "Tutorial Step - Scaling Time!",
+    "definition": {
+        "icon": {
+            "name": "Time\\time-scale",
+            "project": "Foundations"
+        },
+        "text": "Did you pick up the trick to scale time from the previous video? If not, go to the previous step and watch attentively!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Sei riuscito a mettere in pratica il trucchetto nel video precedente? Se non ce l'hai fatta, torna all'ultimo step e guarda bene!",
+                "updated": 1614893781372,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Ya has aprendido el truco para escalar el tiempo del video anterior? Si no es así, ve al paso anterior y observa atentamente.",
+                "updated": 1675277358079,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie den Trick mit der Zeitskala aus dem vorherigen Video verstanden? Wenn nicht, gehen Sie zum vorherigen Schritt und schauen Sie aufmerksam zu!",
+                "updated": 1634217059331
+            },
+            {
+                "language": "TR",
+                "text": "Önceki videodan zamanın ölçeklendirilmesinin nasıl çalıştığını anlayabildiniz mı? Eğer tereddütünüz varsa önceki adıma gidin ve dikkatlice bir kez daha izleyin!",
+                "updated": 1644916355935
+            },
+            {
+                "language": "RU",
+                "text": "Вы уловили это трюк для масштабирования времени из предыдущего видео? Если нет, перейдите к предыдущему шагу и внимательно посмотрите.",
+                "updated": 1636206379436
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu sudah menggunakan trik untuk menskalakan waktu dari video sebelumnya? Jika tidak, lanjutkan ke langkah sebelumnya dan perhatikan dengan seksama!",
+                "updated": 1639584638017
+            },
+            {
+                "language": "NL",
+                "text": "Heb je de truc opgepikt om de tijd te schalen uit de vorige video? Zo niet, ga dan naar de vorige stap en kijk aandachtig!",
+                "updated": 1666700669714
+            },
+            {
+                "language": "FR",
+                "text": "Avez-vous compris l'astuce pour mettre le temps à l'échelle dans la vidéo précédente ? Si non, retournez à l'étape précédente et regardez attentivement !",
+                "updated": 1668069248084
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Scrolling the wheel of the mouse on top of the time scale box shrinks and expands time! Alternatively, you can point the mouse to the scale box and hit the side arrow keys ← →",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ruotare la rotella del mouse su una time scale box espande e comprime il tempo! In alternativa, posiziona il mouse sulla scale box e usa i tasti freccia ← → ",
+                    "updated": 1618647977786,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Desplazar la rueda del mouse en la parte superior del cuadro de escala de tiempo reduce y expande el tiempo! Alternativamente, puedes apuntar el mouse al cuadro de escala y presionar las teclas de flecha laterales ← →",
+                    "updated": 1624406140665,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das Mausrad über dem Zeitskalenfeld drehen, wird die Zeit verkleinert oder vergrößert! Alternativ können Sie mit der Maus auf das Skalenfeld zeigen und die seitlichen Pfeiltasten ← →  drücken.",
+                    "updated": 1634217078292
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin tekerleğini zaman ölçeği kutusunun üzerinde kaydırmak, zamanı küçültür ve genişletir! Alternatif olarak, fareyi ölçek kutusuna yönlendirebilir ve yan ok tuşlarına basabilirsiniz ← →",
+                    "updated": 1636094091641
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутка колесика мыши в верхней части окна шкалы времени уменьшает и увеличивает время!  Кроме того, Вы можете навести курсор мыши на шкалу и нажать боковые клавиши со стрелками ← →.",
+                    "updated": 1636206456010
+                },
+                {
+                    "language": "ID",
+                    "text": "Menggulir mouse wheel di atas time scale box mengecil dan memperbesar waktu! Atau, kamu dapat mengarahkan mouse pointer ke scale box dan tekan tombol panah samping ← →",
+                    "updated": 1639584995574
+                },
+                {
+                    "language": "NL",
+                    "text": "Door met het wiel van de muis over het tijdschaalvak te scrollen, wordt de tijd kleiner en groter! U kunt ook met de muis naar het schaalvak wijzen en op de zijpijltjestoetsen ← → drukken.",
+                    "updated": 1666700723080
+                },
+                {
+                    "language": "FR",
+                    "text": "Faire défiler la molette de la souris au-dessus de la boîte d'échelle de temps permet de rétrécir et d'étendre le temps ! Vous pouvez également pointer la souris sur la boîte d'échelle et appuyer sur les touches de déplacement latéral ← →",
+                    "updated": 1668069272167
+                }
+            ],
+            "updated": 1616495837967
+        },
+        {
+            "style": "Note",
+            "text": "There's one more interesting detail worth noting in the previous video: when the time scale exits the automatic mode, the two tiny green triangles indicating each end of the automatic scale disappear! The scale can be set to automatic on either, neither, or both sides!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "C'è un dettaglio interessante nel video precedente: quando la time scale esce dalla modalità automatica, i due triangoli verdi che indicano gli estremi della scala scompaiono! La scala puó essere impostata come automatica su uno degli estremi, entrambi o nessuno!",
+                    "updated": 1618648074699,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Señalar del video anterior: cuando la escala de tiempo sale del modo automático, los dos pequeños triángulos verdes que indican cada extremo de la escala automática desaparecen. ¡La escala se puede configurar en automático en cualquiera, en ninguno o en ambos lados!",
+                    "updated": 1624407303951,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt noch ein weiteres interessantes Detail aus dem vorherigen Video: Wenn die Zeitskala den automatischen Modus verlässt, verschwinden die beiden kleinen grünen Dreiecke, die das Ende der automatischen Skala anzeigen! Die Skala kann auf einer, keiner oder beiden Seiten automatisch eingestellt werden!",
+                    "updated": 1634217088926
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki videoda dikkat çeken ilginç bir ayrıntı daha var: zaman ölçeği otomatik moddan çıktığında, otomatik ölçeğin her iki tafafını gösteren iki küçük yeşil üçgen kaybolur! ",
+                    "updated": 1636094195564
+                },
+                {
+                    "language": "RU",
+                    "text": "В предыдущем видео есть одна интересная деталь: когда шкала времени выходит из автоматического режима, два крошечных зеленых треугольника, указывающих на каждый конец автоматической шкалы, - исчезают! Масштаб может быть установлен на автоматический как с одной, так или с обеих сторон.",
+                    "updated": 1636206743590
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada satu detail menarik lagi yang perlu diperhatikan dalam video sebelumnya: ketika skala waktu keluar dari mode otomatis, dua segitiga hijau kecil yang menunjukkan setiap ujung skala otomatis menghilang! Skala dapat diatur ke otomatis di salah satu, tidak ada, atau kedua sisi!",
+                    "updated": 1639584899904
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is nog een interessant detail dat het vermelden waard is in de vorige video: wanneer de tijdschaal de automatische modus verlaat, verdwijnen de twee kleine groene driehoekjes die elk een uiteinde van de automatische schaal aangeven! De schaal kan aan beide zijden op automatisch worden ingesteld!",
+                    "updated": 1666700806664
+                },
+                {
+                    "language": "FR",
+                    "text": "Il y a encore un détail intéressant à noter dans la vidéo précédente : lorsque l'échelle de temps sort du mode automatique, les deux petits triangles verts indiquant chaque extrémité de l'échelle automatique disparaissent ! L'échelle peut être réglée en mode automatique sur l'un ou l'autre côté, sur aucun ou sur les deux !",
+                    "updated": 1668069300388
+                }
+            ],
+            "updated": 1616504911488
+        }
+    ]
+}

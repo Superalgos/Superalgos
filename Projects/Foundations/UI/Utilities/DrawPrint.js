@@ -377,3 +377,5 @@ function newFoundationsUtilitiesDrawPrint() {
         }
     }
 }
+
+exports.newFoundationsUtilitiesDrawPrint = newFoundationsUtilitiesDrawPrint

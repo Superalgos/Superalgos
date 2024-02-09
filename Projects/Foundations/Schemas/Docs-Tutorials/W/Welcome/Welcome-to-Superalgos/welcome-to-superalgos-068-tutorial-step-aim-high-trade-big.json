@@ -1,0 +1,210 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 68,
+    "type": "Tutorial Step - Aim High, Trade Big!",
+    "definition": {
+        "icon": {
+            "name": "network",
+            "project": "Network"
+        },
+        "text": "Picture an army of bots working with multiple exchanges, markets, and strategies, running on a network <i>à la</i> trading farm.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Immagina un esercito di bots che lavorano con vari exchange, mercati e strategie, coordinati da un network che fa da trading farm.",
+                "updated": 1618057758985,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Imagínate un ejército de bots trabajando con múltiples exchanges, mercados y estrategias, ejecutándose en una red al estilo de una granja trading.",
+                "updated": 1624415133666,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Stellen Sie sich eine Armee von Bots vor, die mit mehreren Börsen, Märkten und Strategien arbeiten und in einem Netzwerk à la Trading Farm laufen.",
+                "updated": 1634220019128
+            },
+            {
+                "language": "TR",
+                "text": "Birden çok borsa, işlem çifti ve stratejiyle çalışan, bir ağ üzerinden ticaret çiftliğinizin olduğunu ve burada çalışan bir robot ordusu hayal edin.",
+                "updated": 1669920565675
+            },
+            {
+                "language": "RU",
+                "text": "Представьте себе армию ботов, работающих с множеством биржей, рынков и стратегий  в сети а-ля торговая ферма.",
+                "updated": 1636747931667
+            },
+            {
+                "language": "ID",
+                "text": "Bayangkan pasukan bot bekerja dengan banyak exchanges, markets,  dan strategi, berjalan di jaringan yang dikatakan trading farm.",
+                "updated": 1639711890257
+            },
+            {
+                "language": "NL",
+                "text": "Stel je een leger van bots voor die werken met meerdere handelsplatformen, markten en strategieën, draaiend op een netwerk à la een handels centrum.",
+                "updated": 1666786393792
+            },
+            {
+                "language": "FR",
+                "text": "Imaginez une armée de robots travaillant avec de multiples exchanges, marchés et stratégies, fonctionnant sur un réseau à la manière d'une ferme de Trading.",
+                "updated": 1676897831281
+            }
+        ],
+        "updated": 1622200549490
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That is what the LAN Network Node is about. What you've seen so far is running on a single machine. But...",
+            "updated": 1640285917398,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Network Node fa esattamente questo. I processi che hai visto finora girano su una singola macchina. Però...",
+                    "updated": 1618057806513,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "De eso trata el Nodo de Red LAN. Lo que has visto hasta ahora se ejecuta en una sola máquina. Pero...",
+                    "updated": 1675278804472,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Darum geht es beim LAN-Netzwerkknoten. Was Sie bisher gesehen haben, läuft auf einem einzelnen Rechner. Aber ... ",
+                    "updated": 1642152340888
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümü (Lan Network Node) bununla ilgili. Şimdiye kadar gördükleriniz tek bir makinede çalışıyor. Fakat...",
+                    "updated": 1665964343549
+                },
+                {
+                    "language": "RU",
+                    "text": "Именно для этого и существует сетевой узел LAN Network. То, что вы видели до сих пор, работает на одной машине. Но...",
+                    "updated": 1641833119629
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah yang dimaksud dengan Network Node. Apa yangkamu lihat sejauh ini berjalan pada satu mesin. Tetapi...",
+                    "updated": 1639711924341
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is waar de LAN Network Node over gaat. Wat je tot nu toe hebt gezien, draait op een enkele machine. Maar...",
+                    "updated": 1666786416495
+                },
+                {
+                    "language": "FR",
+                    "text": "C'est l'objet du nœud LAN Network. Ce que vous avez vu jusqu'à présent fonctionne sur une seule machine. Mais...",
+                    "updated": 1676897872686
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Superalgos supports distributing and coordinating tasks across networks of nodes running the Client on any number of machines!",
+            "updated": 1687718666529,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos permette di distribuire e coordinare tasks attraverso una rete di macchine che eseguono il Client! Questo permette di eseguire operazioni avanzate e scalabili. Qualsiasi macchina che esegue la GUI può controllare il tutto!",
+                    "updated": 1618057957707,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos permite distribuir y coordinar tareas entre redes de nodos que ejecutan el Client. Esto permite operaciones escalables: ¡cualquier máquina que ejecute la interfaz de usuario puede controlar el trabajo!",
+                    "updated": 1675278885655,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos unterstützt die Verteilung und Koordination von Aufgaben über Netzwerke von Knoten, auf denen der Client läuft! Das ermöglicht einen skalierbaren Betrieb: Jeder Rechner, auf dem die Benutzeroberfläche läuft, kann das gesamte Unternehmen steuern!",
+                    "updated": 1660475511570
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar olmasını sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabileceğiniz  anlamına gelir.",
+                    "updated": 1669920577577
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos поддерживает распределение и координацию задач между сетями узлов, на которых запущен Client! Это обеспечивает масштабируемость операций: любая машина с UI может управлять деятельностью организации! ",
+                    "updated": 1662033255328
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos mendukung pendistribusian dan koordinasi tugas di seluruh jaringan node yang menjalankan Client! Hal ini memungkinkan operasi yang cerdas dan terukur. Setiap mesin yang menjalankan GUI dapat mengontrol perusahaan!",
+                    "updated": 1639712035776
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos ondersteunt het verdelen en coördineren van taken over netwerken van knooppunten waarop de Client draait! Dit maakt schaalbare bewerkingen mogelijk: elke machine waarop de UI draait, kan de onderneming besturen!",
+                    "updated": 1666786515191
+                },
+                {
+                    "language": "FR",
+                    "text": "Superalgos permet de distribuer et de coordonner des tâches sur des réseaux de nœuds exécutant le Client ! Cela permet des opérations évolutives : n'importe quelle machine exécutant l'interface utilisateur peut contrôler la totalité de la production !",
+                    "updated": 1676897915456
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "This enables scalable operations: any machine running the UI may control the enterprise!"
+        },
+        {
+            "style": "Text",
+            "text": "You may set up a network with a few Raspberry Pi, an industrial-grade datacenter, or anything in between.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi creare network arbitrariamente complessi che vanno da qualche Raspberry Pi a un datacenter industriale.",
+                    "updated": 1618058007870,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puede configurar una red con unas pocas Raspberry Pi, un centro de datos industrial o cualquier cosa intermedia.",
+                    "updated": 1675278916901,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können ein Netzwerk mit ein paar Raspberry Pi, einem industriellen Rechenzentrum oder irgendetwas dazwischen einrichten.",
+                    "updated": 1634220046648
+                },
+                {
+                    "language": "TR",
+                    "text": "Birka�� Raspberry Pi, endüstriyel düzeyde bir veri merkezi veya bunların arasında herhangi bir şey ile bir ağ kurabilirsiniz.",
+                    "updated": 1636109177686
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете настроить сеть с несколькими  Raspberry Pi, центром обработки данных промышленного уровня или чем-то средним.",
+                    "updated": 1636747852002
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat mengatur jaringan dengan beberapa Raspberry Pi, industrial-grade datacenter, atau apa pun di antaranya.",
+                    "updated": 1639711978226
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt een netwerk opzetten met een paar Raspberry Pi's, een datacenter van industriële kwaliteit of iets daartussenin.",
+                    "updated": 1666786561759
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez configurer un réseau avec quelques Raspberry Pi, un datacenter de niveau industriel, ou tout ce qui se trouve entre les deux.",
+                    "updated": 1676897948177
+                }
+            ],
+            "updated": 1629821982211
+        }
+    ]
+}

@@ -30,6 +30,11 @@
                 "language": "RU",
                 "text": "Откройте меню узла Exchange Assets и используйте кнопку Add Asset для добавления необходимых активов.",
                 "updated": 1643090281146
+            },
+            {
+                "language": "NL",
+                "text": "Open het knooppuntmenu Exchange Assets en gebruik de knop Asset toevoegen om de vereiste tokens toe te voegen.",
+                "updated": 1676120768959
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "RU",
                     "text": "Активы в разделе Exchange Assets не могут дублироваться. Если определения для интересующих вас активов уже существуют, вы можете использовать их вместо создания новых. В этом случае просто пропустите следующие несколько шагов, пока не потребуется настройка рынка.",
                     "updated": 1643090317117
+                },
+                {
+                    "language": "NL",
+                    "text": "Assets onder Exchange Assets mogen niet worden gedupliceerd. Als de definities voor de items waarin u geïnteresseerd bent al bestaan, kunt u deze hergebruiken in plaats van nieuwe te maken. Als dat het geval is, sla dan gewoon de volgende paar stappen over totdat u de Market moet instellen.",
+                    "updated": 1676120812039
                 }
             ]
         }

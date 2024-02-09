@@ -11,8 +11,13 @@
             },
             {
                 "language": "TR",
-                "text": "Belirli bir düğüm ve onun yavruları ile ilgili referanslar da dahil olmak üzere, tüm Çalışma Alanı veya bir düğüm olabilen varlık ile bir JSON dosyası indirir. Tüm çalışma alanınızı veya çalışma alanınızdaki belirli bir düğüm yapısını kaydetmek için bu özelliği kullanın, böylece daha sonra ihtiyacınız olduğunda tüm referanslar da dahil olmak üzere bilgileri geri yükleyebilirsiniz. Referans olması açısından, indirilen dosyanın adı Yedekleme'dir ve ardından yedeklediğiniz varlığın adı gelir.",
-                "updated": 1654390843264
+                "text": "Belirli bir düğüm ve onun yavruları ile ilgili referanslar da dahil olmak üzere, tüm Çalışma Alanı ( Workspace ) veya bir düğüm olabilen varlık ile bir JSON dosyası indirir. Tüm çalışma alanınızı veya çalışma alanınızdaki belirli bir düğüm yapısını kaydetmek için bu özelliği kullanın, böylece daha sonra ihtiyacınız olduğunda tüm referanslar da dahil olmak üzere bilgileri geri yükleyebilirsiniz. Referans olması açısından, indirilen dosyanın adı Yedekleme'dir ( backup ) ve ardından yedeklediğiniz varlığın adı gelir.",
+                "updated": 1671645433659
+            },
+            {
+                "language": "DE",
+                "text": "Lädt eine JSON-Datei mit der Entität herunter, bei der es sich um den gesamten Arbeitsbereich (Workspace) oder einen Knoten handeln kann, einschließlich der Verweise auf den jeweiligen Knoten und seine Nachkommen. Verwenden Sie diese Funktion, um Ihren gesamten Arbeitsbereich oder eine bestimmte Struktur von Knoten innerhalb Ihres Arbeitsbereichs zu speichern, damit Sie die Informationen, einschließlich aller Referenzen, später wiederherstellen können, falls Sie dies benötigen. Die heruntergeladene Datei trägt den Namen Backup, gefolgt vom Namen der Entität, die Sie sichern. ",
+                "updated": 1701272670405
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1654390849309,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. ",
+                    "updated": 1701272674445
                 }
             ]
         }

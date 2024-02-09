@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Önyargı vektörüne uygulanan düzenleyici işlev.",
                 "updated": 1654396718920
+            },
+            {
+                "language": "DE",
+                "text": "Regularisierungsfunktion, die auf den Bias-Vektor angewendet wird.",
+                "updated": 1706371909717
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396724556,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1706371917501
                 }
             ]
         },

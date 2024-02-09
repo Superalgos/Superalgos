@@ -388,3 +388,5 @@ function newVisualScriptingUtilitiesNodeChildren() {
     }
 
 }
+
+exports.newVisualScriptingUtilitiesNodeChildren = newVisualScriptingUtilitiesNodeChildren

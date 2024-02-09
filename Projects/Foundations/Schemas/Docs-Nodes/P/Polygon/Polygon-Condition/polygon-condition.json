@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Polygon Condition - это правило, которое позволяет установить, когда полигон должен быть отрисован, а когда нет.",
                 "updated": 1639727534194
+            },
+            {
+                "language": "TR",
+                "text": "Polygon koşulu, bir polygonun ne zaman işlenip ne zaman işlenmeyeceğini belirlemeye olanak tanıyan bir kuraldır.",
+                "updated": 1674589589007
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Узел является необязательным. Если узел не присутствует в определении полигона или если условие считается истинным (true), полигон отображается на экране. При ложном (false) значении условия полигон не отображается. Таким образом, узел позволяет динамически включать и выключать отрисовку соответствующего полигона.",
                     "updated": 1639727624419
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm isteğe bağlıdır. Düğüm polygon tanımında mevcut olmadığında veya koşul doğru ( true ) olarak onaylandığında, polygon ekranda işlenir. Koşul yanlış ( false ) olarak doğrulandığında polygon işlenmez. Bu nedenle düğüm, ilgili polygonun oluşturulmasının dinamik olarak açılıp kapatılmasına olanak tanır.",
+                    "updated": 1674589823521
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Конфигурация Polygon Condition",
                     "updated": 1639727646589
+                },
+                {
+                    "language": "TR",
+                    "text": "Polygon Durum Yapılandırması (Polygon Condition Configuration)",
+                    "updated": 1674589875515
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Условия Polygon Condition работают практически так же, как условия, используемые в торговых системах. Основное отличие заключается в том, что доступными переменными являются только те, которые предусмотрены определением продукта Product Definition бота, ссылающегося на соответствующий модуль плоттера Plotter Module.",
                     "updated": 1639727781056
+                },
+                {
+                    "language": "TR",
+                    "text": "Polygon Koşulları, ticaret sistemlerinde kullanılan koşullara oldukça benzer şekilde çalışır. Temel fark, mevcut değişkenlerin yalnızca ilgili çizici modülüne referans veren bot ürün tanımı tarafından sağlanan değişkenler olmasıdır.",
+                    "updated": 1674589940587
                 }
             ]
         }

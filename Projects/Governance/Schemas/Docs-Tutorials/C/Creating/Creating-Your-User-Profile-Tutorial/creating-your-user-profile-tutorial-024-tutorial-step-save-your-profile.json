@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Super! Wir haben die Grundlagen behandelt! Jetzt haben Sie ein funktionierendes Benutzerprofil und nehmen bereits an den ersten beiden Governance Programs teil!",
                 "updated": 1640078757404
+            },
+            {
+                "language": "ID",
+                "text": "Keren! Kita telah meliputi dasarnya! Sekarang kamu punya User Profile yang bekerja dan siap berpartisipasi pada dua Governance Programs untuk pertama kalinya!",
+                "updated": 1670941372864
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Jetzt ist es an der Zeit, Ihr Benutzerprofil zu speichern!",
                     "updated": 1640078765872
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang saatnya menyimpan User Profile kamu!",
+                    "updated": 1670941380092
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>Alt</kbd> + <kbd>Taste-S</kbd>, um den Current Workspace zu speichern.",
                     "updated": 1640078805830
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik Ctrl + Shift + Alt + Key-S untuk menyimpan Current Workspace.",
+                    "updated": 1670941386474
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "DE",
                     "text": "Wir haben Ihr Profil so eingestellt, dass es jedes Mal als Plugin gespeichert wird, wenn Sie den Workspace speichern! Das sollte also auch Ihr User Profile speichern!",
                     "updated": 1640078816827
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita telah mengatur profil untuk disimpan sebagai plugin setiap kali kita menyimpan workspace! Jadi itu juga seharus menyimpan User Profile kamu!",
+                    "updated": 1670941392565
                 }
             ]
         }

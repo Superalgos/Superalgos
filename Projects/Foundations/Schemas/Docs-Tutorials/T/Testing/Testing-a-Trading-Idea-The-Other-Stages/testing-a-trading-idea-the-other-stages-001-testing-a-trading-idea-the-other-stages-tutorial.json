@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este tutorial completa la implementación de la idea de trading  formulado en los tutoriales anteriores, cubriendo las definiciones del Open Stage ( etapa abierta), Manage Stage Etapa de gestión),  y Close Stage ( etapa de cierre).",
-                "updated": 1636725896473
+                "text": "Este tutorial completa la implementación de la idea de trading formulado en los tutoriales anteriores, cubriendo las definiciones del Open Stage (etapa abierta), Manage Stage (Etapa de gestión) y Close Stage (etapa de cierre).",
+                "updated": 1680621495493
             },
             {
                 "language": "DE",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu öğretici, önceki öğreticilerde formüle edilen ticaret fikrinin uygulanmasını tamamlar ve Açık Aşama ( Open Stage ), Aşamayı Yönet ( Manage Stage ) ve Aşamayı Kapat ( Close Stage ) tanımlarını kapsar.",
-                "updated": 1641667819787
+                "text": "Bu öğretici, önceki öğreticilerde formüle edilen ticaret fikrinin uygulanmasını tamamlar ve Açık Aşama (Open Stage), Aşamayı Yönet (Manage Stage) ve Aşamayı Kapat (Close Stage) tanımlarını kapsar.",
+                "updated": 1669800520540
             }
         ]
     },
@@ -34,12 +34,17 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394116146,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sobre este tutorial",
+                    "updated": 1680621403991
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading System Design Tutorials Plugin Workspace.",
+            "text": "Workspace: Trading System Design Tutorials Native Workspace.",
             "translations": [
                 {
                     "language": "TR",
@@ -58,6 +63,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394128040,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1680621014393
                 }
             ]
         }

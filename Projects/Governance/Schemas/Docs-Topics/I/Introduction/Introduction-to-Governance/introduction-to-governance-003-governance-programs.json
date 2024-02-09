@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "La Community puede participar en múltiples Governance Programs, cada uno diseñado para cumplir un objetivo específico. Los programas se agrupan en los siguientes dominios: Onboarding Programs, Community Building Programs, Votes and Claims Programs, y Financial Programs.",
-                "updated": 1637405573505
+                "text": "La Community puede participar en múltiples Governance Program, cada uno diseñado para cumplir un objetivo específico. Los programas se agrupan en los siguientes dominios: Onboarding Programs, Community Building Programs, Votes Program and Claims Program, y Financial Programs.",
+                "updated": 1682595052733
             },
             {
                 "language": "RU",
@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Topluluk üyelerinin her biri belirli bir hedefi gerçekleştirmek için tasarlanmış birden fazla Yönetim Programına katılabilir. Programlar şu alanlarda gruplandırılmıştır: Oryantasyon Programları (Onboarding Programs), Topluluk Oluşturma Programları (Community Building Programs), Oylar ve Talep Programları (Votes and Claims Programs) ve Mali Programlar (Financial Programs).\n\n, , Votes and Claims Programs, and Financial Programs.",
                 "updated": 1642709599368
+            },
+            {
+                "language": "DE",
+                "text": "Die Gemeinschaft (Community) kann an mehreren Governance-Programmen teilnehmen, die jeweils ein bestimmtes Ziel verfolgen. Die Programme sind in die folgenden Bereiche unterteilt: Onboarding-Programme (Onboarding Programs), Programme zum Aufbau der Gemeinschaft (Community Building Programs), Abstimmungs- und Forderungsprogramme und Finanzprogramme (Financial Programs).",
+                "updated": 1676840386209
             }
         ]
     },
@@ -34,6 +39,16 @@
                     "text": "İşe Alım Programları",
                     "updated": 1654395498855,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Onboarding-Programme",
+                    "updated": 1676840391702
+                },
+                {
+                    "language": "ES",
+                    "text": "Programas de incorporación",
+                    "updated": 1682594388083
                 }
             ]
         },
@@ -60,6 +75,11 @@
                     "text": "Airdrop Programı",
                     "updated": 1654395512141,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Airdrop-Programm",
+                    "updated": 1676840598149
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "text": "Github Programı",
                     "updated": 1654395525089,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Github-Programm",
+                    "updated": 1676840938775
                 }
             ]
         },
@@ -110,6 +135,11 @@
                     "text": "Topluluk Oluşturma Programları",
                     "updated": 1654395538413,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Programme für den Aufbau von Gemeinschaften",
+                    "updated": 1676840962577
                 }
             ]
         },
@@ -135,6 +165,11 @@
                     "text": "Yönlendirme Programı",
                     "updated": 1654395551073,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Empfehlungsprogramm",
+                    "updated": 1676840973470
                 }
             ]
         },
@@ -159,6 +194,11 @@
                     "text": "Destek Programı",
                     "updated": 1654395562606,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Förderprogramm",
+                    "updated": 1676840989334
                 }
             ]
         },
@@ -183,6 +223,11 @@
                     "text": "Mentorluk Programı",
                     "updated": 1654395575683,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mentorenprogramm",
+                    "updated": 1676841024307
                 }
             ]
         },
@@ -208,6 +253,11 @@
                     "text": "Oylar ve Hasar Programları",
                     "updated": 1654395586707,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Abstimmungen und Anspruchsprogramme",
+                    "updated": 1676841036796
                 }
             ]
         },
@@ -233,6 +283,11 @@
                     "text": "Tazminat Programı",
                     "updated": 1654395598988,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Forderungsprogramm",
+                    "updated": 1676841046996
                 }
             ]
         },
@@ -257,6 +312,11 @@
                     "text": "Oylama Programı",
                     "updated": 1654395611570,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Abstimmungsprogramm",
+                    "updated": 1676841058117
                 }
             ]
         },
@@ -281,6 +341,11 @@
                     "text": "Finansal Programlar",
                     "updated": 1654395624581,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Financial-Programme",
+                    "updated": 1676841079911
                 }
             ]
         },
@@ -306,6 +371,11 @@
                     "text": "Staking Programı",
                     "updated": 1654395637185,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Absteckprogramm",
+                    "updated": 1676841093778
                 }
             ]
         },

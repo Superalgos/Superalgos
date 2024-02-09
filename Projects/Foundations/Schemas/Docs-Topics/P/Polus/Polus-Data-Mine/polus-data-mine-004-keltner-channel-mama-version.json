@@ -1,0 +1,184 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 4,
+    "type": "Keltner Channel - MAMA version",
+    "definition": {
+        "text": "Keltner channel using Mesa Adaptive Moving Average (MAMA).",
+        "updated": 1622686933380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Канал Кельтнера с использованием Mesa Adaptive Moving Average (MAMA).",
+                "updated": 1645715545722
+            },
+            {
+                "language": "DE",
+                "text": "Keltner Kanal mit Mesa Adaptive Moving Average (MAMA).\n",
+                "updated": 1671292584610
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645715551456
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “Keltner Channels are volitility based bands that are placed on either side of an asset's price and can aid in determining the direction of a trend.”",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"Каналы Кельтнера - это полосы волатильности, которые располагаются по обе стороны от цены актива и могут помочь в определении направления тренда\".",
+                    "updated": 1645715559303
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia sind \"Keltner Kanäle auf der Volatilität basierende Bänder, die auf beiden Seiten des Preises eines Vermögenswerts platziert werden und bei der Bestimmung der Richtung eines Trends helfen können.\"",
+                    "updated": 1671292632675
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This indicator uses the Mesa Adaptive Moving Average as a base of calculation instead of the Exponential Moving Average (EMA) used in the standard Keltner Channel.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор использует в качестве основы расчета адаптивную скользящую среднюю Mesa вместо экспоненциальной скользящей средней (EMA), используемой в стандартном канале Кельтнера.",
+                    "updated": 1645715594216
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator verwendet den Mesa Adaptive Moving Average als Berechnungsgrundlage anstelle des Exponential Moving Average (EMA), der im Standard Keltner Channel verwendet wird.",
+                    "updated": 1671292677363
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Keltner-MAMA.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the Keltner MAMA indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Keltner MAMA’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры индикатора Keltner MAMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Keltner MAMA' Product Definition.",
+                    "updated": 1645715608699
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Keltner-MAMA-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645715613967
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671292788992
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645715619911
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671292813862
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Keltner MAMA | Keltner | MAMA, upper, lower |",
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Keltner MAMA | Keltner | MAMA, upper, lower |",
+                    "updated": 1671292832635
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645715625739
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671292849869
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built using the price action breaking through the upper threshold:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простая стратегия может быть построена на основе ценового действия, пробивающего верхний порог:",
+                    "updated": 1645715636377
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie könnte auf der Grundlage des Durchbruchs der oberen Schwelle durch die Kursbewegung entwickelt werden:",
+                    "updated": 1671292872422
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.candle.close > chart.at30min.Keltner.upper &&\n chart.at30min.candle.open < chart.at30min.Keltner.upper &&\n chart.at30min.candle.previous.close < chart.at30min.Keltner.previous.upper"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671292886935
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

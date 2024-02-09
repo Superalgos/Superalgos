@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Позвольте мне провести вас через рассуждения, чтобы найти необходимую информацию в Trading Engine",
                 "updated": 1642942249006
+            },
+            {
+                "language": "ES",
+                "text": "Déjame guiarte a través del razonamiento para encontrar la información requerida en el Trading Engine",
+                "updated": 1681053574096
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Мы находимся в разделе Trading Current > Strategy Open Stage > Stage Quoted Asset. Вот почему:",
                     "updated": 1642942284526
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos en el Trading Current > Strategy Open Stage > Stage Quoted Asset section. Esto es por que:",
+                    "updated": 1681053611291
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Trading Current: здесь все о текущей позиции.",
                     "updated": 1642942321682
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Current: se trata de la posición actual.",
+                    "updated": 1681053626667
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Strategy Open Stage: так как на этом этапе произошла транзакция по входу в позицию. Мы хотим знать, сколько USDT мы получили!",
                     "updated": 1642942338889
+                },
+                {
+                    "language": "ES",
+                    "text": "Strategy Open Stage: porque la transacción para entrar en la posición ocurrió durante esta etapa. ¡Queremos saber cuántos USDT hemos conseguido!",
+                    "updated": 1681053641296
                 }
             ]
         },
@@ -110,6 +130,11 @@
                     "language": "RU",
                     "text": "Stage Quoted Asset: поскольку мы продали базовый актив и получили котируемый актив, и именно от котируемого актива мы хотим избавиться на этапе закрытия! Вопрос в том, сколько именно!",
                     "updated": 1642942364747
+                },
+                {
+                    "language": "ES",
+                    "text": "Stage Quoted Asset: porque la transacción para entrar en la posición ocurrió durante esta etapa. ¡Queremos saber cuántos USDT hemos conseguido!",
+                    "updated": 1681053697015
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "language": "RU",
                     "text": "Есть идеи по поводу формулы?",
                     "updated": 1642942370719
+                },
+                {
+                    "language": "ES",
+                    "text": "Algunas ideas para la formula?",
+                    "updated": 1681053724581
                 }
             ]
         }

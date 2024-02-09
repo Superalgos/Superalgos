@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Has agregado tu primer gráfico personalizado. Veamos qué tenemos hasta ahora. Amplía todo el recorrido de tu gráfico y eche un vistazo a tu alrededor.",
-                "updated": 1628647058651
+                "text": "Has agregado tu primer gráfico personalizado. Veamos qué tenemos hasta ahora. Amplía todo el recorrido de tu gráfico y echa un vistazo a tu alrededor.",
+                "updated": 1682430667060
             },
             {
                 "language": "RU",
@@ -40,8 +40,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Su gráfico está bien, pero todavía es bastante aburrido.",
-                    "updated": 1628646906326
+                    "text": "Tu gráfico está bien, pero todavía es bastante aburrido.",
+                    "updated": 1682430674369
                 },
                 {
                     "language": "RU",
@@ -94,8 +94,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No importa cuánto te desplaces, no pasa nada. ¡No te preocupes, no hay nada roto! Simplemente no lo hemos conectado a ninguno de sus datos. ¡Cambiemos eso!",
-                    "updated": 1628647017081
+                    "text": "No importa cuánto te desplaces, no pasa nada. ¡No te preocupes, no hay nada roto! Simplemente no lo hemos conectado a ninguno de tus datos. ¡Cambiemos eso!",
+                    "updated": 1682430689023
                 },
                 {
                     "language": "RU",
@@ -121,8 +121,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Un Layer Manager hereda el nombre de su Timeline Chart. ¡Por eso era mejor un nombre corto!",
-                    "updated": 1628647051230
+                    "text": "Un Layer Manager hereda el nombre de tu Timeline Chart. ¡Por eso era mejor un nombre corto!",
+                    "updated": 1682430699791
                 },
                 {
                     "language": "RU",

@@ -7,6 +7,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Input Layer",
+            "translationKey": "add.inputLayer",
             "relatedUiObject": "Input Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -15,6 +16,7 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "label": "Add Sequential layer",
+            "translationKey": "add.sequentialLayer",
             "relatedUiObject": "Sequential layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -25,6 +27,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Output Layer",
+            "translationKey": "add.outputLayer",
             "relatedUiObject": "Output Layer",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "TensorFlow"
@@ -34,7 +37,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

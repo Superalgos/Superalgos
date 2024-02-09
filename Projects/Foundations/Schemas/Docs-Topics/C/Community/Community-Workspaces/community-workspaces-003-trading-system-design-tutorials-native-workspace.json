@@ -1,0 +1,157 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "3",
+    "type": "Trading System Design Tutorials Native Workspace",
+    "definition": {
+        "text": "This workspace features a series of tutorials about designing trading systems. It is the first step users should take to learn about building strategies after completing their basic education.",
+        "updated": 1616145724293,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace incluye una serie de tutoriales sobre el diseño de sistemas comerciales. Es el primer paso que los usuarios deben dar para aprender a construir estrategias después de completar su educación básica.",
+                "updated": 1636560802341
+            },
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство содержит серию руководств по проектированию торговых систем. Это первый шаг, который пользователи должны сделать, чтобы узнать о стратегиях построения после завершения базового образования.",
+                "updated": 1639055690791
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, ticaret sistemleri tasarlama hakkında bir dizi öğretici içerir. Kullanıcıların temel eğitimlerini tamamladıktan sonra strateji oluşturma hakkında bilgi edinmeleri için atmaları gereken ilk adımdır.",
+                "updated": 1644675422405
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält eine Reihe von Tutorials zur Entwicklung von Handelssystemen. Es ist der erste Schritt, den Benutzer nach Abschluss ihrer Grundausbildung machen sollten, um etwas über die Entwicklung von Strategien zu lernen.",
+                "updated": 1688852563561
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151265546,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639055705011
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler",
+                    "updated": 1644675448729
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Intro to Trading Systems Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Intro to Trading Systems Tutorial ( Tutorial Introducción a los sistemas de trading)",
+                    "updated": 1636560845957
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemleri Eğitimine Giriş ( Intro to Trading Systems Tutorial )",
+                    "updated": 1644675478123
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Defining a Trading Idea Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Defining a Trading Idea Tutorial ( Tutorial definiendo una idea de trading)",
+                    "updated": 1636560878176
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Fikrini Tanımlama Eğitimi ( Defining a Trading Idea Tutorial )",
+                    "updated": 1644675508159
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Trigger Stage Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing a Trading Idea - The Trigger Stage Tutorial ( Tutorial probando una idea de trading- La etapa del gatillo)",
+                    "updated": 1636560982680
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Fikrini Test Etme - Tetikleme Aşaması Eğitimi ( Testing a Trading Idea - The Trigger Stage Tutorial )",
+                    "updated": 1644675530206
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Other Stages Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing a Trading Idea - The Other Stages Tutorial Tutorial testeando una idea de trading - Las otras etapas)",
+                    "updated": 1636560974924
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Fikrini Test Etme - Diğer Aşamalar Eğitimi ( Testing a Trading Idea - The Other Stages Tutorial )",
+                    "updated": 1644675554765
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "This series must keep growing to cover trade execution and trade management with specific examples.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта серия должна продолжать расти, чтобы на конкретных примерах освещать исполнение сделок и управление торговлей.",
+                    "updated": 1639055727339
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu seri, belirli örneklerle ticaret yürütme ve ticaret yönetimini kapsayacak şekilde büyümeye devam etmelidir.",
+                    "updated": 1644675575028
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Reihe muss weiter ausgebaut werden, um die Handelsausführung und das Handelsmanagement mit konkreten Beispielen abzudecken.",
+                    "updated": 1688852551930
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616151252550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639055864074
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688852628882
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622623292203
+        }
+    ]
+}

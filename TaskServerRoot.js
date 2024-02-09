@@ -13,7 +13,7 @@ async function runRoot() {
   */
   global.TS = {}
   /*
-  The SA object is accessible everywhere at the Superalgos Desktop App.
+  The SA object is accessible everywhere at the Superalgos Social Trading App.
   It provides access to all modules built for Superalgos in general.
   */
   global.SA = {}
@@ -69,6 +69,17 @@ async function runRoot() {
     vaderSentiment: require('vader-sentiment')
   }
   SA.version = require('./package.json').version
+
+  /**
+   * creates a path for the log file under a Tasks folder and each task will be in a subfolder 
+   * using the taskId as a folder name
+   * if taskId is undefined then we have a debug action going on and taskId will be set to debug
+   * `<PATH_TO_LOG_FILES>/Tasks/<TASK_ID>`
+   */
+  let taskId = (process.argv[2] == undefined) ? "debug" : process.argv[2]
+  const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Tasks', taskId)
+  SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'TS')
+  
   /* 
   Setting up the App Schema Memory Map. 
   */

@@ -1,0 +1,57 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 54,
+    "type": "Tutorial Step - Welcome Charts Scales Unlock Rate Scale",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video in modalità schermo intero.",
+                "updated": 1614894117992,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634217315985
+            },
+            {
+                "language": "TR",
+                "text": "Bu adımda bir video izleyeceksiniz.",
+                "updated": 1636094992004
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636207242104
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582600313
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1666700978230
+            },
+            {
+                "language": "FR",
+                "text": "Cette étape va lire une vidéo en mode plein écran.",
+                "updated": 1668069447263
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675277416939
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-charts-scales-unlock-rate-scale.gif"
+        }
+    ]
+}

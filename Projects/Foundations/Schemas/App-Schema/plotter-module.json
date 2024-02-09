@@ -84,6 +84,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -93,6 +94,7 @@
             "propertyToCheckFor": "shapes",
             "actionFunction": "payload.executeAction",
             "label": "Add Shapes",
+            "translationKey": "add.shapes",
             "relatedUiObject": "Shapes",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -103,6 +105,7 @@
             "propertyToCheckFor": "plotterModuleJavascriptCode",
             "actionFunction": "payload.executeAction",
             "label": "Add Javascript Code",
+            "translationKey": "add.javascriptCode",
             "relatedUiObject": "Plotter Module Javascript Code",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -111,6 +114,7 @@
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Plotter Panel",
+            "translationKey": "add.plotterPanel",
             "relatedUiObject": "Plotter Panel",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -118,6 +122,7 @@
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
+            "translationKey": "add.missing.children",
             "relatedUiObject": "Trading Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -129,7 +134,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

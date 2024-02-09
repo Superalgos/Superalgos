@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Superalgos, herhangi biri ya da bir şirket tarafından finanse edilen bir proje değil, topluluk tarafından yürütülen bir projedir! Ağızdan ağza pazarlama konusunda bize yardımcı olacağınıza güveniyoruz!",
                 "updated": 1645100205504
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos merupakan proyek yang dijalankan komunitas, bukan startup yang didanai VC! Kami mengandalkan kamu untuk membantu pemasaran dari mulut ke mulut!",
+                "updated": 1671529004011
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Los incentivos para traer a sus amigos, colegas o sus seguidores son significativos! Encuentre la breve explicación a continuación y sumérjase en los detalles a la derecha si lo desea.",
-                    "updated": 1630896616974,
+                    "text": "¡Los incentivos para traer a tus amigos, colegas o tus seguidores son significativos! Encuentre la breve explicación a continuación y sumérjete en los detalles a la derecha si lo desea.",
+                    "updated": 1682521378816,
                     "style": "Important"
                 },
                 {
@@ -54,6 +59,11 @@
                     "language": "TR",
                     "text": "Arkadaşlarınızı, meslektaşlarınızı veya takipçilerinizi getirdiğinizde alacağınız teşvikler önemlidir! Aşağıdaki kısa açıklamaya bakın ya da dilerseniz sağdaki ayrıntılara dalın!",
                     "updated": 1645100254487
+                },
+                {
+                    "language": "ID",
+                    "text": "Insentif ini untuk mengajak temanmu, kolega, atau yang kamu ikuti! Temukan penjelasan singkat di bawah ini, dan pergi ke detailnya di sebelah kanan jika kamu mau!",
+                    "updated": 1671529009861
                 }
             ]
         },
@@ -82,6 +92,11 @@
                     "language": "TR",
                     "text": "Bu programların nasıl çalıştığının kısa versiyonu:",
                     "updated": 1645100269894
+                },
+                {
+                    "language": "ID",
+                    "text": "Inilah versi pendek dari bagaimana program ini bekerja:",
+                    "updated": 1671529020429
                 }
             ]
         },
@@ -92,8 +107,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuantas más personas te declaren como tus referentes, más tokens ganarás en todas y cada una de las versiones del software, ¡indefinidamente!",
-                    "updated": 1630896831390,
+                    "text": "Cuantas más personas te declaren como sus recomendadores, más tokens ganarás en cada evento de distribución, ¡de forma indefinida!",
+                    "updated": 1682521442436,
                     "style": "List"
                 },
                 {
@@ -110,6 +125,11 @@
                     "language": "TR",
                     "text": "Ne kadar çok kişi sizi yönlendirenleri olarak ilan ederse, yazılımın her bir sürümünde süresiz olarak o kadar çok jeton kazanırsınız!",
                     "updated": 1645100285570
+                },
+                {
+                    "language": "ID",
+                    "text": "Semakin banyak orang menyatakan kamu sebagai perujuk mereka, semakin banyak token yang kamu peroleh di setiap acara distribusi, tanpa batas waktu!",
+                    "updated": 1671529026836
                 }
             ]
         },
@@ -138,6 +158,11 @@
                     "language": "TR",
                     "text": "Superalgos'a getirdiğiniz insanlar da başkalarını getiriyorsa, onlar için de kazanırsınız, bu böyle sürer gider.",
                     "updated": 1645100341305
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika orang yang kamu ajak ke Superalgos juga mengajak orang, kamu juga mendapat penghasilan dari mereka, dan dari orang yang dibawa terakhir, kamu juga mendapatkannya!",
+                    "updated": 1671529034275
                 }
             ]
         },

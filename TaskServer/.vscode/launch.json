@@ -17,6 +17,10 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program on Windows",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js",
+                "!**/node_modules/**"
+            ],
             "skipFiles": [
                 "<node_internals>/**"
             ],

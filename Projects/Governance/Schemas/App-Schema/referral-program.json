@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add User Referrer",
+            "translationKey": "add.userReferrer",
             "relatedUiObject": "User Referrer",
             "relatedUiObjectProject": "Governance"
         },
@@ -23,6 +25,7 @@
             "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Awarded",
+            "translationKey": "add.tokensAwarded",
             "relatedUiObject": "Tokens Awarded",
             "relatedUiObjectProject": "Governance"
         },
@@ -33,6 +36,7 @@
             "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Bonus",
+            "translationKey": "add.tokenBonus",
             "relatedUiObject": "Tokens Bonus",
             "relatedUiObjectProject": "Governance"
         },
@@ -41,7 +45,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

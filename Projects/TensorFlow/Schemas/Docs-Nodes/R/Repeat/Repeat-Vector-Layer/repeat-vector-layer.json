@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Girdiyi yeni bir boyutta n kez tekrarlar.",
                 "updated": 1654397505240
+            },
+            {
+                "language": "DE",
+                "text": "Wiederholt die Eingabe n-mal in einer neuen Dimension.",
+                "updated": 1705266222291
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397511159,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705266230837
                 }
             ]
         }

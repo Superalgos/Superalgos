@@ -26,8 +26,23 @@
             },
             {
                 "language": "ES",
-                "text": "Echemos un vistazo a las Bandas de Bollinger. Si aún no está activada, busque la capa de las Bandas de Bollinger en el gestor de capas Masters.",
-                "updated": 1668190348885
+                "text": "Echemos un vistazo a las Bandas de Bollinger. Si aún no está activada, busca la capa de las Bandas de Bollinger en el gestor de capas Masters.",
+                "updated": 1675205705661
+            },
+            {
+                "language": "IT",
+                "text": "Diamo un'occhiata alle Bande di Bollinger! Se non è già attivo, trova il layer Bollinger Bands nel gestore layer Masters.",
+                "updated": 1669895834331
+            },
+            {
+                "language": "NL",
+                "text": "Laten we eens kijken naar de Bollinger Bands! Als het nog niet is ingeschakeld, zoek dan de Bollinger Bands-laag in de Masters layer manager.",
+                "updated": 1670784761519
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat Bollinger Bands! Jika belum aktif, temukan layer Bollinger Bands di Masters layer manager.",
+                "updated": 1674690302357
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "El indicador presenta una media móvil de 20 periodos en el centro. Cuenta con una línea en la parte superior situada dos desviaciones estándar por encima de la media móvil. A esta línea la llamamos banda superior. Y también presenta una línea dos desviaciones estándar por debajo de la media móvil. A ésta la llamamos banda inferior. Juntas, son las bandas de Bollinger.",
                     "updated": 1668190393270
+                },
+                {
+                    "language": "IT",
+                    "text": "L'indicatore presenta una media mobile a 20 periodi al centro. Presenta una linea in alto situata due deviazioni standard sopra la media mobile. Chiamiamo questa linea la banda superiore. E presenta anche una linea due deviazioni standard al di sotto della media mobile. Chiamiamo questa la banda inferiore. Insieme, sono le Bande di Bollinger.",
+                    "updated": 1669895856430
+                },
+                {
+                    "language": "NL",
+                    "text": "De indicator heeft een voortschrijdend gemiddelde over 20 perioden in het midden. Het heeft een lijn bovenaan die zich twee standaarddeviaties boven het voortschrijdend gemiddelde bevindt. Deze lijn noemen we de bovenband. En het heeft ook een lijn twee standaarddeviaties onder het voortschrijdend gemiddelde. We noemen dit de onderste band. Samen vormen ze de Bollinger Bands.",
+                    "updated": 1670784798223
+                },
+                {
+                    "language": "ID",
+                    "text": "Indikator menampilkan 20-period moving average di tengah. Ini fitur garis di atas terletak dua standar deviasi di atas moving average. Kita menyebut garis ini upper band. Dan itu juga menampilkan garis dua standar deviasi di bawah moving average. Kita menyebutnya lower band. Bersama-sama, mereka adalah Bollinger Bands.",
+                    "updated": 1674690308412
                 }
             ]
         },
@@ -79,8 +109,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Observe cómo el precio oscila lateralmente rebotando en las bandas superior e inferior. A veces puede salirse de los límites de las bandas, ya sea por arriba o por abajo, pero la mayoría de las veces se mantiene dentro del rango de las bandas.",
-                    "updated": 1668190547789
+                    "text": "Observa cómo el precio oscila lateralmente rebotando en las bandas superior e inferior. A veces puede salirse de los límites de las bandas, ya sea por arriba o por abajo, pero la mayoría de las veces se mantiene dentro del rango de las bandas.",
+                    "updated": 1675205727777
+                },
+                {
+                    "language": "IT",
+                    "text": "Nota come le fasce di prezzo rimbalzano lateralmente sulle bande superiore e inferiore. A volte può uscire dai confini delle bande, sia superiori che inferiori, ma la maggior parte delle volte rimane all'interno della gamma delle bande.",
+                    "updated": 1669895875410
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe de prijs bereiken zijwaarts stuiteren van de bovenste en onderste banden. Soms gaat het buiten de grenzen van de banden, hoger of lager, maar meestal blijft het binnen het bereik van de banden.",
+                    "updated": 1670784839039
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana price range sideways memantul dari upper dan lower band. Kadang-kadang mungkin keluar dari batas band, baik lebih tinggi atau lebih rendah, tetapi sebagian besar tetap berada dalam jangkauan band.",
+                    "updated": 1674690314894
                 }
             ]
         }

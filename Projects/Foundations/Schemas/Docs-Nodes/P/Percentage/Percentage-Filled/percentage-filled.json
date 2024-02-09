@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Percentage Filled представляет собой часть ордера, которая была заполнена, выраженную в процентах.",
                 "updated": 1640350363545
+            },
+            {
+                "language": "TR",
+                "text": "Doldurulan yüzde, siparişin doldurulan kısmını yüzde olarak ifade eder.",
+                "updated": 1672256862195
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Формула:",
                     "updated": 1640350374215
+                },
+                {
+                    "language": "TR",
+                    "text": "Formülü:",
+                    "updated": 1672256897780
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "RU",
                     "text": "Конфигурация Percentage Filled",
                     "updated": 1640350385892
+                },
+                {
+                    "language": "TR",
+                    "text": "Doldurulan Yüzde Yapılandırması (Percentage Filled Configuration)",
+                    "updated": 1672257652680
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1640350393254
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1672257676464
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1640350402639
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1672257711583
                 }
             ]
         }

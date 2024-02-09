@@ -457,6 +457,25 @@
             ]
         },
         {
+            "style": "Subtitle",
+            "text": "How to Claim a Share of a Rewards Pool",
+            "updated": 1680368181569
+        },
+        {
+            "style": "Text",
+            "text": "If you want to claim a specific percentage share of a Rewards Pool, open the configuration of your Contribution Claim Node and define the percentage to claim using the claimedShare parameter:",
+            "updated": 1680368604098
+        },
+        {
+            "style": "Json",
+            "text": "{ \"claimedShare\": 25 }"
+        },
+        {
+            "style": "Text",
+            "text": "In this example, you would be claiming 25% of the referenced Rewards Pool. The Claim Power available at the Contribution Claim Node will be capped at this level. To claim the share in full, the allocated Claim Power therefore needs to be equal or larger than the Rewards contained in the Rewards Pool, multiplied by the configured percentage.",
+            "updated": 1680445368589
+        },
+        {
             "style": "Block",
             "text": "Dummy",
             "updated": 1630350577178
@@ -540,6 +559,29 @@
                     "updated": 1644502499007
                 }
             ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Negative Voting"
+        },
+        {
+            "style": "Text",
+            "text": "If you believe a Claim has been given too much weight, you may use Claim Support Power also for negative voting. Power marked as negative will compensate the same amount of regular Claim Support Power allocated by other users. To vote negatively, change the configuration of your Claim Vote node like in this example:",
+            "updated": 1680370107106
+        },
+        {
+            "style": "Json",
+            "text": "{ \"percentage\": 25, \"negative\": true }",
+            "updated": 1680370168546
+        },
+        {
+            "style": "Note",
+            "text": "Negative Voting should only be applied in exceptional cases, e.g. to counteract misconduct of other users. Please do not use Negative Voting as a standard within your Governance workflow.",
+            "updated": 1680370186915
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
         },
         {
             "style": "Block",

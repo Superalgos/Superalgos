@@ -14,7 +14,7 @@
             },
             {
                 "language": "RU",
-                "text": "Управление проектом Superalgos Project распределяется между всеми членами Community, желающими участвовать. Вы можете использовать разные манеры, помогать развитию в желаемых направлениях и способствовать формированию здорового сообщества.",
+                "text": "Управление проектом Superalgos Project расп��еделяется между всеми членами Community, желающими участвовать. Вы можете использовать разные манеры, помогать развитию в желаемых направлениях и способствовать формированию здорового сообщества.",
                 "updated": 1638974998112
             },
             {
@@ -145,8 +145,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Puede ejercer su influencia de forma dinámica, ya que puede redirigir su Token Power en cualquier momento. La distribución de Token Power en cada lanzamiento del software — atado al correspondiente Superalgos SA Token Distribution Event — determina cómo se distribuyen los tokens asignados al lanzamiento.",
-                    "updated": 1633345986132,
+                    "text": "Puedes ejercer tu influencia de forma dinámica, ya que puedes redirigir tu Token Power en cualquier momento. La distribución de Token Power en cada lanzamiento del software — atado al correspondiente Superalgos SA Token Distribution Event — determina cómo se distribuyen los tokens asignados al lanzamiento.",
+                    "updated": 1682593098133,
                     "style": "Text"
                 },
                 {
@@ -172,8 +172,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El Governance Project está diseñado como un sistema flexible que permite a la comunidad ejercer influencia en direcciones arbitrarias de manera dinámica. Permite que la gobernanza evolucione con el proyecto. también promueve la innovación sin permiso, ya que los Colaboradores pueden proponer nuevas áreas de desarrollo y conducir a la comunidad incentivar expansion a lo largo de lineas nuevas.",
-                    "updated": 1633346387045,
+                    "text": "El Proyecto de Gobernanza está diseñado como un sistema flexible que permite a la Comunidad dirigir dinámicamente la influencia en direcciones arbitrarias. Permite que la gobernanza evolucione con el proyecto. También fomenta la innovación sin permiso, ya que los Colaboradores pueden proponer nuevas áreas de desarrollo y reunir a la Comunidad para incentivar la expansión a lo largo de nuevas líneas.",
+                    "updated": 1682593224097,
                     "style": "Text"
                 },
                 {
@@ -210,8 +210,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Eine Gemeinschaft, die sich an der Governance beteiligt, ist entscheidend für die Entwicklung des Projekts, daher wird die Teilnahme gefördert. Mit anderen Worten, Sie werden Superalgos SA Token verdienen, wenn Sie an der Governance von Superalgos teilnehmen.",
-                    "updated": 1640090694058
+                    "text": "Eine Gemeinschaft, die sich an der Governance beteiligt, ist entscheidend für die Entwicklung des Projekts, daher wird die Teilnahme gefördert. Mit anderen Worten, sie werden Superalgos SA Token verdienen, wenn Sie an der Governance von Superalgos teilnehmen.",
+                    "updated": 1676839379687
                 },
                 {
                     "language": "TR",
@@ -238,6 +238,11 @@
                     "language": "TR",
                     "text": "Yönetim Altyapısı",
                     "updated": 1645180858117
+                },
+                {
+                    "language": "ES",
+                    "text": "Infraestructura de gobernanza",
+                    "updated": 1682593317932
                 }
             ]
         },
@@ -330,13 +335,13 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La gobernanza está definida a través de múltiples Governance Workspaces que los usuarios pueden cargar y contribuir con. Estos espacios de trabajo presentan las definiciones de varias jerarquías que determinan la relación de todos los conceptos que afectan la gobernanza.",
-                    "updated": 1633347120583,
+                    "text": "La gobernanza se define a través de múltiples espacios de trabajo de gobernanza que los usuarios pueden cargar y a los que pueden contribuir. Estos espacios de trabajo incluyen la definición de varias jerarquías que determinan la relación de todos los conceptos que afectan a la gobernanza.",
+                    "updated": 1682593533721,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Управление определяется несколькими рабочими пространствами управления Governance Workspaces, которые пользователи могут загружать и вносить в них. Эти рабочие пространства содержат определения нескольких иерархий, которые определяют взаимосвязь всех концепций, влияющих на управление.",
+                    "text": "Управление определяется несколькими рабочими пространствами управления Governance Workspaces, которые пользователи могут загружать и вносить в них. Эти рабочие пространства содержат определения нескольких иера��хий, которые определяют взаимосвязь всех концепций, влияющих на управление.",
                     "updated": 1638976411661
                 },
                 {
@@ -358,8 +363,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para participar en la gobernanaza, los usuarios deben configurar y enviar un User Profile plugin que define cómo pretenden ejercer la influencia conferida por sus tenencias de Superalgos SA Token. La inlfuencia y participación está definida mediante diferentes tipos de programas, votos y declaraciones.",
-                    "updated": 1633347353982,
+                    "text": "Para participar en la gobernanza, los usuarios deben configurar y enviar un User Profile Plugin que define cómo pretenden ejercer la influencia conferida por sus tenencias de Superalgos SA Token. La inlfuencia y participación está definida mediante diferentes tipos de programas, votos y declaraciones.",
+                    "updated": 1682593767213,
                     "style": "Text"
                 },
                 {
@@ -386,8 +391,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El sistema de gobernanza computa los votos y las declaraciones en tiempo real, mostrando una vista previa de lo que la distribucion showing a preview of what the distribution puede parecer, en el UI.",
-                    "updated": 1633347466937,
+                    "text": "El Sistema de gobernanza calcula los votos y las reclamaciones en tiempo real, mostrando una vista previa de cómo puede quedar la distribución, en la interfaz de usuario.",
+                    "updated": 1682593776957,
                     "style": "Text"
                 },
                 {
@@ -442,6 +447,11 @@
                     "language": "TR",
                     "text": "Şeffaflık ve Denetlenebilirlik",
                     "updated": 1645181165366
+                },
+                {
+                    "language": "ES",
+                    "text": "Transparencia y auditabilidad",
+                    "updated": 1682593863092
                 }
             ]
         },
@@ -451,8 +461,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Porque las definiciones que afectan a la gobernanza envia como plugin con el software, el proceso es transparente y auditable.",
-                    "updated": 1633347687363,
+                    "text": "Dado que todas las definiciones que afectan a la gobernanza se envían como plugins con el software, el proceso es transparente y auditable.",
+                    "updated": 1682593914033,
                     "style": "Text"
                 },
                 {
@@ -474,28 +484,28 @@
         },
         {
             "style": "List",
-            "text": "Any user may, at any point, load the corresponding Plugin Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating.",
+            "text": "Any user may, at any point, load the corresponding Native Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating.",
             "updated": 1629995410591,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "cualquier usuario puede, en cualquier momento, cargar el correspondiente Plugin Workspaces y visualizar and visualizecómo la influencia está siendo ejercida por todos participantes titulares de Superalgos SA Token..",
-                    "updated": 1633347841894,
+                    "text": "Cualquier usuario puede, en cualquier momento, cargar el correspondiente Native Workspaces y visualizar cómo la influencia está siendo ejercida por todos participantes titulares de Superalgos SA Token.",
+                    "updated": 1682593948466,
                     "style": "List"
                 },
                 {
                     "language": "RU",
-                    "text": "Любой пользователь может в любой момент загрузить соответствующие рабочие пространства подключаемых модулей Plugin Workspaces и визуализировать влияние всех участвующих держателей токенов Superalgos SA Token.",
+                    "text": "Любой пользователь может в любой момент загрузить соответствующие рабочие пространства подключаемых модулей Native Workspaces и визуализировать влияние всех участвующих держателей токенов Superalgos SA Token.",
                     "updated": 1638976735618
                 },
                 {
                     "language": "DE",
-                    "text": "Jeder Nutzer kann jederzeit die entsprechenden Plugin-Workspaces laden und den Einfluss aller beteiligten Superalgos SA Token-Inhaber visualisieren.",
+                    "text": "Jeder Nutzer kann jederzeit die entsprechenden Native Workspaces laden und den Einfluss aller beteiligten Superalgos SA Token-Inhaber visualisieren.",
                     "updated": 1640091410436
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir kullanıcı, herhangi bir noktada ilgili Eklenti Çalışma Alanlarını (Plugin Workspaces) yükleyebilir ve katılan tüm Superalgos SA Token sahipleri tarafından etkinin nasıl uygulandığını görselleştirebilir.",
+                    "text": "Herhangi bir kullanıcı, herhangi bir noktada ilgili Eklenti Çalışma Alanlarını (Native Workspaces) yükleyebilir ve katılan tüm Superalgos SA Token sahipleri tarafından etkinin nasıl uygulandığını görselleştirebilir.",
                     "updated": 1645181237991
                 }
             ]
@@ -506,8 +516,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cualquier usuario puede verificar Any user may verify todas las métricas gestionadas por el  Governance Project en las tablas desplegadas en el Governace Tab.",
-                    "updated": 1633347961533,
+                    "text": "Cualquier usuario puede verificar todas las métricas gestionadas por el Governance Project en las tablas desplegadas en el Governace Tab.",
+                    "updated": 1682593964061,
                     "style": "List"
                 },
                 {
@@ -533,8 +543,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cualquier usuario puede hacer correr una simulación de el proceso de distribución de Superalgos SA Token y verificar verify cómo se distribuirán los tokens asignados a la próxima versión.",
-                    "updated": 1633348037956,
+                    "text": "Cualquier usuario puede hacer correr una simulación de el proceso de distribución de Superalgos SA Token y verificar cómo se distribuirán los tokens asignados a la próxima versión.",
+                    "updated": 1682593979959,
                     "style": "List"
                 },
                 {
@@ -561,13 +571,13 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cualquier usuario puede obtener (mediante GitHub) y cargar versiones históricas del software, y hacer correr una simulación de Superalgos SA Token Distribution Event para verificar como los tokens han sido distribuidos ten lanzamientos anteriores. Note quet, en este caso, el número absoluto de votos puede no ser válido ya que las tenencias de token habrán variado, de todas maneras, cualquier usuario puede validar la distribución relativa.",
-                    "updated": 1633531601031,
+                    "text": "Cualquier usuario puede obtener (mediante GitHub) y cargar versiones históricas del software, y hacer correr una simulación de Superalgos SA Token Distribution Event para verificar como los tokens han sido distribuidos en lanzamientos anteriores. En este caso, el número absoluto de votos puede no ser válido ya que las tenencias de token habrán variado, de todas maneras, cualquier usuario puede validar la distribución relativa.",
+                    "updated": 1682594029014,
                     "style": "List"
                 },
                 {
                     "language": "RU",
-                    "text": "Любой пользователь может получить (из GitHub) и загрузить исторические версии программного обеспечения, а также запустить моделирование события распределения токенов Superalgos SA Token, чтобы проверить, как токены были распределены в прошлых выпусках. Обратите внимание, что в этом случае абсолютное количество голосов может быть недействительным, поскольку владение токенами будет изменяться; тем не мение, любой пользователь может проверить относительное распределение.",
+                    "text": "Любой пользователь может получить (из GitHub) и загрузить исторические версии программного обеспечения, а также запустить моделирование события распределения токенов Superalgos SA Token, чтобы проверить, как токены были распределены в прошлых выпусках. Обратите внимание, что в этом случае абсолютное количество голосов может быть недействительным, поскольку владение токенами будет изменяться; тем не мение, любой пользователь может пров��рить относительное распределение.",
                     "updated": 1638977085559
                 },
                 {

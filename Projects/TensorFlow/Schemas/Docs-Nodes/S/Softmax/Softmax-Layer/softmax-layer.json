@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Softmax aktivasyon katmanı. Çok sınıflı bir sınıflandırma modelinde her olası sınıf için olasılıklar sağlayan bir işlev. Olasılıklar tam olarak 1,0'a toplanır. Örneğin, softmax belirli bir görüntünün köpek olma olasılığını 0,9, kedi olma olasılığını 0,08 ve at olma olasılığını 0,02 olarak belirleyebilir.",
                 "updated": 1654397601654
+            },
+            {
+                "language": "DE",
+                "text": "Softmax-Aktivierungsschicht. Eine Funktion, die Wahrscheinlichkeiten für jede mögliche Klasse in einem Mehrklassen-Klassifikationsmodell liefert. Die Wahrscheinlichkeiten addieren sich zu genau 1,0. Beispielsweise könnte Softmax bestimmen, dass die Wahrscheinlichkeit, dass es sich bei einem bestimmten Bild um einen Hund handelt, bei 0,9 liegt, bei einer Katze bei 0,08 und bei einem Pferd bei 0,02. ",
+                "updated": 1705011679142
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Giriş şekli: Keyfi. Bu katmanı bir modelde ilk katman olarak kullanırken inputShape yapılandırmasını kullanın.",
                     "updated": 1654397607284,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform (Input shape): Beliebig. Verwenden Sie die Konfiguration inputShape, wenn Sie diese Ebene als erste Ebene in einem Modell verwenden.",
+                    "updated": 1705008992304
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Çıkış şekli: Giriş ile aynı şekil.",
                     "updated": 1654397612829,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Form der Ausgabe (Output shape): Gleiche Form wie bei der Eingabe.",
+                    "updated": 1705009002760
                 }
             ]
         }

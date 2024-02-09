@@ -4,7 +4,14 @@
     "type": "Trading Group",
     "definition": {
         "text": "Discuss trading signals, providers, and how to use them.",
-        "updated": 1660162142901
+        "updated": 1660162142901,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Diskussion über Handelssignale, Anbieter und deren Verwendung.",
+                "updated": 1697733764491
+            }
+        ]
     },
     "paragraphs": [
         {

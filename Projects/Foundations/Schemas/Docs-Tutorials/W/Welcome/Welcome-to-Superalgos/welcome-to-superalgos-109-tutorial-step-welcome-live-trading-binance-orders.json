@@ -1,0 +1,52 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 109,
+    "type": "Tutorial Step - Welcome Live Trading Binance Orders",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video a schermo intero.",
+                "updated": 1618071771852,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634245379816
+            },
+            {
+                "language": "TR",
+                "text": "Bu videoda neler olduğunu görebilirsiniz.",
+                "updated": 1636632735136
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582745555
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642771914766
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1667135836794
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675362652758
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-live-trading-binance-orders.gif"
+        }
+    ]
+}

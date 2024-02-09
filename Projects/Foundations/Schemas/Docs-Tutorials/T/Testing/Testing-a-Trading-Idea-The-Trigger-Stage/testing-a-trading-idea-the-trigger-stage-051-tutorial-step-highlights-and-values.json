@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Heyecan verici bir konuya gelelim! Öne Çıkanlar ve Değerler seviyelerini kullanarak koşulların doğrulanmasını nasıl kontrol edeceğinizi göstereceğim.",
-                "updated": 1641661921968
+                "text": "Heyecan verici bir konuya gelelim! Size \"highlights\" ve \"values\" seviyelerini kullanarak koşulların doğrulanmasını nasıl kontrol edeceğinizi göstereceğim.",
+                "updated": 1669661435319
             },
             {
                 "language": "RU",
                 "text": "Давайте перейдем к более яркой теме! Я покажу вам, как проверить корректность условий с помощью слоев \"Highlights\" и \" Values\".",
                 "updated": 1642658200961
+            },
+            {
+                "language": "ES",
+                "text": "¡Pasemos a un tema más brillante! Te mostraré cómo verificar la validación de las condiciones con las capas de aspectos destacados y valores.",
+                "updated": 1679099325507
             }
         ]
     },
@@ -39,13 +44,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve \"Ticaret Sisteminde Öne Çıkanlar \"(Trading System Highlights) ve \"Ticaret Sistem Değerleri\"(Trading System Values) katmanlarını açın...",
-                    "updated": 1641661955035
+                    "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve \"Trading System Highlights\" ve \"Trading System Values\" katmanlarını açın...",
+                    "updated": 1669661714686
                 },
                 {
                     "language": "RU",
                     "text": "Перейдите в менеджер слоев торговой системы и включите слои \"Trading System Highlights\" и \"Trading System Values\"...",
                     "updated": 1642658306766
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al gestor de capas del Sistema de Trading y activa las capas \" Trading System Highlights\" y \"Trading System Values\"...",
+                    "updated": 1679099348729
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Теперь наведите указатель мыши на свечу, на которой сработала стратегия!",
                     "updated": 1642658328550
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora desliza el puntero del ratón sobre la vela en la que se activa la estrategia.",
+                    "updated": 1679099352531
                 }
             ]
         },
@@ -81,13 +96,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu aracı, işler beklediğiniz gibi gitmediğinde kullanın! Bu, olması gerektiğini düşündüğünüz bir olayın neden tetiklenmediğini öğrenmenin harika bir yoludur!",
-                    "updated": 1641661985597
+                    "text": "Bu aracı, işler beklediğiniz gibi gitmediğinde kullanın! Bu, olması gerektiğini düşündüğünüz bir olayın neden tetiklenmediğini öğrenmenin harika bir yoludur!",
+                    "updated": 1669661726883
                 },
                 {
                     "language": "RU",
                     "text": "Используйте этот ресурс, когда все идет не так, как вы ожидаете! Так вы узнаете, почему событие не срабатывает, когда вы думаете, что оно должно сработать!",
                     "updated": 1642658348930
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Utiliza este recurso cuando las cosas no vayan como esperas! ¡Así es como puedes averiguar por qué un evento no se está activando cuando crees que debería!",
+                    "updated": 1679099361748
                 }
             ]
         }

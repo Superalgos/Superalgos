@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Должно ли тестирование торговой идеи давать черные или белые результаты? Это хороший вопрос... на который можете ответить только вы!",
                 "updated": 1642945599023
+            },
+            {
+                "language": "ES",
+                "text": "¿Debería la comprobación de una idea de Trading arrojar resultados blancos o negros? Es una buena pregunta... ¡que sólo tú puedes responder!",
+                "updated": 1681734588355
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Надежны ли ваши критерии тестирования? Если вы доверяете критериям тестирования и уверены, что прогноз должен оправдаться, чтобы идея оправдала себя, тогда вам, вероятно, следует придерживаться конкретных цифр.",
                     "updated": 1642945633696
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Es tu criterio de prueba sólido como una roca? Si confías en los criterios de comprobación y estás seguro de que la predicción debe cumplirse para que la idea merezca la pena, entonces probablemente debas ceñirte a los números duros.",
+                    "updated": 1681734626450
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Test kriterleriniz daha çok bir kılavuz mu yoksa ilk değerlendirme mi? Bizim durumumuzda, önerilen test kriterlerinin oldukça keyfi olduğunu ve sorgulandığında geçerli olmadığını açıkça itiraf edebilirim. Bir noktaya değinmek ve açıklamaları kolaylaştırmak için basit bir kriter seçtim. Eğer test kriterlerini sadece bir ilk değerlendirme olarak görüyorsanız, o zaman muhtemelen daha incelikli bir analize ihtiyacınız vardır.",
                     "updated": 1654761369630
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Los criterios de ensayo son más bien orientativos o una primera evaluación? En nuestro caso, puedo confesar abiertamente que los criterios de prueba propuestos son bastante arbitrarios, y no se sostienen si se cuestionan. He elegido un criterio sencillo para aclarar las cosas y facilitar las explicaciones, ¡pero no lo defendería ante un tribunal! Si consideras que los criterios de evaluación son sólo una primera valoración, probablemente haya lugar para un análisis más detallado.",
+                    "updated": 1681734678960
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор выдает сигнал на покупку/продажу на основе индикатора, первоначально написанного каналом TradingRush на YouTube.",
                 "updated": 1646898797586
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator erzeugt ein Kauf-/Verkaufssignal, das auf dem Indikator basiert, der ursprünglich vom TradingRush Kanal auf YouTube geschrieben wurde.",
+                "updated": 1671698701071
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "BeepBoop на графиках",
                     "updated": 1646898812701
+                },
+                {
+                    "language": "DE",
+                    "text": "BeepBoop auf den Charts",
+                    "updated": 1671698729005
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Индикатор BeepBoop основан на принципах стратегии пересечения MACD 12-26. Когда MACD пересекается вверх, генерируется сигнал на покупку. Когда сигнал пересекается вниз, генерируется сигнал на продажу. Во всех остальных случаях сигнал нейтрален. Нейтральное состояние может быть использовано для выхода из сделки.",
                     "updated": 1646898825521
+                },
+                {
+                    "language": "DE",
+                    "text": "Der BeepBoop Indikator basiert auf den Prinzipien der MACD 12-26 Cross Strategie. Wenn der MACD nach oben kreuzt, wird ein Kaufsignal erzeugt. Wenn das Signal nach unten kreuzt, wird ein Verkaufssignal generiert. Zu allen anderen Zeiten ist das Signal neutral. Der neutrale Zustand kann zum Ausstieg aus einem Handel genutzt werden.",
+                    "updated": 1671698774328
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "language": "RU",
                     "text": "Чтобы изменить параметры, необходимые для расчета в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop в \"BeepBoop\" Product Definition.",
                     "updated": 1646898871110
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die für die Berechnung erforderlichen Parameter nach Ihren Bedürfnissen zu ändern, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter „BeepBoop“ Product Definition.",
+                    "updated": 1671698886066
                 }
             ]
         },
@@ -71,13 +91,25 @@
                     "language": "RU",
                     "text": "Продукты и свойства BeepBoop",
                     "updated": 1646898886606
+                },
+                {
+                    "language": "DE",
+                    "text": "BeepBoop Produkte & Eigenschaften",
+                    "updated": 1671698904115
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Setting | Product Variable | Properties |\n| BeepBoop | BeepBoop | HistCol |",
-            "updated": 1611662546677
+            "updated": 1611662546677,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| BeepBoop | BeepBoop | HistCol |",
+                    "updated": 1671698918555
+                }
+            ]
         },
         {
             "style": "Text",
@@ -88,6 +120,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1646898892697
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671698932812
                 }
             ]
         },
@@ -99,6 +136,11 @@
                     "language": "RU",
                     "text": "Простая стратегия может быть построена с использованием сигналов покупки/продажи, при этом нейтральный сигнал может указывать на выход из позиции. Чтобы добавить слияния, рекомендуется комбинировать с EMA200 и заключать сделки только в направлении EMA. Например, принимать сигналы на покупку только тогда, когда ценовое движение выше EMA200.",
                     "updated": 1646898918519
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann mit Hilfe der Kauf-/Verkaufssignale erstellt werden, wobei ein neutrales Signal möglicherweise den Ausstieg aus der Position anzeigt. Um den Zusammenfluss zu verstärken, empfiehlt es sich, den EMA200 zu verwenden und nur in Richtung des EMA zu handeln. Nehmen Sie zum Beispiel nur Kaufsignale auf, wenn der Kurs über dem EMA200 liegt.",
+                    "updated": 1671698960186
                 }
             ]
         },

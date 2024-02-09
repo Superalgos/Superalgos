@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Условия для взятия позиции требуют, чтобы две последовательные свечи 1H закрылись ниже нижней полосы Боллинджера!",
                 "updated": 1642664163754
+            },
+            {
+                "language": "ES",
+                "text": "Las condiciones de toma de posición requieren que dos velas 1H consecutivas cierren por debajo de la banda inferior de Bollinger.",
+                "updated": 1679254168472
             }
         ]
     },
@@ -38,13 +43,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Kontrol etmek çok kolay! 7hs ve 8hs mumlar alt bandın altında kapandıktan sonra 9hs'de Tetik Aşamasının ilk kapanışına sahibiz. Çok uzak çok iyi!",
-                    "updated": 1641666130677
+                    "text": "Kontrol etmek çok kolay! 7. saat ve 8. saat mumları alt bandın altında kapandıktan sonra 9.saatte de Tetik Aşamasının ilk kapanışını görüyoruz.Şimdiye kadar çok iyi!",
+                    "updated": 1669671541727
                 },
                 {
                     "language": "RU",
                     "text": "Это довольно легко проверить! У нас есть первое закрытие стадии срабатывания на 9hs, после того как свечи 7hs и 8hs закрылись ниже нижней полосы. Итак, пока все в порядке!",
                     "updated": 1642664191675
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Esto es bastante fácil de comprobar! Tenemos el primer cierre de la fase de activación a las 9hs, después de que las velas de las 7hs y 8hs cerraran por debajo de la banda inferior. Hasta aquí, ¡todo bien!",
+                    "updated": 1679254175738
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "alt bandın altında art arda dört saatlik kapanış fiyatımız daha var! Her biri, alt bandın altında iki ardışık kapanış fiyatı koşulunu yerine getirir! Şimdi bu grafikte ne gördüğümüzü anladığımıza göre, bunun ticaret fikrimiz için ne anlama geldiğini tartışalım!",
-                    "updated": 1641666140591
+                    "text": "alt bandın altında art arda dört adet saatlik kapanışımız daha var! Her biri, alt bandın altında iki ardışık kapanış fiyatı koşulunu yerine getirir! Şimdi bu grafikte ne gördüğümüzü anladığımıza göre, bunun ticaret fikrimiz için ne anlama geldiğini tartışalım!",
+                    "updated": 1669671563965
                 },
                 {
                     "language": "RU",
                     "text": "У нас есть еще четыре последовательных часовых закрытия ниже нижней полосы! На каждом из них условие двух последовательных закрытий ниже нижней полосы истинно (true)! Теперь, когда мы понимаем, что мы видим на этом графике, давайте обсудим, что это означает для нашей торговой идеи!",
                     "updated": 1642664243380
+                },
+                {
+                    "language": "ES",
+                    "text": "Tenemos otros cuatro cierres horarios consecutivos por debajo de la banda inferior. En cada uno de ellos, la condición de dos cierres consecutivos por debajo de la banda inferior se cumple. Ahora que entendemos lo que vemos en este gráfico, ¡vamos a discutir lo que esto significa para nuestra idea de trading!",
+                    "updated": 1679254181175
                 }
             ]
         }

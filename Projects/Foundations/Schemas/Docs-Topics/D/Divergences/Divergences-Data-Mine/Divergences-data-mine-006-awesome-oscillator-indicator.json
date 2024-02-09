@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: Bu gösterge, ilk olarak Bill Williams tarafından hisse senetleri, forex ve emtia ticareti için bir yöntem olarak icat edildiği gibi  Awesome Oscillator oluşturur.",
                 "updated": 1647717605627
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt den Awesome Oszillator, der ursprünglich von Bill Williams als Methode für den Handel mit Aktien, Devisen und Rohstoffen erfunden wurde.",
+                "updated": 1673442918792
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Awesome Oscillator",
                     "updated": 1647717613428
+                },
+                {
+                    "language": "DE",
+                    "text": "Awesome Oszillator in den Charts",
+                    "updated": 1673438898152
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Awesome Oscillator sınırsız bir osilatördür ve iki basit hareketli ortalama (SMA) arasındaki fark kullanılarak hesaplanır; biri tipik olarak 34 periyot uzunluğunda yavaş hareket eden bir sma'ya ve 5 periyot uzunluğunda hızlı hareket eden SMA'ya sahiptir. SMA, (maksimum + minimum)/2 medyan fiyatı kullanılarak hesaplanır.",
                     "updated": 1647717620737
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Awesome Oszillator ist ein unbeschränkter Oszillator und wird anhand der Differenz zwischen zwei einfachen gleitenden Durchschnitten (SMA) berechnet: einem langsam gleitenden SMA, der in der Regel 34 Perioden lang ist, und einem schnell gleitenden SMA von 5 Perioden Länge. Die SMA werden anhand des Medianpreises von (Maximum + Minimum)/2 berechnet.",
+                    "updated": 1673443009273
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Müthiş Osilatörün parametreleri, \\\"Müthiş Osilatör\\\" Ürün Tanımı altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
                     "updated": 1647717632646
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Awesome Oszillator können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Awesome Oscillator\" Product Definition suchen und öffnen.",
+                    "updated": 1673443020135
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "TR",
                     "text": "Awesome Oscillator Ürün ve Özellikler",
                     "updated": 1647717667778
+                },
+                {
+                    "language": "DE",
+                    "text": "Awesome Oszillator - Produkte und Eigenschaften",
+                    "updated": 1673443065878
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "TR",
                     "text": "| Ürün Ayarı | Ürün Değişkeni | Özellikler |\n| HarikaOsc | ao | değer |",
                     "updated": 1647717693594
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| AwesomeOsc | ao | value |",
+                    "updated": 1673443102644
                 }
             ]
         },
@@ -119,6 +149,11 @@
                     "language": "TR",
                     "text": "Örnek:",
                     "updated": 1647717747945
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673443126259
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "TR",
                     "text": "Osilatör değeri aşağıdan 0'ı geçtiğinde bir ticaret girerek basit bir strateji oluşturulabilir:",
                     "updated": 1647717757824
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der Oszillatorwert von unten nach oben 0 überschreitet:",
+                    "updated": 1673443146626
                 }
             ]
         },
@@ -155,6 +195,11 @@
                     "language": "TR",
                     "text": "Bu gösterge için diğer stratejiler arasında Saucer stratejisi, Twin Peaks ve trend çizgisi çaprazı bulunur.",
                     "updated": 1647717768854
+                },
+                {
+                    "language": "DE",
+                    "text": "Weitere Strategien für diesen Indikator sind die Saucer-Strategie, Twin Peaks und das Trendlinienkreuz.",
+                    "updated": 1673443164724
                 }
             ]
         }

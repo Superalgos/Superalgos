@@ -1,0 +1,50 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "9",
+    "type": "Machine Learning Demo Native Workspace",
+    "definition": {
+        "text": "The workspace features the basic setup to start exploring the integration of the TensorFlow Project.",
+        "updated": 1616693308998,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В рабочем пространстве представлены базовые настройки, позволяющие начать изучение интеграции проекта TensorFlow Project.",
+                "updated": 1639056680770
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Çalışma alanı, TensorFlow Projesinin entegrasyonunu keşfetmeye başlamak için temel kurulumu içerir.",
+                "updated": 1644676284948
+            },
+            {
+                "language": "DE",
+                "text": "Der Arbeitsbereich bietet die grundlegende Einrichtung, um die Integration des TensorFlow-Projekts (TensorFlow Project) zu erforschen.",
+                "updated": 1688936531798
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616693330070,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056689835
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936463673
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "updated": 1622625062405
+        }
+    ]
+}

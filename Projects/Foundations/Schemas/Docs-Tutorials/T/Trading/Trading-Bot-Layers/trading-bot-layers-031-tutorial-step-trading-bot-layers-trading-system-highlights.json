@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Bu videoda neler olduğunu görebilirsiniz",
                 "updated": 1642517609054
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675468644061
             }
         ]
     },

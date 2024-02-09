@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Это были стадии срабатывания и открытия. Давайте рассмотрим стадии управления и закрытия!",
                 "updated": 1642944052589
+            },
+            {
+                "language": "ES",
+                "text": "Esas fueron las etapas de activación y apertura. Veamos las etapas de gestión y cierre.",
+                "updated": 1681056862799
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Manage Stage: Открывается вместе со стадией открытия и остается открытой, пока цена отскакивает ниже стоп-лосса и выше цели для взятия позиции. Когда свеча 22 hs от 2 марта отметит цель стоп-лосса, стадия управления закрывается.",
                     "updated": 1642944091309
+                },
+                {
+                    "language": "ES",
+                    "text": "Manage Stage: Se abre junto con la etapa de apertura y permanece abierta mientras el precio rebota por debajo del stop loss y por encima del target de toma de posición. Cuando la vela de 22 hs del 2 de marzo marca el stop loss target, se cierra la etapa de gestión.",
+                    "updated": 1681056922375
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Close Stage: Открывается после выставления стоп-лосса, а закрывается через час (!?) после выставления рыночного ордера на покупку!",
                     "updated": 1642944103441
+                },
+                {
+                    "language": "ES",
+                    "text": "Close Stage: Abre después de marcar el stop loss, y cierra una hora más tarde después de colocar la orden de compra a mercado!",
+                    "updated": 1681056947785
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Через час снова загадка... Потратьте минуту на размышление о таком поведении.",
                     "updated": 1642944111837
+                },
+                {
+                    "language": "ES",
+                    "text": "Otra vez el misterio de una hora después... Tómate un minuto para reflexionar sobre este comportamiento.",
+                    "updated": 1681057015805
                 }
             ]
         }

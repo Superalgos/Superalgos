@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Token Gücünün gidebileceği her bir düğümün konfigürasyonu bir kapı görevi görür! Token Güç Akışlarını Token Power Flows) bu şekilde kontrol edersiniz!",
                 "updated": 1645101201621
+            },
+            {
+                "language": "ID",
+                "text": "Konfigurasi dari setiap node dimana Token Power mungkin bertindak sebagai pintu air! Begitulah cara kamu mengontrol Token Power Flows!",
+                "updated": 1671529844944
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Onboarding Programs düğümüne geri dönün. Bu programların Token Gücüne ihtiyacı yok, bu yüzden kapıyı kapatacağız!",
                     "updated": 1645101256755
+                },
+                {
+                    "language": "ID",
+                    "text": "Kembali ke node Onboarding Programs. Tebak apa? Program-program itu tidak membutuhkan Token Power, jadi kita akan menutup pintu air-nya!",
+                    "updated": 1671529857895
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Copie la siguiente configuración y péguela en la configuración del nodo Onboarding Programs.",
-                    "updated": 1630897367644,
+                    "text": "Copia la siguiente configuración y pégala en la configuración del nodo Onboarding Programs.",
+                    "updated": 1682521624288,
                     "style": "Callout"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki konfigürasyonu kopyalayın ve Onboarding Programs düğüm konfigürasyonuna yapıştırın!",
                     "updated": 1645101272781
+                },
+                {
+                    "language": "ID",
+                    "text": "Salin konfigurasi dibawah ini dan tempelkan itu ke konfigurasi node Onboarding Programs!",
+                    "updated": 1671529969042
                 }
             ]
         },

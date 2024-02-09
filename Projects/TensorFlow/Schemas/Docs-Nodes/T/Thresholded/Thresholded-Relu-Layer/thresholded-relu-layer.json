@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Пороговая выпрямленная линейная единица.",
                 "updated": 1645252219754
+            },
+            {
+                "language": "DE",
+                "text": "Schwellenwertgesteuerte gleichgerichtete lineare Einheit.",
+                "updated": 1705143381724
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Она подчиняется",
                     "updated": 1645252232935
+                },
+                {
+                    "language": "DE",
+                    "text": "Es folgt",
+                    "updated": 1705143435958
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Input shape: Произвольный. Используйте конфигурацию inputShape при использовании этого слоя в качестве первого слоя в модели.",
                     "updated": 1645252241332
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: Beliebig. Verwenden Sie die Konfiguration inputShape, wenn Sie diese Ebene als erste Ebene in einem Modell verwenden.",
+                    "updated": 1705143449030
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Output shape: Та же форма, что и у входа.",
                     "updated": 1645252248350
+                },
+                {
+                    "language": "DE",
+                    "text": "Form der Ausgabe: Gleiche Form wie bei der Eingabe.",
+                    "updated": 1705143458626
                 }
             ]
         }

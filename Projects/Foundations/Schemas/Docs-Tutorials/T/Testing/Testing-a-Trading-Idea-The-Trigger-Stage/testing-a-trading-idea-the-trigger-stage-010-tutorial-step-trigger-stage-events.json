@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bir bakıma stratejiler bir olaylar topluluğu olarak tanımlanır. Bir Ticaret Stratejisini ( Trading Strategy ) tetikleyen olaylar, ilk dikkate alınanlardır!",
                 "updated": 1641064952762
+            },
+            {
+                "language": "ES",
+                "text": "En cierto modo, las estrategias se definen como una colección de acontecimientos. ¡Los eventos que desencadenan una Trading Strategy son los primeros a tener en cuenta!",
+                "updated": 1675621765630
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Önümüzdeki birkaç adımda, tanımlayacaklarımız ...",
                     "updated": 1641065016955
+                },
+                {
+                    "language": "ES",
+                    "text": "En los próximos pasos, definiremos los...",
+                    "updated": 1675621781492
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "TR",
                     "text": "Henüz yapmadıysanız, bu kavramları hızlandırmak için lütfen bu sayfayı okuyun! Bu sayfayı daha önce okuduysanız, bilginizi tazelemekten zarar gelmez!",
                     "updated": 1641065124395
+                },
+                {
+                    "language": "ES",
+                    "text": "Si aún no lo has hecho, por favor lee esta página para ponerte al día con estos conceptos. Si ya has leído esta página, ¡un repaso no te vendrá mal!",
+                    "updated": 1675621799055
                 }
             ]
         }

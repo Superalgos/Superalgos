@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Слой апсемплинга для двумерных входных данных. Повторяет строки и столбцы данных на size[0] и size[1] соответственно.",
                 "updated": 1645252621465
+            },
+            {
+                "language": "DE",
+                "text": "Upsampling-Schicht für 2D-Eingaben. Wiederholt die Zeilen und Spalten der Daten mit size[0] bzw. size[1].",
+                "updated": 1705144380929
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Input shape: 4D тензор с формой: - Если dataFormat - \"channelsLast\": [batch, rows, cols, channels] - Если dataFormat - \"channelsFirst\": [batch, channels, rows, cols].",
                     "updated": 1645252634424
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingabeform: 4D-Tensor mit Form: - Wenn dataFormat \"channelsLast\" ist: [batch, rows, cols, channels] - Wenn dataFormat \"channelsFirst\" ist: [batch, channels, rows, cols]",
+                    "updated": 1705144401527
                 }
             ]
         },

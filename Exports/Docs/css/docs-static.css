@@ -87,14 +87,6 @@ body {
     width: 100%;
 }
 
-/* #docs-footer-div {
-    width: 100%;
-    background-color: #365558;
-    color: #e6eaea;
-    border-top: 5px solid #0295aa;
-    margin-top: 80px;
-} */
-
 .docs-nav {
     width: 100%;
     background-color: #365558;
@@ -203,5 +195,14 @@ body {
 @media (max-width: 467px) {   
     #docs-space-div {
         margin-top: 175px;
+    }
+
+    .docs-image-container {
+        display: block;
+    }
+
+    .docs-definition-text {
+        display: block;
+        padding: 0;
     }
 }

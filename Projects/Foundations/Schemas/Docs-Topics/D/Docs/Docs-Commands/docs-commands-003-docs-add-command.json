@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Verwenden Sie diesen command (Befehl), um eine neue Seite zu den Docs hinzuzufügen.",
-                "updated": 1633893255504
+                "text": "Verwenden Sie diesen Befehl, um eine neue Seite zu den Docs hinzuzufügen.",
+                "updated": 1681404580273
             },
             {
                 "language": "RU",
@@ -38,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu komut, dokümanlara nereye ve ne tür bir sayfa eklemek istediğinizi belirtmenize olanak tanıyan yeni bir sayfa ekler. Komut, yeni sayfanızın dört ana özelliğini belirtir:",
                     "updated": 1652128430302
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Befehl fügt eine neue Seite zu den Dokumenten hinzu, wobei Sie angeben können, wo und welche Art von Seite Sie hinzufügen möchten. Der Befehl legt vier Haupteigenschaften der neuen Seite fest:",
+                    "updated": 1681404620708
                 }
             ]
         },
@@ -55,6 +60,11 @@
                     "language": "TR",
                     "text": "Sayfa Türü: Superalgos'un belgeleri, çeşitli farklı sayfa kategorilerine ( Docs Page Category ) ayrılmıştır. Bu sayfada farklı seçenekler hakkında daha fazla bilgi edinebilirsiniz:",
                     "updated": 1652128605299
+                },
+                {
+                    "language": "DE",
+                    "text": "Seitentyp: Die Dokumentation von Superalgos ist in verschiedene Seitenkategorien unterteilt. Sie können mehr über die verschiedenen Optionen auf dieser Seite lesen: Docs Seiten-Kategorie (Docs Page Category)",
+                    "updated": 1681404814334
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "TR",
                     "text": "Sayfanın yer alacağı proje ( Project ): Superalgos içindeki her proje kendi belgelerini içerir. Bu seçenek, sayfanızın ekleneceği projeyi seçmenizi sağlar.",
                     "updated": 1652128734057
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Projekt (Project), in dem sich die Seite befinden wird: Jedes Projekt in Superalgos enthält seine eigene Dokumentation. Mit dieser Option können Sie das Projekt auswählen, zu dem Ihre Seite hinzugefügt werden soll.",
+                    "updated": 1681404947025
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "TR",
                     "text": "Bu projelerden birini seçmek zorundalar.",
                     "updated": 1652128756477
+                },
+                {
+                    "language": "DE",
+                    "text": "Bestehende Projekte sind in der nachstehenden Tabelle aufgeführt, um Ihnen die Arbeit zu erleichtern.",
+                    "updated": 1681404965581
                 }
             ]
         },
@@ -119,6 +139,11 @@
                     "language": "TR",
                     "text": "Başlık,öğretici ( Tutorial ) veya İnceleme Başlığı: Sayfa koleksiyonları konu başlıkları altında toplanmıştır. Bu başlıklar, sayfa koleksiyonunu bir birim olarak göz atılabilir hale getiren benzersiz anahtarlar olarak işlev görür. Bu seçenek, sayfanızı oluşturacağınız veya ekleyeceğiniz konuyu seçmenize olanak tanır.",
                     "updated": 1652128989756
+                },
+                {
+                    "language": "DE",
+                    "text": "Titel des Themas, des Tutorial oder der Rezension: Sammlungen von Seiten werden unter Thementiteln zusammengefasst. Diese Titel dienen als eindeutige Schlüssel, die die Sammlung von Seiten als Einheit durchsuchbar machen. Mit dieser Option können Sie wählen, zu welchem Thema Sie Ihre Seite erstellen oder hinzufügen möchten.",
+                    "updated": 1681405099475
                 }
             ]
         },
@@ -136,6 +161,11 @@
                     "language": "TR",
                     "text": "Sayfa başlığı: Her sayfa benzersiz bir başlıkla tanımlanır. Bu başlık, kullanıcıların sayfanızın içeriğini bulmasına yardımcı olmalıdır. Bu seçenek, bu başlığı seçmenizi sağlar.",
                     "updated": 1652129052691
+                },
+                {
+                    "language": "DE",
+                    "text": "Seitentitel: Jede Seite wird durch einen eindeutigen Titel gekennzeichnet. Dieser Titel soll den Nutzern helfen, den Inhalt Ihrer Seite zu finden. Mit dieser Option können Sie diesen Titel auswählen.",
+                    "updated": 1681405123666
                 }
             ]
         },
@@ -153,6 +183,11 @@
                     "language": "TR",
                     "text": "Sayfa numarası: İsteğe bağlı olarak yeni sayfa için manuel olarak sayfa numarası tanımlanabilir. Bunu yapmazsanız, sistem otomatik olarak sayfanız için bir sonraki uygun numarayı üretecektir.",
                     "updated": 1652129107397
+                },
+                {
+                    "language": "DE",
+                    "text": "Seitenzahl: Optional kann eine Seitennummer für die neue Seite manuell festgelegt werden. Wenn Sie dies nicht tun, generiert das System automatisch die nächste verfügbare Nummer für Ihre Seite.",
+                    "updated": 1681405142385
                 }
             ]
         },
@@ -186,6 +221,11 @@
                     "language": "TR",
                     "text": "Bazı sayfa kategorileri konu başlığı kullanılmadan eklenmiştir. Bu tek sayfalık kategorilerden birini eklemek isterseniz aşağıdaki sözdizimini kullanabilirsiniz.",
                     "updated": 1652129154034
+                },
+                {
+                    "language": "DE",
+                    "text": "Einige Seitenkategorien werden ohne einen Thementitel hinzugefügt. Wenn Sie eine dieser einzelnen Seitenkategorien hinzufügen möchten, können Sie die folgende Syntax verwenden.",
+                    "updated": 1681405200102
                 }
             ]
         },
@@ -245,6 +285,11 @@
                     "language": "TR",
                     "text": "Sayfa Koleksiyonu Sözdizimi",
                     "updated": 1652129184302
+                },
+                {
+                    "language": "DE",
+                    "text": "Page-Collection Syntax ",
+                    "updated": 1681405277483
                 }
             ]
         },
@@ -261,6 +306,11 @@
                     "language": "TR",
                     "text": "Diğer sayfa kategorileri, sayfaları bir arada gruplandırmak için bir konu başlığı kullanır. Bu söz dizimini kullanarak bu sayfalardan birini ekleyebilirsiniz.",
                     "updated": 1652129203607
+                },
+                {
+                    "language": "DE",
+                    "text": "Die anderen Seitenkategorien verwenden einen Thementitel, um Seiten zusammenzufassen. Sie können eine dieser Seiten mit dieser Syntax hinzufügen.",
+                    "updated": 1681405295962
                 }
             ]
         },

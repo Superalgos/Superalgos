@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Это, мой друг, правильный вопрос! Это не... Что не так? А... Что я упустил?!",
                 "updated": 1642659245640
+            },
+            {
+                "language": "ES",
+                "text": "Esa, amigo mío, es la pregunta correcta. No es... ¿Qué está mal? Sino... ¡¿Qué me estoy perdiendo?!",
+                "updated": 1679099926852
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Как я уже говорил ранее, многие части информации должны попасть в нужное место, чтобы все имело смысл в сложном мире, а алгоритмическая торговля сложна!",
                     "updated": 1642659267870
+                },
+                {
+                    "language": "ES",
+                    "text": "Como he dicho antes, muchas piezas de información tienen que caer en el lugar correcto para que las cosas tengan sentido en un mundo complejo, ¡y el trading algorítmico es complejo!",
+                    "updated": 1679099915694
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Чтобы преуспеть в построении стратегий, вы должны развить интуицию и задавать себе этот вопрос всякий раз, когда дела идут не так, как вам хотелось бы!",
                     "updated": 1642659307201
+                },
+                {
+                    "language": "ES",
+                    "text": "Para tener éxito en la creación de estrategias, debes desarrollar la intuición para hacerte esa pregunta siempre que las cosas no vayan como tú quieres.",
+                    "updated": 1679099905976
                 }
             ]
         },
@@ -80,13 +95,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Sakın cesaretiniz kırılmasın! Algo-ticaretinde ustalaşmanıza yardımcı olacak bildiğim tüm püf noktalarını size göstereceğim!",
-                    "updated": 1641662619624
+                    "text": "Sakın cesaretiniz kırılmasın! Algo-ticaretinde ustalaşmanıza yardımcı olacak bildiğim tüm püf noktalarını size göstereceğim!",
+                    "updated": 1669663090890
                 },
                 {
                     "language": "RU",
                     "text": "Но не расстраивайтесь! Я покажу вам все известные мне приемы, чтобы вы освоили алготрейдинг!",
                     "updated": 1642659340526
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pero no te desanimes! Te enseñaré todos los trucos que conozco para que domines el trading algorítmico.",
+                    "updated": 1679099898763
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Herhangi bir nedenle, ticaret botu borsadaki sipariş durumunu kontrol edemedi. Sonuç olarak, bot iptal edip edemeyeceğini bilmiyor. Hesap düzeyinde tutarsızlıkları önlemek için bot, Emir İptal Et Olayının ( Cancel Order Event ) koşullarını değerlendirmedi.",
                 "updated": 1647342707496
+            },
+            {
+                "language": "DE",
+                "text": "Aus irgendeinem Grund konnte der Trading-Bot den Auftragsstatus an der Börse nicht überprüfen. Infolgedessen weiß der Bot nicht, ob er den Auftrag stornieren kann. Um Inkonsistenzen auf der Buchhaltungsebene zu vermeiden, hat der Bot die Bedingungen des Ereignisses \"Cancel Order\" (Cancel Order Event) nicht ausgewertet.",
+                "updated": 1681146634897
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Ticaret botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar.",
                     "updated": 1647342826370
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681146649474
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Uyarı: Emir İptal Et Olayı ( Cancel Order Event ) Atlanıyor",
                     "updated": 1647342722240
+                },
+                {
+                    "language": "DE",
+                    "text": "Überspringen des Ereignisses \"Bestellung stornieren\" (Cancel Order Event)",
+                    "updated": 1681146666079
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "İçerik Bilgisi",
                     "updated": 1647342578552
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681146673640
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
                     "updated": 1647342588977
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681146681233
                 }
             ]
         },
@@ -106,6 +131,11 @@
                     "language": "TR",
                     "text": "Daha Fazlasını Öğrenin",
                     "updated": 1647342602526
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681146712388
                 }
             ]
         },
@@ -122,6 +152,11 @@
                     "language": "TR",
                     "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
                     "updated": 1647342610390
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite:",
+                    "updated": 1681146719558
                 }
             ]
         },

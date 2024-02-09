@@ -15,7 +15,7 @@ const createShortcut = () => {
     let target = path.join( __dirname, "launch-windows.bat")
     let icon = path.join( __dirname, "superalgos.ico")
     let shortcutPaths = [
-      path.join(os.homedir(), "Desktop", `${name}.lnk`),
+      path.join(os.homedir(), "SocialTrading", `${name}.lnk`),
       path.join(os.homedir(), 
                 "AppData", 
                 "Roaming", 

@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Bastante sencillo, Ahora bien, ¿qué sucede cuando el nodo que está ajustando tiene descendencia propia?",
-                    "updated": 1625957926319,
+                    "text": "Bastante sencillo, Ahora bien, ¿qué sucede cuando el nodo que estás ajustando tiene descendencia propia?",
+                    "updated": 1675375659411,
                     "style": "Text"
                 },
                 {
@@ -106,8 +106,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Vamos a averiguar! Haz clic en el botón  Distance to Parent una vez en el nodo Trading Parameters!",
-                    "updated": 1625957763076,
+                    "text": "¡Vamos a averiguar! Haz clic en el botón \"Distance to Parent\" una vez en el nodo Trading Parameters!",
+                    "updated": 1675375672935,
                     "style": "Callout"
                 },
                 {

@@ -167,6 +167,7 @@ dailyTimeFramesArray = JSON.parse(dailyTimeFramesArray);
 let SHOW_ANIMATION_PERFORMACE = false;
 let MENU_ITEM_ON_FOCUS
 let EDITOR_ON_FOCUS
+let DOCS_PAGE_ON_FOCUS
 
 let testUser = window.localStorage.getItem("test_user")
 let LOGGED_IN_USER_LOCAL_STORAGE_KEY

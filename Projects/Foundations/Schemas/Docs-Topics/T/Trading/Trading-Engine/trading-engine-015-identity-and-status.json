@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Belirli bir nesnenin kimliği veya durumu ile ilgili bilgileri ilgili bağlamda takip edin. Bu sayfada: Dizin, Seri Numarası, Tanımlayıcı, Exchange Kimliği, Durum, Çıkış Türü, Durum Adı, Durum Adı, Algoritma Adı ve Algoritma Adı ( Index, Serial Number, Identifier, Exchange Id, Status, Exit Type, Situation Name, Situation Name, Algorithm Name, and Algorithm Name ).",
                 "updated": 1650618228346
+            },
+            {
+                "language": "DE",
+                "text": "Informationen über die Identität oder den Status eines bestimmten Objekts im entsprechenden Kontext aufzeichnen. Auf dieser Seite: Index, Seriennummer (Serial Number), Identifier, Exchange Id, Status, Exit Type, Situation Name, Situation Name, Algorithm Name und Algorithm Name.",
+                "updated": 1702584310311
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu sayfa, birçok farklı bağlam için ortak olan ve nesnenin kimliği, durumu veya benzer özellikleriyle ilişkisi olan düğümleri derler.",
                     "updated": 1650618250305
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf dieser Seite werden Knoten zusammengestellt, die in vielen verschiedenen Kontexten vorkommen und einen Bezug zur Identität, zum Status oder zu ähnlichen Eigenschaften des Objekts haben.",
+                    "updated": 1702584342739
                 }
             ]
         },
@@ -54,7 +64,14 @@
         {
             "style": "Title",
             "text": "Serial Number",
-            "updated": 1611338019622
+            "updated": 1611338019622,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Seriennummer (Serial Number)",
+                    "updated": 1702584417984
+                }
+            ]
         },
         {
             "style": "Include",
@@ -84,7 +101,14 @@
         {
             "style": "Title",
             "text": "Exchange Id",
-            "updated": 1611338051756
+            "updated": 1611338051756,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Austausch-ID (Exchange Id)",
+                    "updated": 1702584427846
+                }
+            ]
         },
         {
             "style": "Include",

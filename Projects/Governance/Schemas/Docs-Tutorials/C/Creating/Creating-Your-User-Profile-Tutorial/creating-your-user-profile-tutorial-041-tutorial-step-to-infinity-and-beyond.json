@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Pongamos manos a la obra! Usaremos el comando app.contribute para enviar tu perfil.",
-                "updated": 1630899120379,
+                "text": " En la fila Governance-Plugins, debería ver el archivo del plugin User Profile en la lista.",
+                "updated": 1682522148351,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Hadi başlayalım! Profilinizi göndermek için app.contribute komutunu kullanacağız.",
                 "updated": 1645104660981
+            },
+            {
+                "language": "ID",
+                "text": "Pada bawah baris Governance-Plugins, kamu akan melihat file plugin User Profile-mu yang terdaftar.",
+                "updated": 1671545675285
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Copia el comando reemplazando el marcador de posición con tu nombre de usuario de Github, pégualo en el cuadro de búsqueda y clic en Enter.",
-                    "updated": 1630899305591,
+                    "text": "Introduzca un mensaje de confirmación, como \"Primer envío de perfil\", y haga clic en el botón Contribuir. ",
+                    "updated": 1682522189293,
                     "style": "Callout"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki komutu kopyalayın, arama kutusuna yapıştırın ve \"add your name\" kısmını  Github kullanıcı adınızla değiştirerek Enter'a tıklayın.",
                     "updated": 1645104765848
+                },
+                {
+                    "language": "ID",
+                    "text": "Masukkan pesan commit seperti \"First profile submission\", dan klik tombol Contribute!",
+                    "updated": 1671545681762
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si todo está configurado correctamente, deberías ver un mensaje que indica que se ha enviado tu solicitud de extracción. ¡Esto significa que su perfil ha sido enviado al repositorio principal de Superalgos y se fusionará automáticamente en solo unos minutos!",
-                    "updated": 1630899224657,
+                    "text": "Si todo está configurado correctamente, en unos segundos el archivo del plugin debería desaparecer de la lista y deberías recibir un mensaje confirmando que la contribución ha sido enviada. Esto significa que tu perfil ha sido enviado al repositorio Governance-Plugins y será automáticamente fusionado en unas horas.",
+                    "updated": 1682522220406,
                     "style": "Text"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Her şey doğru ayarlanmışsa, Pull Request'inizin gönderildiğini belirten bir mesaj görmelisiniz. Bu, profilinizin ana Superalgos deposuna gönderildiği ve birkaç saat içinde otomatik olarak birleştirileceği anlamına gelir!",
                     "updated": 1645105046961
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika semuanya diatur dengan benar, dalam beberapa detik file plugin akan hilang dari daftar dan kamu akan mendapatkan pesan yang mengonfirmasi bahwa kontribusimu telah terkirim. Ini berarti profil kamu telah masuk ke repositori Governance-Plugins dan akan digabungkan secara otomatis dalam beberapa jam!",
+                    "updated": 1671545688038
                 }
             ]
         },

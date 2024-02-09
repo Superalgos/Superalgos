@@ -36,8 +36,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcılarda çalıştırmıyoruz!",
-                "updated": 1639118223952,
+                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcıları desteklemiyoruz!",
+                "updated": 1669757074910,
                 "style": "Definition"
             },
             {
@@ -56,6 +56,11 @@
                 "language": "RU",
                 "text": "Когда запускаете внешний интерфейс, используйте Chrome или Safari - на Mac! Мы не тестируем ни на каких-дибо других браузерах!\n",
                 "updated": 1635449722541
+            },
+            {
+                "language": "PL",
+                "text": "Kiedy uruchamiasz interfejs graficzny, używaj przeglądarki Chrome albo Safari na Mac. Superalgos nie jest testowany na inncyh przeglądarkach!",
+                "updated": 1674749829950
             }
         ]
     },
@@ -110,6 +115,11 @@
                     "language": "RU",
                     "text": "Хорошо известный факт, что браузеры работают по-разному, и мы знаем о функциях, которые не работают в других браузерах! Если Вы используете Chrome или Safari, нажмите Next и продолжайте. В обратном случае, выполните следующие действия:",
                     "updated": 1635450080862
+                },
+                {
+                    "language": "PL",
+                    "text": "Oczywiste jest, że każda przeglądarka działa inaczej a my znamy funkcje, które po prostu na niektórych nie działają. Jeżeli używasz Chrome lub Safari, po prostu kliknij Next i kontynuuj. W przeciwnym razie wykonaj następujące kroki:",
+                    "updated": 1674750688990
                 }
             ]
         },
@@ -164,6 +174,11 @@
                     "language": "RU",
                     "text": "скопируйте текущий URL-адрес;",
                     "updated": 1635450108634
+                },
+                {
+                    "language": "PL",
+                    "text": "skopiuj adres URL",
+                    "updated": 1674750713597
                 }
             ]
         },
@@ -218,6 +233,11 @@
                     "language": "RU",
                     "text": "закройте этот браузер как есть, но не закрывайте учебное пособие;",
                     "updated": 1635450191799
+                },
+                {
+                    "language": "PL",
+                    "text": "zamknij przeglądarkę w takim stanie jakim jest; nie zamykaj samouczka...",
+                    "updated": 1674750747509
                 }
             ]
         },
@@ -252,8 +272,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
-                    "updated": 1633119977867,
+                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
+                    "updated": 1669757105089,
                     "style": "List"
                 },
                 {
@@ -272,6 +292,11 @@
                     "language": "RU",
                     "text": "Откройте Chrome/Safari и вставьте URL-адрес; учебное пособие должно быть открыто на этом шаге, когда Вы вернетесь!",
                     "updated": 1635450715330
+                },
+                {
+                    "language": "PL",
+                    "text": "otwórz Chrome/Safari i wklej URL; samouczek powinien otworzyć się w miejscu gdzie skończyłeś!",
+                    "updated": 1674750794935
                 }
             ]
         },
@@ -325,6 +350,11 @@
                     "language": "RU",
                     "text": "Мы предлагаем online поддержку, но мы не можем помочь вам в работе с каким-либо другим браузером!",
                     "updated": 1635450697046
+                },
+                {
+                    "language": "PL",
+                    "text": "Oferujemy wsparcie online, ale nie możemy Ci pomóc jeżeli użwyasz niewspieranej przeglądarki!",
+                    "updated": 1674750841771
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Yedeklemeye benzer bilgiler içeren bir JSON dosyası indirir. Tek fark, hiçbir kişisel bilginin dahil edilmemesidir. Bu, API anahtarlarınız gibi hassas bilgileri yanlışlıkla paylaşmamanız için özellikle önemlidir. İş paylaşmak istediğinizde her zaman bu işlevi kullanın. Yedeklerinizi paylaşmayın. İndirilen dosyanın adı Paylaşım (Share)'dır ve ardından paylaştığınız varlığın adı gelir.",
                 "updated": 1666903176326
+            },
+            {
+                "language": "DE",
+                "text": "Lädt eine JSON-Datei herunter, die ähnliche Informationen wie ein Backup enthält. Der einzige Unterschied ist, dass keine persönlichen Informationen enthalten sind. Dies ist besonders wichtig, damit Sie nicht versehentlich sensible Informationen, wie z. B. Ihre API-Schlüssel, weitergeben. Verwenden Sie diese Funktion immer, wenn Sie Ihre Arbeit mit anderen teilen möchten. Geben Sie Ihre Backups nicht weiter. Die heruntergeladene Datei trägt den Namen Share, gefolgt von dem Namen der Entität, die Sie freigeben.",
+                "updated": 1701030083795
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638297929328
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701030097347
                 }
             ]
         }

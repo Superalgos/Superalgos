@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Algoritma adı, işlem sisteminde belirtildiği gibi emri açan yürütme algoritmasının adıdır.",
                 "updated": 1652018309498
+            },
+            {
+                "language": "DE",
+                "text": "Algorithm Name ist der Name des Ausführungsalgorithmus, der den Auftrag eröffnet hat, wie im Handelssystem angegeben.",
+                "updated": 1701930792386
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "İşlem sisteminin tanımında yürütme algoritmalarına ad verilmesi, emirlerin yürütülmesini takip etmeyi kolaylaştırır.",
                     "updated": 1652018320816
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Zuweisung von Namen für Ausführungsalgorithmen bei der Definition des Handelssystems erleichtert die Verfolgung der Auftragsausführung.",
+                    "updated": 1701930792652,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "language": "TR",
                     "text": "Algoritma Adı Yapılandırması",
                     "updated": 1652018327760
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration Algorithm Name",
+                    "updated": 1701930792799,
+                    "style": "Title"
                 }
             ]
         },
@@ -72,6 +89,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652018335930
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930792934,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -89,6 +112,12 @@
                     "language": "TR",
                     "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652018345851
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930793082,
+                    "style": "List"
                 }
             ]
         }

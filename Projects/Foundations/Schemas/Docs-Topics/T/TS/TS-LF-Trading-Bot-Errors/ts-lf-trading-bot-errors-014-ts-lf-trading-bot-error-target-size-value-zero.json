@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Hedef Boyut ( Target Size ) sıfır olamaz ve şu anda Formülün ( Formula ) değerlendirdiği şey budur.",
                 "updated": 1648650255309
+            },
+            {
+                "language": "DE",
+                "text": "Die Zielgröße (Target Size) kann nicht Null sein, und das ist es, was die Formel (Formula) im Moment auswertet.",
+                "updated": 1700078299793
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Hedef Boyut Değeri Sıfır. ( Target Size Value Zero )",
                     "updated": 1648650380386
+                },
+                {
+                    "language": "DE",
+                    "text": "Zielgröße Wert Null (Target Size Value Zero)",
+                    "updated": 1700078324864
                 }
             ]
         },

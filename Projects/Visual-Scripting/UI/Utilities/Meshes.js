@@ -102,3 +102,5 @@ function newVisualScriptingUtilitiesMeshes() {
         }
     }
 }
+
+exports.newVisualScriptingUtilitiesMeshes = newVisualScriptingUtilitiesMeshes

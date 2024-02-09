@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret botu tarafından işlenen her bilgi parçasını mum mum takip etmek için ticaret motoru hiyerarşisini kullanın.",
                 "updated": 1650574281254
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie die Trading-Engine-Hierarchie, um jede Information, die der Trading-Bot verarbeitet, Kerze für Kerze zu verfolgen.",
+                "updated": 1693253813217
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Ticaret motoru ( Trading Engine ) hiyerarşisi, ticaret botunun makine odasına, yani beyne açılan bir portaldır. Ticaret motorunu, beynin nöronlarının her birine bağlı, her mum için anlık görüntü alan ve ticaret seansı sırasında ticaret botu tarafından işlenen her veri parçasını hassasiyetle kaydeden bir terminal olarak düşünün.",
                     "updated": 1650574340540
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Trading-Engine-Hierarchie ist ein Portal in den Maschinenraum des Trading-Bots - das Gehirn. Stellen Sie sich die Trading-Engine als ein Terminal vor, das mit allen Neuronen des Gehirns verbunden ist, bei jeder Kerze einen Schnappschuss macht und alle Daten, die der Trading-Bot während der Handelssitzung verarbeitet, präzise registriert.",
+                    "updated": 1693253862089
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Superalgos, sürükleyici bir kullanıcı deneyimi yaratmak için çizelgelerin zaman gezinme özelliklerini tasarım alanının veri yapılarını temsil eden görsel ortamla birleştirir.",
                     "updated": 1650574361820
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos kombiniert die Zeitnavigationsfunktionen der Diagramme mit der visuellen Umgebung, die die Datenstrukturen des Designraums repräsentiert, und schafft so eine immersive Benutzererfahrung.",
+                    "updated": 1693253874637
                 }
             ]
         },
@@ -65,12 +80,17 @@
                     "language": "TR",
                     "text": "Hiyerarşideki düğümlerin her biri, her mum için düğümü temsil eden simgenin hemen altında, tasarım alanında değerini gösterebilir.",
                     "updated": 1650574387037
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder der Knoten in der Hierarchie kann seinen Wert für jede Kerze auf der Gestaltungsfläche direkt unter dem Symbol, das den Knoten darstellt, anzeigen.",
+                    "updated": 1693253887052
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "How users may monitor the information featured in the Trading Engine hierarchy is explained and demonstrated on the Trading Bot Layers tutorial available on the Weak-hands Buster V2.0 plugin workspace.",
+            "text": "How users may monitor the information featured in the Trading Engine hierarchy is explained and demonstrated on the Trading Bot Layers tutorial available on the Weak-hands Buster V2.0 Native Workspace.",
             "updated": 1611253775463,
             "translations": [
                 {
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Kullanıcıların Trading Engine ( Trading Engine ) hiyerarşisinde yer alan bilgileri nasıl izleyebileceği, Weak-hands Buster V2.0 eklentisi çalışma alanında bulunan Ticaret Bot ( Trading Bot ) Katmanları eğitiminde açıklanmış ve gösterilmiştir.",
                     "updated": 1650574442518
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Benutzer die Informationen in der Trading-Engine-Hierarchie (Trading Engine hierarchy) überwachen können, wird im Trading-Bot-Layers-Tutorial (Trading Bot Layers tutorial) erklärt und demonstriert, das auf dem nativen Arbeitsbereich (Native Workspace) von Weak-hands Buster V2.0 verfügbar ist.",
+                    "updated": 1693253900040
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Hızlı bir tazeleme olarak, süreç aşağı yukarı şöyledir:",
                     "updated": 1650574469605
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Auffrischung: Der Prozess läuft mehr oder weniger wie folgt ab:",
+                    "updated": 1693253910136
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Bir ticaret oturumu çalıştırın. Geriye dönük bir testle başlayın, böylece Ticaret Motoru ( Trading Engine ) hiyerarşisinin herhangi bir döneme yayılan verileri nasıl gösterdiğine dair hızlı bir fikir edinebilirsiniz.",
                     "updated": 1650574508828
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie eine Handelssitzung durch. Beginnen Sie mit einem Backtest, damit Sie ein schnelles Gefühl dafür bekommen, wie die Trading-Engine-Hierarchie (Trading Engine hierarchy) Daten über einen beliebigen Zeitraum anzeigt.",
+                    "updated": 1693253918402
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "language": "TR",
                     "text": "Simülasyonu gösteren tabloya gidin ve konumlardan birini bulun.",
                     "updated": 1650574528082
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Diagramm, das die Simulation anzeigt, und suchen Sie eine der Positionen.",
+                    "updated": 1693253926457
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "language": "TR",
                     "text": "Ticaret Motoru ( Trading Engine ) katman yöneticisinde Mevcut Konum katmanını açın. Bu katman, mevcut düğüm altındaki düğümlerin konum yapısını, yani mevcut konumlarla ilgili bilgileri izler.",
                     "updated": 1650574553408
+                },
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die Ebene Aktuelle Position im Ebenenmanager der Trading Engine ein. Diese Ebene überwacht die Positionsstruktur der Knoten unterhalb des aktuellen Knotens, d.h. die Informationen über die aktuellen Positionen.",
+                    "updated": 1693253936633
                 }
             ]
         },
@@ -166,6 +211,11 @@
                     "language": "TR",
                     "text": "Hem tasarım alanına hem de grafik alanına yer açmak için ekranı bölün.",
                     "updated": 1650574568342
+                },
+                {
+                    "language": "DE",
+                    "text": "Teilen Sie den Bildschirm, um Platz für den Entwurfsbereich und den Diagrammbereich zu schaffen.",
+                    "updated": 1693253947758
                 }
             ]
         },
@@ -183,6 +233,11 @@
                     "language": "TR",
                     "text": "Düğümlerin karşılık gelen yapısını görebilmeniz için görünümü tasarım alanına yerleştirin.",
                     "updated": 1650574580503
+                },
+                {
+                    "language": "DE",
+                    "text": "Positionieren Sie die Ansicht (Position the view) auf der Entwurfsfläche so, dass Sie die entsprechende Struktur der Knoten sehen können.",
+                    "updated": 1693253958167
                 }
             ]
         },
@@ -200,12 +255,17 @@
                     "language": "TR",
                     "text": "Farenin imlecini konum boyunca grafikler üzerinde kaydırın ve tasarım alanında görüntülenen her bir düğüm için değerlerin nasıl değiştiğine dikkat edin. Her düğüm, her mum için karşılık gelen değeri görüntüler.",
                     "updated": 1650574605379
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über die Charts und beobachten Sie, wie sich die Werte für die einzelnen Knoten in der Designfläche ändern. Jeder Knoten zeigt den entsprechenden Wert für jede Kerze an.",
+                    "updated": 1693253968744
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Much of the data handled by the trading engine may also be visualized over the charts through the layers and panels in the Trading Charts layer manager. If any of the above is not clear, please refer to the Trading Bot Layers Tutorial available on the Weak-hands Buster V2.0 plugin workspace.",
+            "text": "Much of the data handled by the trading engine may also be visualized over the charts through the layers and panels in the Trading Charts layer manager. If any of the above is not clear, please refer to the Trading Bot Layers Tutorial available on the Weak-hands Buster V2.0 Native Workspace.",
             "updated": 1611253891479,
             "translations": [
                 {
@@ -217,6 +277,11 @@
                     "language": "TR",
                     "text": "İpucu: Ticaret motoru tarafından işlenen verilerin çoğu, Ticaret Grafikleri katman yöneticisindeki katmanlar ve paneller aracılığıyla çizelgeler üzerinde de görselleştirilebilir. Yukarıdakilerden herhangi biri net değilse, lütfen Weak-hands Buster V2.0 eklentisi çalışma alanında mevcut olan Trading Bot Layers Tutorial  ( Eğitimine ) bakın.",
                     "updated": 1650574670568
+                },
+                {
+                    "language": "DE",
+                    "text": "Viele der Daten, die von der Trading-Engine verarbeitet werden, können auch über die Charts mit Hilfe der Layer und Panels im Layer-Manager der Trading Charts visualisiert werden. Wenn Ihnen etwas davon nicht klar ist, lesen Sie bitte das Trading Bot Layers Tutorial auf dem Weak-hands Buster V2.0 Native Workspace.",
+                    "updated": 1693253982609
                 }
             ]
         }

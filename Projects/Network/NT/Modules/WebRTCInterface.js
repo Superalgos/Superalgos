@@ -56,10 +56,10 @@ exports.newNetworkModulesWebRTCInterface = function newNetworkModulesWebRTCInter
 
                 let calledTimestamp = (new Date()).valueOf()
 
-                caller.socket.on('message', onMenssage)
+                caller.socket.on('message', onMessage)
 
-                function onMenssage(message) {
-                    thisObject.socketInterfaces.onMenssage(message, caller, calledTimestamp)
+                function onMessage(message) {
+                    thisObject.socketInterfaces.onMessage(message, caller, calledTimestamp)
                 }
 
                 function onConnectionClosed() {
@@ -68,7 +68,7 @@ exports.newNetworkModulesWebRTCInterface = function newNetworkModulesWebRTCInter
                 }
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            SA.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
     }
 }

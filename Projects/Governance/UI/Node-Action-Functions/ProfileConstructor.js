@@ -339,12 +339,30 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         rootNodes,
                         'Governance'
                     )
+
                     /*
-                    Let's get a cool name for this node. 
-                    */
-                    targetNode.name = targetNodeType + " #" + targetNodeTypeCount
-                    let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
-                    let handle = userProfileHandle + '-' + codeName
+                     Let's get a cool name for this node, if it does not already have one
+                     */
+                    if (!hasValue(targetNode.name)) {
+                        targetNode.name = targetNodeType + " #" + targetNodeTypeCount
+                    }
+
+                    let config = JSON.parse(targetNode.config)
+                    let codeName = config.codeName
+                    if (!hasValue(codeName)) {
+                        codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
+                    } else {
+                        codeName = codeName.replaceAll(' ', '-')
+                    }
+
+                    let handle = config.handle
+                    if (!hasValue(handle)) {
+                        handle = userProfileHandle + '-' + codeName
+                    }
+                    else {
+                        handle = handle.replaceAll(' ', '-')
+                    }
+
                     /*
                     We store at the User Profile the Signed userProfileHandle
                     */
@@ -402,6 +420,15 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                                 UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                             )
                         }
+                    }
+
+                    /**
+                     * Validates that the given value has more than 0 characters
+                     * @param {string?} value 
+                     * @returns {boolean}
+                     */
+                    function hasValue(value) {
+                        return value !== undefined && value.length > 0
                     }
                 }
             }

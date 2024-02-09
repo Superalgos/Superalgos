@@ -10,6 +10,16 @@
                 "language": "RU",
                 "text": "Действие Action - это то, что выполняется, когда пользователь выбирает что-то из меню узла.",
                 "updated": 1640759149585
+            },
+            {
+                "language": "TR",
+                "text": "Bir Eylem ( Action ), kullanıcılar bir Düğümün ( Node ) menüsünden bir şey seçtiğinde yürütülen şeydir.\n",
+                "updated": 1670937918352
+            },
+            {
+                "language": "DE",
+                "text": "Eine Action ist das, was ausgeführt wird, wenn der Benutzer etwas aus dem Menü eines Node auswählt.",
+                "updated": 1674162263866
             }
         ]
     },
@@ -23,6 +33,16 @@
                     "language": "RU",
                     "text": "Для чего нужно новое действие (New Action)",
                     "updated": 1640760751555
+                },
+                {
+                    "language": "TR",
+                    "text": "Neden Yeni Bir Eylem",
+                    "updated": 1670937941585
+                },
+                {
+                    "language": "DE",
+                    "text": "Warum eine neue Aktion",
+                    "updated": 1674162414175
                 }
             ]
         },
@@ -35,6 +55,16 @@
                     "language": "RU",
                     "text": "Возможно, вы поняли, что выполняете повторяющиеся действия в Design Space и можете извлечь выгоду из их автоматизации. Если ваши действия сводятся к манипулированию узлами в рабочем пространстве: созданию новых узлов, удалению существующих, изменению конфигурации узлов, созданию ссылок или чему-то подобному, то вы можете создать функцию Action, которая все это автоматизирует. Это позволит вам завершить действие одним нажатием кнопки и перестать выполнять эти повторяющиеся задачи самостоятельно. Не говоря уже о том, что это поможет сделать Superalgos проще в использовании для всех, когда вы создадите свое действие!",
                     "updated": 1640759234231
+                },
+                {
+                    "language": "TR",
+                    "text": "Belki de Tasarım Alanında ( Design Space ) tekrarlayan eylemler ( Action ) gerçekleştirdiğinizi fark ettiniz ve bunları otomatikleştirmekten fayda sağlayabilirsiniz. Eylemleriniz yeni düğümler oluşturmak, mevcut düğümleri silmek, düğüm yapılandırmalarını değiştirmek, referanslar oluşturmak veya çalışma alanındaki düğümleri benzer şekilde kullanmakla sınırlıysa, tüm bunları otomatikleştirebilecek bir Eylem işlevi oluşturabilirsiniz. Bu, bir düğmeye tıklayarak eylemi tamamlamanıza ve bu tekrarlayan görevleri kendiniz yapmayı bırakmanıza olanak tanır. Eyleminize katkıda bulunduğunuzda Superalgos'un herkes için daha kolay kullanılmasına yardımcı olmaktan bahsetmiyorum bile!",
+                    "updated": 1670938136228
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht haben Sie schon bemerkt, dass Sie im Design Space immer wiederkehrende Aktionen durchführen und von einer Automatisierung dieser Aktionen profitieren können. Wenn sich Ihre Aktionen darauf beschränken, die Knoten im Arbeitsbereich zu manipulieren, indem Sie entweder neue Knoten erstellen, bestehende löschen, Knotenkonfigurationen ändern, Referenzen herstellen oder Ähnliches, dann können Sie vielleicht eine Action Funktion erstellen, die all dies automatisiert. Dies ermöglicht es Ihnen, die Aktion mit einem Mausklick auszuführen und diese sich wiederholenden Aufgaben nicht mehr selbst zu erledigen. Ganz zu schweigen davon, dass Superalgos für jeden einfacher zu benutzen ist, sobald Sie Ihre Aktion beitragen!",
+                    "updated": 1674162432140
                 }
             ]
         },
@@ -46,6 +76,16 @@
                     "language": "RU",
                     "text": "Порядок работы",
                     "updated": 1640760559767
+                },
+                {
+                    "language": "TR",
+                    "text": "İş akışı",
+                    "updated": 1670938159260
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeitsablauf",
+                    "updated": 1674162445995
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "RU",
                     "text": "Новые действия реализуются как функции внутри библиотеки функций. Таким образом, основной порядок работы для реализации нового действия выглядит следующим образом:",
                     "updated": 1640760538660
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Eylemler ( Action ), bir İşlev Kitaplığı içinde işlevler ( Function Library ) olarak uygulanır. Dolayısıyla, yeni bir Eylemi uygulamak için temel iş akışı aşağıdaki gibidir: ",
+                    "updated": 1670938329273
+                },
+                {
+                    "language": "DE",
+                    "text": "Neue Aktionen werden als Funktionen in einer Function Library implementiert. Der grundlegende Arbeitsablauf zur Implementierung einer neuen Action ist also wie folgt:",
+                    "updated": 1674162454514
                 }
             ]
         },
@@ -70,6 +120,16 @@
                     "language": "RU",
                     "text": "Добавьте элемент меню: Сначала нужно добавить элемент меню к типу узла, который позволит пользователю выполнить ваше действие.",
                     "updated": 1640760599052
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Menü Öğesi Ekleyin ( Add a Menu Item ): Öncelikle düğüm türüne, kullanıcının eyleminizi gerçekleştirmesine olanak tanıyacak bir Menü Öğesi ( Menu Item ) eklemeniz gerekir.",
+                    "updated": 1670938485664
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie ein Menu Item hinzu: Zunächst müssen Sie dem Knotentyp einen Menüpunkt hinzufügen, der es dem Benutzer ermöglicht, Ihre Aktion auszuführen.",
+                    "updated": 1674162463813
                 }
             ]
         },
@@ -82,6 +142,16 @@
                     "language": "RU",
                     "text": "Найдите библиотеку функций (Function Library): Затем вам нужно найти библиотеку функций, которая лучше всего подходит для размещения функции, которая будет выполняться после запуска действия.",
                     "updated": 1640760640645
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Fonksiyon Kütüphanesi ( Function Library ) bulun: Ardından, eylem tetiklendiğinde yürütülecek işlevi barındırmak için daha uygun olan İşlev Kitaplığını bulmanız gerekecektir.",
+                    "updated": 1670938597823
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie eine Function Library: Dann müssen Sie die Function Library finden, die am besten für die Funktion geeignet ist, die ausgeführt werden soll, sobald die Aktion ausgelöst wird.",
+                    "updated": 1674162474556
                 }
             ]
         },
@@ -94,6 +164,16 @@
                     "language": "RU",
                     "text": "Добавьте свой код: Далее вам нужно будет написать код для этой функции.",
                     "updated": 1640760661706
+                },
+                {
+                    "language": "TR",
+                    "text": "Kodunuzu ekleyin: Daha sonra bu fonksiyon için kod yazmanız gerekecektir.",
+                    "updated": 1670938661798
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie Ihren Code hinzu: Dann müssen Sie den Code für diese Funktion schreiben.",
+                    "updated": 1674162492844
                 }
             ]
         },
@@ -106,6 +186,16 @@
                     "language": "RU",
                     "text": "Подключите пункт меню к вашему коду: Наконец, вы подключите пункт меню к написанной вами функции.Подключите пункт меню к вашему коду: В завершение подключите пункт меню к написанной вами функции.",
                     "updated": 1640760701355
+                },
+                {
+                    "language": "TR",
+                    "text": "Menü Öğesini ( Menu Item ) Kodunuza Bağlayın: Son olarak Menü Öğesini ( Menu Item ) yazdığınız fonksiyona bağlayacaksınız.",
+                    "updated": 1670938779621
+                },
+                {
+                    "language": "DE",
+                    "text": "Verbinden Sie das Menu Item mit Ihrem Code: Zum Schluss verbinden Sie das Menu Item mit der Funktion, die Sie geschrieben haben.",
+                    "updated": 1674162512870
                 }
             ]
         }

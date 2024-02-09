@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Necesitas la copia de seguridad de la clave privada para luego importar tu dirección de gobierno en una billetera criptográfica.",
-                "updated": 1632014909086,
+                "text": "Es necesario hacer una copia de seguridad de la clave privada para que más tarde puedas importar tu Governance  Address en un monedero criptográfico",
+                "updated": 1682520458135,
                 "style": "Definition"
             },
             {
@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Sie müssen den privaten Schlüssel sichern, damit Sie Ihre Governance Address später in eine Krypto-Brieftasche importieren können.",
                 "updated": 1640077205761
+            },
+            {
+                "language": "ID",
+                "text": "Kamu harus mencadangkan private key sehingga pada nantinya kamu bisa import kembali Governance Address kamu di wallet kripto.",
+                "updated": 1671441856660
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Superalgos generiert den privaten Schlüssel lokal. Niemand sonst auf der Welt hat Zugang zu Ihrem Schlüssel oder kennt ihn, solange Ihr Rechner sicher ist.",
                     "updated": 1640077220051
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menghasilkan private key secara lokal. Tidak ada seorangpun didunia ini yang memiliki akses atau pengetahuan terkait kuncimu, selama mesinmu tetap aman.",
+                    "updated": 1671441850673
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Manche Leute drucken mehrere Kopien des privaten Schlüssels aus, um jede Kopie an verschiedenen Orten aufzubewahren. Denken Sie daran, dass es sich bei den meisten Fällen von verlorener Kryptowährung um den Verlust von Schlüsseln handelt, nicht um Hacks!",
                     "updated": 1640077227969
+                },
+                {
+                    "language": "ID",
+                    "text": "Beberapa orang mencetak beberapa salinan dari private key untuk disimpan ditempat berbeda. Tolong diingat bahwa kebanyakan kasus kehilangan kripto karena orang yang hilang kuncinya, bukan karena peretasan!",
+                    "updated": 1671441863268
                 }
             ]
         },
@@ -96,8 +111,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Al vincular una dirección anterior, no necesitarás guardar la clave privada, pero debes hacer un Backup del contenido del constructor.",
-                    "updated": 1632016270585,
+                    "text": "Si has enlazado una dirección que ya poseías, no necesitas guardar la clave privada, pero puedes hacer una copia de seguridad del contenido del constructor por seguridad.",
+                    "updated": 1682520508234,
                     "style": "Note"
                 },
                 {
@@ -114,6 +129,11 @@
                     "language": "DE",
                     "text": "Wenn Sie eine Adresse verknüpfen, die Sie bereits besitzen, müssen Sie den privaten Schlüssel nicht speichern, sollten aber zur Sicherheit den Inhalt des Konstruktors sichern.",
                     "updated": 1640077234596
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu mentautkan alamat yang kamu miliki sebelumnya kamu tidak perlu menyimpan private key tapi harus tetap mencadangkan isi konten dari constructor untuk keamanan.",
+                    "updated": 1671441870687
                 }
             ],
             "updated": 1660587217346

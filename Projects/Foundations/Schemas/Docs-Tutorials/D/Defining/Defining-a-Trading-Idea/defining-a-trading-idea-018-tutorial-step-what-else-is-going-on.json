@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "Acabamos de tomar nota de lo que ha sucedido después de esta ruptura de las bandas en el gráfico 1H... ¿Qué más está pasando con el mercado?",
                 "updated": 1668191200497
+            },
+            {
+                "language": "IT",
+                "text": "Abbiamo appena preso nota di quello che è successo dopo questa ripartizione delle bande nella classifica 1H... Cos'altro sta succedendo con il mercato?\"",
+                "updated": 1669900556205
+            },
+            {
+                "language": "NL",
+                "text": "We hebben zojuist kennis genomen van wat er gebeurde na deze neerwaartse uitbraak van de banden op de 1H-grafiek... Wat is er nog meer aan de hand met de markt?",
+                "updated": 1670785506780
+            },
+            {
+                "language": "ID",
+                "text": "Kita baru saja memperhatikan apa yang terjadi setelah breakdown dari band di chart 1H... Apa lagi yang terjadi dengan market?",
+                "updated": 1674693704635
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "¡Echa un vistazo a la acción del precio unas velas antes!",
                     "updated": 1668191217087
+                },
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata all'azione dei prezzi qualche candela prima!",
+                    "updated": 1669900571783
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk een paar candles eerder naar de prijsactie!",
+                    "updated": 1670785524379
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat price action beberapa candle sebelumnya!",
+                    "updated": 1674693697435
                 }
             ]
         },
@@ -81,6 +111,16 @@
                     "language": "ES",
                     "text": "Hubo dos rupturas anteriores a la que revisamos, una el 9 de abril a las 12 hs, y antes, otra el 7 de abril a las 21 hs. Ambas rupturas fueron significativas, en el sentido de que las velas cerraron muy por debajo de la banda inferior. Sin embargo, en ambos casos el precio rebotó dentro de las bandas.",
                     "updated": 1668191262918
+                },
+                {
+                    "language": "NL",
+                    "text": "Er waren twee neerwaartse uitbraken voorafgaand aan degene die we controleerden, een op 9 april om 12.00 uur en daarvoor nog een op 7 april om 21.00 uur. Beide uitsplitsingen waren significant, in die zin dat de candles veel lager sloten dan de onderste band. In beide gevallen stuiterde de prijs echter terug in de bands.",
+                    "updated": 1670785567206
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada dua breakdown sebelumnya yang kita periksa, satu pada 9 April pukul 12 hs, dan sebelumnya, satu lagi pada 7 April pukul 21 hs. Kedua breakdown tersebut signifikan, dalam arti bahwa candle ditutup jauh lebih rendah daripada lower band. Namun, dalam kedua kasus harga memantul kembali ke band.",
+                    "updated": 1674693692061
                 }
             ]
         }

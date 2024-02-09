@@ -181,3 +181,5 @@ function newGovernanceFunctionLibraryStakingProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryStakingProgram = newGovernanceFunctionLibraryStakingProgram

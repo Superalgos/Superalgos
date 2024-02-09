@@ -1,0 +1,63 @@
+{
+    "topic": "Aggregated Data Mine",
+    "pageNumber": "2",
+    "type": "Trend Meter",
+    "definition": {
+        "text": "This indicator calculates the output of an MACD crossover, two different length RSI, and two Moving Average crosses to produce a consensus output.",
+        "updated": 1679375423901
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Trend Meter on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The consensus output from each of the indicators produces a chart where the trader can make a decision on entering a long or short trade."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aggregated-trend-meter.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| TrendMeter | TrendMeter | trendBar1, trendBar2, TrendMeter1-3, trendBar3staus |"
+        },
+        {
+            "style": "Text",
+            "text": "The moving average lengths can be adjusted, while the RSI and MACD lengths are fixed. The adjustable options can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Trend Meter\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/aggregated-trend-meter-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry condition could be performed with the following example, when all of the meters and bars are aligned as true, and the trendBarStatus3 has a value of 1:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.TrendMeter.trendBar1 && chart.at01hs.TrendMeter.trendBar2 && chart.at01hs.TrendMeter.trendMeter1 && chart.at01hs.TrendMeter.trendMeter2 && chart.at01hs.TrendMeter.trendMeter3 && record.trendBars3status == 1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

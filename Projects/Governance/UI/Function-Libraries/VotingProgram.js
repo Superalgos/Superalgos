@@ -32,7 +32,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             resetVotes(assetsNode)
         }
 
-        /* Reset Votes at Features */
+        /* Reset Votes at Positions */
         for (let i = 0; i < positions.length; i++) {
             let positionsNode = positions[i]
             resetVotes(positionsNode)
@@ -320,6 +320,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     at their config, and check that all percentages don't add more than 100.
                     */
                     let totalPercentage = 0
+                    let totalAmount = 0
                     let totalNodesWithoutPercentage = 0
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
@@ -329,12 +330,14 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                    totalPercentage = totalPercentage + percentage
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    totalAmount = totalAmount + config.value
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    totalPercentage = totalPercentage + config.value
                                 } else {
                                     totalNodesWithoutPercentage++
-                                }
+                                }  
                             }
                                 break
                             case 'array': {
@@ -344,9 +347,11 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
-                                            totalPercentage = totalPercentage + percentage
+                                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            totalAmount = totalAmount + config.value
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            totalPercentage = totalPercentage + config.value
                                         } else {
                                             totalNodesWithoutPercentage++
                                         }
@@ -358,7 +363,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     }
                     if (totalPercentage > 100) {
                         node.payload.uiObject.setErrorMessage(
-                            'Voting Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            'Voting Power Switching Error. Total Percentage of children nodes is grater than 100.',
                             UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                         )
                         return
@@ -366,6 +371,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     let defaultPercentage = 0
                     if (totalNodesWithoutPercentage > 0) {
                         defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                    }
+                    /* If configured Amounts exceed the available Votes, determine the share by which requests need to be reduced.
+                    Store the Votes remaining for distribution via percentages after all amount requests have been served in percentagePower. */
+                    let percentagePower = 0
+                    let amountShare = 1
+                    if (totalAmount > votes && totalAmount > 0) {
+                        amountShare = votes / totalAmount
+                    } else {
+                        percentagePower = votes - totalAmount
                     }
                     /*
                     Here we do the actual distribution.
@@ -378,14 +392,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                let distributionAmount = 0
+                                let percentage = 0
+                                let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                if (config?.type === "amount" && config?.value >= 0) {
+                                    distributionAmount = config.value * amountShare
+                                    percentage = "fixed"
+                                } else if (config?.type === "percentage" && config?.value >= 0) {
+                                    distributionAmount = percentagePower * config.value / 100
+                                    percentage = config.value
+                                } else {
+                                    distributionAmount = percentagePower * defaultPercentage / 100
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
                                     currentProgramNode,
                                     childNode,
-                                    votes * percentage / 100,
+                                    distributionAmount,
                                     percentage,
                                     generation,
                                     userProfile
@@ -399,14 +422,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
+                                        let distributionAmount = 0
+                                        let percentage = 0
+                                        let config = UI.projects.governance.utilities.nodeCalculations.getDistributionConfig(childNode, 'voting')
+                                        if (config?.type === "amount" && config?.value >= 0) {
+                                            distributionAmount = config.value * amountShare
+                                            percentage = "fixed"
+                                        } else if (config?.type === "percentage" && config?.value >= 0) {
+                                            distributionAmount = percentagePower * config.value / 100
+                                            percentage = config.value
+                                        } else {
+                                            distributionAmount = percentagePower * defaultPercentage / 100
                                             percentage = defaultPercentage
                                         }
                                         distributeProgramPower(
                                             currentProgramNode,
                                             childNode,
-                                            votes * percentage / 100,
+                                            distributionAmount,
                                             percentage,
                                             generation,
                                             userProfile
@@ -432,11 +464,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
             if (node.type === 'Voting Program') {
                 drawProgram(node, userProfile)
 
-                if (percentage !== undefined) {
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                    )
-                }
+                UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, undefined)
                 return
             }
             if (node.type === 'User Profile Vote') {
@@ -484,13 +512,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
             node.payload.uiObject.setValue(votesText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-            if (percentage !== undefined) {
-                node.payload.uiObject.percentageAngleOffset = 180
-                node.payload.uiObject.percentageAtAngle = true
-                node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                )
-            }
+            UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
 
 
             function drawUserNode(node, votes, percentage) {
@@ -503,18 +525,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                     node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power', UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-                    node.payload.uiObject.percentageAngleOffset = 180
-                    node.payload.uiObject.percentageAtAngle = true
-
-                    node.payload.uiObject.setPercentage(percentage,
-                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
-                    )
+                    UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
 
                         node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
+                    } else {
+                        node.payload.uiObject.resetStatus()
                     }
                 }
             }
@@ -538,3 +557,5 @@ function newGovernanceFunctionLibraryVotingProgram() {
         }
     }
 }
+
+exports.newGovernanceFunctionLibraryVotingProgram = newGovernanceFunctionLibraryVotingProgram

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir düğüm sabitlenmediğinde, diğer ayarlardan etkilenmekte veya çalışma alanında kendi yerini bulmakta serbesttir.",
                 "updated": 1666869167328
+            },
+            {
+                "language": "DE",
+                "text": "Wenn ein Knoten nicht mehr angeheftet ist, kann er von anderen Einstellungen beeinflusst werden oder seinen Platz auf der Arbeitsfläche finden.",
+                "updated": 1701013064712
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
                     "updated": 1638300081255
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1701013077710
                 }
             ]
         }

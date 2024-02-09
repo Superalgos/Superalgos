@@ -26,8 +26,23 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que ha visto las bandas en los gráficos, ¡vamos a repasar las reglas que nos enseñan a interpretarlas y utilizarlas!",
-                "updated": 1668190702123
+                "text": "Ahora que has visto las bandas en los gráficos, ¡vamos a repasar las reglas que nos enseñan a interpretarlas y utilizarlas!",
+                "updated": 1675205794856
+            },
+            {
+                "language": "IT",
+                "text": "Ora che hai visto le band sul grafico, passiamo alle regole che ci insegnano come interpretarle e usarle!",
+                "updated": 1669895914399
+            },
+            {
+                "language": "NL",
+                "text": "Nu je de banden in de grafieken hebt gezien, laten we de regels doornemen die ons leren hoe we ze moeten interpreteren en gebruiken!",
+                "updated": 1670784890247
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang setelah kamu melihat band-band di chart, mari kita lihat aturan yang mengajari kita cara menafsirkan dan menggunakannya!",
+                "updated": 1674690437273
             }
         ]
     },
@@ -54,8 +69,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si no está familiarizado con este indicador, merece la pena que dedique unos minutos a leer las reglas,",
-                    "updated": 1668190713896
+                    "text": "Si no estas familiarizado con este indicador, merece la pena que dediques unos minutos a leer las reglas,",
+                    "updated": 1675205786194
+                },
+                {
+                    "language": "IT",
+                    "text": "Se non hai familiarità con questo indicatore, vale sicuramente la pena dedicare qualche minuto alla lettura delle regole,",
+                    "updated": 1669895934814
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u niet bekend bent met deze indicator, is het zeker de moeite waard om een paar minuten te besteden aan het lezen van de regels,",
+                    "updated": 1670784906151
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu tidak terbiasa dengan indikator ini, ada baiknya meluangkan beberapa menit untuk membaca aturannya,",
+                    "updated": 1674690444570
                 }
             ]
         },
@@ -79,6 +109,21 @@
                     "language": "ES",
                     "text": "tal y como las define el propio John Bollinger!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
                     "updated": 1668190751611
+                },
+                {
+                    "language": "IT",
+                    "text": "come definite da John Bollinger stesso!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1669895961454
+                },
+                {
+                    "language": "NL",
+                    "text": "zoals gedefinieerd door John Bollinger zelf!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1670784929534
+                },
+                {
+                    "language": "ID",
+                    "text": "seperti yang didefinisikan oleh John Bollinger sendiri!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1674690428902
                 }
             ]
         },
@@ -100,6 +145,21 @@
                     "language": "TR",
                     "text": "Lütfen, John Bollinger'ın bu popüler göstergeyi nasıl yorumlanacağı hakkındaki söylediklerini okuyun!",
                     "updated": 1640872013666
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees alstublieft wat John Bollinger te zeggen heeft over hoe u deze populaire indicator moet interpreteren!",
+                    "updated": 1670784942543
+                },
+                {
+                    "language": "ID",
+                    "text": "Tolong, baca apa yang dikatakan John Bollinger tentang bagaimana menafsirkan indikator populer ini!",
+                    "updated": 1674690470937
+                },
+                {
+                    "language": "ES",
+                    "text": "Por favor, lee lo que John Bollinger tiene que decir sobre cómo interpretar este popular indicador.",
+                    "updated": 1675205765912
                 }
             ]
         },
@@ -126,6 +186,21 @@
                     "language": "ES",
                     "text": "¡Las reglas 6 a 8 son de particular importancia para lo que intentaremos más adelante!",
                     "updated": 1668190782250
+                },
+                {
+                    "language": "IT",
+                    "text": "Le regole da 6 a 8 sono di particolare importanza per ciò che tenteremo in seguito!",
+                    "updated": 1669895989656
+                },
+                {
+                    "language": "NL",
+                    "text": "Regels 6 tot 8 zijn van bijzonder belang voor wat we later zullen proberen!",
+                    "updated": 1670784955664
+                },
+                {
+                    "language": "ID",
+                    "text": "Aturan 6 sampai 8 sangat penting untuk apa yang akan kita coba nanti!",
+                    "updated": 1674690495029
                 }
             ]
         }

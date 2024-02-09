@@ -82,64 +82,81 @@
     },
     {
         "name": "Workspaces",
+        "translationKey": "nav.workspaces.title",
         "propertyName": "workspaces",
         "systemMenu": [
             {
-                "label": "Undo/Redo",
-                "submenuConstructorFunction": {
-                    "name": "undoRedoSubmenu"
-                }
-            },
-            {
                 "label": "User Workspaces",
+                "translationKey": "nav.workspaces.user",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["user"]
-                }
+                },
+                "order": 1
             },
             {
-                "label": "Plugin Workspaces",
+                "label": "Native Workspaces",
+                "translationKey": "nav.workspaces.native",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["plugin"]
-                }
+                },
+                "order": 2
             },
             {
                 "label": "Collapse All Root Nodes",
+                "translationKey": "nav.workspaces.collapseNodes",
                 "action": {
                     "name": "collapseAllRootNodes"
-                }
+                },
+                "order": 3
+            },
+            {
+                "label": "Undo/Redo",
+                "translationKey": "nav.workspaces.undoRedo",
+                "submenuConstructorFunction": {
+                    "name": "undoRedoSubmenu"
+                },
+                "order": 4
             },
             {
                 "label": "Save Workspace",
+                "translationKey": "nav.workspaces.save",
                 "action": {
                     "name": "saveWorkspace"
-                }
+                },
+                "order": 5
             }
         ]
     },
     {
         "name": "Contributions",
+        "translationKey": "nav.contributions.title",
         "propertyName": "contributions",
         "systemMenu": [
             {
                 "label": "Contribute all changes",
+                "translationKey": "nav.contributions.contribute",
                 "action": {
                     "name": "contributeAll"
-                }
+                },
+                "order": 1
             },
             {
                 "label": "Update App",
+                "translationKey": "nav.contributions.update",
                 "action": {
                     "name": "update"
-                }
+                },
+                "order": 2
             },
             {
                 "label": "Reset Local Repository",
+                "translationKey": "nav.contributions.reset",
                 "action": {
                     "name": "reset"
-                } 
-                
+                },
+                "order": 3
             }
         ]
     }

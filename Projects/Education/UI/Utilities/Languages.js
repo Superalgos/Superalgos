@@ -56,7 +56,13 @@ function newEducationUtilitiesLanguages() {
                 languageLabel = 'Greek'
                 break
             }
+            case 'PL': {
+                languageLabel = 'Polish'
+                break
+            }
         }
         return languageLabel 
     }    
 }
+
+exports.newEducationUtilitiesLanguages = newEducationUtilitiesLanguages

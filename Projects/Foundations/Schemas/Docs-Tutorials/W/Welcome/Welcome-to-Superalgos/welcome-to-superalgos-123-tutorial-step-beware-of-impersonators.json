@@ -1,0 +1,98 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 123,
+    "type": "Tutorial Step - Beware of Impersonators!",
+    "definition": {
+        "text": "The Founding Team and Community Mods will never contact you directly unless you contact them first!",
+        "icon": {
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
+        },
+        "updated": 1665735602540,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il team dei fondatori e i moderatori della community non ti contatteranno mai direttamente a meno che tu non li contatti prima!",
+                "updated": 1666395944280,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El equipo Founding Team y los Community Mods nunca se pondrán en contacto directo contigo a menos que tú lo hagas primero.",
+                "updated": 1675366074691,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Superalgos-Admins, das Founding Team und die Community Mods werden Sie niemals direkt kontaktieren, es sei denn, Sie kontaktieren sie zuerst!",
+                "updated": 1634247837275
+            },
+            {
+                "language": "TR",
+                "text": "Kurucu Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmediğiniz sürece sizinle asla doğrudan iletişime geçmezler!",
+                "updated": 1670334959584
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos Admins, the Founding Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu!",
+                "updated": 1640600512829
+            },
+            {
+                "language": "RU",
+                "text": "Команды Founding Team и Community Mods никогда не будут связываться с вами напрямую, если вы сами не обратитесь к ним!",
+                "updated": 1665737230190
+            },
+            {
+                "language": "NL",
+                "text": "Het Founding Team en de Community Mods zullen nooit rechtstreeks contact met je opnemen, tenzij je eerst contact met hen opneemt!",
+                "updated": 1667138896825
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "Scammers are lurking! Beware! It's no news that trading-related groups attract all sorts of scammers, and we are aware that they contact people in our groups attempting all sorts of tricks. We will never ask you for API keys, coins, or cash. In fact, we will never ask you to trust us in any way! We want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.",
+            "updated": 1617608980211,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Attenzione, gli scammers sono in agguato! Non è una novità che i gruppi riguardanti il trading attraggano ogni tipo di scammer, e siamo al corrente del fatto che contattino persone del gruppo tentando di truffarle. Non chiederemo mai API keys, crypto o soldi. Di fatto, non ti chiederemo di fidarti di noi in alcun modo! Vogliamo che sia chiaro che se qualcuno ti contatta direttamente e dichiarando di lavorare per o con il progetto, è uno scam. Per favore segnalate gli scammers nel canale Community così che possano essere bannati, bloccateli e se possibile segnalateli a Telegram stesso.",
+                    "updated": 1618074329147,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Los estafadores están al acecho! sabemos que se ponen en contacto con personas de nuestros grupos para intentar todo tipo de trucos. Nunca te pediremos claves de API, monedas o efectivo. De hecho, ¡nunca pediremos que confíes en nosotros de ninguna manera! Queremos dejar en claro que si alguien se pone en contacto directo para afirmar que trabaja con o para el proyecto, es una estafa. Repórtalos en el grupo de la Comunidad para que puedan ser baneados, también bloquéalos e infórmalos a Telegram si la opción está disponible.",
+                    "updated": 1675366184469,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es lauern Betrüger! Hüten Sie sich! Es ist keine Neuigkeit, dass Gruppen, die mit dem Handel zu tun haben, alle Arten von Betrügern anziehen, und wir sind uns bewusst, dass sie Leute in unseren Gruppen kontaktieren und alle möglichen Tricks versuchen. Wir werden Sie niemals nach API-Schlüsseln, Münzen oder Bargeld fragen. Tatsächlich werden wir Sie niemals bitten, uns in irgendeiner Weise zu vertrauen! Wir möchten klarstellen, dass es sich um einen Betrug handelt, wenn jemand Sie direkt kontaktiert und behauptet, mit oder für das Projekt zu arbeiten. Bitte melden Sie Betrüger in der Community-Gruppe, damit sie gesperrt werden können und um das Bewusstsein für das Problem zu schärfen, aber blockieren Sie sie auch und melden Sie sie an Telegram, wenn diese Option verfügbar ist.",
+                    "updated": 1634247848663
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolandırıcılar pusuda! Dikkat! Ticaretle ilgili grupların her türlü dolandırıcıyı cezbetmesi yeni bir haber değil ve her türlü numarayı deneyerek gruplarımızdaki insanlarla iletişim kurduklarının farkındayız. Sizden asla API anahtarları, kripto varlıklar veya nakit para istemeyeceğiz. Projeyle veya proje için çalıştığını iddia eden biri sizinle bu tür taleplerle doğrudan iletişime geçerse, bunun bir dolandırıcılık olduğunu açıkça belirtmek isteriz. Lütfen Topluluk grubundaki dolandırıcıları yasaklanabilmeleri ve sorunun farkındalığını artırmak için rapor edin, ancak aynı zamanda onları engelleyin ve onları Telegram'a bildirin.",
+                    "updated": 1670335017788
+                },
+                {
+                    "language": "ID",
+                    "text": "Scammers mengintai! Waspadalah! Bukan berita bahwa kelompok terkait trading menarik semua jenis scammers, dan kami sadar bahwa mereka menghubungi orang-orang di kelompok kami yang mencoba segala macam trik. Kami tidak akan pernah meminta API keys, koin, atau uang tunai. Faktanya, kami tidak akan pernah meminta kamu untuk mempercayai kami dengan cara apa pun! Kami ingin memperjelas bahwa jika seseorang menghubungi kamu secara langsung mengaku bekerja dengan atau untuk proyek, itu adalah penipuan. Silakan laporkan scammers dalam Community group sehingga mereka dapat dilarang, dan untuk meningkatkan kesadaran akan masalah tersebut, tetapi juga memblokir mereka dan melaporkannya ke Telegram jika opsi tersedia.",
+                    "updated": 1640600616757
+                },
+                {
+                    "language": "RU",
+                    "text": "Мошенники затаились! Остерегайтесь! Не новость, что группы, связанные с торговлей, привлекают всевозможных мошенников, и мы знаем, что они связываются с людьми в наших группах, пытаясь использовать всевозможные уловки. Мы никогда не попросим у вас ключи API, монеты или наличные. Более того, мы никогда не будем просить вас доверять нам в чем-либо! Мы хотим пояснить, что если кто-то обращается к вам напрямую, утверждая, что работает с проектом или для него, то это мошенничество. Пожалуйста, сообщайте о мошенниках в группе сообщества, чтобы их могли забанить, и чтобы повысить осведомленность о проблеме, но также блокируйте их и сообщайте о них в Telegram, если такая возможность доступна.",
+                    "updated": 1642774613419
+                },
+                {
+                    "language": "NL",
+                    "text": "Oplichters liggen op de loer! Pas op! Het is geen nieuws dat handels gerelateerde groepen allerlei oplichters aantrekken, en we zijn ons ervan bewust dat ze contact opnemen met mensen in onze groepen en allerlei trucs proberen. We zullen u nooit om API-sleutels, cryptomunten of contant geld vragen. Sterker nog, we zullen je nooit vragen om ons op welke manier dan ook te vertrouwen! We willen duidelijk maken dat als iemand rechtstreeks contact met u opneemt en beweert met of voor het project te werken, dit oplichterij is. Rapporteer oplichters in de Community groep zodat ze kunnen worden verbannen en om het bewustzijn van het probleem te vergroten, maar blokkeer ze ook en meld ze aan Telegram als de optie beschikbaar is.",
+                    "updated": 1667139001242
+                }
+            ]
+        }
+    ]
+}

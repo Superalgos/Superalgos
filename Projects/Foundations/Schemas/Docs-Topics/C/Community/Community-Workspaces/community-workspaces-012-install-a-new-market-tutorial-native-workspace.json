@@ -1,0 +1,77 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "12",
+    "type": "Install a New Market Tutorial Native Workspace",
+    "definition": {
+        "text": "This workspace features a tutorial that teaches you how to work with different markets.",
+        "updated": 1622624869211,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este espacio de trabajo incluye un tutorial que le enseña cómo trabajar con diferentes mercados.",
+                "updated": 1628046098301
+            },
+            {
+                "language": "RU",
+                "text": "В этом рабочем пространстве есть учебное пособие, которое научит вас работать с разными рынками.",
+                "updated": 1639057107984
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanında, farklı pazarlarla nasıl çalışacağınızı öğreten bir eğitim bulunmaktadır.",
+                "updated": 1644676635755
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält ein Tutorial, in dem Sie lernen, wie Sie mit verschiedenen Märkten arbeiten können.",
+                "updated": 1688936823268
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1622624397458,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639057121300
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Install a New Market Tutorial",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Pazar Kurulum Eğitimi ( Install a New Market Tutorial )",
+                    "updated": 1644676689975
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639057141321
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936814830
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622624415709
+        }
+    ]
+}

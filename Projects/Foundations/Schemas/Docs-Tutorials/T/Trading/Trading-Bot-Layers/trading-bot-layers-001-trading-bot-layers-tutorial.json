@@ -14,8 +14,8 @@
             },
             {
                 "language": "ES",
-                "text": "Este tutorial lo guía a través de las capas que ofrece el Trading Bot oen los gráficos, en particular, las capas asociadas con todo tipo de sesiones de Trading. Ejecutará una prueba retrospectiva del sistema BTC-USDT - Weak-hands Buster - WHB de trading y explorar alguno de los trades mientras aprende como usar las capas.",
-                "updated": 1636726168093
+                "text": "Este tutorial te guiará a través de las capas que ofrece el Trading Bot en los gráficos, en particular, las capas asociadas con todo tipo de sesiones de Trading. Ejecutará una prueba retrospectiva del sistema BTC-USDT - \"Weak-hands Buster\" (WHB) de trading y exploraremos alguno de los trades mientras aprendes como usar las capas.",
+                "updated": 1675620887237
             },
             {
                 "language": "RU",
@@ -26,6 +26,11 @@
                 "language": "TR",
                 "text": "Bu eğitim, Ticaret Botu (Trading Bot) tarafından grafiklerde kullanılan katmanlar, özellikle de tüm Ticaret Oturumları ile ilişkili katmanlar konusunda size yol gösterir. BTC-USDT - Weak-Hands-Buster - WHB ticaret sisteminin geriye dönük testini yapacak ve katmanları nasıl kullanacağınızı öğrenirken bazı işlemleri keşfedeceksiniz.",
                 "updated": 1641717431841
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini memandu kamu melalui layers atau lapisan yang disediakan oleh Trading Bot pada chart, khususnya layers yang terkait dengan semua jenis Trading Sessions. Kamu akan menjalankan backtest dari BTC-USDT - Weak-hands Buster - WHB trading system dan menjelajahi beberapa trade sambil mempelajari cara menggunakan layers.",
+                "updated": 1673827027110
             }
         ]
     },
@@ -45,12 +50,17 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394184884,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620862994
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Trading Bot Layers Tutorial Plugin Workspace.",
+            "text": "Workspace: Trading Bot Layers Tutorial Native Workspace.",
             "updated": 1647873379561,
             "translations": [
                 {
@@ -70,6 +80,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394196136,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675462422640
                 }
             ]
         }

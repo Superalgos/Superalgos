@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Раздел иерархии Trading Mines Data контролирует, где и как торговый бот хранит полученные данные.",
                 "updated": 1639149042080
+            },
+            {
+                "language": "TR",
+                "text": "Hiyerarşinin Ticaret Madenleri Verileri bölümü ( Trading Mines Data ), Ticaret Botunun (Trading Bot ) ürettiği verileri nerede ve nasıl saklayacağını kontrol eder.\n",
+                "updated": 1672265473347
             }
         ]
     },

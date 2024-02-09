@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Basic Education Tutorial",
     "definition": {
         "text": "This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",
@@ -19,8 +19,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bu eğitim, Superalgos'a Hoş Geldiniz Eğitiminde verilen bilgileri tamamlar ve Düğümler Menüsü, Yedeklemeler, Klonlar ve Paylaşımlar, Eklentiler, Çalışma Alanları, Referanslar ve daha fazlasına odaklanır.",
-                "updated": 1636699806597
+                "text": "Bu eğitim, Superalgos'a Hoş Geldiniz Eğitiminde verilen bilgileri tamamlar ve Düğümler Menüsü, Yedeklemeler, Klonlar ve Paylaşma, Eklentiler, Çalışma Alanları, Referanslar ve daha fazlasına odaklanır.",
+                "updated": 1670336159085
             },
             {
                 "language": "RU",
@@ -65,12 +65,17 @@
                     "language": "NL",
                     "text": "Over deze zelfstudie",
                     "updated": 1668333588321
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620839936
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Plugin Workspace.",
+            "text": "Workspace: Getting Started Tutorials Native Workspace.",
             "translations": [
                 {
                     "language": "TR",
@@ -79,10 +84,16 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Workspace: Aan de slag Plugin Workspace.",
+                    "text": "Workspace: Aan de slag Native Workspace.",
                     "updated": 1668333649599
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: Getting Started Tutorials Native Workspace.",
+                    "updated": 1675448862661
                 }
-            ]
+            ],
+            "updated": 1687806477434
         },
         {
             "style": "List",
@@ -97,6 +108,11 @@
                     "language": "NL",
                     "text": "Onderhouder: @julianmolina (Telegram).",
                     "updated": 1668333666589
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675448846517
                 }
             ]
         }

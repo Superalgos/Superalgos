@@ -1,589 +1,592 @@
 {
-   "type": "Asset",
-   "menuItems": [
-      {
-         "action": "Configure",
-         "actionFunction": "uiObject.configEditor.activate",
-         "label": "Configure",
-         "iconPathOn": "configuration",
-         "iconPathOff": "configuration"
-      },
-      {
-         "action": "Delete UI Object",
-         "actionProject": "Visual-Scripting",
-         "askConfirmation": true,
-         "confirmationLabel": "Confirm to Delete",
-         "label": "Delete",
-         "iconPathOn": "delete-entity",
-         "iconPathOff": "delete-entity",
-         "actionFunction": "payload.executeAction"
-      }
-   ],
-   "isTitleAllwaysVisible": true,
-   "addLeftIcons": true,
-   "level": 4,
-   "editors": {
-      "config": true
-   },
-   "initialValues": {
-      "config": "{ \n\"codeName\": \"Type_the_code_name_of_the_asset\"\n}"
-   },
-   "attachingRules": {
-      "compatibleTypes": "->Exchange Assets->"
-   },
-   "propertyNameAtParent": "assets",
-   "alternativeIcons": [
-      {
-         "codeName": "ADA",
-         "iconName": "cardano"
-      },
-      {
-         "codeName": "BCH",
-         "iconName": "bitcoin-cash"
-      },
-      {
-         "codeName": "BNB",
-         "iconName": "binance-coin"
-      },
-      {
-         "codeName": "BTC",
-         "iconName": "bitcoin"
-      },
-      {
-         "codeName": "BUSD",
-         "iconName": "binance-usd"
-      },
-      {
-         "codeName": "CAKE",
-         "iconName": "cake"
-      },
-      {
-         "codeName": "DAI",
-         "iconName": "dai"
-      },
-      {
-         "codeName": "DASH",
-         "iconName": "dash"
-      },
-      {
-         "codeName": "DOGE",
-         "iconName": "dogecoin"
-      },
-      {
-         "codeName": "DOT",
-         "iconName": "polkadot"
-      },
-      {
-         "codeName": "EOS",
-         "iconName": "eos"
-      },
-      {
-         "codeName": "ETC",
-         "iconName": "ethereum-classic"
-      },
-      {
-         "codeName": "ETH",
-         "iconName": "ethereum"
-      },
-      {
-         "codeName": "EUR",
-         "iconName": "euro"
-      },
-      {
-         "codeName": "LINK",
-         "iconName": "chainlink"
-      },
-      {
-         "codeName": "LTC",
-         "iconName": "litecoin"
-      },
-      {
-         "codeName": "NANO",
-         "iconName": "nano"
-      },
-      {
-         "codeName": "NEO",
-         "iconName": "neo"
-      },
-      {
-         "codeName": "QTUM",
-         "iconName": "qtum"
-      },
-      {
-         "codeName": "SOL",
-         "iconName": "solana"
-      },
-      {
-         "codeName": "SXP",
-         "iconName": "swipe"
-      },
-      {
-         "codeName": "TRX",
-         "iconName": "tron"
-      },
-      {
-         "codeName": "XMR",
-         "iconName": "monero"
-      },
-      {
-         "codeName": "UNI",
-         "iconName": "uniswap"
-      },
-      {
-         "codeName": "USD",
-         "iconName": "us-dollar"
-      },
-      {
-         "codeName": "USDC",
-         "iconName": "usdc"
-      },
-      {
-         "codeName": "USDT",
-         "iconName": "tether"
-      },
-      {
-         "codeName": "VET",
-         "iconName": "vechain"
-      },
-      {
-         "codeName": "XLM",
-         "iconName": "stellar"
-      },
-      {
-         "codeName": "XRP",
-         "iconName": "xrp"
-      },
-      {
-         "codeName": "ZAR",
-         "iconName": "zar"
-      },
-      {
-         "codeName": "SA",
-         "iconName": "superalgos"
-      },
-      {
-         "codeName": "AAVE",
-         "iconName": "aave"
-      },
-      {
-         "codeName": "ALGO",
-         "iconName": "algorand"
-      },
-      {
-         "codeName": "AVAX",
-         "iconName": "avalanche"
-      },
-      {
-         "codeName": "AXS",
-         "iconName": "axie-infinity"
-      },
-      {
-         "codeName": "BAND",
-         "iconName": "band-protocol"
-      },
-      {
-         "codeName": "BAT",
-         "iconName": "basic-attention-token"
-      },
-      {
-         "codeName": "BCD",
-         "iconName": "bitcoin-diamond"
-      },
-      {
-         "codeName": "BTG",
-         "iconName": "bitcoin-gold"
-      },
-      {
-         "codeName": "BTCP",
-         "iconName": "bitcoin-private"
-      },
-      {
-         "codeName": "BSV" ,
-         "iconName": "bitcoin-sv"
-      },
-      {
-         "codeName": "BTCZ",
-         "iconName": "bitcoinz"
-      },
-      {
-         "codeName": "BTT",
-         "iconName": "bittorrent"
-      },
-      {
-         "codeName": "ATOM",
-         "iconName": "cosmos"
-      },
-      {
-         "codeName": "CEL",
-         "iconName": "celsius"
-      },
-      {
-         "codeName": "CRV",
-         "iconName": "curve-dao-token"
-      },
-      {
-         "codeName": "DAI",
-         "iconName": "dai"
-      },
-      {
-         "codeName": "DENT",
-         "iconName": "dent"
-      },
-      {
-         "codeName": "XEC",
-         "iconName": "ecash"
-      },
-      {
-         "codeName": "EGLD",
-         "iconName": "elrond"
-      },
-      {
-         "codeName": "FTM",
-         "iconName": "fantom"
-      },
-      {
-         "codeName": "FIL",
-         "iconName": "filecoin"
-      },
-      {
-         "codeName": "FTT",
-         "iconName": "ftx-token"
-      },
-      {
-         "codeName": "GBP",
-         "iconName": "gbp"
-      },
-      {
-         "codeName": "ONE",
-         "iconName": "harmony"
-      },
-      {
-         "codeName": "HBAR",
-         "iconName": "hedera-hashgraph"
-      },
-      {
-         "codeName": "HOT",
-         "iconName": "holo"
-      },
-      {
-         "codeName": "HT",
-         "iconName": "huobi-token"
-      },
-      {
-         "codeName": "ICX",
-         "iconName": "icon"
-      },
-      {
-         "codeName": "ICP",
-         "iconName": "internet-computer"
-      },
-      {
-         "codeName": "MIOTA",
-         "iconName": "iota"
-      },
-      {
-         "codeName": "KLAY",
-         "iconName": "klaytn"
-      },
-      {
-         "codeName": "KCS",
-         "iconName": "kucoin-token"
-      },
-      {
-         "codeName": "OMG",
-         "iconName": "omg-network"
-      },
-      {
-         "codeName": "OXT",
-         "iconName": "orchid"
-      },
-      {
-         "codeName": "CAKE",
-         "iconName": "pancakeswap"
-      },
-      {
-         "codeName": "MATIC",
-         "iconName": "polygon"
-      },
-      {
-         "codeName": "QNT",
-         "iconName": "quant"
-      },
-      {
-         "codeName": "REV",
-         "iconName": "revain"
-      },
-      {
-         "codeName": "RVN",
-         "iconName": "ravencoin"
-      },
-      {
-         "codeName": "SHIB",
-         "iconName": "shiba-inu"
-      },
-      {
-         "codeName": "SC",
-         "iconName": "siacoin"
-      },
-      {
-         "codeName": "SUSHI",
-         "iconName": "sushiswap"
-      },
-      {
-         "codeName": "LUNA",
-         "iconName": "terra"
-      },
-      {
-         "codeName": "XTZ",
-         "iconName": "tezos"
-      },
-      {
-         "codeName": "GRT",
-         "iconName": "the-graph"
-      },
-      {
-         "codeName": "THETA",
-         "iconName": "theta"
-      },
-      {
-         "codeName": "TUSD",
-         "iconName": "true-usd"
-      },
-      {
-         "codeName": "UNI",
-         "iconName": "uniswap"
-      },
-      {
-         "codeName": "USDC",
-         "iconName": "usd-coin"
-      },
-      {
-         "codeName": "VET",
-         "iconName": "vechain"
-      },
-      {
-         "codeName": "WAVES",
-         "iconName": "waves"
-      },
-      {
-         "codeName": "WBTC",
-         "iconName": "wrapped-bitcoin"
-      },
-      {
-         "codeName": "YFI",
-         "iconName": "yearn-finance"
-      },
-      {
-         "codeName": "ZEC",
-         "iconName": "zcash"
-      },
-      {
-         "codeName": "ZIL",
-         "iconName": "zilliqa"
-      },
-      {
-         "codeName": "ZRX",
-         "iconName": "0x"
-      },
-      {
-         "codeName": "ELF",
-         "iconName": "aelf"
-      },
-      {
-         "codeName": "AEON",
-         "iconName": "aeon"
-      },
-      {
-         "codeName": "AMP",
-         "iconName": "amp"
-      },
-      {
-         "codeName": "ANKR",
-         "iconName": "ankr"
-      },
-      {
-         "codeName": "DEX",
-         "iconName": "ardor"
-      },
-      {
-         "codeName": "ARK",
-         "iconName": "ark"
-      },
-      {
-         "codeName": "REP",
-         "iconName": "augur"
-      },
-      {
-         "codeName": "BNT",
-         "iconName": "bancor"
-      },
-      {
-         "codeName": "CVC",
-         "iconName": "civic"
-      },
-      {
-         "codeName": "COMP",
-         "iconName": "compound"
-      },
-      {
-         "codeName": "MANA",
-         "iconName": "decentraland"
-      },
-      {
-         "codeName": "DCR",
-         "iconName": "decred"
-      },
-      {
-         "codeName": "DGB",
-         "iconName": "digibyte"
-      },
-      {
-         "codeName": "ENJ",
-         "iconName": "enjin-coin"
-      },
-      {
-         "codeName": "GNO",
-         "iconName": "gnosis"
-      },
-      {
-         "codeName": "ZEN",
-         "iconName": "horizen"
-      },
-      {
-         "codeName": "HUSD",
-         "iconName": "husd"
-      },
-      {
-         "codeName": "RLC",
-         "iconName": "iexec-rlc"
-      },
-      {
-         "codeName": "IOST",
-         "iconName": "iost"
-      },
-      {
-         "codeName": "IOTX",
-         "iconName": "iotex"
-      },
-      {
-         "codeName": "KSM",
-         "iconName": "kusama"
-      },
-      {
-         "codeName": "LSK",
-         "iconName": "lisk"
-      },
-      {
-         "codeName": "LPT",
-         "iconName": "livepeer"
-      },
-      {
-         "codeName": "LRC",
-         "iconName": "loopring"
-      },
-      {
-         "codeName": "MKR",
-         "iconName": "maker"
-      },
-      {
-         "codeName": "MED",
-         "iconName": "medibloc"
-      },
-      {
-         "codeName": "XEM",
-         "iconName": "nem"
-      },
-      {
-         "codeName": "NEXO",
-         "iconName": "nexo"
-      },
-      {
-         "codeName": "NKN",
-         "iconName": "nkn"
-      },
-      {
-         "codeName": "NMR",
-         "iconName": "numeraire"
-      },
-      {
-         "codeName": "OKB",
-         "iconName": "okb"
-      },
-      {
-         "codeName": "OMNI",
-         "iconName": "omni"
-      },
-      {
-         "codeName": "ONG",
-         "iconName": "ontology-gas"
-      },
-      {
-         "codeName": "ONT",
-         "iconName": "ontology"
-      },
-      {
-         "codeName": "NEAR",
-         "iconName": "near-protocol"
-      },
-      {
-         "codeName": "PAXG",
-         "iconName": "pax-gold"
-      },
-      {
-         "codeName": "REN",
-         "iconName": "ren"
-      },
-      {
-         "codeName": "SAFEMOON",
-         "iconName": "safemoon"
-      },
-      {
-         "codeName": "SKL",
-         "iconName": "skale-network"
-      },
-      {
-         "codeName": "STX",
-         "iconName": "stacks"
-      },
-      {
-         "codeName": "SNT",
-         "iconName": "status"
-      },
-      {
-         "codeName": "STORJ",
-         "iconName": "storj"
-      },
-      {
-         "codeName": "CHSB",
-         "iconName": "swissborg"
-      },
-      {
-         "codeName": "SNX",
-         "iconName": "synthetix"
-      },
-      {
-         "codeName": "TEL",
-         "iconName": "telcoin"
-      },
-      {
-         "codeName": "SAND",
-         "iconName": "the-sandbox"
-      },
-      {
-         "codeName": "UMA",
-         "iconName": "uma"
-      },
-      {
-         "codeName": "LEO",
-         "iconName": "unus-sed-leo"
-      },
-      {
-         "codeName": "XVG",
-         "iconName": "verge"
-      },
-      {
-         "codeName": "VTHO",
-         "iconName": "vethor-token"
-      }
-   ]
+    "type": "Asset",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 4,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type_the_code_name_of_the_asset\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Assets->"
+    },
+    "propertyNameAtParent": "assets",
+    "alternativeIcons": [
+        {
+            "codeName": "ADA",
+            "iconName": "cardano"
+        },
+        {
+            "codeName": "BCH",
+            "iconName": "bitcoin-cash"
+        },
+        {
+            "codeName": "BNB",
+            "iconName": "binance-coin"
+        },
+        {
+            "codeName": "BTC",
+            "iconName": "bitcoin"
+        },
+        {
+            "codeName": "BUSD",
+            "iconName": "binance-usd"
+        },
+        {
+            "codeName": "CAKE",
+            "iconName": "cake"
+        },
+        {
+            "codeName": "DAI",
+            "iconName": "dai"
+        },
+        {
+            "codeName": "DASH",
+            "iconName": "dash"
+        },
+        {
+            "codeName": "DOGE",
+            "iconName": "dogecoin"
+        },
+        {
+            "codeName": "DOT",
+            "iconName": "polkadot"
+        },
+        {
+            "codeName": "EOS",
+            "iconName": "eos"
+        },
+        {
+            "codeName": "ETC",
+            "iconName": "ethereum-classic"
+        },
+        {
+            "codeName": "ETH",
+            "iconName": "ethereum"
+        },
+        {
+            "codeName": "EUR",
+            "iconName": "euro"
+        },
+        {
+            "codeName": "LINK",
+            "iconName": "chainlink"
+        },
+        {
+            "codeName": "LTC",
+            "iconName": "litecoin"
+        },
+        {
+            "codeName": "NANO",
+            "iconName": "nano"
+        },
+        {
+            "codeName": "NEO",
+            "iconName": "neo"
+        },
+        {
+            "codeName": "QTUM",
+            "iconName": "qtum"
+        },
+        {
+            "codeName": "SOL",
+            "iconName": "solana"
+        },
+        {
+            "codeName": "SXP",
+            "iconName": "swipe"
+        },
+        {
+            "codeName": "TRX",
+            "iconName": "tron"
+        },
+        {
+            "codeName": "XMR",
+            "iconName": "monero"
+        },
+        {
+            "codeName": "UNI",
+            "iconName": "uniswap"
+        },
+        {
+            "codeName": "USD",
+            "iconName": "us-dollar"
+        },
+        {
+            "codeName": "USDC",
+            "iconName": "usdc"
+        },
+        {
+            "codeName": "USDT",
+            "iconName": "tether"
+        },
+        {
+            "codeName": "VET",
+            "iconName": "vechain"
+        },
+        {
+            "codeName": "XLM",
+            "iconName": "stellar"
+        },
+        {
+            "codeName": "XRP",
+            "iconName": "xrp"
+        },
+        {
+            "codeName": "ZAR",
+            "iconName": "zar"
+        },
+        {
+            "codeName": "SA",
+            "iconName": "superalgos"
+        },
+        {
+            "codeName": "AAVE",
+            "iconName": "aave"
+        },
+        {
+            "codeName": "ALGO",
+            "iconName": "algorand"
+        },
+        {
+            "codeName": "AVAX",
+            "iconName": "avalanche"
+        },
+        {
+            "codeName": "AXS",
+            "iconName": "axie-infinity"
+        },
+        {
+            "codeName": "BAND",
+            "iconName": "band-protocol"
+        },
+        {
+            "codeName": "BAT",
+            "iconName": "basic-attention-token"
+        },
+        {
+            "codeName": "BCD",
+            "iconName": "bitcoin-diamond"
+        },
+        {
+            "codeName": "BTG",
+            "iconName": "bitcoin-gold"
+        },
+        {
+            "codeName": "BTCP",
+            "iconName": "bitcoin-private"
+        },
+        {
+            "codeName": "BSV",
+            "iconName": "bitcoin-sv"
+        },
+        {
+            "codeName": "BTCZ",
+            "iconName": "bitcoinz"
+        },
+        {
+            "codeName": "BTT",
+            "iconName": "bittorrent"
+        },
+        {
+            "codeName": "ATOM",
+            "iconName": "cosmos"
+        },
+        {
+            "codeName": "CEL",
+            "iconName": "celsius"
+        },
+        {
+            "codeName": "CRV",
+            "iconName": "curve-dao-token"
+        },
+        {
+            "codeName": "DAI",
+            "iconName": "dai"
+        },
+        {
+            "codeName": "DENT",
+            "iconName": "dent"
+        },
+        {
+            "codeName": "XEC",
+            "iconName": "ecash"
+        },
+        {
+            "codeName": "EGLD",
+            "iconName": "elrond"
+        },
+        {
+            "codeName": "FTM",
+            "iconName": "fantom"
+        },
+        {
+            "codeName": "FIL",
+            "iconName": "filecoin"
+        },
+        {
+            "codeName": "FTT",
+            "iconName": "ftx-token"
+        },
+        {
+            "codeName": "GBP",
+            "iconName": "gbp"
+        },
+        {
+            "codeName": "ONE",
+            "iconName": "harmony"
+        },
+        {
+            "codeName": "HBAR",
+            "iconName": "hedera-hashgraph"
+        },
+        {
+            "codeName": "HOT",
+            "iconName": "holo"
+        },
+        {
+            "codeName": "HT",
+            "iconName": "huobi-token"
+        },
+        {
+            "codeName": "ICX",
+            "iconName": "icon"
+        },
+        {
+            "codeName": "ICP",
+            "iconName": "internet-computer"
+        },
+        {
+            "codeName": "MIOTA",
+            "iconName": "iota"
+        },
+        {
+            "codeName": "KLAY",
+            "iconName": "klaytn"
+        },
+        {
+            "codeName": "KCS",
+            "iconName": "kucoin-token"
+        },
+        {
+            "codeName": "OMG",
+            "iconName": "omg-network"
+        },
+        {
+            "codeName": "OXT",
+            "iconName": "orchid"
+        },
+        {
+            "codeName": "CAKE",
+            "iconName": "pancakeswap"
+        },
+        {
+            "codeName": "MATIC",
+            "iconName": "polygon"
+        },
+        {
+            "codeName": "QNT",
+            "iconName": "quant"
+        },
+        {
+            "codeName": "REV",
+            "iconName": "revain"
+        },
+        {
+            "codeName": "RVN",
+            "iconName": "ravencoin"
+        },
+        {
+            "codeName": "SHIB",
+            "iconName": "shiba-inu"
+        },
+        {
+            "codeName": "SC",
+            "iconName": "siacoin"
+        },
+        {
+            "codeName": "SUSHI",
+            "iconName": "sushiswap"
+        },
+        {
+            "codeName": "LUNA",
+            "iconName": "terra"
+        },
+        {
+            "codeName": "XTZ",
+            "iconName": "tezos"
+        },
+        {
+            "codeName": "GRT",
+            "iconName": "the-graph"
+        },
+        {
+            "codeName": "THETA",
+            "iconName": "theta"
+        },
+        {
+            "codeName": "TUSD",
+            "iconName": "true-usd"
+        },
+        {
+            "codeName": "UNI",
+            "iconName": "uniswap"
+        },
+        {
+            "codeName": "USDC",
+            "iconName": "usd-coin"
+        },
+        {
+            "codeName": "VET",
+            "iconName": "vechain"
+        },
+        {
+            "codeName": "WAVES",
+            "iconName": "waves"
+        },
+        {
+            "codeName": "WBTC",
+            "iconName": "wrapped-bitcoin"
+        },
+        {
+            "codeName": "YFI",
+            "iconName": "yearn-finance"
+        },
+        {
+            "codeName": "ZEC",
+            "iconName": "zcash"
+        },
+        {
+            "codeName": "ZIL",
+            "iconName": "zilliqa"
+        },
+        {
+            "codeName": "ZRX",
+            "iconName": "0x"
+        },
+        {
+            "codeName": "ELF",
+            "iconName": "aelf"
+        },
+        {
+            "codeName": "AEON",
+            "iconName": "aeon"
+        },
+        {
+            "codeName": "AMP",
+            "iconName": "amp"
+        },
+        {
+            "codeName": "ANKR",
+            "iconName": "ankr"
+        },
+        {
+            "codeName": "DEX",
+            "iconName": "ardor"
+        },
+        {
+            "codeName": "ARK",
+            "iconName": "ark"
+        },
+        {
+            "codeName": "REP",
+            "iconName": "augur"
+        },
+        {
+            "codeName": "BNT",
+            "iconName": "bancor"
+        },
+        {
+            "codeName": "CVC",
+            "iconName": "civic"
+        },
+        {
+            "codeName": "COMP",
+            "iconName": "compound"
+        },
+        {
+            "codeName": "MANA",
+            "iconName": "decentraland"
+        },
+        {
+            "codeName": "DCR",
+            "iconName": "decred"
+        },
+        {
+            "codeName": "DGB",
+            "iconName": "digibyte"
+        },
+        {
+            "codeName": "ENJ",
+            "iconName": "enjin-coin"
+        },
+        {
+            "codeName": "GNO",
+            "iconName": "gnosis"
+        },
+        {
+            "codeName": "ZEN",
+            "iconName": "horizen"
+        },
+        {
+            "codeName": "HUSD",
+            "iconName": "husd"
+        },
+        {
+            "codeName": "RLC",
+            "iconName": "iexec-rlc"
+        },
+        {
+            "codeName": "IOST",
+            "iconName": "iost"
+        },
+        {
+            "codeName": "IOTX",
+            "iconName": "iotex"
+        },
+        {
+            "codeName": "KSM",
+            "iconName": "kusama"
+        },
+        {
+            "codeName": "LSK",
+            "iconName": "lisk"
+        },
+        {
+            "codeName": "LPT",
+            "iconName": "livepeer"
+        },
+        {
+            "codeName": "LRC",
+            "iconName": "loopring"
+        },
+        {
+            "codeName": "MKR",
+            "iconName": "maker"
+        },
+        {
+            "codeName": "MED",
+            "iconName": "medibloc"
+        },
+        {
+            "codeName": "XEM",
+            "iconName": "nem"
+        },
+        {
+            "codeName": "NEXO",
+            "iconName": "nexo"
+        },
+        {
+            "codeName": "NKN",
+            "iconName": "nkn"
+        },
+        {
+            "codeName": "NMR",
+            "iconName": "numeraire"
+        },
+        {
+            "codeName": "OKB",
+            "iconName": "okb"
+        },
+        {
+            "codeName": "OMNI",
+            "iconName": "omni"
+        },
+        {
+            "codeName": "ONG",
+            "iconName": "ontology-gas"
+        },
+        {
+            "codeName": "ONT",
+            "iconName": "ontology"
+        },
+        {
+            "codeName": "NEAR",
+            "iconName": "near-protocol"
+        },
+        {
+            "codeName": "PAXG",
+            "iconName": "pax-gold"
+        },
+        {
+            "codeName": "REN",
+            "iconName": "ren"
+        },
+        {
+            "codeName": "SAFEMOON",
+            "iconName": "safemoon"
+        },
+        {
+            "codeName": "SKL",
+            "iconName": "skale-network"
+        },
+        {
+            "codeName": "STX",
+            "iconName": "stacks"
+        },
+        {
+            "codeName": "SNT",
+            "iconName": "status"
+        },
+        {
+            "codeName": "STORJ",
+            "iconName": "storj"
+        },
+        {
+            "codeName": "CHSB",
+            "iconName": "swissborg"
+        },
+        {
+            "codeName": "SNX",
+            "iconName": "synthetix"
+        },
+        {
+            "codeName": "TEL",
+            "iconName": "telcoin"
+        },
+        {
+            "codeName": "SAND",
+            "iconName": "the-sandbox"
+        },
+        {
+            "codeName": "UMA",
+            "iconName": "uma"
+        },
+        {
+            "codeName": "LEO",
+            "iconName": "unus-sed-leo"
+        },
+        {
+            "codeName": "XVG",
+            "iconName": "verge"
+        },
+        {
+            "codeName": "VTHO",
+            "iconName": "vethor-token"
+        }
+    ]
 }

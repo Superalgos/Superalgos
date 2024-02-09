@@ -10,6 +10,11 @@
                 "language": "TR",
                 "text": "Yürütme Algoritması ( Execution Algorithm ) tarafından işlenen Boyutun ( Size ) yüzde kaçının sipariş tarafından işleneceğini belirtmelisiniz.",
                 "updated": 1648672380363
+            },
+            {
+                "language": "DE",
+                "text": "Sie müssen angeben, welcher Prozentsatz der vom Ausführungsalgorithmus (Execution Algorithm) bearbeiteten Größe (Size) von der Order bearbeitet werden soll.",
+                "updated": 1700080879446
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "TR",
                     "text": "Algoritma Yüzdesi Boyut Özelliği Eksik. ( Size Property Missing )",
                     "updated": 1648669899155
+                },
+                {
+                    "language": "DE",
+                    "text": "Prozentsatz der Eigenschaft \"Größe des Algorithmus\" (Size Property Missing), die fehlt",
+                    "updated": 1700080917038
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "TR",
                     "text": "Siparişin yapılandırmasını kontrol edin ve Algoritma Boyutu yüzdesi özelliğinin var olduğundan ve sıfırdan büyük bir sayıyla tanımlandığından emin olun.",
                     "updated": 1648672463420
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Auftragskonfiguration und stellen Sie sicher, dass die Eigenschaft percentageOfAlgorithmSize existiert und mit einer Zahl größer als Null definiert ist.",
+                    "updated": 1700080941565
                 }
             ]
         }

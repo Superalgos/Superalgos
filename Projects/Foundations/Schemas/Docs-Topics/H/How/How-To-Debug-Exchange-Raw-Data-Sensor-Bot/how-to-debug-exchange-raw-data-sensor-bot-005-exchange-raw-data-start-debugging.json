@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Процедура отладки сенсорного бота довольно проста. Просто запустите VS Code с установленной точкой останова, перейдите в пользовательский интерфейс и запустите задачу сенсорного бота с помощью пункта меню DEBUG.",
                 "updated": 1640362043742
+            },
+            {
+                "language": "DE",
+                "text": "Das Verfahren zum Debuggen dieses Sensor-Bots ist recht einfach. Starten Sie einfach VS Code mit gesetztem Haltepunkt, gehen Sie zur Benutzeroberfläche (UI) und starten Sie den Sensor Bot Task mit der Menüoption DEBUG.",
+                "updated": 1687721683051
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Почти мгновенно вы увидите, что VS Code останавливается на установленной вами точке останова. Отсюда вы можете двигаться шаг за шагом, проверяя любое из значений переменных. Если вы дадите коду выполниться, то заметите, что за одно выполнение он попытается получить все отсутствующие объекты с момента последнего запуска до текущего момента.",
                     "updated": 1640362075694
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden fast augenblicklich sehen, dass VS Code an dem von Ihnen gesetzten Haltepunkt anhält. Von dort aus können Sie Schritt für Schritt alle Variablenwerte überprüfen. Wenn Sie den Code laufen lassen, werden Sie feststellen, dass bei einer einzigen Ausführung versucht wird, alle fehlenden Objekte seit der letzten Ausführung bis zum jetzigen Zeitpunkt zu holen.",
+                    "updated": 1687721695858
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "После завершения работы Sensor Bot перейдет в спящий режим на 60 секунд, а затем попытается сделать то же самое снова и снова.",
                     "updated": 1640362091750
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn er fertig ist, geht der Sensor Bot für 60 Sekunden in den Ruhezustand und versucht dann, das Gleiche noch einmal und noch einmal zu tun.",
+                    "updated": 1687721708660
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "RU",
                     "text": "Не работает?",
                     "updated": 1640362101282
+                },
+                {
+                    "language": "DE",
+                    "text": "Funktioniert nicht?",
+                    "updated": 1687721719083
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "RU",
                     "text": "Может случиться так, что процедура сработала не так, как ожидалось. Проверьте консоль VS Code, есть ли у вас есть вывод, подобный этому:",
                     "updated": 1640362150158
+                },
+                {
+                    "language": "DE",
+                    "text": "Es kann vorkommen, dass die Prozedur nicht wie erwartet funktioniert hat. Überprüfen Sie die VS Code-Konsole, wenn Sie eine ähnliche Ausgabe wie diese erhalten:",
+                    "updated": 1687721728763
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "RU",
                     "text": "Если нет, вам нужно будет провести поиск неполадок:",
                     "updated": 1640362172613
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn nicht, müssen Sie eine Fehlersuche durchführen. z.B.:",
+                    "updated": 1687721738737
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "1. Запустите клиент Superalgos",
                     "updated": 1640362184554
+                },
+                {
+                    "language": "DE",
+                    "text": "1. den Superalgos-Client ausführen",
+                    "updated": 1687721747059
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "RU",
                     "text": "2. Закройте VS Code",
                     "updated": 1640362207793
+                },
+                {
+                    "language": "DE",
+                    "text": "2. VS CODE schließen (Close)",
+                    "updated": 1687721765706
                 }
             ]
         },
@@ -109,6 +149,11 @@
                     "language": "RU",
                     "text": "3. Найдите папку Task Server",
                     "updated": 1640362217585
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Suchen Sie den Ordner Task Server",
+                    "updated": 1687721776963
                 }
             ]
         },
@@ -121,6 +166,11 @@
                     "language": "RU",
                     "text": "4. Щелкните там правой кнопкой мыши и откройте с помощью VS Code",
                     "updated": 1640362242614
+                },
+                {
+                    "language": "DE",
+                    "text": "4. Rechtsklicken Sie dort und öffnen Sie mit VS CODE",
+                    "updated": 1687721788444
                 }
             ]
         },
@@ -133,6 +183,11 @@
                     "language": "RU",
                     "text": "5. Не добавляя пока папку Projects, запустите VS Code",
                     "updated": 1640362266009
+                },
+                {
+                    "language": "DE",
+                    "text": "5. Führen Sie VS CODE aus, ohne den Ordner Projects hinzuzufügen.",
+                    "updated": 1687721798059
                 }
             ]
         },
@@ -145,6 +200,11 @@
                     "language": "RU",
                     "text": "6. Посмотрите, отображается ли в консоли VS Code что-то похожее на то, что я вам отправил",
                     "updated": 1640362288317
+                },
+                {
+                    "language": "DE",
+                    "text": "6. Prüfen Sie, ob die VS CODE-Konsole etwas Ähnliches anzeigt wie das, was ich Ihnen geschickt habe",
+                    "updated": 1687721810371
                 }
             ]
         },
@@ -156,6 +216,11 @@
                     "language": "RU",
                     "text": "Клиент Superalgos не запущен",
                     "updated": 1640362340798
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos Client wird nicht ausgeführt",
+                    "updated": 1687721816860
                 }
             ]
         },
@@ -167,6 +232,11 @@
                     "language": "RU",
                     "text": "Если в консоли VS Code вы видите сообщение, подобное этому, это означает, что Superalgos Client в настоящее время не запущен.",
                     "updated": 1640362331336
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Meldung wie diese in der VS Code-Konsole sehen, bedeutet dies, dass der Superalgos Client derzeit nicht läuft.",
+                    "updated": 1687721831789
                 }
             ]
         },
@@ -183,6 +253,11 @@
                     "language": "RU",
                     "text": "Проверьте файл launch.json",
                     "updated": 1640362436212
+                },
+                {
+                    "language": "DE",
+                    "text": "Launch.json prüfen",
+                    "updated": 1687721839621
                 }
             ]
         },
@@ -194,6 +269,11 @@
                     "language": "RU",
                     "text": "Если вы все еще не видите отладчик, прослушивающий порт ws, то проверьте, что файл launch.json, находящийся в папке \".vscode\", похож на этот.",
                     "updated": 1640362429722
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie immer noch nicht sehen können, dass der Debugger auf dem ws-Port lauscht, sollten Sie überprüfen, ob die Datei launch.json, die Sie im Ordner .vscode haben, dieser Datei ähnlich ist.",
+                    "updated": 1687721891300
                 }
             ]
         },
@@ -210,6 +290,11 @@
                     "language": "RU",
                     "text": "Это может быть причиной того, что не запускается сеанс отладки.",
                     "updated": 1640362454256
+                },
+                {
+                    "language": "DE",
+                    "text": "Das könnte der Grund sein, warum die Debugging-Sitzung nicht gestartet wird.",
+                    "updated": 1687721904497
                 }
             ]
         },
@@ -221,6 +306,11 @@
                     "language": "RU",
                     "text": "В Linux?",
                     "updated": 1640362466434
+                },
+                {
+                    "language": "DE",
+                    "text": "Unter Linux?",
+                    "updated": 1687721910724
                 }
             ]
         },
@@ -232,6 +322,11 @@
                     "language": "RU",
                     "text": "Пользователи сообщили, что в Linux необходимо скорректировать файл launch.json, чтобы в нем появилась эта строка:",
                     "updated": 1640362489664
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzer berichteten, dass man unter Linux die Datei Launch.json anpassen muss, um diese Zeile zu erhalten:",
+                    "updated": 1687721920348
                 }
             ]
         },
@@ -248,6 +343,11 @@
                     "language": "RU",
                     "text": "Не стесняйтесь попробовать.",
                     "updated": 1640362503261
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren Sie es einfach aus.",
+                    "updated": 1687721950593
                 }
             ]
         },

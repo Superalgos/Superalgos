@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Kucoin, veri madenciliği ve canlı ticaret için test edilmiştir.",
                 "updated": 1650571085327
+            },
+            {
+                "language": "DE",
+                "text": "Kucoin ist für Data Mining und für den Live-Handel getestet.",
+                "updated": 1690357174853
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650571092063
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357182404
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
                     "updated": 1650571101549
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357212913
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: 1 gün",
                     "updated": 1650571116014
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): 1 Tag",
+                    "updated": 1690357224545
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği: Evet. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
                     "updated": 1650571124395
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability): Ja. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde überprüft.",
+                    "updated": 1690357233873
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Bu borsa henüz tam olarak test edilmedi ancak şu anda SHIB-USDT çiftinde canlı işlem yapıyorum. Daha derinlemesine bir test yapma fırsatı bulduğumda bu bölümü güncelleyeceğim.",
                     "updated": 1650571152538
+                },
+                {
+                    "language": "DE",
+                    "text": "Kommentare: Dieser Austausch ist noch nicht vollständig getestet, aber ich bin derzeit live Handel auf SHIB-USDT Paar. Ich werde diesen Abschnitt aktualisieren, wenn ich die Gelegenheit hatte, einen gründlicheren Test zu machen",
+                    "updated": 1690357242353
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "TR",
                     "text": "Muhtemel Sorunlar: Kucoin'de, \"rateLimitExceeded\" hatasıyla veri madeni rasgele başlatılacak bir sorun var. Bu meydana geldiğinde, aşağıda gösterildiği gibi konfigürasyonda maxRate kullanın. Bu hata sizin için olmazsa, maxRate'i dışarıda bırakabilirsiniz.",
                     "updated": 1650571196365
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Probleme: Kucoin hat ein bekanntes Problem, bei dem die Verbindung zufällig mit einer Fehlermeldung über \"rateLimitExceeded\" beendet wird. Wenn dies auftritt, verwenden Sie maxRate in der Konfiguration wie unten gezeigt. Wenn dieser Fehler bei Ihnen nicht auftritt, dann können Sie maxRate weglassen.",
+                    "updated": 1690357252417
                 }
             ]
         },
@@ -134,6 +169,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650571058271
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357258905
                 }
             ]
         },

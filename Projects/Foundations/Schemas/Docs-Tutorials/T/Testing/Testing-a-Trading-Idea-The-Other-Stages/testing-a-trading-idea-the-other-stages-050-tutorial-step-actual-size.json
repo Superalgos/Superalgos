@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Что произойдет, если фактическая ставка ордера будет отличаться от ставки, установленной в качестве целевой? Пора боту заняться вычислениями!",
                 "updated": 1642944820928
+            },
+            {
+                "language": "ES",
+                "text": "¿Qué ocurre si la tasa real del pedido es diferente de la tasa establecida como target? ¡Es hora de que el bot haga algunos cálculos!",
+                "updated": 1681733591938
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Когда торговый бот корректирует переменную в ордере, возникает эффект пульсации от дальнейших корректировок.",
                     "updated": 1642944752137
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando el robot de negociación ajusta una variable de una orden, se produce un efecto dominó de otros ajustes.",
+                    "updated": 1681733608317
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Наведите курсор на второе предупреждение от 28 февраля и читайте!",
                     "updated": 1642944766314
+                },
+                {
+                    "language": "ES",
+                    "text": "Pase el ratón por encima de la segunda advertencia del 28 de febrero y ¡lee!",
+                    "updated": 1681733628860
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Для стадии открытия мы определили целевой размер в базовом активе. Однако система должна отслеживать переменные в обоих активах! Поскольку ставка ордера была скорректирована, размер ордера в котируемом активе тоже должен быть скорректирован!",
                     "updated": 1642944800069
+                },
+                {
+                    "language": "ES",
+                    "text": "Para la fase abierta, definimos el target Size In Base Asset. Sin embargo, ¡el sistema debe seguir las variables en ambos activos! Dado que la tasa de órdenes se ajustó, ¡el tamaño de la orden en el activo cotizado también debe ajustarse!",
+                    "updated": 1681733646466
                 }
             ]
         }

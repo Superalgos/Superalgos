@@ -1,0 +1,98 @@
+{
+    "topic": "MACD R1 & R2 Data Mine",
+    "pageNumber": 3,
+    "type": "MACD R2 indicator",
+    "definition": {
+        "text": "This indicator produces the MACD R2 buy and sell signals",
+        "updated": 1611661320849,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор выдает сигналы на покупку и продажу MACD R2",
+                "updated": 1643523145260
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt die Kauf- und Verkaufssignale des MACD R2",
+                "updated": 1702328327090
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MACD R2",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "The MACD R2, or refinement 2, further recduces false signals by doing the the following:",
+            "updated": 1611764485658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "MACD R2, или уточнение 2, дополнительно уменьшает количество ложных сигналов, делая следующее:",
+                    "updated": 1643523155387
+                },
+                {
+                    "language": "DE",
+                    "text": "Der MACD R2, oder Kategorie 2, reduziert false -Signale durch folgende Maßnahmen:",
+                    "updated": 1702328349810
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выжидает три (3) периода после пересечения, чтобы занять позицию, если в течение этого периода происходит другое пересечение, то ждет другого пересечения.",
+                    "updated": 1643523208647
+                },
+                {
+                    "language": "DE",
+                    "text": "Warten Sie drei (3) Perioden nach der Überschreitung, um eine Entscheidung zu treffen. Wenn während dieser Periode eine Überschreitung stattfindet, wird diese abgewartet.",
+                    "updated": 1702328358296
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Checks the difference between the MACD line and the Signal, if the difference is larger than predetermined value (standard set to 2%) then it indicates a buy signal",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверяет разницу между линией MACD и сигналом, если разница больше заданного значения (стандартное значение 2%), то это указывает на сигнал покупки",
+                    "updated": 1643523252174
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüft die Differenz zwischen der MACD-Linie und dem Signal. Wenn die Differenz größer ist als der vorgegebene Wert (standardmäßig auf 2% eingestellt), wird ein Kaufsignal angezeigt oder gesendet.",
+                    "updated": 1702328367784
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/MACDR2-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The opposite is true for the sell indications, it is of course possible to alter these settings in the data mine. The underlying calculations uses the standard MACD settings, 12-26-9",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Противоположное верно для индикаторов продажи, конечно, можно изменить эти настройки в Data Mine. В базовых расчетах используются стандартные настройки MACD, 12-26-9",
+                    "updated": 1643523301810
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Gegenteil ist true für die Verkaufsindikationen, wobei es natürlich möglich ist, diese Einstellungen in der Datenmine zu ändern. Die zugrunde liegenden Berechnungen verwenden die Standard-MACD-Einstellungen, 12-26-9",
+                    "updated": 1702328390640
+                }
+            ]
+        }
+    ]
+}

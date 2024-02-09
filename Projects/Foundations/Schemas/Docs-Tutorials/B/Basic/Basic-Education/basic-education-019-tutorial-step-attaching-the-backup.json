@@ -1,0 +1,185 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Attaching The Backup",
+    "definition": {
+        "text": "Now we need to attach the backup of the Trading Parameters node to the Backtesting Session. How do we do that?",
+        "icon": {
+            "name": "Mouse\\mouse-right-click",
+            "project": "Foundations"
+        },
+        "updated": 1615573035743,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Dobbiamo soltanto collegare il backup del nodo Trading Parameters al nodo Backtesting Session.",
+                "updated": 1619466868713,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora necesitamos adjuntar la copia de seguridad del nodo Trading Parameters del Backtesting Session. ¿Cómo lo hacemos?",
+                "updated": 1626358562550,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Nun müssen wir die Sicherung des Knotens Trading Parameters an die Backtesting Session anhängen. Wie machen wir das?",
+                "updated": 1634333572735
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi İşlem Parametreleri ( Trading Parameters ) düğümünün yedeğini Geri Test Oturumuna ( Backtesting Session ) eklememiz gerekiyor. Bunu nasıl yaparız?",
+                "updated": 1636791281138
+            },
+            {
+                "language": "RU",
+                "text": "Теперь нам нужно прикрепить резервную копию узла Trading Parameters к сессии бэктестинга. Как это сделать?",
+                "updated": 1640867967343
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kita perlu menempelkan cadangan node Trading Parameters ke Backtesting Session. Bagaimana kita melakukannya?",
+                "updated": 1644516835119
+            },
+            {
+                "language": "NL",
+                "text": "Nu moeten we de back-up van het knooppunt Trading Parameters koppelen aan de Backtesting Session. Hoe doen we dat?",
+                "updated": 1668338104139
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Right-click on the Trading Parameters node and pull it closer to the Backtesting session node! Release when you see an orange ring surrounding the Backtesting Session node!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai click con il tasto destro sul nodo Trading Parameters e trascinalo vicino al nodo Backtesting Session. Rilascialo quando vedi un anello arancione intorno ad esso!",
+                    "updated": 1619466965635,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic derecho en el nodo Trading Parameters  y tira de él más cerca del nodo Backtesting Session. ¡Suelta cuando veas un anillo naranja que rodea el nodo Backtesting Session!",
+                    "updated": 1675376148853,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Knoten Trading Parameters und ziehen Sie ihn näher an den Knoten Backtesting Session! Lassen Sie los, wenn Sie einen orangefarbenen Ring um den Backtesting Session Knoten sehen!",
+                    "updated": 1634333597218
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Parametreleri düğümüne ( Trading Parameters ) sağ tıklayın ve Geriye Dönük Test oturumu (Backtesting Session Node ) düğümüne yaklaştırın! Geriye Dönük Test Oturumu düğümünü çevreleyen turuncu bir halka gördüğünüzde bırakın!",
+                    "updated": 1636791340589
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши на узле Trading Parameters и подтяните его ближе к узлу Backtesting Session! Отпустите, когда увидите оранжевое кольцо вокруг узла Backtesting Session!",
+                    "updated": 1640868014417
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik kanan pada node Trading Parameters dan tarik lebih dekat ke node  Backtesting Session! Lepaskan ketika kamu melihat cincin oranye di sekitar node  Backtesting Session!",
+                    "updated": 1644516930065
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik met de rechtermuisknop op het knooppunt Trading Parameters en trek het dichter bij het knooppunt Backtesting session! Laat los wanneer u een oranje ring rond het knooppunt Backtesting Session ziet!",
+                    "updated": 1668338153436
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "That's it! The backup of the Trading Parameters node is restored and back in use.",
+            "updated": 1615573476475,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco qua! Il backup del nodo Trading Parameters è ripristinato e pronto all'uso.",
+                    "updated": 1619467003032,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eso es! La copia de seguridad del nodo Trading Parameters está restaurado y de nuevo en uso.",
+                    "updated": 1626358976073,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das war's! Die Sicherung des Knotens Trading Parameters ist wiederhergestellt und kann wieder verwendet werden.",
+                    "updated": 1634333609241
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kadar! İşlem Parametreleri düğümünün ( Trading Parameters ) yedeği geri yüklenir ve tekrar kullanıma açılır.",
+                    "updated": 1636791375829
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот и все! Резервная копия узла Trading Parameters восстановлена и снова используется.",
+                    "updated": 1640868043620
+                },
+                {
+                    "language": "ID",
+                    "text": "Itu dia! Cadangan node Trading Parameters dipulihkan dan digunakan kembali.",
+                    "updated": 1644517021415
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is het! De back-up van het knooppunt Trading Parameters is hersteld en weer in gebruik.",
+                    "updated": 1668338176053
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Notice that you may delete the second Trading Parameters node if you wish, or you can keep it on the side for later use.",
+            "updated": 1615573597034,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota che puoi cancellare il secondo nodo Trading Parameters se vuoi, o puoi tenerlo da parte per un uso futuro.",
+                    "updated": 1619467046273,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ten en cuenta que puedes eliminar el segundo nodo Trading Parameters si lo deseas, o puedes dejarlo a un lado para su uso posterior.",
+                    "updated": 1626359059810,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass Sie den zweiten Trading Parameters-Knoten löschen können, wenn Sie möchten, oder Sie können ihn für eine spätere Verwendung beiseite legen.",
+                    "updated": 1634333617512
+                },
+                {
+                    "language": "TR",
+                    "text": "Dilerseniz ikinci İşlem Parametreleri düğümünü ( Trading Parameters ) silebileceğinizi veya daha sonra kullanmak üzere bir tarafta tutabileceğinizi unutmayın.",
+                    "updated": 1636791408211
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что вы можете удалить второй узел Trading Parameters, если хотите, или оставить его сбоку для последующего использования.",
+                    "updated": 1640868060462
+                },
+                {
+                    "language": "ID",
+                    "text": "Diperhatikan bahwa kamu dapat menghapus node Trading Parameters kedua jika diinginkan, atau kamu dapat menyimpannya di samping untuk digunakan nanti.",
+                    "updated": 1644517081487
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat u desgewenst de tweede Trading Parameters knooppunten kunt verwijderen, of dat u deze aan de zijkant kunt bewaren voor later gebruik.",
+                    "updated": 1668338206539
+                }
+            ]
+        }
+    ]
+}

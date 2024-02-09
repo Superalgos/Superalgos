@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Bevor Sie in die Verwaltung einsteigen, ist es wichtig, dass Sie wissen, wie Superalgos funktioniert!",
                 "updated": 1640072083243
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu pindah ke governance, sangat penting bagi kamu untuk mengetahui cara kerja Superalgos!",
+                "updated": 1670672314708
             }
         ]
     },
@@ -59,34 +64,44 @@
                     "language": "DE",
                     "text": "Wir haben eine Menge spannender Dinge zu besprechen, aber ich möchte sicherstellen, dass Sie leicht folgen können.",
                     "updated": 1640072092376
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita punya banyak hal menarik untuk dibahas, tapi aku mau memastikan bahwa kamu bisa mengikuti aku dengan mudah.",
+                    "updated": 1670672320659
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Make sure you go through the tutorials in the Getting Started Tutorials Plugin Workspace before continuing if you haven't yet!",
+            "text": "Make sure you go through the tutorials in the Getting Started Tutorials Native Workspace before continuing if you haven't yet!",
             "updated": 1630598529991,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Asegúrate de leer los tutoriales en el Getting Started Tutorials Plugin Workspace antes de continuar si aún no lo has hecho!",
+                    "text": "Asegúrate de leer los tutoriales en el Getting Started Tutorials Native Workspace antes de continuar si aún no lo has hecho!",
                     "updated": 1630872016952,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Henüz yapmadıysanız, devam etmeden önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki ( Getting Started Tutorials Plugin Workspace ) öğreticileri gözden geçirdiğinizden emin olun!",
+                    "text": "Henüz yapmadıysanız, devam etmeden önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki ( Getting Started Tutorials Native Workspace ) öğreticileri gözden geçirdiğinizden emin olun!",
                     "updated": 1637146372454
                 },
                 {
                     "language": "RU",
-                    "text": "Обязательно ознакомьтесь с учебными материалами в Getting Started Tutorials Plugin Workspace, прежде чем продолжить, если вы еще этого не сделали!",
+                    "text": "Обязательно ознакомьтесь с учебными материалами в Getting Started Tutorials Native Workspace, прежде чем продолжить, если вы еще этого не сделали!",
                     "updated": 1639044502453
                 },
                 {
                     "language": "DE",
-                    "text": "Stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Plugin Workspace durchgehen, bevor Sie fortfahren, falls Sie das noch nicht getan haben!",
+                    "text": "Stellen Sie sicher, dass Sie die Tutorials im Getting Started Tutorials Native Workspace durchgehen, bevor Sie fortfahren, falls Sie das noch nicht getan haben!",
                     "updated": 1640072107099
+                },
+                {
+                    "language": "ID",
+                    "text": "Pastikan kamu telah melewati tutorial di Getting Started Tutorials Native Workspaces ebelum melanjutkan jika kamu belum!",
+                    "updated": 1670672328491
                 }
             ]
         },
@@ -97,8 +112,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No es necesario ser un experto, pero necesitará algunos conocimientos generales del sistema para comprender de qué se trata.",
-                    "updated": 1630872031627,
+                    "text": "No es necesario ser un experto, pero necesitarás algunos conocimientos generales del sistema para comprender de qué se trata. Warning!!! This translation is outdated. English version is... No need to be an expert, but you do need to know how to operate the system! Otherwise, the process may be confusing and even frustrating! Please update this translation.",
+                    "updated": 1682519385408,
                     "style": "Success"
                 },
                 {
@@ -115,6 +130,11 @@
                     "language": "DE",
                     "text": "Sie müssen kein Experte sein, aber Sie müssen wissen, wie man das System bedient! Andernfalls kann der Prozess verwirrend und sogar frustrierend sein!",
                     "updated": 1640072114850
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak perlu ahli, tapi setidaknya kamu tahu bagaimana seharusnya menjalankan sistem ini! Atau tidak, prosesnya akan membuatmu bingung bahkan membuat frustasi!",
+                    "updated": 1670672383906
                 }
             ]
         }

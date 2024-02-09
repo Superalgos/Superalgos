@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Не волнуйтесь! Вы привыкнете к такому уровню обр��тной связи от LF Trading Bot и, конечно, оцените его по достоинству!",
                 "updated": 1642944369814
+            },
+            {
+                "language": "ES",
+                "text": "No te preocupes. Te acostumbrarás a este nivel de feedback del LF Trading Bot, ¡y sin duda llegarás a apreciarlo!",
+                "updated": 1681733271642
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "С таким уровнем обратной связи вам никогда не придется копаться в непонятных логах или биться головой о стену, пытаясь понять, что делает бот или почему все происходит не так, как вы ожидали.",
                     "updated": 1642944472817
+                },
+                {
+                    "language": "ES",
+                    "text": "Con este nivel de información, no tendrás que bucear en oscuros archivos de registro ni darte cabezazos contra la pared para averiguar qué está haciendo el bot o por qué las cosas no suceden como esperabas.",
+                    "updated": 1681733294867
                 }
             ]
         },
@@ -67,8 +77,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Интуиция относительно того, что должен или не должен делать торговый бот, часто упрощена. Потребовался глубокий анализ и несколько итераций, чтобы заставить бота последовательно обрабатывать ордера в огромном количестве ситуаций, которые могут возникнуть во время торговли.",
+                    "text": "Интуиция относительно того, что должен или не должен делать торговый бот, часто упрощена. Потребовался г��убокий анализ и несколько итераций, чтобы заставить бота последовательно обрабатывать ордера в огромном количестве ситуаций, которые могут возникнуть во время торговли.",
                     "updated": 1642944501188
+                },
+                {
+                    "language": "ES",
+                    "text": "Las intuiciones sobre lo que debe o no debe hacer el Trading Bot suelen ser simplistas. Hizo falta un análisis profundo y varias iteraciones para conseguir que el bot gestionara las órdenes de forma coherente en las miríadas de situaciones que pueden surgir mientras se negocia.",
+                    "updated": 1681733352398
                 }
             ]
         }

@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "La segunda dimensión importante que hay que definir es el contexto general al que se dirige la hipótesis.",
                 "updated": 1668188981988
+            },
+            {
+                "language": "IT",
+                "text": "La seconda dimensione importante da definire è il contesto generale a cui si rivolge l'ipotesi.",
+                "updated": 1669887574606
+            },
+            {
+                "language": "NL",
+                "text": "De tweede belangrijke dimensie die moet worden gedefinieerd, is de algemene context waarop de hypothese is gericht.",
+                "updated": 1670783762196
+            },
+            {
+                "language": "ID",
+                "text": "Dimensi penting kedua yang harus didefinisikan adalah konteks umum yang dituju oleh hipotesis.",
+                "updated": 1674688396934
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Pocas estrategias basadas en el análisis técnico, si es que hay alguna, funcionan de forma consistente en situaciones de mercado no definidas.",
                     "updated": 1668189007571
+                },
+                {
+                    "language": "IT",
+                    "text": "Poche strategie basate sull'analisi tecnica, se non nessuna, si comportano in modo coerente in situazioni di mercato indefinite.",
+                    "updated": 1669887597665
+                },
+                {
+                    "language": "NL",
+                    "text": "Weinig of geen op technische analyse gebaseerde strategieën presteren consistent op ongedefinieerde marktsituaties.",
+                    "updated": 1670783795634
+                },
+                {
+                    "language": "ID",
+                    "text": "Sedikit — jika ada — strategi berbasis analisis teknikal bekerja secara konsisten pada situasi market yang tidak menentu.",
+                    "updated": 1674688402955
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "La definición mínima requerida es si la hipótesis se apunta a las tendencias bajistas, a las tendencias alcistas o a los mercados laterales.",
                     "updated": 1668189046273
+                },
+                {
+                    "language": "IT",
+                    "text": "La definizione minima richiesta riguarda se l'ipotesi si rivolge a trend al ribasso, al rialzo o ai mercati laterali.",
+                    "updated": 1669887617798
+                },
+                {
+                    "language": "NL",
+                    "text": "De minimaal vereiste definitie is of de hypothese gericht is op neerwaartse, opwaartse of zijwaartse markten.",
+                    "updated": 1670783808208
+                },
+                {
+                    "language": "ID",
+                    "text": "Definisi minimum yang diperlukan adalah apakah hipotesis menargetkan market downtrend, uptrend, atau sideways.",
+                    "updated": 1674688408713
                 }
             ]
         },
@@ -107,6 +152,16 @@
                     "language": "ES",
                     "text": "El recurso habitual es un análisis multitemporal basado en uno o varios indicadores que determinan cuál es la tendencia existente en diferentes marcos temporales, y cualquier otro factor que pueda ser importante para la estrategia concreta, por ejemplo, el volumen o la volatilidad.",
                     "updated": 1668189128865
+                },
+                {
+                    "language": "NL",
+                    "text": "De gebruikelijke bron is een multi-time frame-analyse op basis van een of meer indicatoren die bepalen wat de bestaande trend is op verschillende tijdframes, en alle andere factoren die van belang kunnen zijn voor de specifieke strategie, bijvoorbeeld volume of volatiliteit.",
+                    "updated": 1670783831001
+                },
+                {
+                    "language": "ID",
+                    "text": "Sumber daya yang biasa adalah analisis multi timeframe berdasarkan satu atau lebih indikator yang menentukan tren yang ada pada timeframe yang berbeda, dan faktor lain yang mungkin penting untuk strategi tertentu, misalnya volume atau volatilitas.",
+                    "updated": 1674688424099
                 }
             ]
         }

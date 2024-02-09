@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Superalgos eşler arası ağ üzerinden gönderilen sinyalleri genişletilebilir ve kaynak açısından uygun olacak şekilde tasarlanmıştır.",
                 "updated": 1646296871090
+            },
+            {
+                "language": "DE",
+                "text": "Die über das Superalgos-Peer-to-Peer-Netz gesendeten Signale sind so konzipiert, dass sie erweiterbar und ressourcenschonend sind.",
+                "updated": 1674676725795
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Artık sinyallerin neler yapabileceğini biraz bildiğimize göre, ticaret sinyallerinin nerede yaşadığının bazı temel mimarisini tartışalım. Sinyaller büyük miktarda veri tutabildiğinden, bir sinyalin tamamı Superalgos eşler arası ağ aracılığıyla gönderilmez. Bunun yerine, sinyal sağlayıcılar, sinyal içeriğinin adresini içeren eşler arası ağ aracılığıyla bir başlık mesajı gönderir. Bu mimariyi yıkmak şuna benzer:",
                     "updated": 1646296964446
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun, da wir ein wenig darüber wissen, was Signale tun können, lassen Sie uns einige der grundlegenden Architektur diskutieren, wo Handelssignale leben. Da Signale eine große Menge an Daten enthalten können, wird die Gesamtheit eines Signals nicht über das Superalgos Peer-to-Peer-Netzwerk gesendet. Stattdessen senden die Signalanbieter eine Header-Nachricht über das Peer-to-Peer-Netzwerk, die einen Kryptoschlüssel und eine Adresse für den Inhalt des Signals enthält. Wenn man diese Architektur aufschlüsselt, sieht das folgendermaßen aus:",
+                    "updated": 1674676737904
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Sağlayıcı bir sinyal gönderir.",
                     "updated": 1646296995062
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Anbieter sendet ein Signal.",
+                    "updated": 1674676746461
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Sinyal, başlık ve içerik olarak ikiye ayrılır.",
                     "updated": 1646297010574
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Signal wird in Kopf und Inhalt aufgeteilt.",
+                    "updated": 1674676755549
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "İçerikler bir açık erişim deposuna yüklenir (şu anda bu bir genel github deposudur).",
                     "updated": 1646297032855
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Inhalte werden verschlüsselt und dann in einen frei zugänglichen Speicher hochgeladen (derzeit ist dies ein öffentliches Github-Repository).",
+                    "updated": 1674676766979
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Başlık, abone olunan tüm sinyal alıcılarına eşler arası ağ aracılığıyla gönderilir.",
                     "updated": 1646297049256
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Header wird über das Peer-to-Peer-Netzwerk an alle abonnierten Signalempfänger gesendet.",
+                    "updated": 1674676778882
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Sinyal alıcıları, sinyalin adresini yorumlar ve ardından sinyal içeriğini indirir.",
                     "updated": 1646297065451
+                },
+                {
+                    "language": "DE",
+                    "text": "Signalempfänger-Bots interpretieren die Adresse, an der der Inhalt des Signals gespeichert ist, und laden dann den Signalinhalt herunter.",
+                    "updated": 1674676789970
                 }
             ]
         },
@@ -128,6 +163,11 @@
                     "text": "Alınan şifreleme anahtarı kullanılarak verilerin şifresi çözülür ve daha sonra alıcıların Ticaret Sisteminde kullanılmak üzere hazır hale getirilir.",
                     "updated": 1654395886789,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dem erhaltenen Verschlüsselungscode werden die Daten entschlüsselt und dem Empfänger im Handelssystem (Trading System) zur Verfügung gestellt.",
+                    "updated": 1674676807956
                 }
             ]
         },
@@ -144,6 +184,11 @@
                     "language": "TR",
                     "text": "Bu sinyal mimarisi, Superalgos ağındaki yükü büyük ölçüde azaltır ve minimum ağ kaynakları kullanırken büyük miktarda verinin birçok alıcıya iletilmesine olanak tanır.",
                     "updated": 1646297085484
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Signalarchitektur reduziert die Belastung des Superalgos-Netzes erheblich und ermöglicht die Übertragung großer Datenmengen an viele Empfänger bei minimalem Einsatz von Netzressourcen.",
+                    "updated": 1674755960032
                 }
             ]
         },

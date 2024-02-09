@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
                 "updated": 1642943822827
+            },
+            {
+                "language": "ES",
+                "text": "El siguiente paso muestra lo que debería ver.",
+                "updated": 1681056232375
             }
         ]
     },

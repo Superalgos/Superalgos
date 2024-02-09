@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Aç, Kapat ve Yönet Aşamasındaki tanımlar bu serideki bir sonraki öğreticinin konusudur!",
-                "updated": 1641665191783
+                "text": "Aç, Kapat ve Yönet Aşamasındaki tanımlar bu serideki bir sonraki öğreticinin konusudur!",
+                "updated": 1669669660268
             },
             {
                 "language": "RU",
                 "text": "Определения на этапах открытия, закрытия и управления являются темой следующего урока в этой серии!",
                 "updated": 1642663077052
+            },
+            {
+                "language": "ES",
+                "text": "¡Las definiciones en las etapas de apertura, cierre y gestión son el tema del próximo tutorial de la serie!",
+                "updated": 1679253685673
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Чтобы завершить обзор Trigger Stage, мы хотим увидеть, как работает событие Take Position Event на остальной части протестированного временного диапазона. Мы собираемся пойти на радикальный обходной путь!",
                     "updated": 1642663101653
+                },
+                {
+                    "language": "ES",
+                    "text": "Para completar la visión general de la Trigger Stage queremos ser capaces de ver cómo funciona el evento Take Position en el resto del rango de tiempo probado. Vamos a utilizar una solución radical.",
+                    "updated": 1679253677806
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Удалите этапы открытия, закрытия и управления! Используйте кнопку Delete в меню!",
                     "updated": 1642663123522
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Borra las etapas de apertura, cierre y gestión! Para ello, utiliza el botón Borrar (Delete) del menú.",
+                    "updated": 1679253658213
                 }
             ]
         },
@@ -81,13 +96,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon alma olayı ( Take Position Event ) true olarak ilan edilirse ve ticaret botu açık aşamanın ( Open Stage ) tanımlarını okumaya çalışırsa, stratejinin geri kalanının tanımsız olduğunu anlayacak ve stratejiyi kapatacaktır.",
-                    "updated": 1641665232509
+                    "text": "Pozisyon alma olayı ( Take Position Event ) doğru ( true ) olduğunda ve ticaret botu açık aşamanın ( Open Stage ) tanımlarını okumaya çalıştığında, stratejinin geri kalanının tanımsız olduğunu anlayacak ve stratejiyi kapatacaktır.",
+                    "updated": 1669669934959
                 },
                 {
                     "language": "RU",
                     "text": "Таким образом, когда событие Take Position Event станет true и торговый бот попытается прочитать определения этапа Open Stage, он поймет, что остальная часть стратегии не определена, и закроет стратегию.",
                     "updated": 1642663166200
+                },
+                {
+                    "language": "ES",
+                    "text": "De esta manera, cuando el Take Position Event valide true y el bot de trading intente leer las definiciones de la Open Stage, entenderá que el resto de la estrategia no está definida, y cerrará la estrategia.",
+                    "updated": 1679253627106
                 }
             ]
         }

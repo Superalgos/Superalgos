@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Bu konu, Ticaret Sistemi ( Trading System ), Veri Madeni ( Data Mine ), simgeler, belgeler, çeviriler, öğreticiler vb. dahil olmak üzere farklı türdeki varlıkların projeye nasıl katkıda bulunacağının lojistiğini ve ayrıntılarını kapsar.",
                 "updated": 1645289547783
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Thema befasst sich mit der Logistik und den Details, wie man verschiedene Arten von assets zum Projekt beisteuern kann, einschließlich eines Handelssystems (Trading System), einer Data Mine, Icons, Dokumentation, Übersetzungen, Tutorials und so weiter.",
+                "updated": 1681493795397
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Aklınızdaki varlık türüne nasıl katkıda bulunacağınıza ilişkin belgeleri bulmak için aşağıdaki içindekiler tablosunu tarayın.",
                     "updated": 1645289599650
+                },
+                {
+                    "language": "DE",
+                    "text": "Durchsuchen Sie das nachstehende Inhaltsverzeichnis, um die Dokumentation zu finden, wie Sie die Art von Vermögenswerten, die Sie im Sinn haben, beitragen können.",
+                    "updated": 1681493846266
                 }
             ]
         },
@@ -60,13 +70,25 @@
                     "language": "TR",
                     "text": "İpucu: Katkıda bulunmak istediğiniz varlığın türü hakkında herhangi bir açıklama yoksa, lütfen Superalgos Topluluk Grubundaki ( Community Group ) ekibe ulaşın!",
                     "updated": 1645289649757
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es keine Erklärung für die Art des assets gibt, das Sie beitragen möchten, wenden Sie sich bitte an das Team in der Superalgos Community Group!",
+                    "updated": 1681493878158
                 }
             ]
         },
         {
             "style": "Text",
             "text": "For a general overview of what contributing to the Superalgos Project works, please check the following page on the website:",
-            "updated": 1660465537443
+            "updated": 1660465537443,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einen allgemeinen Überblick darüber, wie ein Beitrag zum Superalgos-Projekt (Superalgos Project) funktioniert, finden Sie auf der folgenden Seite der Website:",
+                    "updated": 1681493899809
+                }
+            ]
         },
         {
             "style": "Link",

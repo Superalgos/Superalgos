@@ -1,9 +1,9 @@
 function newWorkspacesWorkspaceSpace() {
     const MODULE_NAME = 'Workspace Space'
     let thisObject = {
-        sidePanelTab: undefined,
+        // sidePanelTab: undefined,
         container: undefined,
-        physics: physics,
+        // physics: physics,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
@@ -20,18 +20,18 @@ function newWorkspacesWorkspaceSpace() {
     thisObject.container.detectMouseOver = true
     thisObject.container.status = 'hidden'
 
-    let listView
+    // let listView
 
     resize()
 
-    let openingEventSubscriptionId
-    let closedEventSubscriptionId
-    let browserResizedEventSubscriptionId
+    // let openingEventSubscriptionId
+    // let closedEventSubscriptionId
+    // let browserResizedEventSubscriptionId
     return thisObject
 
     function initialize() {
 
-        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Foundations', 'workspace', 'Workspaces', 'left')
+        // thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Foundations', 'workspace', 'Workspaces', 'left')
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
 
@@ -41,16 +41,16 @@ function newWorkspacesWorkspaceSpace() {
 
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
+        // thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+        // thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
     }
 
     function initializeListView() {
-        listView = newListView()
-        listView.initialize()
-        listView.container.connectToParent(thisObject.container, false, false)
-        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.turnOn)
-        closedEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closed', listView.turnOff)
+        // listView = newListView()
+        // listView.initialize()
+        // listView.container.connectToParent(thisObject.container, false, false)
+        // openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.turnOn)
+        // closedEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closed', listView.turnOff)
     }
 
     function resize() {
@@ -59,24 +59,24 @@ function newWorkspacesWorkspaceSpace() {
         thisObject.container.frame.position.x = -SIDE_PANEL_WIDTH
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
 
-        if (listView !== undefined) {
-            listView.resize()
-        }
+        // if (listView !== undefined) {
+        //     listView.resize()
+        // }
 
-        if (thisObject.sidePanelTab !== undefined) {
-            thisObject.sidePanelTab.resize()
-        }
+        // if (thisObject.sidePanelTab !== undefined) {
+        //     thisObject.sidePanelTab.resize()
+        // }
     }
 
     function getContainer(point, purpose) {
-        if (thisObject.sidePanelTab === undefined) { return }
-        let container
+        // if (thisObject.sidePanelTab === undefined) { return }
+        // let container
 
-        container = thisObject.sidePanelTab.getContainer(point, purpose)
-        if (container !== undefined) { return container }
+        // container = thisObject.sidePanelTab.getContainer(point, purpose)
+        // if (container !== undefined) { return container }
 
-        container = listView.getContainer(point, purpose)
-        if (container !== undefined) { return container }
+        // container = listView.getContainer(point, purpose)
+        // if (container !== undefined) { return container }
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             return thisObject.container
@@ -85,15 +85,15 @@ function newWorkspacesWorkspaceSpace() {
         }
     }
 
-    function physics() {
-        listView.physics()
-    }
+    // function physics() {
+    //     listView.physics()
+    // }
 
     function draw() {
         if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
-        listView.draw()
+        // listView.draw()
     }
 
     function borders() {

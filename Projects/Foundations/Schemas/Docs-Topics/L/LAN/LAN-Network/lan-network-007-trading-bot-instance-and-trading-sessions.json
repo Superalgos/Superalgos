@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Экземпляр торгового бота Trading Bot Instance может выполнять четыре различных типа торговых задач: Backtesting Session, Paper Trading Session, Forward Testing Session и Live Trading Session.",
                 "updated": 1638601442717
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Botu Örneği ( Trading Bot Instance ) dört farklı türde ticaret görevi çalıştırabilir: Geriye Dönük Test Oturumu ( ( Backtesting Session ), Kağıt Ticareti Oturumu ( Paper Trading Session ), İleriye Dönük Test Oturumu ( Forward Testing Session ) ve Canlı Ticaret Oturumu ( Live Trading Session ).",
+                "updated": 1672264911017
             }
         ]
     },

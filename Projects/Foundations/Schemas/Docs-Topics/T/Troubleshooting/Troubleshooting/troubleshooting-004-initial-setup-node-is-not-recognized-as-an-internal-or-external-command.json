@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Node JS'nin doğru şekilde kurulduğundan ve komutları doğru klasörden çalıştırdığınızdan emin olun.",
                 "updated": 1647861370033
+            },
+            {
+                "language": "DE",
+                "text": "Vergewissern Sie sich, dass Node JS ordnungsgemäß installiert ist und dass Sie den Befehl im richtigen Ordner ausführen.",
+                "updated": 1678644646762
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Node JS'yi kurdunuz mu?",
                     "updated": 1647861848522
+                },
+                {
+                    "language": "DE",
+                    "text": "Haben Sie Node JS installiert?",
+                    "updated": 1678644656253
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "İndirme ve Kurulum kılavuzu, Superalgos'u çalıştırmak için gereken açık kaynaklı bir sunucu ortamı olan Node JS'yi yükleme sürecinde size yol gösterir. Yazılımı doğru yüklediğinizden emin olun. Kurulumun henüz bitmemesi durumunda iki kez kontrol edin.",
                     "updated": 1647862137048
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Anleitung zum Herunterladen und Einrichten führt Sie durch den Prozess der Installation von Node JS, einer Open-Source-Serverumgebung, die für den Betrieb von Superalgos erforderlich ist. Stellen Sie sicher, dass Sie die Software korrekt installiert haben. Überprüfen Sie es noch einmal, falls die Installation noch nicht abgeschlossen ist.",
+                    "updated": 1678644685885
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Komutu doğru klasörde mi çalıştırıyorsunuz?",
                     "updated": 1647862171128
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den Befehl aus dem richtigen Ordner aus?",
+                    "updated": 1678644694347
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Komutu Superalgos-master klasörü içinden çalıştırdığınızdan emin olun.",
                     "updated": 1647862185230
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass Sie den Befehl aus dem Ordner Superalgos-master ausführen.",
+                    "updated": 1678644730206
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Node JS'nin kurulu olup olmadığını test edin",
                     "updated": 1647862319297
+                },
+                {
+                    "language": "DE",
+                    "text": "Testen, ob Node JS installiert ist",
+                    "updated": 1678644739839
                 }
             ]
         },
@@ -114,6 +144,11 @@
                     "language": "TR",
                     "text": "Komutu çalıştırın...",
                     "updated": 1647862327920
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den Befehl...",
+                    "updated": 1678644746713
                 }
             ]
         },
@@ -134,6 +169,11 @@
                     "language": "TR",
                     "text": "... Node JS'nin kurulu olup olmadığını test etmek için. Node JS kuruluysa, sistem bir sürüm numarası döndürmelidir. Olmazsa, lütfen Node JS'yi tekrar yükleyin.",
                     "updated": 1647862635315
+                },
+                {
+                    "language": "DE",
+                    "text": "... um zu testen, ob Node JS installiert ist. Wenn Node JS installiert ist, sollte das System eine Versionsnummer zurückgeben. Wenn dies nicht der Fall ist, installieren Sie Node JS bitte erneut.",
+                    "updated": 1678644795559
                 }
             ]
         }

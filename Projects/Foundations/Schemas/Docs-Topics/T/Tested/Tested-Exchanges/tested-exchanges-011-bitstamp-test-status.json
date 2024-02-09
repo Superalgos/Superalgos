@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bitstamp, veri madenciliği ve ticareti için tamamen test edilmiştir.",
                 "updated": 1650571762964
+            },
+            {
+                "language": "DE",
+                "text": "Bitstamp ist vollständig für Data Mining und Handel getestet.",
+                "updated": 1690357484617
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650571771842
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690357490881
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği [*]: Evet.",
                     "updated": 1650571799135
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit [*]: Ja.",
+                    "updated": 1690357497620
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: Eylül 2017'den itibaren.",
                     "updated": 1650571811753
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): Beginnend im September 2017.",
+                    "updated": 1690357503905
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği [**]: Evet.",
                     "updated": 1650571822243
+                },
+                {
+                    "language": "DE",
+                    "text": "Fähigkeit zum Handel (Trading Capability)[**]: Ja.",
+                    "updated": 1690357513400
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Tamamen test edilmiştir.",
                     "updated": 1650571851719
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Vollständig getestet.",
+                    "updated": 1690357520329
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "TR",
                     "text": "[*] Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
                     "updated": 1650571864986
+                },
+                {
+                    "language": "DE",
+                    "text": "[*] Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690357528113
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "language": "TR",
                     "text": "[**] Canlı ticaret modunda strateji çalıştırma yeteneği doğrulandı.",
                     "updated": 1650571874160
+                },
+                {
+                    "language": "DE",
+                    "text": "[**] Die Fähigkeit, Strategien im Live-Handel auszuführen, wurde überprüft.",
+                    "updated": 1690357537768
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650571784585
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690357544273
                 }
             ]
         },

@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Узел Liquidity Program претендует на вознаграждение за управление ликвидностью, предоставленной токену Superalgos. Создайте один узел Liquidity Program Node для каждого актива, сопряженного с токеном Superalgos на поддерживаемой бирже.\n",
                 "updated": 1645181273865
+            },
+            {
+                "language": "TR",
+                "text": "Likidite Programı Düğümü ( Liquidity Program Node ), Superalgos Token'a sağlanan likidite için Yönetim Ödülleri talep eder. Desteklenen bir borsada Superalgos Token ile eşleştirdiğiniz her varlık için bir Likidite Programı Düğümü (  Liquidity Program Node ) oluşturun.",
+                "updated": 1672153511495
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Программа ликвидности предлагает вознаграждения за управление пулами ликвидности на поддерживаемых децентрализованных биржах, где токен Superalgos работает в паре с одним из этих активов:",
                     "updated": 1645181287253
+                },
+                {
+                    "language": "TR",
+                    "text": "Likidite Programı, Superalgos Token'ın bu varlıklardan biriyle eşleştirildiği desteklenen merkezi olmayan borsalardaki likidite havuzları için Yönetim Ödülleri sunar:",
+                    "updated": 1672153811260
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "RU",
                     "text": "Создайте по одному узлу Liquidity Program Node для каждого актива, объединенного с токеном Superalgos. Нажмите \"Configure\" и введите код парного актива в конфигурацию узла.",
                     "updated": 1645181304223
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Token ile havuza aldığınız her varlık için bir Likidite Programı Düğümü (  Liquidity Program Node ) oluşturun. \"Yapılandır \" (\"Configure\")  seçeneğine tıklayın ve eşleştirilmiş varlığın ve borsanın kodlarını düğüm yapılandırmasına girin.",
+                    "updated": 1672153948257
                 }
             ]
         },
@@ -79,8 +94,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы держите один и тот же пул ликвидности на нескольких поддерживаемых биржах, не добавляйте дополнительные узлы на каждую биржу. Остатки на всех поддерживаемых биржах автоматически суммируются под активом.",
+                    "text": "Если вы держите один и тот же пул ликвидности на неско��ьких поддерживаемых биржах, не добавляйте дополнительные узлы на каждую биржу. Остатки на всех поддерживаемых биржах автоматически суммируются под активом.",
                     "updated": 1645181318536
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek olarak:",
+                    "updated": 1672154088278
                 }
             ]
         },
@@ -98,16 +118,35 @@
                     "language": "DE",
                     "text": "Zulässige Werte:",
                     "updated": 1648996772301
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli parametre değerleri:",
+                    "updated": 1672154121323
                 }
             ]
         },
         {
             "style": "List",
-            "text": "asset: \"BTCB\", \"BNB\", \"BUSD\", \"ETH\""
+            "text": "asset: \"BTCB\", \"BNB\", \"BUSD\", \"ETH\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "varlık (asset): \"BTCB\", \"BNB\", \"BUSD\", \"ETH\"",
+                    "updated": 1672154167806
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "exchange: \"PANCAKE\", \"1INCH\", \"BISWAP\""
+            "text": "exchange: \"PANCAKE\", \"1INCH\", \"BISWAP\"",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "borsa (exchange): \"PANCAKE\", \"1INCH\", \"BISWAP\"",
+                    "updated": 1672154615703
+                }
+            ]
         },
         {
             "style": "Success",
@@ -118,6 +157,11 @@
                     "language": "DE",
                     "text": "Falls Sie denselben Liquidity Pool an mehreren unterstützten Börsen halten, legen Sie eine separate Node für jede Kombination aus Asset und Börse an.",
                     "updated": 1648996921061
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı likidite havuzunu birden fazla desteklenen borsada tutuyorsanız, her varlık ve borsa kombinasyonu için bir özel düğüm eklediğinizden emin olun.",
+                    "updated": 1672154602064
                 }
             ]
         },
@@ -130,6 +174,11 @@
                     "language": "DE",
                     "text": "Sollte der Parameter \"exchange\" fehlen, wird standardmäßig \"PANCAKE\" verwendet.",
                     "updated": 1648996957182
+                },
+                {
+                    "language": "TR",
+                    "text": "Değişim parametresi eksik olduğunda, sistem varsayılan olarak PANCAKE kullanır.",
+                    "updated": 1672154659349
                 }
             ]
         },

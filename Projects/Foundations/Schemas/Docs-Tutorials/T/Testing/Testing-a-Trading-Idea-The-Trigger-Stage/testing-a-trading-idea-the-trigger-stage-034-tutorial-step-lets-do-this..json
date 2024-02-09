@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "24 saatlik zaman diliminde birkaç ayı test ettiğimiz için bu hızlı olacak.",
                 "updated": 1641655236795
+            },
+            {
+                "language": "ES",
+                "text": "Esto va a ser rápido ya que estamos probando unos pocos meses en el marco de tiempo de 24H.\n",
+                "updated": 1677101625047
             }
         ]
     },
@@ -43,8 +48,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir ticaret görevi gerçekleştirmenin bir veri görevi gerçekleştirmeye benzer olduğunu unutmayın. Aradaki fark, görevi gerçekleştirdikten sonra ticaret oturumunu da çalıştırmanız gerektiğidir.",
-                    "updated": 1641655247740
+                    "text": "Bir Ticaret görevi (Trading Task) çalıştırmanın bir veri görevi (Data Task) çalıştırmaya benzediğini unutmayın. Aradaki fark, görevi (Task) çalıştırdıktan sonra Ticaret oturumunu da (Trading Session) çalıştırmanız gerektiğidir.",
+                    "updated": 1669583671775
+                },
+                {
+                    "language": "ES",
+                    "text": "Recuerda que ejecutar una tarea de trading es similar a ejecutar una tarea de datos. La diferencia es que después de ejecutar la tarea también es necesario ejecutar la sesión de trading.",
+                    "updated": 1677101636757
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "BB Breakdown Görevi ( Task ) menüsünden Çalıştır'ı (run) seçin, ardından Geri Test Oturumu ( Backtesting Session ) menüsünden Çalıştır'ı (run) seçin.",
                     "updated": 1641655276568
+                },
+                {
+                    "language": "ES",
+                    "text": "Selecciona Run en el menú BB Breakdown Task y luego selecciona Run en el menú Backtesting Session.",
+                    "updated": 1677101646183
                 }
             ]
         },
@@ -86,8 +101,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Ticaret Süreci Örneği ( Trading Process Instance ) ilerleme çubuğu %100 işaretine ulaştığında görevi tamamlayın ve İleri'yi tıklatın.",
-                    "updated": 1641655287663
+                    "text": "İşlem Süreci Örneğinin (Trading Process Instance)  ilerleme bildirimi %100 işaretine ulaştığında, görevi durdurun ve Next'e tıklayın.",
+                    "updated": 1669583952370
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando el aviso de progreso de la Instancia del Proceso de Trading llegue a la marca del 100%, detenga la tarea y haga clic en Next.",
+                    "updated": 1677101662915
                 }
             ]
         }

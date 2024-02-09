@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Plugins son estructuras de datos que se envían con el sistema y que puede llamar a cualquier espacio de trabajo utilizando la jerarquía de Plugins.",
-                "updated": 1626622977338,
+                "text": "Los Plugins son estructuras de datos que se envían con el sistema y que puede llamar a cualquier espacio de trabajo utilizando la jerarquía de Plugins.",
+                "updated": 1675377516565,
                 "style": "Definition"
             },
             {
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Plugins son estructuras de datos destinadas a ser reutilizadas. Es por eso que se envían como plugins, para que puedas colocarlos en cualquier Workspace.",
-                    "updated": 1626620113069,
+                    "text": "Los Plugins son estructuras de datos destinadas a ser reutilizadas. Es por eso que se envían como plugins, para que puedas colocarlos en cualquier Workspace.",
+                    "updated": 1675377521792,
                     "style": "Text"
                 },
                 {
@@ -150,8 +150,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Como puede deducirse de la estructura de la jerarquía, existen varios tipos de plugins! Se envían como archivos JSON, ordenados por tipo en la carpeta de plugins. ¡Échale un vistazo!",
-                    "updated": 1626619903123,
+                    "text": "Como se puede deducir de la estructura de la jerarquía, ¡hay varios tipos de Plugins! Se envían como archivos JSON, ordenados por proyecto y tipo en la carpeta de plugins. ¡Compruébalo!",
+                    "updated": 1675377553724,
                     "style": "Text"
                 },
                 {

@@ -1,0 +1,185 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 126,
+    "type": "Tutorial Step - My Only Friend, The End!",
+    "definition": {
+        "icon": {
+            "name": "Close\\close-stage-event",
+            "project": "Foundations"
+        },
+        "text": "Ok, my friend, this is the end! I hope you've enjoyed the show and that I've managed to get you hooked to Superalgos!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ok amico mio, siamo alla fine! Spero ti sia goduto lo spettacolo e che sia riuscito a coinvolgerti in Superalgos!",
+                "updated": 1618074673420,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Okay, amigo mío, ¡este es el final! ¡Espero que hayas disfrutado del espectáculo y haber logrado engancharte con Superalgos!",
+                "updated": 1624490056057,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ok, mein Freund, das ist das Ende! Ich hoffe, dass dir die Serie gefallen hat und dass ich dich für Superalgos begeistern konnte!",
+                "updated": 1634248225678
+            },
+            {
+                "language": "TR",
+                "text": "Tamam dostum, bu son! Umarım gösteriyi beğenmişsinizdir ve sizi Superalgos'a bağlamayı başarmışımdır!",
+                "updated": 1636663926205
+            },
+            {
+                "language": "ID",
+                "text": "Ok, temanku, ini akhirnya! Aku harap kamu menikmati pertunjukan dan aku berhasil membuat kamu terhubung dengan Superalgos!",
+                "updated": 1640601086057
+            },
+            {
+                "language": "RU",
+                "text": "Итак, мой друг, это все! Надеюсь, тебе понравилось это шоу, и я сумел подсадить тебя на Superalgos!",
+                "updated": 1642774918942
+            },
+            {
+                "language": "NL",
+                "text": "Oké, mijn vriend, dit is het einde! Ik hoop dat je genoten hebt van de show en dat ik erin geslaagd ben je verslaafd te maken aan Superalgos!",
+                "updated": 1667139427477
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There's no doubt in my mind that you haven't seen anything like Superalgos before, have you?",
+            "updated": 1611589835629,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sono certo che tu non abbia mai visto niente di simile a Superalgos, o sbaglio?",
+                    "updated": 1618074705467,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "No tengo ninguna duda de que no has visto nada como Superalgos antes, ¿verdad?",
+                    "updated": 1624490101875,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe keinen Zweifel daran, dass du so etwas wie Superalgos noch nicht gesehen hast, oder?",
+                    "updated": 1634248232398
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce Superalgos gibi bir şey görmediğine dair aklımda hiç şüphe yok...",
+                    "updated": 1636663950395
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada keraguan dalam pikiranku bahwa kamu belum pernah melihat yang seperti Superalgos sebelumnya, bukan?",
+                    "updated": 1641093725799
+                },
+                {
+                    "language": "RU",
+                    "text": "Я не сомневаюсь, что вы еще не видели ничего подобного как Superalgos, не так ли?",
+                    "updated": 1642774954571
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik twijfel er niet aan dat je nog nooit zoiets als Superalgos hebt gezien, toch?",
+                    "updated": 1667139441424
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "If you're ready to keep going, my friend the Basic Education Tutorial will complete your understanding on some basic aspects of the system you need to master before you set out to learn how to build your first Trading System!",
+            "updated": 1640292897813,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se sei pronto per continuare, il mio amico Basic Education Tutorial integrerà concetti su alcuni aspetti base del sistema che devi conoscere bene prima di costruire i Trading Systems! ",
+                    "updated": 1618074793359,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Si estás listo para seguir adelante, mi amigo el Basic Education Tutorial completará tu comprensión sobre algunos aspectos básicos del sistema que necesitas dominar antes de lanzarte a aprender a construir tu primer Sistema de Trading!",
+                    "updated": 1675367712731,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bereit sind, weiterzumachen, wird mein Freund das Basic Education Tutorial Ihr Verständnis für einige grundlegende Aspekte des Systems vervollständigen, die Sie beherrschen müssen, bevor Sie sich daran machen, zu lernen, wie Sie Ihr erstes Handelssystem aufbauen!",
+                    "updated": 1642152979546
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam etmeye hazırsanız, arkadaşım Temel Eğitim Öğreticisi, İlk ticaret sisteminizi nasıl kuracağınızı öğrenmek için yola çıkmadan önce uzmanlaşmanız gereken sistemin bazı temel yönleri hakkındaki bilginizi tamamlayacaktır! ",
+                    "updated": 1670335948153
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu siap untuk terus berjalan, temanku Basic Education Tutorial akan melengkapi pemahaman kamu tentang beberapa aspek dasar dari sistem yang perlu kamu kuasai sebelum kamu mulai belajar bagaimana membangun Trading System pertamamu!",
+                    "updated": 1640601171460
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы готовы продолжить, мой друг, учебник Basic Education Tutorial завершит ваше понимание некоторых основных аспектов системы, которыми вам необходимо овладеть, прежде чем вы приступите к изучению того, как построить свою первую торговую систему!",
+                    "updated": 1642774993575
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je klaar bent om door te gaan, zal mijn vriend de Basic Education Tutorial je kennis van enkele basisaspecten van het systeem bijspijkeren. Welke je onder de knie moet krijgen, voordat je begint te leren hoe je je eerste Trading System kunt bouwen!",
+                    "updated": 1667139615574
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "We're done! Click Stop to finish with me and click Play on the next tutorial when you are ready!",
+            "updated": 1693565239023,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Abbiamo finito! Clicca Next per terminare e clicca Play sul tutorial successivo quando sei pronto!",
+                    "updated": 1618074823724,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Terminamos! Haz clic en Siguiente para terminar conmigo y haz clic en Play en el siguiente tutorial cuando estés listo.",
+                    "updated": 1675367731584,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bereit sind, weiterzumachen, wird mein Freund das Basic Education Tutorial Ihr Verständnis für einige grundlegende Aspekte des Systems vervollständigen, die Sie beherrschen müssen, bevor Sie lernen, wie man Handelssysteme aufbaut!",
+                    "updated": 1634248246090
+                },
+                {
+                    "language": "TR",
+                    "text": "Benimle bitirmek için İleri'ye tıklayın ve hazır olduğunuzda sonraki eğitime başlamak için  Temel Eğitim Öğreticisinde (Basic Education Tutorial) Oynat'a tıklayın!",
+                    "updated": 1670336083637
+                },
+                {
+                    "language": "ID",
+                    "text": "Sudah selesai! Klik Next untuk menyelesaikan denganku dan klik Play tutorial berikutnya ketika kamu siap!",
+                    "updated": 1640601227039
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы закончили! Нажмите Next, чтобы закончить со мной, и нажмите Play для следующего урока, когда будете готовы!",
+                    "updated": 1642775015956
+                },
+                {
+                    "language": "NL",
+                    "text": "We zijn klaar! Klik op Next om mij af te sluiten en klik wanneer je klaar bent, op Play voor de volgende handleiding !",
+                    "updated": 1667139735895
+                }
+            ]
+        }
+    ]
+}

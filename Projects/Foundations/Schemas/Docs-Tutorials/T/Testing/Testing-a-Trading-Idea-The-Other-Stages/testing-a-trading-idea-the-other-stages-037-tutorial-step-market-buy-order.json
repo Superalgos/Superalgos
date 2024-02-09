@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Как и для этапа открытия, я создал алгоритм исполнения и рыночный ордер на покупку...",
                 "updated": 1642942654494
+            },
+            {
+                "language": "ES",
+                "text": "Al igual que para la fase de apertura, he creado el algoritmo de ejecución y la orden de compra de mercado...",
+                "updated": 1681054146920
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Давайте разберемся с парой вещей, прежде чем двигаться дальше:",
                     "updated": 1642942662251
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a ocuparnos de un par de cosas antes de continuar:",
+                    "updated": 1681054158961
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Удалите узел Simulated Exchange Events! Мы не собираемся использовать его в настоящее время...",
                     "updated": 1642942676724
+                },
+                {
+                    "language": "ES",
+                    "text": "Elimine el nodo Simulated Exchange Events! No vamos a utilizarlo por el momento...",
+                    "updated": 1681054220051
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Введите true в узле JavaScript Code в условие Create Order Event.",
                     "updated": 1642943384139
+                },
+                {
+                    "language": "ES",
+                    "text": "Introduzca true en el nodo JavaScript Code de la condición Create Order Event",
+                    "updated": 1681054507668
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "RU",
                     "text": "Теперь вам нужно создать ссылку из узла Market Buy Order на Market Order в Trading Engine. Я покажу вам, какую именно, в следующем шаге!",
                     "updated": 1642943412236
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora tienes que crear la referencia a partir del nodo Market Buy Order a la Market Order en el Trading Engine. ¡Te mostraré cuál en el siguiente paso!",
+                    "updated": 1681054411709
                 }
             ]
         }

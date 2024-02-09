@@ -8,6 +8,11 @@
                 "language": "TR",
                 "text": "Kullanıcı Uygulamaları hiyerarşisi, mevcut Kullanıcı Profili (User Profile) ile ilişkili tüm uygulamaların tanımlarını içerir.",
                 "updated": 1666687445615
+            },
+            {
+                "language": "DE",
+                "text": "Die Hierarchie der Benutzeranwendungen enthält die Definitionen aller Anwendungen, die mit dem aktuellen Benutzerprofil verbunden sind.",
+                "updated": 1705144500650
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "TR",
                     "text": "Bu uygulamalar Superalgos eşler arası bağlantıya erişmek için kullanılır.",
                     "updated": 1666687531742
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Anwendungen werden für den Zugriff auf das Superalgos Peer-to-Peer-Netzwerk verwendet.",
+                    "updated": 1704578280380
                 }
             ]
         },

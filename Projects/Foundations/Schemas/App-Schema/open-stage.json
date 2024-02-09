@@ -5,12 +5,14 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Add Missing Children",
             "label": "Add Missing Items",
+            "translationKey": "add.missing.items",
             "relatedUiObject": "Open Stage",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -19,6 +21,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
+            "translationKey": "add.announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Social-Bots",
@@ -29,7 +32,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

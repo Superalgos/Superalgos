@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Вы также можете использовать другие функции, расположенные в библиотеках функций, для создания функции действия (Action Function). Для этого достаточно найти экземпляр объекта библиотеки функций и вызвать любую из его функций.",
                 "updated": 1640762706045
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Sie können auch andere Funktionen aus den Funktionsbibliotheken verwenden, um Ihre Action -funktion zu erstellen. Dazu müssen Sie nur die Instanz des Function Library -objekts finden und eine der darin enthaltenen Funktionen aufrufen.",
+                "updated": 1674247584676
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Очень хорошей идеей будет потратить некоторое время на папку Function-Libraries, просмотреть файлы в ней, чтобы увидеть, что уже доступно для использования в ваших действиях. Вы увидите, что другие действия в Function Libraries в значительной степени зависят от функций, определенных в одном из файлов в папке Function-Libraries.",
                     "updated": 1640764321619
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist sinnvoll sich etwas Zeit für den Ordner Funktionsbibliotheken zu  nehmen, um die Dateien zu durchsuchen. Sie sehen dann, was sie bereits für Ihre kommenden Anktionen verwenden können. Sie werden sehen, dass andere Aktionen in Funktionsbibliotheken stark auf Funktionen angewiesen sind, die in einer der Dateien im Ordner Funktionsbibliotheken definiert sind.",
+                    "updated": 1674247935417
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Как вызвать функцию из библиотеки функций?",
                     "updated": 1640764352696
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie rufe ich eine Funktion der Funktionsbibliothek auf?",
+                    "updated": 1674247633929
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Во время работы все объекты библиотеки функций будут уже созданы к моменту выполнения кода вашей функции Action. Вам просто нужно добраться до объекта, в котором находится функция библиотеки функций, которую вы хотите выполнить, через доступный вам глобальный объект пользовательского интерфейса (UI Global Object). Например:",
                     "updated": 1640764418162
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Laufzeit werden alle Objekte der Function Library bereits instanziiert, wenn Ihr Action -funktionscode ausgeführt wird. Sie müssen lediglich über das Ihnen zur Verfügung stehende globale UI Global Object zu dem Punkt gelangen, welcher die auszuführende Funktion der Function Library bereitstellt. Zum Beispiel:",
+                    "updated": 1674248224116
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "Выяснить, какое имя является именем свойства определенного объекта функциональной библиотеки, можно, прочитав определения в файле схемы проекта. Объект библиотеки функций, содержащий функцию createSessionReference, использованную в приведенном выше примере, определен в файле схемы проекта таким образом:",
                     "updated": 1640764465614
+                },
+                {
+                    "language": "DE",
+                    "text": "Um herauszufinden, wie der Eigenschaftsname eines bestimmten Function Library -objekts lautet, müssen Sie die Definitionen in der Project Schema File lesen. Das Objekt der Function Library, welches die im obigen Beispiel verwendete Funktion createSessionReference bereitstellt, ist in der Project Schema File auf diese Weise definiert:",
+                    "updated": 1674248412014
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "RU",
                     "text": "СвойствоName - это то, что вам нужно знать, чтобы получить ссылку на объект библиотеки функций во время его выполнения и использовать его функции.",
                     "updated": 1640764576174
+                },
+                {
+                    "language": "DE",
+                    "text": "Der propertyName ist das, was Sie wissen müssen, um an die Laufzeitreferenz des Function Function Library zu gelangen und dessen Funktionen auszuführen.",
+                    "updated": 1674248561621
                 }
             ]
         },
@@ -92,6 +122,11 @@
                     "language": "RU",
                     "text": "Популярные функции",
                     "updated": 1640764582875
+                },
+                {
+                    "language": "DE",
+                    "text": "Beliebte Funktionen",
+                    "updated": 1674248578066
                 }
             ]
         },
@@ -104,6 +139,11 @@
                     "language": "RU",
                     "text": "В своем собственном Action Function вам, скорее всего, потребуется реализовать эти или подобные функции, относящиеся к популярным действиям, определенным в других Action Functions:",
                     "updated": 1640764651360
+                },
+                {
+                    "language": "DE",
+                    "text": "In Ihrer eigenen Actions -funktion werden Sie wahrscheinlich diese oder ähnliche Funktionen ausführen müssen, die zu beliebten Aktionen gehören, die in anderen Actions -funktion definiert sind:",
+                    "updated": 1674248672824
                 }
             ]
         },
@@ -115,6 +155,11 @@
                     "language": "RU",
                     "text": "Добавить новый узел",
                     "updated": 1640764658365
+                },
+                {
+                    "language": "DE",
+                    "text": "Einen neuen Knotenpunkt hinzufügen",
+                    "updated": 1674248717998
                 }
             ]
         },
@@ -127,6 +172,11 @@
                     "language": "RU",
                     "text": "Ниже приведен пример того, как добавить нового дочернего элемента к существующему узлу:",
                     "updated": 1640764673369
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend ein Beispiel dafür, wie ein neuer untergeordneter Knoten zu einem bestehenden Knoten hinzugefügt werden kann:",
+                    "updated": 1674248757280
                 }
             ]
         },
@@ -147,6 +197,11 @@
                     "language": "RU",
                     "text": "Удаление существующего узла",
                     "updated": 1640764681217
+                },
+                {
+                    "language": "DE",
+                    "text": "Einen vorhandenen Knoten löschen",
+                    "updated": 1674248814244
                 }
             ]
         },
@@ -158,6 +213,11 @@
                     "language": "RU",
                     "text": "Это пример того, как удалить существующий узел:",
                     "updated": 1640764694322
+                },
+                {
+                    "language": "DE",
+                    "text": " Ein Beispiel für das Löschen eines vorhandenen Knotens:",
+                    "updated": 1674248867187
                 }
             ]
         },
@@ -174,6 +234,11 @@
                     "language": "RU",
                     "text": "Установить ссылку на родительский узел ",
                     "updated": 1640764768261
+                },
+                {
+                    "language": "DE",
+                    "text": "Einen Referenzelternteil einrichten",
+                    "updated": 1674248892866
                 }
             ]
         },
@@ -186,6 +251,11 @@
                     "language": "RU",
                     "text": "Пример установки ссылки на родительский узел (Reference Parent):",
                     "updated": 1640764845814
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel für das Festlegen des Referenz-Elternteil eines Knotens:",
+                    "updated": 1674248915388
                 }
             ]
         },

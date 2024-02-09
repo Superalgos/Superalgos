@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Superalgos, bir saatin altındaki zaman dilimlerini \"Daily Files\"da işler, yani bir güne karşılık gelen veriler tek bir dosyada saklanır.",
                 "updated": 1642513345679
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos memproses time frame di bawah satu jam di \"Daily Files\", artinya data yang terkait dengan satu hari disimpan dalam satu file.",
+                "updated": 1673965680973
+            },
+            {
+                "language": "ES",
+                "text": "Superalgos procesa los plazos inferiores a una hora en \"Archivos diarios\", lo que significa que los datos correspondientes a un día se almacenan en un solo archivo.",
+                "updated": 1675468077569
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Buna karşılık, bir saat ve üzeri zaman dilimleri için veriler \"Market Files\"da saklanır, yani tüm piyasaya tekabül eden veriler tek bir dosyada saklanır.",
                     "updated": 1642513365983
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebaliknya, data untuk timeframe satu jam atau lebih disimpan dalam \"Market Files\", yang berarti bahwa data yang terkait dengan keseluruhan pasar disimpan dalam satu file.",
+                    "updated": 1673965687593
+                },
+                {
+                    "language": "ES",
+                    "text": "En cambio, los datos correspondientes a plazos de una hora o más se almacenan en \" Market Files \", lo que significa que los datos correspondientes a todo el mercado se almacenan en un solo fichero.",
+                    "updated": 1675468109153
                 }
             ]
         },
@@ -68,6 +88,16 @@
                     "language": "TR",
                     "text": "Sonuç olarak, bir saatin altındaki zaman dilimlerinde çalışırken, birden fazla güne yayılan olaylar birden çok nesne oluşturur: her gün için bir tane!",
                     "updated": 1642513407398
+                },
+                {
+                    "language": "ID",
+                    "text": "Akibatnya, saat bekerja dalam timeframe di bawah satu jam, peristiwa yang berlangsung selama beberapa hari menghasilkan multiple objek: satu per hari!",
+                    "updated": 1673965694042
+                },
+                {
+                    "language": "ES",
+                    "text": "En consecuencia, cuando se trabaja en marcos temporales inferiores a una hora, los eventos que abarcan varios días generan varios objetos: ¡uno por día!",
+                    "updated": 1675468131311
                 }
             ]
         },
@@ -89,6 +119,16 @@
                     "language": "TR",
                     "text": "Bu, düşük zaman dilimlerinde çalışırken, konsept veya olay başına her biri günün kapanışına karşılık gelen verileri gösteren birden fazla nesneyle karşılaşabileceğiniz anlamına gelir!",
                     "updated": 1642513430238
+                },
+                {
+                    "language": "ID",
+                    "text": "Artinya, saat bekerja dalam low timeframe, kamu mungkin menemukan multiple objek per concept atau event, masing-masing menampilkan data yang sesuai dengan penutupan hari!",
+                    "updated": 1673965700479
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto significa que, al trabajar en marcos temporales bajos, es posible que te encuentres con múltiples objetos por concepto o evento, ¡cada uno mostrando los datos correspondientes al cierre del día!",
+                    "updated": 1675468160487
                 }
             ]
         }

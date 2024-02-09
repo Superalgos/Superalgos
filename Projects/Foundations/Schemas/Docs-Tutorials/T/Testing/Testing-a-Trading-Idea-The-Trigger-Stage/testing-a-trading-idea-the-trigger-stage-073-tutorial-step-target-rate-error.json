@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Hatayı buldun mu? Hatayı açık aşamada (Open Stage), hedef oranı ( Target Rate ) belirleme formülünde bulmuş olmalısınız!",
-                "updated": 1641665129595
+                "text": "Hatayı buldun mu? Hatayı açık aşamada (Open Stage), hedef oranı ( Target Rate ) belirleme formülünde bulmuş olmalısınız!",
+                "updated": 1669669411694
             },
             {
                 "language": "RU",
                 "text": "Вы нашли ошибку? Вы, должно быть, отследили ее глубоко в Open Stage, на формуле определения Target Rate!",
                 "updated": 1642662928159
+            },
+            {
+                "language": "ES",
+                "text": "¿Has encontrado el error? Lo habrás encontrado en lo más profundo de la fase de apertura, en la fórmula de la definición de la tasa objetivo.",
+                "updated": 1679253434176
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Позвольте мне объяснить, о чем идет речь.",
                     "updated": 1642662938898
+                },
+                {
+                    "language": "ES",
+                    "text": "Permítame explicarle de qué se trata.",
+                    "updated": 1679253442068
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon alma olayı ( Take Position Event ) \\\"true\\\" değerini alırsa, tetik aşaması ( Trigger Stage ) kapanır ve hem açık aşama ( Open Stage ) hem de yönetim aşaması ( Manage Stage ) açılır!",
-                    "updated": 1641665159633
+                    "text": "Pozisyon Al Olayı ( Take Position Event ) doğru olarak doğrulandığında, Tetikleme Aşaması ( Trigger Stage ) kapatılır ve hem Açık Aşama ( Open Stage ) hem de Yönetme Aşaması ( Manage Stage ) açılır!",
+                    "updated": 1669669568622
                 },
                 {
                     "language": "RU",
                     "text": "Когда событие Take Position Event становится true, этап Trigger Stage закрывается, а Open Stage и Manage Stage открываются!",
                     "updated": 1642662971682
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando el caso \"Take Position\" se valida como true, la Trigger Stage se cierra, y tanto la Open Stage como la Manage Stage se abren.",
+                    "updated": 1679253454890
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Мы получаем ошибку на первом узле стадии открытия, который оценивает торговый бот. То есть, если мы исправим эту ошибку, то при попытке торгового бота оценить остальные узлы, которые также не определены, будет возникать больше ошибок.",
                     "updated": 1642663057705
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos obteniendo un error en el primer nodo de la etapa abierta que el bot de trading evalúa. Es decir, si corregimos ese error, aparecerán más errores cuando el bot de trading intente evaluar el resto de los nodos que también están indefinidos.",
+                    "updated": 1679253462151
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Veri madenciliği operasyonunuzun borsadan veri indirmesi ve mum oluşturmak için ham verileri işlemesi zaman alır. Ağ hiyerarşisinde veri madenciliği operasyonunuzun ilerlemesini kontrol edin.",
                 "updated": 1647864920795
+            },
+            {
+                "language": "DE",
+                "text": "Es dauert einige Zeit, bis Ihre Data-Mining-Operation Daten von der Börse heruntergeladen und die Rohdaten für die Erstellung von Kerzen verarbeitet hat. Überprüfen Sie den Fortschritt Ihres Data-Mining-Vorgangs in der Netzhierarchie.",
+                "updated": 1678646049176
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Tablolarda mum bulmakta sorun yaşamanızın birkaç nedeni olabilir. Lütfen aşağıdakileri göz önünde bulundurun…",
                     "updated": 1647864986869
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einige Gründe, warum Sie Probleme haben könnten, die Kerzen in den Charts zu finden. Bitte beachten Sie die folgenden Punkte...",
+                    "updated": 1678646059812
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "TR",
                     "text": "Veri Madenciliği Operasyonunun İlerlemesini Kontrol Edin",
                     "updated": 1647865001343
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie den Fortschritt des Data-Mining-Vorgangs",
+                    "updated": 1678646068205
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "Superalgos'a yeni başlıyorsanız ve hala başlangıç kılavuzunu takip ediyorsanız, borsadan verilerin indirilmesinin zaman aldığını unutmayın. Donanımınızın gücüne ve internet bağlantınızın hızına bağlı olarak, Market'in Eylül 2017'ye kadar uzanması nedeniyle ilk birkaç mumun, özellikle Binance borsasının mumlarının görülmesi yarım saatten birkaç saate kadar sürebilir.",
                     "updated": 1647865085193
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie gerade erst mit Superalgos anfangen und immer noch der Anleitung zum Einstieg folgen, bedenken Sie, dass es einige Zeit dauert, bis die Daten von der Börse heruntergeladen werden. Je nach Leistung Ihrer Hardware und der Geschwindigkeit Ihrer Internetverbindung kann es zwischen einer halben Stunde und mehreren Stunden dauern, bis Sie die ersten Kerzen sehen, insbesondere die der Binance-Börse, da der Markt bis September 2017 zurückreicht.",
+                    "updated": 1678646381473
                 }
             ]
         },
@@ -96,6 +116,11 @@
                     "language": "TR",
                     "text": "Ağ hiyerarşisinde veri madenciliği işlemini kontrol edin. Mumları ekranda ancak ilgili değişim verileri görevleri düğümünün ve pazarın Masters görev yöneticisindeki OHLCV Sensör Botu ( Sensor Bot ) ve Mum Hacimleri göstergesi %100 ilerlemeye ulaştıktan sonra görebileceksiniz.",
                     "updated": 1647865139037
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Data-Mining-Operation in der Netzwerkhierarchie. Sie können erst dann Kerzen auf dem Bildschirm sehen, wenn der OHLCV- Sensor Bot und der Indikator für das Kerzenvolumen im Master-Task-Manager des entsprechenden Knotens für die Datenaustauschaufgaben und des Marktes beide 100 % Fortschritt erreicht haben.",
+                    "updated": 1678646391417
                 }
             ]
         },
@@ -118,6 +143,11 @@
                     "language": "TR",
                     "text": "İpucu: Yukarıdaki paragrafın ne anlama geldiğinden emin değilseniz, tazeleyici olarak Hoş Geldiniz öğreticisine geri dönün.",
                     "updated": 1647865169011
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sich nicht sicher sind, worauf sich der obige Absatz bezieht, gehen Sie zur Auffrischung zum Tutorial \"Willkommen\" zurück.",
+                    "updated": 1678646449911
                 }
             ]
         },
@@ -134,6 +164,11 @@
                     "language": "TR",
                     "text": "Mum Katmanını Kapatın ,Tekrar Açın ve Sayfayı Yenileyin",
                     "updated": 1647865189269
+                },
+                {
+                    "language": "DE",
+                    "text": "Kerzenschicht aus- und wieder einschalten und die Seite aktualisieren",
+                    "updated": 1678646465505
                 }
             ]
         },
@@ -155,6 +190,11 @@
                     "language": "TR",
                     "text": "Mum katmanını içeren katman yöneticisini görene kadar grafiği yakınlaştırın. Mum katmanını kapatın ve tekrar açın. Bu, mum katmanını yeniden yüklemeye zorlar.",
                     "updated": 1647865210769
+                },
+                {
+                    "language": "DE",
+                    "text": "Zoomen Sie in das Diagramm, bis Sie den Ebenenmanager mit der Ebene Kerzen sehen. Deaktivieren Sie die Kerzenebene und schalten Sie sie wieder ein. Dadurch wird die Kerzenebene neu geladen.",
+                    "updated": 1678646480356
                 }
             ]
         },
@@ -171,6 +211,11 @@
                     "language": "TR",
                     "text": "Zaman, Oran ve Zaman Çerçevesi Ölçeklerini Kontrol Edin",
                     "updated": 1647865239593
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie die Skalen Zeit, Rate und Zeitrahmen",
+                    "updated": 1678646493527
                 }
             ]
         },
@@ -192,6 +237,11 @@
                     "language": "TR",
                     "text": "Çizelgeleri manipüle etmeye çalışmış olabilirsiniz ve bu süreçte bir şeyler ters gitmiş olabilir.",
                     "updated": 1647865272073
+                },
+                {
+                    "language": "DE",
+                    "text": "Es kann vorkommen, dass Sie versucht haben, die Diagramme zu manipulieren und dabei etwas schief gegangen ist.",
+                    "updated": 1678646556353
                 }
             ]
         },
@@ -213,6 +263,11 @@
                     "language": "TR",
                     "text": "Zaman çerçevesi ölçeğini 24 saate ve hem zaman ölçeğini hem de hız ölçeğini otomatik moda ayarlamayı deneyin. Zaman ölçeğini otomatik moda ayarlamak, piyasanın tüm aralığını grafiğe odaklar. Oran ölçeğini otomatik moda ayarlamak, ölçeği piyasadaki tüm fiyat aralığına uyacak şekilde ayarlar. Amaç, tüm ölçeklerin - gösterilecek herhangi bir veri varsa - gösterileceği şekilde ayarlandığından emin olmaktır.",
                     "updated": 1647865291803
+                },
+                {
+                    "language": "DE",
+                    "text": "Versuchen Sie, die Zeitskala auf 24 Stunden und sowohl die Zeitskala als auch die Kursskala auf den automatischen Modus einzustellen. Wenn Sie die Zeitskala auf den automatischen Modus einstellen, wird die gesamte Marktspanne auf dem Diagramm angezeigt. Wenn Sie die Kursskala auf den automatischen Modus einstellen, passt sich die Skala der gesamten Preisspanne des Marktes an. Ziel ist es, sicherzustellen, dass alle Skalen so eingestellt sind, dass sie - wenn Daten angezeigt werden sollen - auch angezeigt werden.",
+                    "updated": 1678646568270
                 }
             ]
         },
@@ -229,6 +284,11 @@
                     "language": "TR",
                     "text": "Verilerinizin Bütünlüğünü Kontrol Edin",
                     "updated": 1647865311930
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Integrität Ihrer Daten",
+                    "updated": 1678646576437
                 }
             ]
         },
@@ -250,6 +310,11 @@
                     "language": "TR",
                     "text": "Bilgisayarınız zorla kapatılmış olabilir veya bir veri madenciliği işlemi yürütürken Superalgos arka ucunu çalıştıran konsolu kapatmış olabilirsiniz. Bu tür durumlar bazı verilerin bozulmasına neden olabilir.",
                     "updated": 1647865336423
+                },
+                {
+                    "language": "DE",
+                    "text": "Möglicherweise wurde Ihr PC während der Ausführung eines Data-Mining-Vorgangs unfreiwillig heruntergefahren oder Sie haben die Konsole, auf der das Superalgos-Backend läuft, geschlossen. Solche Situationen können dazu führen, dass einige Daten beschädigt werden.",
+                    "updated": 1678646591607
                 }
             ]
         },
@@ -266,6 +331,11 @@
                     "language": "TR",
                     "text": "1. Sensör bot verilerinin bütünlüğünü kontrol edin",
                     "updated": 1647865357663
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Prüfen Sie die Integrität der Sensor-Bot-Daten",
+                    "updated": 1678646599129
                 }
             ]
         },
@@ -287,6 +357,11 @@
                     "language": "TR",
                     "text": "Data-Storage > Exchange > Market > Masters altında Exchange-Raw-Data klasörüne gidin ve mevcut son güne gitmek için alt klasörleri açmaya devam edin ve Data.json dosyasını açın. Dosya düzgün açılırsa, bu borsadan indirdiğiniz verilerin güvenli olduğu anlamına gelebilir.",
                     "updated": 1647865384691
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ordner Exchange-Raw-Data unter Data-Storage > Exchange > Market > Masters und öffnen Sie die Unterordner, bis Sie den letzten verfügbaren Tag erreicht haben, und öffnen Sie die Datei Data.json. Wenn sich die Datei problemlos öffnen lässt, kann dies bedeuten, dass die Daten, die Sie von der Börse heruntergeladen haben, sicher sind.",
+                    "updated": 1678646606190
                 }
             ]
         },
@@ -308,6 +383,11 @@
                     "language": "TR",
                     "text": "Exchange-Raw-Data'daki son dosya düzgün açılmazsa, Data-Storage > Exchange > Market'in tamamını silin ve veri madenciliği işlemini çalıştırın. Bu, OHLCV sensör botunun borsadaki tüm verileri tekrar indirmesini ve tüm göstergelerin sıfırdan hesaplanmasını sağlayacaktır.",
                     "updated": 1647865414424
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die letzte Datei in Exchange-Raw-Data nicht richtig geöffnet wird, löschen Sie den gesamten Data-Storage > Exchange > Market und führen Sie die Data-Mining-Operation aus. Dadurch wird der OHLCV-Sensor-Bot alle Daten von der Börse erneut herunterladen und alle Indikatoren von Grund auf neu berechnen.",
+                    "updated": 1678646614917
                 }
             ]
         },
@@ -324,6 +404,11 @@
                     "language": "RU",
                     "text": "Если данные датчика в порядке, перейдите к следующему шагу.",
                     "updated": 1640459807036
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Sensordaten in Ordnung zu sein scheinen, fahren Sie mit dem nächsten Schritt fort.",
+                    "updated": 1678646622988
                 }
             ]
         },
@@ -335,6 +420,11 @@
                     "language": "RU",
                     "text": "2. Проверьте целостность данных индикатора",
                     "updated": 1640459824783
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Überprüfung der Integrität der Daten des Indikators",
+                    "updated": 1678646645912
                 }
             ]
         },
@@ -356,6 +446,11 @@
                     "language": "TR",
                     "text": "Mumlarla ilgili sorun yaşıyorsanız, Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles altındaki Multi-Time-Frame-Daily and Multi-Time-Frame-Market  klasörlerinin derinliklerinde bulunan Masters Data Mine Mum Hacimleri göstergesinin verilerini kontrol etmeniz gerekir.",
                     "updated": 1647865675795
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Probleme mit Kerzen haben, müssen Sie die Daten des Candles-Volumen-Indikators der Masters Data Mine überprüfen, die sich tief in den Ordnern Multi Time Frame Daily und Multi Time Frame Market unter Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles befinden.",
+                    "updated": 1678646754373
                 }
             ]
         },
@@ -377,6 +472,11 @@
                     "language": "TR",
                     "text": "Herhangi bir.tmp dosyası bulursanız veya en son Data.json dosyalarından bazılarını normal bir metin düzenleyicide açamıyorsanız veya bazı dosyalar boşsa, dosyalar bozulmuş olabilir.",
                     "updated": 1647865702292
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie irgendwelche.tmp-Dateien finden oder einige der neuesten Data.json-Dateien nicht in einem normalen Texteditor öffnen können oder einige Dateien leer sind, sind die Dateien wahrscheinlich beschädigt.",
+                    "updated": 1678646672467
                 }
             ]
         },
@@ -399,6 +499,11 @@
                     "language": "TR",
                     "text": "Not: Diğer göstergelerde de benzer bir şey olmuş olabilir, bu nedenle çalışmayan veya sorun yaşıyor olabileceğiniz göstergelerin veri depolama klasörlerini kontrol ettiğinizden emin olun.",
                     "updated": 1647865733569
+                },
+                {
+                    "language": "DE",
+                    "text": "Etwas Ähnliches kann auch mit anderen Indikatoren passiert sein, also überprüfen Sie die Datenspeicherordner der Indikatoren, die möglicherweise nicht funktionieren oder mit denen Sie Probleme haben.",
+                    "updated": 1678646788051
                 }
             ]
         },
@@ -420,6 +525,11 @@
                     "language": "TR",
                     "text": "Bu durumda, Data-Storage > Exchange > Market içindeki her bir veri madeni için klasörü silecek, ancak Exchange-Raw-Data'yı olduğu gibi bırakacak ve daha sonra veri madenciliği operasyonunu çalıştıracaksınız. Bu, Mum Hacimleri de dahil olmak üzere tüm gösterge veri ürünlerini yeniden oluşturacaktır.",
                     "updated": 1647865755614
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das der Fall ist, löschen Sie den Ordner für jede Data-Mine unter Data-Storage > Exchange > Market, aber lassen Sie Exchange-Raw-Data intakt, und starten Sie die Data-Mining-Operation danach. Dadurch werden alle Indikator-Datenprodukte, einschließlich Candles Volumes, neu generiert.",
+                    "updated": 1678647071802
                 }
             ]
         },
@@ -441,6 +551,11 @@
                     "language": "TR",
                     "text": "3. Sistemi kapatmanın uygun bir yolu olduğunu unutmayın!",
                     "updated": 1647865824391
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Denken Sie daran, dass es eine richtige Art und Weise gibt, das System zu schließen!",
+                    "updated": 1678647080503
                 }
             ]
         },
@@ -457,6 +572,11 @@
                     "language": "TR",
                     "text": "Tarayıcıdaki Hataları Kontrol Edin",
                     "updated": 1647865827435
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen auf Fehler im Browser",
+                    "updated": 1678647089669
                 }
             ]
         },
@@ -478,6 +598,11 @@
                     "language": "TR",
                     "text": "F12 tuşuyla Chrome'un DevTools'unu açın (tarayıcı odaktayken) ve Konsol sekmesini tıklayın. Ardından Superalgos'a geri dönün ve sorunu yeniden oluşturun. Konsol, ağ hatalarını ve farklı türden uyarıları görüntüleyebilir. Bunlar önemli değildir ve bunları güvenle görmezden gelebilirsiniz.",
                     "updated": 1647865862421
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen (Open) Sie die DevTools von Chrome mit der Taste F12 (wenn der Browser im Vordergrund ist) und klicken Sie auf die Registerkarte Konsole. Gehen Sie dann zurück zu Superalgos und reproduzieren Sie das Problem. Die Konsole kann Netzwerkfehler und Warnungen verschiedener Art anzeigen. Diese sind nicht wichtig und Sie können sie getrost ignorieren.",
+                    "updated": 1678647114540
                 }
             ]
         },
@@ -499,6 +624,11 @@
                     "language": "TR",
                     "text": "Yüklenemeyen dosyalar veya belirli sistem bileşenlerindeki hatalar gibi diğer türdeki hatalara dikkat edin.",
                     "updated": 1647865878767
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie auf andere Arten von Fehlern, z. B. Dateien, die nicht geladen werden können, oder Fehler in bestimmten Systemkomponenten.",
+                    "updated": 1678647176283
                 }
             ]
         }

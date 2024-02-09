@@ -140,6 +140,8 @@ function newFoundationsDocsDocumentPage() {
             let orderedReviewPageIndexArray = []
             let HTML = ''
 
+            HTML = HTML + UI.projects.education.spaces.docsSpace.navigationElements.getRightNavPanel()
+
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
             HTML = HTML + '</section>'
@@ -339,11 +341,11 @@ function newFoundationsDocsDocumentPage() {
 
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.previous") +'> Previous </button></span><br/>' + previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Topic' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.next") +'> Next </button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return
@@ -385,11 +387,11 @@ function newFoundationsDocsDocumentPage() {
 
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.previous") +'> Previous </button></span><br/>' + previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.next") +'> Next </button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return
@@ -397,13 +399,20 @@ function newFoundationsDocsDocumentPage() {
                 }
             }
 
-            function generateTutorialMultiPageIndex() {
+            function generateTutorialMultiPageIndex(project) {
                 /* 
                 We will go through all the schema documents array for the current project and pick
                 the documents that share the same key thatn the document we are rendering now. 
                 With the info on those picked document we will build the index.
                 */
                 let paragraph
+                let indexProject 
+
+                if (project !== undefined) {
+                    indexProject = project
+                } else {
+                    indexProject = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
+                }
 
                 for (let i = 0; i < orderedTutorialPageIndexArray.length; i++) {
                     let arrayItem = orderedTutorialPageIndexArray[i]
@@ -413,7 +422,7 @@ function newFoundationsDocsDocumentPage() {
                         text: "" + arrayItem.type + ""
                     }
                     autoGeneratedParagraphIndex++
-                    HTML = HTML + '<p>' + arrayItem.pageNumber + '. ' + '<a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Tutorial' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
+                    HTML = HTML + '<p>' + arrayItem.pageNumber + '. ' + '<a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + indexProject + '\', \'' + 'Tutorial' + '\', \'' + arrayItem.type.replace(/'/g, 'AMPERSAND') + '\')">' + paragraph.text + '</a></p>'
                 }
             }
 
@@ -430,11 +439,11 @@ function newFoundationsDocsDocumentPage() {
 
                         HTML = HTML + '<div class="docs-topic-navigation"><div>'
                         if (previousPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Previous </button></span><br/>' + previousPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + previousPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.previous") +'> Previous </button></span><br/>' + previousPage.type
                         }
                         HTML = HTML + '</div><div>'
                         if (nextPage !== undefined) {
-                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button> Next </button></span><br/>' + nextPage.type
+                            HTML = HTML + '<span" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '\', \'' + 'Review' + '\', \'' + nextPage.type.replace(/'/g, 'AMPERSAND') + '\')"><button '+ addDataAttribute("general.next") +'> Next </button></span><br/>' + nextPage.type
                         }
                         HTML = HTML + '</div></div>'
                         return
@@ -733,7 +742,7 @@ function newFoundationsDocsDocumentPage() {
                             break
                         }
                         case 'Tutorial': {
-                            generateTutorialMultiPageIndex()
+                            generateTutorialMultiPageIndex(project)
                             break
                         }
                         case 'Review': {
@@ -1055,8 +1064,7 @@ function newFoundationsDocsDocumentPage() {
                     autoGeneratedParagraphIndex++
                     for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
-
-                        HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element"><img>' + menuItem.label + '</button>'
+                        HTML = HTML + '<button id="docs-menu-item-' + i + '" type="button" class="docs-collapsible-element" '+ addDataAttribute(menuItem.translationKey) +'><img>' + menuItem.label + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1112,8 +1120,7 @@ function newFoundationsDocsDocumentPage() {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
 
                         let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
-
-                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(name, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
+                        HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element" '+ addDataAttribute(childrenNodesProperty.translationKey) +'><img>' + UI.projects.education.utilities.docs.addToolTips(name, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
 
                         paragraph = {
@@ -1190,7 +1197,7 @@ function newFoundationsDocsDocumentPage() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element" '+ addDataAttribute(listItem.translationKey) +'><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }
@@ -1249,7 +1256,7 @@ function newFoundationsDocsDocumentPage() {
                             if (listItem === "") {
                                 continue
                             }
-                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
+                            HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element" '+ addDataAttribute(listItem.translationKey) +'><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
                 }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Profit Loss - это разница между балансом на конец и балансом на начало определенного периода, заданная контекстом.",
                 "updated": 1640347962847
+            },
+            {
+                "language": "TR",
+                "text": "Kâr kaybı, belirli bir dönemin sonundaki bakiye ile başındaki bakiye arasındaki farktır ve duruma göre verilir.",
+                "updated": 1674759121451
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "В контексте базового актива или котируемого актива расчет производится путем вычитания балансов в соответствующих активах с использованием переменной, соответствующей более широкому контексту (т.е.: эпизод, позиция и т.д.).",
                     "updated": 1640348029408
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel varlık veya kote edilen varlık bağlamında, hesaplama, daha büyük duruma uygun değişken (örneğin: bölüm, pozisyon, vb.) kullanılarak ilgili varlıklardaki bakiyelerin çıkarılmasıyla yapılır.",
+                    "updated": 1674759232390
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "В общих чертах:",
                     "updated": 1640348041316
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel anlamda:",
+                    "updated": 1674759293429
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "language": "RU",
                     "text": "В случае Episode Base Asset и Episode Quoted Asset:",
                     "updated": 1640348059532
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm Temel Varlığı ( Episode Base Asset ) ve Bölüm Kotalı Varlığı ( Episode Quoted Asset ) söz konusu olduğunda:",
+                    "updated": 1674759370658
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "RU",
                     "text": "В случае Position Base Asset и Position Quoted Asset:",
                     "updated": 1640348077976
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Baz Varlığı ( Position Base Asset ) ve Pozisyon Kotalı Varlığı ( Position Quoted Asset ) söz konusu olduğunda:",
+                    "updated": 1674759567987
                 }
             ]
         },
@@ -95,6 +120,11 @@
                     "language": "RU",
                     "text": "В контексте статистики по эпизодам или статистики по позициям расчет производится с объединением прибыли обоих активов.",
                     "updated": 1640348097770
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm istatistikleri veya pozisyon istatistikleri bağlamında, hesaplama her iki varlığın karları konsolide edilerek yapılır.",
+                    "updated": 1674759615284
                 }
             ]
         },
@@ -106,6 +136,11 @@
                     "language": "RU",
                     "text": "Если в контексте не упоминается ни один из активов в частности, то при расчете учитываются оба актива.",
                     "updated": 1640348110125
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlamda varlıklardan herhangi birine özellikle atıfta bulunulmadığında, hesaplamada her iki varlık da dikkate alınır.",
+                    "updated": 1674759684306
                 }
             ]
         },
@@ -117,6 +152,11 @@
                     "language": "RU",
                     "text": "В контексте статистики эпизодов:",
                     "updated": 1640348121043
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm istatistikleri bağlamında:",
+                    "updated": 1674759716396
                 }
             ]
         },
@@ -133,6 +173,11 @@
                     "language": "RU",
                     "text": "В контексте статистики позиций:",
                     "updated": 1640348132545
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon istatistikleri bağlamında:",
+                    "updated": 1674759753378
                 }
             ]
         },
@@ -155,6 +200,11 @@
                     "language": "RU",
                     "text": "Конфигурация Profit Loss",
                     "updated": 1640348151997
+                },
+                {
+                    "language": "TR",
+                    "text": "Kâr Zarar Yapılandırması (Profit Loss Configuration)",
+                    "updated": 1674759788730
                 }
             ]
         },
@@ -167,6 +217,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1640348158730
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1674759809034
                 }
             ]
         },
@@ -179,6 +234,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1640348167134
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue düğümün başlangıç durumunun rastgele bir değere sıfırlanmasını sağlar.",
+                    "updated": 1674759837414
                 }
             ]
         }

@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Worauf warten wir also noch? Fangen wir an! Um an der Governance teilnehmen zu können, benötigen Sie ein Benutzerprofil ( User Profile ).",
                 "updated": 1640072652939
+            },
+            {
+                "language": "ID",
+                "text": "Jadi tunggu apalagi? Mari kita mulai! Untuk berpartisipasi dalam Governance kamu akan membutuhkan User Profile.",
+                "updated": 1670849481941
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Ihr Profil ist genauso aufgebaut wie der Rest des Superalgos-Systems. Es ist eine Hierarchie von Knotenpunkten. Nur diese Hierarchie legt fest, wie Sie die Token Power, die Sie verdient haben oder die Ihnen von anderen Nutzern übertragen wurde, zu verwenden gedenken.",
                     "updated": 1640072680734
+                },
+                {
+                    "language": "ID",
+                    "text": "Profil mu diatur sama seperti sistem Superalgos lainnya. Itu merupakan node dari hirarki. Hanya hirarki ini yang mendefinisikan bagaimana maksud dari menggunakan Token Power kamu yang telah didapat atau delegasikan kepadamu dari pengguna lainnya.",
+                    "updated": 1670849489177
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Indem Sie Ihre Token-Power kanalisieren, entscheiden Sie mit, welche Teile des Systems Anreize für die Weiterentwicklung erhalten und wer für die von ihm übernommenen Gemeinschaftsaufgaben belohnt wird.",
                     "updated": 1640072691002
+                },
+                {
+                    "language": "ID",
+                    "text": "Dengan menyalurkan token power kamu maka kamu membantu memilih bagian apa dari sistem yang akan di insentif-kan untuk perkembangan lebih lanjut dan siapa yang akan diberi harga untuk peran dalam komunitas yang telah mereka mainkan.",
+                    "updated": 1670849496101
                 }
             ]
         }

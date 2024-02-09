@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "7",
+    "pageNumber": 7,
     "type": "Tutorial Step - What About Free Riders?",
     "definition": {
         "text": "Free-riding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "¡Aprovecharse no es cool! Sabemos que una vez que comiences a contribuir, inspirarás a más personas a seguir tu ejemplo.",
-                "updated": 1628119445138,
+                "text": "¡Aprovecharse no es guay! Sabemos que una vez que comiences a contribuir, inspirarás a más personas a seguir tu ejemplo.",
+                "updated": 1675449444336,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Menjadi pengguna tanpa berkontribusi bukanlah hal yang keren! Kami tahu ketika kamu memulai untuk berkontribusi. Kamu akan menginspirasi banyak orang untuk mengikuti arahanmu!",
                 "updated": 1668503254632
+            },
+            {
+                "language": "NL",
+                "text": "Mee liften is niet cool! We weten dat als u eenmaal begint bij te dragen, u meer mensen zult inspireren om uw voorbeeld te volgen!",
+                "updated": 1669573715537
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Proyek ini mengimplementasi skema insentif yang hebat untuk promosi dan dorongan untuk kontribusi. Kami mendistribusikan token Superalgos (SA) secara ekslusif kepada kontributor!",
                     "updated": 1668503268188
+                },
+                {
+                    "language": "NL",
+                    "text": "Het project heeft een krachtig stimuleringsschema geïmplementeerd om het gewenste gedrag te bevorderen en een cultuur van samenwerking te bevorderen. We verdelen het Superalgos (SA)-token exclusief onder bijdragers!",
+                    "updated": 1669573747137
                 }
             ]
         },
@@ -103,6 +113,16 @@
                     "language": "ID",
                     "text": "Pelajari lebih lanjut tentang Superalgos SA Token!->superalgos.org/token-overview.shtml",
                     "updated": 1668503156500
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees meer over de Superalgos SA-token!->superalgos.org/token-overview.shtml",
+                    "updated": 1669573766993
+                },
+                {
+                    "language": "ES",
+                    "text": "Más información sobre el Token Superalgos SA.->https://superalgos.org/token-overview.shtml",
+                    "updated": 1675452029566
                 }
             ]
         },
@@ -119,8 +139,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Combatimos el free-riding con incentivos!",
-                    "updated": 1628121572845,
+                    "text": "¡Combatimos el <i>free-riding</i> con incentivos!",
+                    "updated": 1675449908461,
                     "style": "Success"
                 },
                 {
@@ -142,6 +162,11 @@
                     "language": "ID",
                     "text": "Kami melawan pengguna tanpa kontribusi dengan insentif!",
                     "updated": 1668503277708
+                },
+                {
+                    "language": "NL",
+                    "text": "Meeliften bestrijden we met beloningen!",
+                    "updated": 1669573788049
                 }
             ]
         },
@@ -181,6 +206,11 @@
                     "language": "ID",
                     "text": "Ayo lakukan kontribusi pertamamu! Pertama, aku lajarkan cara mengubah branches!",
                     "updated": 1668503287749
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we uw eerste bijdrage aan het rollen krijgen! Eerst zal ik je leren hoe je van branche kunt wisselen!",
+                    "updated": 1669573819729
                 }
             ]
         }

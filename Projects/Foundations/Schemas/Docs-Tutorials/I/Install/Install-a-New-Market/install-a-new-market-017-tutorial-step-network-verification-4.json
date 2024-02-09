@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что узлы Data Storage для соответствующего Market были успешно созданы.",
                 "updated": 1643091232090
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Data Storage knooppunten voor de overeenkomstige Market met succes zijn gemaakt.",
+                "updated": 1676126217482
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Найдите следующие структуры данных:",
                     "updated": 1643091238108
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676126428187
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "RU",
                     "text": "Узел Market Data Products в разделе Data Mines Data, с узлом Data Mine Products для каждого Data Mine в рабочем пространстве.",
                     "updated": 1643091251687
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt Market Data Products onder Data Mines Data, met een knooppunt Data Mine Products voor elke Data Mine in de werkruimte.",
+                    "updated": 1676126460761
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "RU",
                     "text": "Узел Market Trading Products в разделе Trading Mines Data с ссылкой на торговую сессию для каждой торговой сессии в тестовых и производственных окружениях.",
                     "updated": 1643091279396
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Market Trading Products node onder Trading Mines Data, met een Trading Session Reference voor elke handelssessie in de test- en productieomgevingen.",
+                    "updated": 1676126506936
                 }
             ]
         }

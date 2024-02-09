@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Индикатор производит индикатор Parabolic SAR.",
                 "updated": 1646898564968
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator erzeugt den parabolischen SAR Indikator.",
+                "updated": 1671698415576
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Параболический SAR на графике",
                     "updated": 1646898577392
+                },
+                {
+                    "language": "DE",
+                    "text": "Parabolic SAR auf den Charts",
+                    "updated": 1671698423441
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Согласно Investopedia, \" Parabolic SAR - это технический индикатор, используемый для определения направления цены актива, а также для привлечения внимания к тому, когда направление цены меняется. Иногда известен как система стопов и разворотов. \"",
                     "updated": 1646898616190
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia \"ist der parabolische SAR ein technischer Indikator, der dazu dient, die Kursrichtung eines Vermögenswerts zu bestimmen und darauf aufmerksam zu machen, wenn sich die Kursrichtung ändert. Manchmal auch als Stopp- und Umkehrsystem bekannt. \"",
+                    "updated": 1671698431527
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "На графике этого индикатора изображена серия отметок, расположенных либо над, либо под ценовыми столбиками. Точка ниже цены считается бычьим сигналом. И наоборот, точка над ценой используется для иллюстрации того, что медведи контролируют ситуацию, и импульс, скорее всего, останется нисходящим.",
                     "updated": 1646898636471
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Diagramm für diesen Indikator zeigt eine Reihe von Punkten, die entweder über oder unter den Kursbalken platziert sind. Ein Punkt unterhalb des Kurses gilt als bullisches Signal. Umgekehrt zeigt ein Punkt oberhalb des Preises an, dass die Bären die Kontrolle haben und die Dynamik wahrscheinlich weiter abwärts gerichtet ist.",
+                    "updated": 1671698443050
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "По мере роста цены актива будут расти и отметки, сначала медленно, а затем набирая скорость и ускоряясь вместе с трендом. По мере развития тренда SAR начинает двигаться немного быстрее, и вскоре отметки догоняют цену, указывая на возможный разворот тренда.",
                     "updated": 1646898655899
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Preis eines Vermögenswerts steigt, steigen auch die Marken, zunächst langsam und dann immer schneller und schneller mit dem Trend. Der SAR beginnt sich etwas schneller zu bewegen, wenn sich der Trend entwickelt, und die Marken holen den Preis bald ein, was auf eine mögliche Trendumkehr hinweist.",
+                    "updated": 1671698453568
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Индикатор может давать ложные сигналы при консолидации/боковом тренде, поэтому лучше всего использовать его с другим индикатором для обеспечения совпадения, таким как RSI или chop index.",
                     "updated": 1646898690988
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator kann falsche Signale erzeugen, wenn er sich in einem Konsolidierungs-/Seitwärtstrend befindet. Daher ist es am besten, ihn zusammen mit einem anderen Indikator wie dem RSI oder dem Chop Index zu verwenden, um eine Übereinstimmung zu erzielen.",
+                    "updated": 1671698485970
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства Parabolic SAR",
                     "updated": 1646898707103
+                },
+                {
+                    "language": "DE",
+                    "text": "Parabolic SAR Produkte & Eigenschaften",
+                    "updated": 1671698495307
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "RU",
                     "text": "Чтобы изменить параметры, необходимые для расчета в соответствии с вашими потребностями, найдите и откройте Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе \"PSAR\" Product Definition.",
                     "updated": 1646898718284
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die für die Berechnung erforderlichen Parameter nach Ihren Bedürfnissen zu ändern, öffnen Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter “PSAR” Product Definition.",
+                    "updated": 1671698517621
                 }
             ]
         },
@@ -105,7 +145,14 @@
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| PSAR | PSAR | psar, af |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| PSAR | PSAR | psar, af |",
+                    "updated": 1671698527432
+                }
+            ]
         },
         {
             "style": "Text",
@@ -115,6 +162,11 @@
                     "language": "RU",
                     "text": "Примеры:",
                     "updated": 1646898730641
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671698539599
                 }
             ]
         },
@@ -131,6 +183,11 @@
                     "language": "RU",
                     "text": "PSAR находится ниже ценового движения свечей.",
                     "updated": 1646898780700
+                },
+                {
+                    "language": "DE",
+                    "text": "PSAR liegt unterhalb der Kerzenpreisbewegung.",
+                    "updated": 1671698549710
                 }
             ]
         }

@@ -23,6 +23,21 @@
                 "language": "RU",
                 "text": "Специализация - это очень интересная концепция, которая может привести к созданию более эффективных торговых систем!",
                 "updated": 1640885958098
+            },
+            {
+                "language": "NL",
+                "text": "Specialisatie is een zeer interessant concept dat kan leiden tot het ontwerpen van efficiëntere handelssystemen!",
+                "updated": 1670792102299
+            },
+            {
+                "language": "ID",
+                "text": "Specialization adalah konsep yang sangat menarik yang dapat mengarah pada perancangan trading system yang lebih efisien!",
+                "updated": 1674626352114
+            },
+            {
+                "language": "ES",
+                "text": "La especialización es un concepto muy interesante que puede llevar a diseñar sistemas de trading más eficientes.",
+                "updated": 1675619843343
             }
         ]
     },
@@ -45,6 +60,21 @@
                     "language": "RU",
                     "text": "Хорошо известно, что большинство стратегий лучше работают в определенных рыночных условиях.",
                     "updated": 1640885968020
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een bekend feit dat de meeste strategieën beter presteren onder bepaalde marktomstandigheden.",
+                    "updated": 1670792113655
+                },
+                {
+                    "language": "ID",
+                    "text": "Sudah menjadi fakta umum bahwa sebagian besar strategi berkinerja lebih baik pada kondisi pasar tertentu.",
+                    "updated": 1674626232133
+                },
+                {
+                    "language": "ES",
+                    "text": "Es un hecho bien conocido que la mayoría de las estrategias funcionan mejor en determinadas condiciones de mercado.",
+                    "updated": 1675619864038
                 }
             ]
         },
@@ -66,6 +96,21 @@
                     "language": "RU",
                     "text": "Как и в случае с BB Top Bounce, одна торговая система может включать в себя несколько стратегий, каждая из которых специализируется на определенных трендах, диапазонах волатильности или любых других параметрах рынка.",
                     "updated": 1640885984968
+                },
+                {
+                    "language": "NL",
+                    "text": "Net als bij BB Top Bounce kan een enkel handelssysteem meerdere strategieën bevatten, elk gespecialiseerd in specifieke trends, volatiliteitsbereiken of andere marktparameters.",
+                    "updated": 1670792129677
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti halnya BB Top Bounce, satu trading system dapat menampilkan beberapa strategi, masing-masing mengkhususkan pada tren tertentu, rentang volatilitas, atau parameter market lainnya.",
+                    "updated": 1674626219313
+                },
+                {
+                    "language": "ES",
+                    "text": "Al igual que con BB Top Bounce, un único sistema de trading puede incluir múltiples estrategias, cada una especializada en tendencias específicas, rangos de volatilidad o cualquier otro parámetro del mercado.",
+                    "updated": 1675619885191
                 }
             ]
         },
@@ -87,6 +132,21 @@
                     "language": "RU",
                     "text": "Вместо того чтобы разрабатывать стратегию для оценки целого ряда рыночных условий, сосредоточьтесь именно на них!",
                     "updated": 1640886033732
+                },
+                {
+                    "language": "NL",
+                    "text": "In plaats van een strategie te ontwerpen om een reeks marktomstandigheden te evalueren, houdt u ze gefocust!",
+                    "updated": 1670792144088
+                },
+                {
+                    "language": "ID",
+                    "text": "Alih-alih merancang strategi untuk mengevaluasi berbagai kondisi dari market conditions, tetap fokus!",
+                    "updated": 1674626225730
+                },
+                {
+                    "language": "ES",
+                    "text": "En lugar de diseñar una estrategia para evaluar una serie de condiciones de mercado, mantenlas concentradas.",
+                    "updated": 1675619912295
                 }
             ]
         }

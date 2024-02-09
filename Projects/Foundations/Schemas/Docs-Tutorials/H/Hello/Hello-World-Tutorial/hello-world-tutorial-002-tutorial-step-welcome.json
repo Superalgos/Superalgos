@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Construyamos la madre de todas las estrategias trading: The Moving Average Cross",
-                "updated": 1629342995750,
+                "text": "Construyamos la madre de todas las Trading Strategies The Moving Average Cross",
+                "updated": 1682357180656,
                 "style": "Definition"
             },
             {
@@ -41,6 +41,16 @@
                 "language": "RU",
                 "text": "Давайте построим основную торговую стратегию: пересечение скользящих средних!",
                 "updated": 1640632690992
+            },
+            {
+                "language": "NL",
+                "text": "Laten we de moeder van alle handelsstrategieën bouwen: The Moving Average Cross!",
+                "updated": 1670772580748
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita buat Ibu dari segala strategi trading: Moving Average Cross!",
+                "updated": 1670299045330
             }
         ]
     },
@@ -81,6 +91,16 @@
                     "language": "RU",
                     "text": "В этом учебнике я предполагаю, что:",
                     "updated": 1640632703163
+                },
+                {
+                    "language": "NL",
+                    "text": "Voor deze tutorial ga ik ervan uit dat:",
+                    "updated": 1670772594355
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk tutorial ini aku asumsikan bahwa:",
+                    "updated": 1670299062560
                 }
             ]
         },
@@ -119,6 +139,16 @@
                     "language": "RU",
                     "text": "Вы прошли урок Welcome to Superalgos Tutorial в рабочем пространстве Getting Started Workspace",
                     "updated": 1640632786502
+                },
+                {
+                    "language": "NL",
+                    "text": "U hebt de Welkome Tutorial in de Getting Started Workspace gedaan",
+                    "updated": 1670772642586
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu telah menyelesaikan Welcome Tutorial pada Getting Started Workspace",
+                    "updated": 1670299086037
                 }
             ],
             "updated": 1629342770748
@@ -158,6 +188,16 @@
                     "language": "RU",
                     "text": "Вам удобно перемещаться по рабочему пространству и графикам.",
                     "updated": 1640632808287
+                },
+                {
+                    "language": "NL",
+                    "text": "Je navigeert je gemakkelijk door de Workspace en de Charts",
+                    "updated": 1670772686931
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu nyaman dalam berpindah-pindah disekitaran antara Workspace dan Charts",
+                    "updated": 1670299098434
                 }
             ],
             "updated": 1629342792390
@@ -198,6 +238,16 @@
                     "language": "RU",
                     "text": "У вас есть базовое понимание того, что такое торговый бот и стратегия",
                     "updated": 1640632820606
+                },
+                {
+                    "language": "NL",
+                    "text": "Je hebt een basiskennis van wat een Trading Bot en een strategie is",
+                    "updated": 1670772706179
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus memiliki pemahaman dasar tentang strategi dan apa itu Trading Bot",
+                    "updated": 1670299115819
                 }
             ]
         },
@@ -237,6 +287,16 @@
                     "language": "RU",
                     "text": "Мы создадим бота для бэктестинга стратегии, основанной на пересечении простых скользящих средних SMA50 и SMA200 на 4-часовом таймфрейме, классика!",
                     "updated": 1640632859656
+                },
+                {
+                    "language": "NL",
+                    "text": "We zullen een bot bouwen om een strategie te backtesten op basis van Simple Moving Average Cross tussen SMA50 en SMA200 op 4h TF, een klassieker!",
+                    "updated": 1670772739914
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan membuat bot untuk backstest dengan strategi berdasar pada Simple Moving Average Cross antara SMA50 dan SMA200 pada TF 4h, klasik!",
+                    "updated": 1670299132041
                 }
             ]
         },

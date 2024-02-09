@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Ein gewichteter gleitender Durchschnitt legt mehr Gewicht auf die jüngsten Daten und weniger auf die vergangenen Daten. Dies geschieht durch Multiplikation des Preises jedes Balkens mit einem Gewichtungsfaktor. Aufgrund seiner einzigartigen Berechnung folgt der WMA den Kursen genauer als ein entsprechender Simple Moving Average.",
                 "updated": 1647934020138
+            },
+            {
+                "language": "TR",
+                "text": "Ağırlıklı Hareketli Ortalama, son verilere daha fazla, geçmiş verilere ise daha az ağırlık verir. Bu, her çubuğun fiyatının bir ağırlık faktörü ile çarpılmasıyla yapılır. Benzersiz hesaplaması nedeniyle WMA, fiyatları karşılık gelen Basit Hareketli Ortalamadan ( Simple Moving Average ) daha yakından takip edecektir.",
+                "updated": 1697835181641
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610737606
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697835191049
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des Indikators für den gewichteten gleitenden Durchschnitt kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’WMA’ Product Definition suchen und öffnen.",
                     "updated": 1647934103125
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağırlıklı Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'WMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835221121
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647934137854
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835226585
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647934145852
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835231209
                 }
             ]
         },
@@ -119,6 +144,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647934208532
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835237081
                 }
             ]
         },
@@ -135,6 +165,11 @@
                     "language": "DE",
                     "text": "Der WMA Indikator könnte verwendet werden, um ein Kaufsignal zu generieren, wenn eine Kerze oberhalb des WMA schließt:",
                     "updated": 1647934224489
+                },
+                {
+                    "language": "TR",
+                    "text": "WMA göstergesi, bir mum WMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697835241730
                 }
             ]
         },

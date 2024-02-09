@@ -112,26 +112,26 @@
         },
         {
             "style": "Success",
-            "text": "You may toggle these grey lines on and off using: Ctrl + Shift + Alt + Key-R",
+            "text": "You may toggle these grey lines on and off using: Ctrl + Shift + Key-R",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Вы можете включать и выключать эти серые линии, используя: Ctrl + Shift + Alt + Клавиша-R",
+                    "text": "Вы можете включать и выключать эти серые линии, используя: Ctrl + Shift + Клавиша-R",
                     "updated": 1638346885836
                 },
                 {
                     "language": "TR",
-                    "text": "Bu gri çizgileri şu tuş kombinasyonunu kullanarak açıp kapatabilirsiniz: Ctrl + Shift + Alt + Key-R",
+                    "text": "Bu gri çizgileri şu tuş kombinasyonunu kullanarak açıp kapatabilirsiniz: Ctrl + Shift + Key-R",
                     "updated": 1639562086642
                 },
                 {
                     "language": "EL",
-                    "text": "Μπορείτε να ενεργοποιήσετε και να απενεργοποιήσετε αυτές τις γκρίζες γραμμές χρησιμοποιώντας: Ctrl + Shift + Alt + Key-R",
+                    "text": "Μπορείτε να ενεργοποιήσετε και να απενεργοποιήσετε αυτές τις γκρίζες γραμμές χρησιμοποιώντας: Ctrl + Shift + Key-R",
                     "updated": 1641831690145
                 },
                 {
                     "language": "DE",
-                    "text": "Sie können diese grauen Linien ein- und ausschalten mit: Ctrl + Shift + Alt + Key-R",
+                    "text": "Sie können diese grauen Linien ein- und ausschalten mit: Ctrl + Shift + Key-R",
                     "updated": 1644783983928
                 }
             ]

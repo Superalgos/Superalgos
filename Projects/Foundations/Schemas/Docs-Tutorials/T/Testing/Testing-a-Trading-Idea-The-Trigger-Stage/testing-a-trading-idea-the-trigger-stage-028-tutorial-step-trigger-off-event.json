@@ -21,8 +21,13 @@
             },
             {
                 "language": "TR",
-                "text": "Artık stratejiyi ne zaman tetikleyeceğimizi belirlediğimize göre, fikri ne zaman geçersiz kılacağımızı düşünmemiz gerekiyor.",
-                "updated": 1641654565486
+                "text": "Artık stratejinin ne zaman tetiklenmesi gerektiğini tanımladığımıza göre, fikrin ne zaman geçersiz kılınması gerektiğini düşünelim.",
+                "updated": 1669580554490
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que hemos definido cuándo debe activarse la estrategia, consideremos cuándo debe invalidarse la idea.",
+                "updated": 1677100856344
             }
         ]
     },
@@ -44,8 +49,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Aşağı yönlü bir eğilim yoksa bu strateji ile ticaret yapmak istemiyoruz. O zaman tetikleme olayının mantığını tersine çevirelim! Aşağıdaki 1. ve 2. koşulları bulun:",
-                    "updated": 1641654580972
+                    "text": "Düşüş trendi olmadığında bu strateji ile ticaret yapmak istemiyoruz. Bu yüzden, olay üzerindeki tetikleyicinin mantığını tersine çevireceğiz! Aşağıda koşul 1 ve 2'yi bulun:",
+                    "updated": 1669580640435
+                },
+                {
+                    "language": "ES",
+                    "text": "No queremos hacer trading con esta estrategia cuando no hay tendencia bajista. Por lo tanto, vamos a invertir la lógica del evento trigger on. Encuentra las condiciones 1 y 2 a continuación:",
+                    "updated": 1677100871804
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "language": "TR",
                     "text": "Bu koşullardan herhangi biri doğru (true) kabul edilirse stratejiyi tetiklemeliyiz. Ama nasıl?",
                     "updated": 1641654593998
+                },
+                {
+                    "language": "ES",
+                    "text": "Deberíamos desactivar la estrategia cuando cualquiera de estas condiciones valide true. ¿Cómo?",
+                    "updated": 1677100915791
                 }
             ]
         }

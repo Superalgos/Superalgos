@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Перед созданием и размещением ордера необходимо провести несколько расчетов и проверок.",
                 "updated": 1640176767139
+            },
+            {
+                "language": "DE",
+                "text": "Bevor eine Bestellung erstellt und aufgegeben werden kann, sind mehrere Berechnungen und Validierungen erforderlich.",
+                "updated": 1679520732784
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "RU",
                     "text": "Перед созданием ордера необходимо выполнить несколько расчетов, чтобы определить, как должен выглядеть ордер, в частности, курс ордера (см. \"Расчет цены для ордера\") и размер ордера (см. \"Расчет размера ордера\").",
                     "updated": 1640177977099
+                },
+                {
+                    "language": "DE",
+                    "text": "Vor der Erstellung eines Auftrags sind einige Berechnungen erforderlich, um festzustellen, wie der Auftrag aussehen soll, insbesondere über den Kurs des Auftrags (siehe Auftragskurs berechnen) Order Rate und den Umfang des Auftrags (siehe Auftragsumfang berechnen) Size.",
+                    "updated": 1679520790866
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "RU",
                     "text": "После проведения расчетов необходимо провести некоторые проверки.",
                     "updated": 1640176877996
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Berechnungen abgeschlossen sind, sind einige Validierungen erforderlich.",
+                    "updated": 1679520805078
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "RU",
                     "text": "Размер заказа не может быть отрицательным.",
                     "updated": 1640176890354
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Umfang eines Auftrags darf nicht negativ sein.",
+                    "updated": 1679520814498
                 }
             ]
         },
@@ -65,6 +85,11 @@
                     "language": "RU",
                     "text": "Если предыдущие проверки пройдены и это форвард-тестирование или реальная торговая сессия, ордер размещается на бирже. Если это бэктестинг или бумажная торговая сессия, ордер существует только в структуре данных торгового движка.",
                     "updated": 1640176924793
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die vorherigen Prüfungen erfolgreich waren und es sich um eine Forward-Testing- oder Live-Handelssitzung handelt, wird der Auftrag an der Börse platziert. Handelt es sich um eine Backtesting- oder Papierhandelssitzung, existiert der Auftrag nur in der Datenstruktur der Handelsmaschine.",
+                    "updated": 1679520830704
                 }
             ]
         },
@@ -76,6 +101,11 @@
                     "language": "RU",
                     "text": "Если ордер размещен успешно, то все связанные структуры данных в торговом движке обновляются соответствующим образом, включая размер, размещенный в обоих активах, счетчики эпизодов и детали конкретного ордера.",
                     "updated": 1640186069938
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Auftrag erfolgreich platziert wurde, werden alle zugehörigen Datenstrukturen in der Handelsmaschine entsprechend aktualisiert, einschließlich der für die Phase platzierten Größe in beiden Vermögenswerten, der Episodenzähler und der Details des jeweiligen Auftrags.",
+                    "updated": 1679520843587
                 }
             ]
         },
@@ -91,6 +121,11 @@
                     "language": "RU",
                     "text": "Расчет цены для ордера",
                     "updated": 1640177936111
+                },
+                {
+                    "language": "DE",
+                    "text": "Auftragsrate berechnen",
+                    "updated": 1679520852537
                 }
             ]
         },
@@ -102,6 +137,11 @@
                     "language": "RU",
                     "text": "Первое, что необходимо учитывать для определения ставки ордера, это то, является ли он лимитным или рыночным.",
                     "updated": 1640177749348
+                },
+                {
+                    "language": "DE",
+                    "text": "Um den Kurs des Auftrags zu bestimmen, ist zunächst zu prüfen, ob es sich um einen Limit- oder einen Marktauftrag handelt.",
+                    "updated": 1679520868151
                 }
             ]
         },
@@ -113,6 +153,11 @@
                     "language": "RU",
                     "text": "Лимитные ордера должны иметь правильное определение ставки ордера. То есть узел ставки ордера Order Rate должен иметь формулу, результатом которой является число, большее нуля. Если все проверки пройдены, ставка ордера сохраняется в файле tradingEngineOrder.rate.value.",
                     "updated": 1640177808584
+                },
+                {
+                    "language": "DE",
+                    "text": "Limitierte Aufträge müssen eine korrekte Definition des Auftragssatzes haben. Das heißt, der Knoten für den Auftragssatz muss eine Formel haben, die eine Zahl ergibt, die größer als Null ist. Wenn alle Validierungen erfolgreich sind, wird der Auftragssatz in tradingEngineOrder.rate.value gespeichert.",
+                    "updated": 1679520895549
                 }
             ]
         },
@@ -125,6 +170,11 @@
                     "language": "RU",
                     "text": "Для рыночных ордеров не существует определения ставки, так как ставка является любой ставкой, по которой ордер исполняется на бирже. Поэтому начальным значением является последний известный рыночный курс, то есть курс последней закрытой свечи:",
                     "updated": 1640177880071
+                },
+                {
+                    "language": "DE",
+                    "text": "Für Marktaufträge gibt es keine Definition des Kurses, da der Kurs dem Kurs entspricht, zu dem der Auftrag an der Börse ausgeführt wird. Der Ausgangswert ist daher der letzte bekannte Marktkurs, d. h. der Kurs der letzten geschlossenen Kerze:",
+                    "updated": 1679520906300
                 }
             ]
         },
@@ -145,6 +195,11 @@
                     "language": "RU",
                     "text": "Расчет размера ордера",
                     "updated": 1640177929349
+                },
+                {
+                    "language": "DE",
+                    "text": "Auftragsgröße berechnen",
+                    "updated": 1679520935417
                 }
             ]
         },
@@ -156,6 +211,11 @@
                     "language": "RU",
                     "text": "Расчет размера ордера немного более сложен, поскольку необходимо учитывать несколько моментов, с дополнительной сложностью в том, что пользователь может определить целевой размер для этой стадии в базовом активе или котируемом активе.",
                     "updated": 1640179445008
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Berechnung des Auftragsvolumens ist etwas komplizierter, da mehrere Faktoren berücksichtigt werden müssen. Hinzu kommt, dass der Benutzer die Zielgröße für die Stufe im Basiswert oder im notierten Wert festlegen kann.",
+                    "updated": 1679520947507
                 }
             ]
         },
@@ -167,6 +227,11 @@
                     "language": "RU",
                     "text": "Три основных шага для определения размера следующие:",
                     "updated": 1640178038004
+                },
+                {
+                    "language": "DE",
+                    "text": "Die drei wichtigsten Schritte zur Festlegung der Größe sind die folgenden:",
+                    "updated": 1679520957727
                 }
             ]
         },
@@ -178,6 +243,11 @@
                     "language": "RU",
                     "text": "Прежде всего, определения, касающиеся размера ордера, должны быть действительными (см. раздел \"Проверка требуемой конфигурации\").",
                     "updated": 1640179206641
+                },
+                {
+                    "language": "DE",
+                    "text": "Zunächst müssen die Definitionen für die Größe des Auftrags gültig sein (siehe Validierung der erforderlichen Konfiguration).",
+                    "updated": 1679520970150
                 }
             ]
         },
@@ -187,8 +257,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Затем размер ордера, сложенный с остальными ордерами, которые могли быть размещены ранее, не должен превышать целевой размер для данной стадии (см. раздел \"Не прохождение проверки целевого размера\").",
+                    "text": "Затем размер ордера, сложенный с остальными ордерами, которые могли быть размещены ранее, не должен превышать целевой размер для данн��й стадии (см. раздел \"Не прохождение проверки целевого размера\").",
                     "updated": 1640178175552
+                },
+                {
+                    "language": "DE",
+                    "text": "Dann darf die Größe des Auftrags zusammen mit den übrigen Aufträgen, die möglicherweise zuvor erteilt wurden, nicht größer sein als die Zielgröße für die Stufe - siehe Validierung der Zielgröße (Target Size) nicht bestanden.",
+                    "updated": 1679520985083
                 }
             ]
         },
@@ -200,6 +275,11 @@
                     "language": "RU",
                     "text": "Наконец, размер ордера не должен оставлять ни один из активов во встроенной системе учета торгового движка с отрицательным балансом (см. Проверка отсутствия отрицательного баланса).",
                     "updated": 1640178234399
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließlich darf der Umfang des Auftrags nicht dazu führen, dass einer der Vermögenswerte im integrierten Buchhaltungssystem des Handelssystems einen negativen Saldo aufweist - siehe Validierung des nicht negativen Saldos (Balance).",
+                    "updated": 1679520997369
                 }
             ]
         },
@@ -209,8 +289,13 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Проверка требуемой конфигурации",
+                    "text": "Проверка тре��уемой конфигурации",
                     "updated": 1640179199298
+                },
+                {
+                    "language": "DE",
+                    "text": "Erforderliche Konfigurationsvalidierung",
+                    "updated": 1679521007987
                 }
             ]
         },
@@ -222,6 +307,11 @@
                     "language": "RU",
                     "text": "Помимо целевого размера для стадии, пользователь создает еще два определения, которые влияют на то, каким должен быть размер ордера для конкретного ордера: на уровне конфигурации алгоритма исполнения (параметр percentageOfStageTargetSize) и на уровне конфигурации ордера (параметр percentageOfAlgorithmSize). Оба эти определения должны быть действительными и числовыми.",
                     "updated": 1640178902200
+                },
+                {
+                    "language": "DE",
+                    "text": "Neben der Zielgröße für die Stufe gibt der Benutzer zwei weitere Definitionen ein, die sich auf die Auftragsgröße für den jeweiligen Auftrag auswirken: auf der Ebene der Konfiguration des Ausführungsalgorithmus (Parameter percentageOfStageTargetSize) und auf der Ebene der Auftragskonfiguration (Parameter percentageOfAlgorithmSize). Diese beiden Definitionen müssen gültig und numerisch sein.",
+                    "updated": 1679521057238
                 }
             ]
         },
@@ -233,6 +323,11 @@
                     "language": "RU",
                     "text": "После прохождения соответствующих проверок размер алгоритма определяется в соответствии с определениями:",
                     "updated": 1640178952162
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die entsprechenden Prüfungen bestanden sind, wird die Größe des Algorithmus gemäß den Definitionen bestimmt:",
+                    "updated": 1679521079932
                 }
             ]
         },
@@ -249,6 +344,11 @@
                     "language": "RU",
                     "text": "… и …",
                     "updated": 1640178959187
+                },
+                {
+                    "language": "DE",
+                    "text": "… und …",
+                    "updated": 1679521100837
                 }
             ]
         },
@@ -266,6 +366,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что предполагается, что целевой размер для стадии определен как в базовом активе, так и в котируемом активе. Это связано с тем, что, хотя пользователь определяет целевой размер только в одном активе, система преобразует определение в другой актив (в более ранний момент), чтобы постоянно отслеживать счета в обоих активах, что является требованием проекта.",
                     "updated": 1640179007871
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass davon ausgegangen wird, dass die Zielgröße für die Stufe sowohl in der Basisanlage als auch in der zitierten Anlage definiert ist. Der Grund dafür ist, dass der Benutzer die Zielgröße zwar nur in einer Anlage definiert, das System die Definition aber (zu einem früheren Zeitpunkt) in die andere Anlage konvertiert, um die Konten beider Anlagen jederzeit im Blick zu behalten, was eine Designanforderung ist.",
+                    "updated": 1679521120985
                 }
             ]
         },
@@ -281,6 +386,11 @@
                     "language": "RU",
                     "text": "Не прохождение проверки целевого размера",
                     "updated": 1645631196275
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfung der Zielgröße nicht bestanden",
+                    "updated": 1679521131508
                 }
             ]
         },
@@ -292,6 +402,11 @@
                     "language": "RU",
                     "text": "Эта проверка требует отдельной обработки двух возможных сценариев. Определил ли пользователь целевой размер для стадии в базовом активе или в котируемом активе?",
                     "updated": 1640179079697
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei dieser Validierung müssen zwei mögliche Szenarien getrennt behandelt werden. Hat der Benutzer die Zielgröße für die Stufe im Basis-Asset oder im zitierten Asset definiert?",
+                    "updated": 1679521141384
                 }
             ]
         },
@@ -304,6 +419,11 @@
                     "language": "RU",
                     "text": "Система различает оба сценария, чтобы сохранить верность замыслу определений. Это особенность конструкции всей системы, и она лежит в основе обеспечения максимальной гибкости, чтобы пользователи могли использовать торговые системы различными способами для достижения различных целей.",
                     "updated": 1640179117772
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System unterscheidet zwischen beiden Szenarien, um der Absicht der Definitionen treu zu bleiben. Dies ist ein durchgängiges Gestaltungsmerkmal des Systems und steht im Mittelpunkt, wenn es darum geht, ein Höchstmaß an Flexibilität zu ermöglichen, so dass die Benutzer die Handelssysteme auf verschiedene Weise nutzen können, um unterschiedliche Ziele zu erreichen.",
+                    "updated": 1679521158205
                 }
             ]
         },
@@ -315,6 +435,11 @@
                     "language": "RU",
                     "text": "Размер стадии заданного в базовом активе",
                     "updated": 1640179556161
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Basisanlage definierte Stufengröße",
+                    "updated": 1679521170790
                 }
             ]
         },
@@ -326,6 +451,11 @@
                     "language": "RU",
                     "text": "Если размер стадии был определен в базовом активе, то размер ордера вытекает из определений, которые были проверены на предыдущем шаге (см. раздел \"Проверка требуемой конфигурации\"):",
                     "updated": 1640179195014
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Stufengröße in der Basisanlage definiert wurde, ergibt sich die Größe des Auftrags aus den Definitionen, die im vorherigen Schritt validiert wurden (siehe Validierung der erforderlichen Konfiguration):",
+                    "updated": 1679521184648
                 }
             ]
         },
@@ -342,6 +472,11 @@
                     "language": "RU",
                     "text": "При указанном выше значении выполняется проверка, чтобы определить, будет ли совокупный размер всех ордеров, размещенных до этого момента, больше, чем размер, определенный для данной стадии. Помните, что размер, определенный для данной стадии, применяется в качестве ограничения. Если определенный размер ордера превышает лимит размера этапа, то размер уменьшается, чтобы соответствовать лимиту. Изменение размера сопровождается предупреждением, чтобы пользователь знал, почему произошло изменение размера.",
                     "updated": 1640179414754
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dem obigen Wert wird die Validierung durchgeführt, um festzustellen, ob die kombinierten Größen aller bis zu diesem Zeitpunkt erteilten Aufträge größer als die für die Stufe definierte Größe wären. Beachten Sie, dass die für die Stufe definierte Größe als Obergrenze gilt. Übersteigt die definierte Auftragsgröße das Limit für die Stufe, wird die Größe an das Limit angepasst. Bei der Größenanpassung wird eine Warnung ausgegeben, um den Benutzer darüber zu informieren, warum die Größenanpassung erfolgt ist.",
+                    "updated": 1679521200281
                 }
             ]
         },
@@ -353,6 +488,11 @@
                     "language": "RU",
                     "text": "Когда размер ордера в базовом активе окончательно определен, можно определить размер в котируемом активе, умножив размер в базовом активе на ставку ордера, определенную ранее:",
                     "updated": 1640179509695
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald der Auftragsumfang im Basisvermögen endgültig ist, kann der Umfang im börsennotierten Vermögen durch Multiplikation des Umfangs im Basisvermögen mit dem zuvor ermittelten Auftragssatz ermittelt werden:",
+                    "updated": 1679521214940
                 }
             ]
         },
@@ -369,6 +509,11 @@
                     "language": "RU",
                     "text": "Размер стадии, заданной в котируемом активе",
                     "updated": 1640179541598
+                },
+                {
+                    "language": "DE",
+                    "text": "Stufengröße definiert in notiertem Vermögenswert",
+                    "updated": 1679521224735
                 }
             ]
         },
@@ -380,6 +525,11 @@
                     "language": "RU",
                     "text": "Аналогично, в данном случае размер ордера в котируемом активе вытекает непосредственно из определений:",
                     "updated": 1640179584789
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch in diesem Fall ergibt sich der Umfang des Auftrags in notierten Vermögenswerten direkt aus den Definitionen:",
+                    "updated": 1679521234792
                 }
             ]
         },
@@ -396,6 +546,11 @@
                     "language": "RU",
                     "text": "Выполняется та же проверка, что и с базовым активом, и в конце также определяется размер ордера в базовом активе:",
                     "updated": 1640179602214
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird die gleiche Validierung durchgeführt wie beim Basisvermögen, und am Ende wird auch die Größe des Auftrags im Basisvermögen ermittelt:",
+                    "updated": 1679521246364
                 }
             ]
         },
@@ -416,6 +571,11 @@
                     "language": "RU",
                     "text": "Проверка отсутствия отрицательного баланса",
                     "updated": 1640179629288
+                },
+                {
+                    "language": "DE",
+                    "text": "Validierung nicht negativer Salden",
+                    "updated": 1679521257828
                 }
             ]
         },
@@ -427,6 +587,11 @@
                     "language": "RU",
                     "text": "Окончательная проверка проводится для того, чтобы убедиться, что баланс не станет отрицательным, если ордер будет создан с определенным на данный момент размером.",
                     "updated": 1640179651353
+                },
+                {
+                    "language": "DE",
+                    "text": "Die abschließende Validierung soll sicherstellen, dass keine Salden negativ werden, wenn der Auftrag mit der aktuell definierten Größe erstellt wird.",
+                    "updated": 1679521268586
                 }
             ]
         },
@@ -438,6 +603,11 @@
                     "language": "RU",
                     "text": "Ордера на покупку",
                     "updated": 1640179691799
+                },
+                {
+                    "language": "DE",
+                    "text": "Kauf-Order",
+                    "updated": 1679521331601
                 }
             ]
         },
@@ -449,6 +619,11 @@
                     "language": "RU",
                     "text": "Для ордеров на покупку (как рыночных, так и лимитных) котируемый остаток актива за вычетом размера ордера должен быть равен или больше нуля.",
                     "updated": 1640179717411
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Kaufaufträgen (sowohl Markt- als auch Limitaufträge) muss der Saldo des notierten Vermögenswerts abzüglich der Auftragsgröße gleich oder größer als Null sein.",
+                    "updated": 1679521338818
                 }
             ]
         },
@@ -465,6 +640,11 @@
                     "language": "RU",
                     "text": "Если нет, размер заказа переопределяется, чтобы соответствовать имеющемуся балансу. Изменение размера сопровождается предупреждением.",
                     "updated": 1640179737243
+                },
+                {
+                    "language": "DE",
+                    "text": "Ist dies nicht der Fall, wird die Größe der Bestellung neu festgelegt, um sie an das verfügbare Guthaben anzupassen. Die Größenanpassung wird mit einer Warnung quittiert.",
+                    "updated": 1679521355318
                 }
             ]
         },
@@ -481,6 +661,11 @@
                     "language": "RU",
                     "text": "И, помните, каждый раз, когда свойство изменяется для одного актива, это же свойство для другого актива также должно быть обновлено:",
                     "updated": 1640179755693
+                },
+                {
+                    "language": "DE",
+                    "text": "Und denken Sie daran, dass jedes Mal, wenn eine Eigenschaft für ein Wirtschaftsgut geändert wird, die gleiche Eigenschaft für das andere Wirtschaftsgut ebenfalls aktualisiert werden muss:",
+                    "updated": 1679521376938
                 }
             ]
         },
@@ -497,6 +682,11 @@
                     "language": "RU",
                     "text": "Ордера на продажу",
                     "updated": 1640179769996
+                },
+                {
+                    "language": "DE",
+                    "text": "Verkauf-Order",
+                    "updated": 1679521394270
                 }
             ]
         },
@@ -508,6 +698,11 @@
                     "language": "RU",
                     "text": "Для рыночных и лимитных ордеров на продажу проверка производится в обратном порядке, проверяется баланс базового актива, а не котируемого актива.",
                     "updated": 1640179799293
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei Markt- und Limit-Verkaufsaufträgen wird die Validierung umgekehrt, d. h. es wird der Saldo der Basisanlage statt der notierten Anlage geprüft.",
+                    "updated": 1679521404856
                 }
             ]
         },
@@ -520,6 +715,11 @@
                     "language": "RU",
                     "text": "Помните, что ордер на продажу всегда обменивает базовый актив на котируемый актив, а ордер на покупку делает обратное.",
                     "updated": 1640179824321
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass ein Verkaufsauftrag immer den Basiswert gegen den notierten Wert austauscht und ein Kaufauftrag das Gegenteil bewirkt.",
+                    "updated": 1679521417430
                 }
             ]
         }

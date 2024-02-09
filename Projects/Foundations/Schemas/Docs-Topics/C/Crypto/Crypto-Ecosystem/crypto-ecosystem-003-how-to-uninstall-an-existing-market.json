@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Mevcut bir marketi kaldırmak için, kaldırmak istediğiniz marketin menüsünden Market'i Kaldır'ı seçin.",
                 "updated": 1645356814933
+            },
+            {
+                "language": "DE",
+                "text": "Um einen bestehenden Markt zu deinstallieren, wählen Sie Market deinstallieren im Menü des Marktes, den Sie deinstallieren möchten.",
+                "updated": 1678466099320
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "1. Kripto ekosistem hiyerarşisinde tercih ettiğiniz kripto borsasının borsa pazarları düğümünü genişletin.",
                     "updated": 1645356836392
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Erweitern Sie den Börsenmarktknoten Ihrer bevorzugten Kryptobörse in der Krypto-Ökosystem-Hierarchie.",
+                    "updated": 1678466112759
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "2. Kaldırmak istediğiniz marketin menüsünde Market'i Kaldır'ı seçin.",
                     "updated": 1645356875292
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Wählen Sie Markt deinstallieren im Menü des Marktes, den Sie deinstallieren möchten.",
+                    "updated": 1678466122818
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Not: İşlev, Market Yükle işlevi kullanılarak oluşturulmuş olabilecek pazarla ilişkili tüm altyapıyı siler.",
                     "updated": 1645356895280
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktion löscht alle mit dem Markt verbundenen Infrastrukturen, die möglicherweise mit der \"Install Market\" -Funktion erstellt wurden.",
+                    "updated": 1678466133021
                 }
             ]
         },

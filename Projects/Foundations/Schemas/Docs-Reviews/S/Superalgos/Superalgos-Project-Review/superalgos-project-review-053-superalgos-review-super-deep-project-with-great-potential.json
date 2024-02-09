@@ -1,0 +1,277 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 53,
+    "type": "Superalgos Review - Super Deep Project with Great Potential",
+    "definition": {
+        "text": "Deep learning curve, but hey, this is that decentralized-crypto space in which case this project is on par.",
+        "updated": 1681628761464,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Tief Lernkurve, aber hey, das ist, dass dezentrale Krypto Raum, in dem Fall, dass dieses Projekt auf par ist.",
+                "updated": 1687643047589
+            },
+            {
+                "language": "TR",
+                "text": "Derin öğrenme eğrisi, ama hey, burası merkezi olmayan kripto alanıdır, bu durumda bu proje eşittir.",
+                "updated": 1696018019309
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To be honest, my first attempt at the Getting Started tutorial was a total failure and frustrated experience. But shutting everything down and starting again worked and I was able to experience a lot of magic. So I thought I would make some notes on my experience and drop them here.",
+            "updated": 1681628971311,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um ehrlich zu sein, war mein erster Versuch mit dem Getting Started-Tutorial ein totaler Fehlschlag und eine frustrierende Erfahrung. Aber nachdem ich alles heruntergefahren und neu gestartet hatte, funktionierte es und ich konnte eine Menge Magie erleben. Also dachte ich, ich mache mir ein paar Notizen über meine Erfahrungen und stelle sie hier ein.",
+                    "updated": 1687643074678
+                },
+                {
+                    "language": "TR",
+                    "text": "Dürüst olmak gerekirse, Başlangıç eğitimindeki ilk denemem tam bir başarısızlık ve hayal kırıklığı deneyimiydi. Ancak her şeyi kapatıp yeniden başlamak işe yaradı ve birçok sihri deneyimleyebildim. Bu yüzden deneyimimle ilgili bazı notlar alabileceğimi ve bunları buraya bırakabileceğimi düşündüm.",
+                    "updated": 1696018025033
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Tips for new users",
+            "updated": 1681629010978,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tipps für neue Nutzer",
+                    "updated": 1687643088550
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni kullanıcılar için ipuçları",
+                    "updated": 1696018032528
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Be persistent and repeat tutorials again until what they offer both works and is understood/sticks. This is complex stuff and there’s a great deal of info, so give yourself some patience and grace.",
+            "updated": 1681629052819,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Seien Sie hartnäckig und wiederholen Sie die Tutorials so lange, bis das, was sie anbieten, funktioniert und verstanden wird. Dies ist eine komplexe Angelegenheit und es gibt eine Menge Informationen, also haben Sie etwas Geduld und Nachsicht.",
+                    "updated": 1687643106400
+                },
+                {
+                    "language": "TR",
+                    "text": "Israrcı olun ve sundukları şey hem işe yarayana hem de anlaşılana / yapışana kadar eğitimleri tekrarlayın. Bu karmaşık bir konu ve çok fazla bilgi var, bu yüzden kendinize biraz sabır ve nezaket gösterin.",
+                    "updated": 1696018038375
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Sometimes it’s just easier to close the browser tab, quite the node process and start the tutorial again from scratch as some underlying process may not have run or been given enough time to complete. My very first time going through the tutorials was a failure as I didn’t see things that I was instructed to do or were described to happen. Reloading and running again changed that.",
+            "updated": 1681629081221,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Manchmal ist es einfacher, die Browser-Registerkarte zu schließen, den Node-Prozess abzubrechen und das Lernprogramm noch einmal von vorne zu beginnen, da einige der zugrunde liegenden Prozesse möglicherweise nicht ausgeführt wurden oder nicht genügend Zeit hatten, um abgeschlossen zu werden. Mein erster Durchgang durch die Tutorials war ein Fehlschlag, da ich Dinge, die ich tun sollte oder die beschrieben wurden, nicht sah. Ein erneutes Laden und Ausführen änderte dies.",
+                    "updated": 1687643125143
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen tarayıcı sekmesini kapatmak, düğüm işlemini sonlandırmak ve öğreticiyi sıfırdan başlatmak daha kolaydır, çünkü bazı temel işlemler çalışmamış veya tamamlanması için yeterli zaman verilmemiş olabilir. Eğitimleri ilk kez gözden geçirdiğimde, yapmam söylenen veya gerçekleşmesi tarif edilen şeyleri görmediğim için başarısız oldum. Yeniden yükleme ve tekrar çalıştırma bunu değiştirdi.",
+                    "updated": 1696018044477
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Having the browser dev tools open to reveal console errors or load errors indicating that something is wrong. Usually I could reload everything and it would work or it could be skipped without any noticed consequences.",
+            "updated": 1681629122313,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Browser-Entwicklungstools geöffnet sind, werden Konsolenfehler oder Ladefehler angezeigt, die darauf hindeuten, dass etwas nicht in Ordnung ist. Normalerweise konnte ich alles neu laden und es funktionierte, oder ich konnte es überspringen, ohne dass dies irgendwelche Folgen hatte.",
+                    "updated": 1687643147884
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarayıcı geliştirme araçlarının konsol hatalarını veya bir şeylerin yanlış olduğunu gösteren yükleme hatalarını ortaya çıkarmak için açık olması. Genellikle her şeyi yeniden yükleyebiliyordum ve çalışıyordu ya da herhangi bir sonuç fark etmeden atlanabiliyordu.",
+                    "updated": 1696018049626
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Use a larger monitor if you have it. I was able to complete the tutorials on a 13” MBP, but it was tedious with the limited screen reality and the strong focus on visual development.",
+            "updated": 1681629129372,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie einen größeren Monitor, wenn Sie ihn haben. Ich war in der Lage, die Tutorials auf einem 13-Zoll-MBP zu absolvieren, aber es war mühsam mit dem begrenzten Bildschirm Realität und den starken Fokus auf visuelle Entwicklung.",
+                    "updated": 1687643166734
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer varsa daha büyük bir monitör kullanın. Eğitimleri 13 inç MBP'de tamamlayabildim, ancak sınırlı ekran gerçekliği ve görsel geliştirmeye güçlü odaklanma nedeniyle sıkıcıydı.",
+                    "updated": 1696018056433
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Pay attention to icons in the tutorial, especially in the top grey block. These are the items to interact with at that given point in the tutorial. Example, in the charts section of the Getting Started tutorial, when it came to learning how to scale, I didn’t realize I had to be on the small black box with that icon given icon in it to then Shift + mouse scroll for it to work (also I learned, there tends to be a video in the next tutorial screen to clarify these things).",
+            "updated": 1681629193177,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Achten Sie auf die Symbole im Lernprogramm, insbesondere im oberen grauen Block. Dies sind die Elemente, mit denen Sie an der jeweiligen Stelle des Tutorials interagieren müssen. Als ich zum Beispiel im Abschnitt \"Diagramme\" des Tutorials \"Erste Schritte\" lernte, wie man skaliert, wusste ich nicht, dass ich auf das kleine schwarze Kästchen mit dem entsprechenden Symbol gehen und dann die Shift und die Maustaste drücken musste, damit es funktionierte (ich habe auch gelernt, dass es auf dem nächsten Bildschirm des Tutorials ein Video gibt, das diese Dinge erklärt).",
+                    "updated": 1687643249178
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitimdeki simgelere, özellikle de en üstteki gri bloğa dikkat edin. Bunlar eğitimin o noktasında etkileşime girmeniz gereken öğelerdir. Örneğin, Başlangıç eğitiminin grafikler bölümünde, nasıl ölçeklendirileceğini öğrenmek söz konusu olduğunda, içinde bu simgenin bulunduğu küçük siyah kutunun üzerinde olmam ve ardından çalışması için Shift + fare kaydırması yapmam gerektiğini fark etmemiştim (ayrıca bir sonraki eğitim ekranında bunları açıklığa kavuşturmak için bir video olduğunu da öğrendim).",
+                    "updated": 1696018061689
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Pain Points:",
+            "updated": 1681629292873,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kritikpunkte:",
+                    "updated": 1687643338582
+                },
+                {
+                    "language": "TR",
+                    "text": "Acı Noktalar:",
+                    "updated": 1696018070257
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This is constructive criticism and please, read them as notes-to-myself on possible ways I can contribute to make the project better.",
+            "updated": 1681629326994,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist konstruktive Kritik und bitte lesen Sie sie als Notizen an mich selbst, wie ich dazu beitragen kann, das Projekt zu verbessern.",
+                    "updated": 1687643348133
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu yapıcı bir eleştiridir ve lütfen bunları projeyi daha iyi hale getirmek için katkıda bulunabileceğim olası yollar hakkında kendime notlar olarak okuyun.",
+                    "updated": 1696018076985
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "- Node Navigation and Interconnection. Trying to understand how to get between nodes without any prior context of their relationship leads to one easily being lost. Admittedly, it's assumed that with practice will come understanding however internode actions such as creating references by dragging the node across UI space is very tedious. Suggestion: It seems some nodes can only connect to certain other nodes within a workspace. Add a tool that pops up an autocomplete go-to form to both search for and go/connect nodes.",
+            "updated": 1681629615945,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "- Knotendurchquerung (Node Navigation) und Verknüpfung. Wenn man versucht zu verstehen, wie man zwischen den Knoten ohne vorherigen Kontext ihrer Beziehung gelangt, kann man leicht den Überblick verlieren. Zugegeben, man geht davon aus, dass mit der Übung auch das Verständnis kommt, aber interne Knotenaktionen wie das Erstellen von Referenzen durch Ziehen des Knotens über die Benutzeroberfläche (UI) sind sehr mühsam. Anregung: Es scheint, dass einige Knoten nur mit bestimmten anderen Knoten innerhalb eines Arbeitsbereichs verbunden werden können. Fügen Sie ein Werkzeug hinzu, das ein automatisch ausgefülltes Formular zum Suchen und Verbinden von Knoten aufruft.",
+                    "updated": 1687643401350
+                },
+                {
+                    "language": "TR",
+                    "text": "- Düğüm ( Node ) Navigasyonu ve Ara Bağlantı. Aralarındaki ilişkiye dair önceden herhangi bir bağlam olmadan düğümler arasında nasıl geçiş yapılacağını anlamaya çalışmak, kişinin kolayca kaybolmasına neden olur. Kuşkusuz, pratik yaptıkça anlayacağınız varsayılmaktadır, ancak düğümü UI alanı boyunca sürükleyerek referanslar oluşturmak gibi düğümler arası eylemler çok sıkıcıdır. Öneri: Görünüşe göre bazı düğümler bir çalışma alanı içinde yalnızca belirli diğer düğümlere bağlanabiliyor. Hem düğümleri aramak hem de düğümlere gitmek/bağlanmak için bir otomatik tamamlama gitme formu açan bir araç ekleyin.",
+                    "updated": 1696018091313
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "- Status indication: It’s not clear what part of the process a node is in and when it’s finished. - Specific example, in the Getting Started tutorial, Cancel Vol. MTF Market Indicator Instance shows yellow label “Waiting for My Computer…” the whole time it’s present. I don’t have any easy wait to tell what it’s do if anything. Long minutes later, it finally also displayed in light blue today’s date and 100%, but the yellow waiting label still persists. Slightly better experience was see by the Exchange Raw Data Sensor that shows units acquired ( e.g. 1512/1512 OHLCVs from Binancus) and the associated yellow label does update to say “Waiting 60s…”",
+            "updated": 1681631263937,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "- Statusanzeige (Status indication): Es ist nicht klar, in welchem Teil des Prozesses sich ein Knoten befindet und wann er beendet ist. - Konkretes Beispiel: Im Getting Started Tutorial zeigt Cancel Vol. MTF Market Indicator Instance die ganze Zeit über die gelbe Aufschrift \"Waiting for My Computer...\". Ich habe keine einfache Wartezeit zu sagen, was es tun, wenn überhaupt. Lange Minuten später wird endlich auch das heutige Datum in hellblau und 100% angezeigt, aber der gelbe Aufkleber \"Waiting for My Computer...\" bleibt bestehen. Etwas besser sieht es mit dem Exchange Raw Data Sensor aus, der erworbene Einheiten anzeigt (z.B. 1512/1512 OHLCVs von Binancus) und das zugehörige gelbe Etikett aktualisiert sich und sagt \"Waiting 60s...\"",
+                    "updated": 1687643490565
+                },
+                {
+                    "language": "TR",
+                    "text": "- Durum göstergesi: Bir düğümün sürecin hangi kısmında olduğu ve ne zaman bittiği belli değil. - Spesifik örnek, Başlarken eğitiminde, İptal Vol. MTF Piyasa Göstergesi Örneği, mevcut olduğu süre boyunca \"Bilgisayarımı Bekliyor...\" sarı etiketini gösterir. Bir şey varsa ne yaptığını söylemek için kolay bir bekleyişim yok. Uzun dakikalar sonra, nihayet açık mavi renkte bugünün tarihini ve %100'ünü de gösterdi, ancak sarı bekleme etiketi hala devam ediyor. Alınan birimleri (örneğin Binancus'tan 1512/1512 OHLCV'ler) gösteren Exchange Raw Data Sensor ile biraz daha iyi bir deneyim yaşandı ve ilgili sarı etiket \"60'lar bekleniyor...\" şeklinde güncellendi.",
+                    "updated": 1696018101905
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "- Exchange requirements for Getting Started tutorial to work was unclear and breaking to my initial experience. The option to use binance.com, binance.us or neither seemed to be options. However, and I am in the U.S., it wasn’t until repeating the tutorial and actually setting exchange to “binanceus” that the tutorial could actually be followed in its entirety.",
+            "updated": 1681630356393,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "- Die Anforderungen an die Börse, damit das Getting Started Tutorial funktioniert, waren unklar und brachen mit meinen ersten Erfahrungen. Die Option, binance.com, binance.us oder keines von beiden zu verwenden, schien eine Option zu sein. Allerdings, und ich bin in den USA, war es nicht bis Wiederholung des Tutorials und tatsächlich Einstellung Austausch zu \"binanceus\", dass das Tutorial tatsächlich in seiner Gesamtheit gefolgt werden konnte.",
+                    "updated": 1687643559251
+                },
+                {
+                    "language": "TR",
+                    "text": "- Başlarken eğitiminin çalışması için borsa gereksinimleri belirsizdi ve ilk deneyimimi bozuyordu. Binance.com, binance.us ya da hiçbirini kullanmama seçeneği var gibi görünüyordu. Ancak, ben ABD'deyim ve öğreticiyi tekrar edip borsayı \"binanceus\" olarak ayarlayana kadar öğretici gerçekten bütünüyle takip edilemedi.",
+                    "updated": 1696018106581
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Current Conclusion",
+            "updated": 1681630078553,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fazit",
+                    "updated": 1687643574933
+                },
+                {
+                    "language": "TR",
+                    "text": "Güncel Sonuç",
+                    "updated": 1696018125881
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I'm truly impressed with the continued growth and management of complexity that this project keeps trudging forward with. I'm personally interested in exploring alternative implementations of the project especially towards more developer-centric routes (more modularization, less monolithic reliance on UI elements) as well as increasing transparency of critical elements like data and networking.",
+            "updated": 1681631107913,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich bin wirklich beeindruckt von dem kontinuierlichen Wachstum und der Bewältigung der Komplexität, mit der dieses Projekt immer weiter voranschreitet. Ich persönlich bin daran interessiert, alternative Implementierungen des Projekts zu erforschen, vor allem in Richtung einer stärker entwicklerorientierten Richtung (mehr Modularisierung, weniger monolithische Abhängigkeit von UI -Elementen) sowie eine größere Transparenz bei kritischen Elementen wie Daten und Netzwerken.",
+                    "updated": 1687643594101
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu projenin devam eden büyümesinden ve karmaşıklık yönetiminden gerçekten etkilendim. Kişisel olarak projenin özellikle daha geliştirici merkezli rotalara (daha fazla modülerleştirme, kullanıcı arayüzü öğelerine daha az monolitik bağımlılık) yönelik alternatif uygulamalarını keşfetmenin yanı sıra veri ve ağ gibi kritik unsurların şeffaflığını artırmakla ilgileniyorum.",
+                    "updated": 1696018112617
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Review v1, 2023-04-16; created by bearcanrun",
+            "updated": 1681631446553,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İnceleme v1, 2023-04-16; bearcanrun tarafından oluşturulmuştur",
+                    "updated": 1696018118713
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

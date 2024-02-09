@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varlık düğümü, Superalgos'taki bir varlığın tanımıdır.",
                 "updated": 1639221932300
+            },
+            {
+                "language": "DE",
+                "text": "Ein Asset-Knoten ist die Definition eines Assets in Superalgos.",
+                "updated": 1701930795389
             }
         ]
     },
@@ -36,6 +41,12 @@
                     "language": "TR",
                     "text": "Borsa Varlıkları (Exchange Assets) düğümü altında tanımlanan varlıklar (Assets), daha sonra piyasaları tanımlamak veya Kullanıcı Varlıkları düğümü (User Assets) altında bu varlıklarda belirtilen varlıkları tanımlamak için kullanılabilir.",
                     "updated": 1644572892180
+                },
+                {
+                    "language": "DE",
+                    "text": "Die unter dem Knoten \"Exchange Assets\" definierten Vermögenswerte können dann zur Definition von Märkten oder zur Definition von auf diese Vermögenswerte lautenden Beständen unter dem Knoten \"User Assets\" verwendet werden.",
+                    "updated": 1701930795524,
+                    "style": "Text"
                 }
             ]
         },
@@ -62,6 +73,12 @@
                     "language": "TR",
                     "text": "Varlık Yapılandırması",
                     "updated": 1644573086313
+                },
+                {
+                    "language": "DE",
+                    "text": "Asset Konfiguration",
+                    "updated": 1701930795695,
+                    "style": "Title"
                 }
             ]
         },
@@ -79,6 +96,12 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1644573093446
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930795798,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -96,6 +119,12 @@
                     "language": "TR",
                     "text": "codeName, borsa tarafından listelendiği şekliyle varlığın simgesidir (yani BTC, BTH, ETH, LTC, BNB, USDT, USD, vb.)",
                     "updated": 1644574382589
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Ticker des Vermögenswerts, wie er an der Börse gelistet ist (z.B. BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)",
+                    "updated": 1701930795900,
+                    "style": "List"
                 }
             ]
         },
@@ -112,6 +141,12 @@
                     "language": "TR",
                     "text": "Konfigüre edilmiş bir varlığa ait logo, sistemin simge kataloğunda varsa, eklenen varlığın logosuyla değiştirilir.",
                     "updated": 1644574517748
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sich ein konfiguriertes Asset im Symbolkatalog des Systems befindet, wird das Standard-Asset-Symbol durch den Logotyp des entsprechenden Assets ersetzt.",
+                    "updated": 1701930796114,
+                    "style": "Note"
                 }
             ]
         }

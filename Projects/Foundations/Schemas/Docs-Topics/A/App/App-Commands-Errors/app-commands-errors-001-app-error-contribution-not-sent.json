@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Es gab ein Problem beim Versuch, Ihren Beitrag (contribution) an Ihre Fork des Superalgos-Repositorys oder von Ihrer Fork an das Superalgos/Superalgos main repository zu senden.",
-                "updated": 1637847176279
+                "text": "Es gab ein Problem beim Versuch, Ihren Beitrag an Ihren Fork des Superalgos-Repositorys oder von Ihrem Fork an das Superalgos/Superalgos-Hauptrepository zu senden.",
+                "updated": 1702242586150
             },
             {
                 "language": "RU",
@@ -31,8 +31,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie den folgenden Abschnitt, um zu erfahren, was passiert sein könnte. Nachdem Sie das Problem behoben haben, das die Ausführung des App Contribute Command verhindert hat, können Sie es erneut versuchen.",
-                    "updated": 1637847279708
+                    "text": "Lesen Sie den folgenden Abschnitt, um zu erfahren, was passiert sein könnte. Nachdem Sie das Problem behoben haben, das die Ausführung des App Contribute-Befehls (App Contribute Command) verhindert hat, können Sie es erneut versuchen.",
+                    "updated": 1702242608714
                 },
                 {
                     "language": "RU",
@@ -62,6 +62,11 @@
                     "text": "Hata Bilgisi",
                     "updated": 1654392737054,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Infos",
+                    "updated": 1702242616652
                 }
             ]
         },
@@ -94,8 +99,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Hinweis: Diese Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
-                    "updated": 1637847343322
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1702242638050
                 },
                 {
                     "language": "RU",
@@ -116,8 +121,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Fehlermeldung (Error Message)",
-                    "updated": 1637847408680
+                    "text": "Fehlermeldung",
+                    "updated": 1702242648852
                 },
                 {
                     "language": "RU",
@@ -172,6 +177,11 @@
                     "text": "Hata Yığını",
                     "updated": 1654392765971,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Anzahl der Fehler",
+                    "updated": 1702242712576
                 }
             ]
         },
@@ -181,8 +191,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Im Folgenden ist der Error Stack der beim Client aufgetretenen Ausnahme dargestellt:",
-                    "updated": 1637847442850
+                    "text": "Im Folgenden wird die Anzahl der Fehler, die beim Client aufgetretenen Ausnahme, dargestellt:",
+                    "updated": 1702242718756
                 },
                 {
                     "language": "RU",
@@ -215,6 +225,11 @@
                     "text": "Hata Kodu",
                     "updated": 1654392777478,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlercode",
+                    "updated": 1702242727810
                 }
             ]
         },
@@ -259,6 +274,11 @@
                     "text": "Hata Detayları",
                     "updated": 1654392790569,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehler-Details",
+                    "updated": 1702242748182
                 }
             ]
         },

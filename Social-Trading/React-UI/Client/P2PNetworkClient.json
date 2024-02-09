@@ -1,0 +1,206 @@
+{
+    "type": "P2P Network Client",
+    "name": "New P2P Network Client",
+    "config": "{\n}",
+    "project": "Network",
+    "p2pNetworkReference": {
+        "type": "P2P Network Reference",
+        "name": "Testnet",
+        "project": "Network",
+        "id": "448d3ea6-e194-4784-acca-0e446b9127e3",
+        "savedPayload": {
+            "position": {
+                "x": 25072.002706802843,
+                "y": 29917.025788457908
+            },
+            "targetPosition": {
+                "x": 25222.002706802843,
+                "y": 30176.83340959324
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 2,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            },
+            "referenceParent": {
+                "type": "P2P Network",
+                "name": "Testnet",
+                "id": "f614fedc-e405-4260-9e17-90c863482c8d"
+            },
+            "referenceParentCombinedNodePath": [
+                [
+                    "Testnet",
+                    "P2P Network"
+                ]
+            ]
+        }
+    },
+    "networkServices": {
+        "type": "Network Services",
+        "name": "New Network Services",
+        "config": "{}",
+        "project": "Network",
+        "socialGraph": {
+            "type": "Social Graph",
+            "name": "New Social Graph",
+            "config": "{}",
+            "project": "Network",
+            "id": "0c1c4622-99d5-45b6-8337-4a26db9576c0",
+            "savedPayload": {
+                "position": {
+                    "x": 25222.002706802843,
+                    "y": 29597.2779138198
+                },
+                "targetPosition": {
+                    "x": 25299.6484203336,
+                    "y": 29887.05566170652
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "tradingSignals": {
+            "type": "Trading Signals",
+            "name": "New Trading Signals",
+            "config": "{}",
+            "project": "Network",
+            "id": "b77b6610-9344-4046-9f96-d1dbe4470c7b",
+            "savedPayload": {
+                "position": {
+                    "x": 25511.780454689564,
+                    "y": 29674.923627350556
+                },
+                "targetPosition": {
+                    "x": 25299.6484203336,
+                    "y": 29887.05566170652
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "3d404fe9-20b0-422d-bc1d-25b9a510fc95",
+        "savedPayload": {
+            "position": {
+                "x": 25299.6484203336,
+                "y": 29887.05566170652
+            },
+            "targetPosition": {
+                "x": 25222.002706802843,
+                "y": 30176.83340959324
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 2,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "networkInterfaces": {
+        "type": "Network Interfaces",
+        "name": "New Network Interfaces",
+        "config": "{}",
+        "project": "Network",
+        "websocketsNetworkInterface": {
+            "type": "Websockets Network Interface",
+            "name": "New Websockets Network Interface",
+            "config": "{ \n\"webSocketsPort\": \"18042\"\n}",
+            "project": "Network",
+            "id": "de43f570-9960-4f8c-9fa4-5ec43a95daa9",
+            "savedPayload": {
+                "position": {
+                    "x": 25741.61794907351,
+                    "y": 29876.83340959324
+                },
+                "targetPosition": {
+                    "x": 25481.810327938176,
+                    "y": 30026.83340959324
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "85aa06ab-cab7-429c-b374-351af557ff12",
+        "savedPayload": {
+            "position": {
+                "x": 25481.810327938176,
+                "y": 30026.83340959324
+            },
+            "targetPosition": {
+                "x": 25222.002706802843,
+                "y": 30176.83340959324
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 2,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "224fe04b-54ca-4937-ad9a-bfe06d18dfaf",
+    "savedPayload": {
+        "position": {
+            "x": 25222.002706802843,
+            "y": 30176.83340959324
+        },
+        "targetPosition": {
+            "x": 25144.356993272086,
+            "y": 30466.61115747996
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 2,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

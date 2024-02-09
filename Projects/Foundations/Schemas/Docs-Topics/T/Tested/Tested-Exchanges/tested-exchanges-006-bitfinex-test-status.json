@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bitfinex, veri madenciliği için test edilmiştir, ancak canlı ticaret için test edilmemiştir.",
                 "updated": 1650570985206
+            },
+            {
+                "language": "DE",
+                "text": "Bitfinex ist für Data Mining getestet, aber nicht für den Live-Handel.",
+                "updated": 1690356895433
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1650570991247
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1690356902184
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1 dakikalık OHLCV Yeteneği: Evet. Geriye dönük test amacıyla geçmiş verileri getirme yeteneği doğrulandı.",
                     "updated": 1650571003838
+                },
+                {
+                    "language": "DE",
+                    "text": "1-min OHLCVs-Fähigkeit: Ja. Die Fähigkeit, historische Daten für Backtesting-Zwecke abzurufen, wurde überprüft.",
+                    "updated": 1690356909633
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Market Geçmişi: 1 yıl.",
                     "updated": 1650571020869
+                },
+                {
+                    "language": "DE",
+                    "text": "Marktgeschichte (Market History): 1 Jahr.",
+                    "updated": 1690356916537
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Ticaret Yeteneği: Bilinmiyor. Canlı ticaret modunda strateji çalıştırma yeteneği doğrulanmadı.",
                     "updated": 1650571029141
+                },
+                {
+                    "language": "DE",
+                    "text": "Handelsfähigkeiten (Trading Capability): Unbekannt. Die Fähigkeit, Strategien im Live-Trading-Modus auszuführen, wurde nicht überprüft.",
+                    "updated": 1690356924912
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Yorumlar: Ham Veri madenciliği, Rest API aracılığıyla istenebilecek veri sayısını sınırlayan API'lerindeki değişim kısıtlamaları nedeniyle yavaş olabilir.",
                     "updated": 1650571036431
+                },
+                {
+                    "language": "DE",
+                    "text": "Bemerkungen: Die Gewinnung von Rohdaten (Raw Data) kann aufgrund von Austauschbeschränkungen für ihre API, die die Anzahl der Daten, die über die Rest-API angefordert werden können, begrenzen, langsam sein.",
+                    "updated": 1690356932849
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1650571045283
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1690356943037
                 }
             ]
         },

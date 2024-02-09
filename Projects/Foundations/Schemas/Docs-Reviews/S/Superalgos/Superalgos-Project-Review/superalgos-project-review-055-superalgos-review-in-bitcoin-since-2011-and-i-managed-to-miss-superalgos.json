@@ -1,0 +1,109 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 55,
+    "type": "Superalgos Review - In bitcoin since 2011 and I managed to miss Superalgos",
+    "definition": {
+        "text": "Write a summary for this review page.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Rezensionsseite.",
+                "updated": 1687643737260
+            },
+            {
+                "language": "TR",
+                "text": "Bu inceleme sayfası için bir özet yazın.",
+                "updated": 1696018175418
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Thanks to Bing-ChatGPT I found this great open source project to automate some of my trades.",
+            "updated": 1682675340215,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dank Bing-ChatGPT habe ich dieses großartige Open-Source-Projekt gefunden, um einige meiner Trades zu automatisieren.",
+                    "updated": 1687643748679
+                },
+                {
+                    "language": "TR",
+                    "text": "Bing-ChatGPT sayesinde bazı işlemlerimi otomatikleştirmek için bu harika açık kaynak projesini buldum.",
+                    "updated": 1696018183196
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I'm also ecstatic with prospect of AI trading.",
+            "updated": 1682675788296,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich bin auch begeistert von der Aussicht auf den KI-Handel.",
+                    "updated": 1687643758924
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapay zeka ticareti ihtimali beni de çok heyecanlandırıyor.",
+                    "updated": 1696018187296
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I will try to test and contribute as much as I can.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich werde versuchen, so viel wie möglich zu testen und beizutragen.",
+                    "updated": 1687643767978
+                },
+                {
+                    "language": "TR",
+                    "text": "Elimden geldiğince test etmeye ve katkıda bulunmaya çalışacağım.",
+                    "updated": 1696018191267
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I have experience with computer systems since 1986 and I'm a \"retired\" Computer Scientist with most experience in Administering Server and Network equipment. I also use Linux since 1998. I run windows only if I have to and only in VMs under linux.",
+            "updated": 1682676000680,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe seit 1986 Erfahrung mit Computersystemen und bin ein \"pensionierter\" Informatiker mit den meisten Erfahrungen in der Verwaltung von Server- und Netzwerkausrüstung. Ich benutze auch Linux seit 1998. Ich betreibe Windows nur, wenn ich muss, und nur in VMs unter Linux.",
+                    "updated": 1687643778556
+                },
+                {
+                    "language": "TR",
+                    "text": "1986'dan beri bilgisayar sistemleri konusunda deneyimim var ve en çok Sunucu ve Ağ ekipmanlarını yönetme konusunda deneyime sahip \"emekli\" bir Bilgisayar Bilimcisiyim. Ayrıca 1998'den beri Linux kullanıyorum. Windows'u sadece mecbur kalırsam ve sadece linux altında VM'lerde çalıştırıyorum.",
+                    "updated": 1696018205604
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "And finally I'm a native Greek speaker.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Und schließlich bin ich griechischer Muttersprachler.",
+                    "updated": 1687643786107
+                },
+                {
+                    "language": "TR",
+                    "text": "Ve son olarak anadili Yunanca olan biriyim.",
+                    "updated": 1696018200861
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "pcrypt"
+        }
+    ]
+}

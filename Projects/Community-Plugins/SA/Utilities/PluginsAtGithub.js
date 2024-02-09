@@ -12,7 +12,8 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
         repo,
         owner,
         filePath,
-        fileName
+        fileName,
+        branch
     ) {
         /*
         Create a Pull Request with the changed or new plugin, so that it can eventually be merged into
@@ -23,7 +24,9 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
         async function promiseWork(resolve, reject) {
 
             const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
+            const { retry } = SA.nodeModules.retry
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: token,
                 userAgent: 'Superalgos ' + SA.version
             })
@@ -31,10 +34,10 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
             const buff = new Buffer.from(fileContent, 'utf-8');
             const content = buff.toString('base64');
             try {
-                const { data: { sha } } = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}', {
+                const { data: { sha } } = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}?ref={branch}', {
                     owner: owner,
                     repo: repo,
-                    branch: 'master',
+                    branch: branch,
                     file_path: completePath
                 });
                 if (sha) {
@@ -42,9 +45,9 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                         owner: owner,
                         repo: repo,
                         path: completePath,
-                        message: 'Plugin Update',
+                        message: 'Profile Update from Social Trading App',
                         content: content,
-                        branch: 'master',
+                        branch: branch,
                         sha: sha
                     })
                         .then(githubSaysOK)
@@ -57,7 +60,7 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                     if (err.status === 404) {
                         createNewFile()
                     } else {
-                        console.log((new Date()).toISOString(), '[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                        SA.logger.error('File could not be saved at Github.com. -> err.stack = ' + err.stack)
                         reject(err)
                     }
                 }
@@ -67,20 +70,28 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                         owner: owner,
                         repo: repo,
                         path: completePath,
-                        message: 'New Plugin',
+                        message: 'New Profile from Social Trading App',
                         content: content,
-                        branch: 'master'
+                        branch: branch
                     })
                         .then(githubSaysOK)
                         .catch(githubError)
                 }
 
-            function githubSaysOK() {
+            async function githubSaysOK() {
+                await octokit.rest.pulls.create({
+                    owner: 'Superalgos',
+                    repo: repo,
+                    title: "Profile Update from Social Trading App",
+                    head: owner + ":" + branch,
+                    base: branch,
+                  })
+                .then(response => SA.logger.info('Pull Request #' + response.data.number +' created'))
                 resolve()
             }
 
             function githubError(err) {
-                console.log((new Date()).toISOString(), '[ERROR] Plugins at Github -> err.stack = ' + err.stack)
+                SA.logger.error('Plugins at Github -> err.stack = ' + err.stack)
                 reject(err)
             }
         }

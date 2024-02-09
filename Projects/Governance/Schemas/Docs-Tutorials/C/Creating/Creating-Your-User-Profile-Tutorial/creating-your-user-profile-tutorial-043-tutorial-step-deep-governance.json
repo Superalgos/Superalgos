@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Yönetim tavşan deliğinde daha derine inmeye hazır mısınız?\nSuperalgos ile yeni başlıyorsanız, bu noktada daha ileri gitmenize gerek yok!",
                 "updated": 1645168825176
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu siap untuk menjelajah lebih dalam tentang Governance ke yang lebih kompleks? Jika kamu baru menjalankan Superalgos, kamu tidak perlu pergi lebih jauh saat ini!",
+                "updated": 1671546403682
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Ancak, projeye yatırım yaptıysanız, Katkı İddiasında bulunmak veya oy vermek istiyorsanız, okumanız gereken bazı şeyler var!",
                     "updated": 1645168655662
+                },
+                {
+                    "language": "ID",
+                    "text": "Namun, jika kamu berinvestasi dalam proyek dan ingin mengajukan beberapa Contribution Claims atau memberikan suara, maka kamu harus membaca!",
+                    "updated": 1671546410009
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Sağdaki Yönetişim Projesi kitabı (The Governance Project) sizi, henüz ele almadıklarımız da dahil olmak üzere tüm Yönetişim Programlarının (Governance Programs) derinliklerine götürür!",
                     "updated": 1645168710095
+                },
+                {
+                    "language": "ID",
+                    "text": "Governance Project book di sebelah kanan membawa kamu jauh ke dalam semua Governance Programs, termasuk yang belum kami bahas!",
+                    "updated": 1671546415940
                 }
             ]
         },
@@ -97,8 +112,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si tiene alguna pregunta sobre la gobernanza o el token, ¡únte al Token Group en Telegram!",
-                    "updated": 1630899662771,
+                    "text": "Si tienes alguna pregunta sobre la gobernanza o el token, ¡únte al Token Group en Telegram!",
+                    "updated": 1682522297791,
                     "style": "Success"
                 },
                 {
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Şu andan itibaren kendi başınasın! Yönetim veya token hakkında herhangi bir sorunuz varsa, lütfen Telegram'daki Token Grubuna (Token Group) katılın!",
                     "updated": 1645168776747
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu sendiri mulai sekarang! Jika kamu memiliki pertanyaan tentang governance atau token, silakan bergabung dengan Token Group di Telegram!",
+                    "updated": 1671546421693
                 }
             ]
         }

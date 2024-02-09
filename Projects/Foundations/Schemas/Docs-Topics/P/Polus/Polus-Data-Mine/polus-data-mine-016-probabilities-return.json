@@ -1,0 +1,74 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 16,
+    "type": "Probabilities - Return",
+    "definition": {
+        "text": "This is an indicator that uses the Periodic Return (PR), a Moving Average (MA) of 200 periods and Standard Deviation to calculate probabilities of future price action."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Return on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator produces multiple output values by calculating the periodic return, the 200MA and the sigma (standard deviation) value:"
+        },
+        {
+            "style": "List",
+            "text": "Periodic Return (PR): this is calculated by taking the natural logarithm of the ratio of candle close divided by the previous candle close: ln(candle.close/candle.previous.close)"
+        },
+        {
+            "style": "List",
+            "text": "UpValues: A series of probability points based on the MA value added to the sigma multiplied by a standard deviation factor of 0.53, 1.03, 2.34, 2.95 and 4.87 to get HP30, HP15, HP1, HP02 and HP01 respectively."
+        },
+        {
+            "style": "List",
+            "text": "Down Values: A series of probability points based on the MA subtracted by the sigma value multiplied by a standard deviation factor of 0.53, 1.03, 2.34, 2.95 and 4.87 to get LP30, LP15, LP1, LP02 and LP01 respectively."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Return.png"
+        },
+        {
+            "style": "Text",
+            "text": "The length of the calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Return probabilities’ Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Return-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Return probabilities | RPB | pr, l01, l02, l1, l15, l30, h01, h02, h1, h15, h30 |"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "Examples of accessing this indicator can be found below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.RPB.pr \n chart.at01hs.RPB.l02 \n chart.at01hs.RPB.l15 \n chart.at01hs.RPB.h01 \n chart.at01hs.RPB.h1 \n chart.at01hs.RPB.h15"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

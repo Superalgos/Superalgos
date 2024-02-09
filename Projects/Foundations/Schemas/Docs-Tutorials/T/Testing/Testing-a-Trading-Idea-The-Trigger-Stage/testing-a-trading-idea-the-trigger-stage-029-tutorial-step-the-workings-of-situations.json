@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bu, mantığı doğru şekilde organize edebilmeniz için anlamanız gereken önemli bir kavramdır!",
                 "updated": 1641654639787
+            },
+            {
+                "language": "ES",
+                "text": "Este es un concepto clave que debes entender para poder organizar la lógica de la manera adecuada.\n",
+                "updated": 1677101000820
             }
         ]
     },
@@ -43,8 +48,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bir durum, içerdiği koşulların tümü doğru olduğunda doğrudur. Bir durumdaki koşulların && (ve) operatörüyle bağlantılı olduğunu düşünün. Eğer tüm koşullar aynı anda doğruysa durum da doğrudur.",
-                    "updated": 1641654651046
+                    "text": "Bir durum, içindeki tüm koşullar doğru olarak onaylandığında doğru olarak onaylanır. Bunu, bir durum içindeki koşulların && (ve) operatörü ile bağlandığı gibi düşünün. Hepsi aynı anda doğruysa, durum da doğrudur.",
+                    "updated": 1669580994960
                 }
             ]
         },
@@ -64,8 +69,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Olay içindeki durumlardan herhangi biri doğru kabul edilirse olay doğru kabul edilir. Sanki bir olay içindeki durumlar || operatörü tarafından temsil ediliyormuş gibi (ya da) bağlı olacaktır! Belirli bir zamanda durumlardan biri doğruysa, olay tetiklenir!",
-                    "updated": 1641654660718
+                    "text": "Bir olay, içindeki durumlardan herhangi biri doğru olduğunda doğrulanır. Sanki bir olay içindeki durumlar || (veya) operatörü tarafından bağlanmış gibidir! Zamanın belirli bir noktasında durumlardan herhangi biri doğruysa, olay tetiklenir!",
+                    "updated": 1669581340437
+                },
+                {
+                    "language": "ES",
+                    "text": "Un evento se valida como verdadero cuando cualquiera de las situaciones que lo componen se valida como verdadera. Es como si las situaciones de un evento estuvieran ligadas por el operador || (o). Si alguna de las situaciones es verdadera en un momento determinado, el evento se activa.",
+                    "updated": 1677101081286
                 }
             ]
         },
@@ -86,8 +96,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu tanımı nasıl kuracağınızı söyleyebilir misiniz?",
-                    "updated": 1641654684643
+                    "text": "Bu tanımlamanın nasıl yapılacağını söyleyebilir misiniz?",
+                    "updated": 1669581390058
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes decirme cómo configurar esta definición?",
+                    "updated": 1677100975791
                 }
             ]
         }

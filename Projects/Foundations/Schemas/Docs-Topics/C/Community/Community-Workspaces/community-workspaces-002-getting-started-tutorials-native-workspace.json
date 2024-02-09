@@ -1,0 +1,137 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "2",
+    "type": "Getting Started Tutorials Native Workspace",
+    "definition": {
+        "text": "This workspace is the first point of contact with Superalgos. Its purpose is to get new users familiar with all the basic aspects of Superalgos.",
+        "updated": 1630066493238,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Рабочее пространство плагина является первой точкой соприкосновения с Superalgos. Его цель - познакомить новых пользователей со всеми базовыми аспектами Superalgos.",
+                "updated": 1635628485258
+            },
+            {
+                "language": "ES",
+                "text": "Este workspace es el primer punto de contacto con Superalgos. Su propósito es familiarizar a los nuevs usuarios con lo aspectos básicos de Superalgos.",
+                "updated": 1636559957769
+            },
+            {
+                "language": "TR",
+                "text": "Bu çalışma alanı, Superalgos ile ilk temas noktanızdır. Amacı, yeni kullanıcıları Superalgos'un tüm temel yönleriyle kullanıcıları tanıştırmaktır.",
+                "updated": 1639143266142
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich ist der erste Kontaktpunkt mit Superalgos. Er dient dazu, neue Benutzer mit allen grundlegenden Aspekten von Superalgos vertraut zu machen.",
+                "updated": 1688852474603
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151142805,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1640236849732
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler",
+                    "updated": 1642711076022
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Welcome to Superalgos Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Welcome to Superalgos Tutorial ( bienvenido al tutorial de Superalgos)",
+                    "updated": 1636559981023
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Basic Education Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Basic Education Tutorial  (Tutorial de educación básica)",
+                    "updated": 1636560011609
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Beyond the Basics Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Beyond the Basics Tutorial. ( Tutorial más allá de lo básico)",
+                    "updated": 1636560038688
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "It's important to keep this workspace clean, light and simple, to ensure that the first experience is not cumbersome or limits users with small hardware.",
+            "updated": 1616145428799,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es importante mantener este workspace limpio, liviano y simple, to asegurarse de que la primera experiencia no sea engorrosa o limite a los usuarios con hardware pequeño",
+                    "updated": 1636560111843
+                },
+                {
+                    "language": "RU",
+                    "text": "Важно, чтобы это рабочее пространство было чистым, легким и простым, чтобы первый опыт не был громоздким и не ограничивал пользователей с маломощным оборудованием.",
+                    "updated": 1640236792739
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çalışma alanını temiz, hafif ve basit tutmak, ilk deneyimin hantal olmamasını veya kullanıcıları küçük donanımlarla sınırlamamasını sağlamak için önemlidir.",
+                    "updated": 1642711107721
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig, diesen Arbeitsbereich sauber, hell und einfach zu halten, um sicherzustellen, dass die erste Erfahrung nicht umständlich ist oder Benutzer mit kleiner Hardware einschränkt.",
+                    "updated": 1688852486196
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616151282749,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1640236884937
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje Yürütücüsü",
+                    "updated": 1642711127270
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688852637848
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622623292203
+        }
+    ]
+}

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Лимитные ордера на продажу - это раздел структуры данных, который отслеживает данный конкретный тип ордера.",
                 "updated": 1645168255465
+            },
+            {
+                "language": "TR",
+                "text": "Limit satış emirleri, veri yapısının bu özel emir türünü takip eden bölümüdür.",
+                "updated": 1701085288770
             }
         ]
     },
@@ -19,6 +24,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
                     "updated": 1645168260915
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
+                    "updated": 1701085293313
                 }
             ]
         }

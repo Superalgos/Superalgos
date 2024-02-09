@@ -1,0 +1,184 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 98,
+    "type": "Tutorial Step - Check Your Spot Balance!",
+    "definition": {
+        "icon": {
+            "name": "crypto-exchange",
+            "project": "Foundations"
+        },
+        "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prima di lanciare la Live Trading Session, assicurati di avere abbastanza USDT nel tuo wallet spot sull'exchange.",
+                "updated": 1618070262891,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de ejecutar el Live Trading Session, asegúrate de tener suficiente saldo en USDT al contado en el exchange.",
+                "updated": 1624471256717,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
+                "updated": 1634243867885
+            },
+            {
+                "language": "TR",
+                "text": "Canlı İşlem Oturumunu ( Live Trading Session ) çalıştırmadan önce, borsada yeterli miktarda USDT bakiyeniz olduğundan emin olun!",
+                "updated": 1636552555684
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu menjalankan Live Trading Session, pastikan kamu memiliki saldo USDT spot yang cukup di exchange!",
+                "updated": 1640575421612
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем запустить торговую сессию, убедитесь, что у вас есть достаточный спотовый баланс USDT на бирже!",
+                "updated": 1642770642070
+            },
+            {
+                "language": "NL",
+                "text": "Voordat u de Live Trading Session uitvoert, moet u ervoor zorgen dat u voldoende USDT-spotsaldo op het handelsplatform heeft!",
+                "updated": 1667126549046
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a look at your balance at the exchange and arrange for enough USDT for the session!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Controlla il tuo saldo sull'exchange e prepara abbastanza USDT per la sessione!",
+                    "updated": 1618070327486,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echa un vistazo a tu saldo en el exchange y organiza suficientes USDT para la sesión!",
+                    "updated": 1675361859315,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
+                    "updated": 1634243896032
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsadaki bakiyenize bir göz atın ve seans için yeterli USDT'yi ayarlayın!",
+                    "updated": 1636552569147
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah saldo kamu di exchange dan atur USDT yang cukup untuk sesi ini!",
+                    "updated": 1640575452390
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на свой баланс на бирже и обеспечьте достаточное количество USDT для сессии!",
+                    "updated": 1642770663587
+                },
+                {
+                    "language": "NL",
+                    "text": "Bekijk je saldo op het handelsplatform en zorg voor voldoende USDT voor de sessie!",
+                    "updated": 1667126576886
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "The Trading Bot will place one limit order for the initialBalance, and cancel it the next minute in case it is not filled.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Trading Bot inserirà un limit order del valore di initialBalance, e lo cancellerà il minuto successivo se non viene evaso, come spiegato prima.",
+                    "updated": 1618070448288,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Trading Bot colocará una orden limitada para el inicialBalance y la cancelará al minuto siguiente en caso de que no se complete, como se explicó anteriormente.",
+                    "updated": 1624471439730,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trading Bot wird eine Limit Order für das initiale Guthaben platzieren und sie in der nächsten Minute stornieren, falls sie nicht ausgeführt wird, wie zuvor erklärt.",
+                    "updated": 1634243904481
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım Satım Botu ( Trading Bot ), ilk Bakiye ( initialBalance ) için bir limit emri verecek ve daha önce açıklandığı gibi, doldurulmaması durumunda bir sonraki dakika iptal edecektir.",
+                    "updated": 1636552620567
+                },
+                {
+                    "language": "ID",
+                    "text": "Trading Bot akan menempatkan satu limit order untuk initialBalance, dan membatalkannya pada menit berikutnya jika tidak diisi, seperti yang dijelaskan sebelumnya.",
+                    "updated": 1640575503592
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый бот разместит один лимитный ордер для initialBalance и отменит его в следующую минуту, если он не будет заполнен, как объяснялось ранее.",
+                    "updated": 1642770684092
+                },
+                {
+                    "language": "NL",
+                    "text": "De Trading Bot plaatst één limietorder voor het initialBalance en annuleert het de volgende minuut als het niet wordt ingevuld, zoals eerder uitgelegd.",
+                    "updated": 1667126613343
+                }
+            ],
+            "updated": 1687725219827
+        },
+        {
+            "style": "Note",
+            "text": "Keep going even if you are not ready to trade! It's important because there are more things to learn in the tutorial!",
+            "updated": 1622232501088,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Continua anche se non sei pronto per fare trading! È importante perché ci sono altre cose da imparare nel tutorial!",
+                    "updated": 1666393360949,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Continúa incluso si no estás listo para la sesión! ¡Es importante porque hay más cosas que aprender en el tutorial!",
+                    "updated": 1624471521635,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen Sie weiter, auch wenn Sie nicht bereit sind zu handeln! Das ist wichtig, denn es gibt noch mehr Dinge im Tutorial zu lernen!",
+                    "updated": 1634243912421
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticarete hazır olmasanız bile devam edin! Bu önemli çünkü öğreticide öğrenilecek daha çok şey var!",
+                    "updated": 1636552643669
+                },
+                {
+                    "language": "ID",
+                    "text": "Terus lanjutkan bahkan jika kamu tidak siap untuk trade! Ini penting karena ada lebih banyak hal untuk dipelajari dalam tutorial!",
+                    "updated": 1640575553876
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте, даже если вы еще не готовы торговать! Это важно, потому что в учебнике есть еще много интересного!",
+                    "updated": 1642770698237
+                },
+                {
+                    "language": "NL",
+                    "text": "Blijf doorgaan, zelfs als u nog niet klaar bent om te handelen! Het is belangrijk omdat er meer dingen te leren zijn in deze handleiding!",
+                    "updated": 1667126655701
+                }
+            ]
+        }
+    ]
+}

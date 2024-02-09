@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Panel Data представляет поле данных, которое должно быть выведено на панель плоттера.",
                 "updated": 1645169459796
+            },
+            {
+                "language": "TR",
+                "text": "Panel veri düğümü, çizici panelinde çizilecek bir veri alanını temsil eder.",
+                "updated": 1672259823258
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Система отображает панель с центрированным, одноколоночным вертикальным расположением данных, с меткой и полем данных прямо под ней. Метка каждого поля данных на панели по умолчанию задается меткой, установленной для каждого узла данных панели.",
                     "updated": 1645169473875
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, ortalanmış, tek sütunlu dikey veri düzenlemesi içeren bir panel oluşturur ve bunun hemen altında bir etiket ve bir veri alanı bulunur. Paneldeki her bir veri alanının etiketi -varsayılan olarak- her bir panel veri düğümü için ayarlanan etiket tarafından verilir.",
+                    "updated": 1672259886370
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Конфигурация Panel Data",
                     "updated": 1645169488131
+                },
+                {
+                    "language": "TR",
+                    "text": "Panel Veri Yapılandırması (Panel Data Configuration)",
+                    "updated": 1672259924583
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1645169495360
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1672259951501
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "valueDecimals устанавливает количество десятичных знаков, которые будут отображаться в соответствующем поле данных.",
                     "updated": 1645169506310
+                },
+                {
+                    "language": "TR",
+                    "text": "valueDecimals ilgili veri alanında gösterilecek ondalık sayısını ayarlar.",
+                    "updated": 1672259992405
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "RU",
                     "text": "labelPosition и valuePosition представляют собой вертикальное расстояние соответствующих полей до верхнего края панели.",
                     "updated": 1645169513701
+                },
+                {
+                    "language": "TR",
+                    "text": "labelPosition ve valuePosition ilgili alanların panelin üst kenar boşluğuna olan dikey mesafesini temsil eder.",
+                    "updated": 1672260057539
                 }
             ]
         }

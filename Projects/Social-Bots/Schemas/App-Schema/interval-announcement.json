@@ -1,0 +1,58 @@
+{
+    "type": "Interval Announcement",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "translationKey": "add.formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"interval\": \"Enter_interval_in_minutes\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Telegram Bot->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula",
+            "autoAdd": true,
+            "project": "Foundations"
+        }
+    ],
+    "propertyNameAtParent": "intervalAnnouncement"
+}

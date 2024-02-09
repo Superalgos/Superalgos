@@ -1,0 +1,79 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "21",
+    "type": "Mean Reversion Channels",
+    "definition": {
+        "text": "Mean Reversion Channels use the concept that everything has a tendency to revert back to its average value. The channels attempt to identify overbought and oversold areas in which the price action is likely to provide some resistance.",
+        "updated": 1693779877762
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Mean Reversion Channels on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator calculates the average price using a \"Super Smoother\" function, before applying offsets above and below the average. The offsets provide a weak overbought/oversold zone, and a standard overbought/oversold zone. Price action outside these zones provide a strong overbought and oversold area.",
+            "updated": 1693779916902
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Mean-Reversion-Channels.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| MeanReversionChannels | mrc | meanLine, res1, res2, sup1, sup2, UpHigh, UpLow, DnHigh, DnLow, condition, distance, width |"
+        },
+        {
+            "style": "Text",
+            "text": "The \"condition\" value indicates the potential strength of a rebound, with +/-1 being the strongest and +/-5 as the weakest. A positive value indicates a downward reversal and vice versa.",
+            "updated": 1693779928857
+        },
+        {
+            "style": "Text",
+            "text": "The \"distance\" value is the % distance from the mean that the candle close is from the mean.",
+            "updated": 1693779936721
+        },
+        {
+            "style": "Text",
+            "text": "The \"width\" value is the %width of the upper and lower channels in relation to the price action.",
+            "updated": 1693779944981
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Mean Reversion Channels\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-Mean-Reversion-Channels-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point for a trade could be when the condition value has a value of -1:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.mrc.condition == -1"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

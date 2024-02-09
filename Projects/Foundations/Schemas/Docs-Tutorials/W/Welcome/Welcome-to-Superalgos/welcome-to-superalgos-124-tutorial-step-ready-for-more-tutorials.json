@@ -1,0 +1,186 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 124,
+    "type": "Tutorial Step - Ready for More Tutorials?",
+    "definition": {
+        "icon": {
+            "name": "tutorial",
+            "project": "Education"
+        },
+        "text": "Not to brag, but I can't stress enough how important it is that you make all tutorials available before venturing on your own!",
+        "updated": 1610984910896,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Non voglio stressarti, ma non smetterò mai di ripetere quanto sia importante che tu segua tutti i tutorial prima di avventurarti da solo!",
+                "updated": 1618074463758,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "No es para alardear, pero no puedo enfatizar suficiente lo importante que es que pongas a disposición todos los tutoriales antes de aventurarte por tu cuenta.",
+                "updated": 1624489857604,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich will nicht prahlen, aber ich kann nicht genug betonen, wie wichtig es ist, dass Sie alle Tutorials durcharbeiten, bevor Sie sich auf eigene Faust auf den Weg machen!",
+                "updated": 1634247995336
+            },
+            {
+                "language": "TR",
+                "text": "Kendi başınıza bir girişimde bulunmadan önce tüm eğitimleri tamamlamanın ne kadar önemli olduğunu hatılatmama gerek yok umarım!",
+                "updated": 1636663270210
+            },
+            {
+                "language": "ID",
+                "text": "Bukan untuk menyombongkan diri, tetapi aku tidak bisa cukup menekankan betapa pentingnya kamu membuat semua tutorial tersedia sebelum menjelajah sendiri!",
+                "updated": 1640600653713
+            },
+            {
+                "language": "RU",
+                "text": "Не хочу хвастаться, но я не могу не подчеркнуть, как важно, чтобы все учебники были доступны, прежде чем вы решитесь на самостоятельную работу!",
+                "updated": 1642774629261
+            },
+            {
+                "language": "NL",
+                "text": "Niet om op te scheppen, maar ik kan niet genoeg benadrukken hoe belangrijk het is dat je alle handleidingen je eigen maakt voordat je er alleen voor gaat!",
+                "updated": 1667139097400
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The system is vast and covers complex matters. Going solo on your first days with Superalgos is only recommended for people who enjoy banging their heads against the wall!",
+            "updated": 1610956232418,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il sistema è enorme e copre concetti complessi. Iniziare avventurandosi da solo in Superalgos è raccomandato solo a coloro a cui piace finire per sbattere la testa contro il muro!",
+                    "updated": 1618074517616,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El sistema es vasto y cubre asuntos complejos. ¡Ir solo en sus primeros días con Superalgos solo se recomienda para personas que disfrutan golpeándose la cabeza contra la pared!",
+                    "updated": 1624489896631,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System ist umfangreich und deckt komplexe Themen ab. Ein Alleingang in den ersten Tagen mit Superalgos ist nur für Leute zu empfehlen, die gerne mit dem Kopf gegen die Wand schlagen!",
+                    "updated": 1634247975987
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem çok geniştir ve karmaşık konuları kapsar. Superalgos ile ilk günlerinizde yalnız başınıza ilerlemeye çalışmak, yalnızca kafalarını duvara vurmaktan hoşlanan kişiler için önerilir:-)!",
+                    "updated": 1670335369030
+                },
+                {
+                    "language": "ID",
+                    "text": "Sistem ini luas dan mencakup hal-hal kompleks. Berjalan sendiri pada hari-hari pertamamu dengan Superalgos hanya direkomendasikan untuk orang-orang yang suka membenturkan kepala ke dinding!",
+                    "updated": 1640600702243
+                },
+                {
+                    "language": "RU",
+                    "text": "Система обширна и охватывает сложные вопросы. В первые дни работы с Superalgos рекомендуется заниматься в одиночку только тем, кто любит биться головой о стену!",
+                    "updated": 1642774650427
+                },
+                {
+                    "language": "NL",
+                    "text": "Het systeem is omvangrijk en omvat complexe zaken. Solo gaan in je eerste dagen met Superalgos is alleen aan te raden voor mensen die graag met hun hoofd tegen de muur lopen!",
+                    "updated": 1667139125692
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "The First Steps Tutorials book to your right provides all the details on the best way to invest your time learning Superalgos. ",
+            "updated": 1616706102160,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il First Steps Tutorials alla tua destra fornisce tutti i dettagli sul miglior modo di investire il tuo tempo per imparare Superalgos.",
+                    "updated": 1618074583238,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "The First Steps Tutorials El libro a tu derecha brinda todos los detalles sobre la mejor manera de invertir tu tiempo aprendiendo Superalgos.",
+                    "updated": 1675367549756,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Buch \"The First Steps Tutorials\" auf der rechten Seite enthält alle Details darüber, wie Sie Ihre Zeit am besten investieren, um Superalgos zu lernen.",
+                    "updated": 1634248018430
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağınızdaki İlk Adımlar Öğreticiler kitabı ( First Steps Toturial ) , Superalgos'u öğrenmeye zaman ayırmanın en iyi yolunun tüm ayrıntılarını sağlar.",
+                    "updated": 1636663360924
+                },
+                {
+                    "language": "ID",
+                    "text": "First Steps Tutorials book di sebelah kananmu memberikan semua detail tentang cara terbaik untuk menginvestasikan waktu kamu mempelajari Superalgos.",
+                    "updated": 1640600737479
+                },
+                {
+                    "language": "RU",
+                    "text": "Книга First Steps Tutorials, расположенная справа от вас, содержит все подробности о том, как лучше всего потратить свое время на изучение Superalgos.",
+                    "updated": 1642774666905
+                },
+                {
+                    "language": "NL",
+                    "text": "Het boek First Step Tutorials aan uw rechterkant biedt alle details over de beste manier om uw tijd te investeren in het leren van Superalgos.",
+                    "updated": 1667139161448
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Before you finish, I will leave you with the next best tutorial in the series!",
+            "updated": 1616706133031,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prima di terminare, ti lascio con il prossimo miglior tutorial della serie!",
+                    "updated": 1618074621074,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Antes de que termines, te dejo con el siguiente mejor tutorial de la serie!",
+                    "updated": 1624489956764,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie fertig sind, überlasse ich Ihnen noch den nächsten Lehrgang der Serie!",
+                    "updated": 1634248037950
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitirmeden önce, sizi bir sonraki öğretici ile baş başa bırakacağım!",
+                    "updated": 1636663390761
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebelum kamu selesai, aku akan meninggalkan kamu dengan tutorial terbaik berikutnya dalam series!",
+                    "updated": 1640600776299
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем вы закончите, я оставлю вам следующий лучший учебник из этой серии!",
+                    "updated": 1642774749825
+                },
+                {
+                    "language": "NL",
+                    "text": "Voordat je klaar bent, zal ik je achterlaten met de volgende beste handleiding in de serie!",
+                    "updated": 1667139184948
+                }
+            ]
+        }
+    ]
+}

@@ -13,8 +13,8 @@
             },
             {
                 "language": "ES",
-                "text": "Token Power Fluye en cascada hacia abajo desde el nodo User Profile  al nodo Token Power Switch, a su descendencia, y así sucesivamente, siguiendo la estructura de la jerarquía.",
-                "updated": 1640976938375
+                "text": "Token Power fluye en cascada desde el nodo Perfil de usuario al nodo Conmutador Token Power, a sus descendientes, y así sucesivamente, siguiendo la estructura de la jerarquía.",
+                "updated": 1682596905927
             },
             {
                 "language": "TR",

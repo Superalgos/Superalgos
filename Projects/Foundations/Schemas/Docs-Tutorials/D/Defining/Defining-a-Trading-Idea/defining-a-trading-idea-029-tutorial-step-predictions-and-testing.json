@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "No es que estemos intentando adivinar el futuro y que nos califiquen por nuestra precisión. La predicción es más bien una expectativa.\n",
                 "updated": 1668193822510
+            },
+            {
+                "language": "IT",
+                "text": "Non è che stiamo cercando di indovinare il futuro e verremo valutati in base alla nostra accuratezza! La previsione è più simile a un'aspettativa!",
+                "updated": 1669901803418
+            },
+            {
+                "language": "NL",
+                "text": "Het is niet alsof we de toekomst proberen te voorspellen en beoordeeld zullen worden op onze nauwkeurigheid! De voorspelling is meer een verwachting!",
+                "updated": 1670787465606
+            },
+            {
+                "language": "ID",
+                "text": "Ini tidak seperti kita mencoba untuk meramalkan masa depan dan akan dinilai berdasarkan akurasi kita! Prediksinya lebih seperti ekspektasi!",
+                "updated": 1674701130564
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "Predicción: Esperamos que cualquiera de estas ideas se negocie al menos dos veces al mes, con una proporción de aciertos del 50%.",
                     "updated": 1668193842391
+                },
+                {
+                    "language": "IT",
+                    "text": "Previsione: ci aspettiamo che una di queste idee venga scambiata almeno due volte al mese, con una percentuale di successo del 50%.",
+                    "updated": 1669901825076
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Voorspelling:</b> we verwachten dat een van deze ideeën minstens twee keer per maand handeld, met een hitratio van 50%.",
+                    "updated": 1670787515165
+                },
+                {
+                    "language": "ID",
+                    "text": "Prediksi: Kita mengharapkan salah satu dari ide ini untuk trade setidaknya dua kali per bulan, dengan rasio hit 50%.",
+                    "updated": 1674701137284
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "Pruebas: Para las tendencias alcistas, estableceremos estos objetivos: stop loss al 3% y take profit al 5%. Para las tendencias bajistas debemos ser más optimistas, ya que la estrategia pretende captar los grandes movimientos del mercado: estableceremos un stop loss del 3% y un take profit del 10%.",
                     "updated": 1668193902714
+                },
+                {
+                    "language": "IT",
+                    "text": "Test: per i trend rialzisti, fisseremo questi obiettivi: stop loss al 3% e take profit al 5%. Per i trend al ribasso dovremmo essere più ottimisti poiché la strategia mira a catturare i grandi movimenti del mercato: fisseremo obiettivi di stop loss del 3% e take profit del 10%.",
+                    "updated": 1669901839727
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Testen:</b> Voor uptrends stellen we deze doelen: stop loss op 3% en take profit op 5%. Voor neerwaartse trends zouden we optimistischer moeten zijn, aangezien de strategie gericht is op het opvangen van grote marktbewegingen: we zullen een stop loss doelstelling van 3% en een take-profit doelstelling van 10% stellen.",
+                    "updated": 1670787571508
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengujian: Untuk tren naik, kita akan menetapkan target berikut: stop loss di 3% dan take profit di 5%. Untuk tren turun kita harus lebih optimis karena strategi ini bertujuan untuk menangkap pergerakan market yang lebih besar: kita akan menetapkan target stop loss 3% dan target profit 10%.",
+                    "updated": 1674701144481
                 }
             ]
         },
@@ -105,8 +150,18 @@
                 },
                 {
                     "language": "ES",
-                    "text": " ¡Recuerde! ¡Esto no significa que sea así como gestionaríamos las posiciones! ¡Es sólo para evaluar los puntos de entrada!",
-                    "updated": 1668193885972
+                    "text": "¡Recuerda! ¡Esto no significa que sea así como gestionaríamos las posiciones! ¡Es sólo para evaluar los puntos de entrada!",
+                    "updated": 1675206071402
+                },
+                {
+                    "language": "NL",
+                    "text": "Herinner! Dit betekent niet dat we de posities zo zouden beheren! Het is alleen om de instappunten te evalueren!",
+                    "updated": 1670787611012
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat! Ini tidak berarti cara beginilah kami mengelola posisi! Ini hanya untuk mengevaluasi titik entry!",
+                    "updated": 1674701150342
                 }
             ]
         }

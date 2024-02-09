@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Data Tasks können Instanzen von Indicator Bots oder Sensor Bots laufen lassen, und einige Exchange können einen API-Schlüssel für das Herunterladen bestimmter Arten oder Mengen von Daten erfordern. Wir werden uns jeden dieser Fälle ansehen.",
                 "updated": 1651911400306
+            },
+            {
+                "language": "TR",
+                "text": "Veri görevleri Gösterge Botlarının veya Sensör Botlarının örneklerini çalıştırabilir ve bazı borsalar belirli türde veya miktarda veriyi indirmek için bir API anahtarı gerektirebilir. Bu durumların her birini inceleyeceğiz.",
+                "updated": 1673807705189
             }
         ]
     },

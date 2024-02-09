@@ -143,3 +143,5 @@ function newGovernanceUtilitiesCommonTables() {
         )
     }
 }
+
+exports.newGovernanceUtilitiesCommonTables = newGovernanceUtilitiesCommonTables

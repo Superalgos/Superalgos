@@ -30,6 +30,11 @@
                 "language": "RU",
                 "text": "Здесь мы находимся во главе иерархии проекта управления Governance Project. Давайте создадим этот профиль!",
                 "updated": 1639046765111
+            },
+            {
+                "language": "ID",
+                "text": "Disini kita dibagian utama dari hirarki Governance Project. Mari kita buat profilnya!",
+                "updated": 1670851473449
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "RU",
                     "text": "Нажмите на Add Profile Constructor.",
                     "updated": 1639046810929
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik tombol Add Profile Constructor.",
+                    "updated": 1670851481286
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "RU",
                     "text": "Теперь разместите получившийся узел Profile Constructor так, чтобы его было легко увидеть и с которым можно было работать.",
                     "updated": 1639067170733
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang posisikan node Profile Constructor yang dihasilkan ditempatkan dimana mudah dilihat dan dikerjakan.",
+                    "updated": 1670851497815
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "RU",
                     "text": "Мы будем использовать этот узел для создания вашего профиля пользователя User Profile. Позже вы удалите этот узел, чтобы стереть всю конфиденциальную информацию, которую вы можете ввести вместе с информацией, которую создаст конструктор. Но здесь не о чем беспокоиться! Я дам вам знать, когда его удалить!",
                     "updated": 1639046874862
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan menggunakan node untuk membuat User Profile kamu. Nantinya, kamu akan menghapus node ini untuk menghapus semua informasi sensitif yang kamu telah masukkan bersamaan dengan informasi constructor yang akan dihasilkan. Tapi tidak perlu khawatir untuk sekarang! Aku akan memberitahumu kapan untuk menghapus itu!",
+                    "updated": 1670851656670
                 }
             ]
         }

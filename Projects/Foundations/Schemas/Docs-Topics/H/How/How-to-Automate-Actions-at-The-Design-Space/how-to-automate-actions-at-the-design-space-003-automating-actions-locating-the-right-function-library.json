@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Действия упакованы внутри библиотек функций (Function Libraries). Скорее всего, уже существует библиотека функций, связанная с действием Action, которое вы хотите создать.",
                 "updated": 1640761474984
+            },
+            {
+                "language": "DE",
+                "text": "Action sind in Function Libraries (Funktionsbibliotheken) gepackt. Höchstwahrscheinlich gibt es bereits eine Function Library, die sich auf die Action bezieht, die Sie erstellen möchten.",
+                "updated": 1674163133141
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Процедура поиска подходящей библиотеки функций очень проста. Откройте папку Projects, затем откройте проект, связанный с узлом, к которому вы прикрепляете свое действие. Внутри папки проекта откройте папку UI, а затем папку Function-Libraries.",
                     "updated": 1640761498932
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Verfahren zum Auffinden einer geeigneten Function Library- ist sehr einfach. Open ... Öffnen Sie den Ordner Projekte und dann das -Project-, welches mit dem Node verbunden ist, an den Sie Ihre Aktion anhängen möchten. Öffnen Sie in diesem Projektordner den Ordner UI und dann den Ordner Function-Libraries.",
+                    "updated": 1674163292542
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Каждый файл в папке Function Library представляет собой набор функций. Единственным исключением является ActionSwitch.js. Этот файл - место, где вы соедините имя функции Action Function, определенное в App Schema, с функцией, в которой будет размещен код нового Action.",
                     "updated": 1640761550693
+                },
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Jede Datei im Ordner Function Library ist ein Satz von Funktionen. Die einzige Ausnahme hierbei ist ActionSwitch.js. In dieser Datei verbinden Sie den Namen der Action Funktion, den Sie im App Schema definiert haben, mit der Funktion, die den Code für die neue Action bereitstellt.",
+                    "updated": 1674163376674
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Просмотрите каждый из этих файлов и посмотрите в их заголовке, какие функции они уже реализуют. После беглого просмотра всех файлов вы сможете решить, какой из них лучше всего подходит для вашего нового действия. Если вы считаете, что ваше действие должно быть размещено в новой библиотеке функций, то вы можете попробовать добавить новую библиотеку и установить ее в файл схемы проекта, но это выходит за рамки данного руководства.",
                     "updated": 1640761600434
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie jede dieser Dateien und sehen Sie in der Kopfzeile nach, welche Funktionen bereits implementiert wurden. Nach einem kurzen Blick auf alle Dateien können Sie entscheiden, welche am besten zu Ihrer neuen Aktion passt. Wenn Sie der Meinung sind, dass Ihre Action in einer neuen Function Library platziert werden sollte, können Sie versuchen, eine neue hinzuzufügen und sie in der Project -Schema-Datei einzurichten, aber das würde den Rahmen dieser Anleitung sprengen.",
+                    "updated": 1674163392945
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "Наглядные примеры",
                     "updated": 1640761618514
+                },
+                {
+                    "language": "DE",
+                    "text": "Passende Beispiele",
+                    "updated": 1674163422632
                 }
             ]
         },
@@ -70,20 +95,46 @@
                     "language": "RU",
                     "text": "Посмотрите на эти библиотеки функций, которые представляют иерархии, потому что, скорее всего, ваш узел принадлежит к иерархии, с которой уже связана библиотека функций.",
                     "updated": 1640761647842
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf diese Funktionsbibliotheken, die Hierarchies darstellen, denn höchstwahrscheinlich gehört Ihr Knoten zu einer Hierarchie, der bereits eine Function Library zugeordnet ist.",
+                    "updated": 1674163427543
                 }
             ]
         },
         {
             "style": "List",
-            "text": "ChartingSpaceFunctions"
+            "text": "ChartingSpaceFunctions",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Charting-Space-Funktionen",
+                    "updated": 1674163436802
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "CryptoEcosystemFunctions"
+            "text": "CryptoEcosystemFunctions",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Krypto-Ecosystem-Funktionen",
+                    "updated": 1674163448222
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "PluginsFunctions"
+            "text": "PluginsFunctions",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Plugins-Funktionen",
+                    "updated": 1674163456347
+                }
+            ]
         }
     ]
 }

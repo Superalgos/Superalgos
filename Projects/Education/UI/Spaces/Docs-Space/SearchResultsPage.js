@@ -60,6 +60,8 @@ function newFoundationsDocsSearchResultsPage() {
         function buildHTML() {
             const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']
             let HTML = ''
+            
+            HTML = HTML + UI.projects.education.spaces.docsSpace.navigationElements.getRightNavPanel()
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
 

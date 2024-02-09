@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "BB Top Bounce presenta un enfoque interesante: define la idea comercial con tres condiciones simples.",
-                "updated": 1629591593112
+                "text": "BB Top Bounce presenta un enfoque interesante: define la idea de trading con tres condiciones simples.",
+                "updated": 1675619327134
             },
             {
                 "language": "DE",
@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "BB Top Bounce отличается интересным подходом: он определяет торговую идею с помощью трех простых условий.",
                 "updated": 1640885602935
+            },
+            {
+                "language": "NL",
+                "text": "BB Top Bounce heeft een interessante benadering: het definieert het handelsidee met drie eenvoudige voorwaarden.",
+                "updated": 1670791644412
+            },
+            {
+                "language": "ID",
+                "text": "BB Top Bounce menampilkan pendekatan yang menarik: dia mendefinisikan ide trading dengan tiga conditions sederhana.",
+                "updated": 1674625346345
             }
         ]
     },
@@ -55,6 +65,16 @@
                     "language": "RU",
                     "text": "Вы смотрите на событие Trigger On Event первой стратегии. Обратите внимание на первые три определенных условия...",
                     "updated": 1640885655595
+                },
+                {
+                    "language": "NL",
+                    "text": "U kijkt naar het Trigger On Event van de eerste strategie. Let op de eerste drie gedefinieerde voorwaarden...",
+                    "updated": 1670791667613
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu sedang melihat Trigger On Event dari strategi pertama. Perhatikan tiga conditions pertama yang ditentukan...",
+                    "updated": 1674625352962
                 }
             ]
         },
@@ -81,6 +101,16 @@
                     "language": "RU",
                     "text": "Теперь посмотрите на событие срабатывания любой из других стратегий... Что вы видите?",
                     "updated": 1640885671294
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Ga nu eens kijken naar het trigger on event van één van de andere strategieën... Wat zie je?</b>",
+                    "updated": 1670791717385
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang pergi dan lihat  trigger on event dari strategi lain... Apa yang kamu lihat?",
+                    "updated": 1674625361724
                 }
             ]
         },
@@ -108,6 +138,16 @@
                     "language": "RU",
                     "text": "Именно так! Все стратегии имеют одни и те же первые три условия в событии срабатывания (Trigger On Event). Это показывает, что все стратегии основаны на одной и той же торговой идее. Теперь... чем же они отличаются?",
                     "updated": 1640885728698
+                },
+                {
+                    "language": "NL",
+                    "text": "Precies! Alle strategieën hebben dezelfde eerste drie voorwaarden voor de trigger bij een gebeurtenis. Dit laat zien dat alle strategieën gebaseerd zijn op hetzelfde handelsidee. Nu... hoe verschillen ze?",
+                    "updated": 1670791742221
+                },
+                {
+                    "language": "ID",
+                    "text": "Tepat! Semua strategi menampilkan tiga kondisi pertama yang sama pada trigger on event. Ini menunjukkan bahwa semua strategi didasarkan pada ide trading yang sama. Sekarang... apa bedanya?",
+                    "updated": 1674625368930
                 }
             ]
         }

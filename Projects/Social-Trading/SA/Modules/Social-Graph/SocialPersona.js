@@ -113,12 +113,30 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
     }
 
     function removePost(
-        originPostHash
+        originSocialPersonaId,
+        targetSocialPersonaId,
+        originPostHash,
+        targetPostHash,
+        postType,
+        timestamp,
+        fileKeys
     ) {
         if (thisObject.posts.get(originPostHash) === undefined) {
             throw ('Post Does Not Exist.')
         } else {
-            let post = thisObject.posts.get(originPostHash)
+            let post = SA.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
+            post.initialize(
+                originSocialPersonaId,
+                targetSocialPersonaId,
+                undefined,
+                undefined,
+                originPostHash,
+                targetPostHash,
+                postType,
+                timestamp,
+                fileKeys
+            )
+            post = thisObject.posts.get(originPostHash)
             post.finalize()
             thisObject.posts.delete(originPostHash)
             SA.projects.socialTrading.globals.memory.maps.POSTS.delete(originPostHash)

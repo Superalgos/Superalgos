@@ -1,0 +1,185 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 100,
+    "type": "Tutorial Step - Your Keys, Your Coins!",
+    "definition": {
+        "icon": {
+            "name": "Exchange\\exchange-account-key",
+            "project": "Foundations"
+        },
+        "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",
+        "updated": 1610817577376,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Qui è dove configuro le chiavi del tuo Account sull'Exchange per avviare la Live Trading Session del Lightning Strike Trading System.",
+                "updated": 1666393478770,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Aquí es donde configuras tu Exchange Account Key para el Live Trading Session del Lightning Strike Trading System.",
+                "updated": 1624473031635,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Hier konfigurieren Sie Ihren Exchange Account Key für die Live Trading Session des Lightning Strike Trading Systems.",
+                "updated": 1634244424767
+            },
+            {
+                "language": "TR",
+                "text": "Lightning Strike Alım Satım Sisteminin Canlı Alım Satım Oturumu ( Live Trading Session ) için Borsa Hesap Anahtarınızı ( Exchange Acoount Key ) burada yapılandırabilirsiniz.",
+                "updated": 1636571154270
+            },
+            {
+                "language": "ID",
+                "text": "Di sinilah kamu mengkonfigurasi Exchange Account Key kamu untuk Live Trading Session dari Lightning Strike Trading System.",
+                "updated": 1640575942351
+            },
+            {
+                "language": "RU",
+                "text": "Здесь вы настраиваете ключ вашего биржевого счета для реальной торговой сессии торговой системы Lightning Strike.",
+                "updated": 1642770933436
+            },
+            {
+                "language": "NL",
+                "text": "Hier configureert u uw Exchange Account Key voor de Live Trading Session van het Lightning Strike Trading System.",
+                "updated": 1667127105045
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Access the configuration and carefully enter the API Pubilic Key and the API secret key.",
+            "updated": 1629832804513,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Accedi alla configurazione e inserisci con attenzione la chiave pubblica API e la chiave segreta API.",
+                    "updated": 1666393510693,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Accede a la configuración e introduce cuidadosamente la <i>API Pubilic Key</i> y la <i>API secret key</i>.",
+                    "updated": 1675362220051,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration auf und geben Sie sorgfältig den API Pubilic Key und den API Secret Key ein.",
+                    "updated": 1634244438606
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya (Configure) erişin ve API Genel Anahtarını ve API gizli anahtarını dikkatlice girin.",
+                    "updated": 1636571181921
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses konfigurasi dan masukkan API Pubilic Key dengan hati-hati dan API secret key.",
+                    "updated": 1640575997998
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в конфигурацию и внимательно введите API Pubilic Key и секретный ключ API.",
+                    "updated": 1642770944562
+                },
+                {
+                    "language": "NL",
+                    "text": "Open de configuratie en voer zorgvuldig de API Pubilic Key en de geheime API-sleutel in.",
+                    "updated": 1667127125244
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Delete the default text string for each parameter first, so that no foreign character gets mixed up with the keys.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cancella prima la stringa di testo di default per ogni parametro, così da non rischiare errori inserendo le tue chiavi.",
+                    "updated": 1618070932988,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Elimina el texto predeterminado para cada parámetro, para que ningún carácter se mezcle con las claves.",
+                    "updated": 1625928654592,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie zuerst die Standard-Textzeichenfolge für jeden Parameter, damit keine fremden Zeichen mit den Schlüsseln verwechselt werden.",
+                    "updated": 1634244452387
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiçbir yabancı karakterin karışmaması için önce her parametre için varsayılan metin dizesini silin.",
+                    "updated": 1636571210360
+                },
+                {
+                    "language": "ID",
+                    "text": "Delete string teks default untuk setiap parameter terlebih dahulu, sehingga tidak ada karakter asing yang tercampur dengan kunci.",
+                    "updated": 1640576105163
+                },
+                {
+                    "language": "RU",
+                    "text": "Сначала удалите текстовую строку по умолчанию для каждого параметра, чтобы не перепутать посторонние символы с ключами.",
+                    "updated": 1642770958877
+                },
+                {
+                    "language": "NL",
+                    "text": "<i>Verwijder</i> eerst de standaard tekst voor elke parameter, zodat er geen vreemd teken aan de API Key wordt toegevoegd.",
+                    "updated": 1667127215091
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "The Exchange Account Key is stored in the User Workspace file, unencrypted. It is used to authenticate with the exchange. It's never sent or stored elsewhere. Don't share this workspace until you learn to how do it safely in the next tutorial.",
+            "updated": 1622233064100,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La chiave dell'account Exchange è archiviata nel file dell'area di lavoro dell'utente, non crittografata. Viene utilizzata per autenticarsi con lo Exchange. Non viene mai inviata o archiviata altrove. Non condividere l'area di lavoro finché non impari come farlo in sicurezza nel prossimo tutorial.",
+                    "updated": 1666393643728,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "La Exchange Account Key se almacena en el User Workspace, sin cifrar para autenticarse con el exchange. Nunca se envía ni se almacena en otro lugar. No compartas este espacio de trabajo hasta que aprendas cómo hacerlo de forma segura en el siguiente tutorial.",
+                    "updated": 1624479154981,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Exchange Account Key wird unverschlüsselt in der User Workspace Datei gespeichert. Er wird für die Authentifizierung bei der Börse verwendet. Er wird niemals an andere Stellen gesendet oder gespeichert. Geben Sie diesen Workspace nicht weiter, bis Sie im nächsten Tutorial lernen, wie Sie ihn sicher verwenden können.",
+                    "updated": 1634244462521
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Hesap Anahtarı ( Exchange Acoount Key ), şifrelenmemiş olarak Kullanıcı Çalışma Alanı ( User Workspace ) dosyasında saklanır. Borsada kimlik doğrulamak için kullanılır. Asla başka bir yere gönderilmez veya saklanmaz. Bir sonraki öğreticide nasıl güvenli bir şekilde yapılacağını öğrenene kadar bu çalışma alanını paylaşmayın.",
+                    "updated": 1636571296174
+                },
+                {
+                    "language": "ID",
+                    "text": "Exchange Account Key disimpan dalam file User Workspace, tidak terenkripsi. Ini digunakan untuk mengotentikasi dengan exchange. Tidak pernah dikirim atau disimpan di tempat lain. Jangan bagikan ruang kerja ini sampai kamu belajar bagaimana melakukannya dengan aman di tutorial berikutnya.",
+                    "updated": 1640576174178
+                },
+                {
+                    "language": "RU",
+                    "text": "Exchange Account Key хранится в файле User Workspace в незашифрованном виде. Он используется для аутентификации на бирже. Он никогда не отправляется и не хранится в другом месте. Не делитесь этим рабочим пространством, пока не научитесь делать это безопасно в следующем уроке.",
+                    "updated": 1642770993025
+                },
+                {
+                    "language": "NL",
+                    "text": "De Exchange Account Key wordt onversleuteld opgeslagen in het User Workspace bestand. Het wordt gebruikt om te authenticeren met het handelsplatform. Het wordt nooit ergens anders heen verzonden of opgeslagen. Deel deze werkruimte pas als u in de volgende handleiding leert hoe u dit veilig kunt doen.",
+                    "updated": 1667127313887
+                }
+            ]
+        }
+    ]
+}

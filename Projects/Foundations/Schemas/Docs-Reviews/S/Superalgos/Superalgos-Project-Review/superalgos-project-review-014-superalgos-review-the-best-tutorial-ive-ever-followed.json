@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": " Çok acemi dostu ve iyi yapılmış, aynı zamanda güzel ve eğlenceli!",
                 "updated": 1669195719071
+            },
+            {
+                "language": "DE",
+                "text": "Fazit: Sehr anfängerfreundlich und gut gemacht, außerdem lustig und unterhaltsam!\n",
+                "updated": 1686338919062
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sol tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669195639665
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der linken Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute , um sie an das Haupt-Repository zu senden.",
+                    "updated": 1686339005970
                 }
             ]
         }

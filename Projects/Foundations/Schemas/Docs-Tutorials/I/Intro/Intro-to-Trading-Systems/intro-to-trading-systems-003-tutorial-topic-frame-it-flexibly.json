@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Un Trading System rige las estrategias trading proporciona un marco flexible, pero estructurado, para desarrollarlas.",
-                "updated": 1629587546135
+                "text": "Un Trading System rige las estrategias de trading y proporciona un marco flexible, pero estructurado, para construirlas.",
+                "updated": 1675618756063
             },
             {
                 "language": "DE",
@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "Торговая система регулирует торговые стратегии и обеспечивает гибкую, но структурированную основу для их построения.",
                 "updated": 1640878761889
+            },
+            {
+                "language": "NL",
+                "text": "Een Trading System regelt handelsstrategieën en biedt een flexibel maar gestructureerd raamwerk om ze op te bouwen.",
+                "updated": 1670790929826
+            },
+            {
+                "language": "ID",
+                "text": "Trading System mengatur strategi trading, dan memberikan fleksibilitas—tapi terstruktur— framework untuk membuatnya.",
+                "updated": 1674498941084
             }
         ]
     },
@@ -39,8 +49,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Por favor, lea esta página para ponerse al día con el funcionamiento de los sistemas comerciales.",
-                    "updated": 1629587573430
+                    "text": "Por favor, lee esta página para ponerte al día con el funcionamiento de los sistemas de trading.",
+                    "updated": 1675618773254
                 },
                 {
                     "language": "DE",
@@ -56,6 +66,16 @@
                     "language": "RU",
                     "text": "Пожалуйста, прочитайте страницу о торговых системах, чтобы узнать, как они работают!",
                     "updated": 1640878774285
+                },
+                {
+                    "language": "NL",
+                    "text": "Lees deze pagina om op de hoogte te blijven van hoe trading systems werken!",
+                    "updated": 1670790953273
+                },
+                {
+                    "language": "ID",
+                    "text": "Tolong, baca halaman ini untuk mengetahui cara kerja trading system!",
+                    "updated": 1674498947240
                 }
             ]
         },
@@ -82,6 +102,16 @@
                     "language": "RU",
                     "text": "Знания ничем не заменишь, поэтому вам придется немного почитать, прежде чем я запачкаю ваши руки старой доброй торговой логикой!",
                     "updated": 1640878792659
+                },
+                {
+                    "language": "NL",
+                    "text": "Er is geen vervanging voor kennis, dus je zult wat moeten lezen voordat ik je handen vuil maak met goede oude handelslogica!",
+                    "updated": 1670790977608
+                },
+                {
+                    "language": "ID",
+                    "text": "Tidak ada pengganti untuk pengetahuan, jadi kamu perlu membaca beberapa sebelum aku membuatmu bekerja keras dengan logika trading yang baik!",
+                    "updated": 1674498954082
                 }
             ]
         },
@@ -91,8 +121,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Saltarse la lectura puede resultar en un deterioro neurológico permanente. ¡Tu llamada!",
-                    "updated": 1629587887766
+                    "text": "Saltarse la lectura puede resultar en un deterioro neurológico permanente. ¡Tú decides!",
+                    "updated": 1675618803688
                 },
                 {
                     "language": "DE",
@@ -108,6 +138,16 @@
                     "language": "RU",
                     "text": "Пропуск чтения может привести к необратимым неврологическим нарушениям. Ваш выбор!",
                     "updated": 1640878837334
+                },
+                {
+                    "language": "NL",
+                    "text": "Het overslaan van het lezen kan leiden tot permanente neurologische stoornissen. Jouw beslissing!",
+                    "updated": 1670791010735
+                },
+                {
+                    "language": "ID",
+                    "text": "Melewatkan bacaan ini dapat mengakibatkan gangguan otak dan sistem saraf permanen. Pilihanmu!",
+                    "updated": 1674498962752
                 }
             ]
         }

@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Помните случай 28 февраля, который мы анализировали в предыдущем уроке? Вот он! Это позиция, которую мы получили благодаря определенным правилам!",
                 "updated": 1642943851195
+            },
+            {
+                "language": "ES",
+                "text": "¿Recuerdas el caso del 28 de febrero que analizamos en el tutorial anterior? Este es el caso. ¡Esta es la posición que obtuvimos a partir de las reglas definidas!",
+                "updated": 1681056256443
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Уделите время изучению того, что показывают слои объектов симуляции!",
                     "updated": 1642943877159
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómate un momento para estudiar lo que muestran las capas de objetos de simulación.",
+                    "updated": 1681056270497
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Давайте включим еще несколько слоев Simulation Object: Trigger, Open, Manage и Close Stages!",
                     "updated": 1642943893308
+                },
+                {
+                    "language": "ES",
+                    "text": "Activemos algunas capas más de Objetos de Simulación: Trigger, Open, Manage y Close Stages.",
+                    "updated": 1681056377846
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Теперь мы можем увидеть четыре этапа в действии. Потратьте минуту на чтение и интерпретацию графиков. Попытайтесь проследить временную шкалу, заложенную в рисунках этапов. Посмотрите, когда и почему открывается и закрывается каждый этап...",
                     "updated": 1642943914266
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora podemos ver las cuatro etapas en acción. Tómate un minuto para leer e interpretar los gráficos. Intenta seguir la línea de tiempo implícita en los dibujos de las etapas. Observa cuándo y por qué se abre y se cierra cada etapa...",
+                    "updated": 1681056411456
                 }
             ]
         }

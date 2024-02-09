@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Eklenti süper komut dosyaları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek süper komut dosyalarının tanımlarını içerir.",
                 "updated": 1651951706831
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin super scripts enthält die Definitionen von Superskripten, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639423204
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Eklenti Süper Komut Dosyalarını Yapılandırma",
                     "updated": 1651951727576
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren von Plugin Superskripten",
+                    "updated": 1674638557526
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
                     "updated": 1651951742866
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie Menü <i>Configure</i>, um auf die Konfiguration zuzugreifen.",
+                    "updated": 1674638719814
                 }
             ]
         }

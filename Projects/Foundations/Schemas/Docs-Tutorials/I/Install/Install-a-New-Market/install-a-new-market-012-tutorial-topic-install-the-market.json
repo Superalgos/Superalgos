@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Вы завершили настройку, необходимую для установки рынка! Остальное полностью автоматизировано!",
                 "updated": 1643090622827
+            },
+            {
+                "language": "NL",
+                "text": "Je hebt de installatie voltooid die nodig is om de markt te installeren! De rest is volledig geautomatiseerd!",
+                "updated": 1676124947101
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "RU",
                     "text": "Нажмите кнопку Install Market (Установить Маркет) на узле Market, который вы только что закончили настраивать. Теперь, когда рынок настроен, установить его можно одним щелчком мыши.",
                     "updated": 1643090651401
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op de <i>Install Market</i> knop in het Market knooppunt dat u zojuist hebt ingesteld. Nu de Market is opgezet, is de installatie slechts een klik verwijderd.",
+                    "updated": 1676125039940
                 }
             ]
         },
@@ -66,8 +76,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La Install Market La función configura muchas estructuras de datos en el local Network Node y en el Charting Space. Los siguientes pasos del tutorial te ayudarán a familiarizarse con la instalación.",
-                    "updated": 1629247622619
+                    "text": "La Install Market La función configura muchas estructuras de datos en el local Network Node y en el Charting Space. Los siguientes pasos del tutorial te ayudarán a familiarizarte con la instalación.",
+                    "updated": 1682427496090
                 },
                 {
                     "language": "DE",
@@ -83,6 +93,11 @@
                     "language": "RU",
                     "text": "Функция Install Market устанавливает множество структур данных в локальном узле сети и в пространстве графиков. Следующие несколько шагов в учебнике помогут вам ознакомиться с установкой.",
                     "updated": 1643090676476
+                },
+                {
+                    "language": "NL",
+                    "text": "De <i>Install Market</i> functie zet veel datastructuren op in het lokale Network Node en in de Charting Space. De volgende paar stappen in de zelfstudie helpen u vertrouwd te raken met de installatie.",
+                    "updated": 1676125104459
                 }
             ]
         }

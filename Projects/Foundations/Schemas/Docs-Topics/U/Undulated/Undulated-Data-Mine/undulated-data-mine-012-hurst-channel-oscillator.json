@@ -1,0 +1,67 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "12",
+    "type": "Hurst Channel Oscillator",
+    "definition": {
+        "text": "The Hurst Channel oscillator, originally created by J.M. Hurst attempts to identify oversold and overbought market zones.",
+        "updated": 1686609782597
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Hurst Channel Oscillator"
+        },
+        {
+            "style": "Text",
+            "text": "The Hurst oscillator can be treated like any other oscillator where a crossover of the fast signal with the slow signal is a potential entry point. Oscillator divergences can also be used to spot potential reversals."
+        },
+        {
+            "style": "Text",
+            "text": "The oversold zone are values below zero, while the overbought zone is above one."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-hurst-channel-oscillator.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HurstChannelOscillator | HCO | fastLine, slowLine |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Hurst Channel Oscillator\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-hurst-channel-oscillator-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the fast line rises above the Zero line from below:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.HCO.fastLine > 0 && chart.at01hs.HCO.previous.fastLine < 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

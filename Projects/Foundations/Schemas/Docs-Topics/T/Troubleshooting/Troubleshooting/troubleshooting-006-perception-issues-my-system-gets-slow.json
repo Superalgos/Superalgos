@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Geçici çözümleri ve en iyi uygulamaları uygulayabilmeniz için sistemin kullanılabilir donanımı nasıl kullandığını anlayın.",
                 "updated": 1647864020724
+            },
+            {
+                "language": "DE",
+                "text": "Sie werden erfahren, wie das System die verfügbare Hardware nutzt, so dass Sie alternative Lösungen und bewährte Methoden anwenden können.",
+                "updated": 1678645092149
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Sistemdeki tüm görsel özellikleri dinamik olarak oluşturmak, makinenin grafik işleme birimine (GPU) önemli bir yük getirir. Aynı anda birden fazla görevi yürütmek, merkezi işlem birimi (CPU) için zorludur. Makinenizin kapasitesine bağlı olarak bu, sistemin yavaşlamasına ve hatta bazen yanıt vermemesine neden olabilir.",
                     "updated": 1647864059316
+                },
+                {
+                    "language": "DE",
+                    "text": "Das dynamische Rendering aller visuellen Funktionen im System belastet den Grafikprozessor (GPU) des Computers erheblich. Die gleichzeitige Ausführung mehrerer Aufgaben stellt hohe Anforderungen an die zentrale Verarbeitungseinheit (CPU). Je nach Kapazität Ihres Rechners kann dies dazu führen, dass das System langsamer wird und zum Teil nicht mehr reagiert.",
+                    "updated": 1678645102672
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Bu tür belirtilerle karşılaşırsanız, bunları azaltmak için yapabileceğiniz birkaç işlem vardır.",
                     "updated": 1647864070623
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn solche Symptome auftreten, gibt es mehrere Maßnahmen, die Sie ergreifen können, um dies zu verbessern.",
+                    "updated": 1678645113491
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Not: Donanımınızın performansı açısından ne bekleyeceğinizi daha iyi anlamak için sistem gereksinimleri hakkında bilgi edinin.",
                     "updated": 1647864113104
+                },
+                {
+                    "language": "DE",
+                    "text": "Informieren Sie sich über die Systemanforderungen, um besser zu verstehen, was für die Leistung Ihrer wichtig ist.",
+                    "updated": 1678645126751
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Tarayıcı Geliştirici Araçlarını Kapatın",
                     "updated": 1647864138400
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließen Sie die Entwicklertools des Browsers",
+                    "updated": 1678645137849
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Bir noktada Geliştirici Araçlarını açmış olabilirsiniz. Geliştirici Araçları, animasyon oluşturma işlemlerini saniyede bir kare kadar yavaş bir taramaya kadar yavaşlatabilir. Açık olması durumunda, Geliştirici Araçlarını kapattığınızdan emin olun.",
                     "updated": 1647864177922
+                },
+                {
+                    "language": "DE",
+                    "text": "Möglicherweise haben Sie irgendwann einmal die Entwicklertools geöffnet. Die Entwicklertools können das Rendern von Animationen verlangsamen, und zwar bis zu einem Bild pro Sekunde. Falls sie geöffnet sind, schließen Sie die Entwicklertools.",
+                    "updated": 1678645145786
                 }
             ]
         },
@@ -114,6 +144,11 @@
                     "language": "TR",
                     "text": "Çalışması Gerekmeyen Veri Madenciliği Görevlerini Durdurun",
                     "updated": 1647864214772
+                },
+                {
+                    "language": "DE",
+                    "text": "Stoppen Sie Data-Mining-Aufgaben, die Sie vielleicht nicht ausführen müssen",
+                    "updated": 1678645159090
                 }
             ]
         },
@@ -130,6 +165,11 @@
                     "language": "TR",
                     "text": "Veri madenciliği, CPU için yoğun bir faaliyettir. Bir strateji tasarlıyorsanız, muhtemelen gerçek zamanlı olarak işlenen canlı bir bilgi akışına ihtiyacınız yoktur. Faaliyetlerinizi bölümlere ayırmayı öğrenin ve yalnızca yaptığınız iş için ihtiyaç duyduğunuz görevleri başlatın.",
                     "updated": 1647864266946
+                },
+                {
+                    "language": "DE",
+                    "text": "Data Mining ist eine CPU-intensive Tätigkeit. Wenn Sie eine Strategie entwerfen, brauchen Sie wahrscheinlich keinen Live-Stream von Informationen, die in Echtzeit verarbeitet werden. Lernen Sie, Ihre Aktivitäten zu segmentieren und nur die Aufgaben zu starten, die Sie für Ihre Arbeit benötigen.",
+                    "updated": 1678645176972
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "TR",
                     "text": "Ayrıca, yalnızca ihtiyaç duyduklarınızı işlemek için bir Zaman Çerçevesi Filtresi ( Time Frames Filter ) uygulamayı da düşünebilirsiniz.",
                     "updated": 1647864311455
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können auch einen Zeitrahmenfilter (Time Frames Filter) anwenden, um nur die von Ihnen benötigten Daten zu verarbeiten.",
+                    "updated": 1678645185803
                 }
             ]
         },
@@ -163,6 +208,11 @@
                     "language": "TR",
                     "text": "Tasarım Alanını veya Grafik Alanını Açın",
                     "updated": 1647864336763
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie entweder den Design-Bereich oder den Charting-Bereich",
+                    "updated": 1678645195011
                 }
             ]
         },
@@ -179,6 +229,11 @@
                     "language": "TR",
                     "text": "Kaydırıcıyı ekranın yarısında yukarı veya aşağı bırakmak, hem tasarım alanının hem de grafik alanının kaynakları tüketmesine neden olur. Kaydırıcının tamamen yukarı veya aşağı olduğundan emin olun.",
                     "updated": 1647864528970
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Schieberegler auf halber Höhe des Bildschirms belassen, verbrauchen sowohl der Designbereich als auch der Diagrammbereich Ressourcen. Stellen Sie sicher, dass der Schieberegler entweder ganz oben oder ganz unten ist.",
+                    "updated": 1678645203862
                 }
             ]
         },
@@ -195,6 +250,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Daha Az Veri Görüntüle",
                     "updated": 1647864547877
+                },
+                {
+                    "language": "DE",
+                    "text": "Weniger Daten in den Diagrammen anzeigen",
+                    "updated": 1678645213314
                 }
             ]
         },
@@ -212,6 +272,11 @@
                     "language": "TR",
                     "text": "Zaman Ölçeğini ( Time Scale ) manuel moda ayarladığınızdan emin olun ve ekranda daha az mum görüntülenecek şekilde ayarlayın. Mum yoğunluğunu azaltmak için zaman çerçevesi kutusunu daha yüksek zaman çerçevelerine geçirmeyi deneyin.",
                     "updated": 1647864606251
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass Sie die Zeitskala (Time Scale) auf den manuellen Modus eingestellt haben, und stellen Sie sie so ein, dass weniger Kerzen auf dem Bildschirm angezeigt werden. Versuchen Sie, das Zeitrahmenfeld auf die höheren Zeitrahmen umzustellen, damit die Kerzendichte abnimmt.",
+                    "updated": 1678645333567
                 }
             ]
         },
@@ -228,6 +293,11 @@
                     "language": "TR",
                     "text": "Ayrıca kullanmadığınız katmanları kapatmak isteyebilirsiniz. Unutmayın, ekranda gördüğünüz her grafik bilgi parçası, sisteminizin diskinizden okuduğu ve grafik biçiminde görüntülemek için işlediği verileri temsil eder.",
                     "updated": 1647864641336
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht möchten Sie auch die Ebenen ausschalten, die Sie nicht benötigen. Denken Sie daran, dass jede grafische Information, die Sie auf dem Bildschirm sehen, Daten darstellt, die Ihr System von der Festplatte liest und verarbeitet, um sie in grafischer Form anzuzeigen.",
+                    "updated": 1678645644028
                 }
             ]
         },
@@ -244,6 +314,11 @@
                     "language": "TR",
                     "text": "Ayrıca Ticaret Motoru ( Trading Engine ) ve Ticaret Sistemi ( Trading System ) katman yöneticilerindeki katmanları kapatın. Bu katmanlar, ticaret motoru ve ticaret sistemi hiyerarşileri üzerindeki bilgileri gerçek zamanlı olarak göstermek için tasarım alanıyla etkileşime girer.",
                     "updated": 1647864688154
+                },
+                {
+                    "language": "DE",
+                    "text": "Deaktivieren Sie auch die Ebenen in den Ebenenmanagern von Trading Engine und Trading System. Diese Ebenen interagieren mit dem Designbereich, um Informationen in Echtzeit über die Trading Engine- und Trading System-Hierarchien anzuzeigen.",
+                    "updated": 1678645655608
                 }
             ]
         },
@@ -261,6 +336,11 @@
                     "language": "TR",
                     "text": "Kullanılmayan Hiyerarşileri Daralt",
                     "updated": 1647864709996
+                },
+                {
+                    "language": "DE",
+                    "text": "Unbenutzte Hierarchien einklappen",
+                    "updated": 1678645662205
                 }
             ]
         },
@@ -277,6 +357,11 @@
                     "language": "TR",
                     "text": "Tasarım alanındaki düğümleri yöneten fizik, düğüm yapılarının kendi kendine organize olmasına yardımcı olur. Bunun GPU işlem gücü açısından bir maliyeti vardır.",
                     "updated": 1647864731208
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Physik, die die Knoten im Entwurfsraum regelt, hilft den Strukturen der Knoten, sich selbst zu organisieren. Dies hat seinen Preis in Form von GPU-Verarbeitungsleistung.",
+                    "updated": 1678645679787
                 }
             ]
         },
@@ -293,6 +378,11 @@
                     "language": "TR",
                     "text": "Kullanmadığınız tüm hiyerarşilerin daraltıldığından emin olun.",
                     "updated": 1647864749960
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass alle Hierarchien, die Sie nicht verwenden, eingeklappt bzw. (Symbol: +/-) sind.",
+                    "updated": 1678645689493
                 }
             ]
         },
@@ -309,6 +399,11 @@
                     "language": "TR",
                     "text": "Ayrıca, genişletmeniz gerekebilecek hiyerarşi içinde kullanmadığınız düğüm yapılarından herhangi birini kapatmak isteyebilirsiniz.",
                     "updated": 1647864767188
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können auch alle Strukturen von Knoten schließen, die Sie innerhalb der Hierarchie nicht verwenden und die Sie eventuell erweitern müssen.",
+                    "updated": 1678645696224
                 }
             ]
         },
@@ -326,6 +421,11 @@
                     "language": "TR",
                     "text": "Önemli: Bu geçici çözümler sorununuzu çözmüyorsa ve bilgisayarınızı kullanırken sık sık yavaşlama veya yanıt vermeme sorunu yaşıyorsanız, donanımınızı yükseltmeyi düşünebilirsiniz. Yetersiz bir ticaret altyapısı ile sermayenizi riske atmamalısınız.",
                     "updated": 1647864790024
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn diese Abhilfemaßnahmen Ihr Problem nicht lösen und Sie bei der Verwendung Ihres Computers häufig mit Langsamkeit oder Unempfindlichkeit zu kämpfen haben, sollten Sie eine Aufrüstung Ihrer Ausrüstung in Betracht ziehen. Sie sollten Ihr Kapital nicht mit einer unzureichenden Handelsinfrastruktur riskieren.",
+                    "updated": 1678645750006
                 }
             ]
         },
@@ -342,6 +442,11 @@
                     "language": "TR",
                     "text": "Eylemlerinizin Etkilerini Görün",
                     "updated": 1647864811040
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehen Sie die Auswirkungen Ihrer Handlungen",
+                    "updated": 1678645768667
                 }
             ]
         },
@@ -358,6 +463,11 @@
                     "language": "TR",
                     "text": "Katmanları kapatmanın, bilgi yoğunluğunu düşürmenin vb. etkilerini görmek için kullanabileceğiniz, animasyonun performansını ölçmek için kullanışlı bir yerleşik araç vardır.",
                     "updated": 1647864827802
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt ein praktisches integriertes Tool zur Messung der Leistung der Anwendung, mit dem Sie die Auswirkungen des Ausschaltens von Ebenen, der Verringerung der Informationsdichte usw. überprüfen können.",
+                    "updated": 1678645778228
                 }
             ]
         },
@@ -374,6 +484,11 @@
                     "language": "TR",
                     "text": "Ctrl + Shift + Alt + F11'i tıkladığınızda ekranınızda aşağıdaki performans değerleri görünecektir:",
                     "updated": 1647864853212
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf Ctrl + Shift + Alt + F11 und die folgenden Leistungswerte werden auf Ihrem Bildschirm angezeigt:",
+                    "updated": 1678645877512
                 }
             ]
         },
@@ -395,6 +510,11 @@
                     "language": "TR",
                     "text": "Altta görüntülenen kare hızı, burada önerilen eylemlerin daha fazlasını uyguladığınızda artacaktır.",
                     "updated": 1647864896188
+                },
+                {
+                    "language": "DE",
+                    "text": "Die unten angezeigte Bildrate sollte sich erhöhen, je mehr der hier vorgeschlagenen Maßnahmen Sie durchführen.",
+                    "updated": 1678645895526
                 }
             ]
         }

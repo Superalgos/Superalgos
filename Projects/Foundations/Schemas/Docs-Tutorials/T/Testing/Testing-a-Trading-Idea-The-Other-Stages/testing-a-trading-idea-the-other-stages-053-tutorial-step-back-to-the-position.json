@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Возвращаясь к этой первой сделке, мы обсудили, как работают этапы, и упомянули, что цена обозначила цель стоп-лосса.",
                 "updated": 1642945102163
+            },
+            {
+                "language": "ES",
+                "text": "Volviendo a esta primera operación, hablamos de cómo funcionan las etapas y mencionamos que el precio marcaba el stop loss target .",
+                "updated": 1681733989154
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Это означает, что первая позиция неудачна!",
                     "updated": 1642945111227
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eso significa que esta primera posición es un fracaso!",
+                    "updated": 1681734008262
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Если честно, сделка пошла в нашу пользу примерно до 3%, но мы не зафиксировали прибыль и упустили ее из рук. Вход не был ужасным, и он может иметь смысл, когда мы начнем думать об управлении позицией.",
                     "updated": 1642945147781
+                },
+                {
+                    "language": "ES",
+                    "text": "Para ser justos, la operación fue a nuestro favor hasta cerca de un 3%, pero no tomamos beneficios y dejamos que se nos escapara de las manos. La entrada no fue horrible y puede tener sentido una vez que empecemos a pensar en la gestión de posiciones.",
+                    "updated": 1681734029656
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Давайте совершим небольшой экскурс по протестированному периоду и сделаем быструю оценку остальных занятых позиций!",
                     "updated": 1642945173781
+                },
+                {
+                    "language": "ES",
+                    "text": "Hagamos un pequeño recorrido a lo largo del periodo analizado y hagamos una rápida valoración del resto de posiciones ocupadas.",
+                    "updated": 1681734041156
                 }
             ]
         }

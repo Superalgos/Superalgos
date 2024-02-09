@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 6,
+    "type": "Tutorial Step - You Will Get Lost!",
+    "definition": {
+        "text": "You may find it hard to grasp the interface as it doesn't become intuitive until you master a few concepts. Please, be patient!",
+        "updated": 1687628078948,
+        "icon": {
+            "name": "layer",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The right way to start is to embrace the following idea:",
+            "updated": 1687628448673
+        },
+        {
+            "style": "Success",
+            "text": "Superalgos is built on a different paradigm, optimized to handle and digest extreme complexity. It takes time to make sense of it, so please, open your mind and let go of all preconceived notions.",
+            "updated": 1687695564212
+        },
+        {
+            "style": "Note",
+            "text": "There's a lot to learn. Tutorials are packed with information introduced in the order we believe makes the most sense for most people. Please, revisit tutorials until you master all the basics.",
+            "updated": 1687628953383
+        }
+    ]
+}

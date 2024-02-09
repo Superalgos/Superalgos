@@ -1,0 +1,204 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 76,
+    "type": "Tutorial Step - Green Silver Bullets",
+    "definition": {
+        "text": "Do you see the green bullets with an L in the center? Those are the limit buy orders I mentioned.",
+        "icon": {
+            "name": "Bullet\\bullet-limit-buy-order",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Vedi quei cerchi verdi con dentro la \"L\"? Sono i Limit Buy Order di cui parlavo.",
+                "updated": 1618061409837,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Ves las circulos verdes con una L en el centro? Esas son los Limit Buy Order que mencioné.",
+                "updated": 1627313818947,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sehen Sie die grünen Kugeln mit einem L in der Mitte? Das sind die erwähnten limitierten Kaufaufträge.",
+                "updated": 1634224261070
+            },
+            {
+                "language": "TR",
+                "text": "Ortasında \"L\" harfi olan yeşil mermileri görüyor musunuz? Bahsettiğim limit alış emirleri bunlar.",
+                "updated": 1670007846670
+            },
+            {
+                "language": "RU",
+                "text": "Вы видите зеленые круги с буквой L в центре? Это те лимитные ордера на покупку, о которых я упоминал.",
+                "updated": 1637594382201
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu melihat bullets hijau dengan huruf L di tengah? Itulah limit order beli yang aku maksud.",
+                "updated": 1639748865441
+            },
+            {
+                "language": "NL",
+                "text": "Zie je de groene bolletjes met een L in het midden? Dat zijn de limiet aankooporders die ik noemde.",
+                "updated": 1666878118349
+            },
+            {
+                "language": "FR",
+                "text": "Vous voyez les ronds verts avec un L au centre ? Ce sont les ordres d'achat limite dont j'ai parlé.",
+                "updated": 1676898990520
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Notice how an order is placed every minute and is canceled before a new order is placed. Do you recognize the symbol for the order cancellation? It's the smaller, darker bullet with a white horizontal stripe in the middle!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come viene inserito un ordine al minuto, e come questo viene cancellato prima di inserirne uno nuovo: quest'ultimo evento è riconoscibile dal cerchio scuro più piccolo con una striscia orizziontale che lo attraversa!",
+                    "updated": 1618061508009,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa cómo se realiza un pedido cada minuto y se cancela antes de realizar un nuevo pedido. ¿Reconoces el símbolo de cancelación del pedido? ¡Es la bala más pequeña y oscura con una franja horizontal blanca en el medio!",
+                    "updated": 1627313785538,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass jede Minute ein Auftrag erteilt wird, der storniert wird, bevor ein neuer Auftrag erteilt wird. Erkennen Sie das Symbol für die Auftragsstornierung? Es ist die kleinere, dunklere Kugel mit einem weißen horizontalen Streifen in der Mitte!",
+                    "updated": 1634224270895
+                },
+                {
+                    "language": "TR",
+                    "text": "Her dakika bir siparişin nasıl verildiğine ve yeni bir sipariş verilmeden önce iptal edildiğine dikkat edin. Sipariş iptali sembolünü tanıyor musunuz? Ortasında beyaz yatay şerit bulunan daha küçük, daha koyu mermi!",
+                    "updated": 1636203192290
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание как ордер размещается каждую минуту и отменяется перед размещением нового ордера. Вы узнаете символ отмены заказа? Это меньший, более темный круг с белой горизонтальной полосой по середине!",
+                    "updated": 1637594519493
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana pesanan dilakukan setiap menit dan dibatalkan sebelum pesanan baru dilakukan. Apakah kamu mengenali simbol untuk pembatalan pesanan? Ini adalah bullet yang lebih kecil dan lebih gelap dengan garis horizontal putih di tengahnya!",
+                    "updated": 1639748921691
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op hoe elke minuut een bestelling wordt geplaatst en wordt geannuleerd voordat een nieuwe bestelling wordt geplaatst. Herken je het symbool voor de annulering van de bestelling? Het is de kleinere, donkere cirkel met een witte horizontale streep in het midden!",
+                    "updated": 1666878191215
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez comment un ordre est passé toutes les minutes et est annulé avant qu'un nouvel ordre ne soit passé. Reconnaissez-vous le symbole de l'annulation de l'ordre ? C'est la rond plus petit, plus foncé avec une bande horizontale blanche au milieu !",
+                    "updated": 1676899028452
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Notice the knife falling at 00:21 AM! The price fell well below the rate of the limit order, therefore, the order was filled! That is what the bigger&mdash;filled&mdash;green bullet indicates!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota il \"falling knife\" delle 00:21! Il prezzo scende al di sotto di quello del limit order, che quindi viene evaso. Ciò è indicato dal cerchio più grande riempito di colore verde!",
+                    "updated": 1618061604262,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Observa que la vela cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
+                    "updated": 1675280497797,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass das \"Knife\" um 00:21 Uhr gefallen ist! Der Preis fiel deutlich unter den Kurs der Limit-Order, daher wurde die Order ausgeführt! Das zeigt der größere, gefüllte, grüne Punkt an!",
+                    "updated": 1634224312254
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyatın 00:21'de düştüğüne dikkat edin! Fiyat, limit emrinin oranının çok altına düştü, bu nedenle emir yerine getirildi! Daha büyük, dolu yeşil mermi bunu gösteriyor!",
+                    "updated": 1636203809456
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на нож, падающий в 00:21 утра! Цена упала значительно ниже ставки лимитного ордера, следовательно, заказ был выполнен! Это обозначено на большом закрашенном зеленом круге.",
+                    "updated": 1637594840545
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan knife falling pada 00:21 AM! Harga turun jauh di bawah tingkat pesanan terbatas, oleh karena itu, pesanan dipenuhi! Itulah yang ditunjukkan yang lebih besar — ​​terisi — oleh bullet hijau!",
+                    "updated": 1639749027127
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat het mes om 00:21 uur valt! De prijs zakte ruim onder de prijs van de limietorder, dus de order werd uitgevoerd! Dat is wat de grotere - gevulde - groene cirkel aangeeft!",
+                    "updated": 1666878241957
+                },
+                {
+                    "language": "FR",
+                    "text": "Remarquez la chute du couteau à 00:21 AM ! Le prix est tombé bien en dessous du taux de l'ordre limite, donc, l'ordre a été exécuté ! C'est ce qu'indique la balle verte plus remplie !",
+                    "updated": 1676899055088
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "So. . . what happens afterwards?",
+            "updated": 1610536393495,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quindi...dopo che succede?",
+                    "updated": 1618061624143,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Entonces ... ¿qué pasa después?",
+                    "updated": 1624455679005,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Und... was passiert danach?",
+                    "updated": 1634224328125
+                },
+                {
+                    "language": "RU",
+                    "text": "Итак... Что происходит после?",
+                    "updated": 1637594867407
+                },
+                {
+                    "language": "ID",
+                    "text": "Jadi... apa yang terjadi setelahnya?",
+                    "updated": 1639749041658
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani. . sonra ne olacak?",
+                    "updated": 1654394249645,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Dus... wat gebeurt er daarna?",
+                    "updated": 1666878265541
+                },
+                {
+                    "language": "FR",
+                    "text": "Alors... que se passe-t-il après ?",
+                    "updated": 1676899070081
+                }
+            ]
+        }
+    ]
+}

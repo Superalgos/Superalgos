@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Надеюсь, вы нашли его самостоятельно, но не волнуйтесь, если не нашли! Мы пройдемся по всем рассуждениям еще раз!",
                 "updated": 1642779282477
+            },
+            {
+                "language": "ES",
+                "text": "Espero que lo hayas encontrado por ti mismo, ¡pero no te preocupes si no es así! Volveremos a repasar todo el razonamiento.",
+                "updated": 1680709184815
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Цель состоит в том, чтобы вы научились находить нужные вам данные в пределах Trading Engine, который структурирован логически... Обязательно читайте подсказки!",
                     "updated": 1642779299203
+                },
+                {
+                    "language": "ES",
+                    "text": "El objetivo es que aprendas a encontrar los datos que necesitas en los confines del Trading Engine, que está estructurado de forma lógica... ¡Asegúrate de leer los tooltips!",
+                    "updated": 1680709295157
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Trading Current, потому что нам нужен баланс в момент оценки!",
                     "updated": 1642779315600
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Current ¡Porque necesitamos el equilibrio en el momento de la evaluación!",
+                    "updated": 1680709508044
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Trading Episode потому что это текущий баланс, сохраняемый в течение всей торговой сессии!",
                     "updated": 1642779329687
+                },
+                {
+                    "language": "ES",
+                    "text": "Trading Episode ¡Porque es el saldo corriente que se mantiene a lo largo de toda la sesión de negociación!",
+                    "updated": 1680709515006
                 }
             ]
         },
@@ -110,6 +130,11 @@
                     "language": "RU",
                     "text": "Episode Base Asset, потому что он согласуется с остальными нашими определениями!",
                     "updated": 1642779339362
+                },
+                {
+                    "language": "ES",
+                    "text": "Episode Base Asset ¡Porque es coherente con el resto de nuestras definiciones!",
+                    "updated": 1680709462583
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "language": "RU",
                     "text": "Balance, потому что это то, чего мы хотим!",
                     "updated": 1642779361176
+                },
+                {
+                    "language": "ES",
+                    "text": "Balance ¡Porque es lo que queríamos!",
+                    "updated": 1680709521167
                 }
             ]
         }

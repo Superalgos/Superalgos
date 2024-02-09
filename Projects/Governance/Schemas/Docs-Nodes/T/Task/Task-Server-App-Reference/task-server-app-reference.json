@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, üst görevdeki (Task) geçerli kullanıcının görev sunucusunun, İmzalama Hesabına (Signing Account) erişmesine izin veren Görev Sunucusu Uygulaması (Task Server App) düğümüne bir referans depolar.",
                 "updated": 1666689514950
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten speichert einen Verweis auf den Knoten Task Server App, der es dem übergeordneten Task ermöglicht, auf das Signing Account des Taskservers des aktuellen Benutzers zuzugreifen. ",
+                "updated": 1704581547114
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Kullanıcının imzalama hesabına erişim sağlayarak, mevcut görev artık Superalgos eşler arası ağa erişebilecek.",
                     "updated": 1666689551602
+                },
+                {
+                    "language": "DE",
+                    "text": "Durch den Zugriff auf das Benutzerkonto kann die aktuelle Aufgabe nun auf das Superalgos Peer-to-Peer-Netzwerk zugreifen.",
+                    "updated": 1704578435012
                 }
             ]
         }

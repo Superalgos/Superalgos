@@ -13,3 +13,5 @@ function newFoundationsGlobalsZoom() {
     }
     return thisObject
 }
+
+exports.newFoundationsGlobalsZoom = newFoundationsGlobalsZoom

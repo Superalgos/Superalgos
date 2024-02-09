@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Temel Katmanlar kullanabileceğiniz en yaygın katmanlardır.",
                 "updated": 1654396652554
+            },
+            {
+                "language": "DE",
+                "text": "Basisebenen sind die gängigsten Ebenen, die Sie verwenden können.",
+                "updated": 1706371375871
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396660684,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1706371384583
                 }
             ]
         }

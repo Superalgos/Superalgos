@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Telegram Bot",
+            "translationKey": "add.telegramBot",
             "relatedUiObject": "Telegram Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Discord Bot",
+            "translationKey": "add.discordBot",
             "relatedUiObject": "Discord Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -20,6 +22,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Slack Bot",
+            "translationKey": "add.slackBot",
             "relatedUiObject": "Slack Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -28,6 +31,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Twitter Bot",
+            "translationKey": "add.twitterBot",
             "relatedUiObject": "Twitter Bot",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -38,7 +42,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

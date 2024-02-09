@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Limit Buy Order Signals",
+            "translationKey": "add.orders.limit.buySignals",
             "relatedUiObject": "Limit Buy Order Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },     
@@ -21,6 +23,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Limit Sell Order Signals",
+            "translationKey": "add.orders.limit.sellSignals",
             "relatedUiObject": "Limit Sell Order Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },  
@@ -29,6 +32,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Market Buy Order Signals",
+            "translationKey": "add.orders.market.buySignals",
             "relatedUiObject": "Market Buy Order Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },     
@@ -37,6 +41,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Market Sell Order Signals",
+            "translationKey": "add.orders.market.sellSignals",
             "relatedUiObject": "Market Sell Order Signals",
             "relatedUiObjectProject": "Trading-Signals"
         }, 
@@ -47,6 +52,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Target Rate Signal",
+            "translationKey": "add.targetRateSignal",
             "relatedUiObject": "Target Rate Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -57,6 +63,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Target Size In Base Asset Signal",
+            "translationKey": "add.targetSizeInBaseAssetSignal",
             "relatedUiObject": "Target Size In Base Asset Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },  
@@ -67,6 +74,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Target Size In Quoted Asset Signal",
+            "translationKey": "add.targetSizeInQuotedAssetSignal",
             "relatedUiObject": "Target Size In Quoted Asset Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -77,6 +85,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Close Stage Signal",
+            "translationKey": "add.closeStageSignal",
             "relatedUiObject": "Close Stage Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },  
@@ -85,7 +94,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

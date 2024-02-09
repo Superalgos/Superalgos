@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел User Supporter должен установить ссылку на профиль пользователя вашего помощника. Если у вас более одного помощника, добавьте больше узлов! Так вы выясняете, кто ваши помощники.",
                 "updated": 1639128606836
+            },
+            {
+                "language": "TR",
+                "text": "Bir Kullanıcı Destekçisi düğümü, destekçinizin Kullanıcı Profili ( User Profile ) ile bir referans oluşturmalıdır. Birden fazla destekçiniz varsa, daha fazla düğüm ekleyin! Destekçilerinizin kim olduğunu bu şekilde belirlersiniz.",
+                "updated": 1671558279208
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Для участия в программе необходимо указать хотя бы одного User Supporter. Если вы не заявите хотя бы один, вы не имеете права на получение бонусов Tokens Bonus.",
                     "updated": 1639128683648
+                },
+                {
+                    "language": "TR",
+                    "text": "En az bir Kullanıcı Destekçisi beyan etmek programa katılmak için bir gerekliliktir. En az bir tane beyan etmezseniz, Token Bonus ( Tokens Bonus ) teşviklerine hak kazanamazsınız.",
+                    "updated": 1671558377505
                 }
             ]
         },

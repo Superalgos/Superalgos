@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bu, 25 Şubat ve 1 Nisan geri dönüşleri için iyi çalışıyor gibi görünüyor, değil mi?",
                 "updated": 1641653246016
+            },
+            {
+                "language": "ES",
+                "text": "Esto parece funcionar bien para los retrocesos del 25 de febrero y el 1 de abril, ¿verdad?",
+                "updated": 1675622483322
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Grafiği sağa kaydırın ve 24 Mayıs ile 16 Temmuz arasındaki dönemi kontrol edin!",
                     "updated": 1641653256138
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplaza el gráfico a la derecha y comprueba el periodo entre el 24 de mayo y el 16 de julio.",
+                    "updated": 1675622495919
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Piyasa, daralan bir aralıkta açıkça yana doğru hareket ediyor ve gösterge yukarı ve aşağı yönler arasında düzensiz bir şekilde değişiyor.",
                     "updated": 1641653266350
+                },
+                {
+                    "language": "ES",
+                    "text": "El mercado se está moviendo claramente hacia los lados en un rango cada vez más estrecho, y el indicador cambia erráticamente entre las direcciones de subida y bajada.",
+                    "updated": 1675622509846
                 }
             ]
         },
@@ -85,8 +100,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu, trendi belirlemek için nihai çözüm değil!",
-                    "updated": 1641653283826
+                    "text": "Bu, eğilimi belirlemek için mutlak çözüm değildir!",
+                    "updated": 1669576764247
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ésta no es la solución definitiva para determinar la tendencia!",
+                    "updated": 1675622516430
                 }
             ]
         }

@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Помимо структур данных, установленных в иерархии Network, функция Install Market также устанавливает графики, соответствующие созданным торговым сессиям.",
                 "updated": 1643091292185
+            },
+            {
+                "language": "NL",
+                "text": "Naast de gegevensstructuren die zijn ingesteld in de netwerkhiërarchie, stelt de Install Market functie ook de grafieken in, die overeenkomen met de gemaakte handelssessies.",
+                "updated": 1676128399115
             }
         ]
     },
@@ -38,8 +43,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En los siguientes pasos, verificará que las estructuras de datos esperadas se hayan creado correctamente.",
-                    "updated": 1629250307906
+                    "text": "En los siguientes pasos, comprobarás que las estructuras de datos esperadas se hayan creado correctamente.",
+                    "updated": 1682428141280
                 },
                 {
                     "language": "DE",
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "На следующих нескольких шагах вы убедитесь, что ожидаемые структуры данных были успешно созданы.",
                     "updated": 1643091300683
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende paar stappen verifieer je of de verwachte datastructuren met succes zijn gemaakt.",
+                    "updated": 1676128424371
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "RU",
                     "text": "Созданные графики позволяют работать с каждой из торговых сессий независимо.",
                     "updated": 1643091308290
+                },
+                {
+                    "language": "NL",
+                    "text": "De gemaakte grafieken maken het mogelijk om onafhankelijk van elkaar met elk van de handelssessies te werken.",
+                    "updated": 1676128450241
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "RU",
                     "text": "Обратите внимание на организацию графиков, что Superalgos позволяет масштабировать вашу работу до неограниченного количества торговых систем и графиков.",
                     "updated": 1643091320255
+                },
+                {
+                    "language": "NL",
+                    "text": "Merk op dat door de manier van organiseren van de grafieken, Superalgos het mogelijk maakt om uw operatie op te schalen naar onbeperkte handelssystemen en grafieken.",
+                    "updated": 1676128522100
                 }
             ]
         }

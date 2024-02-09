@@ -4,6 +4,7 @@
         {
             "action": "Configure",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",
             "actionFunction": "uiObject.configEditor.activate",
@@ -15,6 +16,7 @@
             "propertyToCheckFor": "pluginFilePosition",
             "actionFunction": "payload.executeAction",
             "label": "Add Plugin File Position",
+            "translationKey": "add.pluginFilePosition",
             "relatedUiObject": "Plugin File Position",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Community-Plugins"
@@ -23,10 +25,14 @@
             "action": "Enable Saving With Workspace",
             "actionFunction": "payload.executeAction",
             "label": "Enable Saving With Workspace",
+            "translationKey": "save.enableWithWorkspace",
             "workDoneLabel": "Enabled",
+            "workDoneLabelTranslationKey": "general.enabled",
             "secondaryAction": "Disable Saving With Workspace",
             "secondaryLabel": "Disable Saving With Workspace",
+            "secondaryLabelTranslationKey": "general.disableSavingWithWorkspace",
             "secondaryWorkDoneLabel": "Disabled",
+            "secondaryWorkDoneLabelTranslationKey": "general.isabled",
             "secondaryIcon": "disable-saving-with-workspace",
             "booleanProperty": "saveWithWorkspace",
             "iconPathOn": "enable-saving-with-workspace",
@@ -39,6 +45,7 @@
             "action": "Save Plugin File",
             "actionFunction": "payload.executeAction",
             "label": "Save Plugin File",
+            "translationKey": "save.pluginFile",
             "relatedUiObject": "Plugin File",
             "actionProject": "Community-Plugins",
             "relatedUiObjectProject": "Community-Plugins"
@@ -48,7 +55,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

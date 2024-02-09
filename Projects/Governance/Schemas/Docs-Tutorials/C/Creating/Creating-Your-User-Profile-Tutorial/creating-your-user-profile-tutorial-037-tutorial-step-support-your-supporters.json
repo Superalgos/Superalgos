@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Destek Programı, Referans Programına (Referral Program) benzer şekilde çalışır, sadece en sevdiğiniz Topluluk Modlarının (Community Mods) kim olduğunu beyan edersiniz!",
                 "updated": 1645101833654
+            },
+            {
+                "language": "ID",
+                "text": "Support Program bekerja kurang lebih seperti Referral Program, hanya dengan menyatakan siapa Community Mods favoritmu!",
+                "updated": 1671544285875
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Añade el Support Program and use los nodos User Supporter para configurar referencias a tus moderadores favoritos! ",
-                    "updated": 1630898198979,
+                    "text": "Añade el programa de apoyo y utiliza los nodos de apoyo de usuario para establecer referencias a tus moderadores favoritos. Encuentra sus perfiles en el espacio de trabajo. ",
+                    "updated": 1682521891252,
                     "style": "Callout"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Destek Programını (Support Program) ekleyin ve favori moderatörlerinize referanslar ayarlamak için Kullanıcı Destekçi (User Supporter) düğümlerini kullanın! Profilleri zaten yüklendi!",
                     "updated": 1645101890575
+                },
+                {
+                    "language": "ID",
+                    "text": "Tambahkan Support Program dan gunakan node User Supporter untuk mengatur referensi ke moderator favoritmu! Temukan profilnya di workspace!",
+                    "updated": 1671544292628
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Topluluk tipik sorularda her zaman yardıma hazır olsa da, etkili destek sağlamak için belirli bir düzeyde deneyim ve bilgi gerekir. Bundan belirli Topluluk Modları sorumludur! Bu programa katılmak, başkalarına özverili bir şekilde yardım eden insanlara teşekkür etmenin en iyi yoludur!",
                     "updated": 1645101931074
+                },
+                {
+                    "language": "ID",
+                    "text": "Meskipun Community selalu siap membantu dengan pertanyaan umum, dperlukan tingkat pengalaman dan pengetahuan tertentu untuk memberikan dukungan yang efektif. Inilah sebabnya mengapa Community Mods yang bertanggung jawab! Berpartisipasi dalam program ini adalah cara terbaik untuk berterima kasih kepada orang-orang yang tanpa pamrih membantu orang lain!",
+                    "updated": 1671544307259
                 }
             ]
         }

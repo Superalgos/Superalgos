@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Узел бумажной торговой сессии должен ссылаться на торговую систему, чтобы получить доступ к торговой логике, которая будет применяться во время сессии. Другие соображения, касающиеся сеанса, исходят из набора прикрепленных к нему параметров.",
                     "updated": 1638602195508
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kağıt ticaret ( gerçekte olmayan ) oturum düğümü, oturum sırasında uygulanacak ticaret mantığına erişim sağlamak için bir ticaret sistemine referans vermelidir. Oturumu çerçeveleyen diğer hususlar, oturuma eklenen parametreler kümesinden gelir.",
+                    "updated": 1672258426876
                 }
             ]
         },
@@ -48,6 +53,11 @@
                     "language": "RU",
                     "text": "Запуск Paper Trading Session",
                     "updated": 1638602208278
+                },
+                {
+                    "language": "TR",
+                    "text": "Kağıt Ticaret (gerçekte olmayan) Oturumu Çalıştırma (Running Paper Trading Session)",
+                    "updated": 1672258518460
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "RU",
                     "text": "Перед тем, как вы начнете торговую сессию на бумаге, должна быть запущена соответствующая задача, поскольку именно эта задача запускает экземпляр торгового бота. После запуска экземпляра торгового бота выберите в меню пункт «Run», чтобы начать сеанс.",
                     "updated": 1638602245451
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kağıt ticareti oturumunu başlatmadan önce, ilgili görevin çalışıyor olması gerekir, çünkü bu görev ticaret botu örneğini çalıştırır. Ticaret botu örneği çalıştığında, oturumu başlatmak için menüden Çalıştır'ı seçin.",
+                    "updated": 1672258653683
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Чтобы остановить сеанс тестирования на истории, выберите в меню «Stop».",
                     "updated": 1638602290864
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir geriye dönük test oturumunu durdurmak için menüden Durdur öğesini seçin.",
+                    "updated": 1672258693650
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Конфигурация Paper Trading Session",
                     "updated": 1638602309922
+                },
+                {
+                    "language": "TR",
+                    "text": "Kağıt Ticaret Oturumu Yapılandırması (Paper Trading Session Configuration)",
+                    "updated": 1672258835937
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638602318457
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikleri",
+                    "updated": 1672258887509
                 }
             ]
         },
@@ -110,6 +140,11 @@
                     "language": "RU",
                     "text": "folderName позволяет вам задать значимое имя для папки, в которой хранятся продукты данных и журналы, созданные в ходе сеанса. Если оставить поле пустым, система присваивает папкам имена с идентификатором сеанса. Это может быть удобно, если вы собираетесь просмотреть необработанные данные, созданные в ходе сеанса, поскольку в противном случае папку будет сложно идентифицировать.",
                     "updated": 1638602354600
+                },
+                {
+                    "language": "TR",
+                    "text": "folderName oturum tarafından oluşturulan veri ürünlerinin -ve günlüklerin- depolandığı klasöre önemli bir ad vermenizi sağlar. Boş bırakılırsa, sistem klasörleri oturum kimliği ile adlandırır. Bu, oturum tarafından üretilen ham verilere başvurmak istediğinizde kullanışlı olabilir, aksi takdirde klasörü tanımlamak zor olacaktır.",
+                    "updated": 1672258976679
                 }
             ]
         }

@@ -9,6 +9,11 @@
                 "language": "TR",
                 "text": "Özet: Bu konu sayfası için bir özet yazın.",
                 "updated": 1650618147597
+            },
+            {
+                "language": "DE",
+                "text": "Schreiben Sie eine Zusammenfassung für diese Themenseite.",
+                "updated": 1702584013951
             }
         ]
     },
@@ -16,7 +21,14 @@
         {
             "style": "Title",
             "text": "Begin",
-            "updated": 1611336944906
+            "updated": 1611336944906,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Start (Begin)",
+                    "updated": 1702584020152
+                }
+            ]
         },
         {
             "style": "Include",
@@ -31,7 +43,14 @@
         {
             "style": "Title",
             "text": "End",
-            "updated": 1611336959587
+            "updated": 1611336959587,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ende (End)",
+                    "updated": 1702584034963
+                }
+            ]
         },
         {
             "style": "Include",
@@ -46,7 +65,14 @@
         {
             "style": "Title",
             "text": "Begin Rate",
-            "updated": 1611336976107
+            "updated": 1611336976107,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anfangsrate (Begin Rate)",
+                    "updated": 1702584073254
+                }
+            ]
         },
         {
             "style": "Include",
@@ -61,7 +87,14 @@
         {
             "style": "Title",
             "text": "End Rate",
-            "updated": 1611336991778
+            "updated": 1611336991778,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Rate am Ende (End Rate)",
+                    "updated": 1702584119595
+                }
+            ]
         },
         {
             "style": "Include",
@@ -76,7 +109,14 @@
         {
             "style": "Title",
             "text": "Candle",
-            "updated": 1611337007474
+            "updated": 1611337007474,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kerze (Candle)",
+                    "updated": 1702584129686
+                }
+            ]
         },
         {
             "style": "Text",

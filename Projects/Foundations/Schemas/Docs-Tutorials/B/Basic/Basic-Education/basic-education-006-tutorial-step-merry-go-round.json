@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Varsayılan olarak, düğümler, üst düğümlerinin etrafında bir dönme simetrisine kilitlenir. Simetri, ayara bağlı olarak 360 derece veya daha az olabilir!",
-                "updated": 1636700229623
+                "text": "Varsayılan olarak, düğümler, ana düğümlerinin etrafında bir dönme simetrisine kilitlenir. Yavru düğümler, ayarınıza bağlı olarak, ana düğüm etrafında 0 ile 360 derece arasında bir ölçekte sıralanırlar!",
+                "updated": 1670338509923
             },
             {
                 "language": "RU",
@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando haces clic en el botón del nodo Angle to Parent, cambias entre cinco configuraciones diferentes: 360, 180, 90 y 45 grados, más la opción de desactivar la simetría rotacional. ",
-                    "updated": 1625955464925,
+                    "text": "Cuando haces clic en el botón del nodo \"Angle to Parent\", cambias entre cinco configuraciones diferentes: 360, 180, 90 y 45 grados, más la opción de desactivar la simetría rotacional.",
+                    "updated": 1675375134609,
                     "style": "Text"
                 },
                 {

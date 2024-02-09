@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Der Profile Constructor hat auch einiges getan, um sicherzustellen, dass nur Sie Ihr Profil ändern können.",
                 "updated": 1640073301086
+            },
+            {
+                "language": "ID",
+                "text": "Profile Constructor juga melakukan beberapa pekerjaan untuk memastikan hanya kamu yang bisa mengubah profil-mu.",
+                "updated": 1670854726194
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wurde mit dem privaten Schlüssel signiert, der Ihrer Governance Address entspricht. Diese Nachricht wird in Ihrem Benutzerprofil ( User Profile ) gespeichert, so dass wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Plugin an das Governance Project übermitteln.",
                     "updated": 1640073373864
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebuah pesan cryptography bersama dengan username GitHub.com telah di-signed dengan private key yang sesuai dengan Governance Address kamu. pesan ini akan tersimpan pada User Profile kamu sehingga kami dapat mengotentikasikan hal itu berasal dari kamu setelah kamu memasukkan profil kamu sebagai plugin dalam Governance Project.",
+                    "updated": 1670854733463
                 }
             ]
         },
@@ -69,8 +79,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Lo que esto significa es que solo tu puedes acceder y modificar su perfil y tu dirección de token asociada.",
-                    "updated": 1630888698997,
+                    "text": "Lo que esto significa es que solo tu puedes acceder y modificar tu perfil y tu dirección de token asociada.",
+                    "updated": 1682520364911,
                     "style": "Success"
                 },
                 {
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass Ihr Profil und die zugehörige Token-Adresse nur von Ihnen eingesehen und geändert werden können!",
                     "updated": 1640073385346
+                },
+                {
+                    "language": "ID",
+                    "text": "Artinya, profil kamu dan token address yang terkait hanya dapat diakses dan diubah oleh kamu!",
+                    "updated": 1670854739929
                 }
             ]
         },

@@ -63,8 +63,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "No es necesario que memorices los casos individuales. En cambio, si comprendes el mecanismo subyacente que involucra referencias, ¡entonces puede deducir el comportamiento en cada caso!",
-                    "updated": 1626617450873,
+                    "text": "No es necesario que memorices los casos individuales. En cambio, si comprendes el mecanismo subyacente que involucran las referencias, ¡entonces puedes deducir el comportamiento en cada caso!",
+                    "updated": 1675377144079,
                     "style": "Text"
                 },
                 {
@@ -96,8 +96,8 @@
         },
         {
             "style": "Note",
-            "text": "Remember that each node has a specific ID! When a reference is established, both nodes involved have a unique ID. Outgoing references do not depend on the node's ID, but incoming references do! If the backed up node may be restored with the same ID, incoming references will persist; otherwise, they will change or be lost!",
-            "updated": 1615831079650,
+            "text": "Remember that each node has a specific ID! When a reference is established, both nodes involved have a unique ID. Outgoing references do not depend on the node's ID, but incoming references do! If the backed-up node may be restored with the same ID, incoming references will persist; otherwise, they will change or be lost!",
+            "updated": 1687797767103,
             "translations": [
                 {
                     "language": "IT",

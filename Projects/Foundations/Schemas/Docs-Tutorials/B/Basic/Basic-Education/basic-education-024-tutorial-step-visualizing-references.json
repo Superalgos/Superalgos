@@ -1,0 +1,225 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 24,
+    "type": "Tutorial Step - Visualizing References",
+    "definition": {
+        "text": "When you hover the mouse pointer over a node with an outgoing reference, the reference becomes visible.",
+        "icon": {
+            "name": "Key\\key-r",
+            "project": "Foundations"
+        },
+        "updated": 1615804514428,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quando passi con il mouse sopra un nodo con una reference in uscita, questa diventa visibile.",
+                "updated": 1619501234351,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Cuando pasas el puntero del mouse sobre un nodo con una referencia saliente, la referencia se vuelve visible.",
+                "updated": 1626532933005,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie mit dem Mauszeiger über einen Knoten mit einer ausgehenden Referenz fahren, wird die Referenz sichtbar.\nEs gibt aber auch eine Möglichkeit, alle Verweise sichtbar zu machen!",
+                "updated": 1634334263709
+            },
+            {
+                "language": "TR",
+                "text": "Fare imlecini giden bir referansa sahip bir düğümün üzerine getirdiğinizde, referans görünür hale gelir.",
+                "updated": 1639485863369
+            },
+            {
+                "language": "RU",
+                "text": "Когда вы наводите указатель мыши на узел с исходящей ссылкой, ссылка становится видимой.",
+                "updated": 1640869254654
+            },
+            {
+                "language": "ID",
+                "text": "Ketika kamu mengarahkan mouse pointer ke atas node dengan referensi keluaran, referensi menjadi terlihat.",
+                "updated": 1644948389690
+            },
+            {
+                "language": "NL",
+                "text": "Wanneer u de muisaanwijzer over een knooppunt met een uitgaande verwijzing beweegt, wordt de verwijzing zichtbaar.",
+                "updated": 1668341332862
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But there's also a way to make all references visible!",
+            "updated": 1615804582821,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma c'è anche un modo per rendere tutte le reference visibili!",
+                    "updated": 1619501260308,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hay una manera de hacer visibles todas las referencias!",
+                    "updated": 1626533252874,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak tüm referansları görünür kılmanın da bir yolu var!",
+                    "updated": 1639485880901
+                },
+                {
+                    "language": "RU",
+                    "text": "Но есть также способ сделать все ссылки видимыми!",
+                    "updated": 1640869265618
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapi ada juga cara untuk membuat semua referensi terlihat!",
+                    "updated": 1644948407709
+                },
+                {
+                    "language": "NL",
+                    "text": "Maar er is ook een manier om alle referenties zichtbaar te maken!",
+                    "updated": 1668341343398
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Hit the following key combination: Ctrl + Shift + Key-R or Cmd + Shift + Key-R on a Mac",
+            "updated": 1629705646789,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Premi: Ctrl + <kbd>Maiusc</kbd> + Alt + <kbd>Tasto-R</kbd> oppure Cmd + <kbd>Maiusc</kbd> + <kbd>Tasto-R</kbd> su Mac.",
+                    "updated": 1666638661060,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pulsa la siguiente combinación de teclas: Ctrl + Shift + Key-R o Cmd + Shift + Key-R en Mac.",
+                    "updated": 1675376456911,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie die folgende Tastenkombination: Ctrl + Shift + Key-R oder Cmd + Shift + Key-R auf einem Mac.",
+                    "updated": 1634334380790
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tuş kombinasyonuna basın: Ctrl + Shift + Key-R. Maci için: Cmd + Shift + Key-R",
+                    "updated": 1639486068162
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите следующую комбинацию клавиш: Ctrl + Shift + Key-R или Cmd + Shift + Key-R на Mac",
+                    "updated": 1640869283933
+                },
+                {
+                    "language": "ID",
+                    "text": "Tekan kombinasi tombol berikut: Ctrl + Shift + Key-R atau Cmd + Shift + Key-R pada Mac",
+                    "updated": 1644948435735
+                },
+                {
+                    "language": "NL",
+                    "text": "Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-R or Cmd + Shift + Key-R op een Mac",
+                    "updated": 1668341380038
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Now you can see the references going out from both the Trading System Reference node and the Trading Engine Reference node.",
+            "updated": 1615805161269,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ora vedi le references in uscita sia dal nodo Trading System che dal nodo Trading Engine Reference.",
+                    "updated": 1619501324177,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora puedes ver las referencias que salen tanto del nodo Trading System Reference y el nodo Trading Engine Reference.",
+                    "updated": 1675376471308,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jetzt können Sie die Referenzen sehen, die sowohl vom Knoten Handelssystem-Referenz als auch vom Knoten Handelsmodul-Referenz ausgehen.",
+                    "updated": 1634334332966
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık hem Ticaret Sistemi Referansı ( Trading System Reference ) düğümünden hem de İşlem Motoru Referansı ( Trading Engine Reference ) düğümünden çıkan referansları görebilirsiniz.",
+                    "updated": 1639488548092
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь вы можете видеть ссылки, исходящие как из узла Trading System Reference, так и из узла Trading Engine Reference.",
+                    "updated": 1640869303094
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang kamu dapat melihat referensi yang keluar dari node  Trading System Reference dan node Trading Engine Reference.",
+                    "updated": 1644948489785
+                },
+                {
+                    "language": "NL",
+                    "text": "Nu kunt u de referenties zien uitgaan van zowel het Trading System Reference als het Trading Engine Reference knooppunt.",
+                    "updated": 1668341424086
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Right-click to access the Design Space map and notice other references that may be visible.",
+            "updated": 1615805249449,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai click con il tasto destro per accedere alla mappa del Design Space e identificare le altre references ora visibili.",
+                    "updated": 1619501364541,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic derecho para acceder al mapa Design Space y observa otras referencias que puedan ser visibles.",
+                    "updated": 1626533199736,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste, um auf die Design Space Map zuzugreifen und andere Referenzen zu sehen, die möglicherweise sichtbar sind.",
+                    "updated": 1634334343062
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı (Design Space ) haritasına erişmek ve görünür olabilecek diğer referansları görmek için sağ tıklayın.",
+                    "updated": 1639486198724
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши, чтобы получить доступ к карте пространства проектирования (Design Space) и заметить другие ссылки, которые могут быть видны.",
+                    "updated": 1640869361556
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik kanan untuk mengakses map Design Space dan perhatikan referensi lain yang mungkin terlihat.",
+                    "updated": 1644948528001
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik met de rechtermuisknop om de werkruimte van de Design Space te openen en andere verwijzingen op te merken die mogelijk zichtbaar zijn.",
+                    "updated": 1668341470878
+                }
+            ]
+        }
+    ]
+}

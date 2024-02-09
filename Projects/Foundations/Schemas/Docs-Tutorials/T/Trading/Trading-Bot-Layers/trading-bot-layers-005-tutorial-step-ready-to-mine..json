@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Biraz veri madenciliği yapacağız, böylece daha sonra hızlı bir Geri Test Oturumu (Backtesting Session) çalıştırabilir ve ortaya çıkan simülasyonu keşfedebiliriz...",
                 "updated": 1641718617305
+            },
+            {
+                "language": "ID",
+                "text": "Kita akan menjalankan sebuah data mining sehingga kita dapat menjalankan Backtesting Session secara cepat dan mengeksplor hasil akhir dari simulasi...",
+                "updated": 1673830502113
+            },
+            {
+                "language": "ES",
+                "text": "Haremos un poco de minería de datos para que luego podamos ejecutar una rápida Backtesting Session y explorar la simulación resultante...",
+                "updated": 1675463053189
             }
         ]
     },
@@ -47,6 +57,16 @@
                     "language": "TR",
                     "text": "Sensör botu, Weak-hands-Buster Ticaret Sisteminin (Trading System) gerektirdiği göstergelerle birlikte 1 Ocak 2020'den itibaren BTC/USDT işlem çiftinde çalışacak.",
                     "updated": 1641718719958
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot sensor akan berjalan pada market (Binance) di BTC/USDT mulai 01 Januari 2020, bersama dengan indikator yang dibutuhkan oleh Weak-hands Buster Trading System.",
+                    "updated": 1673830508930
+                },
+                {
+                    "language": "ES",
+                    "text": "El Sensor Bot funcionará en el mercado BTC/USDT (Binance) a partir del 1 de enero de 2020, junto con los indicadores requeridos por Weak-hands Buster Trading System.",
+                    "updated": 1675463085541
                 }
             ]
         },
@@ -70,6 +90,16 @@
                     "language": "TR",
                     "text": "Bu işlem çifti/borsa ile ilgili fakat farklı bir zaman aralığında verileriniz varsa, bu durum verilerinizi etkileyebilir! Nasıl yapılacağını öğrenmek için sensör botu belgelerini okuyun! Sahip olduğunuz veriler önemli değilse, devam edin!",
                     "updated": 1641718794868
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu memiliki data pada market / exchange namun dalam rentan waktu berbeda, ini akan mempengaruhi datamu! baca dokumentasi sensor bot untuk mempelajari bagaimana! Jika kamu tidak terlalu mementingkan data-nya, silakan lanjutkan!",
+                    "updated": 1673830517217
+                },
+                {
+                    "language": "ES",
+                    "text": "Si tienes datos en este mercado / bolsa pero en un rango de tiempo diferente, ¡esto puede afectar a tus datos! ¡Lee la documentación del Sensor Bot para saber cómo! Si los datos que tienes no son importantes, ¡sigue adelante!",
+                    "updated": 1675463128005
                 }
             ]
         }

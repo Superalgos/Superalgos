@@ -8,13 +8,18 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Um Ihre neue Aktion zu testen, müssen Sie nur die UI (Benutzeroberfläche) neu laden, die Node mit dem neuen Menüpunkt suchen und darauf klicken...",
-                "updated": 1640211945897
+                "text": "Um Ihre neue Action zu testen, brauchen Sie nur die UI (Benutzeroberfläche) neu zu laden, den Knoten (Node) mit dem neuen Menüpunkt zu suchen und ihn anzuklicken... .",
+                "updated": 1676496602857
             },
             {
                 "language": "RU",
                 "text": "Чтобы проверить новое действие, нужно просто перезагрузить пользовательский интерфейс, найти узел с новым пунктом меню и щелкнуть на нем...",
                 "updated": 1640766350734
+            },
+            {
+                "language": "TR",
+                "text": "Yeni Eyleminizi ( Action ) test etmek için kullanıcı arayüzünü ( UI ) yeniden yüklemeniz, yeni Menü (  Menu Item ) Öğesinin bulunduğu düğümü bulmanız ve üzerine tıklamanız yeterlidir.\n",
+                "updated": 1670939524285
             }
         ]
     },
@@ -26,13 +31,18 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Debug (Fehlersuche)",
-                    "updated": 1640211964715
+                    "text": "Prüfen (Fehlersuche)",
+                    "updated": 1676494869479
                 },
                 {
                     "language": "RU",
                     "text": "Отладка",
                     "updated": 1640766359987
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata Ayıklama",
+                    "updated": 1670939546470
                 }
             ]
         },
@@ -43,13 +53,18 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Um Ihre Aktion zu debuggen, müssen Sie das Entwicklertool öffnen und auf der Registerkarte Quellen (Sources tab) den Function Library file (Funktionsbibliotheksdatei) suchen, in die Sie Ihre Aktion eingefügt haben, einen breakpoint (Haltepunkt) am Anfang Ihrer Funktion setzen und auf den von Ihnen hinzugefügten Node-Menüpunkt klicken.",
-                    "updated": 1640212140447
+                    "text": "Um Ihre Aktion zu prüfen, müssen Sie das Entwicklertool öffnen und auf der Registerkarte Quellen die Function Library suchen, in die Sie Ihre Aktion eingefügt haben, einen Haltepunkt am Anfang Ihrer Funktion setzen und auf den von Ihnen hinzugefügten Knoten Menu Item klicken.",
+                    "updated": 1676494884570
                 },
                 {
                     "language": "RU",
                     "text": "Чтобы сделать отладку вашего действия (Action), вам нужно открыть инструмент разработчика (\"Developer Tool\") и на вкладке \"Sources\" найти файл Function Library, в который вы добавили ваше действие, поставить точку останова в начале вашей функции, перейти и щелкнуть на добавленном вами узле Menu Item.",
                     "updated": 1640766436465
+                },
+                {
+                    "language": "TR",
+                    "text": "Eyleminizde hata ayıklamak için geliştirici aracını açmanız ve Kaynaklar sekmesinde eyleminizi eklediğiniz İşlev Kitaplığı ( Function Library ) dosyasını bulmanız, işlevinizin başına bir kesme noktası yerleştirmeniz ve eklediğiniz düğüm Menü Öğesine ( Menu Item ) gidip tıklamanız gerekecektir.",
+                    "updated": 1670939803616
                 }
             ]
         },
@@ -60,13 +75,18 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können sie mit den neuen Änderungen erneut debuggen.",
-                    "updated": 1640212165859
+                    "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können diese erneut prüfen.",
+                    "updated": 1676494895686
                 },
                 {
                     "language": "RU",
                     "text": "Если вы измените код своей функции, перезагрузите пользовательский интерфейс (UI) и вы сможете проводить отладку снова с новыми изменениями.",
                     "updated": 1640766490565
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlevinizin kodunu değiştirirseniz, kullanıcı arayüzünü yeniden yükleyin ve yeni değişikliklerle tekrar hataları ayıklayabilirsiniz.",
+                    "updated": 1670939848536
                 }
             ]
         },
@@ -77,13 +97,18 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Weitere Informationen zum Einrichten und Debuggen finden Sie in diesem Thema:",
-                    "updated": 1640212196310
+                    "text": "Weitere Informationen zum Einrichten und Prüfen finden Sie hier:  ",
+                    "updated": 1676497129338
                 },
                 {
                     "language": "RU",
                     "text": "Более подробную информацию о настройке и отладке вы можете найти в этой теме:",
                     "updated": 1640766525631
+                },
+                {
+                    "language": "TR",
+                    "text": "Kurulum ve hata ayıklama hakkında daha fazla bilgiyi bu başlıkta bulabilirsiniz:",
+                    "updated": 1670939880164
                 }
             ]
         },

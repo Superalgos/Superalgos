@@ -23,6 +23,16 @@
                 "language": "TR",
                 "text": "Tüm düğümlerin her zaman değerlendirilmediğine dikkat edin! Sadece aktif aşamada olanlar değerlendirilir!",
                 "updated": 1642517648584
+            },
+            {
+                "language": "ID",
+                "text": "Perhatikan bahwa tidak semua node dievaluasi sepanjang waktu! Hanya mereka yang berada pada aktif stage!",
+                "updated": 1673967976683
+            },
+            {
+                "language": "ES",
+                "text": "Observa que no todos los nodos se evalúan todo el tiempo. Sólo se evalúan los que están activos.",
+                "updated": 1675468721280
             }
         ]
     },
@@ -45,6 +55,16 @@
                     "language": "TR",
                     "text": "Bu, strateji aşamaları hakkında hızlı bir bilgi tazeleme! Ticaret sistemleri ve stratejileriyle ilgili belgeleri okumadıysanız, zaman ayırın ve ilgili belgeleri okuyun!",
                     "updated": 1642517704659
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah penyegaran baik pada tahapan strategi! Jika kamu belum membaca dokumen tentang trading systems dan strategies, temukan time-nya dan lakukanlah!",
+                    "updated": 1673967982835
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Este es un rápido repaso a las etapas de la estrategia! ¡Si no has leído los documentos sobre sistemas y estrategias de trading, entonces encuentra el tiempo y hazlo!",
+                    "updated": 1675468742770
                 }
             ]
         },
@@ -66,6 +86,16 @@
                     "language": "TR",
                     "text": "Bu koşulların pozisyon içindeki mumlar için nasıl vurgulanmadığına dikkat edin.",
                     "updated": 1642517746196
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana conditions ini tidak disorot untuk candle di dalam position.",
+                    "updated": 1673967990282
+                },
+                {
+                    "language": "ES",
+                    "text": "Fíjate como estas condiciones no están resaltadas para las velas dentro de la posición.",
+                    "updated": 1675468735913
                 }
             ]
         },
@@ -87,6 +117,16 @@
                     "language": "TR",
                     "text": "Bunun nedeni, Trigger Stage tanımlarına bakıyor olmanızdır. Bu tanımlar, bir Strateji tetiklenene kadar değerlendirilir. Bir kez tetiklendiğinde,Open Stage devreye girer ve bu böyle devam eder!",
                     "updated": 1642518289084
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini karena kamu melihat definisi dari Trigger Stage. Definisi ini dievaluasi sampai Strategy dipicu. Setelah dipicu, Open Stage dimulai, dan seterusnya!",
+                    "updated": 1673967997456
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto es porque estás viendo las definiciones de la Trigger Stage. Estas definiciones se evalúan hasta que se activa una estrategia. Una vez activada, se activa la Open Stage, ¡y así sucesivamente!",
+                    "updated": 1675468727475
                 }
             ]
         }

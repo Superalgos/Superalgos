@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Der Indikator Percentages liefert Informationen für die aktuelle Kerze im Vergleich zum Schlusskurs und den Durchschnitt von Hoch/Tief/Schluss der Kerzen 1, 5 und 10 Perioden vor der aktuellen Kerze.",
                 "updated": 1647961193030
+            },
+            {
+                "language": "TR",
+                "text": "Yüzdeler göstergesi, kapanış fiyatıyla karşılaştırıldığında mevcut mum için bilgi ve mevcut mumdan 1, 5 ve 10 dönem önceki mumların yüksek / düşük / kapanış ortalamasını üretir.",
+                "updated": 1697836044554
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Percentages auf den Charts:",
                     "updated": 1647961256986
+                },
+                {
+                    "language": "TR",
+                    "text": "Percentages :",
+                    "updated": 1697836052006
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Der Indikator \"Prozentsätze\" zeigt keine grafischen Informationen an. Alle Daten, die von diesem Indikator erzeugt werden, sind in der Tafel im Diagrammbereich zu sehen.",
                     "updated": 1647961492851
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzdeler göstergesi herhangi bir çizim bilgisi göstermez. Bu göstergeden üretilen tüm veriler grafik alanındaki panelde görülebilir.",
+                    "updated": 1697836057307
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "DE",
                     "text": "Die Informationen im Panel zeigen den prozentualen Anstieg oder Rückgang für Folgendes an:",
                     "updated": 1647961507767
+                },
+                {
+                    "language": "TR",
+                    "text": "Paneldeki bilgiler aşağıdakiler için yüzde artış veya azalışı gösterir:",
+                    "updated": 1697836085898
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "DE",
                     "text": "<b>p1Close:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 1 Periode zuvor.",
                     "updated": 1647961519912
+                },
+                {
+                    "language": "TR",
+                    "text": "p1Close: 1 dönem önceki mum kapanışına kıyasla mevcut mum kapanışının artış/azalış yüzdesi.",
+                    "updated": 1697836101492
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "DE",
                     "text": "<b>p5Close:</b> der prozentuale Anstieg/Verringerung des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 5 vorangegangenen Perioden.",
                     "updated": 1647961564994
+                },
+                {
+                    "language": "TR",
+                    "text": "p5Close: 5 dönem önceki mum kapanışına kıyasla mevcut mum kapanışının artış/azalış yüzdesi.",
+                    "updated": 1697836105665
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "DE",
                     "text": "<b>p10Close:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzenschlusses im Vergleich zum Kerzenschluss der 10 vorangegangenen Perioden.",
                     "updated": 1647961586026
+                },
+                {
+                    "language": "TR",
+                    "text": "p10Close: 10 dönem önceki mum kapanışına kıyasla mevcut mum kapanışının yüzde artışı/azalışı.",
+                    "updated": 1697836110646
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "DE",
                     "text": "<b>phlc1:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt 1 Periode zuvor.",
                     "updated": 1647961620062
+                },
+                {
+                    "language": "TR",
+                    "text": "phlc1: 1 dönem önceki mum ortalamasına kıyasla mevcut mum ortalamasının (yüksek + düşük + kapanış)/3 artış/azalış yüzdesi.",
+                    "updated": 1697836116697
                 }
             ]
         },
@@ -145,6 +185,11 @@
                     "language": "DE",
                     "text": "<b>phlc5:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt der letzten 5 Perioden.",
                     "updated": 1647961640060
+                },
+                {
+                    "language": "TR",
+                    "text": "phlc5: 5 dönem önceki mum ortalamasına kıyasla mevcut mum ortalamasının (yüksek + düşük + kapanış)/3 artış/azalış yüzdesi.",
+                    "updated": 1697836121118
                 }
             ]
         },
@@ -161,6 +206,11 @@
                     "language": "DE",
                     "text": "<b>phlc10:</b> der prozentuale Anstieg/Abfall des aktuellen Kerzendurchschnitts (Hoch + Tief + Schluss)/3 im Vergleich zum Kerzendurchschnitt der letzten 10 Perioden.",
                     "updated": 1647961653158
+                },
+                {
+                    "language": "TR",
+                    "text": "phlc10: 10 dönem önceki mum ortalamasına kıyasla mevcut mum ortalamasının (yüksek + düşük + kapanış)/3 artış/azalış yüzdesi.",
+                    "updated": 1697836125513
                 }
             ]
         },
@@ -182,6 +232,11 @@
                     "language": "DE",
                     "text": "Der Parameter Periodenlänge der Berechnung des Indikators Prozentsätze kann geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Initialization unter der ’Percentages’ Product Definition suchen und öffnen.",
                     "updated": 1647961763539
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzdeler gösterge hesaplamasının dönem uzunluğu parametresi, 'Yüzdeler' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altındaki Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697836152329
                 }
             ]
         },
@@ -203,6 +258,11 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647961801941
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697836157653
                 }
             ]
         },
@@ -219,6 +279,11 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647961810910
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697836170217
                 }
             ]
         },
@@ -248,6 +313,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1647961949261
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnekler:",
+                    "updated": 1697836173954
                 }
             ]
         },
@@ -264,6 +334,11 @@
                     "language": "DE",
                     "text": "Die Berechnung des Prozentsatzes kann verwendet werden, um ein Take-Profit- oder Stop-Loss-Limit auf der Grundlage der gewünschten prozentualen Veränderung festzulegen.",
                     "updated": 1647961960111
+                },
+                {
+                    "language": "TR",
+                    "text": "Yüzde hesaplaması, istenen yüzde değişikliğine bağlı olarak bir kar alma veya zararı durdurma limiti belirlemek için kullanılabilir.",
+                    "updated": 1697836178481
                 }
             ]
         },
@@ -280,6 +355,11 @@
                     "language": "DE",
                     "text": "Das folgende Beispiel würde ein Take-Profit-Signal setzen, wenn der Schlusskurs der aktuellen Kerze um mehr als 3 % gegenüber dem Schlusskurs vor 5 Kerzen gestiegen ist:",
                     "updated": 1647961995872
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki örnek, mevcut mum kapanış fiyatı 3 mum önceki kapanış fiyatından% 5'ün üzerine çıkarsa bir kar alma sinyali belirleyecektir:",
+                    "updated": 1697836182810
                 }
             ]
         },
@@ -301,6 +381,11 @@
                     "language": "DE",
                     "text": "Dieser Indikator kann auch dazu verwendet werden, einen Trailing-Stop-Loss zu setzen, indem überprüft wird, ob der Kerzenschluss noch über dem midPoint Wert liegt.",
                     "updated": 1647962079058
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gösterge, mum kapanışının hala orta Nokta değerinin üzerinde olup olmadığını kontrol ederek bir işlem sırasında takip eden bir durdurma kaybı sağlamak için de kullanılabilir.",
+                    "updated": 1697836189769
                 }
             ]
         },

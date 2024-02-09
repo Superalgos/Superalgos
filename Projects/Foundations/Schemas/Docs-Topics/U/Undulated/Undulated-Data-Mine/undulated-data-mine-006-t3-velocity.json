@@ -1,0 +1,63 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "6",
+    "type": "T3 Velocity",
+    "definition": {
+        "text": "The T3 Velocity indicator is a type of rate of change oscillator made of two T3 moving averages."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "T3 Velocity on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator compares the momentum of the two T3 curves between the current and the previous period. The first curve is calculated using the period and the complete factor, vFactor parameter, and the second one with a value of half of the first factor.",
+            "updated": 1670816700693
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-t3-velocity-on-the-charts.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| T3_Velocity | t3Velocity | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The lengths of the indicator's moving averages can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"T3 Velocity\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-t3-velocity-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises above the zero line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.t3Velocity.value > 0 && chart.at01hs.t3Velocity.previous.value <= 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

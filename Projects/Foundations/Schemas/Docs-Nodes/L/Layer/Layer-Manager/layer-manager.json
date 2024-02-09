@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Другими словами, вы используете узел диспетчера слоев Layer Manager, чтобы настроить, какие продукты данных вы хотите сделать доступными для целей визуализации на диаграммах, в частности, на определенной временной шкале, к которой прикреплен узел диспетчера слоев Layer Manager.",
                     "updated": 1638973599312
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, grafiklerde, özellikle de katman yöneticisi düğümünün bağlı olduğu belirli bir zaman çizelgesi grafiğinde görselleştirme amacıyla hangi veri ürünlerinin kullanıma sunulmasını istediğinizi yapılandırmak için katman yöneticisi düğümünü kullanırsınız.",
+                    "updated": 1701084453083
                 }
             ]
         },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Узел Layer Manager обычно ссылается на узел Trading Mine Products или Data Mine Products в разделе Data Storage сетевого узла Network Node. Как только ссылка будет установлена, вы можете использовать кнопку Add All Mine Layers, чтобы добавить слои, соответствующие указанному узлу.",
                     "updated": 1638973788537
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman Yöneticisi düğümü genellikle Ağ Düğümünün Veri Depolama bölümündeki bir Ticari Maden Ürünleri ( Trading Mine Products ) veya Veri Madeni Ürünleri ( Data Mine Products ) düğümüne referans verir. Referans oluşturulduktan sonra, referans verilen düğüme karşılık gelen katmanları eklemek için Tüm Maden Katmanlarını Ekle düğmesini kullanabilirsiniz.",
+                    "updated": 1701084534909
                 }
             ]
         },
@@ -61,6 +71,11 @@
                     "language": "RU",
                     "text": "Конфигурация Layer Manager",
                     "updated": 1638973843170
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman Yöneticisi Yapılandırması",
+                    "updated": 1701084543348
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638973850738
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1701084556117
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "visibleLayers отслеживает, на сколько слоев переключены менеджеры, то есть сколько слоев он отображает.",
                     "updated": 1638973875178
+                },
+                {
+                    "language": "TR",
+                    "text": "visibleLayers, yöneticilerin kaç katmana yuvarlandığını, yani kaç katman görüntülediğini takip eder.",
+                    "updated": 1701084560006
                 }
             ]
         },
@@ -95,6 +120,11 @@
                     "language": "RU",
                     "text": "panelLocation отслеживает положение панели относительно четырех углов экрана.",
                     "updated": 1638973898276
+                },
+                {
+                    "language": "TR",
+                    "text": "panelLocation, panelin dört ekran köşesine göre konumunu takip eder.",
+                    "updated": 1701084563773
                 }
             ]
         },
@@ -106,6 +136,11 @@
                     "language": "RU",
                     "text": "labelTwoFontSize позволяет настроить размер шрифта метки второго порядка каждого слоя, отображающей название биржи и рынка.",
                     "updated": 1638973925153
+                },
+                {
+                    "language": "TR",
+                    "text": "labelTwoFontSize, borsa ve piyasa adını gösteren her katmanın ikinci dereceden etiketinin yazı tipi boyutunun ayarlanmasını sağlar.",
+                    "updated": 1701084566937
                 }
             ]
         }

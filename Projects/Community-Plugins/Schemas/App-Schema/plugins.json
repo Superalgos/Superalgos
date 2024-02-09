@@ -4,9 +4,12 @@
         {
             "action": "Add Missing Plugin Projects",
             "label": "Add Missing Projects",
+            "translationKey": "add.missing.projects",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Plugin Project",
             "actionFunction": "payload.executeAction",
             "actionProject": "Community-Plugins",
@@ -18,7 +21,9 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
         }

@@ -21,6 +21,21 @@
                 "language": "RU",
                 "text": "Этот учебник представляет собой флэш-курс, в стиле \"сразу к делу\", знакомящий вас с понятием построения простой торговой системы. Учебник предполагает базовое понимание того, как определяются торговые стратегии. Тем не менее, вы можете найти его полезным и в качестве первого шага, особенно если вам нравится прямая, конкретная информация.",
                 "updated": 1640632619784
+            },
+            {
+                "language": "NL",
+                "text": "Deze zelfstudie is een snelcursus, gelijk ter zake-stijl, die je laat kennismaken met het bouwen van een eenvoudig Trading System. De tutorial gaat uit van een basiskennis van hoe Trading Strategies worden gedefinieerd. Dat gezegd hebbende, vind je het misschien ook nuttig als eerste kennismaking, vooral als je van directe, to-the-point informatie houdt.",
+                "updated": 1670772468801
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini adalah kursus cepat, dengan gaya langsung ke inti, yaitu memperkenalkan kamu tentang gagasan dari membuat Trading System yang simpel. Tutorial ini mengasumsikan pemahaman dasar tentang bagaimana Trading Strategies dijelaskan. Bahwasanya, kamu akan menemukan hal yang berguna sebagai langkah awal perkenalanmu, terutama jika kamu menyukai informasi yang langsung dan to-the-point.",
+                "updated": 1670298868301
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial es un curso relámpago, de estilo \"cortar por lo sano\", que te introduce en la noción de construir un simple Trading System. El tutorial asume una comprensión básica de cómo se definen las Trading Strategies. Dicho esto, también puede resultarte útil como primer paso de introducción, sobre todo si te gusta la información directa y directa.",
+                "updated": 1682357091210
             }
         ]
     },
@@ -40,12 +55,27 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654393992587,
                     "style": "Title"
+                },
+                {
+                    "language": "NL",
+                    "text": "Over deze zelfstudie",
+                    "updated": 1670772495678
+                },
+                {
+                    "language": "ID",
+                    "text": "Tentang Tutorial Ini",
+                    "updated": 1670298925338
+                },
+                {
+                    "language": "ES",
+                    "text": "Sobre este tutorial",
+                    "updated": 1682357103320
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Workspace: Hello World Tutorial Plugin Workspace.",
+            "text": "Workspace: Hello World Tutorial Native Workspace.",
             "updated": 1617110547763,
             "translations": [
                 {
@@ -53,6 +83,11 @@
                     "text": "Çalışma alanı: Merhaba Dünya Eğitimi Eklenti Çalışma Alanı.",
                     "updated": 1654393999403,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Workspace: Espacio de trabajo del plugin Hello World Tutorial.",
+                    "updated": 1682357131000
                 }
             ]
         },
@@ -66,6 +101,11 @@
                     "text": "Bakımcı: @us9808 (Telegram).",
                     "updated": 1654394005058,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beheerder: @us9808 (Telegram).",
+                    "updated": 1670772516837
                 }
             ]
         }

@@ -1,0 +1,203 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 62,
+    "type": "Tutorial Step - The Hard Data",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "plotter-panel"
+        },
+        "text": "A Plotter Panel features non-graphical representations of data, mostly in the form of numerical values or text.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Un Plotter Panel contiene rappresentazioni dei dati in formato numerico o testuale.",
+                "updated": 1615963973184,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Un Plotter Panel presenta representaciones no gráficas de datos, principalmente en forma de valores numéricos o texto.",
+                "updated": 1624410194484,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ein Plotter Panel enthält nicht-grafische Darstellungen von Daten, meist in Form von numerischen Werten oder Text.",
+                "updated": 1634218122317
+            },
+            {
+                "language": "TR",
+                "text": "Bir Plotter Paneli, çoğunlukla sayısal değerler veya metin biçiminde verileri içerir.",
+                "updated": 1636096630769
+            },
+            {
+                "language": "RU",
+                "text": "Plotter Panel содержит неграфические представления данных, в основном виде числовых значений или текста.",
+                "updated": 1636567221705
+            },
+            {
+                "language": "ID",
+                "text": "Plotter Panel menampilkan representasi data non-grafis, sebagian besar dalam bentuk nilai numerik atau teks.",
+                "updated": 1639587646731
+            },
+            {
+                "language": "NL",
+                "text": "Een Plotter Panel bevat niet-grafische representaties van gegevens, meestal in de vorm van numerieke waarden of tekst.",
+                "updated": 1666787766786
+            },
+            {
+                "language": "FR",
+                "text": "Un panneau de traceur (Plotter Panel) présente des représentations non graphiques des données, principalement sous la forme de valeurs numériques ou de texte.",
+                "updated": 1668414032867
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each layer may or may not feature one or more associated panels. It's up to the developer of the corresponding Indicator Bot to define them or not.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni layer può avere uno o più pannelli associati. Sta allo sviluppatore dell'Indicator Bot corrispondente decidere se definirli o meno.",
+                    "updated": 1615964050088,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada capa puede presentar o no uno o más paneles asociados. Depende del desarrollador del Bot indicador correspondiente definirlos o no.",
+                    "updated": 1624410271230,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Ebene kann ein oder mehrere zugehörige Panels enthalten oder auch nicht. Es liegt im Ermessen des Entwicklers des entsprechenden Indicator Bot, ob er diese definiert oder nicht.",
+                    "updated": 1634218128665
+                },
+                {
+                    "language": "TR",
+                    "text": "Her katman, bir veya daha fazla ilişkili panel içerebilir veya içermeyebilir. Bunları tanımlamak veya tanımlamamak ilgili Gösterge Botunun ( Indicator Bot ) geliştiricisine bağlıdır.",
+                    "updated": 1636096681002
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый слой может содержать или не содержать одну или несколько соответствующих панелей. Определять их или нет, - зависит от разработчика соответствующего Indicator Bot.",
+                    "updated": 1636567398843
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap layer mungkin atau mungkin tidak menampilkan satu atau lebih panel terkait. Terserah pengembang Bot Indikator yang sesuai untuk menentukannya atau tidak.",
+                    "updated": 1639587864338
+                },
+                {
+                    "language": "NL",
+                    "text": "Elke laag kan al dan niet één of meer bijbehorende panelen bevatten. Het is aan de ontwikkelaar van de bijbehorende Indicator Bot om ze te definiëren of niet.",
+                    "updated": 1666787800851
+                },
+                {
+                    "language": "FR",
+                    "text": "Chaque couche peut comporter ou non un ou plusieurs panneaux associés. C'est au développeur du Bot Indicateur correspondant de les définir ou non.",
+                    "updated": 1668414050206
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To access panels, left-click on the plotter panel icon of the layer of choice.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per accedere ai pannelli, clicca su un'icona del Plotter Panel di tua scelta.",
+                    "updated": 1615964087465,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para acceder a los paneles, haz clic con el botón izquierdo en el icono del panel del trazador de la capa de tu elección.",
+                    "updated": 1624410322152,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um auf die Panels zuzugreifen, klicken Sie mit der linken Maustaste auf das Symbol des Plotter-Panels der gewünschten Ebene.",
+                    "updated": 1634218135107
+                },
+                {
+                    "language": "TR",
+                    "text": "Panellere erişmek için, seçilen katmanın çizici paneli simgesine sol tıklayın.",
+                    "updated": 1636096699582
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы получить доступ к панелям, щелкните левой кнопкой мыши значок панели плоттера выбранного слоя.",
+                    "updated": 1636567465686
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk mengakses panel, klik kiri pada icon plotter panel dari layers pilihan.",
+                    "updated": 1639587776166
+                },
+                {
+                    "language": "NL",
+                    "text": "Om toegang te krijgen tot panelen, klikt u met de linkermuisknop op het pictogram van het plotterpaneel van de laag naar keuze.",
+                    "updated": 1666787832691
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour accéder aux panneaux, cliquez avec le bouton gauche sur l'icône du panneau du traceur de la couche de votre choix.",
+                    "updated": 1668414068524
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "You may move layer managers and plotter panels by left-clicking on their headers and dragging them to any corner of the screen.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi spostare i layer manager e i plotter panel cliccando su di essi e trascinandoli in un angolo qualsiasi dello schermo.",
+                    "updated": 1615964142762,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes mover los gestores de capas y los paneles de plóter haciendo clic con el botón izquierdo del ratón en sus cabeceras y arrastrándolos a cualquier esquina de la pantalla.",
+                    "updated": 1675277811991,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Ebenenmanager und Plotterfelder verschieben, indem Sie mit der linken Maustaste auf die Kopfzeile klicken und sie in eine beliebige Ecke des Bildschirms ziehen. ",
+                    "updated": 1642151943374
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman yöneticilerini ve çizici (Plotter) panellerini, başlıklarına sol tıklayarak ve ekranın herhangi bir köşesine sürükleyerek taşıyabilirsiniz.",
+                    "updated": 1665964066901
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете перемещать менеджеры слоев и панели плоттера, щелкнув левой кнопкой мыши на их заголовках и перетащив их в любой угол экрана. ",
+                    "updated": 1641833293138
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat memindahkan layers manager dan plotter panels dengan mengklik kiri pada headernya dan menyeretnya ke sudut mana pun di layar.",
+                    "updated": 1639587712869
+                },
+                {
+                    "language": "NL",
+                    "text": "U kunt laagmanagers en plotterpanelen verplaatsen door met de linkermuisknop op hun koppen te klikken en ze naar een willekeurige hoek van het scherm te slepen.",
+                    "updated": 1666787859211
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous pouvez déplacer les gestionnaires de calques et les panneaux de traceur en cliquant avec le bouton gauche sur leurs en-têtes et en les faisant glisser vers n'importe quel coin de l'écran.",
+                    "updated": 1668414093403
+                }
+            ],
+            "updated": 1640359316083
+        }
+    ]
+}

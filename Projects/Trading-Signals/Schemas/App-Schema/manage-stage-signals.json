@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -15,6 +16,7 @@
             "propertyToCheckFor": "managedStopLossSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Managed Stop Loss Signals",
+            "translationKey": "add.signals.managedStopLoss",
             "relatedUiObject": "Managed Stop Loss Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -25,6 +27,7 @@
             "propertyToCheckFor": "managedTakeProfilSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Managed Take Profit Signals",
+            "translationKey": "add.signals.managedTakeProfit",
             "relatedUiObject": "Managed Take Profit Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
@@ -33,7 +36,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: RSI Sapması - bu gösterge, 14 dönemlik bir RSI göstergesinin en yüksek ve en düşük noktalarını analiz eder, bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
                 "updated": 1647001848924
+            },
+            {
+                "language": "DE",
+                "text": "Die RSI Divergence - dieser Indikator analysiert die Höchst- und Tiefstwerte eines 14-Tage-Zeitraumes und vergleicht sie mit dem Kursverlauf.",
+                "updated": 1672228498974
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Grafiklerde RSI Sapması",
                     "updated": 1647001860815
+                },
+                {
+                    "language": "DE",
+                    "text": "RSI Divergence in den Charts",
+                    "updated": 1672777380039
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre: Momentum göstergeleri genellikle fiyat hareketini düzeltmek ve daha net bir resim vermek için kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
                     "updated": 1647001921565
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Kurs mit dem Kurs vergleichen zu müssen. Das Momentum ist eine Untersuchung zur Stärke der Kursbewegung, bei der geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673461067631
                 }
             ]
         },
@@ -64,6 +79,11 @@
                     "language": "TR",
                     "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
                     "updated": 1647001953312
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen dem Indikator und dem Kurs wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung bzw. Nichtübereinstimmung ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator verschiedene Muster entwickeln können.",
+                    "updated": 1672228655450
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir kuvvet tahmini ve yüzde değeri gösterir:",
                     "updated": 1647002124295
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1672228815433
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "TR",
                     "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
                     "updated": 1647002143525
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator markiert ein höheres Tief, während die Preisbewegung ein niedrigeres Tief markiert.",
+                    "updated": 1672229025852
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "TR",
                     "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
                     "updated": 1647002157789
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Hoch erreicht.",
+                    "updated": 1672229308693
                 }
             ]
         },
@@ -132,6 +167,11 @@
                     "language": "TR",
                     "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
                     "updated": 1647002173407
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1672229400999
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "TR",
                     "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
                     "updated": 1647002183564
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish Continuation (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1672229447114
                 }
             ]
         },
@@ -168,6 +213,11 @@
                     "language": "TR",
                     "text": "Yukarıda: %11,25'lik bir düşüşle orta kuvvette bir düşüş (kırmızı) ve bir yükseliş (yeşil) sapma görüyorsunuz.",
                     "updated": 1647002286049
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: Eine bearish (rot) mit mittlerer Stärke bei einem Rückgang von 11.25 % und eine Aufwärtsdivergenz (grün).",
+                    "updated": 1672777279606
                 }
             ]
         },
@@ -188,6 +238,11 @@
                     "language": "TR",
                     "text": "Yukarıda: güçlü bir güç ve %70 artış ile gizli bir yükseliş (kesikli yeşil) ve bir yükseliş (yeşil) ayrışması görüyorsunuz.",
                     "updated": 1647002280026
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: Eine hidden bullish (grün gestrichelt) und eine bullish (grün), Divergenz mit großer Kraft und 70% Anstieg.",
+                    "updated": 1672267176507
                 }
             ]
         },
@@ -204,6 +259,11 @@
                     "language": "TR",
                     "text": "Farklılıklar bulucusunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'RSI Sapma'Prosedür Döngüsü altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
                     "updated": 1647002818095
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinders, die Pivot-Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter ´RSI Divergence´ Procedure Loop suchen und öffnen.",
+                    "updated": 1672780468951
                 }
             ]
         },
@@ -224,6 +284,11 @@
                     "language": "TR",
                     "text": "Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulamak için gecikme süresinin o kadar uzun olduğunu unutmayın.",
                     "updated": 1647002719748
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Genauigkeit größer ist, je größer die Pivot-Länge und dementsprechend länger die Verzögerung bei der Bestätigung des Pivot-Höchst-/Tiefstwertes.",
+                    "updated": 1672267785528
                 }
             ]
         },
@@ -240,6 +305,11 @@
                     "language": "TR",
                     "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma altında 'RSI Divergence' Prosedür Başlatma ( Procedure Initialization ) altında bulunması ve açılmasıyla değiştirilebilir.",
                     "updated": 1647002811263
+                },
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Divergenzerkennung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ´RSI Divergence´ Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1672780485224
                 }
             ]
         },
@@ -260,6 +330,11 @@
                     "language": "TR",
                     "text": "RSI'nin uzunluğu, Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında 'RSI14' Prosedür Döngüsü altında Javascript Kodu ( Javascript Code ) bulunup açılarak değiştirilebilir.",
                     "updated": 1647002896616
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des RSI kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ´RSI14´ Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1672780494311
                 }
             ]
         },
@@ -276,6 +351,11 @@
                     "language": "TR",
                     "text": "Ürünler ve Özellikler",
                     "updated": 1647002910423
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1672778326121
                 }
             ]
         },
@@ -287,6 +367,11 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645608660023
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Möglichkeiten stehen zur Auswahl:",
+                    "updated": 1672268158866
                 }
             ]
         },
@@ -298,6 +383,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| RSI-Div | rsiDiv | status, strength, divPerc |",
                     "updated": 1647002989169
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| RsiDiv | rsiDiv | status, strength, divPerc |",
+                    "updated": 1672353628202
                 }
             ],
             "updated": 1667786359335
@@ -315,6 +405,11 @@
                     "language": "TR",
                     "text": "durum (status): aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
                     "updated": 1647003031757
+                },
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten aus: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1672268464626
                 }
             ]
         },
@@ -331,6 +426,11 @@
                     "language": "TR",
                     "text": "güç (strength): aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
                     "updated": 1647003061296
+                },
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten aus: schwach, mittel, stark",
+                    "updated": 1672268615339
                 }
             ]
         },
@@ -347,6 +447,11 @@
                     "language": "TR",
                     "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
                     "updated": 1647003073986
+                },
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1672268690191
                 }
             ]
         },
@@ -363,6 +468,11 @@
                     "language": "TR",
                     "text": "Örnekler:",
                     "updated": 1647003083565
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1672268721811
                 }
             ]
         },
@@ -391,13 +501,25 @@
                     "language": "TR",
                     "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra ticarete girmek amacıyla uygun bir RSI değeri bulun, örneğin bir yükseliş tespitinden sonra RSI > 50.",
                     "updated": 1647003273254
+                },
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten RSI-Wert finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach einer bullish detection.",
+                    "updated": 1672356921591
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1672778533453
+                }
+            ]
         },
         {
             "style": "Link",

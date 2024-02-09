@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Bu, neredeyse kutudan çıktığı gibi kullanacağımız ticaret sistemidir!",
                 "updated": 1641064528800
+            },
+            {
+                "language": "ES",
+                "text": "Este es el sistema de trading que utilizaremos, ¡prácticamente tal y como sale de la caja!",
+                "updated": 1675621606675
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Onunla yapacağım tek şey hiyerarşiyi istediğim gibi düzenlemek ve ona bir isim vermek: BB Breakdown.",
                     "updated": 1641064596654
+                },
+                {
+                    "language": "ES",
+                    "text": "Todo lo que he hecho con él es organizar la jerarquía de la manera que me gusta, y darle un nombre: BB Breakdown.",
+                    "updated": 1675621619636
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Hiyerarşiyi genişletin ve etrafınıza bakın! Downtrends stratejisine dikkat edin... Dört aşamaya karşılık gelen düğümlerin her birini tek tek genişletin ve içeriye iyi bakın!",
                     "updated": 1641064634947
+                },
+                {
+                    "language": "ES",
+                    "text": "Expande la jerarquía y mira a tu alrededor. Fíjate en la estrategia Downtrends... Despliega cada uno de los nodos correspondientes a las cuatro etapas, uno por uno, ¡y echa un buen vistazo dentro!",
+                    "updated": 1675621645022
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Bu aşamaların her birinde gördüğünüz düğümler bir stratejinin tanımlarını oluşturuyor...",
                     "updated": 1641064695452
+                },
+                {
+                    "language": "ES",
+                    "text": "Los nodos que ves dentro de cada una de estas etapas conforman las definiciones de una estrategia...",
+                    "updated": 1675621652939
                 }
             ]
         }

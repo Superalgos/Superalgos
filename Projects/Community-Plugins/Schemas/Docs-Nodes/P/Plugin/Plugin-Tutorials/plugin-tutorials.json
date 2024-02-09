@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Eklenti öğreticileri düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek öğreticilerin tanımlarını içerir.",
                 "updated": 1651952329383
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin tutorials enthält die Definitionen von Tutorials, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639668189
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Eklenti olarak çalışma alanına dahil edilen öğreticiler, kullanıcıların ilerlemesini takip etmez, bu, menüdeki Devam düğmesini kullanarak son adıma dönmeyebilir.",
                     "updated": 1651952379034
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials, die als Plugins in den Arbeitsbereich integriert sind, verfolgen nicht den Fortschritt des Benutzers und können daher nicht zum letzten Schritt zurückkehren, wenn Sie die Schaltfläche Fortsetzen im Menü verwenden.",
+                    "updated": 1674639752077
                 }
             ]
         },

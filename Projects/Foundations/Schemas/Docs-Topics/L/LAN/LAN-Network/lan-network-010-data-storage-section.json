@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Структура хранения данных узлов в сетевой иерархии определяет, где и как запущенные вами боты хранят данные, которые они производят.",
                 "updated": 1639148435760
+            },
+            {
+                "language": "TR",
+                "text": "Ağ hiyerarşisi içindeki düğümlerin veri depolama yapısı, çalıştırdığınız botların ürettikleri verileri nerede ve nasıl depoladıklarını kontrol eder.",
+                "updated": 1672265103895
             }
         ]
     },

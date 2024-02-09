@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Eklenti dosyası, eklentiyi oluşturan JSON dosyasıdır. Eklenti hiyerarşisi bağlamında eklenti, hiyerarşinin tanımıdır.",
                 "updated": 1651950501163
+            },
+            {
+                "language": "DE",
+                "text": "Eine Plugin Datei ist die JSON Datei, die das Plugin bildet. Im Zusammenhang mit der Plugin Hierarchie ist ein Plugin die Definition einer Hierarchie.",
+                "updated": 1674279783143
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Sistemle birlikte dağıtılan eklenti dosyaları, aşağıdaki yoldaki ilgili klasörlerde saklanır:",
                     "updated": 1651950523507
+                },
+                {
+                    "language": "DE",
+                    "text": "Die mit dem System verteilten Plugin Dateien werden in den entsprechenden Ordnern unter dem folgenden Pfad gespeichert:",
+                    "updated": 1674279841568
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "language": "TR",
                     "text": "Bir eklenti oluşturmak ve sistem tarafından kullanılabilir hale getirmek için yapmanız gerekenler:",
                     "updated": 1651950561972
+                },
+                {
+                    "language": "DE",
+                    "text": "Um ein Plugin zu erstellen und es dem System zur Verfügung zu stellen, müssen Sie:",
+                    "updated": 1674279880493
                 }
             ]
         },
@@ -77,6 +92,11 @@
                     "language": "TR",
                     "text": "Hiyerarşinin yedeğini alın.",
                     "updated": 1651950575802
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstelle eine Sicherungskopie der Hierarchie.",
+                    "updated": 1674280012911
                 }
             ]
         },
@@ -94,6 +114,11 @@
                     "language": "TR",
                     "text": "Yolun uygun klasörüne yerleştirin.",
                     "updated": 1651950589410
+                },
+                {
+                    "language": "DE",
+                    "text": "Legen Sie sie in den richtigen Ordner des Pfades.",
+                    "updated": 1674280006315
                 }
             ]
         },
@@ -111,6 +136,11 @@
                     "language": "TR",
                     "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler, çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı değildir. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamalı veya yedeklemeli ve bunun yerine ortaya çıkan kopya üzerinde çalışmalısınız.",
                     "updated": 1651950623371
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchies , die als Plugins in den Arbeitsbereich eingebunden sind, werden nicht auf Arbeitsbereichsebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
+                    "updated": 1674280095669
                 }
             ]
         },

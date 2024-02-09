@@ -102,6 +102,10 @@
 		{
             "style": "Chapter",
             "text": "XIX->Foundations->Topic->Volume Tools Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "XX->Foundations->Topic->Aggregated Data Mine->"
         }
     ]
 }

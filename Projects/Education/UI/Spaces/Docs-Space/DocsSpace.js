@@ -9,6 +9,7 @@ function newEducationDocSpace() {
         searchResultsPage: undefined,
         footer: undefined,
         documentPage: undefined,
+        navigationElements: undefined,
         commandInterface: undefined,
         contextMenu: undefined,
         language: undefined,
@@ -20,6 +21,8 @@ function newEducationDocSpace() {
         currentBookBeingRendered: undefined,
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics, Tutorials, Reviews or Books Schema in order to find it when we need to update them.
         textArea: undefined,
+        browseHistoryIndex: undefined,
+        browseHistoryArray: undefined, // Here we will store all visited documents
         sharePage: sharePage,
         changeLanguage: changeLanguage,
         changeCurrentBranch: changeCurrentBranch,
@@ -28,8 +31,12 @@ function newEducationDocSpace() {
         exitEditMode: exitEditMode,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
+        navigateBack: navigateBack,
+        navigateForward: navigateForward,
+        onDocsScrolled: onDocsScrolled,
         searchPage: searchPage,
         scrollToElement: scrollToElement,
+        toggleRightNavPanel: toggleRightNavPanel,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -61,6 +68,9 @@ function newEducationDocSpace() {
 
             thisObject.menuLabelsMap = new Map()
 
+            thisObject.browseHistoryIndex = 0
+            thisObject.browseHistoryArray = new Array(0)
+
             setupSidePanelTab()
             setUpMenuItemsMap()
             setupUserLanguage()
@@ -70,6 +80,7 @@ function newEducationDocSpace() {
             thisObject.searchResultsPage = newFoundationsDocsSearchResultsPage()
             thisObject.documentPage = newFoundationsDocsDocumentPage()
             thisObject.footer = newFoundationsDocsFooter()
+            thisObject.navigationElements = newFoundationsDocsNavigationElements()
             thisObject.commandInterface = newFoundationsDocsCommmandInterface()
             thisObject.contextMenu = newFoundationsDocsContextMenu()
 
@@ -80,6 +91,7 @@ function newEducationDocSpace() {
             thisObject.footer.initialize()
             thisObject.commandInterface.initialize()
             thisObject.contextMenu.initialize()
+            thisObject.navigationElements.initialize()
 
             setupCurrentBranch()
             setupContributionsBranch()
@@ -215,6 +227,7 @@ function newEducationDocSpace() {
         thisObject.searchResultsPage.finalize()
         thisObject.documentPage.finalize()
         thisObject.footer.finalize()
+        thisObject.navigationElements.finalize()
         thisObject.commandInterface.finalize()
         thisObject.contextMenu.finalize()
 
@@ -223,6 +236,7 @@ function newEducationDocSpace() {
         thisObject.searchResultsPage = undefined
         thisObject.documentPage = undefined
         thisObject.footer = undefined
+        thisObject.navigationElements = undefined
         thisObject.commandInterface = undefined
         thisObject.contextMenu = undefined
 
@@ -230,6 +244,10 @@ function newEducationDocSpace() {
         thisObject.previousDocumentBeingRendered = undefined
         thisObject.paragraphMap = undefined
         thisObject.menuLabelsMap = undefined
+
+        thisObject.browseHistoryIndex = undefined
+        thisObject.historyOfVisitedDocuments = undefined
+
         isInitialized = false
     }
 
@@ -281,8 +299,10 @@ function newEducationDocSpace() {
 
     function changeLanguage(pLanguage) {
         UI.projects.education.spaces.docsSpace.language = pLanguage
-        let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Docs In ' + languageLabel)
+        
+        i18next.changeLanguage(pLanguage.toLowerCase()).then(() => translate()) // calls the global function to trigger changing of the system translations
+        
+        UI.projects.education.spaces.docsSpace.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type)
 
         let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
         UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.spaces.docsSpace.language)
@@ -321,6 +341,7 @@ function newEducationDocSpace() {
     }
 
     function onOpening() {
+        DOCS_PAGE_ON_FOCUS = true
         thisObject.isVisible = true
         if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered === undefined) {
             thisObject.mainSearchPage.render()
@@ -332,13 +353,23 @@ function newEducationDocSpace() {
                 UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type,
                 UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor,
                 UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId,
-                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.placeholder
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.placeholder,
+                /*updateHistory*/ false, // This avoids reset the history index so forward navigation is still possible after reopen the Docs
             )
         }
     }
 
     function onClosing() {
+        DOCS_PAGE_ON_FOCUS = false
         thisObject.contextMenu.removeContextMenuFromScreen()
+
+        try {
+            document.getElementById("docs-navigation-elements-sidebar-div").style.display = "none"
+        } catch (error) {
+            // do nothing
+            // this is just to prevent crash during startup when docs-navigation-elements-sidebar-div doesn't exist yet
+        }
+
         thisObject.isVisible = false
     }
 
@@ -348,6 +379,53 @@ function newEducationDocSpace() {
             let topPos = myElement.offsetTop
             let scrollingDiv = document.getElementById('docs-space-div')
             scrollingDiv.scrollTop = topPos
+        }
+    }
+
+    function toggleRightNavPanel() {
+        setNavigationPanel(!getNavigationPanelState())
+    }
+
+    function getNavigationPanelState() {
+        let enabled = false
+        try {
+            let panel = document.getElementById("docs-navigation-elements-sidebar-div")
+            if (panel.offsetWidth > 0) {
+                enabled = true
+            }
+        } catch (error) {
+            // do nothing
+            // this is just to prevent crash during startup when docs-navigation-elements-sidebar-div doesn't exist yet
+        }
+        return enabled
+    }
+
+    function setNavigationPanel(enabled, animation = true) {
+        let panel = document.getElementById("docs-navigation-elements-sidebar-div")
+        let panelToggleBtn = document.getElementById("docs-navigation-elements-sidebar-circle-div")
+        let panelToggleBtnWidth = panelToggleBtn.offsetWidth
+        let leftNavArrow = document.getElementById("docs-navigation-elements-sidebar-circle-left")
+        let rightNavArrow = document.getElementById("docs-navigation-elements-sidebar-circle-right")
+
+        panel.style.transition = "all 0.0s"
+        panelToggleBtn.style.transition =  "all 0.0s"
+
+        if(animation) {
+            panel.style.transition = "all 0.3s"
+            panelToggleBtn.style.transition = "all 0.3s"
+        }
+
+        if (enabled) {
+            panel.style.width = "60px";
+            let targetWidth = 60 - 0.5 * panelToggleBtnWidth
+            panelToggleBtn.style.right = targetWidth + "px"
+            leftNavArrow.style.display = "none"
+            rightNavArrow.style.display = "inline"
+        } else {
+            panel.style.width = "0px";
+            panelToggleBtn.style.right = -0.3 * panelToggleBtnWidth + "px"
+            leftNavArrow.style.display = "inline"
+            rightNavArrow.style.display = "none"
         }
     }
 
@@ -363,14 +441,21 @@ function newEducationDocSpace() {
         thisObject.mainSearchPage.render()
     }
 
-    function navigateTo(project, category, type, anchor, nodeId, placeholder) {
+    function navigateTo(project, category, type, anchor, nodeId, placeholder, updateHistory = true) {
 
         EDITOR_ON_FOCUS = false // forced exit
         UI.projects.education.spaces.docsSpace.paragraphMap = new Map()
 
         getReadyToNavigate(project, category, type, anchor, nodeId, placeholder)
 
+        if(updateHistory === true) {
+            addToBrowseHistory(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered)
+        }
+
+        let navigationPanelState = getNavigationPanelState()
         UI.projects.education.spaces.docsSpace.documentPage.render()
+        setNavigationPanel(navigationPanelState, false)
+        updateNavigationElements()
 
         /*
         Here we will check if we need to position the page at a particular anchor or at the top.
@@ -410,11 +495,94 @@ function newEducationDocSpace() {
         }
     }
 
+    function addToBrowseHistory(document) {
+        thisObject.browseHistoryArray = thisObject.browseHistoryArray.slice(0, thisObject.browseHistoryIndex + 1)
+        thisObject.browseHistoryArray.push(document)
+        thisObject.browseHistoryIndex = thisObject.browseHistoryArray.length - 1
+    }
+
+    function navigateBack() {
+        if(thisObject.browseHistoryIndex > 0) {
+            thisObject.browseHistoryIndex = thisObject.browseHistoryIndex - 1
+            let pageToBeLoaded = thisObject.browseHistoryArray.at(thisObject.browseHistoryIndex)
+            thisObject.navigateTo(pageToBeLoaded.project, pageToBeLoaded.category, pageToBeLoaded.type, undefined, undefined, undefined, /*updateHistory*/ false)
+        } else {
+            // should not happen as Back button shall not be visible in that case
+            thisObject.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type, undefined, undefined, undefined, true)
+        }
+    }
+
+    function navigateForward() {
+        if(thisObject.browseHistoryIndex < thisObject.browseHistoryArray.length - 1) {
+            thisObject.browseHistoryIndex = thisObject.browseHistoryIndex + 1
+            let pageToBeLoaded = thisObject.browseHistoryArray.at(thisObject.browseHistoryIndex)
+            thisObject.navigateTo(pageToBeLoaded.project, pageToBeLoaded.category, pageToBeLoaded.type, undefined, undefined, undefined, /*updateHistory*/ false)
+        } else {
+            // should not happen as Forward button shall not be visible in that case
+            thisObject.navigateTo(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type, undefined, undefined, undefined, true)
+        }
+    }
+
+    function updateNavigationElements() {
+        let goBackBtn = document.getElementById("docs-navigation-go-back-btn")
+        let goForwardBtn = document.getElementById("docs-navigation-go-forward-btn")
+        let shareBtn = document.getElementById("docs-navigation-share-btn")
+        let goToBookBtn = document.getElementById("docs-navigation-to-book-btn")
+        
+        goBackBtn.disabled = true
+        goForwardBtn.disabled = true
+        shareBtn.disabled = true
+        goToBookBtn.disabled = true
+
+        if (thisObject.browseHistoryIndex > 0) {
+            goBackBtn.disabled = false
+        }
+
+        if (thisObject.browseHistoryIndex < thisObject.browseHistoryArray.length - 1) {
+            goForwardBtn.disabled = false
+        }
+
+        if (thisObject.currentDocumentBeingRendered !== undefined) {
+            shareBtn.disabled = false
+        }
+
+        if (thisObject.currentBookBeingRendered !== undefined) {
+            goToBookBtn.onclick = function() { thisObject.navigateTo(thisObject.currentBookBeingRendered.project, thisObject.currentBookBeingRendered.category, thisObject.currentBookBeingRendered.type) }
+            goToBookBtn.disabled = false
+        }
+    }
+
+    function onDocsScrolled(event) {
+        let toBottomBtn = document.getElementById("docs-navigation-to-bottom-btn")
+        let toTopBtn = document.getElementById("docs-navigation-to-top-btn")
+        let content = document.getElementById("docs-space-div")
+
+        // Update buttons state
+        if (content.scrollTop > 20) {
+            toTopBtn.disabled = false
+        } else {
+            toTopBtn.disabled = true
+        }
+
+        if ((window.innerHeight + content.scrollTop) >= content.scrollHeight) {
+            toBottomBtn.disabled = true
+        } else {
+            toBottomBtn.disabled = false
+        }
+    }
+
     function resize() {
         thisObject.container.frame.width = UI.projects.education.globals.docs.DOCS_SPACE_WIDTH
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
+
+        try {
+            document.getElementById("docs-navigation-elements-sidebar-div").style.display = "none"
+        } catch (error) {
+            // do nothing
+            // this is just to prevent crash during startup when docs-navigation-elements-sidebar-div doesn't exist yet
+        }
 
         if (thisObject.sidePanelTab !== undefined) {
             thisObject.sidePanelTab.resize()

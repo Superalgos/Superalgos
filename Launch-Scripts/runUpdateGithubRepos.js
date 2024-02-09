@@ -3,6 +3,7 @@ const path = require("path")
 let ENVIRONMENT = require('../Environment')
 const simpleGit = require("simple-git")
 const {Octokit} = require("@octokit/rest");
+const {retry} = require("@octokit/plugin-retry")
 const {resolve} = require("path");
 
 let originUserName
@@ -93,8 +94,8 @@ function updateRepo(cloneDir, repo) {
             const branch = 'develop'
             git.fetch('upstream', branch)
             const token = getCred().githubToken
-
-            const octokit = new Octokit({
+            const RetryOctokit = Octokit.plugin(retry)
+            const octokit = new RetryOctokit({
                 auth: token,
                 userAgent: 'Superalgos'
             })

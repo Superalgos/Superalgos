@@ -1,0 +1,53 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 56,
+    "type": "Tutorial Step - Welcome Charts Scales Time Frame Scale",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video in modalità schermo intero.",
+                "updated": 1614894425390,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634217475788
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636562373228
+            },
+            {
+                "language": "TR",
+                "text": "Bu adım, bir videoyu tam ekran modunda oynatacaktır.",
+                "updated": 1654394244115,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "In deze stap wordt een video afgespeeld in de modus Volledig scherm.",
+                "updated": 1666787160645
+            },
+            {
+                "language": "FR",
+                "text": "Cette étape jouera une vidéo en mode plein écran.",
+                "updated": 1668069707228
+            },
+            {
+                "language": "ES",
+                "text": "Este paso reproducirá un vídeo en modo de pantalla completa.",
+                "updated": 1675277545202
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-charts-scales-time-frame-scale.gif"
+        }
+    ]
+}

@@ -1,7 +1,6 @@
 package com.devosonder.superalgostranslate.app.config;
 
-import com.devosonder.deepltranslator.DeepLTranslator;
-import com.devosonder.deepltranslator.TargetLanguage;
+import com.deepl.api.*;
 import com.devosonder.superalgostranslate.app.factory.TranslatorFactory;
 import com.devosonder.superalgostranslate.app.service.*;
 import com.devosonder.superalgostranslate.app.util.FileUtil;
@@ -21,41 +20,35 @@ public class TranslatorRunBean {
 
     @SneakyThrows
     public void run(String[] args) {
+        Translator translator = new Translator("e6ec7277-1288-6ac3-3451-db77c52900b0:fx");
+        List<GlossaryLanguagePair> glossaryLanguages = translator.getGlossaryLanguages();
+
         if (args.length == 2 && args[1].equals("apply-translations")) {
             var dir = args[0];
             changeFileNamesService.change(dir);
             System.exit(0);
         } else if (args.length < 2) {
-            System.out.println("java -jar translator.jar <rootFolderName> <targetLanguage>");
-            System.out.println("Supported Target languages: ");
-            StringBuilder languages = new StringBuilder();
-            for (TargetLanguage value : TargetLanguage.values()) {
-                languages.append(value.getLanguageCode()).append(" ");
+            System.out.println("Syntax:");
+            System.out.println("java -jar translator.jar <root folder> <language code>");
+            System.out.println("Set <language code> to one of the following:");
+            String sourceLanguage = "en";
+            for (GlossaryLanguagePair glossaryLanguage : glossaryLanguages) {
+                if (!sourceLanguage.equals(glossaryLanguage.getSourceLanguage())) {
+                    continue;
+                }
+                System.out.printf("%s\n", glossaryLanguage.getTargetLanguage());
             }
-            System.out.println(languages);
             System.exit(1);
         }
         var dir = args[0];
-        TargetLanguage targetLanguage = null;
-        try {
-            targetLanguage = TargetLanguage.getLanguage(args[1]).get();
-        } catch (Exception e) {
-            System.out.println("Invalid language.\nSupported Target languages: ");
-            StringBuilder languages = new StringBuilder();
-            for (TargetLanguage value : TargetLanguage.values()) {
-                languages.append(value.getLanguageCode()).append(" ");
-            }
-            System.out.println(languages);
-            System.exit(1);
-        }
+        String targetLanguage = args[1];
+
         System.out.println("Translating from: " + dir);
 
         System.out.println("[  ] Looking for folders for translation...");
         List<String> allDirectories = FileUtil.getAllDirectories(dir);
         System.out.println("[OK] Looking for folders for translation...");
         System.out.println("[  ] Translate starting. Please wait...");
-        var translator = TranslatorFactory.getTranslator();
-        translator.awaitTermination(10, TimeUnit.SECONDS);
         nodeService.setTranslator(translator);
         tutorialService.setTranslator(translator);
         topicService.setTranslator(translator);
@@ -89,7 +82,7 @@ public class TranslatorRunBean {
                 }
             }
         } finally {
-            DeepLTranslator.shutdown();
+            //
         }
         System.out.println("[OK] Translate completed");
     }

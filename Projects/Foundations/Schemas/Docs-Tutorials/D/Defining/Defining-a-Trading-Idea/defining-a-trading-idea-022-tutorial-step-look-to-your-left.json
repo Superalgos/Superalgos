@@ -26,8 +26,23 @@
             },
             {
                 "language": "ES",
-                "text": "¿Le suena la acción del precio a su izquierda? ¿Reconoce este derrumbe importante del mercado?",
-                "updated": 1668192134941
+                "text": "¿Te suena la acción del precio a tu izquierda? ¿Reconoces este derrumbe importante del mercado?",
+                "updated": 1675205920559
+            },
+            {
+                "language": "IT",
+                "text": "L'azione dei prezzi alla tua sinistra suona un campanello? Riconosci questo grave crollo del mercato?",
+                "updated": 1669900921142
+            },
+            {
+                "language": "NL",
+                "text": "Doet de prijsactie links van je een belletje rinkelen? Herkent u deze grote marktcrash?",
+                "updated": 1670786179410
+            },
+            {
+                "language": "ID",
+                "text": "Apakah price action di sebelah kiri kamu menarik perhatian? Apakah kamu mengenali major market crash ini?",
+                "updated": 1674698296242
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "¡Estás viendo la caída del mercado pandémico del-50%, el 12-13 de marzo de 2020! ¡Dedica unos minutos a analizar el gráfico diario!",
                     "updated": 1668192216225
+                },
+                {
+                    "language": "IT",
+                    "text": "Stai osservando il crollo del mercato pandemico del 12-13 marzo 2020 ~ 50%! Dedica qualche minuto all'analisi del grafico giornaliero!",
+                    "updated": 1669900937489
+                },
+                {
+                    "language": "NL",
+                    "text": "U kijkt naar de pandemische marktcrash van 12-13 maart 2020 van ~50%! Besteed een paar minuten aan het analyseren van de daggrafiek!",
+                    "updated": 1670786196698
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu sedang melihat market crash akibat pandemi 12-13 Maret 2020 ~50%! Luangkan beberapa menit untuk menganalisis chart daily ini!",
+                    "updated": 1674698301889
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "En resumen, podemos ver que el mercado estaba en una tendencia bajista desde el 25 de febrero, si tomamos el giro hacia el sur de la media móvil y la ruptura de las bandas como una indicación del inicio de la tendencia.",
                     "updated": 1668192350723
+                },
+                {
+                    "language": "IT",
+                    "text": "In breve, possiamo vedere che il mercato era in una tendenza al ribasso dal 25 febbraio, se consideriamo la svolta a sud della media mobile e la rottura delle bande come indicazione dell'inizio della tendenza.",
+                    "updated": 1669900955249
+                },
+                {
+                    "language": "NL",
+                    "text": "Kortom, we kunnen zien dat de markt sinds 25 februari in een neerwaartse trend zat - als we de afslag naar het zuiden van het voortschrijdend gemiddelde en de neerwaartse doorbraak van de banden nemen als een indicatie van het begin van de trend.",
+                    "updated": 1670786324681
+                },
+                {
+                    "language": "ID",
+                    "text": "Singkatnya, kita dapat melihat bahwa market berada dalam tren turun sejak 25 Februari—jika kita melihat ketidak untungan dari moving average dan breakdown dari band sebagai indikasi awal tren.",
+                    "updated": 1674698310288
                 }
             ]
         },
@@ -107,6 +152,16 @@
                     "language": "ES",
                     "text": "¡Mira también los marcos temporales más bajos!",
                     "updated": 1668192281911
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk ook eens naar de lagere tijdframes!",
+                    "updated": 1670786339169
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah timeframe yang lebih rendah juga!",
+                    "updated": 1674698316022
                 }
             ]
         }

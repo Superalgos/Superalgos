@@ -1,0 +1,13 @@
+gym==0.12.1
+matplotlib==3.5.2
+nbformat>=5.1
+pandas==1.5.1
+ray[all]==1.12.1
+scikit-learn==1.1.2
+torch==1.12.0
+torchvision==0.13.0
+tabulate
+tensorboard==2.10.1
+tensorflow==2.10.0
+tensorflow-probability==0.18.0
+numpy==1.23.3

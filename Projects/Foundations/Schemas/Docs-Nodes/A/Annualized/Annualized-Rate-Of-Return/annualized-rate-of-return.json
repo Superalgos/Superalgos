@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Yıllık getiri oranı, bir yıla ölçeklenen eşdeğer yatırım getirisidir.",
                 "updated": 1652018465870
+            },
+            {
+                "language": "DE",
+                "text": "Die annualisierte Rendite (Annualized Rate Of Return) entspricht der auf ein Jahr skalierten Kapitalrendite (ROI).",
+                "updated": 1701930793895
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Başka bir deyişle, belirli bir süre boyunca alınan eşdeğer yıllık getiridir.",
                     "updated": 1652018475840
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten, es handelt sich um die jährliche Rendite, die in einem bestimmten Zeitraum erzielt wird.",
+                    "updated": 1701930794022,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Formül:",
                     "updated": 1652018494716
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Formel:",
+                    "updated": 1701930794144,
+                    "style": "Text"
                 }
             ]
         },
@@ -70,6 +87,12 @@
                     "language": "TR",
                     "text": "Bölüm temel varlık ve bölüm alıntı varlık bağlamında, hesaplama ilgili varlıklara ve genel bağlama göre yapılır.",
                     "updated": 1652018513579
+                },
+                {
+                    "language": "de",
+                    "text": "Im Zusammenhang mit dem Episoden-Basis-Asset und dem Episoden-Notierungs-Asset erfolgt die Berechnung relativ zu den entsprechenden Assets und dem Gesamtkontext.",
+                    "updated": 1701930794243,
+                    "style": "Text"
                 }
             ]
         },
@@ -86,6 +109,12 @@
                     "language": "TR",
                     "text": "Formül:",
                     "updated": 1652018520450
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Formeln:",
+                    "updated": 1701930794437,
+                    "style": "Text"
                 }
             ]
         },
@@ -107,6 +136,12 @@
                     "language": "TR",
                     "text": "JavaScript kodu:",
                     "updated": 1652018529789
+                },
+                {
+                    "language": "DE",
+                    "text": "Der JavaScript-Code:",
+                    "updated": 1701930794541,
+                    "style": "Text"
                 }
             ]
         },
@@ -128,6 +163,12 @@
                     "language": "TR",
                     "text": "Dönem istatistikleri bağlamında, hesaplama, kar zararı tanımında açıklandığı gibi konsolide bakiye kullanılarak yapılır.",
                     "updated": 1652018538179
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit der Episodenstatistik erfolgt die Berechnung anhand der konsolidierten Bilanz, wie in der Definition des Gewinns und Verlusts erläutert.",
+                    "updated": 1701930794623,
+                    "style": "Text"
                 }
             ]
         },
@@ -144,6 +185,12 @@
                     "language": "TR",
                     "text": "Not: Bağlam özellikle varlıklardan herhangi birine atıfta bulunmadığında, her iki varlık bakiyesi konsolide edilir ve kote varlıkta gösterilir.",
                     "updated": 1652018555907
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sich der Kontext nicht auf einen der beiden Vermögenswerte im Besonderen bezieht, werden beide Vermögenswerte zusammengefast und auf den angegebenen Vermögenswert ausgewiesen.",
+                    "updated": 1701930794770,
+                    "style": "Note"
                 }
             ]
         },
@@ -160,6 +207,12 @@
                     "language": "TR",
                     "text": "JavaScript kodu:",
                     "updated": 1652018564263
+                },
+                {
+                    "language": "DE",
+                    "text": "Der JavaScript-Code:",
+                    "updated": 1701930794937,
+                    "style": "Text"
                 }
             ]
         },
@@ -187,6 +240,12 @@
                     "language": "TR",
                     "text": "Yıllık Getiri Oranı Yapılandırması",
                     "updated": 1652018573203
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration Annualized Rate Of Return",
+                    "updated": 1701930795043,
+                    "style": "Title"
                 }
             ]
         },
@@ -204,6 +263,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652018582143
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930795129,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -221,6 +286,12 @@
                     "language": "TR",
                     "text": "initialValue düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652018590081
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930795230,
+                    "style": "List"
                 }
             ]
         }

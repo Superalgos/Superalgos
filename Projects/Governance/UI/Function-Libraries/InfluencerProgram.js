@@ -29,3 +29,5 @@ function newGovernanceFunctionLibraryInfluencerProgram() {
         )
     }
 }
+
+exports.newGovernanceFunctionLibraryInfluencerProgram = newGovernanceFunctionLibraryInfluencerProgram

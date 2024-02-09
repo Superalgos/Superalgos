@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bazı exchanges'ler, botunuzu çalıştıran bilgisayarı sunucularıyla yüksek düzeyde senkronize olmaya zorlar ve bunu başarmak için, o makinenin zamanının kendisini bir İnternet Zaman Sunucusu ile senkronize halde tutmasına ihtiyacınız vardır.",
                 "updated": 1647875340345
+            },
+            {
+                "language": "DE",
+                "text": "Einige Börsen verlangen, dass der Computer, auf dem Ihr Bot läuft, in hohem Maße mit ihren Servern synchronisiert ist. Um dies zu erreichen, muss die Zeit dieses Rechners mit einem Internet-Zeitserver synchronisiert werden.",
+                "updated": 1678650899255
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bu problem nasıl tanımlanır?",
                     "updated": 1647875357390
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie lässt sich dieses Problem erkennen?",
+                    "updated": 1678650911304
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Böyle bir hata alırsanız, şu tür bir sorun yaşıyorsunuz:",
                     "updated": 1647875381071
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine solche Fehlermeldung erhalten, liegt ein solches Problem vor:",
+                    "updated": 1678650921266
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "TR",
                     "text": "Bu sorun nasıl çözülür?",
                     "updated": 1647875402151
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie lässt sich dieses Problem lösen?",
+                    "updated": 1678650931718
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "TR",
                     "text": "Bu durumda çalıştığı kanıtlanmış olan time.nist.gov sunucusunu kullanabilirsiniz. İşletim sisteminizde İnternet Saati Ayarlarını değiştirebileceğiniz yeri arayın ve o sunucuyu orada kullanın.",
                     "updated": 1647875415434
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können den Server time.nist.gov verwenden, der sich in dieser Situation bewährt hat. Suchen Sie in Ihrem Betriebssystem die Stelle, an der Sie die Internet-Zeiteinstellungen ändern können, und verwenden Sie dort diesen Server.",
+                    "updated": 1678650952740
                 }
             ]
         },
@@ -120,6 +145,11 @@
                     "language": "TR",
                     "text": "Bazen Docker, temel işletim sistemi olmasına rağmen senkronize olmayabilir. Bunu düzeltmek için, Docker'ı yeniden başlatmaya ve wsl'yi işletim sisteminden doğru zamanı almaya zorlayacak olan bu komutu çalıştırabilirsiniz.",
                     "updated": 1647875438490
+                },
+                {
+                    "language": "DE",
+                    "text": "Manchmal kann es vorkommen, dass Docker nicht synchron ist, obwohl das zugrunde liegende Betriebssystem es ist. Um dies zu beheben, können Sie diesen Befehl ausführen, der einen Neustart von Docker erzwingt und wsl dazu bringt, die korrekte Zeit vom Betriebssystem zu übernehmen.",
+                    "updated": 1678650967514
                 }
             ]
         },

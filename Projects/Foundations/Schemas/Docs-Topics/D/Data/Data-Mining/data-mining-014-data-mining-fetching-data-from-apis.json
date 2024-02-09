@@ -521,22 +521,22 @@
         },
         {
             "style": "List",
-            "text": "Step #1: Open the API Data Fetcher Bot Demo Plugin Workspace and study it for a while. Run the tasks in there, watch while data is processed, check the charts and finally run the Trading Task that uses the data processed.",
+            "text": "Step #1: Open the API Data Fetcher Bot Demo Native Workspace and study it for a while. Run the tasks in there, watch while data is processed, check the charts and finally run the Trading Task that uses the data processed.",
             "updated": 1621976539133,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schritt #1: Öffnen Sie den API Data Fetcher Bot Demo Plugin Workspace und arbeiten sie eine Weile mit ihm. Führen Sie die Tasks darin aus, beobachten Sie, wie die Daten verarbeitet werden, prüfen Sie die Charts und führen Sie schließlich die Trading Task aus, die die verarbeiteten Daten verwendet.",
+                    "text": "Schritt #1: Öffnen Sie den API Data Fetcher Bot Demo Native Workspace und arbeiten sie eine Weile mit ihm. Führen Sie die Tasks darin aus, beobachten Sie, wie die Daten verarbeitet werden, prüfen Sie die Charts und führen Sie schließlich die Trading Task aus, die die verarbeiteten Daten verwendet.",
                     "updated": 1635186793995
                 },
                 {
                     "language": "RU",
-                    "text": "Шаг № 1: Откройте рабочее пространство API Data Fetcher Bot Demo Plugin Workspace и изучите ее некоторое время. Запустите там задачи, посмотрите, как обрабатываются данные, проверьте графики и, наконец, запустите торговую задачу Trading Task, которая использует обработанные данные.",
+                    "text": "Шаг № 1: Откройте рабочее пространство API Data Fetcher Bot Demo Native Workspace и изучите ее некоторое время. Запустите там задачи, посмотрите, как обрабатываются данные, проверьте графики и, наконец, запустите торговую задачу Trading Task, которая использует обработанные данные.",
                     "updated": 1639654353623
                 },
                 {
                     "language": "TR",
-                    "text": "Adım #1: API Veri Alıcısı Bot Demo Eklentisi Çalışma Alanını ( API Data Fetcher Bot Demo Plugin Workspace ) açın ve bir süre çalışın. Oradaki görevleri çalıştırın, verilerin işlenip işlenmediğini izleyin, çizelgeleri kontrol edin ve son olarak işlenen verileri kullanan Ticaret Görevini ( Trading Task ) çalıştırın.",
+                    "text": "Adım #1: API Veri Alıcısı Bot Demo Eklentisi Çalışma Alanını ( API Data Fetcher Bot Demo Native Workspace ) açın ve bir süre çalışın. Oradaki görevleri çalıştırın, verilerin işlenip işlenmediğini izleyin, çizelgeleri kontrol edin ve son olarak işlenen verileri kullanan Ticaret Görevini ( Trading Task ) çalıştırın.",
                     "updated": 1645966176017
                 }
             ]

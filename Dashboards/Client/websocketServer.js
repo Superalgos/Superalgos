@@ -24,7 +24,7 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
 
             function onConnection(socket) {
                 if (LOG_INFO === true) {
-                    console.log('[INFO] New Websocket Connection.')
+                    SA.logger.info('New Websocket Connection.')
                 }
 
                 socket.on('message', onMessage)
@@ -45,11 +45,11 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                         if (origin !== "UI") {
                             if (messageType === "Info") {
                                 if (LOG_INFO === true) {
-                                    console.log(timestamp,'[Info] ', origin, '-->', messageString)
+                                    SA.logger.info(timestamp + ' ' + origin + ' --> ' + messageString)
                                 }
 
                             } else if (messageType === "Error") {
-                                console.log(timestamp, '[Error] ', origin, '-->', messageString)
+                                SA.logger.error(timestamp + ' ' + origin + ' --> ' + messageString)
 
                             } else if (messageType === "Data") {
                                 // Generic handlier for incoming data
@@ -63,7 +63,7 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                                             dataContent.push(messageObject)
                                         } 
                                         catch (err) {
-                                            console.log((new Date()).toISOString(), '[Error] Dashboard App -> Cannot parse data -> Data from: ', dataKey, ' -> ', err)
+                                            SA.logger.error('Dashboard App -> Cannot parse data -> Data from: ', dataKey, ' -> ', err)
                                         }
                                     }
                                     
@@ -72,36 +72,36 @@ exports.newWebSocketsServer = function newWebSocketsServer() {
                                         let message = timestamp + '|*|' + dataKey + '|*|' + JSON.stringify(dataContent)
                                         UISocket.send(message)
                                     } else {
-                                        console.log((new Date()).toISOString(), '[Error] Dashboard App -> UI not connected -> can not forward data')
+                                        SA.logger.error('Dashboard App -> UI not connected -> can not forward data')
                                     }
                                 }
                                 catch (err) {
-                                    console.log((new Date()).toISOString(), '[Error] Dashboard App -> Something went wrong while receiving data -> Data from: ', dataKey, ' -> ', err)
+                                    SA.logger.error('Dashboard App -> Something went wrong while receiving data -> Data from: ', dataKey, ' -> ', err)
                                 }
                             }
 
                         } else if (origin === "UI") {
                             // messages coming from UI
                             if (messageType === "Info") {
-                                console.log ('[Info] ', messageString)
+                                SA.logger.info('messageType Info ' + messageString)
                                 if (UISocket === undefined) {
                                     UISocket = socket // Store UI socket for message forwarding
                                 }
                                 
                             } else if (messageType === "Startup") {
-                                console.log ('[Startup] ', messageString)
+                                SA.logger.info('messageType Startup ' + messageString)
                                 UISocket = socket // Store UI socket for message forwarding
                             }
                         }
 
                     } catch (err) {
-                        console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> Web Sockets Interface -> run -> onConnection -> onMessage. err = ' + err.stack)
+                        SA.logger.error('Dashboards App -> Web Sockets Interface -> run -> onConnection -> onMessage. err = ' + err.stack)
                     }
                 }
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.message)
-            console.log((new Date()).toISOString(), '[ERROR] Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.stack)
+            SA.logger.error('Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.message)
+            SA.logger.error('Dashboards App -> Web Sockets Interface -> run -> err.message = ' + err.stack)
         }
     }
 

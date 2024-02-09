@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Veri madenciliği süreçleri düzgün bir şekilde kapatılmadığında verileriniz bozulabilir.",
                 "updated": 1647870470043
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Data-Mining-Prozesse nicht ordnungsgemäß heruntergefahren werden, können Ihre Daten beschädigt werden.",
+                "updated": 1678648679270
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Bilgisayarınız zorla kapatılmış olabilir veya bir veri madenciliği işlemi yürütürken Superalgos arka ucunu çalıştıran konsolu kapatmış olabilirsiniz. Bu tür durumlar bazı verilerin bozulmasına neden olabilir.",
                     "updated": 1647870481215
+                },
+                {
+                    "language": "DE",
+                    "text": "Möglicherweise wurde Ihr PC gewaltsam heruntergefahren oder Sie haben die Konsole, auf der das Superalgos-Backend läuft, geschlossen, während eine Data-Mining-Operation lief. Solche Situationen können dazu führen, dass einige Daten beschädigt werden.",
+                    "updated": 1678648692485
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "1. Sensör Bot Verilerinin Bütünlüğünü Kontrol Edin",
                     "updated": 1647870503283
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Überprüfen Sie die Integrität der Sensor-Bot-Daten",
+                    "updated": 1678648701873
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "Data-Storage > Exchange > Market > Masters altında Exchange-Raw-Data klasörüne gidin ve mevcut son güne gitmek için alt klasörleri açmaya devam edin ve Data.json dosyasını açın. Dosya düzgün açılırsa, bu borsadan indirdiğiniz verilerin güvenli olduğu anlamına gelebilir.",
                     "updated": 1647870515916
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ordner Exchange-Raw-Data unter Data-Storage > Exchange > Market > Masters und öffnen Sie die Unterordner, bis Sie den letzten verfügbaren Tag erreicht haben, und öffnen Sie die Datei Data.json. Wenn sich die Datei problemlos öffnen lässt, kann dies bedeuten, dass die Daten, die Sie von der Börse heruntergeladen haben, sicher sind.",
+                    "updated": 1678648713906
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Exchange-Raw-Data'daki son dosya düzgün açılmazsa, Data-Storage > Exchange > Market'in tamamını silin ve veri madenciliği işlemini çalıştırın. Bu, OHLCV sensör botunun borsadaki tüm verileri tekrar indirmesini ve tüm göstergelerin sıfırdan hesaplanmasını sağlayacaktır.",
                     "updated": 1647870535329
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die letzte Datei in Exchange-Raw-Data nicht richtig geöffnet wird, löschen Sie den gesamten Data-Storage > Exchange > Market und führen Sie die Data-Mining-Operation aus. Dadurch wird der OHLCV-Sensor-Bot alle Daten von der Börse erneut herunterladen und alle Indikatoren von Grund auf neu berechnen.",
+                    "updated": 1678648728086
                 }
             ]
         },
@@ -98,6 +123,11 @@
                     "language": "TR",
                     "text": "Sensör verileri iyi görünüyorsa, bir sonraki adıma geçin.",
                     "updated": 1647870547078
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Sensordaten in Ordnung zu sein scheinen, fahren Sie mit dem nächsten Schritt fort.",
+                    "updated": 1678648735253
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "2. Gösterge Verilerinin Bütünlüğünü Kontrol Edin",
                     "updated": 1647870607477
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Prüfen Sie die Integrität der Daten des Indikators",
+                    "updated": 1678648750318
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "TR",
                     "text": "Mumlarla ilgili sorun yaşıyorsanız, Data Storage > Exchange > Marketplace > Masters > Candles-Volumes > Output > Candles altında Multi-Time-Frame-Daily ve Multi-Time-Frame-Market klasörlerinin derinliklerinde bulunan Masters Veri Madeni'nin Mum Hacimleri göstergesinin verilerini kontrol etmeniz gerekir.",
                     "updated": 1647870625077
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Probleme mit Kerzen haben, müssen Sie die Daten des Candles-Volumen-Indikators der Masters Data Mine überprüfen, die sich tief in den Ordnern Multi-Time-Frame-Daily und Multi-Time-Frame-Market unter Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles befinden.",
+                    "updated": 1678648855897
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "TR",
                     "text": "Herhangi any.tmp dosyası bulursanız veya en son Data.json dosyalarından bazılarını normal bir metin düzenleyicide açamıyorsanız veya bazı dosyalar boşsa, dosyalar bozulmuş olabilir.",
                     "updated": 1647870651603
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie irgendwelche.tmp-Dateien finden oder einige der neuesten Data.json-Dateien nicht in einem normalen Texteditor öffnen können oder einige Dateien leer sind, sind die Dateien wahrscheinlich beschädigt.",
+                    "updated": 1678648911691
                 }
             ]
         },
@@ -163,6 +208,11 @@
                     "language": "TR",
                     "text": "Not: Diğer göstergelerde de benzer bir şey olmuş olabilir, bu nedenle çalışmayan veya sorun yaşıyor olabileceğiniz göstergelerin veri depolama klasörlerini kontrol ettiğinizden emin olun.",
                     "updated": 1647870790539
+                },
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Etwas Ähnliches kann auch mit anderen Indikatoren passiert sein. Überprüfen Sie daher die Datenspeicherordner der Indikatoren, die nicht funktionieren oder mit denen Sie Probleme haben.",
+                    "updated": 1678648934398
                 }
             ]
         },
@@ -179,6 +229,11 @@
                     "language": "TR",
                     "text": "Bu durumda, Data-Storage > Exchange > Market içindeki her bir veri madeni için klasörü silecek, ancak Exchange-Raw-Data'yı olduğu gibi bırakacak ve daha sonra veri madenciliği operasyonunu çalıştıracaksınız. Bu, Mum Hacimleri de dahil olmak üzere tüm gösterge veri ürünlerini yeniden oluşturacaktır.",
                     "updated": 1647870828488
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn dies der Fall ist, löschen Sie den Ordner für jedes Data-Mining unter Data-Storage > Exchange > Market, lassen aber Exchange-Raw-Data intakt und starten den Data-Mining-Vorgang anschließend. Dadurch werden alle Indikator-Datenprodukte, einschließlich Candles Volumes, neu generiert.",
+                    "updated": 1678648975831
                 }
             ]
         },
@@ -196,6 +251,11 @@
                     "language": "TR",
                     "text": "3. Unutmayın, Sistemi Kapatmanın Uygun Bir Yolu Vardır!",
                     "updated": 1647870806783
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Denken Sie daran, dass es eine korrekte Art und Weise gibt, das System zu schließen!",
+                    "updated": 1678649019054
                 }
             ]
         }

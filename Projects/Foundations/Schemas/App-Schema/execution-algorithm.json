@@ -5,12 +5,14 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
         {
             "action": "Add UI Object",
             "label": "Add Market Buy Order",
+            "translationKey": "add.order.market.buy",
             "relatedUiObject": "Market Buy Order",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -19,6 +21,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Market Sell Order",
+            "translationKey": "add.order.market.sell",
             "relatedUiObject": "Market Sell Order",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -27,6 +30,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Limit Buy Order",
+            "translationKey": "add.order.limit.buy",
             "relatedUiObject": "Limit Buy Order",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -35,6 +39,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Limit Sell Order",
+            "translationKey": "add.order.limit.sell",
             "relatedUiObject": "Limit Sell Order",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -45,7 +50,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

@@ -8,8 +8,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Este tutorial le guía a través de la implementación de la idea de trading comercial definida en el tutorial anterior, cubriendo las definiciones de Trigger Stage  (etapa de gatillo).",
-                "updated": 1636725770895
+                "text": "Este tutorial te guía a través de la implementación de la idea de trading definida en el tutorial anterior, cubriendo las definiciones de Trigger Stage (etapa de gatillo).",
+                "updated": 1675620549482
             },
             {
                 "language": "DE",
@@ -44,6 +44,11 @@
                     "text": "Bu Eğitim Hakkında",
                     "updated": 1654394139942,
                     "style": "Title"
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1675620799573
                 }
             ]
         },
@@ -68,6 +73,11 @@
                     "text": "Bakımcı: @julianmolina (Telegram).",
                     "updated": 1654394153226,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Responsable: @julianmolina (Telegram).",
+                    "updated": 1675620528339
                 }
             ]
         }

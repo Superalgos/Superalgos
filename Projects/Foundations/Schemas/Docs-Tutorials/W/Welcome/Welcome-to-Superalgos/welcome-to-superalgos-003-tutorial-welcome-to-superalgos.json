@@ -54,6 +54,11 @@
                 "language": "TR",
                 "text": "Ben interaktif bir öğreticiyim, Superalgos'u öğrenmenize yardımcı olmak,işinizi  kolaylaştırmak ve size tüm temel bilgileri öğretmek için tasarlanmış bir serinin ilk öğreticisiyim.",
                 "updated": 1635575887053
+            },
+            {
+                "language": "PL",
+                "text": "Jestem pierwszym w serii interaktywnym samouczkiem. Moim zadaniem jest wdrożenie Cię i nauczenie wszystkich podstaw!",
+                "updated": 1674748486705
             }
         ],
         "updated": 1633159917192
@@ -108,6 +113,11 @@
                     "language": "TR",
                     "text": "Başlamanıza yardımcı olacağım, rahatça hareket etmenize yardımcı olacak araçları göstereceğim ve Superalgos'un sizin için yapabileceği tüm harika şeyleri keşfetmenize yardımcı olacağım.",
                     "updated": 1635575910092
+                },
+                {
+                    "language": "PL",
+                    "text": "Pomogę Ci zacząć, pokażę Ci narzędzia, które pomogą Ci swobodnie się poruszać i razem odkryjemy wszystkie fajne rzeczy, które Superalgos może dla Ciebie zrobić.",
+                    "updated": 1674749228693
                 }
             ],
             "updated": 1633159949363
@@ -124,7 +134,7 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los tutoriales son la herramienta definitiva para iniciarse en Superalgos. Empezar con Superalgos de cualquier otra manera es un error, ya que ningún otro recurso te pondrá al día más rápido. ¡Deberías hacer todos los tutoriales antes de intentar implementar tus propias ideas! ",
+                    "text": "Los tutoriales son la herramienta definitiva para iniciarse en Superalgos. Empezar con Superalgos de cualquier otra manera es un error, ya que ningún otro recurso te pondr�� al día más rápido. ¡Deberías hacer todos los tutoriales antes de intentar implementar tus propias ideas! ",
                     "updated": 1667507315761,
                     "style": "Callout"
                 },
@@ -159,8 +169,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Öğreticiler, Superalgos'a alıştırma aracıdır! Superalgos'a başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi daha fazla hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
-                    "updated": 1635576039599
+                    "text": "Öğreticiler, Superalgos'un en iyi başlangıç aracıdır! Superalgos'a başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi daha fazla hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
+                    "updated": 1669756938735
+                },
+                {
+                    "language": "PL",
+                    "text": "Samouczki to najlepsze narzędzia do wejścia w świat Superalgos! Próba poznania Superalgos w inny sposób to błąd - żadne inne narzędzie nie pozwoli Ci zrobić tego szybciej. Powinieneś wykonać wszystkie samouczki zanim zaczniesz próbować implementować swoje pomysły!",
+                    "updated": 1674749386824
                 }
             ],
             "updated": 1633159975051
@@ -215,6 +230,11 @@
                     "language": "RU",
                     "text": "Пожалуйста, всегда нажимайте Next, чтобы продолжить.",
                     "updated": 1635449400949
+                },
+                {
+                    "language": "PL",
+                    "text": "Żeby kontynuować, zawsze klikaj Next!",
+                    "updated": 1674748536117
                 }
             ]
         }

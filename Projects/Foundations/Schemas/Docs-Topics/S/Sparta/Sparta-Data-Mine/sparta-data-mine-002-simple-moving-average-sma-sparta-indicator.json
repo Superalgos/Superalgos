@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Gösterge, popüler 20, 50, 100 ve 200'ün yanı sıra daha az sıklıkta taban 7 ve taban 11 SMA'lar dahil olmak üzere birden çok ayarda Basit Hareketli Ortalama üretir.",
                 "updated": 1650620007637
+            },
+            {
+                "language": "DE",
+                "text": "Der Indikator erzeugt den Simple Moving Average in mehreren Einstellungen, einschließlich der beliebten 20, 50, 100 und 200 sowie der weniger häufigen Basis 7 und Basis 11 SMAs.",
+                "updated": 1671032392634
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Basit Hareketli Ortalama",
                     "updated": 1650620021171
+                },
+                {
+                    "language": "DE",
+                    "text": "Simple Moving Average auf den Charts",
+                    "updated": 1671032571738
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre, “Basit bir hareketli ortalama (SMA), son kapanış fiyatları eklenerek ve ardından bunu hesaplama ortalamasındaki zaman dilimi sayısına bölerek hesaplanan bir aritmetik hareketli ortalamadır. Kısa vadeli ortalamalar, dayanak varlığın fiyatındaki değişikliklere hızlı tepki verirken, uzun vadeli ortalamalar yavaş tepki verir.”",
                     "updated": 1650620035103
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia „ist ein einfacher gleitender Durchschnitt (SMA) ein arithmetischer gleitender Durchschnitt, der berechnet wird, indem die letzten Schlusskurse addiert und dann durch die Anzahl der Zeitrahmen im Berechnungsdurchschnitt geteilt werden. Kurzfristige Durchschnitte reagieren schnell auf Veränderungen im Preis des zugrunde liegenden Vermögenswerts, während langfristige Durchschnitte langsam reagieren.\"",
+                    "updated": 1671032769686
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "Farklı dönemlerde hesaplanan SMA'lar için farklı ayarlara sahip birkaç katman bulacaksınız. Her katman, gösterge tarafından kullanıma sunulan bir ürüne karşılık gelir.",
                     "updated": 1650620069559
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie finden mehrere Ebenen mit unterschiedlichen Einstellungen für SMAs, die für verschiedene Zeiträume berechnet werden. Jede Ebene entspricht einem Produkt, das der Indikator zur Verfügung stellt.",
+                    "updated": 1671032820409
                 }
             ]
         },
@@ -91,6 +111,11 @@
                     "language": "TR",
                     "text": "Bilgi paneli, katmandaki her SMA için sayısal değeri artan sırada gösterir (yani SMA 20, SMA 50, SMA 100, vb.).",
                     "updated": 1650620087161
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Informationsfeld zeigt den numerischen Wert für jeden SMA in der Schicht in aufsteigender Reihenfolge an (d. h. SMA 20, SMA 50, SMA 100 usw.).",
+                    "updated": 1671032897900
                 }
             ]
         },
@@ -107,6 +132,11 @@
                     "language": "TR",
                     "text": "Basit Hareketli Ortalama Ürünler ve Özellikler",
                     "updated": 1650620099324
+                },
+                {
+                    "language": "DE",
+                    "text": "Simple Moving Average Produkte & Eigenschaften",
+                    "updated": 1671032997012
                 }
             ]
         },
@@ -123,6 +153,11 @@
                     "language": "TR",
                     "text": "Her biri farklı dönem konfigürasyonlarına sahip, ilgili görevi başlatır başlatmaz hesaplamaya başlamak üzere önceden yapılandırılmış üç ürün vardır:",
                     "updated": 1650620109715
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei Produkte, die so vorkonfiguriert sind, dass sie mit der Berechnung beginnen, sobald Sie die entsprechende Aufgabe starten, jeweils mit unterschiedlichen Periodenkonfigurationen:",
+                    "updated": 1671033044862
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Popular SMAs | popularSMA | sma20, sma50, sma100, sma200 |\n| Base 7 | base7SMA | sma7, sma14, sma21, sma28, sma35, sma70, sma140, sma210, sma280, sma350, sma700, sma1400 |\n| Base 11 | base11SMA | sma11, sma22, sma33, sma55, sma111 |",
                     "updated": 1650620123809
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Popular SMAs | popularSMA | sma20, sma50, sma100, sma200 |\n| Base 7 | base7SMA | sma7, sma14, sma21, sma28, sma35, sma70, sma140, sma210, sma280, sma350, sma700, sma1400 |\n| Base 11 | base11SMA | sma11, sma22, sma33, sma55, sma111 |",
+                    "updated": 1671033411931
                 }
             ]
         },
@@ -152,6 +192,11 @@
                     "language": "TR",
                     "text": "Mevcut dört ürün daha vardır, ancak ilgili veri çıktılarını oluşturup bunları ilgili veri kümelerine göndermediğiniz sürece bunlar hesaplanmayacaktır:",
                     "updated": 1650620148580
+                },
+                {
+                    "language": "DE",
+                    "text": "Es stehen vier weitere Produkte zur Verfügung, die jedoch nur dann berechnet werden, wenn Sie die entsprechenden Datenausgaben erstellen und auf die entsprechenden Datensätze verweisen:",
+                    "updated": 1671033526038
                 }
             ]
         },
@@ -164,6 +209,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| Base 5 | base5SMA | sma5, sma10, sma15, sma20, sma25, sma50, sma100, sma150, sma200, sma250, sma500, sma1000 |\n| Base 6 | base6SMA | sma6, sma12, sma18, sma24, sma30, sma60, sma120, sma180, sma240, sma300, sma600, sma1200 |\n| Base 12 | base12SMA | sma12, sma24, sma36, sma48, sma60, sma120, sma240, sma360, sma480, sma600, sma1200 |\n| Base 30 | base30SMA | sma30, sma60, sma90, sma120, sma150, sma300, sma600, sma900, sma1200, sma1500 |",
                     "updated": 1650620161963
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Base 5 | base5SMA | sma5, sma10, sma15, sma20, sma25, sma50, sma100, sma150, sma200, sma250, sma500, sma1000 |\n| Base 6 | base6SMA | sma6, sma12, sma18, sma24, sma30, sma60, sma120, sma180, sma240, sma300, sma600, sma1200 |\n| Base 12 | base12SMA | sma12, sma24, sma36, sma48, sma60, sma120, sma240, sma360, sma480, sma600, sma1200 |\n| Base 30 | base30SMA | sma30, sma60, sma90, sma120, sma150, sma300, sma600, sma900, sma1200, sma1500 |",
+                    "updated": 1671033439058
                 }
             ]
         },
@@ -181,6 +231,11 @@
                     "language": "TR",
                     "text": "Örnekler:",
                     "updated": 1650620172049
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1671033560938
                 }
             ]
         },
@@ -202,6 +257,11 @@
                     "language": "TR",
                     "text": "Boğa piyasasının bir göstergesi mi? 50 günlük hareketli ortalama, 200 günlük hareketli ortalamanın üzerinde mi?",
                     "updated": 1650620189364
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Anzeichen für einen Bullenmarkt? Liegt der 50-Tage-Durchschnitt über dem 200-Tage-Durchschnitt?",
+                    "updated": 1671033604514
                 }
             ]
         },
@@ -223,6 +283,11 @@
                     "language": "TR",
                     "text": "200 günlük hareketli ortalama ile 350 günlük hareketli ortalamayı karşılaştırarak geçmişe daha da bakın. İki MA'nın nasıl farklı ürünlere ait olduğuna dikkat edin.",
                     "updated": 1650620201347
+                },
+                {
+                    "language": "DE",
+                    "text": "Noch weiter in die Vergangenheit blicken und einen gleitenden 200-Tage-Durchschnitt mit einem 350-Tage-Durchschnitt vergleichen. Beachten Sie, dass die beiden MA zu unterschiedlichen Produkten gehören.",
+                    "updated": 1671033650967
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Gerçek Oran ( Actual Rate ), Emir Oranından ( Order Rate ) farklı olduğu için Yerleştirilen Boyut ( Size Placed ) yeniden hesaplanmıştır",
                 "updated": 1647170723556
+            },
+            {
+                "language": "DE",
+                "text": "Die platzierte Größe (Size Placed) wurde neu berechnet, da sich der tatsächliche Satz (Actual Rate) vom Auftragssatz (Order Rate) unterscheidet.\n",
+                "updated": 1681145291976
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Ticaret botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar.",
                     "updated": 1647170867063
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681145303950
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Uyarı: Yerleştirilen Boyut ( Size Placed ) Yeniden Hesaplandı",
                     "updated": 1647170899458
+                },
+                {
+                    "language": "DE",
+                    "text": "Platzierte Größe (Size Placed) neu berechnet",
+                    "updated": 1681145322622
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "İçerik Bilgisi",
                     "updated": 1647170942288
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681145336983
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
                     "updated": 1647170965302
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681145349291
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "İlgili Fonksiyon",
                     "updated": 1647170989467
+                },
+                {
+                    "language": "DE",
+                    "text": "Betroffene Funktion",
+                    "updated": 1681145369243
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "TR",
                     "text": "Bu uyarı, LF Ticaret Botu ( LF Trading Bot ) içindeki Yerleştirilen Boyutu ( Size Placed ) Yeniden Hesapla Fonksiyonunda tetiklendi.",
                     "updated": 1647171059757
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Warnung wurde durch die Funktion Recalculate Size Placed im LF Trading Bot ausgelöst.",
+                    "updated": 1681145380604
                 }
             ]
         },
@@ -139,6 +174,11 @@
                     "language": "TR",
                     "text": "Daha Fazlasını Öğrenin",
                     "updated": 1647171103042
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681145405960
                 }
             ]
         },
@@ -155,6 +195,11 @@
                     "language": "TR",
                     "text": "Bu konu hakkında daha fazla bilgi için lütfen aşağıdaki sayfayı okuyun:",
                     "updated": 1647171118923
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite:",
+                    "updated": 1681145413673
                 }
             ]
         },
@@ -166,6 +211,11 @@
                     "language": "TR",
                     "text": "Exchange ile Senkronizasyon ( Syncing With the Exchange )",
                     "updated": 1647171138303
+                },
+                {
+                    "language": "DE",
+                    "text": "Synchronisierung mit dem Exchange (Syncing With the Exchange)",
+                    "updated": 1681145431769
                 }
             ]
         },

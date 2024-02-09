@@ -24,41 +24,61 @@
                 "language": "TR",
                 "text": "Ancak daha ileri gitmeden önce, yeni bir çalışma alanıyla başladığımızdan emin olalım!",
                 "updated": 1641717882769
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kita pergi lebih jauh, mari kita pastikan bahwa kita memulai dengan workspace yang baru!",
+                "updated": 1673828266343
+            },
+            {
+                "language": "ES",
+                "text": "Pero antes de seguir adelante, ¡asegurémonos de que empezamos con un Workspace nuevo!",
+                "updated": 1675462748591
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Workspaces marked as Plugin Workspaces ship with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins always remain unchanged.",
+            "text": "Workspaces marked as Native Workspaces ship with the software. The rest are yours. When you open a Native Workspace a copy of it is made for you. Plugins always remain unchanged.",
             "updated": 1659283217279,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Workspaces, die als Plugin Workspaces gekennzeichnet sind, werden mit der Software ausgeliefert. Die übrigen gehören dir. Wenn du einen Plugin Workspace öffnest, wird eine Kopie davon für dich erstellt. Plugins bleiben immer unverändert.",
+                    "text": "Workspaces, die als Native Workspaces gekennzeichnet sind, werden mit der Software ausgeliefert. Die übrigen gehören dir. Wenn du einen Native Workspace öffnest, wird eine Kopie davon für dich erstellt. Plugins bleiben immer unverändert.",
                     "updated": 1622985089032,
                     "style": "Note"
                 },
                 {
                     "language": "RU",
-                    "text": "Рабочие пространства, помеченные как Plugin Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
+                    "text": "Рабочие пространства, помеченные как Native Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
                     "updated": 1662032055782
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) olarak işaretlenen çalışma alanları (Workspaces), yazılımla birlikte gelir. Gerisi sizindir. Bir eklenti çalışma alanını açtığınızda, sizin için bir kopyası yapılır. Eklentiler (Plugins) her zaman değişmeden kalır.",
+                    "text": "Eklenti Çalışma Alanları (Native Workspaces) olarak işaretlenen çalışma alanları (Workspaces), yazılımla birlikte gelir. Gerisi sizindir. Bir eklenti çalışma alanını açtığınızda, sizin için bir kopyası yapılır. Eklentiler (Plugins) her zaman değişmeden kalır.",
                     "updated": 1641717980838
+                },
+                {
+                    "language": "ID",
+                    "text": "Workspaces yang ditandai sebagai Native Workspace menyatu bersama perangkat lunak. Yang lainnya adalah milikmu. Saat kamu membuka Native Workspace, salinannya dibuat untuk kamu seorang saja. dan Plugin-nya tetap tidak akan berubah.",
+                    "updated": 1673828276493
+                },
+                {
+                    "language": "ES",
+                    "text": "Los Workspaces marcados como Native Workspaces se suministran con el software. El resto son suyos. Cuando abre un Native Workspaces, se hace una copia del mismo. Los plugins siempre permanecen inalterados.",
+                    "updated": 1675462781502
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "This tutorial requires starting with a fresh Plugin Trading Bot Layers Tutorial workspace. So, unless you loaded the plugin workspace right before starting, please select it from the workspace panel on the left and come back to me after the workspace loads — just click Resume on my menu!",
+            "text": "This tutorial requires starting with a fresh Plugin Trading Bot Layers Tutorial workspace. So, unless you loaded the Native Workspace right before starting, please select it from the workspace panel on the left and come back to me after the workspace loads — just click Resume on my menu!",
             "updated": 1659283233157,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dieses Tutorial erfordert den Start mit einem frischen Plugin Weak-hands Buster v2 Workspace. Wenn du also das Plugin Workspace nicht direkt vor dem Start geladen hast, wähle es bitte aus dem Workspace-Panel auf der linken Seite aus und komm zurück zu mir, nachdem der Workspace geladen wurde - klicke einfach auf Resume in meinem Menü!",
+                    "text": "Dieses Tutorial erfordert den Start mit einem frischen Plugin Weak-hands Buster v2 Workspace. Wenn du also das Native Workspace nicht direkt vor dem Start geladen hast, wähle es bitte aus dem Workspace-Panel auf der linken Seite aus und komm zurück zu mir, nachdem der Workspace geladen wurde - klicke einfach auf Resume in meinem Menü!",
                     "updated": 1622985298857,
                     "style": "Important"
                 },
@@ -71,6 +91,16 @@
                     "language": "TR",
                     "text": "Bu öğretici, yeni bir  Weak-hands Buster v2 çalışma alanıyla başlamayı gerektirir. Bu nedenle, eklenti çalışma alanını öğreteciyebaşlamadan hemen önce yüklemediyseniz, lütfen sol tarafta açılan çalışma alanı panelinden Weak-hands-Buster-v2-Demo çalışma alanını seçin ve çalışma alanı yüklendikten sonra bana geri dönün - menümdeki Devam Et'i tıklamanız yeterli!",
                     "updated": 1641718190040
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial ini harus dimulai dengan Plugin Trading Bot Layers Tutorial workspace yang baru. Jadi, kecuali kamu memuat Native Workspace tepat sebelum memulai, silahkan pilih itu dari panel workspace di sebelah kiri dan kembali ke aku setelah workspace dimuat - cukup klik Resume pada menu-ku!",
+                    "updated": 1673828330402
+                },
+                {
+                    "language": "ES",
+                    "text": "Este tutorial requiere comenzar con un Workspace Plugin Trading Bot Layers Tutorial nuevo. Así que, a menos que hayas cargado el workspace plugin justo antes de empezar, por favor selecciónalo en el panel del workspace de la izquierda y vuelve tras cargar el workspace - ¡simplemente haz clic en Resume en mi menú!",
+                    "updated": 1675462862253
                 }
             ]
         }

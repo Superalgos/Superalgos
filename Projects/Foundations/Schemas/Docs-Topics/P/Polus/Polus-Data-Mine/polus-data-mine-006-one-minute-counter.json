@@ -1,0 +1,163 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 6,
+    "type": "One Minute counter",
+    "definition": {
+        "text": "This indicator provides a simple counter that counts from 0 to 59 to represent every minute of the hour.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор представляет собой простой счетчик, который считает от 0 до 59, представляя каждую минуту часа.",
+                "updated": 1645715718575
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator bietet einen einfachen Zähler, der von 0 bis 59 zählt, um jede Minute der Stunde darzustellen.",
+                "updated": 1671295036161
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645715723438
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The indicator is represented on the chart as below:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор представлен на графике, как показано ниже:",
+                    "updated": 1645715730490
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator wird im Diagramm wie unten dargestellt:",
+                    "updated": 1671295056629
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-one-minute-counter.png"
+        },
+        {
+            "style": "Text",
+            "text": "There are no adjustable parameters for this indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этого индикатора нет настраиваемых параметров.",
+                    "updated": 1645715736990
+                },
+                {
+                    "language": "DE",
+                    "text": "Für diesen Indikator gibt es keine einstellbaren Parameter.",
+                    "updated": 1671295396026
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645715742312
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671296083339
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645715746758
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671296109417
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| One minute counters | OneMinCOunter | OneHR |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| One minute counters | OneMinCOunter | OneHR |",
+                    "updated": 1671296130673
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645715751809
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671296154103
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The data can be accessed as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступ к данным можно получить следующим образом:",
+                    "updated": 1645715757587
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Daten können wie folgt abgerufen werden:",
+                    "updated": 1671296187547
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.OneMinCOunter.OneHR"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671296208324
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

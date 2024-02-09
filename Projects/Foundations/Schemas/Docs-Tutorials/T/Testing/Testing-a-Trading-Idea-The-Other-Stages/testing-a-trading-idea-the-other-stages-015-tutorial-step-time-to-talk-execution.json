@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы закончили определение целей по курсу и размеру. Давайте определим, как мы собираемся занять позицию с точки зрения исполнения!",
                 "updated": 1642779536801
+            },
+            {
+                "language": "ES",
+                "text": "Hemos terminado la definición de los objetivos de tipo y tamaño. ¡Definamos cómo vamos a tomar la posición en términos de ejecución!",
+                "updated": 1680781360322
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Мы находимся в разделе Open Execution стадии открытия! Перейдите к изучению алгоритма исполнения и созданного мной рыночного ордера на продажу!",
                     "updated": 1642779580669
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Estamos en la parte de Open Execution de la Open Stage! ¡Ve explorando el Execution Algorithm y la Market Sell Order que he creado!",
+                    "updated": 1680782161871
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Я создал алгоритм исполнения и рыночный ордер заранее, чтобы легко ссылаться на них и вести вас к нужным узлам во время урока. Оба они находятся в свежесозданном состоянии, как если бы вы создали их прямо сейчас!",
                     "updated": 1642779621565
+                },
+                {
+                    "language": "ES",
+                    "text": "He creado el algo de ejecución y la orden de mercado con antelación para poder referenciarlos fácilmente y llevarte a los nodos correctos durante el tutorial. Ambos están recién creados, tal y como estarían si los hubieras creado ahora mismo.",
+                    "updated": 1680782187305
                 }
             ]
         }

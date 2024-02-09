@@ -17,13 +17,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Tanımsız \"direction\" özelliği okunamıyor. Bütün bunlar neyle ilgili?",
-                "updated": 1641660813443
+                "text": "Tanımsız \"direction\" özelliği okunamıyor. Bu da ne demek oluyor?",
+                "updated": 1669587571172
             },
             {
                 "language": "RU",
                 "text": "Не удается прочитать свойство \"direction\" из undefined. Что это значит?",
                 "updated": 1642657452627
+            },
+            {
+                "language": "ES",
+                "text": "No se puede leer la propiedad \"direction\" de undefined. ¿De qué se trata?",
+                "updated": 1677104976375
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Вот правильная процедура, позволяющая разобрать сообщение об ошибке и понять, о чем оно:",
                     "updated": 1642657538082
+                },
+                {
+                    "language": "ES",
+                    "text": "Este es el procedimiento adecuado para desglosar un mensaje de error y entender de qué se trata:",
+                    "updated": 1677105001496
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Вы знаете, когда произошла ошибка: имейте это в виду, поскольку ошибка связана исключительно со свечой, на которой она произошла!",
                     "updated": 1642657559780
+                },
+                {
+                    "language": "ES",
+                    "text": "Sabes cuándo se ha producido el error: tenlo en cuenta, ya que el error está relacionado únicamente con la vela en la que se ha producido.",
+                    "updated": 1677105040604
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "RU",
                     "text": "Вы знаете, какой узел вызвал ошибку: скорее всего, это определение в узле, который вызвал ошибку, либо в коде связанного узла Javascript Code, либо в Formula, либо в конфигурации.",
                     "updated": 1642657600623
+                },
+                {
+                    "language": "ES",
+                    "text": "Sabes qué nodo causó el error: es probable que sea la definición en el nodo que causó el error, ya sea en el código del nodo Javascript Code asociado, la Fórmula o la configuración.",
+                    "updated": 1677105049250
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "RU",
                     "text": "Вы знаете сообщение об ошибке: прочитайте его внимательно и установите связь с двумя предыдущими подсказками!",
                     "updated": 1642657620714
+                },
+                {
+                    "language": "ES",
+                    "text": "Conoces el mensaje de error: ¡léelo atentamente y establece la conexión con las dos pistas anteriores!",
+                    "updated": 1677105056086
                 }
             ]
         }

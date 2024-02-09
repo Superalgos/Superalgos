@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "Volviendo al marco temporal de 1H, veamos lo que ocurrió entre estas fechas en el contexto de una tendencia bajista diaria.",
                 "updated": 1668192942684
+            },
+            {
+                "language": "IT",
+                "text": "Tornando al periodo 1H, diamo un'occhiata a cosa è successo tra queste date nel contesto di una tendenza al ribasso giornaliera.",
+                "updated": 1669901056222
+            },
+            {
+                "language": "NL",
+                "text": "Laten we, terug in het tijdsbestek van 1 uur, eens kijken naar wat er tussen deze datums is gebeurd in de context van een dagelijkse neerwaartse trend.",
+                "updated": 1670786656976
+            },
+            {
+                "language": "ID",
+                "text": "Kembali ke timeframe 1H, mari kita lihat apa yang terjadi antara tanggal-tanggal ini dalam konteks tren turun harian (daily downtrend).",
+                "updated": 1674698983146
             }
         ]
     },
@@ -55,6 +70,21 @@
                     "language": "ES",
                     "text": "7 de marzo, 17 hs: Una ruptura después de un apretón de volatilidad de dos días desencadena una tendencia bajista.",
                     "updated": 1668192968366
+                },
+                {
+                    "language": "IT",
+                    "text": "7 marzo, 17:00: una rottura dopo una compressione della volatilità di due giorni innesca una tendenza al ribasso.",
+                    "updated": 1669901072757
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>7 maart, 17.00 uur:</b> Een uitbraak na een tweedaagse volatiliteitsdruk veroorzaakt een neerwaartse trend.",
+                    "updated": 1670786700905
+                },
+                {
+                    "language": "ID",
+                    "text": "7 Maret, 17 hs: Breakdown setelah tekanan volatilitas selama dua hari mentrigger tren turun.",
+                    "updated": 1674698991574
                 }
             ]
         },
@@ -81,6 +111,21 @@
                     "language": "ES",
                     "text": "8 de marzo, 15 hs: Nuevas caídas aceleran la tendencia bajista.",
                     "updated": 1668192990458
+                },
+                {
+                    "language": "IT",
+                    "text": "8 marzo, ore 15: ulteriori breakdown accelerano la recessione.",
+                    "updated": 1669901089653
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>8 maart, 15 uur:</b> Verdere uitbraken versnellen de neergang.",
+                    "updated": 1670786729767
+                },
+                {
+                    "language": "ID",
+                    "text": "8 Maret, 15 hs: breakdown lebih lanjut mempercepat penurunan.",
+                    "updated": 1674698999837
                 }
             ]
         },
@@ -107,6 +152,21 @@
                     "language": "ES",
                     "text": "12 de marzo, 07 hs: Cinco horas antes de la mayor caída del mercado en la historia reciente, una serie de rupturas desencadenan una nueva caída después de tres días de acción de precios.",
                     "updated": 1668193020199
+                },
+                {
+                    "language": "IT",
+                    "text": "12 marzo, 07 hs: cinque ore prima del più grande crollo del mercato della storia recente, una serie di crolli innesca una nuova flessione dopo tre giorni di oscillazione dei prezzi.",
+                    "updated": 1669901110745
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>12 maart, 07.00 uur:</b> Vijf uur voor de grootste marktcrash in de recente geschiedenis veroorzaakt een reeks uitbraken een nieuwe neergang na drie dagen van variërende prijsactie.",
+                    "updated": 1670786763567
+                },
+                {
+                    "language": "ID",
+                    "text": "12 Maret 07 hs: Lima jam sebelum market crash terbesar dalam sejarah baru-baru ini, serangkaian breakdown mentrigger penurunan baru setelah tiga hari price action hanya berkisar disana saja.",
+                    "updated": 1674699033439
                 }
             ]
         },
@@ -131,8 +191,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¿Puede ver el patrón? ¿Puede formular una hipótesis que podamos comprobar?",
-                    "updated": 1668192919614
+                    "text": "¿Puedes ver el patrón? ¿Puedes formular una hipótesis que podamos comprobar?",
+                    "updated": 1675205991172
+                },
+                {
+                    "language": "IT",
+                    "text": "Vedi lo schema? Puoi formulare un'ipotesi che possiamo testare?",
+                    "updated": 1669901124340
+                },
+                {
+                    "language": "NL",
+                    "text": "<b>Zie je het patroon? Kun je een hypothese formuleren die we kunnen testen?</b>",
+                    "updated": 1670786788080
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu melihat polanya? Dapatkah kamu memformulasikan hipotesis yang dapat kita uji?",
+                    "updated": 1674699046678
                 }
             ]
         }

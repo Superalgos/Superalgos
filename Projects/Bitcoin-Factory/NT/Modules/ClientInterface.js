@@ -117,7 +117,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let testClientVersion = queryReceived.testClientVersion
             if (testClientVersion === undefined) { testClientVersion = 4 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[INFO] Request From Test Client v.' + testClientVersion +
+            SA.logger.info('Request From Test Client v.' + testClientVersion +
                 '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
@@ -155,7 +155,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             async function promiseWork(resolve, reject) {
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
                 function onResponseFromServer(answerReceived) {
-                    console.log((new Date()).toISOString(), '[INFO] Answer to Test Client v.' + testClientVersion +
+                    SA.logger.info('Answer to Test Client v.' + testClientVersion +
                         '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                         ' -> userProfile = ' + userProfile +
                         ' -> sender = ' + answerReceived.sender +
@@ -188,7 +188,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             let forecastClientVersion = queryReceived.forecastClientVersion
             if (forecastClientVersion === undefined) { forecastClientVersion = 1 }
             requestsToServer.push(requestToServer)
-            console.log((new Date()).toISOString(), '[INFO] Request From Forecast Client v.' + forecastClientVersion +
+            SA.logger.info('Request From Forecast Client v.' + forecastClientVersion +
                 '             -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
@@ -202,7 +202,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                 responseFunctions.set(queryReceived.messageId, onResponseFromServer)
                 function onResponseFromServer(answerReceived) {
 
-                    console.log((new Date()).toISOString(), '[INFO] Answer to Forecast Client v.' + forecastClientVersion +
+                    SA.logger.info('Answer to Forecast Client v.' + forecastClientVersion +
                         '                 -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                         ' -> userProfile = ' + userProfile +
                         ' -> sender = ' + answerReceived.sender +
@@ -299,14 +299,14 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
                                 clientData: JSON.stringify(requestToServer.queryReceived)
                             }
 
-                            console.log((new Date()).toISOString(), '[INFO] Request sent to Server:                     -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                            SA.logger.info('Request sent to Server:                     -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                                 ' -> userProfile = ' + userProfile +
                                 ' -> instance = ' + queryReceived.instance)
                             resolve(response)
                         } else {
-                            console.log((new Date()).toISOString(), '[WARN] Request Expired                              -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
+                            SA.logger.warn('Request Expired                              -> timestamp = ' + (new Date(requestToServer.timestamp)).toISOString() +
                                 ' -> Websockets Clients = ' + connectedUserProfilesLabel +
                                 ' -> Clients Requests Queue Size = ' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(requestsToServer.length, 3) +
                                 ' -> userProfile = ' + userProfile +
@@ -336,8 +336,8 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
         let forecasterList
         if (activeTestServerOperators.size === 0) { testServerList = "none" } else { testServerList = Array.from(activeTestServerOperators).join(', ') }
         if (activeForecasterOperators.size === 0) { forecasterList = "none" } else { forecasterList = Array.from(activeForecasterOperators).join(', ') }
-        console.log((new Date()).toISOString(), '[INFO] Active Test Server Operators: ', testServerList)
-        console.log((new Date()).toISOString(), '[INFO] Active Forecaster Operators: ', forecasterList)
+        SA.logger.info('Active Test Server Operators: ' + testServerList)
+        SA.logger.info('Active Forecaster Operators: ' + forecasterList)
         activeTestServerOperators.clear()
         activeForecasterOperators.clear()
 
@@ -353,7 +353,7 @@ exports.newBitcoinFactoryModulesClientInterface = function newBitcoinFactoryModu
             }
         }
         if (purgeCounter > 0) {
-            console.log((new Date()).toISOString(), '[INFO] Deleted', purgeCounter, 'messages older than ' + MAXAGEMINUTES + ' minutes from the queue.')
+            SA.logger.info('Deleted ' + purgeCounter + ' messages older than ' + MAXAGEMINUTES + ' minutes from the queue.')
         }
     }
 

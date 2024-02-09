@@ -28,6 +28,16 @@
                 "language": "RU",
                 "text": "В предыдущем материале есть несколько ключевых выводов: разнообразные стратегии, одиночные позиции и приоритет.",
                 "updated": 1640878901439
+            },
+            {
+                "language": "NL",
+                "text": "Er zijn enkele belangrijke lessen uit de vorige lessen: meerdere strategieën, enkele posities en voorrang.",
+                "updated": 1670791109319
+            },
+            {
+                "language": "ID",
+                "text": "Ada beberapa kunci ilmu dalam bacaan sebelumnya: multiple strategies, single positions, and precedence.",
+                "updated": 1674499366546
             }
         ]
     },
@@ -55,6 +65,16 @@
                     "language": "RU",
                     "text": "Давайте сделаем несколько мысленных заметок для того, что будет дальше:",
                     "updated": 1640878912690
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we wat mentale aantekeningen maken voor wat daarna komt:",
+                    "updated": 1670791122126
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita ambil beberapa catatan mental untuk apa yang akan terjadi selanjutnya:",
+                    "updated": 1674499373652
                 }
             ]
         },
@@ -64,8 +84,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pueden coexistir múltiples estrategias dentro de un sistema trading, tantas como desees.",
-                    "updated": 1629588192365
+                    "text": "Pueden coexistir múltiples estrategias dentro de un Trading System, tantas como desees.",
+                    "updated": 1675618840134
                 },
                 {
                     "language": "DE",
@@ -81,6 +101,16 @@
                     "language": "RU",
                     "text": "В рамках торговой системы могут сосуществовать несколько стратегий - столько, сколько вы пожелаете.",
                     "updated": 1640878924519
+                },
+                {
+                    "language": "NL",
+                    "text": "Binnen een handelssysteem kunnen meerdere strategieën naast elkaar bestaan - zoveel als u wilt.",
+                    "updated": 1670791138537
+                },
+                {
+                    "language": "ID",
+                    "text": "Beberapa strategi dapat hidup berdampingan dalam trading system— sebanyak yang kamu inginkan.",
+                    "updated": 1674499381587
                 }
             ]
         },
@@ -107,6 +137,16 @@
                     "language": "RU",
                     "text": "Разрешается только одна активная стратегия с одной открытой позицией в произвольный момент времени.",
                     "updated": 1640879010551
+                },
+                {
+                    "language": "NL",
+                    "text": "Slechts één actieve strategie met één openstaande positie op een bepaald moment is toegestaan.",
+                    "updated": 1670791155456
+                },
+                {
+                    "language": "ID",
+                    "text": "Hanya diperbolehkan satu strategi aktif dengan satu open posisi pada saat tertentu.",
+                    "updated": 1674499388513
                 }
             ]
         },
@@ -133,6 +173,16 @@
                     "language": "RU",
                     "text": "Приоритет отдается порядку, в котором стратегии определены вокруг узла Trading System. Вы конечно же можете изменить этот порядок!",
                     "updated": 1640879040636
+                },
+                {
+                    "language": "NL",
+                    "text": "Voorrang wordt gegeven door de volgorde waarin strategieën worden gedefinieerd rond het handelssysteemknooppunt. U kunt de volgorde natuurlijk wijzigen!",
+                    "updated": 1670791178053
+                },
+                {
+                    "language": "ID",
+                    "text": "Precedence diberikan berdasarkan urutan strategi yang ditentukan di sekitar node Trading System. Kamu mungkin ingin mengubah urutannya, tentu saja!",
+                    "updated": 1674499395754
                 }
             ]
         },
@@ -159,6 +209,16 @@
                     "language": "RU",
                     "text": "Вы, наверное, спрашиваете, почему? Неужели эти правила звучат произвольно? Так и есть, и на то есть веские причины!",
                     "updated": 1640879082478
+                },
+                {
+                    "language": "NL",
+                    "text": "U vraagt zich waarschijnlijk af waarom? Klinken deze regels willekeurig? Dat zijn ze, met een goede reden!",
+                    "updated": 1670791191695
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu mungkin bertanya mengapa? Apakah aturan ini terdengar sewenang-wenang? Sebenarnya mereka, untuk alasan yang baik!",
+                    "updated": 1674499403451
                 }
             ]
         }

@@ -1,0 +1,184 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 102,
+    "type": "Tutorial Step - Are We Ready Yet?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "indicator-process-instance"
+        },
+        "text": "Resistances and Supports Multi-Time-Frame-Daily to the left is the last of the processes to finish, so keep an eye on it!",
+        "updated": 1622233213694,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Resistenze e supporti Multi-Time-Frame-Daily a sinistra è l'ultimo dei processi a terminare, quindi tienilo d'occhio!",
+                "updated": 1666393815203,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Resistances and Supports Multi-Time-Frame-Daily a la izquierda está el último de los procesos en terminar, ¡así que mantén un ojo en él!",
+                "updated": 1624483264968,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Resistenzen und Unterstützungen Multi-Time-Frame-Daily auf der linken Seite ist der letzte der Prozesse zu beenden, so behalten Sie sie im Auge!",
+                "updated": 1634244857267
+            },
+            {
+                "language": "TR",
+                "text": "işlemlerin en son aşaması olan Dirençler ve Destekler (Resistance And Support) bittiğinde hazır olacağız. Bu yüzden gözünüz üzerinde olsun!",
+                "updated": 1636573001616
+            },
+            {
+                "language": "ID",
+                "text": "Resistances dan Supports Multi-Time-Frame-Daily di kiri adalah yang terakhir dari proses yang harus diselesaikan, jadi awasi itu!",
+                "updated": 1640576393304
+            },
+            {
+                "language": "RU",
+                "text": "Resistance and Support -> Multi-Time-Frame-Daily слева - последний из завершающих процессов, так что следите за ним!",
+                "updated": 1642771668941
+            },
+            {
+                "language": "NL",
+                "text": "Resistance en Supports Multi-Time-Frame-Daily aan de linker kant is het laatste proces dat moet worden voltooid, dus houd het in de gaten!",
+                "updated": 1667134887624
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If this process is at 100%, then we are ready to go.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se il processo è a 100%, allora siamo pronti a iniziare.",
+                    "updated": 1618071233196,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si este proceso está al 100%, estamos listos para comenzar.",
+                    "updated": 1624483281714,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn dieser Prozess bei 100 % ist, können wir loslegen.",
+                    "updated": 1634244866274
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlem %100 ise, o zaman gitmeye hazırız.",
+                    "updated": 1636573018130
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika proses ini 100%, maka kita siap melanjutkan.",
+                    "updated": 1640576423336
+                },
+                {
+                    "language": "RU",
+                    "text": "Если этот процесс достигнет 100%, значит, мы готовы к работе.",
+                    "updated": 1642771258144
+                },
+                {
+                    "language": "NL",
+                    "text": "Als dit proces 100% is, zijn we klaar om te gaan.",
+                    "updated": 1667134904268
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Either way, nothing catastrophic happens if you attempt to run a Live Trading Session when the required indicators are not up to date. There would be an error, and you'd be notified of the reason. So, no big deal!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ad ogni modo, non succede niente di catastrofico se tenti di lanciare una Live Trading Session quando gl indicatori non sono pronti. Ti viene semplicemente notificato un errore. Nessun problema quindi!",
+                    "updated": 1618071277306,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "De cualquier manera, no ocurre nada catastrófico si intentas ejecutar una Live Trading Session (Sesión de trading en vivo) cuando los indicadores requeridos no están actualizados. Habría un error y se notificará el motivo en la consola. ¡Así que no es gran cosa!",
+                    "updated": 1675362406060,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "In jedem Fall passiert nichts Schlimmes, wenn Sie versuchen, eine Live Trading Session zu starten, während die erforderlichen Indikatoren nicht auf dem neuesten Stand sind. Es würde ein Fehler auftreten, und Sie würden über den Grund informiert werden. Also, keine große Sache!",
+                    "updated": 1634244877404
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekli göstergeler güncel olmadan Canlı İşlem Oturumu ( Live Trading Session ) çalıştırmayı denerseniz, felaketle sonuçlanan hiçbir şey olmaz. Bir hata olur ve nedeni size bildirilir. Yani, önemli değil!",
+                    "updated": 1636573076891
+                },
+                {
+                    "language": "ID",
+                    "text": "Adapun, tidak ada masalah yang terjadi jika kamu mencoba untuk menjalankan Live Trading Session ketika indikator yang diperlukan tidak up to date. Akan ada kesalahan, dan kamu akan diberitahu alasannya. Jadi, bukan masalah besar!",
+                    "updated": 1640576516923
+                },
+                {
+                    "language": "RU",
+                    "text": "В любом случае, ничего катастрофического не произойдет, если вы попытаетесь запустить торговую сессию в реальном времени, когда необходимые индикаторы не обновлены. Возникнет ошибка, и вы будете уведомлены о причине. Так что ничего страшного!",
+                    "updated": 1642771277717
+                },
+                {
+                    "language": "NL",
+                    "text": "Hoe dan ook, er gebeurt niets catastrofaals als u probeert een Live Trading Session uit te voeren wanneer de vereiste indicatoren niet up-to-date zijn. Er zou een fout optreden en u zou op de hoogte worden gesteld van de reden. Dus het is niet erg!",
+                    "updated": 1667134950864
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "In the next step I'll ask you to start the Task and the Live Trading Session. If you choose not to, keep going with the tutorial as if you had...",
+            "updated": 1610643323637,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel prossimo step ti chiederò di lanciare la Task e la Live Trading Session. Se non vuoi farlo, continua con il tutorial come se niente fosse.",
+                    "updated": 1618071315670,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora, te pediré que inicies el Task y y el Live Trading Session. Si decides no hacerlo, continúa con el tutorial como si lo hubieras hecho...",
+                    "updated": 1675362416327,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Schritt fordere ich Sie auf, den Task und die Live Trading Session zu starten. Wenn Sie dies nicht tun, fahren Sie mit dem Tutorial fort, als ob Sie es getan hätten...",
+                    "updated": 1634244884476
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki adımda, Görevi ( Tasks ) ve Canlı İşlem Oturumunu ( Live Trading Session ) başlatmanızı isteyeceğim. Yapmak istemiyorsanız, eğitime devam etmişsiniz gibi devam edin...",
+                    "updated": 1636573159432
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada langkah berikutnya aku akan meminta kamu untuk memulai Task dan Live Trading Session. Jika kamu memilih untuk tidak melakukannya, teruskan tutorial seolah-olah kamu punya...",
+                    "updated": 1640576592357
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующем этапе я попрошу вас запустить задачу (Task) и реальную торговую сессию (Live Trading Session). Если вы этого не сделаете, продолжайте изучать учебник, как если бы вы...",
+                    "updated": 1642771363355
+                },
+                {
+                    "language": "NL",
+                    "text": "In de volgende stap vraag ik je om de Task en de Live Trading Session te starten. Als je ervoor kiest om dat niet te doen, ga dan door met de tutorial alsof je het gestart hebt...",
+                    "updated": 1667134999255
+                }
+            ]
+        }
+    ]
+}

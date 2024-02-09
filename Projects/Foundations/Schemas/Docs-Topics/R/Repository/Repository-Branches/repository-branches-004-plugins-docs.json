@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Zusammenfassung: Der Plugins-Docs-Branch ist OUTDATED(Nicht mehr aktuell/in Verwendung). Alle Beiträge gehen jetzt in den develop branch. Wenn Sie Fragen dazu haben, können Sie diese gerne in den Telegramm-Gruppen stellen. Veraltet: \"Der Branch Plugins-Docs wird von Entwicklern von Plugins, Dokumentationen oder Tutorials verwendet. Dieser Zweig wird jedes Mal mit Develop und Master synchronisiert, wenn eine neue Version veröffentlicht wird, und sein Zweck ist es, den Fluss von Doku-Seiten, Plugins und Tutorials in den Master-Zweig mit einer höheren Rate zu ermöglichen als Änderungen an der Codebasis, die im Develop-Zweig vorgenommen werden. Das bedeutet, dass der Master-Zweig zwischen den Veröffentlichungen viele Aktualisierungen haben kann.\"",
-                "updated": 1640303848195
+                "text": "Der Plugins-Docs-Zweig wurde abgeschafft. Alle Beiträge gehen nun in den Develop -Zweig.",
+                "updated": 1689530570504
             },
             {
                 "language": "RU",

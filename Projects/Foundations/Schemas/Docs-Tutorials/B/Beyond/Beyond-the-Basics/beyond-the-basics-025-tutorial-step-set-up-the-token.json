@@ -3,12 +3,12 @@
     "pageNumber": 25,
     "type": "Tutorial Step - Set Up the Token!",
     "definition": {
-        "text": "After you hit the Generate Token button, you'll get your precious token! Don't leave the page as you won't ever see it again!",
+        "text": "After you hit the Generate Token button, you'll get your precious token! Copy it before you leave the page! You won't see it again!",
         "icon": {
             "name": "github-api",
             "project": "Foundations"
         },
-        "updated": 1610815737032,
+        "updated": 1687972420009,
         "translations": [
             {
                 "language": "IT",
@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Después de presionar el botón  Generate Token, ¡obtendrás tu precioso token! ¡No salgas de la página, ya que no la volverás a ver!",
-                "updated": 1628195367890,
+                "text": "Después de presionar el botón <i>Generate Token</i>, ¡obtendrás tu precioso token! ¡No salgas de la página, ya que no la volverás a ver!",
+                "updated": 1675454353910,
                 "style": "Definition"
             },
             {
@@ -41,13 +41,18 @@
                 "language": "ID",
                 "text": "Setelah kamu menekan tombol Generate Token, kamu akan mendapatkan token berhargamu! Jangan tinggalkan halaman tersebut karena tidak akan melihatnya lagi!",
                 "updated": 1668950334903
+            },
+            {
+                "language": "NL",
+                "text": "Nadat je op de Generate Token-knop hebt gedrukt, krijg je je kostbare token! Verlaat de pagina niet, want je zult hem nooit meer zien!",
+                "updated": 1669749629549
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Copy the token, open the Github API node config, and paste it between the double quotes of the token parameter. Fill in the username parameter with your GitHub.com user, not your email!",
+            "text": "In the Contributions Panel, expand the Github Credentials tab, enter your Github username (not your email!) on the first field, paste the token on the second field, and hit Save. ",
             "translations": [
                 {
                     "language": "IT",
@@ -57,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Copia el token, abre la configuración del nodo Github API, y péguelo entre las comillas dobles del parámetro del token. Complete el parámetro de nombre de usuario con tu usuario de GitHub.com, no con tu correo electrónico.",
-                    "updated": 1628195465628,
+                    "text": "Copia el token, abre la configuración del nodo Github API, y pégalo entre las comillas dobles del parámetro del token. Completa el parámetro de nombre de usuario con tu usuario de GitHub.com, no con tu correo electrónico.",
+                    "updated": 1675454381887,
                     "style": "Callout"
                 },
                 {
@@ -80,13 +85,19 @@
                     "language": "ID",
                     "text": "Salin token tersebut, buka Github API konfigurasi node, dan tempelkan diantara dua tanda kurung dalam token parameter. Isi parameter username dengan nama pengguna Github.com kamu, bukan email kamu!",
                     "updated": 1668950341905
+                },
+                {
+                    "language": "NL",
+                    "text": "Kopieer het token, open de configuratie van het Github API knooppunt en plak het tussen de dubbele aanhalingstekens van de token parameter. Vul de username parameter in met uw GitHub.com-gebruiker, niet met uw e-mailadres!",
+                    "updated": 1669749676494
                 }
-            ]
+            ],
+            "updated": 1688041316691
         },
         {
             "style": "Note",
-            "text": "Superalgos stores the token in the workspace file, just like your Exchange Account Key. The token is used to autheticate with GitHub.com's API to create the Pull Request. It is never sent or stored anywhere else.",
-            "updated": 1610817098653,
+            "text": "Superalgos stores the token in a JSON file in the My-Secrets folder. The token is used to authenticate with GitHub.com's API to create the Pull Request. It is never sent or stored anywhere else.",
+            "updated": 1687972521470,
             "translations": [
                 {
                     "language": "IT",
@@ -119,6 +130,11 @@
                     "language": "ID",
                     "text": "Superalgos menyimpan token pada file workflow, seperti Exchange Account Key kamu. token ini digunakan untuk memberikan autentikasi dengan API Github.com untuk membuat Pull Request. Itu tidak pernah dikirim atau disimpan pada tempat lain.",
                     "updated": 1668950350964
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos slaat het token op in het werkruimtebestand, net als uw Exchange Account Key. Het token wordt gebruikt om te verifiëren met de API van GitHub.com om het Pull Request te maken. Het wordt nooit ergens anders verzonden of opgeslagen.",
+                    "updated": 1669749725393
                 }
             ]
         }

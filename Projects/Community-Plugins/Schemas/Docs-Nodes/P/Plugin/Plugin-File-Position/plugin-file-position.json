@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Eklenti dosyası konum düğümünün konumu, eklenti hiyerarşisinin yerleştirildiği çalışma alanındaki konumu belirler.",
                 "updated": 1651950758260
+            },
+            {
+                "language": "DE",
+                "text": "Die Position des Knotens plugin file position bestimmt die Position im Arbeitsbereich, an der die Plugin Hierarchie platziert wird.",
+                "updated": 1674281041917
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Bir eklenti dosyasında tanımlanan hiyerarşinin çalışma alanında nerede konumlandığını tanımlamak için, eklenti dosyası konum düğümünü çalışma alanında istenen konuma taşıyın ve düğümü sabitleyin. Ardından, eklenti dosyası konum düğümünün artık görünmemesi için eklenti dosyası düğümünü daraltın.",
                     "updated": 1651950787129
+                },
+                {
+                    "language": "DE",
+                    "text": "Um festzulegen, wo die in einer Plugin Datei definierte Hierarchie im Arbeitsbereich positioniert werden soll, verschieben Sie den Knoten plugin file position an die gewünschte Position im Arbeitsbereich und heften den Knoten an. Klappen Sie dann den plugin file Knoten zu, so dass der plugin file position Knoten nicht mehr sichtbar ist.",
+                    "updated": 1674281629541
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret botu, borsada Emir açmaya çalıştı fakat Emir açılamadı.",
                 "updated": 1647348680264
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading-Bot hat versucht, den Auftrag an der Börse zu eröffnen, was jedoch nicht möglich war.",
+                "updated": 1681147631235
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu bir hata değildir ve normal davranış olabilir. Ticaret botu bu uyarıyı, bunun gerçekleştiğini size bildirmek için oluşturdu, böylece ihtiyacınız olduğunda alım satımın tüm ayrıntılarını takip edebilirsiniz. Bu sayfa, uyarının içeriğini anlamanıza yardımcı olacak bilgiler sağlar..",
                     "updated": 1647343717109
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist kein Fehler und kann ein normales Verhalten sein. Der Trading-Bot hat diese Warnung erstellt, um Sie darüber zu informieren, dass dies passiert ist, damit Sie bei Bedarf alle Details des Handels verfolgen können. Auf dieser Seite finden Sie Informationen, die Ihnen helfen sollen, den Kontext der Warnung zu verstehen.",
+                    "updated": 1681147652267
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Uyarı: Emir Açılamadı",
                     "updated": 1647348688368
+                },
+                {
+                    "language": "DE",
+                    "text": "Bestellung konnte nicht geöffnet werden",
+                    "updated": 1681147662201
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "TR",
                     "text": "İçerik Bilgisi",
                     "updated": 1647348702703
+                },
+                {
+                    "language": "DE",
+                    "text": "Kontext-Informationen",
+                    "updated": 1681147674599
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Uyarının oluşturulduğu anda uyarıyla ilgili değişkenlerin değerlerini aşağıda bulun. Neler olduğunu anlamak için faydalı olabilirler.",
                     "updated": 1647348719155
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie die Werte der Variablen, die zum Zeitpunkt der Erstellung der Warnung für diese relevant waren. Sie können nützlich sein, um zu verstehen, was passiert ist.",
+                    "updated": 1681147684603
                 }
             ]
         },
@@ -102,6 +127,11 @@
                     "language": "TR",
                     "text": "Daha Fazlasını Öğrenin",
                     "updated": 1647348731453
+                },
+                {
+                    "language": "DE",
+                    "text": "Mehr erfahren",
+                    "updated": 1681147691328
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "TR",
                     "text": "Bu konu hakkında daha fazla bilgi edinmek için lütfen aşağıdaki sayfayı okuyun:",
                     "updated": 1647348740716
+                },
+                {
+                    "language": "DE",
+                    "text": "Um mehr über dieses Thema zu erfahren, lesen Sie bitte die folgende Seite:",
+                    "updated": 1681147699238
                 }
             ]
         },
@@ -130,6 +165,11 @@
                     "language": "TR",
                     "text": "Açılış Emirleri ( Opening Orders )",
                     "updated": 1647348798530
+                },
+                {
+                    "language": "DE",
+                    "text": "Eröffnung von Aufträgen (Opening Orders)",
+                    "updated": 1681147708975
                 }
             ]
         }

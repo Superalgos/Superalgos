@@ -42,3 +42,5 @@ function newFoundationsUtilitiesClipboard() {
         });
     }
 }
+
+exports.newFoundationsUtilitiesClipboard = newFoundationsUtilitiesClipboard

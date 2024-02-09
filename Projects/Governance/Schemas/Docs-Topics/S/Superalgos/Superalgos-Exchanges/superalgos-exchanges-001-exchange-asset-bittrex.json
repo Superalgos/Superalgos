@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bittrex Global, bir sonraki seviye güvenliği ile bilinen en güvenilir kripto para borsasıdır.",
                 "updated": 1646306963979
+            },
+            {
+                "language": "DE",
+                "text": "Bittrex Global ist die vertrauenswürdigste Kryptowährungsbörse, die für ihre Sicherheit auf höchstem Niveau bekannt ist.",
+                "updated": 1676911914710
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Liste Özeti",
                     "updated": 1646306982174
+                },
+                {
+                    "language": "DE",
+                    "text": "Abschließend",
+                    "updated": 1676912683458
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Exchange listeleme ekibiyle tanıştık ve yakında görüşeceğiz.",
                     "updated": 1646307003160
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wurden dem Börsenteam vorgestellt und werden uns demnächst treffen.",
+                    "updated": 1676911978657
                 }
             ]
         }

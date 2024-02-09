@@ -20,6 +20,16 @@
                 "language": "TR",
                 "text": "Bu Eğitim (Tutorial), bir Kullanıcı Profili oluşturma ve Superalgos Yönetişimi'ne katılma yolculuğuna başlamanızda size yol gösterir.",
                 "updated": 1642708895825
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini memandu kamu memahami tentang bagaimana membuat User Profile dan melanjutkan perjalanan untuk berpartisipasi dalam Governance Superalgos.",
+                "updated": 1670670930934
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial te guía a través de los pasos necesarios para crear un perfil de usuario y comenzar a participar en la gobernanza de Superalgos.",
+                "updated": 1682519183570
             }
         ]
     },
@@ -37,6 +47,11 @@
                     "language": "TR",
                     "text": "Bu öğretici hakıında;",
                     "updated": 1642708938222
+                },
+                {
+                    "language": "ES",
+                    "text": "Acerca de este tutorial",
+                    "updated": 1682519195726
                 }
             ]
         },

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Ticaret sistemleri serisindeki ilk öğreticiye dikkat ettiyseniz, yukarıdaki sorunun cevabını biliyor olmalısınız!",
                 "updated": 1641064736718
+            },
+            {
+                "language": "ES",
+                "text": "Si has prestado atención al primer tutorial de la serie sobre sistemas de trading, ¡seguro que conoces la respuesta a la pregunta anterior!",
+                "updated": 1675621683381
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Serinin ikinci eğitiminde, iki benzer varsayım geliştirdik: biri yükseliş trendleri sırasında ve ikincisi düşüş trendlerinde alım satımı içerir.",
                     "updated": 1641064777932
+                },
+                {
+                    "language": "ES",
+                    "text": "En el segundo tutorial de la serie, se nos ocurrieron dos hipótesis similares: una implica operar durante tendencias alcistas y la segunda, en tendencias bajistas.",
+                    "updated": 1675621694877
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bunlar iki farklı fikirdir ve farklı stratejiler olarak ele alınmalıdır, çünkü benzer mantığı ele alacaklardır, ancak aynı değildir!",
                     "updated": 1641064822434
+                },
+                {
+                    "language": "ES",
+                    "text": "Son dos ideas distintas y deben tratarse como estrategias diferentes porque manejarán una lógica similar, ¡pero no la misma!",
+                    "updated": 1675621706800
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Not: Önce Düşüş trendi (Downtrend) stratejisine odaklanacağız, çünkü bunun en umut verici olanı olduğunu düşünüyorum!",
                     "updated": 1641064884297
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Nos centraremos primero en la estrategia de tendencia bajista, porque creo que es la más prometedora!",
+                    "updated": 1675621723458
                 }
             ]
         }

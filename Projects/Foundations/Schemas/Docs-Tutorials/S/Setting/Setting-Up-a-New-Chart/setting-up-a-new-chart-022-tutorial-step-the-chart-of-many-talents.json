@@ -40,8 +40,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Como mencioné anteriormente, una de las principales características del Charting Space ofrece es la capacidad de combinar muchos tipos diferentes de datos en un solo lugar. El Timeline Chartte da este control! Cada gráfico de línea de tiempo le permite recopilar los datos que desea ver en un Layer Manager. Como recordarás, el layer manageres lo que te permite activar y desactivar diferentes capas mientras está dentro de un Time Machine.",
-                    "updated": 1628647224784
+                    "text": "Como mencioné anteriormente, una de las principales características del Charting Space es que ofrece la capacidad de combinar muchos tipos diferentes de datos en un solo lugar. El Timeline Chartte da este control! Cada gráfico de línea de tiempo te permite recopilar los datos que deseas ver en un Layer Manager. Como recordarás, el layer manageres lo que te permite es activar y desactivar diferentes capas mientras está dentro de un Time Machine.",
+                    "updated": 1682430805598
                 },
                 {
                     "language": "RU",
@@ -67,8 +67,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando conectamos Data Products a las capas en poder de un layer manager obtenemos acceso a esos datos dentro de nuestro gráfico.",
-                    "updated": 1628647319101
+                    "text": "Cuando conectamos Data Products a las capas en poder de un Layer Manager obtenemos acceso a esos datos dentro de nuestro gráfico.",
+                    "updated": 1682430824326
                 },
                 {
                     "language": "DE",

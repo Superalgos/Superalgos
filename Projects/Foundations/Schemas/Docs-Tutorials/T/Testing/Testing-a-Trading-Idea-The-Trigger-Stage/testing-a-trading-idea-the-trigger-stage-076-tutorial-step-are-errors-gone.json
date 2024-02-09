@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "\"Özet: Peki! Beklendiği gibi, tetik aşaması kapandıktan sonra stratejinin kapandığını görebiliriz! Bir sonraki adımdaki videoda ne gördüğümü gösteriyor!",
-                "updated": 1641665314323
+                "text": "Peki! Beklendiği gibi, tetik aşaması kapandıktan sonra stratejinin kapandığını görebiliriz! Bir sonraki adımdaki videoda ne gördüğümü gösteriyor!",
+                "updated": 1669670245112
             },
             {
                 "language": "RU",
                 "text": "Хорошо! Как и ожидалось, мы видим, что стратегия закрывается после закрытия этапа срабатывания! Видео в следующем шаге показывает то, что я вижу!",
                 "updated": 1642663701098
+            },
+            {
+                "language": "ES",
+                "text": "De acuerdo. ¡Como era de esperar, podemos ver que la estrategia se cierra después de la etapa de activación se cierra! ¡El video en el siguiente paso muestra lo que veo!",
+                "updated": 1679253854011
             }
         ]
     },
@@ -38,13 +43,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tetikleme Aşaması kapandıktan sonra ne olduğunu açalım!",
-                    "updated": 1641665335649
+                    "text": "Tetikleme aşaması kapandıktan sonra neler olduğunu açıklayalım!",
+                    "updated": 1669670250142
                 },
                 {
                     "language": "RU",
                     "text": "Давайте разберемся, что происходит после закрытия этапа срабатывания!",
                     "updated": 1642663728976
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Vamos a desentrañar lo que sucede después de la etapa de disparo se cierra!",
+                    "updated": 1679253862027
                 }
             ]
         },
@@ -59,13 +69,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "28 Şubat sabah 9'dan itibaren strateji tetikleyicisini arka arkaya beş kez görebiliyor musunuz?",
-                    "updated": 1641665349793
+                    "text": "Stratejinin 28 Şubat saat 9'dan itibaren arka arkaya beş kez tetiklendiğini görebiliyor musunuz?",
+                    "updated": 1669670273112
                 },
                 {
                     "language": "RU",
                     "text": "Вы видите, что стратегия срабатывает пять раз подряд, начиная с 28 февраля, в 9 часов?",
                     "updated": 1642663740560
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes ver que la estrategia se dispara cinco veces seguidas a partir del 28 de febrero, a las 9 hs?",
+                    "updated": 1679253868857
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Это происходит потому, что как только стратегия закрывается, бот возвращается к проверке события Trigger On Event. Это то, что он обычно делает после закрытия позиции... ищет новые торговые возможности! Такое поведение является частью нормального функционирования системы и следствием того, что не определены этапы открытия, закрытия и управления.",
                     "updated": 1642663784024
+                },
+                {
+                    "language": "ES",
+                    "text": "Esto sucede porque tan pronto como la estrategia se cierra, el bot vuelve a evaluar el evento Trigger On. Eso es lo que suele hacer después de cerrar una posición... ¡buscar más oportunidades de trading! Este comportamiento es parte del funcionamiento normal del sistema, y una consecuencia de no definir las etapas de apertura, cierre y gestión.",
+                    "updated": 1679253874374
                 }
             ]
         }

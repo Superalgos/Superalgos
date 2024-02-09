@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Bu uygulama harika",
                 "updated": 1669311034572
+            },
+            {
+                "language": "DE",
+                "text": "Diese App ist großartig",
+                "updated": 1686342619238
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Homer S.'nin dediği gibi, yıllarca bir uygulama ile kolayca para kazanmaya çalışıp başarılı olamadıktan sonra, bu uygulama ile kolayca para kazanacağım.",
                     "updated": 1669311069912
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Homer S. schon sagte, nachdem ich jahrelang erfolglos versucht habe, mit einer App Geld zu verdienen, werde ich mit dieser App Geld verdienen und zwar ganz einfach.",
+                    "updated": 1686342632190
                 }
             ]
         },

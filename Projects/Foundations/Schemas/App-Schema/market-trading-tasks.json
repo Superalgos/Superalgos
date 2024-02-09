@@ -4,9 +4,12 @@
         {
             "action": "Run All Trading Mine Tasks",
             "label": "Run All Trading Mine Tasks",
+            "translationKey": "task.all.mine.trading.run",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
+            "confirmationLabelTranslationKey": "general.confirm.run",
             "workDoneLabel": "Run Request Sent",
+            "workDoneLabelTranslationKey": "general.runRequestSent",
             "iconPathOn": "run",
             "iconPathOff": "run",
             "actionFunction": "payload.executeAction"
@@ -14,9 +17,12 @@
         {
             "action": "Stop All Trading Mine Tasks",
             "label": "Stop All Trading Mine Tasks",
+            "translationKey": "task.all.mine.trading.stop",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
+            "confirmationLabelTranslationKey": "general.confirm.stop",
             "workDoneLabel": "Stop Request Sent",
+            "workDoneLabelTranslationKey": "general.stopRequestSent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
             "actionFunction": "payload.executeAction"
@@ -24,6 +30,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Trading Mine Tasks",
+            "translationKey": "add.tasks.tradingMine",
             "relatedUiObject": "Trading Mine Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -32,9 +39,11 @@
         {
             "action": "Add Missing Trading Mine Tasks",
             "label": "Add Missing Trading Mine Tasks",
+            "translationKey": "add.missing.tradingMineTasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Trading Mine Tasks",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -44,7 +53,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

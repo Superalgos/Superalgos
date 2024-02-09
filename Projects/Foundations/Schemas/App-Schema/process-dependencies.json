@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Status Dependency",
+            "translationKey": "add.statusDependency",
             "relatedUiObject": "Status Dependency",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,6 +13,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Data Mine Dependencies",
+            "translationKey": "add.data.mineDependencies",
             "relatedUiObject": "Data Mine Data Dependencies",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -20,9 +22,12 @@
         {
             "action": "Add All Data Mine Dependencies",
             "label": "Add All Data Mine Dependencies",
+            "translationKey": "add.data.allMineDependencies",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Data Mine Data Dependencies",
             "actionFunction": "payload.executeAction",
             "actionProject": "Data-Mining",
@@ -31,6 +36,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Data Dependency",
+            "translationKey": "add.data.dependency",
             "relatedUiObject": "Data Dependency",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -41,7 +47,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

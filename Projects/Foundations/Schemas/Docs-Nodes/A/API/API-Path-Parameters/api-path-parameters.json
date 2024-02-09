@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "API Yol Parametreleri bir URL yolunun parçası olarak gömülür. Uç noktanıza giden benzersiz yolu belirtmenizi sağlarlar.",
                 "updated": 1654391366972
+            },
+            {
+                "language": "DE",
+                "text": "API Path Parameters sind als Teil eines URL Pfads eingebettet. Sie ermöglichen es Ihnen, den eindeutigen Pfad zu Ihrem Endpunkt anzugeben.",
+                "updated": 1701930777379
             }
         ]
     },
@@ -32,6 +37,12 @@
                     "text": "API Yol Parametreleri nasıl belirlenir",
                     "updated": 1654391373130,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie man API Path Parameters identifiziert",
+                    "updated": 1701930777523,
+                    "style": "Title"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Eşlemeye çalıştığınız API'nin API Yolu Parametreleri belgelenmiş olmalıdır. Değilse, verilerin nasıl talep edileceğine dair sağlayabilecekleri örnekleri kontrol edin ve API Enpoint'in ana klasörünün altında iç klasörler olup olmadığına bakın. Bu klasörlerin her biri tanımlanması gereken bir API Yolu Parametresidir.",
                     "updated": 1654391378856,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Für die API, die Sie abbilden möchten, sollten die API Path Parameters dokumentiert sein. Wenn dies nicht der Fall ist, prüfen Sie alle Beispiele, die sie für die Abfrage der Daten bereitstellen, und sehen Sie nach, ob sich unterhalb des Hauptordners des API-Punkts innere Ordner befinden. Jeder dieser Ordner ist ein API Path Parameters, der definiert werden muss.",
+                    "updated": 1701930777655,
                     "style": "Text"
                 }
             ]
@@ -68,6 +85,12 @@
                     "text": "Superalgos'taki diğer her şeyde olduğu gibi, düğüm çocukları saat yönünde kabul edilir. Bu önemlidir çünkü Superalgos'un API'ye göndereceğiniz URL isteğini oluşturma sırasını etkileyecektir.",
                     "updated": 1654391385778,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie bei allem anderen in Superalgos werden Knotenkinder im Uhrzeigersinn betrachtet. Dies ist wichtig, weil es die Reihenfolge beeinflusst, in der Superalgos die URL Anfrage erstellt, die Sie an die API senden.",
+                    "updated": 1701930777892,
+                    "style": "Success"
                 }
             ]
         },
@@ -84,6 +107,12 @@
                     "language": "TR",
                     "text": "Foundations->Topic->Data Mining - API'lerden Veri Getirme->Ana İş Akışı",
                     "updated": 1654391391261,
+                    "style": "Include"
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlagen->Thema->Data Mining - Abrufen von Daten aus APIs->Hauptarbeitsablauf",
+                    "updated": 1701930778090,
                     "style": "Include"
                 }
             ]

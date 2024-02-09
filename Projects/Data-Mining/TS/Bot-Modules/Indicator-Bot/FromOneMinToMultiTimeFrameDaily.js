@@ -185,10 +185,20 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
 
                                         filePath += '/' + fileName
 
-                                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                                        if (fileContent !== '[]') {
 
-                                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> writeOutputFile -> creating file at filePath = " + filePath)
+                                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] start -> writeOutputFile -> creating file at filePath = " + filePath)
+                                        } else {
+                                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[INFO] start -> writeOutputFile -> No Data to save for File @ " +
+                                                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" +
+                                                TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " +
+                                                " filePath = " + filePath)
+                                            callBack()
+                                        }
 
                                         function onFileCreated(err) {
                                             if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -199,7 +209,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                                             }
 
                                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> writeOutputFile -> onFileCreated ->  Finished with File @ " +
+                                                "[INFO] start -> writeOutputFile -> onFileCreated ->  Finished with File @ " +
                                                 TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" +
                                                 TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " +
                                                 " filePath = " + filePath + "/" + fileName)

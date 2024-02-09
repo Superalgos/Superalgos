@@ -1,0 +1,291 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 33,
+    "type": "Tutorial Step - Ok... Back to Work!",
+    "definition": {
+        "icon": {
+            "name": "Data\\data-tasks",
+            "project": "Foundations"
+        },
+        "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the LAN Network Node.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora che sei più a tuo agio nel muoverti, ti suggerirei un piccolo tour di esplorazione della sezione Data Tasks della gerarchia.",
+                "updated": 1614791644655,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang setelah kamu merasa nyaman untuk bergerak, aku ingin kamu melakukan Tour kecil dalam menjelajahi bagian Data Tasks dari Node LAN Network.",
+                "updated": 1639745027223,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que te sientes cómodo moviéndote, quiero que hagas un pequeño tour explorando la sección de Tareas de Datos del Nodo de Red LAN.",
+                "updated": 1675207830219,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf einen kleinen Rundgang durch den Abschnitt \"Data Tasks\" des LAN-Netzwerkknotens mitnehmen. ",
+                "updated": 1642150875099,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вам стало удобнее перемещаться, я хочу, чтобы вы совершили небольшую экскурсию, исследуя раздел Data Tasks узла LAN Network.",
+                "updated": 1641809604919,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Artık rahatça dolaşabildiğinize göre, LAN Network Node düğümünün Veri Görevleri (Data Tasks) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1644909619412
+            },
+            {
+                "language": "NL",
+                "text": "Nu je jouw weg kan vinden, stel ik voor dat je de Data Tasks sectie van de LAN Network Node gaat verkennen.",
+                "updated": 1636979006293
+            },
+            {
+                "language": "FR",
+                "text": "Maintenant que vous êtes à l'aise pour vous déplacer, je veux que vous fassiez un petit tour en explorant la section Data Tasks du nœud LAN Network.",
+                "updated": 1667986847452
+            },
+            {
+                "language": "PL",
+                "text": "Teraz, gdy już wiesz jak się poruszać, chciałbym, abyś udał się na małą wycieczkę, eksplorując sekcję Data Tasks w węźle LAN Network.",
+                "updated": 1675002818894
+            }
+        ],
+        "updated": 1636911021993
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Notice the following:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi notare che:",
+                    "updated": 1614791668620,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan hal-hal berikut:",
+                    "updated": 1616770892134,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fíjate en lo siguiente:",
+                    "updated": 1675207842967,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie das Folgende:",
+                    "updated": 1634167630784,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на следующее:",
+                    "updated": 1635630070775,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakilere dikkat edin:",
+                    "updated": 1636014296432
+                },
+                {
+                    "language": "NL",
+                    "text": "Let op het volgende:",
+                    "updated": 1636979045649
+                },
+                {
+                    "language": "FR",
+                    "text": "Notez ce qui suit :",
+                    "updated": 1667986870588
+                },
+                {
+                    "language": "PL",
+                    "text": "Zauważ, co następuje:",
+                    "updated": 1675002825021
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The section is organized&mdash;first and foremost&mdash;by project, exchange, and market. This will help you work with multiple exchanges and multiple markets in an orderly fashion.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La sezione è organizzata innanzitutto per progetto, exchange e market. Questa struttura ti aiuta a lavorare con exchange multipli e markets multipli in modo ordinato.",
+                    "updated": 1614791724096,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagian ini diatur — pertama dan terpenting — menurut project, exchange, dan market. Ini akan membantu kamu bekerja dengan banyak exchange dan banyak market secara teratur.",
+                    "updated": 1616770973515,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "La sección está organizada, en primer lugar, por proyecto, exchage  y mercado. Esto le ayudará a trabajar con varios exchanges y mercados de forma ordenada.",
+                    "updated": 1618439477366,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Abschnitt ist in erster Linie nach Projekt, Börse und Markt geordnet. Dies hilft Ihnen, mit mehreren Börsen und Märkten in geordneter Weise zu arbeiten.",
+                    "updated": 1634167647959,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет вам организованно работать со множеством бирж и рынков.",
+                    "updated": 1635630220075,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölüm, her şeyden önce proje, borsa ve işlem çiftine göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla işlem çiftiyle düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1665962753944
+                },
+                {
+                    "language": "NL",
+                    "text": "De sectie is eerst en vooral georganiseerd per project, exchange en markt. Dit helpt om overzichtelijk met meerdere exchanges en markten te werken.",
+                    "updated": 1636979188178
+                },
+                {
+                    "language": "FR",
+                    "text": "La section est organisée, avant tout, par projet, exchange et marché. Cela vous aidera à travailler avec plusieurs exchanges et plusieurs marchés de manière ordonnée.",
+                    "updated": 1667986967018
+                },
+                {
+                    "language": "PL",
+                    "text": "Sekcja jest zorganizowana - przede wszystkim - według projektów, giełd i rynków. Pomoże Ci to w uporządkowany sposób na pracę z wieloma giełdami i wieloma rynkami.",
+                    "updated": 1675002881239
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The Exchange Data Tasks and Market Data Tasks nodes may control all tasks in the exchange and market respectively.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I nodi Exchange Data Tasks e Market Data Tasks controllano tutte le tasks rispettivamente in un exchange e in un market.",
+                    "updated": 1614791806588,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Exchange Data Tasks dan Market Data Tasks node dapat mengontrol semua tugas di exchange dan market masing-masing.",
+                    "updated": 1616771015778,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los nodos de Exchange Data Tasks y Market Data Tasks pueden controlar todas las tareas del exchange y del mercado respectivamente.",
+                    "updated": 1618439583481,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Exchange Data Tasks und Market Data Tasks können alle Aufgaben in der Börse bzw. dem Markt steuern.",
+                    "updated": 1634167655448,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Узлы Exchange Data Tasks и Мarket Data Tasks могут управлять всеми задачами на бирже и рынке соответственно.",
+                    "updated": 1635630313880,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Market Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve o işlem çiftindeki tüm görevleri kontrol edebilir.",
+                    "updated": 1644909782716
+                },
+                {
+                    "language": "NL",
+                    "text": "De Exchange Data Tasks en Market Data Tasks knooppunten controleren alle taken in de bijbehorende exchange en markt.",
+                    "updated": 1666615507258
+                },
+                {
+                    "language": "FR",
+                    "text": "Les nœuds Data Tasks et Market Data Tasks peuvent contrôler toutes les tâches de l'exchange et du marché respectivement.",
+                    "updated": 1667986975706
+                },
+                {
+                    "language": "PL",
+                    "text": "Węzły Exchange Data Tasks i Market Data Tasks kontrolują wszystkie zadania odpowiednio na giełdzie i rynku.",
+                    "updated": 1675002914782
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go out and check those nodes and their menus!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata a quei nodi e ai loro menu!",
+                    "updated": 1614791842750,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergilah dan periksa node-node tersebut dan menunya!",
+                    "updated": 1616771060371,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sal y explora esos nodos y sus menús.",
+                    "updated": 1624493680231,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich diese Knoten und ihre Menüs an!",
+                    "updated": 1634167662675,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выйдите и проверьте эти узлы и их меню!",
+                    "updated": 1635630414259,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi bu düğümleri ve menülerini kontrol edin!",
+                    "updated": 1636014827396
+                },
+                {
+                    "language": "NL",
+                    "text": "Verken de nodes en hun menu's maar eens!",
+                    "updated": 1636979384554
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez voir ces nœuds et leurs menus !",
+                    "updated": 1667986996004
+                },
+                {
+                    "language": "PL",
+                    "text": "Wyjdź i sprawdź menu tych węzłów!",
+                    "updated": 1675002943244
+                }
+            ]
+        }
+    ]
+}

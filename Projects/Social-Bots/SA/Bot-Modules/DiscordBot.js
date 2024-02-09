@@ -14,9 +14,9 @@ exports.newSocialBotsBotModulesDiscordBot = function () {
 
     async function initialize(config) {
         /* Discord Bot Initialization */
-        const { Client, Intents } = SA.nodeModules.discordjs
+        const { Client, GatewayIntentBits } = SA.nodeModules.discordjs
 
-        const client = new Client({ intents: [Intents.FLAGS.GUILDS] })
+        const client = new Client({ intents: [GatewayIntentBits.Guilds] })
         thisObject.discordClient = client
 
         token = config.token
@@ -93,6 +93,6 @@ exports.newSocialBotsBotModulesDiscordBot = function () {
     }
 
     function logError(message) {
-        console.error('[ERROR]', message)
+        SA.logger.error(message)
     }
 }

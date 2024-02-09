@@ -1,0 +1,155 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 11,
+    "type": "Volatility Bands",
+    "definition": {
+        "text": "Volatility Bands take a Volatility Adjusted Moving Average (VAMA) to produce bands similar to Bollinger Bands and the Keltner channel.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Полосы волатильности используют скользящую среднюю с поправкой на волатильность (VAMA) для создания полос, аналогичных полосам Боллинджера и каналу Кельтнера.",
+                "updated": 1645716087917
+            },
+            {
+                "language": "DE",
+                "text": "Volatilitätsbänder verwenden einen Volatility Adjusted Moving Average (VAMA), um ähnliche Bänder wie Bollinger Bänder und den Keltner Kanal zu erzeugen.",
+                "updated": 1671347930875
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645716093433
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Bands.png"
+        },
+        {
+            "style": "Text",
+            "text": "The Long period (L), Short period (S), and Centre (C) parameters of the VAMA can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Volatility Bands’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры длинного периода (L), короткого периода (S) и центра (C) VAMA можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе 'Volatility Bands' Product Definition.",
+                    "updated": 1645716106562
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter \"Lange Periode\" (L), \"Kurze Periode\" (S) und \"Zentrum\" (C) des VAMA können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Volatility Bands’ Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671348043234
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Bands-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645716112124
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671348109763
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645716117483
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671348138951
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Bands | Volatility_Bands | vama, up, low |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volatility Bands | Volatility_Bands | vama, up, low |",
+                    "updated": 1671348160170
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645716126293
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671348179301
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when a candle closes above the upper band:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Можно построить простую стратегию для открытия сделки, когда свеча закрывается выше верхней полосы:",
+                    "updated": 1645716133164
+                },
+                {
+                    "language": "DE",
+                    "text": "Es könnte eine einfache Strategie entwickelt werden, um einen Handel zu eröffnen, wenn eine Kerze oberhalb des oberen Bandes schließt:",
+                    "updated": 1671348200890
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.Volatility_Bands.up && \nchart.at01hs.candle.previous.close < chart.at01hs.Volatility_Bands.previous.up"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671348220386
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

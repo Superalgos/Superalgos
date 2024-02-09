@@ -1,7 +1,8 @@
 exports.newGovernanceUtilitiesBalances = function newGovernanceUtilitiesBalances() {
 
     let thisObject = {
-        toSABalanceString: toSABalanceString
+        toSABalanceString: toSABalanceString,
+        toTokenPowerString: toTokenPowerString
     }
 
     return thisObject
@@ -9,4 +10,9 @@ exports.newGovernanceUtilitiesBalances = function newGovernanceUtilitiesBalances
     function toSABalanceString(balance) {
         return Math.trunc(balance).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' SA'
     }
+
+    function toTokenPowerString(tokenPower) {
+        return parseFloat(tokenPower.toFixed(0)).toLocaleString('en')
+    }
+
 }

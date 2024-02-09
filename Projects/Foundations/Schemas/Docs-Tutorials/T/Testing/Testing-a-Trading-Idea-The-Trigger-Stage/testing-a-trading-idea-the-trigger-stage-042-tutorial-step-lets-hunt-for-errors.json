@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Beklediğiniz sonuçları alsanız bile, yine de hatalar ortaya çıkabilir.",
-                "updated": 1641660391137
+                "text": "Beklediğiniz sonuçları alsanız bile, yine de hatalar ortaya çıkabilir.",
+                "updated": 1669586874037
             },
             {
                 "language": "RU",
                 "text": "Даже если вы получаете ожидаемые результаты, в них все равно могут скрываться ошибки!",
                 "updated": 1642656029360
+            },
+            {
+                "language": "ES",
+                "text": "Aunque obtengas los resultados esperados, es posible que haya errores al acecho.",
+                "updated": 1677104464858
             }
         ]
     },
@@ -38,13 +43,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bazı hatalar zararsız olabilir ve bazılarının fark edilmemesi zor sonuçları olabilir.",
-                    "updated": 1641660403990
+                    "text": "Bazı hatalar zararsız olabilir ve bazılarının fark edilmemesinin kötü sonuçları olabilir.",
+                    "updated": 1669586901883
                 },
                 {
                     "language": "RU",
                     "text": "Некоторые ошибки могут быть безобидными, а некоторые могут иметь трудноуловимые последствия.",
                     "updated": 1642656069103
+                },
+                {
+                    "language": "ES",
+                    "text": "Algunos errores pueden ser inocuos, y otros pueden tener consecuencias difíciles de advertir.",
+                    "updated": 1677104479241
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Перейдите в менеджер слоев торговой системы и включите слой \"Trading System Errors\"!",
                     "updated": 1642656209179
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al Layer Manager (gestor de capas) del Trading System y activa la capa \" Trading System Errors\" (Errores del Trading System).",
+                    "updated": 1677104488358
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "RU",
                     "text": "Перемещайте графики влево, пока не дойдете до первых дней января. Видите ли вы метки ошибок под свечами?",
                     "updated": 1642656405023
+                },
+                {
+                    "language": "ES",
+                    "text": "Desplaza los gráficos hacia la izquierda hasta que llegues a los primeros días de enero. ¿Ves las viñetas de error debajo de las velas?",
+                    "updated": 1677104497888
                 }
             ]
         },
@@ -103,13 +123,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Gerekirse bazı katmanları kapatmaktan çekinmeyin.",
-                    "updated": 1641660444545
+                    "text": "Gerekirse diğer bazı katmanları kapatmaktan çekinmeyin.",
+                    "updated": 1669586935750
                 },
                 {
                     "language": "RU",
                     "text": "Не бойтесь отключать некоторые слои, если это необходимо.",
                     "updated": 1642656254296
+                },
+                {
+                    "language": "ES",
+                    "text": "No dudes en desactivar algunas capas si es necesario.",
+                    "updated": 1677104513283
                 }
             ]
         }

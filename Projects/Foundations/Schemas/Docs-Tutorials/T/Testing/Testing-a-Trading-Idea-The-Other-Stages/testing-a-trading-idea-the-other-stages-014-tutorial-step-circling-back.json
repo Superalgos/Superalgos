@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Потрясающе! У нас есть путь к соответствующему узлу Balance, и теперь мы можем использовать его в нашей формуле!",
                 "updated": 1642779458796
+            },
+            {
+                "language": "ES",
+                "text": "¡Fantástico! Ya tenemos la ruta del nodo Balance apropiado y ahora podemos utilizarlo en nuestra fórmula.",
+                "updated": 1680711048734
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Вставьте скопированную вами строку в формулу узла Target Size In Base Asset! Вот и все!",
                     "updated": 1642779469472
+                },
+                {
+                    "language": "ES",
+                    "text": "Pega la cadena que has copiado en la fórmula del nodo Target Size In Base Asset. Y ya está.",
+                    "updated": 1680711438589
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что использование баланса для целевого размера - это произвольное решение! Мы могли бы использовать что угодно другое! Процент от баланса, фиксированное число, процент от начального баланса... что угодно! Или, вообще, все, что имеет смысл для вашей стратегии!",
                     "updated": 1642779491845
+                },
+                {
+                    "language": "ES",
+                    "text": "Observe que utilizar la balanza para el tamaño objetivo es una decisión arbitraria. Podríamos haber utilizado cualquier otra cosa. Un porcentaje del saldo, un número fijo, un porcentaje del saldo inicial... ¡cualquier cosa! O, en realidad, ¡lo que tenga sentido para su estrategia!",
+                    "updated": 1680711483942
                 }
             ]
         }

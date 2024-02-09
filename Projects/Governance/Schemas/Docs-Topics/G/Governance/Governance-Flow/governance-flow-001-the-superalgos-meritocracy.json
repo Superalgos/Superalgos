@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Superalgos Yönetişim Projesi ( Governance Project ), ne kadar çok katkıda bulunursanız, gelişimin yönünü etkileme hakkınız o kadar yüksek olan bir meritokratik sistem uygular.",
                 "updated": 1646735959454
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos Governance Project implementiert ein meritokratisches System. Je mehr Sie dazu beitragen, desto mehr Einfluss haben Sie auf die Entwicklung des Projektes.",
+                "updated": 1702327744928
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Her şey, önceki katkılar için kazandığınız mevcut Superalgos SA Jetonlarınız ile başlar. Sahip olduğunuz varlıklar size Jeton Gücü ( Token Power ) verir.",
                     "updated": 1646736000497
+                },
+                {
+                    "language": "DE",
+                    "text": "Für ihre Wertschöpfung bekommen sie eine bestimmte Anzahl Superalgos SA Token. Ihre erworbenen Token verleihen Ihnen Token Power.",
+                    "updated": 1702327756154
                 }
             ]
         },
@@ -78,6 +88,11 @@
                     "language": "TR",
                     "text": "Superalgos'un katkılara nasıl değer verdiği konusunda çok önemli olan ikinci bir kavram daha vardır: İtibar: ( Reputation ) ",
                     "updated": 1646736042438
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt ein zweites Kriterium, welches entscheidend dafür ist, wie Superalgos Beiträge bewertet werden: Reputation.",
+                    "updated": 1702327785234
                 }
             ]
         },

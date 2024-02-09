@@ -3,7 +3,7 @@
     "pageNumber": 39,
     "type": "Tutorial Step - The Current Workspace",
     "definition": {
-        "text": "The current workspace is the User Workspace or the Plugin Workspace you are using at any point.",
+        "text": "The current workspace is the User Workspace or the Native Workspace you are using at any point.",
         "icon": {
             "name": "workspace",
             "project": "Foundations"
@@ -12,39 +12,39 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il workspace corrente è lo User Workspace o il Plugin Workspace in uso al momento.",
+                "text": "Il workspace corrente è lo User Workspace o il Native Workspace in uso al momento.",
                 "updated": 1666639905870,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "El espacio de trabajo actual es el User Workspace que estés utilizando en cualquier momento.",
-                "updated": 1626621294273,
+                "text": "El espacio de trabajo actual es el espacio de trabajo de usuario o el espacio de trabajo de plugin que estés utilizando en cualquier momento.",
+                "updated": 1675377464308,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Der aktuelle Workspace ist der User Workspace oder der Plugin Workspace, den Sie gerade verwenden.",
+                "text": "Der aktuelle Workspace ist der User Workspace oder der Native Workspace, den Sie gerade verwenden.",
                 "updated": 1634587888849
             },
             {
                 "language": "TR",
-                "text": "Şu anki çalışma alanı, herhangi bir noktada kullandığınız Kullanıcı Çalışma Alanı ( User Workspace ) veya Eklenti Çalışma Alanıdır ( Plugin Workspace ).\n",
+                "text": "Şu anki çalışma alanı, herhangi bir noktada kullandığınız Kullanıcı Çalışma Alanı ( User Workspace ) veya Eklenti Çalışma Alanıdır ( Native Workspace ).\n",
                 "updated": 1639766680038
             },
             {
                 "language": "RU",
-                "text": "Текущее рабочее пространство - это рабочее пространство пользователя (User Workspace) или рабочее пространство плагина (Plugin Workspace), которое вы используете в данный момент.",
+                "text": "Текущее рабочее пространство - это рабочее пространство пользователя (User Workspace) или рабочее пространство плагина (Native Workspace), которое вы используете в данный момент.",
                 "updated": 1640873140025
             },
             {
                 "language": "ID",
-                "text": "Workspace saat ini adalah User Workspace atau Plugin Workspace yang kamu gunakan kapan saja.",
+                "text": "Workspace saat ini adalah User Workspace atau Native Workspace yang kamu gunakan kapan saja.",
                 "updated": 1645034616173
             },
             {
                 "language": "NL",
-                "text": "De huidige werkruimte is de User Workspace of de Plugin Workspace die u op enig moment gebruikt.",
+                "text": "De huidige werkruimte is de User Workspace of de Native Workspace die u op enig moment gebruikt.",
                 "updated": 1669545656096
             }
         ]
@@ -184,8 +184,8 @@
         },
         {
             "style": "Success",
-            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
-            "updated": 1622635421285,
+            "text": "Go to the Platform/My-Workspaces folder to verify the new file is there. Find it on the menu too!",
+            "updated": 1687799579776,
             "translations": [
                 {
                     "language": "IT",

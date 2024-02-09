@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Yeni bir market kurmak için, kurmak istediğiniz marketin menüsünde Market Install'i seçin. Piyasa kurulmamışsa, önce onu kurmalısınız.",
                 "updated": 1645356732034
+            },
+            {
+                "language": "DE",
+                "text": "Um einen neuen Markt zu installieren, wählen Sie im Menü des Marktes (Market), den Sie installieren möchten, Markt installieren. Wenn der Markt noch nicht eingerichtet ist, müssen Sie ihn zuerst einrichten.",
+                "updated": 1678466022167
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Ayrıntılar için lütfen Başlarken Çalışma Alanındaki ( Workspace ) Yeni Pazar Kur öğreticisini ( New Market tutorial ) izleyin.",
                     "updated": 1645356793163
+                },
+                {
+                    "language": "DE",
+                    "text": "Für weitere Details folgen Sie bitte dem tutorial \"Install New Market \" im Arbeitsbereich (Workspace) Erste Schritte.",
+                    "updated": 1678466075748
                 }
             ]
         }

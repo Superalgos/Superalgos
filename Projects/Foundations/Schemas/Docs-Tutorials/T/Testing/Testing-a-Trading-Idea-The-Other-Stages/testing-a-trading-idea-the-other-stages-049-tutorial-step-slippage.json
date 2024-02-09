@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Это структура узлов Market Sell Order #1, на которую мы ссылались из рыночного ордера на продажу в торговой системе.",
                 "updated": 1642944517026
+            },
+            {
+                "language": "ES",
+                "text": "Esta es la estructura de nodos de la Market Sell Order #1 que referenciamos desde la orden de market sell en el trading system.",
+                "updated": 1681733429848
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Это структура узлов, которая отслеживает все переменные, связанные с этим ордером, помните?",
                     "updated": 1642944532294
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es la estructura de nodos que lleva la cuenta de todas las variables asociadas a esa orden, ¿recuerdas?",
+                    "updated": 1681733505623
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "RU",
                     "text": "Проверьте предупреждение на узле Rate!",
                     "updated": 1642944543833
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Compruebe la advertencia en el Rate Node!",
+                    "updated": 1681733542550
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "RU",
                     "text": "Проскальзывание, настроенное как параметр торговой сессии, вычиталось из ставки ордера. Это привело к снижению фактической ставки. Все хорошо! Такое же сообщение появляется и на параметре Slippage торговой сессии... проверьте!",
                     "updated": 1642944642188
+                },
+                {
+                    "language": "ES",
+                    "text": "El deslizamiento configurado como parámetro de la sesión de negociación se restó de la tasa de órdenes. Esto dio como resultado una tasa real más baja. ¡Todo correcto! El mismo mensaje aparece también en el parámetro Slippage de la sesión de negociación... ¡compruébalo!",
+                    "updated": 1681733574178
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bir sorunu bildirmeden önce ham verilerin gerçek kaynağıyla karşılaştırdığınızdan ve ham verileri araştırdığınızdan emin olun.",
                 "updated": 1647866028008
+            },
+            {
+                "language": "DE",
+                "text": "Stellen Sie sicher, dass Sie mit der tatsächlichen Quelle der Rohdaten vergleichen und die Rohdaten untersuchen, bevor Sie ein Problem melden.",
+                "updated": 1678647290446
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos'un göstergelerinden birini TradingView, Sierra Chart veya başka bir sağlayıcı gibi diğer kaynaklar tarafından üretilen göstergelerle karşılaştırıyor olabilirsiniz. Belirli mumların bazı gösterge özelliklerinde veya hatta veri seti boyunca muhtemelen küçük bazı farklılıklar bulmuş olabilirsiniz.",
                     "updated": 1647866152880
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht vergleichen Sie einen der Superalgos-Indikatoren mit Indikatoren, die von anderen Quellen wie TradingView, Sierra Chart oder einem anderen Anbieter stammen. Möglicherweise haben Sie einige - wahrscheinlich geringfügige - Unterschiede in den Indikatoreigenschaften für bestimmte Kerzen oder vielleicht sogar im gesamten Datensatz festgestellt.",
+                    "updated": 1678647315874
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Bu çoğunlukla küçük tutarsızlıkların en olası nedenlerinden biri, sağladığı ham veri alışverişlerinin her zaman tutarlı olmamasıdır. Örneğin, bazen veri setinde bir dakikalık mum eksik olabilir. Veya bazı mumlar tam olarak sıfır saniye işaretiyle başlamayabilir.",
                     "updated": 1647866182511
+                },
+                {
+                    "language": "DE",
+                    "text": "Einer der wahrscheinlichsten Gründe für diese meist geringfügigen Unterschiede ist, dass die von der Börse gelieferten Rohdaten nicht immer konsistent sind. So kann es beispielsweise vorkommen, dass eine einminütige Kerze im Datensatz fehlt. Oder einige Kerzen beginnen nicht genau bei der Null-Sekunden-Marke.",
+                    "updated": 1678647324300
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Borsalardan veri getiren OHLCV sensör botumuz, hiçbir verinin kaçırılmamasını sağlamak için tekrarlı olarak çalışır, ancak borsanın herhangi bir noktada sağladığı veriler üzerinde hiçbir kontrolümüz yoktur.",
                     "updated": 1647866211182
+                },
+                {
+                    "language": "DE",
+                    "text": "Unser OHLCVs-Sensor-Bot, der Daten von Börsen abruft, arbeitet rekursiv, um sicherzustellen, dass keine Daten übersehen werden, allerdings haben wir keine Kontrolle über die Daten, die die Börse zu irgendeinem Zeitpunkt liefert.",
+                    "updated": 1678647335279
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Ayrıca, üçüncü tarafların hizmet ettikleri verileri nasıl elde ettikleri veya veri kümelerinde tutarsızlıkları tespit ettiklerinde ne gibi önlemler alabilecekleri konusunda herhangi bir bilgi bulunmamaktadır.",
                     "updated": 1647866239267
+                },
+                {
+                    "language": "DE",
+                    "text": "Außerdem gibt es keine Informationen darüber, wie Dritte die von ihnen bereitgestellten Daten erhalten oder welche Maßnahmen sie ergreifen, wenn sie Unstimmigkeiten in den Datensätzen feststellen.",
+                    "updated": 1678647362621
                 }
             ]
         },
@@ -97,6 +122,11 @@
                     "language": "TR",
                     "text": "Üçüncü taraf sağlayıcılarla küçük farklılıkların beklendiği sonucuna varmak mantıklıdır.",
                     "updated": 1647866260930
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist davon auszugehen, dass geringfügige Unterschiede zu Drittanbietern zu erwarten sind.",
+                    "updated": 1678647375343
                 }
             ]
         },
@@ -113,6 +143,11 @@
                     "language": "TR",
                     "text": "Superalgos'ta çalışan herhangi bir göstergenin veri kalitesi hakkında endişeleniyorsanız, yapılacak ilk şey, verileri üçüncü bir tarafla değil, kaynakla, yani gerçek değişimle karşılaştırmaktır.",
                     "updated": 1647866289821
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sich über die Qualität der Daten eines der auf Superalgos laufenden Indikatoren Sorgen machen, sollten Sie die Daten zunächst mit der Quelle vergleichen, nicht mit einem Dritten, d. h. mit der tatsächlichen Börse.",
+                    "updated": 1678647388568
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "TR",
                     "text": "Bazı verilerimizde borsa tarafından sağlanan verilerle tutarsızlıklar bulursanız, sorunun ne olabileceğini araştırmak için ikinci adım, ham verileri, yani bir dakikalık mumları karşılaştırmaktır. Superalgos tarafından sağlanan bir dakikalık mumlar ile borsa tarafından sağlanan bir dakikalık mumlar arasında farklılıklar bulursanız, sensör botunun sorunun ne olabileceğini bulmak için biraz hata ayıklaması gerektirdiği bir durumla karşılaşabiliriz. Böyle bir durumda, lütfen bizi yanlış bulduğunuz belirli mumlara yönlendiren bir konu açın.",
                     "updated": 1647866334594
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bei einigen unserer Daten Unstimmigkeiten mit den von der Börse bereitgestellten Daten feststellen, besteht der zweite Schritt zur Untersuchung des Problems darin, die Rohdaten, d. h. die Ein-Minuten-Kerzen, zu vergleichen. Wenn Sie Unterschiede zwischen den von Superalgos gelieferten Ein-Minuten-Kerzen und den von der Börse gelieferten Ein-Minuten-Kerzen feststellen, dann kann es sein, dass der Sensor-Bot eine Fehlersuche benötigt, um das Problem zu finden. In einem solchen Fall öffnen Sie bitte eine Meldung, in der Sie uns auf die Kerzen hinweisen, die Sie für falsch halten.",
+                    "updated": 1678647410946
                 }
             ]
         },
@@ -145,6 +185,11 @@
                     "language": "TR",
                     "text": "Bir dakikalık mumlar doğru görünüyorsa ve bir Superalgos göstergesi tarafından sağlanan verilerde bir tutarsızlık varsa, önce göstergeyi hesaplamak için gereken süre boyunca mumların doğru olduğundan emin olun. Örneğin 50 dönemlik bir hareketli ortalama söz konusu olduğunda, göstergede tutarsızlık bulduğunuz noktadan itibaren son 50 mumu kontrol etmeniz gerekir. Böyle bir durumda, lütfen söz konusu göstergede bir sorun olup olmadığını belirlemek için yaşadığınız süreci belirten bir konu açın ve göstergenin yanlış olduğu belirli bir noktaya bizi yönlendirin.",
                     "updated": 1647866403697
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Ein-Minuten-Kerzen korrekt zu sein scheinen und eine Unstimmigkeit in den von einem Superalgos-Indikator gelieferten Daten besteht, vergewissern Sie sich zunächst, dass die Kerzen über den gesamten für die Berechnung des Indikators erforderlichen Zeitraum korrekt sind. Im Falle eines gleitenden Durchschnitts von 50 Perioden müssen Sie beispielsweise die letzten 50 Kerzen ab dem Punkt prüfen, an dem Sie eine Abweichung im Indikator feststellen. Wenn dies der Fall ist, öffnen Sie bitte eine Meldung, in der Sie angeben, wie Sie festgestellt haben, dass mit dem Indikator etwas nicht stimmt, und geben Sie uns den genauen Zeitpunkt an, an dem der Indikator falsch ist.",
+                    "updated": 1678647422592
                 }
             ]
         },

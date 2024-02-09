@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Есть еще одна вещь, о которой нам нужно позаботиться, прежде чем мы перейдем к определениям на этапе управления!",
                 "updated": 1642941384534
+            },
+            {
+                "language": "ES",
+                "text": "Hay una cosa más de la que tenemos que ocuparnos antes de pasar a las definiciones en la fase de gestión.",
+                "updated": 1680806938915
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Торговый бот постоянно отслеживает каждый ордер и сохраняет соответствующую информацию в определенной структуре узлов в Trading Engine.",
                     "updated": 1642941411695
+                },
+                {
+                    "language": "ES",
+                    "text": "El Trading Bot realiza un seguimiento de cada orden en todo momento y guarda la información correspondiente en una estructura específica de nodos en el Trading Engine.",
+                    "updated": 1680807052638
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Разверните узел Market Sell Order #1 и загляните внутрь.",
                     "updated": 1642941425340
+                },
+                {
+                    "language": "ES",
+                    "text": "Amplíe el nodo Orden de venta a mercado nº 1 y eche un vistazo a su interior.",
+                    "updated": 1680807092350
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Поскольку каждый ордер живет своей жизнью, бот хранит информацию о каждом ордере в отдельных структурах узлов, по одному на каждый ордер.",
                     "updated": 1642941448355
+                },
+                {
+                    "language": "ES",
+                    "text": "Como cada pedido tiene vida propia, el bot almacena información sobre cada uno de ellos en estructuras separadas de nodos, una por pedido.",
+                    "updated": 1680807114937
                 }
             ]
         }

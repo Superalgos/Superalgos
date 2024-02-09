@@ -24,6 +24,16 @@
                 "language": "TR",
                 "text": "Birisi lütfen odadaki fili kabul edebilir mi? Bu sayaçlar neden bir veya iki stratejiye ve bir pozisyona işaret etti?",
                 "updated": 1642169412248
+            },
+            {
+                "language": "ID",
+                "text": "Akankah seseorang tolong mengakui ada situasi masalah yang jelas? Mengapa counters itu menunjuk pada satu atau dua strategi dan satu posisi?",
+                "updated": 1673881270645
+            },
+            {
+                "language": "ES",
+                "text": "¿Podría alguien reconocer el elefante en la habitación? ¿Por qué esos contadores señalan una o dos estrategias y una posición?",
+                "updated": 1675464540095
             }
         ]
     },
@@ -48,6 +58,16 @@
                     "language": "TR",
                     "text": "Simulation Objects katman yöneticisine gidin ve \"Strategies\" katmanını açın.",
                     "updated": 1642169432335
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke layer manager dari Simulation Objects dan hidupkan layer \"Strategies\".",
+                    "updated": 1673881280353
+                },
+                {
+                    "language": "ES",
+                    "text": "Ves al \"Simulation Objects layer manager\" y activa la capa Strategies.",
+                    "updated": 1675466675496
                 }
             ]
         },
@@ -71,6 +91,16 @@
                     "language": "TR",
                     "text": "Bu da ne? Bu bir strateji! Bir simülasyonun içindeyiz! \"Stratejiler\" katmanı, bir stratejinin etkin olduğu zaman aralığını işaretler.",
                     "updated": 1642169461790
+                },
+                {
+                    "language": "ID",
+                    "text": "Apa itu? Itu adalah strategi! Kita sedang dalam simulasi! layer \"Strategies\" menandai rentang waktu di mana strategi sedang aktif.",
+                    "updated": 1673881289293
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué es eso? ¡Es una estrategia! ¡Estamos en una simulación! La capa \"Strategies\" marca el lapso de tiempo en el que una estrategia está activa.",
+                    "updated": 1675464603563
                 }
             ]
         },
@@ -93,6 +123,16 @@
                     "language": "TR",
                     "text": "Katmanı açtığınızda köşeye sürüklenen Plotter Paneline dikkat edin. Şimdi, farenizi stratejinin etkin olduğu zaman aralığına getirin ve ne olduğunu görün...",
                     "updated": 1642169603941
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan Plotter Panel yang melayang ke sudut saat kamu mengaktifkan layer. Sekarang, arahkan mouse-mu ke rentang waktu antara braket strategi dan lihat apa yang terjadi...",
+                    "updated": 1673881329913
+                },
+                {
+                    "language": "ES",
+                    "text": "Observa el Plotter Panel que se ha desplazado a la esquina cuando has activado la capa. Ahora, apunta con el ratón al intervalo de tiempo entre los frenos de la estrategia y mira lo que pasa...",
+                    "updated": 1675464633451
                 }
             ]
         }

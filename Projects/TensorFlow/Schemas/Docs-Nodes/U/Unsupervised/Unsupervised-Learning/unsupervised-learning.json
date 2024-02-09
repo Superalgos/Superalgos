@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Неподконтрольное обучение (UL) - это тип алгоритма, который изучает закономерности на основе немаркированных данных. Надеемся, что благодаря подражанию машина будет вынуждена создать компактное внутреннее представление о своем мире.",
                 "updated": 1645252542132
+            },
+            {
+                "language": "DE",
+                "text": "Unüberwachtes Lernen (UL) ist eine Art von Algorithmus, der Muster aus unmarkierten Daten lernt. Die Hoffnung ist, dass die Maschine durch Nachahmung gezwungen wird, eine kompakte interne Darstellung ihrer Welt aufzubauen.",
+                "updated": 1705144256848
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "В отличие от контролируемого обучения (Supervised Learning (SL)), где данные помечаются человеком, например, как \"автомобиль\", \"рыба\" и т.д., UL демонстрирует самоорганизацию, которая фиксирует закономерности в виде преселекций нейронов или плотности вероятности. Другими уровнями в спектре супервизии являются обучение с подкреплением, когда машине дается только числовая оценка производительности в качестве руководства, и полусамостоятельное обучение, когда маркируется меньшая часть данных. Двумя широкими методами в UL являются нейронные сети и вероятностные методы.",
                     "updated": 1645252587221
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Gegensatz zum überwachten Lernen (Supervised Learning,SL), bei dem die Daten von einem Menschen gekennzeichnet werden, z. B. als \"Auto\" oder \"Fisch\" usw., weist UL eine Selbstorganisation auf, die Muster als neuronale Vorwahlen oder Wahrscheinlichkeitsdichten erfasst. Die anderen Stufen des Überwachungsspektrums sind das Verstärkendes Lernen (Reinforcement Learning), bei dem die Maschine nur eine numerische Leistungsbewertung als Anleitung erhält, und das Semi-supervised Learning, bei dem ein kleinerer Teil der Daten mit Tags versehen wird. Zwei weit verbreitete Methoden in UL sind neuronale Netze und probabilistische Methoden.",
+                    "updated": 1705144340109
                 }
             ]
         }

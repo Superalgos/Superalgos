@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Эта позиция - новый провал, произошедший 18 марта, всего через несколько дней после одного из крупнейших обвалов рынка в новейшей истории.",
                 "updated": 1642945280090
+            },
+            {
+                "language": "ES",
+                "text": "Esta posición es un nuevo fracaso, que se produjo el 18 de marzo, pocos días después de uno de los mayores desplomes del mercado en la historia reciente.",
+                "updated": 1681734147950
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Что мы можем сказать об этом входе?",
                     "updated": 1642945293222
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué podemos decir de esta entrada?",
+                    "updated": 1681734158472
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Перейдите на таймфрейм 24H и посмотрите на общий контекст!",
                     "updated": 1642945302977
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve al marco temporal de 24 horas y observa el contexto general.",
+                    "updated": 1681734170104
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "Я вижу ситуацию крайней волатильности на фоне исторического глобального экономического краха, вызванного пандемией.",
                     "updated": 1642945314087
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo que veo es una situación de extrema volatilidad en medio de una histórica crisis económica mundial inducida por una pandemia.",
+                    "updated": 1681734214060
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "RU",
                     "text": "Может быть, нам не стоит торговать в таких условиях?! Это, безусловно, выглядит рискованно!",
                     "updated": 1642945339099
+                },
+                {
+                    "language": "ES",
+                    "text": "¡¿Quizás no deberíamos comerciar en tales condiciones?! Desde luego, parece arriesgado.",
+                    "updated": 1681734232821
                 }
             ]
         }

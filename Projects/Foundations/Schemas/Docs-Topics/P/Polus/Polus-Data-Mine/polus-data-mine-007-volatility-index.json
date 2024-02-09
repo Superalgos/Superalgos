@@ -1,0 +1,199 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": 7,
+    "type": "Volatility Index",
+    "definition": {
+        "text": "The Volatility Index represents how an asset's prices moves around the calculated mean price.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индекс волатильности отражает движение цен актива вокруг рассчитанной средней цены.",
+                "updated": 1645715773453
+            },
+            {
+                "language": "DE",
+                "text": "Der Volatilitätsindex zeigt an, wie sich die Preise eines Vermögenswerts um den berechneten Durchschnittspreis bewegen.",
+                "updated": 1671296596279
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация:",
+                    "updated": 1645715779030
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Volatility is a statistical measure of the dispersion of returns for a given security or market index. In most cases, the higher the volatility, the riskier the security. Volatility is often measured as either the standard deviation or variance between returns from that same security or market index.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно investopedia: Волатильность - это статистическая мера дисперсии доходности для данной ценной бумаги или рыночного индекса. В большинстве случаев, чем выше волатильность, тем рискованнее ценная бумага. Волатильность часто измеряется как стандартное отклонение или дисперсия между доходностями одной и той же ценной бумаги или рыночного индекса.",
+                    "updated": 1645715786963
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Die Volatilität ist ein statistisches Maß für die Streuung der Renditen für ein bestimmtes Wertpapier oder einen Marktindex. In den meisten Fällen gilt: Je höher die Volatilität, desto riskanter ist das Wertpapier. Die Volatilität wird häufig entweder als Standardabweichung oder als Varianz zwischen den Renditen desselben Wertpapiers oder Marktindexes gemessen.",
+                    "updated": 1671296635250
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The volatility index indicator provides two signals, positive and negative. The positive volatility indicates periods of high choppiness or consolidation in the price action, where the negative signal potentially indicates a trend emerging, and as such, this lagging indicator is best used as a confimation indicator.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор индекса волатильности подает два сигнала - положительный и отрицательный. Положительный сигнал волатильности указывает на периоды высокой прерывистости или консолидации ценового действия, в то время как отрицательный сигнал потенциально указывает на зарождение тренда, и поэтому этот запаздывающий индикатор лучше всего использовать в качестве индикатора конфирмации.",
+                    "updated": 1645715795507
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Volatilitätsindex-Indikator liefert zwei Signale, ein positives und ein negatives. Die positive Volatilität deutet auf Phasen starker Unruhe oder Konsolidierung im Kursgeschehen hin, während das negative Signal möglicherweise auf einen sich abzeichnenden Trend hindeutet, weshalb dieser nachlaufende Indikator am besten als Bestätigungindikator verwendet wird.",
+                    "updated": 1671296790300
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Index.png"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the volatility index can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under ’Volatility Index’ Product Definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры индекса волатильности можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом 'Volatility Index' Product Definition.",
+                    "updated": 1645715805840
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des Volatilitätsindex können geändert werden, indem Sie den Javascript Code unter Data Building Procedure -> Procedure Loop unter ’Volatility Index’ Product Definition suchen und öffnen.",
+                    "updated": 1671296850198
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Index-params.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства",
+                    "updated": 1645715811902
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671296868951
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The indicator also includes data for bollinger bands and keltner channels if needed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При необходимости индикатор также включает данные для полос Боллинджера и каналов Кельтнера.",
+                    "updated": 1645715820765
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator enthält bei Bedarf auch Daten für Bollinger Bänder und Keltner Kanäle.",
+                    "updated": 1671296908804
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступны следующие свойства:",
+                    "updated": 1645715828444
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671296960397
+                }
+            ]
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Index | VolatilityIndex | upvol, lowvol |\n| | (Bollinger) | BOLMA, UPbol, LOWbol |\n| | (Keltner) | ema, upKelt, downKelt |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Volatility Index | VolatilityIndex | upvol, lowvol |\n|| (Bollinger) | BOLMA, UPbol, LOWbol |\n|| (Keltner) | ema, upKelt, downKelt |",
+                    "updated": 1671296978304
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1645715836704
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671297017892
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A simple strategy could be built when the volatiliy positive index falls below the negative index, and the overall volatility falls below the zero line:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Можно построить простую стратегию, когда волатильность положительного индекса падает ниже отрицательного индекса, а общая волатильность падает ниже нулевой линии:",
+                    "updated": 1645715844527
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie könnte entwickelt werden, wenn der positive Volatilitätsindex unter den negativen Index fällt und die Gesamtvolatilität unter die Nulllinie fällt:",
+                    "updated": 1671297042835
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.VolatilityIndex.upvol < chart.at30min.VolatilityIndex.lowvol &&\n chart.at30min.VolatilityIndex.upvol < 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671297087580
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

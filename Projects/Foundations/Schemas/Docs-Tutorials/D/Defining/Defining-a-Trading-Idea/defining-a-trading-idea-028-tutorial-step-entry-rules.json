@@ -28,6 +28,21 @@
                 "language": "ES",
                 "text": "Las principales reglas de entrada fueron el foco del análisis que hicimos en los gráficos, pero añadamos un par de consideraciones más.",
                 "updated": 1668193625163
+            },
+            {
+                "language": "IT",
+                "text": "Le principali regole di ingresso sono state al centro dell'analisi che abbiamo fatto sui grafici, ma aggiungiamo un altro paio di considerazioni.",
+                "updated": 1669901755306
+            },
+            {
+                "language": "NL",
+                "text": "De belangrijkste instapregels waren de focus van de analyse die we op de grafieken deden, maar laten we nog een paar overwegingen toevoegen.",
+                "updated": 1670787338076
+            },
+            {
+                "language": "ID",
+                "text": "Aturan entry utama adalah fokus analisis yang kita lakukan pada chart, tetapi mari tambahkan beberapa pertimbangan lagi.",
+                "updated": 1674700866870
             }
         ]
     },
@@ -55,6 +70,16 @@
                     "language": "ES",
                     "text": "Descubrimos que una ruptura en el gráfico 1H puede predecir una inversión a medio plazo cuando se trata de una tendencia diaria alcista, y -cuando se trata de una tendencia diaria bajista- una aceleración de la caída. Sin embargo, también observamos varias rupturas que no produjeron ninguna de las dos cosas. Esto significa que debemos tomar una ruptura como una señal, no como una confirmación en sí misma.",
                     "updated": 1668193695554
+                },
+                {
+                    "language": "NL",
+                    "text": "We ontdekten dat een uitbraak in de 1H-grafiek een omkering op de middellange termijn kan voorspellen bij een dagelijkse opwaartse trend, en - bij een dagelijkse neerwaartse trend - een versnelling van de neergang. We merkten echter ook verschillende uitbraken op die dat niet opleverden. Dit betekent dat we een uitbraak als een signaal moeten zien, niet als een bevestiging op zich.",
+                    "updated": 1670787411053
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita menemukan bahwa breakdown pada chart 1H dapat memprediksi reversal jangka menengah ketika berada pada tren naik harian, dan—ketika pada tren turun harian—percepatan penurunan. Namun, kita juga melihat beberapa breakdown yang tidak menghasilkan keduanya. Ini berarti bahwa kita harus menganggap breakdown sebagai sinyal, bukan sebagai konfirmasi itu sendiri.",
+                    "updated": 1674700872089
                 }
             ]
         },
@@ -81,6 +106,16 @@
                     "language": "ES",
                     "text": "¡Nuestra confirmación es una segunda ruptura consecutiva en el gráfico 1H!",
                     "updated": 1668193707465
+                },
+                {
+                    "language": "NL",
+                    "text": "Onze bevestiging is een tweede opeenvolgende uitbraak in de 1H-grafiek!",
+                    "updated": 1670787428205
+                },
+                {
+                    "language": "ID",
+                    "text": "Konfirmasi kita adalah breakdown kedua berturut-turut di chart 1H!",
+                    "updated": 1674700877604
                 }
             ]
         }

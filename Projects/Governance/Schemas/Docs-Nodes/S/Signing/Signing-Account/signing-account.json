@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узлы Signing Account хранят уникальные хэш-идентификаторы, которые позволяют пользователям идентифицировать себя в одноранговой сети Superalgos.",
                 "updated": 1645182141983
+            },
+            {
+                "language": "TR",
+                "text": "Signing Accounts , kullanıcıların Superalgos eşler arası Ağında kendilerini tanımlamalarına olanak tanıyan benzersiz karma kimlikleri depolar.",
+                "updated": 1672058803427
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Важно, чтобы сигналы и любые другие сообщения передавались безопасно в сети Superalgos Peer to Peer. Учетные записи подписи являются центром безопасности в сети Superalgos.",
                     "updated": 1645182155794
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyallerin ve diğer tüm iletişimin Superalgos Eşler Arası Ağ üzerinden güvenli bir şekilde iletilmesi önemlidir. Signing Accounts, Superalgos ağı içindeki güvenliğin merkezidir.",
+                    "updated": 1672058838534
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Чтобы достичь этого и гарантировать, что полученные сигналы не были подделаны, каждое сообщение в сети подписывается с помощью подписи закрытого ключа. Это означает, что даже если сообщение проходит через множество переходов, получатель может проверить подпись.",
                     "updated": 1645182173504
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu başarmak ve alınan sinyallerin değiştirilmediğinden emin olmak için, ağ üzerindeki her iletişim özel bir anahtar imzası kullanılarak imzalanır. Bu, mesaj birçok atlamadan geçse bile alıcının imzayı doğrulayabileceği anlamına gelir.",
+                    "updated": 1672058885510
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Это касается торговых сигналов и сообщений, а также подтверждения личности каждого приложения или узла, подключенного к сети. Каждый объект, подключающийся к сети, должен быть идентифицирован своей уникальной подписью, чтобы убедиться, что объекты, общающиеся друг с другом, действительно те, за кого они себя выдают.",
                     "updated": 1645182198914
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, sinyal ve mesaj ticaretinin yanı sıra ağa bağlı her uygulama veya düğümün kimliğini doğrulamak için de geçerlidir. Ağa bağlanan her varlık, birbirleriyle iletişim kuran varlıkların gerçekten söyledikleri kişi olduklarından emin olmak için benzersiz imzasıyla tanımlanmalıdır.",
+                    "updated": 1672059154037
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Подтверждение личности происходит на двух уровнях. Первый - это первоначальная проверка между субъектами до начала любого взаимодействия. Второй - проверка достоверности подписи закрытого ключа при каждом получении сигнала. Как упоминалось выше, каждое приложение (например, настольное приложение, мобильное приложение, серверное приложение, приложение платформы или сетевой узел) должно работать с сетевой идентификацией, которая называется учетной записью подписи.",
                     "updated": 1645182221089
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kimlik doğrulaması iki seviyede gerçekleşir. Birincisi, herhangi bir iletişim gerçekleşmeden önce varlıklar arasında bir başlangıç doğrulamasıdır. İkincisi ise her sinyal alındığında özel anahtar imzasının geçerliliğinin kontrol edilmesidir. Yukarıda belirtildiği gibi, her uygulamanın (masaüstü uygulaması, mobil uygulama, sunucu uygulaması, platform uygulaması veya ağ düğümü gibi) İmzalama Hesabı adı verilen bir ağ kimliği ile çalışması gerekir.",
+                    "updated": 1672059244682
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "В случае с сигналами отправитель подписывает каждое сообщение, используя свой закрытый ключ. Затем боты получателя просматривают узел Signing Account, находящийся в профиле отправителя, чтобы убедиться в правильности сгенерированного хэша.",
                     "updated": 1645182240864
+                },
+                {
+                    "language": "TR",
+                    "text": "Sinyaller söz konusu olduğunda, gönderici her mesajı kendi özel anahtarını kullanarak imzalar. Ardından alıcının botları, oluşturulan hash'in doğru olduğunu doğrulamak için gönderenin profilinde tutulan Signing Account düğümüne bakar.",
+                    "updated": 1672059321767
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Узел Signing Account - это то, как проверяется подпись закрытого ключа. В конфигурации подписывающего аккаунта хранятся необходимые хэши, которые получатель использует для проверки того, действительно ли входящее сообщение было подписано с использованием оригинального закрытого ключа.",
                     "updated": 1645182257097
+                },
+                {
+                    "language": "TR",
+                    "text": "Signing Account düğümü, özel anahtar imzasının nasıl doğrulandığını gösterir. Signing account yapısında, alıcının gelen mesajın gerçekten de orijinal özel anahtar kullanılarak imzalanıp imzalanmadığını kontrol etmek için kullanacağı gerekli hash'ler saklanır.",
+                    "updated": 1672059814713
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "RU",
                     "text": "Доступность этой информации для всех получателей заключается в том, что все эти узлы учетной записи подписи (наряду с другими узлами определений для каждого приложения или бота) хранятся в профиле управления. Поскольку профили управления являются публичными частями экосистемы Superalgos, эти определения доступны всем пользователям платформы.",
                     "updated": 1645182279495
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bilgilerin tüm alıcılar tarafından kullanılabilir olmasının yolu, tüm bu Signing Account düğümlerinin (her uygulama veya bot için diğer tanım düğümleriyle birlikte) yönetim profilinde saklanmasıdır. Yönetim profilleri Superalgos ekosisteminin herkese açık parçaları olduğu için bu tanımlara Platformun tüm kullanıcıları erişebilir.",
+                    "updated": 1672059908496
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Подписные аккаунты очень специфичны. Каждое приложение, узел сети и социальные торговые боты (которые представляют собой коллекции сигналов) имеют свой узел учетной записи. Это означает, что идентификатор вашего профиля имеет свой собственный закрытый ключ. Каждое приложение имеет свой собственный закрытый ключ. Каждый социальный торговый бот имеет свой собственный закрытый ключ и т.д. Это позволяет хранить только те закрытые ключи, которые необходимы конкретному устройству.",
                     "updated": 1645182325686
+                },
+                {
+                    "language": "TR",
+                    "text": "Signing accounts çok özeldir. Her uygulamanın, ağ düğümünün ve Sosyal Ticaret Botlarının ( Social Trading Bots ) (sinyal koleksiyonları olan) kendi Signing Account düğümü vardır. Bu, profil kimliğinizin kendi özel anahtarına sahip olduğu anlamına gelir. Her uygulamanın kendi özel anahtarı vardır. Her Sosyal Ticaret Botunun ( Social Trading Bots ) kendi Özel anahtarı vb. vardır. Bu, yalnızca belirli bir cihazın ihtiyaç duyduğu özel anahtarların saklanmasını mümkün kılar.",
+                    "updated": 1672060185285
                 }
             ]
         },
@@ -113,23 +158,49 @@
                     "language": "RU",
                     "text": "Например, допустим, вы запускаете торгового бота с помощью Raspberry Pi. На этом Pi должна быть установлена учетная запись сервера задач, чтобы он мог идентифицировать себя в сети Superalgos. Используя эту идентификацию, Pi может отправлять и получать сигналы по сети. Только закрытый ключ для сервера задач должен храниться на этой машине. Это означает, что нет абсолютно никакой возможности компрометации закрытого ключа главного управления или других закрытых ключей. Каждая машина имеет доступ только к тому, что ей необходимо, и не более того. Это особенно важно для защиты главного закрытого ключа профиля управления, поскольку именно этот ключ обеспечивает доступ к токенам этого профиля.",
                     "updated": 1645182387828
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, bir raspberry pi kullanarak bir ticaret botu çalıştırdığınızı varsayalım. Bu pi'nin Superalgos ağında kendini tanımlayabilmesi için bir görev sunucusu signing account'u kurması gerekecektir. Bu kimliği kullanarak pi ağ üzerinden sinyal gönderebilir ve alabilir. Yalnızca görev sunucusunun özel anahtarının bu makinede saklanması gerekir. Yani ana yönetim özel anahtarınızın ya da diğer özel anahtarlarınızın tehlikeye girme olasılığı kesinlikle yoktur. Her makinenin yalnızca ihtiyacı olana erişimi vardır, daha fazlasına değil. Bu, özellikle bir yönetim profilinin ana özel anahtarının korunmasında önemlidir çünkü bu anahtar, söz konusu profilin token varlıklarına erişimi sağlayan anahtardır.",
+                    "updated": 1672061202626
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Creating a Signing Account",
-            "updated": 1647062203889
+            "updated": 1647062203889,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İmzalama Hesabı Oluşturma (Creating a Signing Account)",
+                    "updated": 1672061348793
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In order to generate the needed signature keys for a Signing Account, you will need to place a Profile Constructor within your workspace. You can add it by navigating to the Governance Project node and clicking Add Profile Constructor.",
-            "updated": 1647062358709
+            "updated": 1647062358709,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir İmzalama Hesabı için gerekli imza anahtarlarını oluşturmak için çalışma alanınıza bir Profil Oluşturucu ( Profile Constructor ) yerleştirmeniz gerekecektir. Yönetişim Projesi ( Governance Project ) düğümüne gidip Profil Oluşturucu Ekle'ye tıklayarak ekleyebilirsiniz.",
+                    "updated": 1672061710578
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Then connect a reference between the Profile Constructor node and your User Profile node. Once that is connected, click Install Signing Accounts. This will generate keys for all the various signing accounts associated with your profile.",
-            "updated": 1647062832754
+            "updated": 1647062832754,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ardından Profil Oluşturucu ( Profile Constructor ) düğümü ile Kullanıcı Profili ( User Profile ) düğümü arasında bir referans bağlayın. Bu bağlandıktan sonra Signing Account Install'a tıklayın. Bu, profilinizle ilişkili tüm çeşitli imzalama hesapları için anahtarlar oluşturacaktır.",
+                    "updated": 1672062503248
+                }
+            ]
         },
         {
             "style": "Text",

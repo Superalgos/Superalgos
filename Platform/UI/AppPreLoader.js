@@ -28,6 +28,8 @@ GLOBAL.CUSTOM_FAIL_RESPONSE = {
     message: "Custom Message"
 }
 
+let exports = {}
+
 let browserCanvas                 // This is the canvas object of the browser.
 
 function spacePad(str, max) {
@@ -46,23 +48,23 @@ function loadSuperalgos() {
     setupHTMLCanvas()
     loadDebugModule()
 
-    if ((browser.name !== "Chrome" && browser.name!=="Safari") || (browser.name === "Chrome" && parseInt(browser.version) < 85) || (browser.name === "Safari" && parseInt(browser.version) < 13)) {
+    if ((browser.name !== "Chrome" && browser.name !== "Safari") || (browser.name === "Chrome" && parseInt(browser.version) < 85) || (browser.name === "Safari" && parseInt(browser.version) < 13)) {
         alert("Superalgos is officially supported on Google Chrome 85 or Safari 13.1 and above. Your browser version has been detected as potentially beneath this. If you continue you may experience some functionality issues.\n\nDetected Browser: " + browser.name + "\nVersion: " + browser.version)
     }
 
-    function checkBrowserVersion () {
+    function checkBrowserVersion() {
 
-        let ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []
-        if(/trident/i.test(M[1])){
-            tem=/\brv[ :]+(\d+)/g.exec(ua) || []
-            return {name:'IE',version:(tem[1]||'')}
+        let ua = navigator.userAgent, tem, M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []
+        if (/trident/i.test(M[1])) {
+            tem = /\brv[ :]+(\d+)/g.exec(ua) || []
+            return { name: 'IE', version: (tem[1] || '') }
         }
-        if(M[1]==='Chrome'){
-            tem=ua.match(/\bOPR|Edge\/(\d+)/)
-            if(tem!=null)   {return {name:'Opera', version:tem[1]}}
+        if (M[1] === 'Chrome') {
+            tem = ua.match(/\bOPR|Edge\/(\d+)/)
+            if (tem != null) { return { name: 'Opera', version: tem[1] } }
         }
-        M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?']
-        if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1])}
+        M = M[2] ? [M[1], M[2]] : [navigator.appName, navigator.appVersion, '-?']
+        if ((tem = ua.match(/version\/(\d+)/i)) != null) { M.splice(1, 1, tem[1]) }
         return {
             name: M[0],
             version: M[1]
@@ -150,12 +152,12 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
         if (this.readyState === 4 && this.status === 200) {
             try {
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xmlHttpRequest.responseText)
-            } catch(err) {
-                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> err.stack = '+ err.stack)
-                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pContentToSend = '+ pContentToSend)
-                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pPath = '+ pPath)
-                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = '+ xmlHttpRequest.responseText)
-                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> callBackFunction = '+ callBackFunction)
+            } catch (err) {
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pContentToSend = ' + pContentToSend)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pPath = ' + pPath)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = ' + xmlHttpRequest.responseText)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> callBackFunction = ' + callBackFunction)
 
             }
             return
@@ -187,15 +189,15 @@ function httpRequestAsync(pContentToSend, pPath) {
         function xhrSuccess() {
             if (xmlHttpRequest.readyState === 4) {
                 if (xmlHttpRequest.status === 200) {
-                    resolve({result: 'Ok', message: xmlHttpRequest.responseText})
+                    resolve({ result: 'Ok', message: xmlHttpRequest.responseText })
                 } else {
-                    reject({result: 'Fail', message: xmlHttpRequest.responseText})
+                    reject({ result: 'Fail', message: xmlHttpRequest.responseText })
                 }
             }
         }
-        
+
         function xhrError() {
-            reject({result: 'Fail', message: xmlHttpRequest.responseText})
+            reject({ result: 'Fail', message: xmlHttpRequest.responseText })
         }
 
         if (pContentToSend === undefined) {
@@ -211,4 +213,36 @@ function httpRequestAsync(pContentToSend, pPath) {
             xmlHttpRequest.onerror = xhrError
         }
     })
+}
+
+function httpCompressedRequest(pContentToSend, pPath, callBackFunction) {
+    let xmlHttpRequest = new XMLHttpRequest()
+    xmlHttpRequest.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            try {
+                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xmlHttpRequest.responseText)
+            } catch (err) {
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> err.stack = ' + err.stack)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pContentToSend = ' + pContentToSend)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> pPath = ' + pPath)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> xmlHttpRequest.responseText = ' + xmlHttpRequest.responseText)
+                console.log((new Date()).toISOString(), '[ERROR] httpRequest -> httpRequest -> callBackFunction = ' + callBackFunction)
+            }
+            return
+        } else if (this.readyState === 4 && this.status === 404) {
+            callBackFunction({ result: "Fail", message: xmlHttpRequest.responseText.trim(), code: xmlHttpRequest.responseText.trim() })
+            return
+        }
+    }
+
+    try {
+        const compressed = new pako.deflate(pContentToSend);
+        // let blob = new Blob(compressed, { type: 'text/plain' })
+        xmlHttpRequest.open("POST", pPath, true)
+        xmlHttpRequest.setRequestHeader('Content-Encoding', 'gzip')
+        xmlHttpRequest.send(compressed)
+    } catch (err) {
+        if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] callServer -> err.message = " & err.message) }
+        callBackFunction({ result: "Fail", message: err.message })
+    }
 }

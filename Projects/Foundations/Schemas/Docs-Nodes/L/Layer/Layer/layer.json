@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Чтобы настроить слой Layer, вам необходимо установить ссылку на выбранный вами информационный продукт.",
                     "updated": 1638973171670
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir katman oluşturmak için, seçtiğiniz veri ürünüyle bir referans oluşturmanız gerekir.",
+                    "updated": 1701084344323
                 }
             ]
         },
@@ -48,6 +53,11 @@
                     "language": "RU",
                     "text": "Слой на графиках",
                     "updated": 1638973158595
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerde Katman",
+                    "updated": 1701084351563
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "RU",
                     "text": "Чтобы включить или выключить слои, просто щелкните слой на соответствующей панели продуктов.",
                     "updated": 1638973236039
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları açmak ve kapatmak için ilgili ürünler panelinde katmana tıklamanız yeterlidir.",
+                    "updated": 1701084355075
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Чтобы включить или выключить панель слоя, нажмите кнопку панели в нижнем левом углу слоя.",
                     "updated": 1638973261370
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir katman panelini açmak ve kapatmak için katmanın sol alt köşesindeki panel düğmesine tıklayın.",
+                    "updated": 1701084358842
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Конфигурация Layer",
                     "updated": 1638973288222
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman Yapılandırması ( Layer Configuration )",
+                    "updated": 1701084367522
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638973295055
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler ( Properties )",
+                    "updated": 1701084376397
                 }
             ]
         },
@@ -111,6 +141,11 @@
                     "language": "RU",
                     "text": "status может быть on (включен) или off (выключен)* и относится к слою, который виден или отсутствует на диаграммах.",
                     "updated": 1638973381355
+                },
+                {
+                    "language": "TR",
+                    "text": "durumu açık veya kapalı olabilir* ve katmanın grafiklerde görünür olup olmadığını ifade eder.",
+                    "updated": 1701084380435
                 }
             ]
         },
@@ -122,6 +157,11 @@
                     "language": "RU",
                     "text": "showPanels может иметь значение true или false; true показывает панель плоттера, которая может быть связана с информационным продуктом в соответствии с определениями модуля плоттера; false * делает панели невидимыми.",
                     "updated": 1638973402851
+                },
+                {
+                    "language": "TR",
+                    "text": "showPanels true veya false olabilir; true, çizici modülü tanımlarına göre veri ürünüyle ilişkilendirilebilecek çizici panelini gösterir; false* panelleri görünmez yapar.",
+                    "updated": 1701084385010
                 }
             ]
         }

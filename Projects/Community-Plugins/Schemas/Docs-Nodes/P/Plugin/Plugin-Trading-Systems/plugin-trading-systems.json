@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Eklenti veri mayınları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek veri mayınlarının tanımlarını içerir.",
                 "updated": 1651952208442
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten plugin data mines enthält die Definitionen von Datenminen, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674639549128
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1651952218653
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf <i>Edit</i>, um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1674639582977
                 }
             ]
         }

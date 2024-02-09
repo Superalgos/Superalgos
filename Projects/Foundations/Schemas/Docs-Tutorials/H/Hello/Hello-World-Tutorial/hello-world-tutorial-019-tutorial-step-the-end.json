@@ -35,6 +35,16 @@
                 "language": "RU",
                 "text": "Это последний шаг в данном руководстве, но для вас это первый большой шаг!",
                 "updated": 1640857775385
+            },
+            {
+                "language": "NL",
+                "text": "Dit is de laatste stap in deze zelfstudie, maar een eerste grote stap voor jou!",
+                "updated": 1670776898670
+            },
+            {
+                "language": "ID",
+                "text": "Inilah langkah akhir dari tutorial ini tapi langkah awal yang besar untuk kamu!",
+                "updated": 1670589483948
             }
         ]
     },
@@ -52,8 +62,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora que ha visto lo rápido y fácil que es implementar estrategias simples en SA, le dejo algunos consejos que puede explorar.",
-                    "updated": 1629578879458
+                    "text": "Ahora que ha visto lo rápido y fácil que es implementar estrategias simples en SA, te dejo algunos consejos que puedes explorar.",
+                    "updated": 1682357936063
                 },
                 {
                     "language": "IT",
@@ -69,6 +79,16 @@
                     "language": "RU",
                     "text": "Теперь, когда вы увидели, как быстро и легко можно развернуть простые стратегии в Superalgos, я оставляю вам несколько подсказок, которые вы можете проверить.",
                     "updated": 1640857826726
+                },
+                {
+                    "language": "NL",
+                    "text": "Nu je hebt gezien hoe snel en gemakkelijk het is om eenvoudige strategieën in SA te maken, geef ik je enkele hints die je kunt verkennen.",
+                    "updated": 1670776930539
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang kamu sudah melihat bagaimana cepat dan mudahnya men-deploy strategi simpel pada SA, Aku tinggalkan kamu dengan suatu petunjuk  yang bisa kamu eksplore.",
+                    "updated": 1670589490361
                 }
             ]
         },
@@ -84,8 +104,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tal vez puedas agregar un nuevo indicador y usar sus propiedades como un filtro adicional para el Trigger Stage.",
-                    "updated": 1629578981875
+                    "text": "Tal vez puedes agregar un nuevo indicador y usar sus propiedades como un filtro adicional para el Trigger Stage",
+                    "updated": 1682357954347
                 },
                 {
                     "language": "IT",
@@ -101,6 +121,16 @@
                     "language": "RU",
                     "text": "Возможно, вы захотите добавить новый индикатор и использовать его свойства как дополнительный фильтр для этапа Trigger Stage.",
                     "updated": 1640857883663
+                },
+                {
+                    "language": "NL",
+                    "text": "Misschien kunt u een nieuwe indicator toevoegen en de eigenschappen ervan gebruiken als een extra filter voor de Trigger Stage.",
+                    "updated": 1670776952195
+                },
+                {
+                    "language": "ID",
+                    "text": "Mungkin kamu bisa menambahkan indikator baru dan menggunakan propertinya seperti filter tambahan untuk Trigger Stage.",
+                    "updated": 1670589499190
                 }
             ],
             "updated": 1622980962381
@@ -134,6 +164,16 @@
                     "language": "RU",
                     "text": "Или вы можете модифицировать SL таким образом, чтобы трейлинг был не фиксированным, а скользящим.",
                     "updated": 1640857938812
+                },
+                {
+                    "language": "NL",
+                    "text": "Of u kunt de SL zo aanpassen dat deze meebeweegt in plaats van vast te zitten.",
+                    "updated": 1670776989511
+                },
+                {
+                    "language": "ID",
+                    "text": "Atau kamu bisa memodifikasi SL sehingga punya sesuatu untuk diikuti daripada mencoba untuk memperbaiki.",
+                    "updated": 1670589940367
                 }
             ]
         },
@@ -150,8 +190,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Gracias por tu tiempo. Puede leer un artículo más detallado aquí: http://bit.ly/9808usHelloWorld",
-                    "updated": 1629579335349
+                    "text": "Gracias por tu tiempo. Puedes leer un artículo más detallado aquí: http://bit.ly/9808usHelloWorld",
+                    "updated": 1682357964929
                 },
                 {
                     "language": "IT",
@@ -167,6 +207,16 @@
                     "language": "RU",
                     "text": "Спасибо за уделенное время. Более подробную статью вы можете прочитать здесь: http://bit.ly/9808usHelloWorld.",
                     "updated": 1640857954646
+                },
+                {
+                    "language": "NL",
+                    "text": "Bedankt voor je tijd. U kunt hier een meer diepgaand artikel lezen: http://bit.ly/9808usHelloWorld",
+                    "updated": 1670777012077
+                },
+                {
+                    "language": "ID",
+                    "text": "Terima kasih untuk waktunya. Kamu bisa baca lebih lanjut pada artikel ini: http://bit.ly/9808usHelloWorld",
+                    "updated": 1670589999093
                 }
             ]
         }

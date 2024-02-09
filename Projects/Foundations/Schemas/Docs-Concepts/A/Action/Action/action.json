@@ -11,8 +11,13 @@
             },
             {
                 "language": "TR",
-                "text": "Eylem, sistem kullanıcılarının kullanıcı arayüzü aracılığıyla, genellikle bir Düğümün Menü Öğesine tıklayarak tetikleyebilecekleri bir şeydir. Eylemler başka eylemler tarafından da tetiklenebilir ve böylece Tasarım Alanı kullanıcılarına yeniden kullanılabilir bir dizi işlevsellik sunulabilir. Eylem tetiklendiğinde önceden tanımlanmış kodu çalıştırır.",
-                "updated": 1654390565076
+                "text": "Eylem, sistem kullanıcılarının kullanıcı arayüzü ( UI ) aracılığıyla, genellikle bir Düğümün Menü Öğesine ( Menu Item of a Node ) tıklayarak tetikleyebilecekleri bir şeydir. Eylemler başka eylemler tarafından da tetiklenebilir ve böylece Tasarım Alanı ( Design Space ) kullanıcılarına yeniden kullanılabilir bir dizi işlevsellik sunulabilir. Eylem tetiklendiğinde önceden tanımlanmış kodu çalıştırır.",
+                "updated": 1671993616610
+            },
+            {
+                "language": "DE",
+                "text": "Eine Aktion ist etwas, dass die Benutzer des Systems über die Benutzeroberfläche (UI) auslösen können, in der Regel durch Klicken auf einen Menüpunkt (Menu Item) eines Knotens (Node). Aktionen können auch durch andere Aktionen ausgelöst werden, so dass den Benutzern des Design Space ein wiederverwendbarer Satz von Funktionen zur Verfügung steht. Sobald die Aktion ausgelöst wird, führt sie vordefinierten Code aus.",
+                "updated": 1682018617537
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC. Daha sonra değişikliklerinizi kaydetmek için docs.save ve ana depoya göndermek için app.contribute kullanabilirsiniz.",
                     "updated": 1654390571100,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Textabschnitt, um in den Bearbeitungsmodus zu gelangen und diesen text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie den Befehl docs.save verwenden, um Ihre Änderungen zu speichern und den Befehl app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1682018874224
                 }
             ]
         }

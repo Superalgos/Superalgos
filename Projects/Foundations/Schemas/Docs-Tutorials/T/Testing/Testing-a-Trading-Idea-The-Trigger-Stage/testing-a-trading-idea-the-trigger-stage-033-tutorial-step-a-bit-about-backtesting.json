@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Bu ilk geriye dönük testi yapmadan önce çok önemli bir şey söylemem gerekiyor!",
                 "updated": 1641655156458
+            },
+            {
+                "language": "ES",
+                "text": "Antes de empezar a realizar este primer backtest, ¡tengo que mencionar algo de gran importancia!",
+                "updated": 1677101483953
             }
         ]
     },
@@ -43,8 +48,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Geriye dönük test (Backtesting) başlı başına bir bilimdir! Sadece geriye dönük test (Backtesting)  hakkında yazılmış onlarca kitaplar var. Bu derin ve karmaşık bir konudur, özellikle de strateji tasarlayan ve test eden insanlar, aşırı uyum sağlamaya, yani iyi bir geriye dönük test sonuçları elde etmek için ticaret sisteminin kurallarını veri kümesine uyarlamaya yol açabilecek önyargılar getirme eğilimindedir. Superalgos, veri kümesini gerektiği gibi bölmeye veya birden çok oturumu paralel olarak ayarlayıp çalıştırmaya izin veren zaman aralığı parametresi gibi, bozulmayı önlemek için veri kümesini esnek bir şekilde işlemek için araçlar sunar. Ancak, bu derste bu konuyu ele almayacağız! Odak noktamız, kendi başına geriye dönük test yapmak değil, bir ticaret fikrinin tanımlarını oluşturmaktır.",
-                    "updated": 1641655170579
+                    "text": "Geriye dönük test (Backtesting) başlı başına bir bilimdir! Sadece geriye dönük test (Backtesting) hakkında yazılmış onlarca kitaplar var. Bu derin ve karmaşık bir konudur çünkü stratejileri tasarlayan ve test eden insanlar aşırı uyuma, yani iyi geriye dönük test sonuçları elde etme arayışında ticaret sisteminin kurallarını veri setine uyacak şekilde ayarlamaya yol açabilecek önyargılar ortaya koymaya eğilimlidir.Superalgos, veri setinin bozulmasını önlemek için veri setini esnek bir şekilde ele almak üzere, veri setini gerektiği gibi bölmeye veya paralel olarak birden fazla oturum kurmaya ve çalıştırmaya olanak tanıyan zaman aralığı parametresi gibi araçlar sunar. Ancak, bu derste bu konuyu ele almayacağız! Odak noktamız, kendi başına geriye dönük test yapmak değil, bir ticaret fikrinin tanımlarını oluşturmaktır.",
+                    "updated": 1669583342982
+                },
+                {
+                    "language": "ES",
+                    "text": "El backtesting es una ciencia en sí misma. Hay libros enteros escritos sólo sobre backtesting. Es un tema profundo y complejo, principalmente porque los humanos que diseñan y prueban estrategias son propensos a introducir sesgos que pueden llevar a sobreajustar, es decir, ajustar las reglas del sistema de trading para que encajen con el conjunto de datos en la búsqueda de obtener buenos resultados en el backtesting. Superalgos ofrece herramientas para manejar con flexibilidad el conjunto de datos y evitar estropearlo, como el parámetro de rango temporal que permite dividir el conjunto de datos según sea necesario, o configurar y ejecutar varias sesiones en paralelo. Dicho esto, ¡no vamos a tratar este tema en este tutorial! El enfoque actual es la creación de las definiciones de una idea de trading, no el backtesting per se.",
+                    "updated": 1677101555211
                 }
             ]
         }

@@ -1,0 +1,160 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 75,
+    "type": "Tutorial Step - What Is It We Are Testing?",
+    "definition": {
+        "icon": {
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
+        },
+        "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Abbiamo lanciato un backtest ma non abbiamo discusso del Trading System che stiamo testando! Facciamolo ora!",
+                "updated": 1618061084694,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hemos realizado un backtest pero no hemos discutido el Trading System que estamos probando. ¡Repasemos los conceptos básicos!",
+                "updated": 1624455109238,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben einen Backtest durchgeführt, aber wir haben noch nicht über das Trading System gesprochen, das wir testen! Lassen Sie uns die Grundlagen durchgehen!",
+                "updated": 1634222921349
+            },
+            {
+                "language": "TR",
+                "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System ) tartışmadık! Temel bilgileri gözden geçirelim!",
+                "updated": 1670006845739
+            },
+            {
+                "language": "RU",
+                "text": "Мы провели обратное тестирование, но мы не обсуждали Trading System, которую мы тестируем! Давайте пройдемся по основам!",
+                "updated": 1636931402487
+            },
+            {
+                "language": "ID",
+                "text": "Kita telah menjalankan backtest tetapi kita belum membahas Trading System yang kita uji! Mari kita pergi melalui dasar-dasar!",
+                "updated": 1639748602660
+            },
+            {
+                "language": "NL",
+                "text": "We hebben een backtest uitgevoerd, maar we hebben het Trading System dat we aan het testen zijn niet besproken! Laten we de basis doornemen!",
+                "updated": 1666876245924
+            },
+            {
+                "language": "FR",
+                "text": "Nous avons effectué un backtest mais nous n'avons pas discuté du système de trading que nous testons ! Passons en revue les principes de base !",
+                "updated": 1676898877353
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The trading idea is buy \"the falling knife\" and sell \"the rebound\". The strategy places a Limit Buy Order a distance below the price. If the order is not filled by the next minute, the order is canceled and a new order is placed, potentially at an adjusted rate. If the price drops suddenly, chances are the order will get filled. If that happens, then the strategy tries to sell at a higher price.",
+            "updated": 1616428600039,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'idea è comprare il \"falling knife\" e vendere il \"rebound\". La strategia piazza un Limit Buy Order al di sotto dell'attuale prezzo. Se l'ordine non viene evaso nel giro del minuto successivo, viene cancellato e ne viene creato uno nuovo, eventualmente a un prezzo migliore. Se il prezzo scende, è probabile che l'ordine venga evaso: a quel punto la strategia tenta di vendere a un prezzo maggiore.",
+                    "updated": 1618061264322,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La idea de trading es comprar \"la vela que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
+                    "updated": 1675280889826,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Handelsidee ist, \"the falling knife\" zu kaufen und \"den Rebound\" zu verkaufen. Die Strategie platziert eine Limit Buy Order mit einem Abstand unter dem Preis. Wenn die Order nicht bis zur nächsten Minute ausgeführt wird, wird sie storniert und eine neue Order platziert, möglicherweise zu einem angepassten Kurs. Wenn der Kurs plötzlich fällt, besteht die Chance, dass der Auftrag ausgeführt wird. In diesem Fall versucht die Strategie, zu einem höheren Preis zu verkaufen.",
+                    "updated": 1634222949643
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret fikri \"düşen bıçağı\" satın almak ve \"toparlanmayı\" satmaktır. Strateji, fiyatın biraz altına bir Limitli Alış Emri (Limit Buy Order) yerleştirir. Emir bir sonraki dakikaya kadar yerine getirilmezse, emir iptal edilir ve potansiyel olarak ayarlanmış bir oranda yeni bir emir verilir. Fiyat aniden düşerse, siparişin doldurulma ihtimali vardır. Bu olursa, strateji daha yüksek bir fiyattan satmaya çalışır.",
+                    "updated": 1670007011024
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговая система заключается в том, чтобы купить \"падающий нож\" и продать \"отскок\". Стратегия размещает Limit Buy Order на расстоянии ниже цены. Если заказ не будет выполнен в течение следующей минуты, то он отменяется и размещается новый, возможно, по скорректированной ставке. Если цена внезапно упадет, есть шансы, что заказ будет выполнен. Если это произойдет, то стратегия попытается продать его по более высокой цене.",
+                    "updated": 1636931763305
+                },
+                {
+                    "language": "ID",
+                    "text": "trading idea adalah membeli \"the falling knife\" dan menjual \"rebound\". Strategi menempatkan Limit Buy Order pada jarak di bawah harga. Jika pesanan tidak dipenuhi pada menit berikutnya, pesanan dibatalkan dan pesanan baru ditempatkan, berpotensi pada tingkat yang disesuaikan. Jika harga turun tiba-tiba, kemungkinan order akan terisi. Jika itu terjadi, maka strategi mencoba menjual dengan harga lebih tinggi.",
+                    "updated": 1639748809480
+                },
+                {
+                    "language": "NL",
+                    "text": "Het handelsidee is \"het vallende mes\" kopen en \"de rebound\" verkopen. De strategie plaatst een Limit Buy Order op een afstand onder de prijs. Als de bestelling de volgende minuut niet is gevuld, wordt de bestelling geannuleerd en wordt een nieuwe bestelling geplaatst, mogelijk tegen een aangepaste prijs. Als de prijs plotseling daalt, is de kans groot dat de order wordt gevuld. Als dat gebeurt, probeert de strategie tegen een hogere prijs te verkopen.",
+                    "updated": 1666876348643
+                },
+                {
+                    "language": "FR",
+                    "text": "L'idée est d'acheter \"le couteau qui tombe\" et de vendre \"le rebond\". La stratégie consiste à placer un ordre d'achat à cours limité à une distance inférieure au prix. Si l'ordre n'est pas exécuté d'ici la minute suivante, il est annulé et un nouvel ordre est placé, potentiellement à un taux ajusté. Si le prix baisse soudainement, il y a de fortes chances que l'ordre soit exécuté. Si cela se produit, la stratégie tente alors de vendre à un prix plus élevé.",
+                    "updated": 1676898919577
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy <i>per se</i>.",
+            "updated": 1622201574916,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non discutiamo dell'efficacia del metodo, ma della sua implementazione. Questa è una demo per mostrare le capacità del Trading Bot, non la strategia in sè.",
+                    "updated": 1618061327170,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "No discutamos los méritos de la idea de trading, sino la implementación. Esta es solo una demostración para mostrar las capacidades del Trading Bot, no la estrategia per se.",
+                    "updated": 1624455325589,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wollen hier nicht über die Vorzüge der Handelsidee diskutieren, sondern über die Umsetzung. Dies ist nur eine Demo, um die Fähigkeiten des Trading Bot zu zeigen, nicht die Strategie an sich.",
+                    "updated": 1634222957739
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret fikrinin esasını değil, uygulamasını tartışalım. Bu, kendi başına stratejiyi değil Ticaret Botunun kapasitelerini gösteren bir demodur. Bu strateji doğru olmayabilir, ya da beğenmeyebilirsiniz. Kendi fikirlerinizle yeni stratejiler oluşturabilirsiniz.",
+                    "updated": 1670007040114
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте обсудим не достоинства торговой системы, а ее реализацию. Это всего лишь выставленная на показ демонстрация возможностей Trading Bot, а не стратегии как таковой.",
+                    "updated": 1636933888559
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita tidak membahas manfaat dari trading idea tetapi implementasinya. Ini hanya demo untuk memamerkan kapasitas Trading Bot, bukan strateginya sendiri.",
+                    "updated": 1639748659157
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we het niet hebben over de kwaliteit van de strategie, maar over de implementatie. Dit is slechts een demo om de capaciteiten van de Trading Bot te laten zien, niet de strategie op zich.",
+                    "updated": 1666876453651
+                },
+                {
+                    "language": "FR",
+                    "text": "Ne discutons pas des mérites de cette idée de trading mais de sa mise en œuvre. Il s'agit juste d'une démo pour montrer les capacités du Trading Bot, pas la stratégie en soi.",
+                    "updated": 1676898953098
+                }
+            ]
+        }
+    ]
+}

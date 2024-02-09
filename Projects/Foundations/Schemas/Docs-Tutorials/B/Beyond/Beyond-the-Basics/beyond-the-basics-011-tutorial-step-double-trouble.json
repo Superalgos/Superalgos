@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Banyak user memilih untuk menjalankan dua branch dari folder yang berbeda! Ini sepertinya solusi efektif untuk para kontributor aktif!",
                 "updated": 1668505911479
+            },
+            {
+                "language": "NL",
+                "text": "Veel gebruikers kiezen ervoor om de twee branches vanuit aparte mappen te laten draaien! Dit lijkt een verstandige oplossing voor actieve bijdragers!",
+                "updated": 1669746614936
             }
         ]
     },
@@ -81,6 +86,11 @@
                     "language": "ID",
                     "text": "Kamu mungkin punya dua kloningan dari fork berjalan terhadap folder yang berbeda, adapun setiapnya memiliki branch yang berbeda.",
                     "updated": 1668505922013
+                },
+                {
+                    "language": "NL",
+                    "text": "Mogelijk heb je twee klonen van je fork die vanuit aparte mappen draaien, elk op verschillende branches.",
+                    "updated": 1669746641486
                 }
             ]
         },
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Dua instance dari Superalgos yang berjalan dari folder yang berbeda berjalan masing-masing. Mereka berjalan dengan workspace yang berbeda dan menghasilkan data yang unik.",
                     "updated": 1668505930418
+                },
+                {
+                    "language": "NL",
+                    "text": "Twee exemplaren van Superalgos die vanuit verschillende mappen worden uitgevoerd, zijn volledig onafhankelijk. Ze voeren verschillende werkruimten uit en voeren unieke gegevens uit.",
+                    "updated": 1669746673894
                 }
             ]
         },
@@ -136,8 +151,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Esta configuración te permite ejecutar la versión estable para tus tareas de producción y la versión en otra rama para contribuir y probar nuevas funciones! No puedes ejecutar dos versiones al mismo tiempo a menos que cambies los puertos.",
-                    "updated": 1628185065000,
+                    "text": "Esta configuración te permite ejecutar la versión estable para tus tareas de producción, y la versión en otra rama para contribuir y probar nuevas características. Pero no puedes ejecutar dos versiones al mismo tiempo, ¡a menos que cambies los puertos!",
+                    "updated": 1675451568801,
                     "style": "Success"
                 },
                 {
@@ -152,13 +167,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böyle bir kurulum, diğer işleriniz için kararlı sürümü kullanırken, katkıda bulunmak ve test etmek için başka bir daldaki sürümü çalıştırmanıza olanak tanır! Ancak bağlantı noktalarını (Ports) değiştirmediğiniz sürece iki sürümü aynı anda çalıştıramazsınız!",
-                    "updated": 1640418405614
+                    "text": "Böyle bir kurulum, diğer işleriniz için kararlı sürümü kullanırken, katkıda bulunmak ve test etmek için başka bir daldaki sürümü çalıştırmanıza olanak tanır! Ancak bağlantı noktalarını (Port) değiştirmediğiniz sürece iki sürümü aynı anda çalıştıramazsınız!",
+                    "updated": 1669618111069
                 },
                 {
                     "language": "ID",
                     "text": "Setup yang memperbolehkan kamu untuk menjalankan versi stabil dari production task kamu, dan di versi branch yang lain untuk berkontribusi dan mencoba fitur baru! Tapi kamu tidak bisa menjalankan dua versi diwaktu yang sama, kecuali kamu mengubah port!",
                     "updated": 1668505938260
+                },
+                {
+                    "language": "NL",
+                    "text": "Met zo'n setup kun je de stabiele versie draaien voor je productietaken, en de versie in een andere branch om nieuwe functies bij te dragen en te testen! Maar u kunt niet twee versies tegelijkertijd uitvoeren, tenzij u van poort verandert!",
+                    "updated": 1669746701796
                 }
             ]
         }

@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,9 +14,11 @@
             "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Install Missing Claims",
+            "translationKey": "install.missingClaims",
             "relatedUiObject": "Feature Contribution Claim",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
+            "confirmationLabelTranslationKey": "general.confirm.install",
             "relatedUiObjectProject": "Governance"
         },
         {
@@ -23,6 +26,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Claims Folder",
+            "translationKey": "add.featureClaimsFolder",
             "relatedUiObject": "Feature Claims Folder",
             "relatedUiObjectProject": "Governance"
         },
@@ -31,6 +35,7 @@
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Contribution Claim",
+            "translationKey": "add.featureContributionClaim",
             "relatedUiObject": "Feature Contribution Claim",
             "relatedUiObjectProject": "Governance"
         },
@@ -39,7 +44,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

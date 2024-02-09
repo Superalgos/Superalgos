@@ -1,0 +1,63 @@
+{
+    "topic": "Trends Data Mine",
+    "pageNumber": "18",
+    "type": "T3 Moving Average",
+    "definition": {
+        "text": "The T3 Moving Average, also known as the Tilson Moving Average, seeks to improve lag while reducing false signals. It is an indicator of an indicator as it consists of several EMAs of a base EMA value.",
+        "updated": 1673833824206
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "T3 Moving Average on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator can be used in the same manner as other moving averages. An upward trend is plotted in green if the current value is greater than the previous, and vice versa for a downward trend which is plotted in red."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-T3-Moving-Average.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| T3_MA | t3ma | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"T3 Moving Average\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Trends-T3-Moving-Average-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "A simple entry point could be done when the price action rises above the moving average value:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.t3ma.previous.value > chart.at01hs.candle.previous.close && chart.at01hs.t3ma.value < chart.at01hs.candle.close"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

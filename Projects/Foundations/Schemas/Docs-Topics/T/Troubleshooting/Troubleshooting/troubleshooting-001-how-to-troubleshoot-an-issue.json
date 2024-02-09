@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bu Sorun Giderme Kılavuzu, sistemi daha iyi anlamanıza ve karşılaşabileceğiniz sorunların çoğuna çözümler bulmanıza yardımcı olacak mantıklı adımları öğretir.",
                 "updated": 1647852036703
+            },
+            {
+                "language": "DE",
+                "text": "In dieser Anleitung zur Fehlerbehebung lernen Sie die logischen Schritte kennen, die Ihnen helfen, das System besser zu verstehen und Lösungen für die meisten Probleme zu finden, auf die Sie treffen könnten.",
+                "updated": 1678640389706
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Superalgos'u kullanırken sorun yaşamanızın birkaç nedeni olabilir. Sistemin nasıl çalıştığını anlamamanızdan kaynaklanıyor olabilir, katılmaya çalıştığınız süreçte bir veya iki adımı atlıyor olabilirsiniz veya bir şey olması gerektiği gibi çalışmıyor olabilir.",
                     "updated": 1647852076876
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt verschiedene Gründe, warum Sie bei der Verwendung von Superalgos Probleme haben können. Es kann daran liegen, dass Sie nicht verstehen, wie das System funktioniert, dass Sie einen oder zwei Schritte in dem Prozess, den Sie versuchen, zu nutzen, übersehen haben oder dass etwas nicht so funktioniert, wie es sollte.",
+                    "updated": 1678640398666
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Sebep ne olursa olsun, bu sayfa, sorununuzu mümkün olan en verimli şekilde çözebilmeniz için neler olup bittiğini anlamanıza yardımcı olacak adım adım bir süreç sunar.",
                     "updated": 1647852100004
+                },
+                {
+                    "language": "DE",
+                    "text": "Was auch immer der Grund sein mag, auf dieser Seite finden Sie eine Schritt-für-Schritt-Anleitung, die Ihnen helfen wird, die Vorgänge zu verstehen, damit Ihr Problem auf die effizienteste Weise gelöst werden kann.",
+                    "updated": 1678640418985
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Başka bir deyişle, bu adım adım sorun giderme kılavuzunu takip etmek, sizi ya sorununuzu düzeltip devam edebilmeniz için neyi yanlış yaptığınızı keşfetmenize ya da Ekibin sorunu araştırması için gereken tüm ilgili bilgileri toplamanıza yol açacaktır.",
                     "updated": 1647852188986
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Wenn Sie diese Schritt-für-Schritt-Anleitung zur Fehlerbehebung befolgen, werden Sie entweder herausfinden, was Sie falsch gemacht haben, so dass Sie Ihr Problem beheben und weitermachen können, oder Sie werden alle relevanten Informationen sammeln, die das Team benötigt, um das Problem zu untersuchen.",
+                    "updated": 1678640432237
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "TR",
                     "text": "Önemli: Bu sorun giderme kılavuzunu adım adım takip etmek, bir sorunu bildirmek veya Destek Grubundan ( Support Group ) yardım istemek için bir gerekliliktir. Kendi başınıza veya uygun bilgiler olmadan çözebileceğiniz sorunları araştırma lüksümüz yoktur. Bunu yapmak, projeyi değerli kaynaklardan yoksun bırakacaktır.",
                     "updated": 1647852280409
+                },
+                {
+                    "language": "DE",
+                    "text": "Die gründliche Befolgung dieser Anleitung zur Fehlerbehebung - Schritt für Schritt - ist Voraussetzung dafür, dass Sie ein Problem melden oder in der Support-Gruppe (Support Group) um Hilfe bitten können. Wir können es uns nicht leisten, Probleme zu untersuchen, die Sie selbst oder ohne die entsprechenden Informationen lösen könnten. Dadurch würden dem Projekt wertvolle Ressourcen entzogen.",
+                    "updated": 1678640460067
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "İpucu: Sorun gidermeye başlamadan önce, mevcut tüm öğreticileri yapmalısınız. Bu, alabileceğiniz en iyi tavsiyedir, çünkü öğreticiler size tüm temel işlemleri öğretecek ve sistemin nasıl çalıştığını anlama eksikliğinden kaynaklanan soruların çoğunu netleştirecektir. Lütfen İlk Adım Eğitimleri kitabına ( First Steps Tutorials ) gidin ve biraz öğrenin! Lütfen tüm dersleri yapmadan önce yardım istemeyin!",
                     "updated": 1647852388881
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie mit der Fehlersuche beginnen, sollten Sie alle verfügbaren Tutorials durcharbeiten. Das ist der beste Ratschlag, den Sie bekommen können, denn in den Tutorials lernen Sie alle grundlegenden Vorgänge und können die meisten Fragen klären, die sich aus einem mangelnden Verständnis der Funktionsweise des Systems ergeben. Bitte schauen Sie sich das Buch Erste Schritte Tutorials (First Steps Tutorials) an und lernen Sie! Bitten Sie nicht um Hilfe, bevor Sie alle Tutorials gemacht haben!",
+                    "updated": 1678640475133
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Buradan başlayın",
                     "updated": 1647852412176
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier beginnen",
+                    "updated": 1678640481978
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "TR",
                     "text": "1. Ne yaptığınızı ve bu özelliğin nasıl çalıştığını anlayın.",
                     "updated": 1647852430336
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Wie es funktioniert",
+                    "updated": 1678640494637
                 }
             ]
         },
@@ -148,6 +188,11 @@
                     "language": "TR",
                     "text": "Hoş Geldiniz eğitimindeyseniz, dikkatlice okuyun ve hiçbir adımı atlamadığınızdan emin olun. Birkaç adım geri gidin ve tekrar deneyin.",
                     "updated": 1647852574442
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie dem Willkommens-Tutorial folgen, lesen Sie es sorgfältig durch und stellen Sie sicher, dass Sie keine Schritte übersprungen haben. Gehen Sie nach Bedarf ein paar Schritte zurück und versuchen Sie es erneut.",
+                    "updated": 1678640505884
                 }
             ]
         },
@@ -165,6 +210,11 @@
                     "language": "TR",
                     "text": "Halihazırda sistemi kullanıyorsanız, biraz zaman ayırarak Dokümanlar'da arama yapın ve üzerinde çalıştığınız konularla ilgili konuları okuyun. Belirli bir konuyu aramak için arama kutusunu kullanın, geriye dönük test, veri madenciliği vb.(backtesting, data mining, etc.)",
                     "updated": 1647852633275
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das System bereits nutzen, nehmen Sie sich etwas Zeit, um die Dokumente zu durchsuchen und die Themen zu lesen, die mit den Themen, mit denen Sie arbeiten, zusammenhängen. Verwenden Sie das Suchfeld, um nach einem bestimmten Thema zu suchen (Backtesting, Data Mining usw.)",
+                    "updated": 1678640525102
                 }
             ]
         },
@@ -182,6 +232,11 @@
                     "language": "TR",
                     "text": "Tasarım Alanında ( Design Space ) belirli bir düğümle ilgili sorun yaşıyorsanız menüyü açın ve yardım düğmesine tıklayın. Dokümanlar, düğümün ne olduğuna ve nasıl çalıştığına ilişkin bir açıklamayla açılır. Düğüm, onun üst düğümü ve onun alt düğümleri hakkında bilgi edinin.",
                     "updated": 1647852730871
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Probleme mit einem bestimmten Knoten im Designbereich (Design Space) haben, öffnen Sie das Menü und klicken Sie auf die Schaltfläche Hilfe. Die Docs werden mit einer Beschreibung des Knotens und seiner Funktionsweise geöffnet. Lesen Sie mehr über den Knoten, seinen übergeordneten Knoten und seine Folgeknoten.",
+                    "updated": 1678640535669
                 }
             ]
         },
@@ -199,6 +254,11 @@
                     "language": "TR",
                     "text": "Çizelgeleri kullanmakta sorun yaşıyorsanız, Hoş Geldiniz eğitimini ( Welcome Tutorial ) ve Zaman Makineleri ve Zaman Çizelgesi Grafikleri ( Time Machines and Timeline Charts ) ve Ölçekler ( Scales ) sayfalarını tekrar ziyaret ettiğinizden emin olun.",
                     "updated": 1647853432621
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Probleme mit der Bedienung der Diagramme haben, sollten Sie das Willkommens-Tutorial und die Seiten über Zeitleisten, Zeitleisten-Diagramme und Skalen (Time Machines and Timeline Charts, and Scales) noch einmal lesen. ",
+                    "updated": 1678640549997
                 }
             ]
         },
@@ -216,6 +276,11 @@
                     "language": "TR",
                     "text": "Ne aramanız gerektiğinden emin değilseniz, Kullanım Kılavuzu ( User Manual ) kitabına gidin ve orada ele alınan konuları tarayın. Superalgos'u öğrenmek konusunda ciddiyseniz, Kullanım Kılavuzunun ( User Manual ) tamamını okumak sizi besin zincirinin en üstüne yerleştirecektir.",
                     "updated": 1647852877661
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie nicht sicher sind, wonach Sie suchen sollen, gehen Sie zum Benutzerhandbuch (User Manual) und lesen Sie die dort behandelten Themen. Wenn Sie Superalgos erlernen wollen, werden Sie sich durch das Lesen des gesamten Benutzerhandbuchs (User Manual) viel Wissen aneignen.",
+                    "updated": 1678640560927
                 }
             ]
         },
@@ -233,6 +298,11 @@
                     "language": "TR",
                     "text": "İpucu: Bilginin yerini hiçbir şey tutamaz. Ne kadar çok anlarsanız, anlama eksikliği ile ilgili sorunlarla o kadar az zaman ve çaba harcarsınız ve yardım isterken sorularınız o kadar odaklanmış olur. Araştırmanızı yapmadan önce kısa yoldan gidip topluluğa sormaya meyilli olabilirsiniz. Bu, ara sıra size biraz zaman kazandırabilir ve küçük bir rehberliğe ihtiyaç duyduğunuz veya hızlı bir şüpheyi ortadan kaldırmanız gereken durumlarda uygun olabilir. Bununla birlikte, anlama eksikliği ile ilgili sorun, kök neden ile ilgilenene kadar kalıcı bir durum olmasıdır. Kök neden ile başa çıkmanın yolu, tüm İlk Adım Eğitimlerini yapmak ( First Steps Tutorials ) ve Kullanım Kılavuzunu ( User Manual ) okumak için zaman ayırmaktır. Aksi takdirde, kendinizi tekrar tekrar aynı kısıtlamalarla uğraşırken bulacaksınız. Ekibin zamanını göz önünde bulundurarak bilgi edinmek, topluluğun değerli bir üyesi olma yolundaki ilk adımdır.",
                     "updated": 1647853562529
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt keinen Ersatz für das Wissen. Je mehr Sie verstehen, desto weniger Zeit und Mühe werden Sie mit Problemen verschwenden, die auf mangelndes Verständnis zurückzuführen sind, und desto gezielter werden Ihre Fragen sein, wenn Sie um Hilfe bitten. Vielleicht neigen Sie dazu, eine Abkürzung zu nehmen und die Community zu fragen, bevor Sie Nachforschungen anstellen. Dies kann Ihnen gelegentlich etwas Zeit sparen und in Fällen, in denen Sie eine kleine Hilfestellung benötigen oder einen schnellen Zweifel ausräumen müssen, durchaus angebracht sein. Das Problem mit dem mangelnden Verständnis ist jedoch, dass es ein dauerhafter Zustand ist, bis man die Ursache beseitigt hat. Um die Ursache zu beseitigen, müssen Sie sich die Zeit nehmen, alle Lernprogramme der ersten Schritte (First Steps Tutorials) zu absolvieren und das Benutzerhandbuch (User Manual) zu lesen. Andernfalls werden Sie immer wieder mit den gleichen Problemen konfrontiert. Sich Wissen anzueignen und gleichzeitig auf die Zeit des Teams Rücksicht zu nehmen, ist der erste Schritt, um ein wertvolles Mitglied der Gemeinschaft zu werden.",
+                    "updated": 1678640576089
                 }
             ]
         },
@@ -250,6 +320,11 @@
                     "language": "TR",
                     "text": "2. Sorun Giderme başlığını tarayın",
                     "updated": 1647853621936
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Lesen Sie das Thema Fehlerbehebung",
+                    "updated": 1678640585761
                 }
             ]
         },
@@ -266,6 +341,11 @@
                     "language": "RU",
                     "text": "Возможно, кто-то уже сталкивался с подобной проблемой, с которой вы столкнулись сейчас. Мы делаем все возможное, чтобы собрать общие проблемы на специальных страницах по устранению неполадок, поэтому обязательно загляните туда, прежде чем двигаться дальше. Эта страница - первая в теме \"Устранение неполадок\". Остальные страницы находятся в TOC внизу этой страницы.",
                     "updated": 1640439585683
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist gut möglich, dass jemand anderes ein ähnliches Problem hatte, wie Sie es jetzt vielleicht haben. Wir tun unser Bestes, um häufige Probleme auf speziellen Seiten zur Fehlerbehebung zusammenzustellen, also schauen Sie dort nach, bevor Sie fortfahren. Diese Seite ist die erste zum Thema Fehlerbehebung. Die übrigen Seiten finden Sie im Inhaltsverzeichnis am Ende dieser Seite.",
+                    "updated": 1678640596123
                 }
             ]
         },
@@ -282,6 +362,11 @@
                     "language": "TR",
                     "text": "3. İşlemciniz %100'de mi?",
                     "updated": 1647853778811
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Steht Ihr Prozessor auf 100%?",
+                    "updated": 1678640604330
                 }
             ]
         },
@@ -299,6 +384,11 @@
                     "language": "TR",
                     "text": "İşletim sisteminizin görev yöneticisi uygulamasını açın ve yaşadığınız sorunu yeniden oluştururken CPU yükünü doğrulayın. CPU'nuz 30 ila 60 saniyeden fazla %100'de çalışıyorsa, donanımınız yapmaya çalıştığınız şeyle baş edemeyebileceğinden her türlü sorun ortaya çıkabilir.",
                     "updated": 1647853832475
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie die Task-Manager-Anwendung Ihres Betriebssystems und überprüfen Sie die CPU-Auslastung, während Sie das Problem reproduzieren, das bei Ihnen auftritt. Wenn Ihre CPU länger als 30 bis 60 Sekunden zu 100 % ausgelastet ist, können alle möglichen Probleme auftreten, da Ihre Hardware möglicherweise nicht in der Lage ist, das zu bewältigen, was Sie zu tun versuchen.",
+                    "updated": 1678640613044
                 }
             ]
         },
@@ -316,6 +406,11 @@
                     "language": "TR",
                     "text": "Bu durumda, CPU zamanı gerektirebilecek diğer uygulamaları kapatmayı deneyin ve işlemci üzerindeki talepleri azaltmak için Algılama Sorunları - Sistemim Yavaşlıyor ( Perception Issues - My System Gets Slow  ) sayfasında önerilen yönergeleri izleyin.",
                     "updated": 1647853911321
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn dies der Fall ist, versuchen Sie, andere Anwendungen zu schließen, die möglicherweise CPU-Zeit beanspruchen, und befolgen Sie die auf der Seite Störungen der Leistung - Mein System wird langsam (Perception Issues - My System Gets Slow), um die Anforderungen an den Prozessor zu senken.",
+                    "updated": 1678640621881
                 }
             ]
         },
@@ -332,6 +427,11 @@
                     "language": "TR",
                     "text": "CPU'nuz %100'den daha düşük bir hızda çalışırken sorunu yeniden oluşturamazsanız, sorunun nedeni bu olabilir.",
                     "updated": 1647853944290
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das Problem nicht finden können, während Ihre CPU mit weniger als 100 % arbeitet, kann dies die Ursache des Problems sein.",
+                    "updated": 1678640636904
                 }
             ]
         },
@@ -348,6 +448,11 @@
                     "language": "TR",
                     "text": "4. Yazılımın en son sürümü kullanıldığında sorun devam ediyor mu?",
                     "updated": 1647853980176
+                },
+                {
+                    "language": "DE",
+                    "text": "4. Besteht das Problem auch bei Verwendung der neuesten Version der Software?",
+                    "updated": 1678640658122
                 }
             ]
         },
@@ -364,6 +469,11 @@
                     "language": "TR",
                     "text": "Sizi etkileyen hatalar zaten çözülmüş olabileceğinden, yazılımın en son sürümünü çalıştırmak neredeyse zorunludur. Superalgos deposunun ana dalında en son kararlı yazılım sürümünü veya geliştirme dalında en son yazılımı çalıştırdığınızdan emin olun.",
                     "updated": 1647854007066
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwendung der neuesten Version der Software ist praktisch obligatorisch, da Fehler, die Sie betreffen, möglicherweise bereits behoben wurden. Stellen Sie sicher, dass Sie die neueste stabile Softwareversion im Master-Zweig des Superalgos-Repositorys oder die neueste Software im Entwicklungszweig verwenden.",
+                    "updated": 1678640665653
                 }
             ]
         },
@@ -381,12 +491,17 @@
                     "language": "TR",
                     "text": "Not: Emin olmak için, en son sürümü hemen şimdi yükleyin. Uygulama Güncelleme Komutunu ( App Update Command ) çalıştırabilirsiniz.",
                     "updated": 1647854096698
+                },
+                {
+                    "language": "DE",
+                    "text": "Um sicher zu gehen, dass die aktuelle Version installiert ist, führen Sie im Fenster \"Docs\" den Befehl \"app.update\" (App Update Command) durch.",
+                    "updated": 1678640675834
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "5. Does the issue persist when using one of the plugin workspaces?",
+            "text": "5. Does the issue persist when using one of the Native Workspaces?",
             "updated": 1612875632190,
             "translations": [
                 {
@@ -398,12 +513,17 @@
                     "language": "TR",
                     "text": "5. Eklenti çalışma alanlarından biri kullanıldığında sorun devammı ediyor?",
                     "updated": 1647854147663
+                },
+                {
+                    "language": "DE",
+                    "text": "5. Besteht das Problem auch bei Verwendung eines der Plugin-Arbeitsbereiche?",
+                    "updated": 1678640684884
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "If the issue may not be reproduced using one of the plugin workspaces, that likely means that modifications you may have introduced may be playing a role in the issue. In and of itself, this is a crucial piece of information that helps start the process of isolating the issue.",
+            "text": "If the issue may not be reproduced using one of the Native Workspaces, that likely means that modifications you may have introduced may be playing a role in the issue. In and of itself, this is a crucial piece of information that helps start the process of isolating the issue.",
             "updated": 1612875627341,
             "translations": [
                 {
@@ -415,6 +535,11 @@
                     "language": "TR",
                     "text": "Sorun, eklenti çalışma alanlarından biri kullanılarak yeniden oluşturulamıyorsa, bu, yapmış olabileceğiniz değişikliklerin sorunda rol oynuyor olabileceği anlamına gelir. Kendi içinde, bu, sorunu izole etme sürecini başlatmaya yardımcı olan önemli bir bilgi parçasıdır.",
                     "updated": 1647854227903
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Problem mit einem der Plugin-Arbeitsbereiche nicht reproduziert werden kann, bedeutet dies wahrscheinlich, dass von Ihnen vorgenommene Änderungen eine Rolle bei dem Problem spielen. Dies ist an sich schon eine wichtige Information, die hilft, das Problem einzugrenzen.",
+                    "updated": 1678640693210
                 }
             ]
         },
@@ -431,12 +556,17 @@
                     "language": "TR",
                     "text": "Sorun yalnızca değiştirilmiş bir çalışma alanında ortaya çıkıyorsa, tanıttığınız değişiklikleri gözden geçirmek için biraz zaman ayırın.",
                     "updated": 1647854249106
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Problem nur in einem geänderten Arbeitsbereich auftritt, nehmen Sie sich etwas Zeit, um die von Ihnen vorgenommenen Änderungen zu überprüfen.",
+                    "updated": 1678640703381
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Start over and reproduce the modifications on the plugin workspace, one at a time, and make a quick test after each mod is applied. This process done right should lead you to the exact node, structure of nodes, configuration, parameter, or—in general—the modification that may be involved in the cause of the issue.",
+            "text": "Start over and reproduce the modifications on the Native Workspace, one at a time, and make a quick test after each mod is applied. This process done right should lead you to the exact node, structure of nodes, configuration, parameter, or—in general—the modification that may be involved in the cause of the issue.",
             "updated": 1612875667631,
             "translations": [
                 {
@@ -448,6 +578,11 @@
                     "language": "TR",
                     "text": "Eklenti çalışma alanındaki değişiklikleri birer birer yeniden başlatın ve yeniden oluşturun ve her mod uygulandıktan sonra hızlı bir test yapın. Doğru yapılan bu işlem sizi tam düğüme, düğümlerin yapısına, konfigürasyona, parametreye veya genel olarak sorunun nedenine dahil olabilecek değişikliğe yönlendirmelidir.",
                     "updated": 1647854291723
+                },
+                {
+                    "language": "DE",
+                    "text": "Beginnen Sie von vorne und reproduzieren Sie die Änderungen im Plugin-Arbeitsbereich, eine nach der anderen, und führen Sie nach jeder Änderung einen kurzen Test durch. Wenn Sie diesen Prozess richtig durchführen, sollten Sie den genauen Knoten, die Struktur der Knoten, die Konfiguration, den Parameter oder - ganz allgemein - die Änderung finden, die die Ursache für das Problem sein könnte.",
+                    "updated": 1678640712801
                 }
             ]
         },
@@ -465,6 +600,11 @@
                     "language": "TR",
                     "text": "Not: Bu, resmi çalışma alanını değiştirirken mutlaka bir hata yaptığınız anlamına gelmez. Sadece sorunun nerede olabileceğini tam olarak belirler ve daha ileri gitmeden önce yürütmeniz gereken soruşturmanın çok önemli bir parçasıdır.",
                     "updated": 1647854326601
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies bedeutet nicht unbedingt, dass Sie bei der Änderung des offiziellen Arbeitsbereichs einen Fehler gemacht haben. Es zeigt lediglich, wo das Problem liegen könnte, und ist ein wichtiger Teil der Untersuchung, die Sie durchführen sollten, bevor Sie weitermachen.",
+                    "updated": 1678640749324
                 }
             ]
         },
@@ -481,6 +621,11 @@
                     "language": "TR",
                     "text": "6. Bağlamı basitleştirin ve sorunu izole edin",
                     "updated": 1647854369350
+                },
+                {
+                    "language": "DE",
+                    "text": "6. Vereinfachen Sie den Kontext und isolieren Sie das Problem",
+                    "updated": 1678640783633
                 }
             ]
         },
@@ -497,6 +642,11 @@
                     "language": "TR",
                     "text": "Aynı anda birkaç şey yaptığınızda ve bir şeyler ters gittiğinde, soruna neyin neden olabileceğini belirlemek bazen zor olabilir. Atılacak bir sonraki mantıklı adım, sorunu daha da izole etmektir. Bunu, konunun özüne odaklanabilmeniz için bağlamdan parçaları çıkararak yaparsınız.",
                     "updated": 1647854399604
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mehrere Dinge gleichzeitig tun und etwas schief geht, ist es manchmal schwer zu erkennen, was die Ursache des Problems ist. Der nächste logische Schritt besteht dann darin, das Problem weiter zu isolieren. Dazu werden Teile aus dem Zusammenhang gerissen, so dass man sich auf den Kern des Problems konzentrieren kann.",
+                    "updated": 1678640791451
                 }
             ]
         },
@@ -513,6 +663,11 @@
                     "language": "TR",
                     "text": "Örnek:",
                     "updated": 1647854413983
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1678640797421
                 }
             ]
         },
@@ -529,6 +684,11 @@
                     "language": "TR",
                     "text": "Bir stratejiyi geriye dönük test ederken bir sorun yaşıyorsanız, veri madenciliği operasyonunuzun çalışıyor olması gerekmez. Böyle bir durumda, veri madenciliği işlemini ve yaptığınız diğer her şeyi durdurun ve yalnızca geriye dönük testi çalıştırın.",
                     "updated": 1647854443299
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie beim Backtesting einer Strategie ein Problem haben, brauchen Sie Ihre Data-Mining-Operation nicht laufen zu lassen. Beenden Sie in einem solchen Fall die Data-Mining-Operation und alle anderen Aktivitäten und führen Sie nur den Backtest durch.",
+                    "updated": 1678640810429
                 }
             ]
         },
@@ -545,6 +705,11 @@
                     "language": "TR",
                     "text": "Ana göstergelerden birini çalıştırırken sorun yaşıyorsanız, tüm göstergelerin aynı anda çalışıyor olması gerekmez. Söz konusu gösterge bağımlılıklarının çalıştığından emin olun ve geri kalan göstergeleri durdurun.",
                     "updated": 1647854471218
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Probleme bei der Ausführung eines der Master-Indikatoren haben, müssen nicht alle Indikatoren gleichzeitig ausgeführt werden. Vergewissern Sie sich, dass die genannten Indikatorabhängigkeiten ausgeführt werden, und stoppen Sie die übrigen Indikatoren.",
+                    "updated": 1678640844472
                 }
             ]
         },
@@ -561,6 +726,11 @@
                     "language": "TR",
                     "text": "Bir grafikle ilgili bir sorununuz varsa ve aynı anda ekranda üç grafiğiniz daha varsa, grafiği yakınlaştırmayı deneyin ve sorunla karşılaşmaya devam edip etmediğinizi görün. Veya tüm katmanları kapatın ve yalnızca zorluk yaşayabileceğiniz katmanı bırakın.",
                     "updated": 1647854506142
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie ein Problem mit einem Diagramm haben und gleichzeitig drei andere Diagramme auf dem Bildschirm angezeigt werden, zoomen Sie das Diagramm heran und sehen Sie, ob das Problem weiterhin besteht. Oder schalten Sie alle Ebenen aus und lassen Sie nur die Ebene, mit der Sie Probleme haben, eingeschaltet.",
+                    "updated": 1678640858776
                 }
             ]
         },
@@ -577,6 +747,11 @@
                     "language": "TR",
                     "text": "Birden fazla canlı ticaret seansı yürütüyorsanız ve bunlardan birinde sorun yaşıyorsanız, kalan seansları durdurun ve sorunu ilkinde yeniden oluşturmaya çalışın.",
                     "updated": 1647854574212
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mehrere Live-Handelssitzungen durchführen und bei einer von ihnen ein Problem auftritt, beenden Sie die übrigen Sitzungen und versuchen Sie, das Problem mit der ersten Sitzung zu reproduzieren.",
+                    "updated": 1678640869979
                 }
             ]
         },
@@ -594,6 +769,11 @@
                     "language": "TR",
                     "text": "Not: Dikkate alınması gereken nokta, soruşturmanın kapsamı ne kadar dar olursa, sorunun nedenini bulmanın o kadar kolay olduğudur.",
                     "updated": 1647854621052
+                },
+                {
+                    "language": "DE",
+                    "text": "Je enger der Untersuchungsrahmen gefasst ist, desto einfacher ist es, die Ursache des Problems zu finden.",
+                    "updated": 1678640882563
                 }
             ]
         },
@@ -610,6 +790,11 @@
                     "language": "TR",
                     "text": "7. Bu bir veri sorunu olabilir mi?",
                     "updated": 1647854674514
+                },
+                {
+                    "language": "DE",
+                    "text": "7. Kann dies ein Problem mit den Daten sein?",
+                    "updated": 1678640890555
                 }
             ]
         },
@@ -627,6 +812,11 @@
                     "language": "TR",
                     "text": "Makineniz beklenmedik bir şekilde kapandıysa veya veri madenciliği görevlerinizi durdurmadan konsol uygulamasında çalışan arka uç sunucularını kapattıysanız, verilerinizin bir kısmı bozulmuş olabilir. Bunun sorununuzla ilgili olabileceğinden şüpheleniyorsanız, Sorunların İncelenmesi - Verilerinizin Bütünlüğünü Kontrol Edin ( Investigating Issues - Check the Integrity of Your Data ) bölümünü okumalısınız.",
                     "updated": 1647854729747
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihr Rechner unerwartet heruntergefahren wurde oder Sie die in der Konsolenanwendung laufenden Backend-Server geschlossen haben, ohne zuvor Ihre Data-Mining-Aufgaben zu beenden, sind möglicherweise einige Ihrer Daten beschädigt worden. Wenn Sie vermuten, dass dies etwas mit Ihrem Problem zu tun haben könnte, sollten Sie im Abschnitt Probleme danach suchen - Überprüfen Sie die Integrität Ihrer Daten (Investigating Issues - Check the Integrity of Your Data).",
+                    "updated": 1678640899113
                 }
             ]
         },
@@ -644,6 +834,11 @@
                     "language": "TR",
                     "text": "8. Grafiksel Kullanıcı Arayüzü ( GUI ) ile ilgili bir sorun olabilir mi?",
                     "updated": 1647854836938
+                },
+                {
+                    "language": "DE",
+                    "text": "8. Kann dies ein Problem mit der grafischen Benutzeroberfläche sein?",
+                    "updated": 1678640910047
                 }
             ]
         },
@@ -661,6 +856,11 @@
                     "language": "TR",
                     "text": "Sorununuz GUI'de ortaya çıkıyorsa, ekranda bir hata veya tarayıcı konsolu uygulamanızda bir hata alıyor olmalısınız.",
                     "updated": 1647854857784
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihr Problem innerhalb der grafischen Benutzeroberfläche auftritt, sollten Sie entweder eine Fehlermeldung auf dem Bildschirm oder eine Fehlermeldung in der Browser-Konsole erhalten.",
+                    "updated": 1678641335659
                 }
             ]
         },
@@ -677,6 +877,11 @@
                     "language": "TR",
                     "text": "Ekrandaki veya tarayıcı konsolunda kaydedilen hata, neler olabileceğine dair bir ipucu verebilir. Teknik bir kişiyseniz, bu sorununuzu kendi başınıza çözmenize yardımcı olabilir.",
                     "updated": 1647854877326
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Fehlermeldung auf dem Bildschirm oder in der Browser-Konsole kann Ihnen einen Hinweis auf das Problem geben. Wenn Sie technisch versiert sind, kann dies helfen, Ihr Problem selbst zu lösen.",
+                    "updated": 1678641341085
                 }
             ]
         },
@@ -694,6 +899,11 @@
                     "language": "TR",
                     "text": "Not: Daha sonra rapor edebilmek için bu hataları gösteren ekranı aldığınızdan emin olun.",
                     "updated": 1647854891374
+                },
+                {
+                    "language": "DE",
+                    "text": "Zeichnen Sie unbedingt den Bildschirm auf, auf dem diese Fehler angezeigt werden, damit Sie sie später melden können.",
+                    "updated": 1678641354664
                 }
             ]
         },
@@ -711,6 +921,11 @@
                     "language": "TR",
                     "text": "Önemli: Yalnızca Mac'te Chrome ve Safari'nin desteklenen tarayıcılar olduğunu unutmayın. Başka bir tarayıcı kullanıyorsanız ve GUI sorunlarınız varsa, bunları yeniden oluşturamayabiliriz. Chrome veya Safari kullanmıyorsanız GUI ile ilgili bir sorunu rapor etmeyin.",
                     "updated": 1647854942564
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass Chrome und Safari auf dem Mac die einzigen unterstützten Browser sind. Wenn Sie einen anderen Browser verwenden und Probleme mit der Benutzeroberfläche haben, können wir diese möglicherweise nicht reproduzieren. Melden Sie keine Probleme mit der grafischen Benutzeroberfläche, wenn Sie nicht Chrome oder Safari verwenden.",
+                    "updated": 1678641376932
                 }
             ]
         },
@@ -728,6 +943,11 @@
                     "language": "TR",
                     "text": "9. Bu, İstemci ( Client ) uygulamasıyla ilgili bir sorun olabilir mi?",
                     "updated": 1647854986851
+                },
+                {
+                    "language": "DE",
+                    "text": "9. Kann dies ein Problem mit der Client-Anwendung sein?",
+                    "updated": 1678641389629
                 }
             ]
         },
@@ -745,6 +965,11 @@
                     "language": "TR",
                     "text": "İstemci ( Client ) uygulamasıyla ilgili sorunlar varsa, hataların arka ucu çalıştırdığınız konsolda günlüğe kaydedilmesi gerekir. Aynı hatalar, Günlük Dosyaları klasörüne ve konuyla ilgili işlemlere karşılık gelen belirli alt klasörlere kaydedilir.",
                     "updated": 1647855040692
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es Probleme mit der Client -Anwendung gibt, müssen die Fehler auf der Konsole protokolliert werden, auf der Sie das Backend ausführen. Die gleichen Fehler werden im Ordner \"Log-Files\" und in den spezifischen Unterordnern, die den betroffenen Prozessen entsprechen, protokolliert.",
+                    "updated": 1678641408927
                 }
             ]
         },
@@ -762,6 +987,11 @@
                     "language": "TR",
                     "text": "Not: Materyalle ilgili belirli işlemler için günlükleri kontrol ettiğinizden emin olun ve daha sonra rapor edebilmek için ilgili günlük dosyalarını bu hatalarla birlikte kaydedin.",
                     "updated": 1647855067263
+                },
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie unbedingt die Protokolle für die spezifischen Prozesse, die an der Datenübertragung beteiligt sind, und speichern Sie die entsprechenden Protokolldateien mit diesen Fehlern, damit Sie sie später melden können.",
+                    "updated": 1678641419086
                 }
             ]
         },
@@ -779,6 +1009,11 @@
                     "language": "TR",
                     "text": "İpucu: Bir geliştiriciyseniz, sorunun temel nedenini bulmak için bir görevde kolaylıkla hata ayıklayabileceğinizi unutmayın. Bir Görevde Hata Ayıklama'yı ( Debugging a Task ) okuyun.",
                     "updated": 1647855123616
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie ein Entwickler sind, denken Sie daran, dass Sie eine Aufgabe leicht überprüfen können, um die Grundursache des Problems zu finden. Lesen Sie Debugging einer Aufgabe (Debugging a Task).",
+                    "updated": 1678641442629
                 }
             ]
         },
@@ -795,6 +1030,11 @@
                     "language": "TR",
                     "text": "10. Bu sizin özel kurulumunuzla ilgili bir sorun olabilir mi?",
                     "updated": 1647855177278
+                },
+                {
+                    "language": "DE",
+                    "text": "10. Könnte es sich um ein Problem handeln, das mit Ihrer speziellen Arbeitsweise zusammenhängt?",
+                    "updated": 1678641473150
                 }
             ]
         },
@@ -811,6 +1051,11 @@
                     "language": "TR",
                     "text": "Superalgos'u karmaşık veya çok özel kurulumlarda dağıtmak ve çalıştırmak, kurulumun kendisiyle ilgili, Ekibin yeniden oluşturması çok zor veya hatta imkansız olabilecek sorunların olasılığını artırır. Ekip, yerel makinenizde Superalgos çalıştırırken veya belgelerde açıklandığı gibi klasik bir ticaret çiftliği kurulumunda çalışırken meydana gelen sorunları araştıracaktır. Yazılımın kendisiyle ilgili olmayan sorunları araştıramayız.",
                     "updated": 1647855222411
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Einsatz und Betrieb von Superalgos in komplexen oder sehr speziellen Setups erhöht die Wahrscheinlichkeit von Problemen, die mit dem Setup selbst zusammenhängen und die für das Team sehr schwer oder sogar unmöglich zu reproduzieren sind. Das Team wird Probleme untersuchen, die beim Betrieb von Superalgos auf Ihrem lokalen Rechner oder in einer klassischen Handelsfarm auftreten, wie in der Dokumentation beschrieben. Wir können keine Probleme untersuchen, die nicht mit der Software selbst zusammenhängen.",
+                    "updated": 1678641493108
                 }
             ]
         },
@@ -827,6 +1072,11 @@
                     "language": "TR",
                     "text": "Belirli bir kurulumla ilgili sorunlarınız varsa, topluluktaki diğer kullanıcılardan yardım istemekten çekinmeyin, ancak Ekibin incelemesi için bir sorun açmayın.",
                     "updated": 1647855252086
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Probleme mit einer bestimmten Einrichtung haben, können Sie andere Benutzer in der Community um Hilfe bitten, aber öffnen Sie kein Problem, das das Team untersuchen kann.",
+                    "updated": 1678641518917
                 }
             ]
         },
@@ -843,6 +1093,11 @@
                     "language": "TR",
                     "text": "Sorununuz Çözülmedi mi?",
                     "updated": 1647855273950
+                },
+                {
+                    "language": "DE",
+                    "text": "Wurde Ihr Problem noch nicht gelöst?",
+                    "updated": 1678641525066
                 }
             ]
         },
@@ -859,6 +1114,11 @@
                     "language": "TR",
                     "text": "Bu kılavuzu takip etmek sorununuzu çözmediyse endişelenmeyin… çabalarınız boşa gitmeyecek!",
                     "updated": 1647855287565
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn diese Anleitung Ihr Problem nicht gelöst hat, machen Sie sich keine Sorgen... Ihre Bemühungen werden nicht umsonst gewesen sein!",
+                    "updated": 1678641533935
                 }
             ]
         },
@@ -876,6 +1136,11 @@
                     "language": "TR",
                     "text": "Sorununuzu araştırmak, sistemin nasıl çalıştığı hakkında size çok şey öğretmiş olmalı ve Ekibin bunu araştırabilmesi için bir sorunu bildirmeniz şarttır. O yüzden lütfen devam edin ve bunu yapın. Bir Sorun Nasıl Bildirilir ( How to Report an Issue ) konusundaki talimatları uyguladığınızdan ve bu kılavuzu takip ederken topladığınız tüm değerli bilgileri sağladığınızdan emin olun.",
                     "updated": 1647855398429
+                },
+                {
+                    "language": "DE",
+                    "text": "Durch die Untersuchung Ihres Problems haben Sie sicher viel über die Funktionsweise des Systems gelernt, und das ist eine Voraussetzung für die Meldung eines Problems, damit das Team es untersuchen kann. Machen Sie also bitte weiter und tun Sie genau das. Befolgen Sie die Anweisungen zum Melden eines Problems    (How to Report an Issue) und geben Sie alle wertvollen Informationen an, die Sie während der Lektüre dieser Anleitung gesammelt haben.",
+                    "updated": 1678641560925
                 }
             ]
         },

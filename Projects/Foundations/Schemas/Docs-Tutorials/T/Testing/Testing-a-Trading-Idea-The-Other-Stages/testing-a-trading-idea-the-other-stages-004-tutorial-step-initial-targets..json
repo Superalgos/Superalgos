@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Я только что привел вас к узлу Initial Targets на стадии открытия. Прежде чем мы начнем, давайте сделаем небольшое замечание для ясности!",
                 "updated": 1642776498677
+            },
+            {
+                "language": "ES",
+                "text": "Acabo de llevarte al nodo Initial Targets de la fase abierta. ¡Antes de empezar, vamos a hacer una nota rápida a favor de la claridad!",
+                "updated": 1680697713154
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Вы находитесь не в той торговой системе, которую установили в предыдущем уроке! Это новая!",
                     "updated": 1642776511079
+                },
+                {
+                    "language": "ES",
+                    "text": "¡No estás en el sistema de trading que configuraste durante el tutorial anterior! ¡Es uno nuevo!",
+                    "updated": 1680697740851
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Я создал новую торговую систему и назвал ее BB Breakdown 2, чтобы лучше контролировать ваш опыт во время этого урока. Обратите внимание, что я воссоздал этапы, которые вы удалили в предыдущих уроках. Все, что мне нужно было сделать, это выбрать пункт Add Missing Stages в меню торговой стратегии!",
                     "updated": 1642776575564
+                },
+                {
+                    "language": "ES",
+                    "text": "He creado un nuevo sistema de negociación y lo he llamado BB Breakdown 2 para tener un mejor control de tu experiencia durante este tutorial. Observe que he recreado las etapas que había eliminado en los tutoriales anteriores. ¡Todo lo que tuve que hacer fue seleccionar Add Missing Stages en el menú de la estrategia de trading!",
+                    "updated": 1680703546938
                 }
             ]
         }

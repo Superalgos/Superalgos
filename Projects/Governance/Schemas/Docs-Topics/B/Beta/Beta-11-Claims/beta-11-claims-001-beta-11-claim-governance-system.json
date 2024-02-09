@@ -16,6 +16,11 @@
                 "language": "TR",
                 "text": "Superalgos Projesi'nin (Superalgos Project) yönetimi, Superalgos Topluluğunun katılmaya istekli tüm üyeleri arasında dağıtılır. Yönetim Sistemi, Superalgos Platformunda yerleşiktir, bu nedenle katılım oldukça basittir.",
                 "updated": 1645185517546
+            },
+            {
+                "language": "DE",
+                "text": "Die Leitung des Superalgos Project ist auf alle Mitglieder der Superalgos-Gemeinschaft (Superalgos Community) verteilt, die sich daran beteiligen wollen. Das Governance-System ist in die Superalgos-Plattform integriert, so dass die Teilnahme recht einfach ist.",
+                "updated": 1691358963063
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "TR",
                     "text": "Genel Bakış",
                     "updated": 1645185532905
+                },
+                {
+                    "language": "DE",
+                    "text": "Übersicht",
+                    "updated": 1691358972387
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "TR",
                     "text": "Katılmak",
                     "updated": 1645185549736
+                },
+                {
+                    "language": "DE",
+                    "text": "Teilnehmen",
+                    "updated": 1691358977773
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "TR",
                     "text": "Yönetime katılmak için topluluk üyeleri, Token Güçleriyle orantılı etki uygulayarak Superalgos SA Token varlıklarını kullanır. Yönetime katılan tüm token sahiplerinin birleşik etkisi, token'ın her sürümde nasıl dağıtılacağını belirler.",
                     "updated": 1645185596479
+                },
+                {
+                    "language": "DE",
+                    "text": "Um an der Governance teilzunehmen, nutzen die Community-Mitglieder ihren Besitz an Superalgos SA Token und üben ihren Einfluss proportional zu ihrer Token Power aus. Der kombinierte Einfluss aller Token-Inhaber, die an der Governance teilnehmen, bestimmt, wie der Token bei jeder Veröffentlichung verteilt wird.",
+                    "updated": 1691359009705
                 }
             ]
         },
@@ -74,6 +94,11 @@
                     "language": "TR",
                     "text": "Başlamak için jetonunuz olmasa bile, Topluluk, başlayabilmeniz için Token Gücünü profilinize devredecektir!",
                     "updated": 1645185618370
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch wenn Sie zu Beginn keine Token haben, wird die Gemeinschaft (Community) Ihrem Profil Token Power zuweisen, damit Sie loslegen können!",
+                    "updated": 1691359039126
                 }
             ]
         },
@@ -86,6 +111,11 @@
                     "language": "TR",
                     "text": "Etkilemek",
                     "updated": 1645185661617
+                },
+                {
+                    "language": "DE",
+                    "text": "Einflussnahme",
+                    "updated": 1691359045225
                 }
             ]
         },
@@ -103,6 +133,11 @@
                     "language": "TR",
                     "text": "Genel olarak hangi Pozisyonlar (Positions), Özellikler (Features), Varlıklar (Assets) veya proje geliştirme faaliyetleri teşvik edilir ve nasıl teşvik edilir.",
                     "updated": 1645185707953
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Positionen, Funktionen, Vermögenswerte (Positions, Features, Assets) oder Projektentwicklungsaktivitäten im Allgemeinen gefördert werden und wie. Welche Mitwirkenden für welche Beiträge entschädigt werden.",
+                    "updated": 1691359082628
                 }
             ]
         },
@@ -120,6 +155,11 @@
                     "language": "TR",
                     "text": "Katkıda Bulunanlardan hangileri, hangi Katkıları için ödüllendirilir...",
                     "updated": 1645185749945
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Mitwirkenden für welche Beiträge entschädigt werden.",
+                    "updated": 1691359126161
                 }
             ]
         },
@@ -137,6 +177,11 @@
                     "language": "TR",
                     "text": "Hangi Programlar finanse edilir ve nasıl finanse edilir?",
                     "updated": 1645185785665
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Programme werden finanziert und wie.",
+                    "updated": 1691359135681
                 }
             ]
         },
@@ -154,6 +199,11 @@
                     "language": "TR",
                     "text": "Yönetişim (Governance), Topluluğun etkiyi dinamik olarak istediği şekilde yönlendirmesine izin veren esnek bir sistem olarak tasarlanmıştır.",
                     "updated": 1645185888811
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Governance ist als flexibles System konzipiert, das es der Gemeinschaft (Community) ermöglicht, ihren Einfluss dynamisch in beliebige Richtungen zu lenken.",
+                    "updated": 1691359217388
                 }
             ]
         },
@@ -166,6 +216,11 @@
                     "language": "TR",
                     "text": "Token Kazanmak",
                     "updated": 1645185906240
+                },
+                {
+                    "language": "DE",
+                    "text": "Token verdienen",
+                    "updated": 1691359225124
                 }
             ]
         },
@@ -183,6 +238,11 @@
                     "language": "TR",
                     "text": "Yönetişim ile ilgilenen bir Topluluk, projenin gelişimi için çok önemlidir, bu nedenle katılım teşvik edilir. Başka bir deyişle, sadece Superalgos'un yönetiminde yer alarak Superalgos SA Jetonları kazanabilirsiniz",
                     "updated": 1645185929745
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Gemeinschaft (Community), die sich an der Governance beteiligt, ist entscheidend für die Entwicklung des Projekts, daher wird die Teilnahme gefördert. Mit anderen Worten, Sie verdienen Superalgos SA Token, indem Sie sich einfach an der Governance von Superalgos beteiligen.",
+                    "updated": 1691359253103
                 }
             ]
         },
@@ -200,6 +260,11 @@
                     "language": "TR",
                     "text": "Sistem, yönetişimin projeyle birlikte gelişmesine izin verir. Ayrıca, Katkıda Bulunanlar yeni gelişim alanları önerebileceği ve projeye eklenecek yeni özelliklerle birlikte genişlemeyi teşvik etmesi için harekete geçirebileceğinden inovasyonu da teşvik eder.",
                     "updated": 1645186097321
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System ermöglicht es, dass sich die Verwaltung mit dem Projekt weiterentwickelt. Es fördert auch die erlaubnisfreie Innovation, da die Mitwirkenden neue Entwicklungsbereiche vorschlagen und die Gemeinschaft (Community) um Anreize für die Expansion in neue Richtungen bitten können.",
+                    "updated": 1691359282999
                 }
             ]
         },
@@ -211,6 +276,11 @@
                     "language": "TR",
                     "text": "Talebe dahil olanlar",
                     "updated": 1645186172346
+                },
+                {
+                    "language": "DE",
+                    "text": "In dieser Forderung enthalten",
+                    "updated": 1691359292592
                 }
             ]
         },
@@ -228,6 +298,11 @@
                     "language": "TR",
                     "text": "Yönetim Sistemi, Superalgos Codebase içinde yeni bir Yazılım Projesi olarak sıfırdan inşa edilmiştir.",
                     "updated": 1645186186771
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Governance System wurde von Anfang an als ein neues Software Projekt innerhalb der Superalgos Codebase entwickelt.",
+                    "updated": 1691359312088
                 }
             ]
         },
@@ -245,6 +320,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki Yönetişim Programları yeni geliştirilmiştir:",
                     "updated": 1645186216094
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Governance Programs wurden zu diesem Zeitpunkt entwickelt:",
+                    "updated": 1691359332326
                 }
             ]
         },
@@ -257,6 +337,11 @@
                     "text": "İşe Alım Programları",
                     "updated": 1654394882838,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Onboarding-Programme",
+                    "updated": 1691359346761
                 }
             ]
         },
@@ -269,6 +354,11 @@
                     "text": "Airdrop Programı",
                     "updated": 1654394888372,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Airdrop Program ",
+                    "updated": 1691359452771
                 }
             ]
         },
@@ -293,6 +383,11 @@
                     "text": "Topluluk Oluşturma Programları",
                     "updated": 1654394901089,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Programme für den Aufbau von Gemeinschaften",
+                    "updated": 1691359466227
                 }
             ]
         },
@@ -305,6 +400,11 @@
                     "text": "Yönlendirme Programı",
                     "updated": 1654394906668,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Referral Program (Empfehlungsprogramm)",
+                    "updated": 1691359477868
                 }
             ]
         },
@@ -317,6 +417,11 @@
                     "text": "Destek Programı",
                     "updated": 1654394912234,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Support Program (Förderprogramm)",
+                    "updated": 1691359486628
                 }
             ]
         },
@@ -329,6 +434,11 @@
                     "text": "Mentorluk Programı",
                     "updated": 1654394917799,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mentorschaftsprogramm",
+                    "updated": 1691359495205
                 }
             ]
         },
@@ -365,6 +475,11 @@
                     "text": "Oy Programı",
                     "updated": 1654394936416,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Abstimmungsprogramm",
+                    "updated": 1691359512477
                 }
             ]
         },
@@ -377,6 +492,11 @@
                     "text": "Tazminat Programı",
                     "updated": 1654394942472,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Claims Program (Forderungsprogramm)",
+                    "updated": 1691359522749
                 }
             ]
         },
@@ -401,6 +521,11 @@
                     "text": "Staking Programı",
                     "updated": 1654394955643,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Staking Program (Absteckprogramm)",
+                    "updated": 1691359537359
                 }
             ]
         },
@@ -424,6 +549,11 @@
                     "language": "TR",
                     "text": "Ve aşağıdaki tanımlar",
                     "updated": 1645186252360
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Konzepte wurden eingeführt",
+                    "updated": 1691359545737
                 }
             ]
         },

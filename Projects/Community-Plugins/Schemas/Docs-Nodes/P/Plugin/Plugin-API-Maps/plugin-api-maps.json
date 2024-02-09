@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Eklenti API Haritaları düğümü, mevcut çalışma alanına eklentiler olarak dahil edilecek öğreticilerin tanımlarını içerir.",
                 "updated": 1651949789834
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Plugin API Maps enthält die Definitionen von Tutorials, die als Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen.",
+                "updated": 1674279204847
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1651949804645
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1674279227257
                 }
             ]
         }

@@ -63,12 +63,12 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
 
     function addToforecastCases(testCase) {
         try {
-            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
-            if (testCase.ratio_validate !== undefined) console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
-            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
+            SA.logger.debug('{ForecastCaseManager} Length forecastCasesArray: ' + thisObject.forecastCasesArray.length)
+            if (testCase.ratio_validate !== undefined) SA.logger.debug('{ForecastCaseManager} testCase.id: ' + testCase.id + ' / ratio_validate: ' + testCase.ratio_validate)
+            SA.logger.debug('{ForecastCaseManager} testCase.mainAsset: ' + testCase.mainAsset + ' / mainTimeFrame: ' + testCase.mainTimeFrame)
             for (let i = 0; i < thisObject.forecastCasesArray.length; i++) {
                 let forecastCase = thisObject.forecastCasesArray[i]
-                console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
+                SA.logger.debug('{ForecastCaseManager} i: ' + i + ' / forecastCase.id: ' + forecastCase.id + ' / ratio_validate: ' + forecastCase.ratio_validate)
 
                 // check if testCase has same mainAsset and TimeFrame as current forecastCase, ifso compare if testCase is better
                 if (forecastCase.mainAsset === testCase.mainAsset && forecastCase.mainTimeFrame === testCase.mainTimeFrame) {
@@ -77,32 +77,32 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                         if (Number(testCase.percentageErrorRMSE) < Number(forecastCase.percentageErrorRMSE) && Number(testCase.percentageErrorRMSE) >= 0) {
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
-                            addForcastCase(testCase)
+                            addForecastCase(testCase)
                             return
                         }
                     //RL     
                     } else if (testCase.ratio_validate !== undefined) {
-                        console.log((new Date()).toISOString(),'Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
+                        SA.logger.info('Number(testCase.ratio_validate): ' + Number(testCase.ratio_validate) + " / Number(forecastCase.ratio_validate): " + Number(forecastCase.ratio_validate))
                         if ((Number(testCase.ratio_validate) > Number(forecastCase.ratio_validate)) || (forecastCase.ratio_validate == undefined)) {
-                            console.log((new Date()).toISOString(), '[DEBUG] {ForecastCaseManager} new testCase is better as existing forecastCase')
+                            SA.logger.debug('{ForecastCaseManager} new testCase is better as existing forecastCase')
                             thisObject.forecastCasesArray.splice(i, 1)
                             thisObject.forecastCasesMap.delete(forecastCase.id)
-                            addForcastCase(testCase)
+                            addForecastCase(testCase)
                             return
                         }
                     }
                 } else {
                     if (!findForecastCaseWithSameAssetTimeframe(testCase.mainAsset, testCase.mainTimeFrame)) {
-                        addForcastCase(testCase)
+                        addForecastCase(testCase)
                         return
                     }
                 }
             }
-            if (thisObject.forecastCasesArray.length == 0) addForcastCase(testCase)    
+            if (thisObject.forecastCasesArray.length == 0) addForecastCase(testCase)    
         } finally {
             saveForecastCasesFile()
 
-            console.log((new Date()).toISOString(), '[INFO] Testserver: Current Forecast table:')
+            SA.logger.info('Testserver: Current Forecast table:')
             console.table(thisObject.forecastCasesArray)    
         }
 
@@ -116,11 +116,11 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             return false
         }
 
-        function addForcastCase(testCase) {
+        function addForecastCase(testCase) {
             let testServer
             let parameters  
             let predictions     
-            let forcastedCandle     
+            let forecastedCandle     
             try {
                 testServer = JSON.parse(JSON.stringify(testCase.testServer))
             } catch (err) {}                    
@@ -131,7 +131,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 predictions = JSON.parse(JSON.stringify(testCase.predictions))
             } catch (err) {}                    
             try {
-                forcastedCandle = JSON.parse(JSON.stringify(testCase.forcastedCandle))
+                forecastedCandle = JSON.parse(JSON.stringify(testCase.forecastedCandle))
             } catch (err) {}                    
             let forecastCase = {
                 id: testCase.id,
@@ -143,7 +143,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                 parameters: parameters,
                 parametersHash: testCase.parametersHash,
                 predictions: predictions,
-                forcastedCandle: forcastedCandle,
+                forecastedCandle: forecastedCandle,
                 ratio_train : testCase.ratio_train,
                 ratio_test : testCase.ratio_test,
                 ratio_validate : testCase.ratio_validate,
@@ -202,7 +202,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             forecastCase.assignedTimestamp = (new Date()).valueOf()
 
             let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
-            forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+            forecastCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
             saveForecastCasesFile()
 
             let nextForecastCase = {
@@ -227,7 +227,7 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
             if (forecastCase.status === 'Forecasted' && forecastCase.id === forecastCaseId) {
 
                 let testCase = TS.projects.foundations.globals.taskConstants.TEST_SERVER.testCasesManager.testCasesMap.get(forecastCase.parametersHash)
-                forecastCase.forcastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
+                forecastCase.forecastedCandle = await TS.projects.foundations.globals.taskConstants.TEST_SERVER.dataBridge.updateDatasetFiles(testCase)
 
                 let thisForecastCase = {
                     id: forecastCase.id,
@@ -250,8 +250,8 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
         try {
             let forecastCase = thisObject.forecastCasesMap.get(forecastResult.id)
             if ((forecastCase == undefined) && (forecastResult.id != undefined) && (forecastResult.id > 0) ) {
-                console.log((new Date()).toISOString(), '[INFO] ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), '[INFO] This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
+                SA.logger.info('' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                SA.logger.info('This Case id is unkown or outdated. Testserver did receive a better result in the meantime of Forecastclient processing.')
             } 
             if (forecastCase != undefined) {
                 forecastCase.status = 'Forecasted'
@@ -294,15 +294,15 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
                     }
                     logQueue.push(forecastCase)
                 }
-                console.log((new Date()).toISOString(), '[INFO] {Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
-                console.log((new Date()).toISOString(), '[INFO] {Test-Server} Updated partial table of Forecast Cases:')
+                SA.logger.info('{Test-Server} ' + forecastedBy + ' produced a new Forecast for the Case Id ' + forecastResult.id)
+                SA.logger.info('{Test-Server} Updated partial table of Forecast Cases:')
                 console.table(logQueue)
                 saveForecastReportFile()
                 saveForecastCasesFile()    
             }
         } catch (err) {
-            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} Error processing forecast results. Err = ' + err.stack)
-            console.log((new Date()).toISOString(), '[ERROR] {Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
+            SA.logger.error('{Test-Server} Error processing forecast results. Err = ' + err.stack)
+            SA.logger.error('{Test-Server} forecastResult = ' + JSON.stringify(forecastResult))
         }
 
         function calculatePercentageErrorRMSE(forecastResult) {
@@ -319,17 +319,17 @@ exports.newForecastCasesManager = function newForecastCasesManager(processIndex,
     
             let params = {
                 method: 'updateForecastedCandles',
-                forcastedCandles: JSON.stringify(bestPredictions)
+                forecastedCandles: JSON.stringify(bestPredictions)
             }
     
             const axios = require("axios")
             axios
                 .post('http://' + Test_Server_BOT_CONFIG.targetSuperalgosHost + ':' + Test_Server_BOT_CONFIG.targetSuperalgosHttpPort + '/Bitcoin-Factory', params)
                 .then(res => {
-                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
+                    SA.logger.info('Updating Superalgos...', 'Response from Superalgos Bitcoin Factory Server: ' + JSON.stringify(res.data))
                 })
                 .catch(error => {
-                    console.log((new Date()).toISOString(), 'Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
+                    SA.logger.error('Updating Superalgos...', 'Could not update Superalgos. Had this error: ' + error)
                 })
         }
 

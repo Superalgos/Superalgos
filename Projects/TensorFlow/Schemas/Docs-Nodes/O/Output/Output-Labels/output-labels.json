@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Çıktı etiketleri tahmin ettiğimiz şeylerdir - basit doğrusal regresyondaki y değişkeni. Etiket, buğdayın gelecekteki fiyatı, bir resimde gösterilen hayvan türü, bir ses klibinin anlamı veya hemen hemen her şey olabilir.",
                 "updated": 1654397393582
+            },
+            {
+                "language": "DE",
+                "text": "Die Output-Labels sind die Dinge, die wir vorhersagen - die y-Variable in der einfachen linearen Regression. Dabei kann es sich um den zukünftigen Weizenpreis, die Art des Tieres auf einem Bild, die Bedeutung eines Audioclips oder einfach um alles Mögliche handeln.",
+                "updated": 1705267229763
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397399251,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705267247028
                 }
             ]
         }

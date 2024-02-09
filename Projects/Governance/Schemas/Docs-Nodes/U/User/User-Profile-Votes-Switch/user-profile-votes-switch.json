@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Используйте этот переключатель в качестве организационного устройства и для создания узлов голосования профиля пользователя User Profile Vote.",
                 "updated": 1639041947693
+            },
+            {
+                "language": "TR",
+                "text": "Bu anahtarı bir organizasyon cihazı olarak ve Kullanıcı Profili Oylama ( User Profile Vote ) düğümlerini oluşturmak için kullanın.",
+                "updated": 1671460524466
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать этот переключатель для двух разных целей:",
                     "updated": 1639041959934
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu anahtarı iki farklı amaç için kullanabilirsiniz:",
+                    "updated": 1671460559932
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "RU",
                     "text": "В качестве организационного устройства: вы можете создавать произвольные схемы голосов, порождая больше переключателей и голосов.",
                     "updated": 1639041980280
+                },
+                {
+                    "language": "TR",
+                    "text": "Organizasyonel bir araç olarak (As an organizational device): Daha fazla anahtar ve oy üreterek keyfi oy düzenlemeleri oluşturabilirsiniz.",
+                    "updated": 1671460727935
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "RU",
                     "text": "В качестве переключателя: вы можете управлять потоком Voting Power, почти так же, как с помощью переключателя Token Power Switch, но в рамках программы голосования Voting Program. Если вам нужно напоминание, прочитайте страницу Token Power Flows.",
                     "updated": 1639042108295
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir anahtar olarak (As a switch): Oylama Gücünün ( Voting Power ) akışını, tıpkı bir Token Güç Anahtarında ( Token Power Switch ) olduğu gibi, ancak Oylama Programı ( Voting Program ) içinde kontrol edebilirsiniz. Hatırlatmaya ihtiyacınız varsa, Token Gücü Akışının ( Token Power Flows ) nasıl gerçekleştiğini okuyun.",
+                    "updated": 1671460938623
                 }
             ]
         },

@@ -1,6 +1,6 @@
 {
     "topic": "Polus Data Mine",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "Fisher MFI",
     "definition": {
         "text": "The Fisher MFI - this indicator normalizes price and volume action into a gaussian normal disctibution. This version of the Fisher Transform uses money flow index (MFI) as a base of calculations instead of just the price action.",
@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Fisher MFI - этот индикатор нормализует действия цены и объема в гауссову нормальную дисциплинку. Эта версия преобразования Фишера использует индекс денежного потока (MFI) в качестве основы для расчетов вместо простого ценового действия.",
                 "updated": 1645714720069
+            },
+            {
+                "language": "DE",
+                "text": "Der Fisher MFI - dieser Indikator normalisiert die Preis- und Volumenentwicklung in eine Gaußsche Normalverteilung. Diese Version der Fisher Transform verwendet den Geldflussindex (MFI) als Berechnungsgrundlage und nicht nur die Preisbewegung",
+                "updated": 1671266305685
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Fisher MFI на графиках",
                     "updated": 1645714725119
+                },
+                {
+                    "language": "DE",
+                    "text": "Fisher MFI auf den Charts",
+                    "updated": 1671266331373
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Технический индикатор, созданный Джоном Ф. Элерсом, который преобразует цены в гауссово нормальное распределение. Индикатор выделяет моменты, когда цены переходят в экстремальное положение, основываясь на последних ценах. Это может помочь в определении поворотных точек в цене актива. Он также помогает показать тренд и выделить ценовые волны в рамках тренда.",
                     "updated": 1645714730724
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein von John F. Ehlers entwickelter technischer Indikator, der die Preise in eine Gaußsche Normalverteilung umwandelt. Der Indikator hebt hervor, wenn sich die Preise auf der Grundlage der jüngsten Preise in ein Extrem bewegt haben. Dies kann dabei helfen, Wendepunkte im Preis eines Vermögenswerts zu erkennen. Er hilft auch, den Trend aufzuzeigen und die Preiswellen innerhalb eines Trends zu isolieren.",
+                    "updated": 1671266374881
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Этот технический индикатор обычно используется трейдерами, которые ищут опережающие сигналы, а не запаздывающие индикаторы.",
                     "updated": 1645714735257
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser technische Indikator wird in der Regel von Händlern verwendet, die eher nach vorlaufenden Signalen als nachlaufenden Indikatoren suchen.",
+                    "updated": 1671266406698
                 }
             ]
         },
@@ -65,6 +85,11 @@
                     "language": "RU",
                     "text": "Период расчета преобразования Фишера, а также размер выборки можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop под продуктом 'Fisher MFI' Product Definition.",
                     "updated": 1645714754001
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge der Fisher Transformationsberechnung sowie die Stichprobengröße können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter der Product Definition \"Fisher MFI\" gesucht und geöffnet wird.",
+                    "updated": 1671266529231
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства",
                     "updated": 1645714759222
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte & Eigenschaften",
+                    "updated": 1671266563656
                 }
             ]
         },
@@ -92,13 +122,25 @@
                     "language": "RU",
                     "text": "Доступны следующие свойства:",
                     "updated": 1645714765585
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind zugänglich:",
+                    "updated": 1671266607819
                 }
             ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| Fisher MFI | Fisher-MFI | fish, trig |",
-            "updated": 1636853769
+            "updated": 1636853769,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| Fisher MFI | Fisher-MFI | fish, trig |",
+                    "updated": 1671266638838
+                }
+            ]
         },
         {
             "style": "Text",
@@ -109,6 +151,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1645714771547
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671266659946
                 }
             ]
         },
@@ -120,6 +167,11 @@
                     "language": "RU",
                     "text": "Fisher MFI можно использовать для генерирования сигнала на покупку, когда линия Фишера пересекает линию триггера после экстремального минимума.",
                     "updated": 1645714799069
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Fisher MFI kann zur Generierung eines Kaufsignals verwendet werden, wenn die Fisher-Linie nach einem extremen Tief die Triggerlinie kreuzt.",
+                    "updated": 1671266744161
                 }
             ]
         },
@@ -136,13 +188,25 @@
                     "language": "RU",
                     "text": "Для повышения достоверности подтверждения этот индикатор можно использовать в паре с другими индикаторами, такими как Parabolic SAR или Bollinger Bands.",
                     "updated": 1645714805372
+                },
+                {
+                    "language": "DE",
+                    "text": "Um das Vertrauen in die Bestätigung zu erhöhen, kann dieser Indikator mit anderen Indikatoren wie dem Parabolic SAR oder den Bollinger Bändern gekoppelt werden.",
+                    "updated": 1671266773530
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer:",
-            "updated": 1622481793076
+            "updated": 1622481793076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer:",
+                    "updated": 1671266791209
+                }
+            ]
         },
         {
             "style": "Link",

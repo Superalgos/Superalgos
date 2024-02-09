@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Tokens Mined показывает общее количество токенов, которые вы получите, добавляя все вознаграждения Token Rewards и бонусы Tokens Bonus за токены из программ, в которых вы участвуете.",
                 "updated": 1639126859031
+            },
+            {
+                "language": "TR",
+                "text": "Token Madenciliği düğümü, katıldığınız programlardan tüm Token Ödüllerini ( Token Rewards ) ve Token Bonuslarını ( Tokens Bonus ) ekleyerek elde edeceğiniz toplam token sayısını gösterir.",
+                "updated": 1671809928240
             }
         ]
     },

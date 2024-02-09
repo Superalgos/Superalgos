@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "3",
+    "pageNumber": 3,
     "type": "Tutorial Step - From the Ground Up",
     "definition": {
         "text": "To be fair, my welcoming friend taught you many of the basic operations that you need to know to move around and feel comfortable with the interface...",
@@ -34,6 +34,11 @@
                 "language": "NL",
                 "text": "Om eerlijk te zijn, heeft mijn gastvrije vriend je veel van de basishandelingen geleerd die je moet weten om te bewegen en je op je gemak te voelen met de interface...",
                 "updated": 1668333948328
+            },
+            {
+                "language": "ES",
+                "text": "Para ser justos, mi acogedor amigo te enseñó muchas de las operaciones básicas que necesitas conocer para moverte y sentirte cómodo con la interfaz...",
+                "updated": 1675374764911
             }
         ]
     },
@@ -67,6 +72,11 @@
                     "language": "NL",
                     "text": "Met mij rond je je basisopleiding af! Als je deze tutorial hebt voltooid, ben je klaar om te leren hoe je je eigen Trading System kunt bouwen... Daar gaat het tenslotte om, toch?",
                     "updated": 1668333979981
+                },
+                {
+                    "language": "ES",
+                    "text": "Conmigo, ¡vas a completar tu educación básica! Una vez que termines este tutorial, estarás listo para empezar a aprender a construir tu propio Trading System... De eso se trata después de todo, ¿verdad?",
+                    "updated": 1675374883413
                 }
             ]
         },
@@ -99,6 +109,11 @@
                     "language": "NL",
                     "text": "We zullen ons concentreren op het voltooien van het overzicht van de interface, het omgaan met werkruimten, back-ups, plug-ins en meer!",
                     "updated": 1668334005101
+                },
+                {
+                    "language": "ES",
+                    "text": "Nos centraremos en completar la visión general de la interfaz, tratar con espacios de trabajo, copias de seguridad, plugins, ¡y mucho más!",
+                    "updated": 1675374921624
                 }
             ]
         },
@@ -132,6 +147,11 @@
                     "language": "NL",
                     "text": "Laten we beginnen!",
                     "updated": 1668334027573
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pongámonos manos a la obra!",
+                    "updated": 1675374899171
                 }
             ]
         }

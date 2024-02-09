@@ -1,0 +1,35 @@
+{
+    "topic": "Aggregated Data Mine",
+    "pageNumber": "1",
+    "type": "Aggregated By @quantum8",
+    "definition": {
+        "text": "The indicators in the Aggregated data mine all share the common theme of joining multiple indicators into one in order to provide a consensus of signals.",
+        "updated": 1679370171466
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Aggregated data mine contains:"
+        },
+        {
+            "style": "List",
+            "text": "Trend Meter"
+        },
+        {
+            "style": "List",
+            "text": "Donchian Trend Ribbon"
+        },
+        {
+            "style": "List",
+            "text": "PPO Aggregate"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8->github.com/quantum8"
+        },
+        {
+            "style": "Text",
+            "text": "@quantum8#7428 (discord)"
+        }
+    ]
+}

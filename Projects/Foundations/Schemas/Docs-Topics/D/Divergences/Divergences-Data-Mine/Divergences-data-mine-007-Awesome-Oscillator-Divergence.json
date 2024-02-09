@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Özet: Awesome Oscillator Divergence ( Sapma ) - bu gösterge, 5 ve 34 dönemlik Awesome Oscillator göstergesinin en yüksek ve en düşük seviyelerini analiz eder ve bunu fiyat hareketiyle karşılaştırır ve bulunan sapma verilerini üretir.",
                 "updated": 1647717825241
+            },
+            {
+                "language": "DE",
+                "text": "Der Awesome Oscillator Divergence - dieser Indikator analysiert die Höchst- und Tiefstwerte eines Awesome Oszillator-Indikators mit 5 und 34 Perioden, vergleicht sie mit dem aktuellen Kurs und gibt alle gefundenen Divergenzdaten aus.",
+                "updated": 1673460753273
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Awesome Oscillator Divergence ( Sapma )",
                     "updated": 1647717859475
+                },
+                {
+                    "language": "DE",
+                    "text": "Awesome Oszillator Divergenz in den Charts",
+                    "updated": 1673443418161
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre: Momentum göstergeleri, fiyat hareketini yumuşatmak ve daha net bir resim vermek için yaygın olarak kullanılır. Tüccarın, fiyatı fiyatla karşılaştırmak yerine gösterge dalgalanmalarını fiyat dalgalanmalarıyla karşılaştırmasına izin verir. Momentum, fiyat hareketinin gücünün bir çalışmasıdır, sadece fiyat ve momentumun uyuşup uyuşmadığını kontrol eder.",
                     "updated": 1647717873228
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Momentum-Indikatoren werden in der Regel verwendet, um die Kursentwicklung zu glätten und ein klareres Bild zu vermitteln. Sie ermöglichen es dem Händler, die Schwankungen des Indikators mit den Preisschwankungen zu vergleichen, anstatt den Preis mit dem Preis vergleichen zu müssen. Das Momentum ist eine Untersuchung der Stärke der Kursbewegung, bei der einfach geprüft wird, ob der Kurs und das Momentum übereinstimmen oder nicht.",
+                    "updated": 1673443431667
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "TR",
                     "text": "Gösterge ve fiyat arasındaki uyuşmazlığa sapma denir ve ticaret yönetimi için önemli etkileri olabilir. Anlaşma/anlaşmazlık miktarı görecelidir, dolayısıyla fiyat ve gösterge arasındaki ilişkide gelişen birkaç farklı model olabilir.",
                     "updated": 1647717884617
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Unstimmigkeit zwischen dem Indikator und dem Preis wird als Divergenz bezeichnet und kann erhebliche Auswirkungen auf das Handelsmanagement haben. Das Ausmaß der Übereinstimmung/Divergenz ist relativ, so dass sich in der Beziehung zwischen Preis und Indikator mehrere unterschiedliche Muster entwickeln können.",
+                    "updated": 1673443447087
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Gösterge, dört tür sapmanın yanı sıra yaklaşık bir güç tahmini ve yüzde değeri gösterir:",
                     "updated": 1647717930873
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator zeigt vier Arten von Divergenzen sowie eine ungefähre Stärkevorhersage und einen Prozentwert an:",
+                    "updated": 1673443468030
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "Boğa (Sürekli Yeşil çizgi): Momentum göstergesi daha yüksek bir dip yapar, fiyat hareketi ise daha düşük bir düşüş yapar.",
                     "updated": 1647717940235
+                },
+                {
+                    "language": "DE",
+                    "text": "Bullish (durchgezogene grüne Linie): Der Momentum-Indikator markiert ein höheres Tief, während die Preisbewegung ein niedrigeres Tief markiert.",
+                    "updated": 1673443567357
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Ayı (Sürekli Kırmızı çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir zirve yapar.",
                     "updated": 1647717950468
+                },
+                {
+                    "language": "DE",
+                    "text": "Bearish (durchgezogene rote Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Preisbewegung ein höheres Hoch erreicht.",
+                    "updated": 1673443581639
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "TR",
                     "text": "Gizli Boğa Devamı (Kesikli Yeşil çizgi): Momentum göstergesi daha düşük bir zirve yapar, fiyat hareketi ise daha yüksek bir dip yapar.",
                     "updated": 1647717958513
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bullish Continuation (gestrichelte grüne Linie): Der Momentum-Indikator erreicht ein niedrigeres Hoch, während die Kursbewegung ein höheres Tief erreicht.",
+                    "updated": 1673443634060
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "TR",
                     "text": "Gizli Ayı Devamı(Kesikli Kırmızı çizgi): Momentum göstergesi daha yüksek bir yükseliş sağlarken, fiyat hareketi daha düşük bir zirve yapar.",
                     "updated": 1647717968187
+                },
+                {
+                    "language": "DE",
+                    "text": "Hidden Bearish (gestrichelte rote Linie): Der Momentum-Indikator erreicht ein höheres Hoch, während die Kursbewegung ein niedrigeres Hoch erreicht.",
+                    "updated": 1673443648342
                 }
             ]
         },
@@ -167,6 +212,11 @@
                     "language": "TR",
                     "text": "Yukarıda: aşağı yönlü bir sapma (en solda, kırmızı), iki yükseliş yönü sapması (yeşil) ve sağda (kırmızı) bir yön sapması.",
                     "updated": 1647717984707
+                },
+                {
+                    "language": "DE",
+                    "text": "Oben: eine bearish Divergenz (ganz links, rot), zwei bullish Divergenzen (grün) und eine bearing Divergenz rechts (rot).",
+                    "updated": 1673443743300
                 }
             ]
         },
@@ -183,6 +233,11 @@
                     "language": "TR",
                     "text": "Sapma bulucunun uzunluğu, pivot uzunluğu ve ayrıca güçlü ve zayıf sapmalar için eşik, Javascript Kodunun ( Javascript Code ) 'Awesome Osilator Divergence' Prosedür Döngüsü ( Procedure Loop ) altındaki Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
                     "updated": 1647717994700
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Divergenzfinders, die Pivot Länge sowie der Schwellenwert für starke und schwache Divergenzen können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Awesome Oscillator Divergence\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673443782522
                 }
             ]
         },
@@ -203,6 +258,11 @@
                     "language": "TR",
                     "text": "Not: Pivot uzunluğu ne kadar uzun olursa, doğruluğun o kadar yüksek olduğunu, ancak pivot tepe/düşük değerini doğrulama gecikmesinin o kadar uzun olduğunu unutmayın.",
                     "updated": 1647718004382
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Genauigkeit umso größer ist, je länger die Pivot-Länge ist, aber je länger die Verzögerung bei der Bestätigung des Pivot-Höchst-/Tiefstwertes ist.",
+                    "updated": 1673443803422
                 }
             ]
         },
@@ -219,6 +279,11 @@
                     "language": "TR",
                     "text": "Sapma tespiti için üst ve alt sınır, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Başlatma ( Procedure Initialization ) altında 'Awesome Oscillator Divergence' Prosedür Başlatma ( Procedure Initialization ) altında bulunması ve açılmasıyla değiştirilebilir.",
                     "updated": 1647718013936
+                },
+                {
+                    "language": "DE",
+                    "text": "Der obere und untere Grenzwert für die Divergenzerkennung kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter \"Awesome Oscillator Divergence\" Procedure Initialization gesucht und geöffnet wird.",
+                    "updated": 1673443821945
                 }
             ]
         },
@@ -239,6 +304,11 @@
                     "language": "TR",
                     "text": "Awesome Osilatörün uzunluğu, Javascript Kodunun ( Javascript Code ) Veri Oluşturma Prosedürü ( Data Building Procedure ) -> Prosedür Döngüsü ( Procedure Loop ) altında 'Awesome Oscillator14' Prosedür Döngüsü ( Procedure Loop ) altında bulunması ve açılmasıyla değiştirilebilir.",
                     "updated": 1647718027025
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Länge des Awesome Oszillator kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Awesome Oscillator14\" Procedure Loop gesucht und geöffnet wird.",
+                    "updated": 1673443843586
                 }
             ]
         },
@@ -255,6 +325,11 @@
                     "language": "TR",
                     "text": "Ürün ve Özellikler",
                     "updated": 1647718039119
+                },
+                {
+                    "language": "DE",
+                    "text": "Produkte und Eigenschaften",
+                    "updated": 1673443886484
                 }
             ]
         },
@@ -271,6 +346,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki özelliklere erişmek mümkündür:",
                     "updated": 1647718047436
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
+                    "updated": 1673443857005
                 }
             ]
         },
@@ -282,6 +362,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı | Ürün Değişkeni | Özellikler |\n| aweDiv | aweDiv | durum, güç, divPerc |",
                     "updated": 1647718069322
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| aweDiv | aweDiv | status, strength, divPerc |",
+                    "updated": 1673443934030
                 }
             ],
             "updated": 1667785832633
@@ -299,6 +384,11 @@
                     "language": "TR",
                     "text": "durum: aşağıdaki olası değerlere sahip bir dize döndürür: boğa, ayı, boğa devamı, ayı devamı",
                     "updated": 1647718078294
+                },
+                {
+                    "language": "DE",
+                    "text": "status: gibt eine Zeichenfolge mit den folgenden möglichen Werten zurück: bullish, bearish, bull continuation, bear continuation",
+                    "updated": 1673444000684
                 }
             ]
         },
@@ -315,6 +405,11 @@
                     "language": "TR",
                     "text": "güç: aşağıdaki olası değerlere sahip bir dize döndürür: zayıf, orta, güçlü",
                     "updated": 1647718086752
+                },
+                {
+                    "language": "DE",
+                    "text": "strength: gibt eine Zeichenkette mit den folgenden möglichen Werten zurück: schwach, mittel, stark",
+                    "updated": 1673444010960
                 }
             ]
         },
@@ -331,6 +426,11 @@
                     "language": "TR",
                     "text": "divPerc: tanımlanan bir sapmanın tepe veya alt noktaları arasındaki değişim yüzdesine karşılık gelen bir sayı döndürür",
                     "updated": 1647718095308
+                },
+                {
+                    "language": "DE",
+                    "text": "divPerc: gibt eine Zahl zurück, die der prozentualen Veränderung zwischen den Höchst- und Tiefstwerten einer identifizierten Divergenz entspricht",
+                    "updated": 1673444021555
                 }
             ]
         },
@@ -347,6 +447,11 @@
                     "language": "TR",
                     "text": "Örnekler:",
                     "updated": 1647718103429
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1673443946597
                 }
             ]
         },
@@ -375,12 +480,24 @@
                     "language": "TR",
                     "text": "Teyit güvenini artırmak için, sapma bulunduktan sonra işleme girmek için uygun bir Awesome Oscillator değeri bulun, örneğin, bir yükseliş tespitinden sonra ao > 50.",
                     "updated": 1647718115396
+                },
+                {
+                    "language": "DE",
+                    "text": "Um der Vorgehensweise zukünftig Vertrauen zu schenken, sollten Sie einen geeigneten Wert für den Awesome Oszillator finden, um in den Handel einzusteigen, nachdem die Divergenz festgestellt wurde, z. B. RSI > 50 nach der Erkennung einer bullish.",
+                    "updated": 1673444102883
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Maintainer:"
+            "text": "Maintainer:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hauptentwickler:",
+                    "updated": 1673444065293
+                }
+            ]
         },
         {
             "style": "Link",

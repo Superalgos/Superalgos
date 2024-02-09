@@ -23,6 +23,16 @@
                 "language": "TR",
                 "text": "Simülasyon Nesnelerinde bulunan veriler, nesnenin kapalı olduğu andaki veya henüz kapanmamışsa o andaki işlerin durumunu temsil eder!",
                 "updated": 1642503670183
+            },
+            {
+                "language": "ID",
+                "text": "Data yang tersedia di Simulation Objects mewakili keadaan saat objek ditutup, atau saat ini jika objek belum ditutup!",
+                "updated": 1673952020919
+            },
+            {
+                "language": "ES",
+                "text": "Los datos disponibles en los Simulation Objects representan el estado de las cosas en el momento en que se cierra el objeto, ¡o en el momento actual si aún no se ha cerrado!",
+                "updated": 1675467945898
             }
         ]
     },
@@ -45,6 +55,16 @@
                     "language": "TR",
                     "text": "Buna karşılık, Trading Engine ve Trading System katman yöneticilerindeki katmanlar, fare işaretçisi tarafından işaret edilen mumdaki düğümlerin değerini temsil eder.",
                     "updated": 1642503860156
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebaliknya, layer di layer manager Trading Engine dan Trading System mewakili value node pada candle yang ditandai oleh mouse pointer.",
+                    "updated": 1673952027307
+                },
+                {
+                    "language": "ES",
+                    "text": "Por el contrario, las capas del Trading Engine y del Trading System representan el valor de los nodos en la vela señalada por el puntero del ratón.",
+                    "updated": 1675468012550
                 }
             ]
         },
@@ -66,6 +86,16 @@
                     "language": "TR",
                     "text": "Bu, anlamanız gereken temel bir farktır, aksi takdirde Simulation Objects tarafından sunulan bilgileri yanlış yorumlayabilirsiniz. Önümüzdeki birkaç adımda en önemli sonuçları açıklayacağım!",
                     "updated": 1642504035985
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah perbedaan mendasar yang harus kamu pahami, karena jika tidak, kamu mungkin salah menafsirkan informasi yang disajikan oleh Simulation Objects. Aku akan menjelaskan implikasi yang paling penting dalam beberapa langkah berikutnya!",
+                    "updated": 1673952033665
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es una diferencia fundamental que debes entender, ya que de lo contrario, puedes malinterpretar la información presentada por los Objetos de Simulación. ¡Explicaré las implicaciones más importantes en los próximos pasos!",
+                    "updated": 1675468036130
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir toplu işteki örnek sayısı. Örneğin, SGD'nin parti boyutu 1 iken, mini partinin parti boyutu genellikle 10 ila 1000 arasındadır. Toplu iş boyutu genellikle eğitim ve çıkarım sırasında sabittir; ancak TensorFlow dinamik toplu iş boyutlarına izin verir.",
                 "updated": 1654396679271
+            },
+            {
+                "language": "DE",
+                "text": "Die Anzahl der Beispiele in einer Charge. Zum Beispiel ist die Stapelgröße von SGD 1, während die Stapelgröße eines Mini-Batches normalerweise zwischen 10 und 1000 liegt. Die Stapelgröße ist normalerweise während des Trainings und der Inferenz festgelegt; TensorFlow erlaubt jedoch dynamische Stapelgrößen.",
+                "updated": 1706371579278
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "inputShape belirtilmiş ve batchInputShape belirtilmemişse, batchInputShape'i oluşturmak için batchSize kullanılır: [batchSize,...inputShape]",
                     "updated": 1654396685172,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn inputShape angegeben ist und batchInputShape nicht, wird batchSize verwendet, um die batchInputShape zu konstruieren: [batchSize,...inputShape]",
+                    "updated": 1706371591279
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396690982,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1706371598615
                 }
             ]
         },

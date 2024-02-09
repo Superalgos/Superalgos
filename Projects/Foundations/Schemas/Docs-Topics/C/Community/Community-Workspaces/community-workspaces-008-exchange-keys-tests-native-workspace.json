@@ -1,0 +1,50 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "8",
+    "type": "Exchange Keys Tests Native Workspace",
+    "definition": {
+        "text": "This workspace features four simple Trading Systems with their four respective trading tasks under the Production Trading Tasks node in the Network so that you may easily test your Exchange Account Key.",
+        "updated": 1616150355126,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство включает четыре простые торговые системы Trading Systems с четырьмя соответствующими торговыми задачами в узле Production Trading Tasks в сети Network, так что вы можете легко проверить свой ключ учетной записи биржи Exchange Account Key.",
+                "updated": 1639056597453
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu çalışma alanı, Exchange Hesap Anahtarınızı ( Exchange Account Key ) kolayca test edebilmeniz için Ağdaki Üretim Ticaret Görevleri ( Production Trading Tasks ) düğümü altında ilgili dört ticaret göreviyle dört basit Ticaret Sistemi ( Trading Systems ) içerir.",
+                "updated": 1644676255262
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Arbeitsbereich enthält vier einfache Handelssysteme (Trading Systems) mit ihren vier jeweiligen Handelsaufgaben unter dem Knoten Production Trading Tasks im Netzwerk, so dass Sie Ihren Börsenkontoschlüssel (Exchange Account Key) leicht testen können.",
+                "updated": 1688936435873
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616153711861,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056610978
+                },
+                {
+                    "language": "DE",
+                    "text": "Verfasser",
+                    "updated": 1688936366785
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "updated": 1622625062405
+        }
+    ]
+}

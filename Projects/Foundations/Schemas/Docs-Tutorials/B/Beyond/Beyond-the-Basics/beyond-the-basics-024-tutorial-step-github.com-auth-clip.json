@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Bu klipte Github üzerinde nasıl Personel Access Token oluşturabileceğiniz gösterilmektedir.",
                 "updated": 1640629621971
+            },
+            {
+                "language": "NL",
+                "text": "Instellen van de rechten voor het Github.com token",
+                "updated": 1669749561002
             }
         ]
     },

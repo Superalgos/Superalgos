@@ -10,7 +10,7 @@ const uninstall = () => {
 
   // Remove Windows Shortcuts
   if (os.platform() == "win32") {
-    let desktop = path.join( os.homedir(), "Desktop", `${name}.lnk`)
+    let desktop = path.join( os.homedir(), "SocialTrading", `${name}.lnk`)
     let startMenu = path.join( os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
 
     // Remove .desktop files
@@ -37,7 +37,7 @@ const uninstall = () => {
     if (version.includes("Ubuntu")) {
 
       // Remove .desktop files
-      let command = `rm ~/Desktop/${name}.desktop & rm ~/.local/share/applications/${name}.desktop`
+      let command = `rm ~/SocialTrading/${name}.desktop & rm ~/.local/share/applications/${name}.desktop`
       exec(command, (error) => {
         if (error) {
           console.log('')
@@ -59,7 +59,7 @@ const uninstall = () => {
   } // Mac Shortcuts
   if (os.platform() == "darwin") {
     // Remove .desktop files
-    let command = `rm ~/Desktop/${name}.command`
+    let command = `rm ~/SocialTrading/${name}.command`
     exec(command, (error) => {
       if (error) {
         console.log('')

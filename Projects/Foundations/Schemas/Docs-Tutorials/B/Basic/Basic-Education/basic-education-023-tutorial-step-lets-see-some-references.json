@@ -1,0 +1,142 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Let's See Some References",
+    "definition": {
+        "text": "Notice the two nodes under the Backtesting Session: Trading System Reference and Trading Engine Reference. Why do we need these nodes?",
+        "updated": 1615798435799,
+        "icon": {
+            "name": "Trading\\trading-system-reference",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Nota i due nodi sotto Backtesting Session: Trading System Reference e Trading Engine Reference. A cosa servono questi nodi?",
+                "updated": 1619500944274,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Observa los dos nodos debajo del Backtesting Session: Trading System Reference y Trading Engine Reference. ¿Por qué necesitamos estos nodos?",
+                "updated": 1675376415827,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Beachten Sie die beiden Knotenpunkte unter der Backtesting Session: Trading System Reference und Trading Engine Reference. Wozu brauchen wir diese Knoten?",
+                "updated": 1634334187982
+            },
+            {
+                "language": "TR",
+                "text": "Geriye Dönük Test Oturumu ( Backtesting Session ) altındaki iki düğüme dikkat edin: Ticaret Sistemi Referansı ( Trading System Reference ) ve Ticaret Motoru Referansı ( Trading Engine Reference ). Neden bu düğümlere ihtiyacımız var?",
+                "updated": 1639485591800
+            },
+            {
+                "language": "RU",
+                "text": "Обратите внимание на два узла под Backtesting Session: Trading System Reference и Trading Engine Reference. Зачем нам нужны эти узлы?",
+                "updated": 1640869194213
+            },
+            {
+                "language": "ID",
+                "text": "Perhatikan dua node di bawah Backtesting Session: Trading System Reference dan Trading Engine Reference. Mengapa kita membutuhkan node ini?",
+                "updated": 1644948143992
+            },
+            {
+                "language": "NL",
+                "text": "Let op de twee knooppunten onder de Backtesting Session: Trading System Reference en Trading Engine Reference. Waarom hebben we deze knooppunten nodig?",
+                "updated": 1668341110368
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Backtesting Session needs to reference the Trading System so that it may obtain the rules for trading. It must also reference the Trading Engine so that it may store information relative to the trading session. However, a node may establish only one outgoing reference!",
+            "updated": 1615798936552,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Backtesting Session deve referenziare il Trading System così da ottenere le regole per il trading. Deve anche avere un riferimento al Trading Engine così da avere info relative alla sessione di trading. Un nodo può però stabilire solo una reference in uscita!",
+                    "updated": 1619501079718,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Backtesting Session necesita hacer referencia al Trading System para que pueda obtener las reglas para el trading. También debe hacer referencia al Trading Engine para que pueda almacenar información relativa a la sesión de trading. Sin embargo, un nodo puede establecer solo una referencia saliente.",
+                    "updated": 1626377104766,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Backtesting Session muss auf das Handelssystem verweisen, damit sie die Regeln für den Handel erhalten kann. Sie muss auch auf die Trading Engine verweisen, damit sie Informationen in Bezug auf die Handelssitzung speichern kann. Ein Knoten darf jedoch nur einen ausgehenden Verweis herstellen!",
+                    "updated": 1634334194200
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye Dönük Test Oturumunun, alım satım kurallarını alabilmesi için Ticaret Sistemine ( Trading System ) başvurması gerekir. Ayrıca, işlem oturumuyla ilgili bilgileri depolayabilmesi için İşlem Motoruna da (Trading Engine ) referans vermelidir. Ancak, bir düğüm yalnızca bir giden referans oluşturabilir!",
+                    "updated": 1639485763127
+                },
+                {
+                    "language": "RU",
+                    "text": "Сессия бэктестинга должна ссылаться на торговую систему, чтобы получить правила для торговли. Она также должна ссылаться на торговый движок, чтобы он мог хранить информацию, относящуюся к торговой сессии. Но узел может установить только одну исходящую ссылку!",
+                    "updated": 1640869229159
+                },
+                {
+                    "language": "ID",
+                    "text": "Backtesting Session perlu merujuk ke Trading System sehingga dapat memperoleh aturan untuk perdagangan. Itu juga harus merujuk Trading Engine sehingga dapat menyimpan informasi relatif terhadap sesi trading. Namun, sebuah node hanya dapat membuat satu referensi keluaran!",
+                    "updated": 1644948227170
+                },
+                {
+                    "language": "NL",
+                    "text": "De Backtesting Session moet verwijzen naar het Trading System zodat het de regels voor handelen kan verkrijgen. Het moet ook verwijzen naar de Trading Engine zodat het informatie met betrekking tot de handelssessie kan opslaan. Een knooppunt mag echter slechts één uitgaande referentie tot stand brengen!",
+                    "updated": 1668341165066
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "That is why these nodes exist: they are an aid to the Backtesting Session node so that each of them may reference one node!",
+            "updated": 1615798882867,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco perchè questi nodi esistono: sono un supporto per il nodo Backtesting Session, così che ognuno di essi abbia un collegamento in uscita con un altro nodo!",
+                    "updated": 1619501188069,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Por eso existen estos nodos: ¡son una ayuda para el nodo Backtesting Session para que cada uno de ellos pueda hacer referencia a un nodo!",
+                    "updated": 1626532745561,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus diesem Grund gibt es diese Knoten: Sie sind ein Hilfsmittel für den Knoten Backtesting Session, so dass jeder von ihnen auf einen Knoten verweisen kann!",
+                    "updated": 1634334201093
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümlerin var olmasının nedeni budur: Geriye Dönük Test Oturumu ( Backtesting Session )düğümüne yardımcı olurlar, böylece her biri bir düğüme başvurabilir!",
+                    "updated": 1639485804632
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот почему эти узлы существуют: они являются вспомогательными для узла Backtesting Session, чтобы каждый из них мог ссылаться на один узел!",
+                    "updated": 1640869242136
+                },
+                {
+                    "language": "ID",
+                    "text": "Itulah sebabnya node ini ada: mereka adalah bantuan untuk node Backtesting Session sehingga masing-masing dari mereka dapat merujuk satu node!",
+                    "updated": 1644948263209
+                },
+                {
+                    "language": "NL",
+                    "text": "Dat is de reden waarom deze knooppunten bestaan: ze zijn een hulpmiddel voor het knooppunt Backtesting Session, zodat elk van hen naar één knooppunt kan verwijzen!",
+                    "updated": 1668341186380
+                }
+            ]
+        }
+    ]
+}

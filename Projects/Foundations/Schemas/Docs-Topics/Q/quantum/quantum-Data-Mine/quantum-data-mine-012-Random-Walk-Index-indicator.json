@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Индекс Random Walk (RWI) сравнивает движение цен со случайной выборкой, чтобы определить наличие статистически значимого тренда.",
                 "updated": 1647353041556
+            },
+            {
+                "language": "DE",
+                "text": "Der Random Walk Index (RWI) vergleicht die Kursbewegungen mit einer Zufallsstichprobe, um festzustellen, ob sich ein statistisch signifikanter Trend entwickelt hat.",
+                "updated": 1671639125616
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "RU",
                     "text": "Random Walk Index на графиках",
                     "updated": 1647353081713
+                },
+                {
+                    "language": "DE",
+                    "text": "Random Walk Index die Charts",
+                    "updated": 1671640054802
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "RU",
                     "text": "Согласно investopedia, этот индикатор был создан Майклом Поулосом для того, чтобы определить, является ли текущее ценовое движение ценной бумаги \"случайным блужданием\" или результатом статистически значимого тренда, более высокого или более низкого.",
                     "updated": 1647353106228
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia wurde dieser Indikator von Michael Poulos entwickelt, um festzustellen, ob der aktuelle Kurs eines Wertpapiers einen \"Random Walk\" aufweist oder das Ergebnis eines statistisch signifikanten Trends nach oben oder unten ist.",
+                    "updated": 1671639232823
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "RU",
                     "text": "Ключевые понятия:",
                     "updated": 1647353112275
+                },
+                {
+                    "language": "DE",
+                    "text": "Schlüsselkonzepte:",
+                    "updated": 1671640352889
                 }
             ]
         },
@@ -54,6 +74,11 @@
                     "language": "RU",
                     "text": "Содержит две трендовые линии: High и Low, которые измеряют восходящий и нисходящий тренд соответственно.",
                     "updated": 1647353127915
+                },
+                {
+                    "language": "DE",
+                    "text": "Enthält zwei Trendlinien; Hoch und Tief, die den Aufwärtstrend bzw. den Abwärtstrend messen.",
+                    "updated": 1671639388818
                 }
             ]
         },
@@ -65,6 +90,11 @@
                     "language": "RU",
                     "text": "Когда максимум находится выше минимума, это означает, что сила восходящего движения больше, чем сила нисходящего, и наоборот.",
                     "updated": 1647353138613
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Hoch über dem Tief liegt, bedeutet dies, dass es mehr Aufwärts- als Abwärtskraft gibt, und umgekehrt.",
+                    "updated": 1671639422484
                 }
             ]
         },
@@ -76,6 +106,11 @@
                     "language": "RU",
                     "text": "Когда либо максимум, либо минимум выше единицы, это указывает на наличие сильной, неслучайной тенденции.",
                     "updated": 1647353151723
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn entweder der Höchst- oder der Tiefstwert über eins liegt, deutet dies auf einen starken, nicht zufälligen Trend hin.",
+                    "updated": 1671639444318
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "RU",
                     "text": "Параметры RWI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе Product Definition \"Random Walk Index\".",
                     "updated": 1647353162226
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des RWI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"Random Walk Index\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1671639494231
                 }
             ]
         },
@@ -110,12 +150,24 @@
                     "language": "RU",
                     "text": "Продукция и свойства RWI",
                     "updated": 1647353170174
+                },
+                {
+                    "language": "DE",
+                    "text": "RWI Produkte & Eigenschaften",
+                    "updated": 1671639516176
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Product Setting | Product Variable | Properties |\n| Random-Walk-Index | RWI | rwiHigh, rwiLow |"
+            "text": "| Product Setting | Product Variable | Properties |\n| Random-Walk-Index | RWI | rwiHigh, rwiLow |",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Random-Walk-Index | RWI | rwiHigh, rwiLow |",
+                    "updated": 1671639533329
+                }
+            ]
         },
         {
             "style": "Text",
@@ -125,6 +177,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1647353176569
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1671639547967
                 }
             ]
         },
@@ -136,6 +193,11 @@
                     "language": "RU",
                     "text": "Простая стратегия может быть построена путем входа в сделку, когда значение High выше значения Low и выше единицы:",
                     "updated": 1647353190552
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann erstellt werden, indem man in den Handel einsteigt, wenn der Hochwert über dem Tiefwert und über eins liegt:",
+                    "updated": 1671639570077
                 }
             ]
         },

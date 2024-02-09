@@ -49,7 +49,7 @@
         },
         {
             "style": "Chapter",
-            "text": "V->Governance->Topic->Governance Workspaces->The Governance Project features multiple Project Definition Hierarchies spread across multiple Plugin Workspaces — one Workspace per Project — to facilitate the granular management of definitions by independent teams of maintainers. These are the Governance Workspaces.",
+            "text": "V->Governance->Topic->Governance Workspaces->The Governance Project features multiple Project Definition Hierarchies spread across multiple Native Workspaces — one Workspace per Project — to facilitate the granular management of definitions by independent teams of maintainers. These are the Governance Workspaces.",
             "updated": 1630576758374
         },
         {

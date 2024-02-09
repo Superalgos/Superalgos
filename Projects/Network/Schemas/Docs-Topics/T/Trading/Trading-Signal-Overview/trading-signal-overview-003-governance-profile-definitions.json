@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Superalgos Yönetişim profili, eşler arası ağın önemli bir parçasıdır.",
                 "updated": 1646297124975
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos Governance-Profil ist ein wichtiger Bestandteil des Peer-to-Peer-Netzwerks.",
+                "updated": 1674676846188
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Özellikle sinyal gönderme ve alma için önemlidir. Kullanıcılar, Profillerinin altında bir dizi önemli şeyi tanımlar:",
                     "updated": 1646297168328
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist für das Senden und Empfangen von Signalen besonders wichtig. Benutzer definieren unter ihren Profilen eine Reihe bedeutsamer Dinge:",
+                    "updated": 1674676857749
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "TR",
                     "text": "Hangi uygulamaları veya düğümleri çalıştıracakları.",
                     "updated": 1646297177016
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Anwendungen oder Knotenpunkte sie ausführen werden.",
+                    "updated": 1674676864975
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Hangi Sosyal Ticaret Botları ( Social Trading Bots ) bu kullanıcıya aittir (Sosyal ticaret botları, sinyal koleksiyonları olarak düşünülebilir).",
                     "updated": 1646297210082
+                },
+                {
+                    "language": "DE",
+                    "text": "Welche Social Trading Bots gehören zu diesem Benutzer (soziale-Handels-Bot (Social Trading Bots) können als Sammlungen von Signalen betrachtet werden).",
+                    "updated": 1674676912971
                 }
             ]
         },
@@ -81,6 +101,11 @@
                     "language": "TR",
                     "text": "Sinyallerin saklanacağı açık depolamanın yeri.",
                     "updated": 1646297224834
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ort des offenen Speichers, an dem die Signale abgelegt werden sollen.",
+                    "updated": 1674756018779
                 }
             ]
         },

@@ -1,0 +1,67 @@
+{
+    "topic": "Undulated Data Mine",
+    "pageNumber": "13",
+    "type": "LW Proxy",
+    "definition": {
+        "text": "The Larry Williams as explained in his book \"Trade Stocks and Commodities with the Insiders: Secrets of the COT Report\". It is an inverse oscillator that attempts to identify trend reversals.",
+        "updated": 1687991550229
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "LW Proxy"
+        },
+        {
+            "style": "Text",
+            "text": "Since this indicator is an inverse indicator, potential entry points are found when the oscillator goes below zero from above, and sell indications when the oscillator rises above zero."
+        },
+        {
+            "style": "Text",
+            "text": "The indicator can also be used to spot divergences with the price action, therefore signalling a potential reversal."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-lw-proxy.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| LWProxy | lwp | value |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters of the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"LW Proxy\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/undulated-lw-proxy-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used to enter a trade when the value rises below the Zero line from above:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.lwp.value < 0 && chart.at30min.lwp.previous.value > 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

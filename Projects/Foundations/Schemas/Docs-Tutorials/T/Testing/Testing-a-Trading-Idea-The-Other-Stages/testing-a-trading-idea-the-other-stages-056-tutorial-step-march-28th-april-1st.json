@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "У нас есть еще два провала на конец марта и начало апреля. Что мы можем сказать о них?",
                 "updated": 1642945359140
+            },
+            {
+                "language": "ES",
+                "text": "Tenemos dos fallos más para finales de marzo y principios de abril. ¿Qué podemos decir de ellos?",
+                "updated": 1681734253870
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Первая позиция от 28-го числа кажется достойным входом, несмотря на то, что цель в 10% не была достигнута. Она действительно оставалась в прибыли некоторое время и достигла около 7% 30 марта на 0 hs. Вторая позиция - явный провал!",
                     "updated": 1642945375946
+                },
+                {
+                    "language": "ES",
+                    "text": "La primera posición del día 28 parece una entrada decente, a pesar de no alcanzar el target del 10%. Se mantuvo en ganancias por un tiempo, y llegó a cerca del 7% el 30 de marzo a las 0 hs. La segunda posición es un claro fracaso.",
+                    "updated": 1681734288692
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Проверьте контекст на таймфрейме 24H! Что вы думаете?",
                     "updated": 1642945400913
+                },
+                {
+                    "language": "ES",
+                    "text": "Comprueba el contexto en el plazo de 24 horas. ¿Qué te parece?",
+                    "updated": 1681734273912
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "RU",
                     "text": "На мой взгляд, это выглядит как разумный контекст для входа в короткую позицию, но что я могу знать?!",
                     "updated": 1642945442004
+                },
+                {
+                    "language": "ES",
+                    "text": "A mí me parece un contexto razonable para ir en corto, pero yo qué sé.",
+                    "updated": 1681734305852
                 }
             ]
         }

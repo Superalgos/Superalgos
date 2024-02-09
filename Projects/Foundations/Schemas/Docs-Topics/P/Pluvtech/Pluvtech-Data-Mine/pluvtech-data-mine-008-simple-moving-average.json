@@ -39,6 +39,11 @@
                     "language": "RU",
                     "text": "Информация:",
                     "updated": 1645610667023
+                },
+                {
+                    "language": "TR",
+                    "text": "Bilgi:",
+                    "updated": 1697835014763
                 }
             ]
         },
@@ -64,6 +69,16 @@
                     "language": "DE",
                     "text": "Die Länge der Berechnung des Simple Moving Average Indikators kann geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Initialization unter ’SMA’ Product Definition gesucht und geöffnet wird.",
                     "updated": 1647933776649
+                },
+                {
+                    "language": "ES",
+                    "text": "La longitud del cálculo del indicador de Media Móvil Simple puede cambiarse localizando y abriendo el Código Javascript en Procedimiento de Construcción de Datos -> Inicialización de Procedimientos bajo Definición de Producto 'SMA'.",
+                    "updated": 1682515157513
+                },
+                {
+                    "language": "TR",
+                    "text": "Basit Hareketli Ortalama göstergesi hesaplamasının uzunluğu, 'SMA' Ürün Tanımı altında Veri Oluşturma Prosedürü ( Data Building Procedure )  -> Prosedür Başlatma ( Procedure Initialization ) altında Javascript Kodu bulunup açılarak değiştirilebilir.",
+                    "updated": 1697835059105
                 }
             ]
         },
@@ -85,6 +100,16 @@
                     "language": "DE",
                     "text": "Produkte und Eigenschaften",
                     "updated": 1647933806309
+                },
+                {
+                    "language": "ES",
+                    "text": "Productos y propiedades",
+                    "updated": 1682515172932
+                },
+                {
+                    "language": "TR",
+                    "text": "Ürünler & Özellikler",
+                    "updated": 1697835073874
                 }
             ]
         },
@@ -101,6 +126,16 @@
                     "language": "DE",
                     "text": "Die folgenden Eigenschaften sind für den Zugriff verfügbar:",
                     "updated": 1647933816544
+                },
+                {
+                    "language": "ES",
+                    "text": "Se puede acceder a las siguientes propiedades:",
+                    "updated": 1682515189929
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki özelliklere erişilebilir:",
+                    "updated": 1697835077201
                 }
             ]
         },
@@ -130,6 +165,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1647933883442
+                },
+                {
+                    "language": "TR",
+                    "text": "Örnek:",
+                    "updated": 1697835081878
                 }
             ]
         },
@@ -146,6 +186,16 @@
                     "language": "DE",
                     "text": "Der SMA Indikator könnte verwendet werden, um ein Kaufsignal zu erzeugen, wenn eine Kerze oberhalb des SMA schließt:",
                     "updated": 1647933900186
+                },
+                {
+                    "language": "ES",
+                    "text": "El indicador SMA podría utilizarse para generar una señal de compra cuando una vela cierra por encima del SMA:",
+                    "updated": 1682515209252
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA göstergesi, bir mum SMA'nın üzerinde kapandığında bir satın alma sinyali oluşturmak için kullanılabilir:",
+                    "updated": 1697835087058
                 }
             ]
         },

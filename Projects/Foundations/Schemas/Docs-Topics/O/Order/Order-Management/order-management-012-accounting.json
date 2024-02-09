@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Процесс учета включает в себя поддержание балансов, синхронизированных с событиями на бирже (или симулированными событиями), и отслеживание размещенного и заполненного размера этапа.",
                 "updated": 1640336836353
+            },
+            {
+                "language": "DE",
+                "text": "Bei der Abrechnung werden die Bilanzen mit den Geschehnissen an der Börse (oder den simulierten Ereignissen) synchronisiert und die platzierte und gefüllte Größe der jeweiligen Stufe verfolgt.",
+                "updated": 1679763862173
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "После того как синхронизация выполнена, либо с реальной биржей, либо в симуляторе, и собрана и установлена вся необходимая информация об ордере, настало время заняться бухгалтерским учетом.",
                     "updated": 1640336859145
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Synchronisierung erfolgt ist, entweder mit einer realen Börse oder in einer Simulation, und alle relevanten Details über den Auftrag gesammelt und vorhanden sind, ist es an der Zeit, etwas Buchhaltung zu machen.",
+                    "updated": 1679763884546
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Как реальный, так и имитированный процессы синхронизации сохраняют предыдущие значения заполненного размера и уплаченных комиссий в обоих активах перед выполнением расчетов для обновления этих значений.",
                     "updated": 1640336891680
+                },
+                {
+                    "language": "DE",
+                    "text": "Sowohl bei der realen als auch bei der simulierten Synchronisierung werden die vorherigen Werte für die gefüllte Größe und die gezahlten Gebühren in beiden Anlagen gespeichert, bevor die Berechnungen zur Aktualisierung dieser Werte durchgeführt werden.",
+                    "updated": 1679763896043
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Эти предыдущие значения затем используются для отмены предыдущих счетов, чтобы повторно выполнить их с последними синхронизированными данными.",
                     "updated": 1640336911923
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese vorherigen Werte werden dann verwendet, um die vorherigen Konten rückgängig zu machen und sie mit den neuesten synchronisierten Daten wiederherzustellen.",
+                    "updated": 1679763909511
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "Обновление активов этапа",
                     "updated": 1640336969858
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktualisieren von Stage Assets",
+                    "updated": 1679763918071
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "Базовый актив стадии, отменяющий предыдущий учет:",
                     "updated": 1640336989808
+                },
+                {
+                    "language": "DE",
+                    "text": "Stufe Basisanlage, Rückgängigmachung der vorherigen Bilanzierung:",
+                    "updated": 1679763926912
                 }
             ]
         },
@@ -84,6 +114,11 @@
                     "language": "RU",
                     "text": "Базовый актив этапа, учитывающий текущее заполнение и комиссии:",
                     "updated": 1640337011347
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundstockvermögen unter Berücksichtigung der laufenden Befüllung und der Gebühren:",
+                    "updated": 1679763959304
                 }
             ]
         },
@@ -101,6 +136,11 @@
                     "language": "RU",
                     "text": "Котируемый актив, отменяющий предыдущий учет:",
                     "updated": 1640337023199
+                },
+                {
+                    "language": "DE",
+                    "text": "Stufe börsennotierter Vermögenswert, wodurch die vorherige Bilanzierung rückgängig gemacht wird:",
+                    "updated": 1679763975120
                 }
             ]
         },
@@ -118,6 +158,11 @@
                     "language": "RU",
                     "text": "Котируемый актив этапа, учитывающий текущее заполнение и комиссии:",
                     "updated": 1640337108904
+                },
+                {
+                    "language": "DE",
+                    "text": "Etappenziel Vermögenswert, Buchhaltung für die aktuelle Füllung und Gebühren:",
+                    "updated": 1679763985339
                 }
             ]
         },
@@ -135,6 +180,11 @@
                     "language": "RU",
                     "text": "Обновление балансов",
                     "updated": 1640337119664
+                },
+                {
+                    "language": "DE",
+                    "text": "Salden aktualisieren",
+                    "updated": 1679763997935
                 }
             ]
         },
@@ -146,6 +196,11 @@
                     "language": "RU",
                     "text": "При обновлении балансов необходимо учитывать один важный аспект: для ордеров на продажу комиссии выплачиваются в котируемом активе, а для ордеров на покупку комиссии выплачиваются в базовом активе.",
                     "updated": 1640337142271
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei der Aktualisierung der Salden muss ein entscheidender Aspekt berücksichtigt werden: Bei Verkaufsaufträgen werden die Gebühren in der notierten Anlage gezahlt, bei Kaufaufträgen in der Basisanlage.",
+                    "updated": 1679764005428
                 }
             ]
         },
@@ -157,6 +212,11 @@
                     "language": "RU",
                     "text": "Ордера на продажу",
                     "updated": 1640337157078
+                },
+                {
+                    "language": "DE",
+                    "text": "Verkaufsaufträge",
+                    "updated": 1679764012580
                 }
             ]
         },
@@ -168,6 +228,11 @@
                     "language": "RU",
                     "text": "Баланс базового актива, отменяющий предыдущий учет:",
                     "updated": 1640337168472
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldieren Sie das Basisvermögen und machen Sie die vorherige Buchung rückgängig:",
+                    "updated": 1679764020384
                 }
             ]
         },
@@ -185,6 +250,11 @@
                     "language": "RU",
                     "text": "Баланс базового актива, учитывающий текущее заполнение и комиссии:",
                     "updated": 1640337192848
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldo des Grundvermögens, unter Berücksichtigung der aktuellen Füllung und der Gebühren:",
+                    "updated": 1679764049465
                 }
             ]
         },
@@ -202,6 +272,11 @@
                     "language": "RU",
                     "text": "Баланс котируемого актива, отменяющий предыдущий учет:",
                     "updated": 1640337205635
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldieren Sie den notierten Vermögenswert und machen Sie die vorherige Buchung rückgängig:",
+                    "updated": 1679764066154
                 }
             ]
         },
@@ -219,6 +294,11 @@
                     "language": "RU",
                     "text": "Баланс котируемого актива, учитывающий текущее заполнение и комиссии:",
                     "updated": 1640337232872
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldo des angegebenen Vermögenswertes, Konto für die aktuelle Füllung und Gebühren:",
+                    "updated": 1679764075833
                 }
             ]
         },
@@ -236,6 +316,11 @@
                     "language": "RU",
                     "text": "Ордера на покупку",
                     "updated": 1640337267888
+                },
+                {
+                    "language": "DE",
+                    "text": "Kauf-Order",
+                    "updated": 1679764092440
                 }
             ]
         },
@@ -247,6 +332,11 @@
                     "language": "RU",
                     "text": "Баланс базового актива, отменяющий предыдущий учет:",
                     "updated": 1640337314270
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldieren Sie das Basisvermögen und machen Sie die vorherige Buchung rückgängig:",
+                    "updated": 1679764103997
                 }
             ]
         },
@@ -264,6 +354,11 @@
                     "language": "RU",
                     "text": "Баланс базового актива, учитывающий текущее заполнение и комиссии:",
                     "updated": 1640337335098
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldo des Grundvermögens, unter Berücksichtigung der aktuellen Füllung und der Gebühren:",
+                    "updated": 1679764116239
                 }
             ]
         },
@@ -281,6 +376,11 @@
                     "language": "RU",
                     "text": "Баланс котируемого актива, отменяющий предыдущий учет:",
                     "updated": 1640337344682
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldieren Sie den notierten Vermögenswert und machen Sie die vorherige Buchung rückgängig:",
+                    "updated": 1679764124516
                 }
             ]
         },
@@ -298,6 +398,11 @@
                     "language": "RU",
                     "text": "Баланс котируемого актива, учитывающий текущее заполнение и комиссии:",
                     "updated": 1640337363289
+                },
+                {
+                    "language": "DE",
+                    "text": "Saldo des angegebenen Vermögenswerts unter Berücksichtigung der aktuellen Füllung und der Gebühren:",
+                    "updated": 1679764132929
                 }
             ]
         },
@@ -315,6 +420,11 @@
                     "language": "RU",
                     "text": "Пересчет размера этапа",
                     "updated": 1640337388405
+                },
+                {
+                    "language": "DE",
+                    "text": "Neuberechnung der Stufengröße",
+                    "updated": 1679764141981
                 }
             ]
         },
@@ -326,6 +436,11 @@
                     "language": "RU",
                     "text": "Этап отслеживает накопленный размер размещенных ордеров по двум причинам:",
                     "updated": 1640337409420
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Bühne verfolgt den kumulierten Umfang der erteilten Aufträge aus zwei Gründen:",
+                    "updated": 1679764154184
                 }
             ]
         },
@@ -337,6 +452,11 @@
                     "language": "RU",
                     "text": "Торговый бот должен обеспечить соблюдение ограничения, заложенного в определении целевого размера. То есть бот не должен размещать ордера на сумму, превышающую установленный размер.",
                     "updated": 1640337433097
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Handelsroboter muss die in der Definition der Zielgröße verankerte Obergrenze durchsetzen. Das heißt, der Bot darf keine Aufträge für einen höheren Betrag als die festgelegte Größe erteilen.",
+                    "updated": 1679764165439
                 }
             ]
         },
@@ -348,6 +468,11 @@
                     "language": "RU",
                     "text": "Бот должен закрыть этап, как только целевой размер будет заполнен.",
                     "updated": 1640337451139
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Bot muss die Bühne schließen, sobald die Zielgröße erreicht ist.",
+                    "updated": 1679764172892
                 }
             ]
         },
@@ -359,6 +484,11 @@
                     "language": "RU",
                     "text": "Вот почему важно следить за размерами, установленными на уровне этапа.",
                     "updated": 1640337489021
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus diesem Grund ist es wichtig, die Größe der Bühne im Auge zu behalten.",
+                    "updated": 1679764184960
                 }
             ]
         },
@@ -370,6 +500,11 @@
                     "language": "RU",
                     "text": "Этот процесс похож на другие бухгалтерские операции, которые мы уже рассматривали: сначала отменяется устаревший счет; затем создается новый счет.",
                     "updated": 1640337517518
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Prozess ähnelt den anderen Buchungsvorgängen, die wir bisher behandelt haben: Zuerst wird das veraltete Konto aufgelöst, dann wird das neue Konto erstellt.",
+                    "updated": 1679764194319
                 }
             ]
         },
@@ -381,6 +516,11 @@
                     "language": "RU",
                     "text": "Отмена старых счетов для базового и котируемого актива:",
                     "updated": 1640337541772
+                },
+                {
+                    "language": "DE",
+                    "text": "Rückgängigmachung der alten Konten für Basis- und notiertes Vermögen:",
+                    "updated": 1679764204398
                 }
             ]
         },
@@ -402,6 +542,11 @@
                     "language": "RU",
                     "text": "Переделать новые счета для базового и котируемого актива:",
                     "updated": 1640337575028
+                },
+                {
+                    "language": "DE",
+                    "text": "Überarbeitung der neuen Konten für Basis- und notierte Vermögenswerte:",
+                    "updated": 1679764213709
                 }
             ]
         },

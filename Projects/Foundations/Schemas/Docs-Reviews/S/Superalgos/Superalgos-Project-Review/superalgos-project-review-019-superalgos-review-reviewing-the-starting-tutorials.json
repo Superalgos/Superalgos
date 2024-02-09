@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Superalgos öğretici incelemesi Genel olarak öğretici gerçekten açık ve sizi hamlelerden geçiriyor. Bu kadar büyük bir sistemi özümsemek doğal olarak biraz zaman alıyor. Bir iyileştirme noktası olarak, belirli öğelerin birlikte nasıl çalıştığına dair biraz daha genel bakışa sahip olmak güzel olurdu. Yeni başlayanları mantıksal adımlarla ilerletiyor: 1. Piyasa verilerinin nereden geldiği, 2. Bu verilerin nasıl yorumlandığı ve göstergelere dönüştürüldüğü, 3. Sistemin bu göstergeler üzerinde nasıl hareket edebileceği, 4. Bu eylemlerin alım satımları gerçekleştirmek için piyasalara nasıl geri beslendiği. Eğitim bu adımlara göre yapılandırılabilirse, yeni başlayan birini zihinsel olarak tüm hamlelerden geçirecek ve akışı anlamasını sağlayacaktır. Belki bu erken bir adımdır ve aşağıdaki eğitimler bu şekilde yapılandırılmıştır, ancak bu daha büyük akışı başlangıçta zaten açık hale getirmek, kullanıcıların eylemlerini bu 4 kategoriden birine yerleştirmelerine olanak tanır ve sürecin neresinde etkileşimde bulunduğunuz hakkında bir fikir verir.",
                 "updated": 1669310444349
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos Tutorial Überprüfung Im Allgemeinen ist das Tutorial wirklich klar, und führt Sie durch die Bewegungen. Da es sich um ein so umfangreiches System handelt, braucht man natürlich einige Zeit, um es zu verstehen. Als Verbesserungspunkt wäre es schön, wenn man etwas mehr Überblick darüber hätte, wie die einzelnen Elemente zusammenarbeiten. Man sollte die logischen Schritte für den Einstieg durchgehen: 1. Woher kommen die Marktdaten, 2. wie werden diese Daten interpretiert und in Indikatoren umgewandelt, 3. wie kann das System auf diese Indikatoren reagieren, 4. wie werden diese Aktionen in den Markt zurückgespielt, um Trades auszuführen. Wenn das Tutorial entsprechend dieser Schritte strukturiert werden könnte, würde es einen Anfänger mental durch alle Bewegungen führen und ihm den Ablauf verständlich machen. Vielleicht ist dies verfrüht und die folgenden Tutorials sind so strukturiert, aber wenn man diesen größeren Fluss bereits zu Beginn deutlich macht, können die Benutzer ihre Aktionen in eine dieser vier Kategorien einordnen und so ein Gefühl dafür bekommen, an welcher Stelle des Prozesses sie interagieren.",
+                "updated": 1686341845934
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sol tıklayın ve Düzenle . Yeni paragraflar yazmak için ENTER. Düzenleme modundan çıkmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669310453023
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der linken Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute , um sie an das Haupt-Repository zu senden.",
+                    "updated": 1686341931143
                 }
             ]
         }

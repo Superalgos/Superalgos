@@ -1,0 +1,63 @@
+{
+    "topic": "Volume Tools Data Mine",
+    "pageNumber": "11",
+    "type": "Hawkeye",
+    "definition": {
+        "text": "This indicator compares the volume vs the price range and colorizes the output to clearly show the momentum direction of the market."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Hawkeye on the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator's output shows volume against the moving average, clearly showing volumes above the average amount.",
+            "updated": 1676260691407
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-hawkeye.png"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| HawyeyeVolume | hawkVol | avVol, volume |"
+        },
+        {
+            "style": "Text",
+            "text": "The parameters for the indicator's calculations can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \"Hawkeye Volume\" Procedure Loop."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/volume-hawkeye-params.png"
+        },
+        {
+            "style": "Text",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This indicator can be used as a confirmation to a primary indicator. An example of a confirmation could be when the volume exceeds the moving average:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.hawkVol.volume > chart.at15min.hawkVol.avVol"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@quantum8 (github)->github.com/quantum8/Superalgos"
+        }
+    ]
+}

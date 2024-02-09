@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, kullanıcının dokümanlar alanının geçerli çalışma alanı tarafından nasıl yükleneceğini belirlemesine olanak tanır.",
                 "updated": 1652014103367
+            },
+            {
+                "language": "DE",
+                "text": "Mit diesem Knoten kann der Benutzer festlegen, wie der Docs Space vom aktuellen Arbeitsbereich geladen werden soll.",
+                "updated": 1674916851109
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652014111719
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1674916886307
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "TR",
                     "text": "indexContent çalışma alanı yüklendikten sonra arama için dokümanlar alanının içeriğinin dizine eklenip eklenmeyeceğini tanımlar. Yanlış dokümanlar alanı devre dışı bırakılırsa, geliştirme için daha hızlı yükleme süreleri sağlanır.",
                     "updated": 1652014128881
+                },
+                {
+                    "language": "DE",
+                    "text": "indexContent legt fest, ob der Inhalt des Docs Space beim Laden des Arbeitsbereichs für die Suche indiziert wird. Bei false wird der Docs Space deaktiviert, was schnellere Ladezeiten für die Entwicklung ermöglicht.",
+                    "updated": 1674916933578
                 }
             ]
         }

@@ -1,0 +1,184 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 101,
+    "type": "Tutorial Step - Fire Up the Machine!",
+    "definition": {
+        "icon": {
+            "name": "Data\\data-tasks",
+            "project": "Foundations"
+        },
+        "text": "Now it's time to fire up your Data Tasks operation.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora è il momento di lanciare le tue operazioni di Data Tasks.",
+                "updated": 1618071030199,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora es el momento de encender tu operación Data Tasks.",
+                "updated": 1624479320235,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Nun ist es an der Zeit, Ihre Data Tasks zu starten.",
+                "updated": 1634244584221
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Veri Görevleri ( Data Tasks ) operasyonunuzu başlatma zamanı.",
+                "updated": 1636571763327
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang saatnya untuk menjalankan Data Tasks operation.",
+                "updated": 1640576208508
+            },
+            {
+                "language": "RU",
+                "text": "Теперь пришло время запустить задачу Data Tasks.",
+                "updated": 1642771016656
+            },
+            {
+                "language": "NL",
+                "text": "Nu is het tijd om uw Data Tasks operatie op te starten.",
+                "updated": 1667127403763
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Select \"Run all project data tasks\" on the menu.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Seleziona \"Run All Project Data Tasks\" dal menù.",
+                    "updated": 1666393729686,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Seleccione \" Run all project data tasks \" (Ejecutar todas las tareas de datos del proyecto) en el menú.",
+                    "updated": 1675362295086,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie \"Run All Project Data Tasks\". ",
+                    "updated": 1642152593419
+                },
+                {
+                    "language": "TR",
+                    "text": "Menüden ''Tüm Proje Veri Görevlerini Çalıştır''ı ( Run All Project Data Tasks ) seçin.",
+                    "updated": 1666065735195
+                },
+                {
+                    "language": "ID",
+                    "text": "Pilih \"Run all project data tasks\" pada menu.",
+                    "updated": 1640576233932
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите в меню \"Run all project data tasks\" (Выполнить все задачи данных проекта).",
+                    "updated": 1642771038600
+                },
+                {
+                    "language": "NL",
+                    "text": "Selecteer \"Run all project data tasks\" in het menu.",
+                    "updated": 1667127444843
+                }
+            ],
+            "updated": 1636911854931
+        },
+        {
+            "style": "Text",
+            "text": "We'll give it a few minutes to catch up with the present time. Remember, all indicators must get to 100% before we can start trading!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Aspettiamo un paio di minuti perchè si aggiorni alla data e ora correnti. Ricorda che tutti gli indicatori devono essere a 100% prima che iniziamo a fare trading!",
+                    "updated": 1618071103032,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerda, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
+                    "updated": 1627315370111,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir geben der Maschine ein paar Minuten Zeit, um sich an die aktuelle Zeit anzupassen. Denken Sie daran, dass alle Indikatoren auf 100 % stehen müssen, bevor wir mit dem Handel beginnen können!",
+                    "updated": 1634244605109
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu ana kadar olan veriyi indirebilmesi için ona birkaç dakika vereceğiz. Ticarete başlayabilmemiz için tüm göstergelerin %100'e ulaşması gerektiğini unutmayın!",
+                    "updated": 1636571904392
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan tunggu beberapa menit untuk mengejar ketinggalan timeframe dengan waktu sekarang. Ingat, semua indicators harus mencapai 100% sebelum kita dapat memulai trading!",
+                    "updated": 1640576297818
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы дадим ему несколько минут, чтобы догнать текущее время. Помните, что все индикаторы должны достигнуть 100%, прежде чем мы сможем начать торговлю!",
+                    "updated": 1642771055086
+                },
+                {
+                    "language": "NL",
+                    "text": "We geven het een paar minuten om bijgewerkt te raken met het huidige moment. Onthoud dat alle indicatoren 100% moeten bereiken voordat we kunnen beginnen met handelen!",
+                    "updated": 1667127497107
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you are not going to run the live session, you don't need to start the Data Tasks. Just keep going to learn how the process works. ",
+            "updated": 1610643039999,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se non hai intenzione di fare trading live, non è necessario lanciare la data task. Puoi semplicemente proseguire, per vedere come funziona il procedimento.",
+                    "updated": 1618071161823,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no vas a ejecutar la sesión en vivo, no es necesario que inicies los Data Tasks. Sigue aprendiendo cómo funciona el proceso.",
+                    "updated": 1675362313662,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Live-Sitzung nicht durchführen wollen, brauchen Sie die Data Tasks nicht zu starten. Machen Sie einfach weiter, um zu lernen, wie der Prozess funktioniert.",
+                    "updated": 1634244611806
+                },
+                {
+                    "language": "TR",
+                    "text": "Şayet canlı oturumu çalıştırmayacaksanız, Veri Görevlerini başlatmanız ( Data Tasks ) gerekmez. Sadece sürecin nasıl çalıştığını öğrenmeye devam edin.",
+                    "updated": 1636572009232
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu tidak akan menjalankan live session, kamu tidak perlu memulai Data Tasks. Teruslah belajar bagaimana prosesnya bekerja.",
+                    "updated": 1640576345642
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не собираетесь проводить реальный сеанс, вам не нужно запускать Data Tasks. Просто продолжайте, чтобы узнать, как работает процесс.",
+                    "updated": 1642771104128
+                },
+                {
+                    "language": "NL",
+                    "text": "Als u de live sessie niet gaat uitvoeren, hoeft u de gegevenstaken niet te starten. Blijf gewoon doorgaan om te leren hoe het proces werkt.",
+                    "updated": 1667127525211
+                }
+            ]
+        }
+    ]
+}

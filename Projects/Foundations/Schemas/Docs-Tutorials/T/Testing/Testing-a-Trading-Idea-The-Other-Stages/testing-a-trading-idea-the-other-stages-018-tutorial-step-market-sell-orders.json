@@ -23,6 +23,11 @@
                 "language": "RU",
                 "text": "Мы будем использовать алгоритм однократного выполнения, обрабатывающий 100% размера, который мы определили ранее! Пора узнать немного об ордерах!",
                 "updated": 1642779802597
+            },
+            {
+                "language": "ES",
+                "text": "Utilizaremos un algoritmo de ejecución única que maneja el 100% del tamaño que hemos definido antes. ¡Es hora de aprender un poco sobre órdenes!",
+                "updated": 1680805627556
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Существует довольно много подробностей о том, как работают ордера! Мы разберемся в деталях в учебном пособии, посвященном нюансам исполнения ордеров. Но пока мы будем действовать просто:",
                     "updated": 1642779940621
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hay bastante profundidad en el tema de cómo funcionan las órdenes! Entraremos en detalles en un tutorial centrado en los matices de la ejecución de órdenes. Pero por el momento, vamos a mantenerlo simple:",
+                    "updated": 1680805678091
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "RU",
                     "text": "Рыночный ордер на продажу - это распоряжение, отправленное на биржу для продажи базового актива с целью немедленного исполнения по текущим рыночным ценам.",
                     "updated": 1642779952405
+                },
+                {
+                    "language": "ES",
+                    "text": "Una orden de venta a mercado es una instrucción enviada a la bolsa para vender el activo base, para su ejecución inmediata a los precios de mercado actuales.",
+                    "updated": 1680805698323
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "RU",
                     "text": "Проверьте конфигурацию ордера на продажу!",
                     "updated": 1642779960795
+                },
+                {
+                    "language": "ES",
+                    "text": "Comprueba la configuración de la orden de venta.",
+                    "updated": 1680805728630
                 }
             ]
         }

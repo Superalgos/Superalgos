@@ -283,7 +283,7 @@ exports.newMLDataObj = function(featureLen, labelLen) {
         buf += separator;
         let fkLen = fkeys.length, fvLen = fvalues[0].length;
         let lkLen = lkeys.length;
-        console.log(buf);
+        SA.logger.info(buf);
 
         // Features / Labels Hard Numbers:
         for (let i = 0; i < fvLen; i++) {
@@ -299,13 +299,13 @@ exports.newMLDataObj = function(featureLen, labelLen) {
                 buf += "\n\t\t" + "..." + "\n\t\t" + "..." + "\n\t\t" + "...\n" + separator;
                 i = fvLen - 6;
             }
-            console.log(buf);
+            SA.logger.info(buf);
         }
 
         // Statistics:
         buf = separator2 + "\n" + separator + "\n\n" + topSeparator + "\nSuperalgos ML DataFrame Statistics:\n" + separator;
         let statistics = stats.all();
-        console.log(buf);
+        SA.logger.info(buf);
 
         for (let i = 0; i < fkLen; i++) {
             buf = fkeys[i] + ":\n\tCount:\t[" + statistics.count + "]\n";
@@ -317,7 +317,7 @@ exports.newMLDataObj = function(featureLen, labelLen) {
                 "\tMax: [" + statistics.minMaxMedRange.fMax[i].toFixed(4) + "...]\n" +
                 "\tRange: [" + statistics.minMaxMedRange.fRange[i].toFixed(4) + "...]\n";
             buf += topSeparator;
-            console.log(buf);
+            SA.logger.info(buf);
         }
 
         for (let j = 0; j < lkLen; j++) {
@@ -330,9 +330,9 @@ exports.newMLDataObj = function(featureLen, labelLen) {
                 "\tMax: [" + statistics.minMaxMedRange.lMax[j].toFixed(4) + "...]\n" +
                 "\tRange: [" + statistics.minMaxMedRange.lRange[j].toFixed(4) + "...]\n";
             buf += topSeparator;
-            console.log(buf);
+            SA.logger.info(buf);
         }
-        console.log(separator + "\n" + separator2 + "\n" + separator);
+        SA.logger.info(separator + "\n" + separator2 + "\n" + separator);
     }
 
 

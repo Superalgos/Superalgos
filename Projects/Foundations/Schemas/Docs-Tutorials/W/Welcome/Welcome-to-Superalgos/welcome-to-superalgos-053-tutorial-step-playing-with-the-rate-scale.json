@@ -1,0 +1,155 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 53,
+    "type": "Tutorial Step - Playing with the Rate Scale!",
+    "definition": {
+        "icon": {
+            "name": "Charting-Space\\rate-scale",
+            "project": "Foundations"
+        },
+        "text": "Do I need to tell you how the Rate Scale works or can you figure it out on your own? Ok... I'll give you a hint...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Vuoi che ti spieghi come funziona il Rate Scale, o lo immagini già? Ok, ti darò un suggerimento...",
+                "updated": 1614893948589,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Necesito decirte cómo el Rate Scale funciona o puedes resolverlo por tu cuenta? Vale... te daré una pista ...",
+                "updated": 1624407403842,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Muss ich Ihnen erklären, wie die Rate Scale funktioniert, oder können Sie es selbst herausfinden? Ok... Ich gebe Ihnen einen Tipp...",
+                "updated": 1634217173850
+            },
+            {
+                "language": "TR",
+                "text": "Size Fiyat Ölçeğinin nasıl çalıştığını söylememe gerek var mı yoksa kendi başınıza çözebilir misiniz? Tamam... Sana bir ipucu vereceğim...",
+                "updated": 1636094814213
+            },
+            {
+                "language": "RU",
+                "text": "Необходимо ли мне рассказать вам, как работает Rate Scale, или Вы можете разобраться в этом самостоятельно? Хорошо... Я дам вам подсказку...",
+                "updated": 1636206915335
+            },
+            {
+                "language": "ID",
+                "text": "Apakah aku perlu memberi tahu cara kerja  Rate Scale atau kamu bisa mengetahuinya? Ok... aku kasih petunjuknya...",
+                "updated": 1639585090968
+            },
+            {
+                "language": "NL",
+                "text": "Moet ik je vertellen hoe de Rate Scale werkt of kun je er zelf achter komen? Oké... ik zal je een hint geven...",
+                "updated": 1666700855640
+            },
+            {
+                "language": "FR",
+                "text": " Dois-je vous expliquer comment fonctionne l'échelle des prix ou pouvez-vous le découvrir par vous-même ? Ok... Je vais vous donner un indice...",
+                "updated": 1668069325531
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The rate scale works like the time scale, but —when using the keyboard— you must reverse the arrow keys! Use the left and right arrows ← → to toggle through the automatic modes and up and down arrows ↑ ↓ to affect the scale! Check the video coming next for clarity!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Funziona esattamente come il Time Scale, con la differenza che se usi le frecce devi invertire le direzioni dei tasti! Usa le frecce laterali per scegliere tra le modalità automatiche e quelle su e giù ↑ ↓ per cambiare la scala! Guarda il video al prossimo step per i dettagli.",
+                    "updated": 1618648350572,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Rate Scale trabaja como el Time Scale, pero —al usar el teclado—¡debes invertir las teclas de flecha! Usa las flechas izquierda y derecha ← → para alternar entre los modos automáticos y las flechas hacia arriba y hacia abajo ↑ ↓ para afectar la escala. ¡Mira el video que viene a continuación para mayor claridad!",
+                    "updated": 1624407641584,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Rate Scale funktioniert wie die Time Scale, aber -wenn du die Tastatur benutzt- musst du die Pfeiltasten umkehren! Mit den Pfeiltasten links und rechts ← → schaltest du zwischen den Automatikmodi um und mit den Pfeiltasten auf und ab ↑ ↓ kannst du die Skala beeinflussen! Schauen Sie sich das nächste Video an, um sich Klarheit zu verschaffen!",
+                    "updated": 1634217218782
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarının tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin!",
+                    "updated": 1669841862711
+                },
+                {
+                    "language": "RU",
+                    "text": "Шкала ставок работает так же, как и шкала времени, но при использовании клавиатуры, вам необходимо поменять местами клавиши со стрелками. Используйте стрелки ← → для переключения между автоматическими режимами и стрелки ↑ ↓ - для изменения масштаба! Проверьте следующее видео для большей ясности!",
+                    "updated": 1636207110611
+                },
+                {
+                    "language": "ID",
+                    "text": "Skala kecepatan berfungsi seperti skala waktu, tetapi —saat menggunakan keyboard—Kamu harus membalik tombol panah! Gunakan panah kiri dan kanan ← → untuk beralih melalui mode otomatis dan panah atas dan bawah ↑ ↓ untuk mengubah skalanya! Lihatlah video berikutnya agar lebih jelas!",
+                    "updated": 1639585260696
+                },
+                {
+                    "language": "NL",
+                    "text": "De rate scale werkt net als de tijdschaal, maar -wanneer u het toetsenbord gebruikt- moet u de pijltjestoetsen omkeren! Gebruik de pijlen naar links en rechts ← → om door de automatische modi te bladeren en de pijlen omhoog en omlaag ↑ ↓ om de schaal te beïnvloeden! Check de volgende video voor de duidelijkheid!",
+                    "updated": 1666700896536
+                },
+                {
+                    "language": "FR",
+                    "text": "L'échelle de prix fonctionne comme l'échelle de temps, mais -lorsque vous utilisez le clavier- vous devez inverser les touches fléchées ! Utilisez les flèches gauche et droite ← → pour basculer entre les modes automatiques et les flèches haut et bas ↑ ↓ pour affecter l'échelle ! Consultez la vidéo à venir pour plus de clarté !",
+                    "updated": 1668069397188
+                }
+            ],
+            "updated": 1616505192799
+        },
+        {
+            "style": "Success",
+            "text": "Play with the semi-automatic scale modes too! You know, when a single tiny triangle remains visible after a few flicks of the mouse wheel.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prova anche la modalità semi-automatica per le differenti scale! Ruota la rotella del mouse finchè non vedi un singolo triangolino verde.",
+                    "updated": 1614894098439,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Juega también con los modos de escala semiautomáticos! Ya sabes, cuando un pequeño triángulo permanece visible después de mover la rueda del mouse.",
+                    "updated": 1675277449013,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Spielen Sie auch mit den halbautomatischen Skalenmodi! Sie wissen schon, wenn ein einziges winziges Dreieck nach ein paar Bewegungen des Mausrads sichtbar bleibt.",
+                    "updated": 1634217227774
+                },
+                {
+                    "language": "TR",
+                    "text": "Yarı otomatik ölçek modlarıyla da oynayın! Fare tekerleğinin birkaç hareketinin ardından tek bir küçük üçgen görünüyorsa yarı otomatik moddasınızdır.",
+                    "updated": 1644916514554
+                },
+                {
+                    "language": "RU",
+                    "text": "Поиграйте с полуавтоматическими масштабными моделями! Вы знаете, когда один крошечный треугольник остается видимым после нескольких щелчков колесика мыши.",
+                    "updated": 1636207203334
+                },
+                {
+                    "language": "ID",
+                    "text": "Mainkan juga dengan mode skala semi-otomatis! Yaitu, ketika sebuah segitiga kecil tetap terlihat setelah beberapa gerakan mouse wheel.",
+                    "updated": 1639585366854
+                },
+                {
+                    "language": "NL",
+                    "text": "Probeer ook de semi-automatische schaalmodi! Je weet wel, wanneer een enkel klein driehoekje zichtbaar blijft na een paar bewegingen met het muiswiel.",
+                    "updated": 1666700940231
+                },
+                {
+                    "language": "FR",
+                    "text": "Jouez aussi avec les modes semi-automatiques aussi! Vous savez, quand un seul petit triangle reste visible après quelques coups de roulette de la souris.",
+                    "updated": 1668069423066
+                }
+            ]
+        }
+    ]
+}

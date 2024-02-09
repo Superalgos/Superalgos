@@ -4,6 +4,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Market",
+            "translationKey": "add.market.default",
             "relatedUiObject": "Market",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -12,9 +13,12 @@
         {
             "action": "Add Missing Markets",
             "label": "Add Missing Markets",
+            "translationKey": "add.missing.markets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Request Sent",
+            "workDoneLabelTranslationKey": "general.requestSent",
             "relatedUiObject": "Market",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -24,7 +28,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

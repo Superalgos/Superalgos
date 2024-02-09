@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Убедитесь, что задачи Testing Trading Tasks для соответствующего Market были успешно созданы.",
                 "updated": 1643090869900
+            },
+            {
+                "language": "NL",
+                "text": "Controleer of de Testing Trading Tasks taken voor de overeenkomstige Market met succes zijn aangemaakt.",
+                "updated": 1676125743562
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Найдите следующие структуры данных:",
                     "updated": 1643090877252
+                },
+                {
+                    "language": "NL",
+                    "text": "Zoek naar de volgende gegevensstructuren:",
+                    "updated": 1676125760130
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "RU",
                     "text": "Узел Market Trading Tasks для нового рынка.",
                     "updated": 1643090888797
+                },
+                {
+                    "language": "NL",
+                    "text": "Een knooppunt voor Market Trading Tasks voor de nieuwe markt.",
+                    "updated": 1676125788194
                 }
             ]
         },
@@ -107,6 +122,11 @@
                     "language": "RU",
                     "text": "Один узел Trading Mine Tasks для каждого Trading Mine, включенного в рабочее пространство (Workspace).",
                     "updated": 1643090971005
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Trading Mine Tasks knooppunt voor elke handelsmijn in de Workspace.",
+                    "updated": 1676125822274
                 }
             ]
         },
@@ -133,6 +153,11 @@
                     "language": "RU",
                     "text": "Один Task Manager (Менеджер задач) на Trading Mine и одна задача (Task) с сессией бэктестинга (Backtesting Session) для каждой торговой системы в рабочем пространстве.",
                     "updated": 1643091057906
+                },
+                {
+                    "language": "NL",
+                    "text": "Eén Task Manager per handelsmijn en één Task met een Backtesting Session voor elk Trading System in de werkruimte.",
+                    "updated": 1676125877420
                 }
             ]
         }

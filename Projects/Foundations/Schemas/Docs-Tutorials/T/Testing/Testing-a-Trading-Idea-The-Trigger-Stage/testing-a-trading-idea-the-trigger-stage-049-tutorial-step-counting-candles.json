@@ -16,13 +16,18 @@
             },
             {
                 "language": "TR",
-                "text": "Özet: Veri setindeki ilk birkaç mumu yakından inceleyin. Olağandışı bir şey görebildinmi?",
-                "updated": 1641661705548
+                "text": "Veri setindeki ilk birkaç mumu yakından inceleyin.  Olağandışı bir şey görüyor musunuz?",
+                "updated": 1669587995023
             },
             {
                 "language": "RU",
                 "text": "Внимательно посмотрите на первые несколько свечей в наборе данных. Видите ли вы что-нибудь необычное?",
                 "updated": 1642657751058
+            },
+            {
+                "language": "ES",
+                "text": "Fíjate bien en las primeras velas del conjunto de datos. ¿Ves algo inusual?",
+                "updated": 1677105257165
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "На первых 19 свечах отсутствуют Bollinger SubChannel! Следовательно, объект не определен!",
                     "updated": 1642657862197
+                },
+                {
+                    "language": "ES",
+                    "text": "¡El Bollinger SubChannels no existe para las primeras 19 velas! Por lo tanto, ¡el objeto no está definido!",
+                    "updated": 1677105266095
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "RU",
                     "text": "Индикатор берет свое начало от Bollinger Bands, а для расчета этих полос требуется не менее 20 периодов исторических данных. Вот почему он не определяется для первых 19 свечей.",
                     "updated": 1642657931534
+                },
+                {
+                    "language": "ES",
+                    "text": "El indicador deriva de las Bandas de Bollinger, y las bandas requieren al menos 20 periodos de datos históricos para ser calculadas. Por eso está sin definir para 19 velas.",
+                    "updated": 1677105272894
                 }
             ]
         },
@@ -80,13 +95,18 @@
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Belirli bir zaman aralığını test etmek istiyorsak, ticaret sistemimizde kullandığımız tüm göstergelerin tüm aralık için hesaplandığından emin olmalıyız!",
-                    "updated": 1641661755211
+                    "text": "Belirli bir zaman aralığını test etmek istiyorsak, ticaret sistemimizde kullandığımız tüm göstergelerin tüm aralık için hesaplandığından emin olmalıyız!",
+                    "updated": 1669588063572
                 },
                 {
                     "language": "RU",
                     "text": "Если мы хотим протестировать определенный временной диапазон, мы должны убедиться, что все индикаторы, которые мы используем в нашей торговой системе, рассчитаны для всего диапазона!",
                     "updated": 1642657949968
+                },
+                {
+                    "language": "ES",
+                    "text": "Si queremos probar un cierto rango de tiempo, debemos asegurarnos de que todos los indicadores que usamos en nuestro sistema de trading están calculados para el rango completo.",
+                    "updated": 1677105285468
                 }
             ]
         }

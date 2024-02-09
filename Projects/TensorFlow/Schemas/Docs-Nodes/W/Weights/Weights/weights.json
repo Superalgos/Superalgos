@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Katmanın ilk ağırlık değerleri.",
                 "updated": 1666692669769
+            },
+            {
+                "language": "DE",
+                "text": "Anfangsgewichtswerte der Schicht.",
+                "updated": 1705145369450
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1666692689144
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1705145378329
                 }
             ]
         }

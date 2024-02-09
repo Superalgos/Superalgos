@@ -29,8 +29,8 @@
             },
             {
                 "language": "TR",
-                "text": "Superalgos bir Topluluk ( Coımmunity ) projesidir! Yazılımı ücretsiz olarak herkesin kullanımına sunuyoruz, ancak karşılığında bir şey istiyoruz... yardımınız!",
-                "updated": 1639861662982
+                "text": "Superalgos bir Topluluk projesidir! Yazılımı ücretsiz olarak herkesin kullanımına sunuyoruz, ancak karşılığında bir şey istiyoruz... Yardımınız!",
+                "updated": 1669616835486
             },
             {
                 "language": "RU",
@@ -41,6 +41,11 @@
                 "language": "ID",
                 "text": "Superalgos adalah Proyek Community! Kami membuat software secara gratis untuk semua orang, Tetapi kami meminta imbal balik yaitu... bantuanmu!",
                 "updated": 1667872273134
+            },
+            {
+                "language": "NL",
+                "text": "Superalgos is een Community project! We stellen de software gratis ter beschikking aan iedereen, maar we vragen er wel iets voor terug... jouw hulp!",
+                "updated": 1669573323197
             }
         ]
     },
@@ -81,13 +86,18 @@
                     "language": "ID",
                     "text": "Bagaimana bisa Superalgos ini gratis? Apa yang dicari? Kami sering mendengar pertanyaan itu! Ini cerita singkatnya...",
                     "updated": 1667872284867
+                },
+                {
+                    "language": "NL",
+                    "text": "Hoe kan Superalgos vrij zijn? Wat is het addertje onder het gras? Die vragen krijgen we vaak! Dit is het korte verhaal...",
+                    "updated": 1669573340787
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Superalgos started with a group of friends joining forces to automate their crypto trading!",
-            "updated": 1611594348026,
+            "text": "Superalgos started with a group of friends joining forces to automate their Bitcoin trading!",
+            "updated": 1691083098295,
             "translations": [
                 {
                     "language": "IT",
@@ -120,6 +130,11 @@
                     "language": "ID",
                     "text": "Superalgos bermulai dari pertemanan grup yang ingin mengotomatisasi trading crypto mereka!",
                     "updated": 1667872297699
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos begon met een groep vrienden die hun krachten bundelden om hun cryptohandel te automatiseren!",
+                    "updated": 1669573353723
                 }
             ]
         },
@@ -159,6 +174,11 @@
                     "language": "ID",
                     "text": "Lalu mereka ternyata menyadari bahwa untuk memenangkan top pemain di pasar perlu adanya struktur software yang memadai. Sistem ini harus sama atau lebih baik dari software komersil atau hak milik yang ada. Dengan syarat inilah tidak bisa digapai dari team kecil saja setidaknya di timeframe yang masuk akal.",
                     "updated": 1667872312519
+                },
+                {
+                    "language": "NL",
+                    "text": "De vrienden realiseerden zich al snel dat om te concurreren met topspelers op de markt, een enorme software-infrastructuur nodig was. Het systeem moest vergelijkbaar of beter zijn dan commerciële en eigen software die beschikbaar is voor bedrijven. Dergelijke vereisten konden niet worden vervuld door een klein team, althans niet binnen een redelijk tijdsbestek.",
+                    "updated": 1669573407399
                 }
             ]
         }

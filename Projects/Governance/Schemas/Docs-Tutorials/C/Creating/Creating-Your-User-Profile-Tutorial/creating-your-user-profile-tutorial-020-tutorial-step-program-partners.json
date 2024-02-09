@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Sie haben Ihr Profil erfolgreich erstellt! Sie sind nun bereit, an den verschiedenen Governance Programs teilzunehmen!",
                 "updated": 1640077738322
+            },
+            {
+                "language": "ID",
+                "text": "Kamu telah berhasil membuat profil! Saatnya kamu untuk mengatur partisipasi di semua variasi Governance Programs!",
+                "updated": 1671443494294
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Los Onboarding Programs son tu primera parada en el mundo de la gobernanza de Superalgos. ¡Así que añádalos a su perfil!",
-                    "updated": 1630891657478,
+                    "text": "Los Onboarding Programs son tu primera parada en el mundo de la gobernanza de Superalgos. ¡Así que añádelos a tu perfil!",
+                    "updated": 1682520614071,
                     "style": "Text"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Die Onboarding Programs sind Ihre erste Station in der Welt der Superalgos-Governance. Fügen wir sie also zu Ihrem Profil hinzu!",
                     "updated": 1640077767988
+                },
+                {
+                    "language": "ID",
+                    "text": "Onboarding Programs merupakan pemberhentian awal ke dunia governance Superalgos. Mari tambahkan ke profilmu!",
+                    "updated": 1671443500437
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Suchen Sie den Knoten Token Power Switch unter dem Knoten User Profile und klicken Sie im Menü auf Onboarding-Programme hinzufügen.",
                     "updated": 1640077830871
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan node Token Power Switch bagian dari node User Profile dan klik Add Onboarding Programs pada menu.",
+                    "updated": 1671443509065
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "DE",
                     "text": "Der Knoten Onboarding-Programme sollte als Ableger des Knotens Token Power Switch auftauchen.",
                     "updated": 1640077840096
+                },
+                {
+                    "language": "ID",
+                    "text": "Node Onboarding Programs akan muncul sebagai turunan dari Token Power Switch.",
+                    "updated": 1671443516384
                 }
             ]
         }

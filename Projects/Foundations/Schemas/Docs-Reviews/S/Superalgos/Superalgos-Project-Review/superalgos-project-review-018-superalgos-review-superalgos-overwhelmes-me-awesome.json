@@ -28,6 +28,11 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için **sağ** tıklayın ve Düzenle'yi tıklayın. Yeni paragraflar yazmak için ENTER. Düzenleme modunu sonlandırmak için ESC. Ardından docs.save, değişikliklerinizi kaydetmek ve app.contributeana depoya göndermek için kullanabilirsiniz.",
                     "updated": 1669310036459
+                },
+                {
+                    "language": "DE",
+                    "text": "**Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu beenden. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute , um sie an das Haupt-Repository zu senden.",
+                    "updated": 1686341372647
                 }
             ]
         },
@@ -44,6 +49,11 @@
                     "language": "TR",
                     "text": "Kesinlikle çok etkilendim, ne harika bir proje. Sadece yüzeysel olarak inceledim, arkasındaki fikirleri kavradım ve kesinlikle ustalaşmak için tura katılacağım.",
                     "updated": 1669310124753
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich bin absolut überwältigt. Was für ein großartiges Projekt. Ich habe gerade mal an der Oberfläche gekratzt, habe ein Gefühl für die Ideen dahinter bekommen und werde definitiv die Tour machen, um es zu meistern.",
+                    "updated": 1686341782948
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "language": "TR",
                     "text": "Bu yüzden ilk incelemem sadece akışı sürdürmek için çok kısa olacak.",
                     "updated": 1669310254213
+                },
+                {
+                    "language": "DE",
+                    "text": "Meine erste Rezension ist also sehr kurz, um den Fluss zu halten.",
+                    "updated": 1686341791717
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "language": "TR",
                     "text": "Daha detaylı bir inceleme ile daha sonra tekrar geleceğim.",
                     "updated": 1669310268802
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde später mit einer ausführlicheren Rezension zurückkommen.",
+                    "updated": 1686341799898
                 }
             ]
         },

@@ -18,8 +18,8 @@
             },
             {
                 "language": "DE",
-                "text": "Das Backup Feature (Sicherungsfunktion) ist so konzipiert, dass die Integrität der Verweise erhalten bleibt, wie Sie es erwarten würden, wenn Sie eine Datenstruktur in einem früheren Zustand wiederherstellen möchten.",
-                "updated": 1640724973720
+                "text": "Die Sicherungsfunktion (Feature) ist so konzipiert, dass die Integrität der Verweise erhalten bleibt, wie Sie es erwarten würden, wenn Sie eine Datenstruktur in einem früheren Zustand wiederherstellen möchten.",
+                "updated": 1681245294682
             },
             {
                 "language": "RU",
@@ -58,8 +58,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie eine Node, eine Struktur von Nodes, eine komplette Hierarchie oder sogar den Workspace sichern, werden alle vorhandenen Referenzen in der resultierenden JSON-Datei gespeichert.",
-                    "updated": 1640725045551
+                    "text": "Wenn Sie einen Knoten (Node), eine Struktur von Knoten, eine komplette Hierarchie oder sogar den Arbeitsbereich (Workspace) sichern, werden alle vorhandenen Referenzen in der resultierenden JSON-Datei gespeichert.",
+                    "updated": 1681245314934
                 },
                 {
                     "language": "RU",
@@ -140,8 +140,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ausgehende Referenzen (Outgoing References)",
-                    "updated": 1640725541673
+                    "text": "Ausgehende Referenzen",
+                    "updated": 1681245331648
                 },
                 {
                     "language": "RU",
@@ -162,8 +162,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ausgehende Verweise (Outgoing references) bleiben intakt, unabhängig davon, ob die ursprüngliche Struktur der Nodes noch existiert oder nicht.",
-                    "updated": 1640725595708
+                    "text": "Ausgehende Verweise bleiben intakt, unabhängig davon, ob die ursprüngliche Struktur der Nodes noch existiert oder nicht.",
+                    "updated": 1681245351260
                 },
                 {
                     "language": "RU",
@@ -186,6 +186,11 @@
                     "language": "RU",
                     "text": "Например, в задаче, настроенной на запуск сессии бэктестинга, экземпляр торгового процесса ссылается на многотаймфреймовый процесс Trading Bot, ссылка на торговую систему ссылается на торговую систему, а ссылка на торговый движок ссылается на торговый движок. Все это исходящие ссылки относительно структуры узлов, составляющих задачу.",
                     "updated": 1647354717366
+                },
+                {
+                    "language": "DE",
+                    "text": "In einer Aufgabe (Task), die für die Ausführung einer Backtesting-Sitzung (Backtesting Session) eingerichtet wurde, verweist beispielsweise die Handelsprozessinstanz (Trading Process Instance) auf den Multi-Time-Frame-Prozess (Trading Bot Multi-Time-Frame) des Handelsroboters, die Handelssystemreferenz (Trading System Reference) auf ein Handelssystem (Trading System) und die Handelsmodulreferenz (Trading Engine Reference) auf das Handelsmodul (Trading Engine). Es handelt sich hierbei um ausgehende Verweise in Bezug auf die Struktur der Knoten, aus denen eine Aufgabe (Task) besteht.",
+                    "updated": 1681245362877
                 }
             ]
         },
@@ -411,8 +416,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen wir uns an, was passiert, wenn wir ein Backup einer Shapes-Node wiederherstellen, ohne die ursprüngliche Node vorher zu löschen:",
-                    "updated": 1640733888693
+                    "text": "Schauen wir uns an, was passiert, wenn wir die Sicherung einer Knotenform (Node Shapes) wiederherstellen, ohne den Originalknoten vorher zu löschen:",
+                    "updated": 1681245388483
                 },
                 {
                     "language": "RU",
@@ -486,8 +491,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um dieses Verhalten zu verstehen, müssen Sie sich noch einmal vor Augen führen, was mit den IDs der beteiligten Nodes passiert! Im ersten Fall, wenn Sie die Struktur der Nodes vor der Wiederherstellung des Backups löschen, werden die IDs freigegeben, so dass die Nodes bei der Wiederherstellung des Backups mit denselben IDs wiederhergestellt werden können, die sie vorher hatten. Auf diese Weise können die Verweise (Referenzen) so beibehalten werden, wie sie vorher waren. Im zweiten Fall sind die IDs bereits vergeben und die Nodes werden mit neuen IDs erstellt. Dies führt dazu, dass die Verweise auf die ursprünglichen Nodes zeigen und nicht auf die, die aus dem Backup wiederhergestellt wurden.",
-                    "updated": 1640734229489
+                    "text": "Um dieses Verhalten zu verstehen, müssen Sie sich noch einmal vor Augen führen, was mit den IDs der beteiligten Knoten passiert! Im ersten Fall, wenn Sie die Struktur der Knoten vor der Wiederherstellung des Backups löschen, werden die IDs freigegeben, so dass die Knoten bei der Wiederherstellung des Backups mit denselben IDs wiederhergestellt werden können, die sie vorher hatten. Auf diese Weise können die Verweise (Referenzen) so beibehalten werden, wie sie vorher waren. Im zweiten Fall sind die IDs bereits vergeben und die Knoten werden mit neuen IDs erstellt. Dies führt dazu, dass die Verweise auf die ursprünglichen Knoten zeigen und nicht auf die, die aus dem Backup wiederhergestellt wurden.",
+                    "updated": 1681245445780
                 },
                 {
                     "language": "RU",

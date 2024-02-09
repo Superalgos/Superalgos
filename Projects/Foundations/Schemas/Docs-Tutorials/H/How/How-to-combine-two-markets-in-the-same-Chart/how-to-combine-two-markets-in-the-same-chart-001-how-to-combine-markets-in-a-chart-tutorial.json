@@ -16,6 +16,11 @@
                 "text": "Bu Eğitim, aynı grafiğe iki farklı piyasadan veri eklemeniz konusunda size yol gösterecektir.  Artık aralarında geçiş yapmak yok!",
                 "updated": 1654394011013,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial führt Sie durch das Hinzufügen von Daten aus zwei verschiedenen Märkten in ein und dasselbe Diagramm. Kein Hin- und Herblättern mehr!",
+                "updated": 1703089150371
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "text": "Bu Öğretici TBD çalışma alanında bulunabilir.",
                     "updated": 1654394016682,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Tutorial ist im Arbeitsbereich TBD zu finden.",
+                    "updated": 1703089161379
                 }
             ]
         }

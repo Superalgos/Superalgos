@@ -9,6 +9,11 @@
                 "language": "RU",
                 "text": "Этот индикатор создает осциллятор Commodity Channel Index, первоначально опубликованный Дональдом Ламбертом в 1980 году.",
                 "updated": 1647356886734
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Indikator erzeugt den Commodity Channel Index oscillator, wie er ursprünglich von Donald Lambert im Jahr 1980 veröffentlicht wurde.",
+                "updated": 1672351629556
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "language": "RU",
                     "text": "Согласно Investopedia: CCI был первоначально разработан для выявления изменений долгосрочного тренда, но был адаптирован трейдерами для использования на всех рынках и таймфреймах.",
                     "updated": 1647357564519
+                },
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia: Der CCI wurde ursprünglich entwickelt, um langfristige Trendänderungen zu erkennen, wurde aber von Händlern für die Verwendung auf allen Märkten und Zeiträumen angepasst.",
+                    "updated": 1672351646277
                 }
             ]
         },
@@ -43,6 +53,11 @@
                     "language": "RU",
                     "text": "CCI - это рыночный индикатор, используемый для отслеживания движения рынка, которое может указывать на покупку или продажу.",
                     "updated": 1647357575785
+                },
+                {
+                    "language": "DE",
+                    "text": "Der CCI ist ein Marktindikator, der dazu dient, Marktbewegungen zu verfolgen, die auf Käufe oder Verkäufe hindeuten können.",
+                    "updated": 1672351760250
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "language": "RU",
                     "text": "CCI сравнивает текущую цену со средней ценой за определенный период времени.",
                     "updated": 1647357584049
+                },
+                {
+                    "language": "DE",
+                    "text": "Der CCI vergleicht den aktuellen Kurs mit dem Durchschnittskurs eines bestimmten Zeitraums.",
+                    "updated": 1672351778186
                 }
             ]
         },
@@ -65,17 +85,11 @@
                     "language": "RU",
                     "text": "Различные стратегии могут использовать CCI по-разному, включая использование его на нескольких таймфреймах для определения доминирующих трендов, откатов или точек входа в этот тренд.",
                     "updated": 1647357599286
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Different strategies can use the CCI in different ways, including using it across multiple timeframes to establish dominant trends, pullbacks, or entry points into that trend.",
-            "translations": [
+                },
                 {
-                    "language": "RU",
-                    "text": "Различные стратегии могут использовать CCI по-разному, включая использование его на нескольких таймфреймах для определения доминирующих трендов, откатов или точек входа в этот тренд.",
-                    "updated": 1647357610380
+                    "language": "DE",
+                    "text": "Verschiedene Strategien können den CCI auf unterschiedliche Art und Weise nutzen, z. B. über mehrere Zeiträume hinweg, um dominante Trends, pullbacks oder Einstiegspunkte in diesem Trend zu ermitteln.",
+                    "updated": 1672352331953
                 }
             ]
         },
@@ -87,6 +101,11 @@
                     "language": "RU",
                     "text": "Некоторые торговые стратегии, основанные на CCI, могут давать множество ложных сигналов или убыточных сделок, когда ситуация становится неспокойной.",
                     "updated": 1647357623502
+                },
+                {
+                    "language": "DE",
+                    "text": "Einige Handelsstrategien, die auf dem CCI basieren, können zu Fehlermeldungen oder zu Verlustgeschäften führen, wenn die Bedingungen ungünstig sind.",
+                    "updated": 1672352906112
                 }
             ]
         },
@@ -98,6 +117,11 @@
                     "language": "RU",
                     "text": "CCI - это непрерывный индикатор, аналогичный индикаторам MACD, ADX или ROC.",
                     "updated": 1647357654863
+                },
+                {
+                    "language": "DE",
+                    "text": "Der CCI ist ein unbegrenzter Indikator, ähnlich wie der MACD, der ADX oder der ROC-Indikator.",
+                    "updated": 1672353229879
                 }
             ]
         },
@@ -113,6 +137,11 @@
                     "language": "RU",
                     "text": "Параметры CCI можно изменить, найдя и открыв Javascript Code в разделе Data Building Procedure -> Procedure Loop в разделе \"CCI\" Product Definition.",
                     "updated": 1647357687190
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Parameter des CCI können geändert werden, indem der Javascript Code unter Data Building Procedure -> Procedure Loop unter \"CCI\" Product Definition gesucht und geöffnet wird.",
+                    "updated": 1672780600873
                 }
             ]
         },
@@ -128,6 +157,11 @@
                     "language": "RU",
                     "text": "Продукты и свойства CCI",
                     "updated": 1647357704477
+                },
+                {
+                    "language": "DE",
+                    "text": "CCI Produkte & Eigenschaften",
+                    "updated": 1672780614872
                 }
             ]
         },
@@ -139,6 +173,11 @@
                     "language": "RU",
                     "text": "| Product Setting | Product Variable | Properties |\n| CCI | cci | значение |",
                     "updated": 1647357714444
+                },
+                {
+                    "language": "DE",
+                    "text": "| Produktbezeichnung | Produktvariable | Eigenschaften |\n| CCI | cci | value |",
+                    "updated": 1672353386429
                 }
             ]
         },
@@ -150,6 +189,11 @@
                     "language": "RU",
                     "text": "Пример:",
                     "updated": 1647357720700
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1672353536460
                 }
             ]
         },
@@ -161,6 +205,11 @@
                     "language": "RU",
                     "text": "Простая стратегия может быть построена путем входа в сделку, когда значение CCI пересекает -100 снизу:",
                     "updated": 1647357730021
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Strategie kann entwickelt werden, indem man in den Handel einsteigt, wenn der CCI-Wert von unten nach oben -100 überschreitet:",
+                    "updated": 1672353562169
                 }
             ]
         },

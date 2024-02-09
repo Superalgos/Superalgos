@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Oturumu ( Trading Session ) yürütmek için bir Oturum Temel Varlık Düğümü ( Session Base Asset Node  ) beklenir ve gereklidir.",
                 "updated": 1647100424785
+            },
+            {
+                "language": "DE",
+                "text": "Ein Session Base Asset Node wird erwartet und benötigt, um eine Trading Session durchzuführen.",
+                "updated": 1701116502636
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu hatanın ortaya çıktığı Ticaret Parametreleri Düğümünde ( Trading Parameters Node ) bir Oturum Temel Varlık Düğümü ( Session Base Asset Node ) ekleyin, yapılandırmasını kontrol edin ve Ticaret Oturumunu ( Trading Session ) yeniden çalıştırmayı deneyin.",
                     "updated": 1647100536555
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie einen Session Base Asset -Knoten (Session Base Asset Node) an dem Handelsparameter-Knoten (Trading Parameters Node) hinzu, an dem der Fehler auftrat, überprüfen Sie seine Konfiguration und versuchen Sie, die Handelssitzung (Trading Session) erneut auszuführen.",
+                    "updated": 1701116610588
                 }
             ]
         }

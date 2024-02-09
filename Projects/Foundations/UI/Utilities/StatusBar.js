@@ -16,3 +16,5 @@ function newFoundationsUtilitiesStatusBar() {
         }
     }
 }
+
+exports.newFoundationsUtilitiesStatusBar = newFoundationsUtilitiesStatusBar

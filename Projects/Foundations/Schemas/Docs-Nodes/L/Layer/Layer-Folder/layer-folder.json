@@ -14,6 +14,11 @@
                     "language": "RU",
                     "text": "Узел создается автоматически при установке новых рынков.",
                     "updated": 1638973503452
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni pazarlar kurulurken düğüm otomatik olarak oluşturulur.",
+                    "updated": 1701084421067
                 }
             ]
         }
@@ -26,6 +31,11 @@
                 "language": "RU",
                 "text": "Узел Layer Folder - это устройство, используемое для облегчения организации слоев Layer, особенно когда один бот создает их много.",
                 "updated": 1638973467764
+            },
+            {
+                "language": "TR",
+                "text": "Katman Klasörü düğümü, özellikle tek bir bot çok sayıda katman ürettiğinde, katmanların düzenlenmesini kolaylaştırmak için kullanılan bir araçtır.",
+                "updated": 1701084416259
             }
         ]
     }

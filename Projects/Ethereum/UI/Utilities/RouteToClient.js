@@ -51,3 +51,5 @@ function newEthereumUtilitiesRouteToClient() {
         }
     }
 }
+
+exports.newEthereumUtilitiesRouteToClient = newEthereumUtilitiesRouteToClient

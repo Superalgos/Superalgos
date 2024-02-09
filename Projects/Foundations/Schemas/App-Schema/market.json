@@ -5,6 +5,7 @@
             "action": "Configure",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
+            "translationKey": "general.configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
@@ -13,6 +14,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "baseAsset",
             "label": "Add Base Asset",
+            "translationKey": "add.baseAsset",
             "relatedUiObject": "Market Base Asset",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -23,6 +25,7 @@
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "quotedAsset",
             "label": "Add Quoted Asset",
+            "translationKey": "add.quotedAsset",
             "relatedUiObject": "Market Quoted Asset",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
@@ -31,9 +34,12 @@
         {
             "action": "Install Market",
             "label": "Install Market",
+            "translationKey": "install.market",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Market",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -41,9 +47,12 @@
         {
             "action": "Uninstall Market",
             "label": "Uninstall Market",
+            "translationKey": "uninstall.market",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
+            "confirmationLabelTranslationKey": "general.confirm.proceed",
             "workDoneLabel": "Done",
+            "workDoneLabelTranslationKey": "general.done",
             "relatedUiObject": "Market",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
@@ -53,7 +62,9 @@
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
             "label": "Delete",
+            "translationKey": "general.delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
             "actionFunction": "payload.executeAction"

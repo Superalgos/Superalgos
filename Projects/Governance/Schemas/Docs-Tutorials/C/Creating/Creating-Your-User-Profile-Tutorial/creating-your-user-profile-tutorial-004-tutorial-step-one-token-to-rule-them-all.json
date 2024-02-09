@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Im Gegensatz zu einigen Krypto-Token bedeutet der Superalgos SA Token tatsächlich etwas!",
                 "updated": 1640072156465
+            },
+            {
+                "language": "ID",
+                "text": "Bukan seperti token crypto yang lain Superalgos SA Token sebenarnya memiliki sesuatu!",
+                "updated": 1670673202899
             }
         ]
     },
@@ -41,8 +46,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El SA Token es un token BEP20 en Binance Smart Chain (BSC). Sus existencias de tokens representan sus contribuciones al Superalgos Project y Community, ya que el token se utiliza para recompensar a la base de usuarios y hacer crecer el grupo de desarrollo.",
-                    "updated": 1630872813106,
+                    "text": "El SA Token es un token BEP20 en Binance Smart Chain (BSC). Sus existencias de tokens representan sus contribuciones al Superalgos Project y Community, ya que el token se utiliza para recompensar a la base de usuarios y hacer crecer el grupo de desarrollo. ",
+                    "updated": 1682519448847,
                     "style": "Text"
                 },
                 {
@@ -59,6 +64,11 @@
                     "language": "DE",
                     "text": "Der SA Token ist ein BEP20 Token auf der Binance Smart Chain (BSC). Ihr Token-Besitz verkörpert Ihren Beitrag zum Superalgos Project und zur Community, da der Token verwendet wird, um die Benutzerbasis zu belohnen und den Entwicklungspool zu vergrößern.",
                     "updated": 1640072201983
+                },
+                {
+                    "language": "ID",
+                    "text": "SA Token merupakan native token proyek. Kepemilikanmu memperjelas kontribusimu pada Superalgos Project dan Community. karena token digunakan untuk memberi reward kepada pengguna basis dan menumbuhkan kelompok pengembangan.",
+                    "updated": 1670673210205
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "DE",
                     "text": "Das Projekt verteilt die Token ausschließlich unter den Mitwirkenden!",
                     "updated": 1640072214302
+                },
+                {
+                    "language": "ID",
+                    "text": "Proyek ini mendsitribusikan token secara ekslusive diantara kontributor!",
+                    "updated": 1670673217490
                 }
             ]
         },
@@ -96,8 +111,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Cuanto más contribuyas al proyecto y ayudes a otros, más tokens ganarás!",
-                    "updated": 1630872874947,
+                    "text": "¡Cuanto más contribuyas al proyecto y ayudes a otros, más tokens ganarás!  ",
+                    "updated": 1682519485336,
                     "style": "Success"
                 },
                 {
@@ -114,6 +129,11 @@
                     "language": "DE",
                     "text": "Je mehr Sie zum Projekt beitragen und anderen helfen, desto mehr Token werden Sie verdienen!",
                     "updated": 1640072225653
+                },
+                {
+                    "language": "ID",
+                    "text": "Semakin banyak kamu berkontribusi ke proyek dan membantu sesama, semakin banyak token yang akan didapat!",
+                    "updated": 1670673223818
                 }
             ]
         },

@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Kapanış aşaması, hedef oran ve boyut ve emir yürütme dahil olmak üzere bir pozisyonu kapatma mantığını oluşturan tanımlardır.",
                 "updated": 1639222650415
+            },
+            {
+                "language": "DE",
+                "text": "Die Abschlussphase befasst sich mit den Definitionen, die die Logik zum Schließen einer Position ausmachen, einschließlich des Zielkurses und der Zielgröße sowie der Auftragsausführung.",
+                "updated": 1708272498608
             }
         ]
     },
@@ -40,6 +45,12 @@
                     "text": "Opsiyonellik",
                     "updated": 1654391506731,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Optionalität",
+                    "updated": 1708272498810,
+                    "style": "Title"
                 }
             ]
         },
@@ -56,6 +67,12 @@
                     "language": "TR",
                     "text": "Close Stage aşaması isteğe bağlıdır. Bu, ihtiyacınız yoksa bu düğümü silebileceğiniz ve yine de her şeyin yolunda gideceği anlamına gelir.",
                     "updated": 1642501261562
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Stufe Schließen ist optional. Das bedeutet, dass Sie diesen Knoten einfach löschen können, wenn Sie ihn nicht benötigen, und alles sollte problemlos funktionieren.",
+                    "updated": 1708272498920,
+                    "style": "Note"
                 }
             ]
         },
@@ -73,6 +90,12 @@
                     "language": "TR",
                     "text": "Kullanıcıların Open Stage içinden hem alım hem de satım emirlerini yürütmek isteyebilecekleri durumlar vardır. Bu durumlarda, Manage stage ve Close Stage'i silmek isteyebilirler, böylece hiç yürütülmezler. Her ikisi de isteğe bağlı olduğu için bu mümkündür. Opsiyonellik kodda şöyle görünür:",
                     "updated": 1642501345757
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt Situationen, in denen Benutzer sowohl Kauf- als auch Verkaufsaufträge über die Open Stage ausführen möchten. In solchen Situationen möchten sie vielleicht die Manage Stage und die Close Stage löschen, damit sie überhaupt nicht ausgeführt werden. Das ist möglich, weil beide optional sind. So sieht die Optionalität im Code aus:",
+                    "updated": 1708272499060,
+                    "style": "Text"
                 }
             ]
         },
@@ -94,6 +117,12 @@
                     "language": "TR",
                     "text": "Close Stage Konsepti",
                     "updated": 1642501355598
+                },
+                {
+                    "language": "DE",
+                    "text": "Close Stage Konzept",
+                    "updated": 1708272499248,
+                    "style": "Title"
                 }
             ]
         },
@@ -110,6 +139,12 @@
                     "language": "TR",
                     "text": "Close Stage, Stop Loss veya Take Profit hedeflerinden birine ulaşıldığında açılır. Ayrıca Manage Stage tanımsız ise pozisyon açıldıktan sonra da açılır.",
                     "updated": 1642501458243
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Schließungsphase wird eröffnet, wenn entweder das Stop-Loss- oder das Take-Profit-Ziel erreicht wird. Sie wird auch nach der Positionseröffnung geöffnet, wenn die Manage Stage nicht definiert ist.",
+                    "updated": 1708272499358,
+                    "style": "Text"
                 }
             ]
         },
@@ -126,6 +161,12 @@
                     "language": "TR",
                     "text": "Bir pozisyonu kapatmak için aynı tanımlar gerektiğinden, Close Stage bir bakıma Open Stage'in bir aynasıdır. Yine de birkaç mantıksal fark vardır.",
                     "updated": 1642501505723
+                },
+                {
+                    "language": "DE",
+                    "text": "In gewisser Weise ist die Schließungsphase praktisch ein Spiegelbild der Eröffnungsphase, da für die Schließung einer Position dieselben Definitionen erforderlich sind. Allerdings gibt es ein paar logische Unterschiede.",
+                    "updated": 1708272499530,
+                    "style": "Text"
                 }
             ]
         },
@@ -142,6 +183,12 @@
                     "language": "TR",
                     "text": "Örneğin, Open Stage'de, muhtemelen hedef büyüklüğünü ticaret sistemine tahsis edilen sermayenin bir fonksiyonu olarak tanımladınız. Close Stage'de, hedef büyüklüğünü büyük olasılıkla, doldurulan büyüklüğün, yani Open Stage'de verilen siparişlerin miktarının bir fonksiyonu olarak tanımlamak isteyeceksiniz.",
                     "updated": 1642501620693
+                },
+                {
+                    "language": "DE",
+                    "text": "So haben Sie beispielsweise in der Eröffnungsphase die Zielgröße wahrscheinlich als Funktion des dem Handelssystem zugewiesenen Kapitals definiert. In der Abschlussphase werden Sie die Zielgröße wahrscheinlich als Funktion der ausgeführten Größe definieren wollen, d.h. der Menge der erteilten Aufträge, die in der Eröffnungsphase ausgeführt wurden.",
+                    "updated": 1708272499686,
+                    "style": "Text"
                 }
             ]
         },
@@ -159,6 +206,12 @@
                     "language": "TR",
                     "text": "Close Stage'de işlem görecek varlığın hedef boyutunun sıfıra eşit olması durumunda, Close Stage, halihazırda yürütülen stratejide olduğu gibi kapanacaktır. Örneğin: Open Stage'in, bir limit emri aracılığıyla y fiyatında kote edilmiş varlığın x miktarında işlem yapacağını varsayalım. Ancak bunun yerine, fiyat ters yönde ve Close Stage aşamasında işlem görecek olan herhangi bir Temel Varlığın birikmesinden önce Open Stage'in kapandığı noktaya hareket etti. Bu senaryoda, Close Stage herhangi bir eylemde bulunmaz ve Stratejinin (Strategy) mevcut örneğini Kapatır ve sistem başka bir Open Stage olayı için yoklamaya devam eder.",
                     "updated": 1642502388001
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Zielgröße des Vermögenswerts, der in der Close Stage gehandelt werden soll, gleich Null ist, wird die Close Stage ebenso wie die aktuell laufende Strategie geschlossen. Ein Beispiel: Angenommen, die Open Stage sollte eine Menge von x notierten Vermögenswerten zu einem Preis von y über eine Limit-Order handeln. Stattdessen bewegte sich der Kurs jedoch in die entgegengesetzte Richtung und zwar so weit, dass die Open Stage geschlossen wurde, bevor der Basiswert, der über die Close Stage gehandelt werden sollte, akkumuliert wurde. In diesem Szenario würde Close Stage keine Maßnahmen ergreifen und die aktuelle Instanz der Strategie schließen, und das System würde die Abfrage für ein weiteres Trigger On-Ereignis wieder aufnehmen.",
+                    "updated": 1708272499906,
+                    "style": "Text"
                 }
             ]
         },
@@ -171,6 +224,12 @@
                     "language": "TR",
                     "text": "Vakıflar->Topik->Sahnem Neden Kapanmıyor ->Sahne Kapanmıyor",
                     "updated": 1654391512840,
+                    "style": "Include"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stiftungen->Thema->Warum schließt sich meine Bühne nicht?->Die Bühne schließt sich nicht",
+                    "updated": 1708272500187,
                     "style": "Include"
                 }
             ]

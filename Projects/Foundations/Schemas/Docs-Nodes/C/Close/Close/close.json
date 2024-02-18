@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Kapanış, borsa tarafından sağlanan son mülkün tarih saatindeki orandır. Yani, mumun kapanışındaki oran.",
                 "updated": 1652797586569
+            },
+            {
+                "language": "DE",
+                "text": "Close ist der Kurs zum Zeitpunkt der Endeigenschaft, wie von der Börse angegeben. Das heißt, der Kurs am Ende der Kerze.",
+                "updated": 1708265560850
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle.",
                     "updated": 1652797603337
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern.",
+                    "updated": 1708265560991,
+                    "style": "Text"
                 }
             ]
         }

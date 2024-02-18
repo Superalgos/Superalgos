@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Bir pozisyonun en son kapatıldığından beri geçen süreyi sayar.",
                 "updated": 1652798235321
+            },
+            {
+                "language": "DE",
+                "text": "Zählt die Zeiträume seit der letzten Schließung einer Position.",
+                "updated": 1708265558052
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1652798243783
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1708265558160,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "language": "TR",
                     "text": "Close Position Yapılandırması",
                     "updated": 1652798252439
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der Schließposition (Close Position)",
+                    "updated": 1708265558317,
+                    "style": "Title"
                 }
             ]
         },
@@ -66,6 +83,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652798280714
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1708265558442,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -82,6 +105,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652798274431
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1708265558551,
+                    "style": "List"
                 }
             ]
         }

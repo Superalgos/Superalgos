@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Yakın yürütme düğümü, bir pozisyonu kapatma sürecinde yer alan tüm yürütme algoritmalarını gruplandırır.",
                 "updated": 1652797981812
+            },
+            {
+                "language": "DE",
+                "text": "Der Ausführungsknoten Schließen fasst alle Ausführungsalgorithmen zusammen, die an der Schließung einer Position beteiligt sind.",
+                "updated": 1708265556878
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Kapalı aşamadaki kapalı yürütme bölümü, açık aşamadaki açık yürütmeye benzer şekilde çalışır. Detaylar için lütfen açık sahne açıklamalarına bakınız.",
                     "updated": 1652797993519
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Ausführungsabschnitt \"Schließen\" in der Abschlussphase funktioniert ähnlich wie der Abschnitt \"Öffnen\" in der Eröffnungsphase. Einzelheiten entnehmen Sie bitte den Erläuterungen zur offenen Phase.",
+                    "updated": 1708265557066,
+                    "style": "Text"
                 }
             ]
         }

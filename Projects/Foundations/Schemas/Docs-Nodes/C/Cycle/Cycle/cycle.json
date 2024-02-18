@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Ticaret botu, her mum için birbirini izleyen iki döngüde emir ve hesap alışverişi ile ilgili görevlerini yerine getirir.",
                 "updated": 1652799612808
+            },
+            {
+                "language": "DE",
+                "text": "Der Handelsbot führt seine Aufgaben in Bezug auf Börsenaufträge und Konten in zwei aufeinanderfolgenden Zyklen für jede Kerze aus.",
+                "updated": 1708265569146
             }
         ]
     },
@@ -38,6 +43,12 @@
                     "language": "TR",
                     "text": "İlk döngüde, borsadaki emirlerin durumunu kontrol eder, hesapları senkronize eder ve yeni emir verme koşullarının karşılanıp karşılanmadığını doğrular.",
                     "updated": 1652799621731
+                },
+                {
+                    "language": "DE",
+                    "text": "Im ersten Zyklus wird der Status der Aufträge an der Börse überprüft, die Konten werden synchronisiert, und es wird geprüft, ob die Bedingungen für die Erteilung neuer Aufträge erfüllt sind.",
+                    "updated": 1708265569333,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,6 +65,12 @@
                     "language": "TR",
                     "text": "İkinci döngüde, bir önceki döngüde karşılanan koşullar sağlanarak borsada emirleri oluşturur.",
                     "updated": 1652799629932
+                },
+                {
+                    "language": "DE",
+                    "text": "Im zweiten Zyklus werden die Aufträge an der Börse erstellt, sofern die Bedingungen im vorherigen Zyklus erfüllt waren.",
+                    "updated": 1708265569521,
+                    "style": "Text"
                 }
             ]
         },
@@ -70,6 +87,12 @@
                     "language": "TR",
                     "text": "Döngü düğümü için iki olası değer Birinci ve İkinci'dir.",
                     "updated": 1652799637499
+                },
+                {
+                    "language": "DE",
+                    "text": "Die beiden möglichen Werte für den Zyklusknoten sind First und Second.",
+                    "updated": 1708265569662,
+                    "style": "Text"
                 }
             ]
         }

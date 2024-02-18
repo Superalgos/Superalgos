@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Bir grafik noktaları, çokgenleri tanımlamak için kullanılan koordinat noktalarının tanımlarını gruplandırır.",
                 "updated": 1652797517523
+            },
+            {
+                "language": "DE",
+                "text": "Diagrammpunkte gruppieren die Definitionen von Koordinatenpunkten, die zur Definition von Polygonen verwendet werden.",
+                "updated": 1708265556518
             }
         ]
     },
@@ -38,6 +43,12 @@
                     "language": "TR",
                     "text": "Bir noktanın tanımı, noktanın adından ve x ve y koordinatları için karşılık gelen değerlerden oluşur. Bu tür tanımları oluşturmak için nokta ve nokta formülleri kullanılır.",
                     "updated": 1652797526994
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Definition eines Punktes besteht aus dem Namen des Punktes und den entsprechenden Werten für die x- und y-Koordinaten. Um solche Definitionen zu erstellen, werden Punkt- und Punktformeln verwendet.",
+                    "updated": 1708265556674,
+                    "style": "Text"
                 }
             ]
         }

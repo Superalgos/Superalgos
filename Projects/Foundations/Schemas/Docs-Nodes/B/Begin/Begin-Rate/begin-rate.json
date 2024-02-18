@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Başlangıç ​​oranı ( Begin rate ) , başlangıç ​​özelliğinin tarih saatine karşılık gelen mumun kapanış oranıdır.",
                 "updated": 1652796096680
+            },
+            {
+                "language": "DE",
+                "text": "Der Anfangskurs ( Begin Rate ) ist der Schlusskurs der Kerze, die dem Zeitpunkt des des Verkaufsbeginns entspricht.",
+                "updated": 1701930799688
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Bir strateji bağlamında, stratejinin tetiklendiği andaki son kapatılan mumun kapanış oranıdır.",
                     "updated": 1652796109049
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Strategie ist dies der Schlusskurs der letzten geschlossenen Kerze zum Zeitpunkt der Auslösung der Strategie.",
+                    "updated": 1701930799848,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Bir pozisyon bağlamında, pozisyon alma olayının tetiklendiği andaki son kapatılan mumun kapanış oranıdır.",
                     "updated": 1652796119787
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Position ist dies der Schlusskurs der letzten geschlossenen Kerze zum Zeitpunkt der Auslösung des Ereignisses \"Take Position\".",
+                    "updated": 1701930799978,
+                    "style": "Text"
                 }
             ]
         },
@@ -65,6 +82,12 @@
                     "language": "TR",
                     "text": "Bir bölüm bağlamında, bölümün başladığı anda son kapatılan mumun kapanış oranıdır.",
                     "updated": 1652796131983
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Episode ist dies der Schlusskurs der letzten geschlossenen Kerze zum Zeitpunkt des Beginns der Episode.",
+                    "updated": 1701930800149,
+                    "style": "Text"
                 }
             ]
         },
@@ -87,6 +110,12 @@
                     "language": "TR",
                     "text": "Begin Rate Yapılandırması",
                     "updated": 1652796141091
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin Rate Konfiguration",
+                    "updated": 1701930800275,
+                    "style": "Title"
                 }
             ]
         },
@@ -104,6 +133,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652796147237
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930800385,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -121,6 +156,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652796155367
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930800496,
+                    "style": "List"
                 }
             ]
         }

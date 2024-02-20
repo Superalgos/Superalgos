@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Bir siparişin en son iptal edilmesinden bu yana geçen süreyi sayar.",
                 "updated": 1652797198397
+            },
+            {
+                "language": "DE",
+                "text": "Zählt die Zeiträume seit der letzten Stornierung eines Auftrags.",
+                "updated": 1708265555392
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1652797207802
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1708265555548,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "language": "TR",
                     "text": "Siparişi iptal et ( Cancel Order ) Yapılandırması",
                     "updated": 1652797249691
+                },
+                {
+                    "language": "DE",
+                    "text": "Bestellung abbrechen ( Cancel Order ) Konfiguration",
+                    "updated": 1708265555704,
+                    "style": "Title"
                 }
             ]
         },
@@ -66,6 +83,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652797257523
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1708265555845,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -82,6 +105,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652797269362
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1708265555971,
+                    "style": "List"
                 }
             ]
         }

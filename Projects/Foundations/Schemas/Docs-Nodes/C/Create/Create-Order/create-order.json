@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Bir siparişin en son oluşturulduğu zamandan bu yana geçen süreyi sayar.",
                 "updated": 1652798680985
+            },
+            {
+                "language": "DE",
+                "text": "Zählt die Zeiträume seit der letzten Erstellung eines Auftrags.",
+                "updated": 1708265561992
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1652798692540
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1708265562133,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "language": "TR",
                     "text": "Create Order Yapılandırması",
                     "updated": 1652798701020
+                },
+                {
+                    "language": "DE",
+                    "text": "Auftrag (Create Order) erstellen Konfiguration",
+                    "updated": 1708265562305,
+                    "style": "Title"
                 }
             ]
         },
@@ -66,6 +83,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652798706858
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1708265562383,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -82,6 +105,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652798715249
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1708265562508,
+                    "style": "List"
                 }
             ]
         }

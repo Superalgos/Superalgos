@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Hesaplama prosedürü, hesaplanan özelliklere beslenecek bilgileri işler. Hesaplanan özellikler veri kümesinde saklanmaz; bunun yerine, veriler başkaları tarafından tüketildiği için gerçek zamanlı olarak hesaplanır.",
                 "updated": 1652797102731
+            },
+            {
+                "language": "DE",
+                "text": "Das Berechnungsverfahren verarbeitet Informationen, die in berechnete Eigenschaften einfließen sollen. Die berechneten Eigenschaften werden nicht im Datensatz gespeichert, sondern in Echtzeit berechnet, wenn die Daten von anderen genutzt werden.",
+                "updated": 1708265554110
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Botlar, mümkün olan en hafif veri kümelerini oluşturmak için bir strateji olarak verileri simge durumuna küçültülmüş dizi biçiminde depolar. Aynı nedenle, bir bot kolayca hesaplanabilen bilgileri saklamamayı seçebilir.",
                     "updated": 1652797118803
+                },
+                {
+                    "language": "DE",
+                    "text": "Bots speichern Daten in einem minimierten Array-Format, um möglichst kleine Datensätze zu erstellen. Aus demselben Grund kann ein Bot auch beschließen, keine leicht zu berechnenden Informationen zu speichern.",
+                    "updated": 1708265554281,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Örneğin, alım satım hacimlerini saklayan bir gösterge hayal edin... toplam hacmi saklaması gerekiyor mu? Hesaplaması çok kolay olduğu için, cevap muhtemelen değildir. Karar geliştiriciye kalmıştır, ancak kesinlikle gerekli değildir.",
                     "updated": 1652797129208
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sich zum Beispiel einen Indikator vor, der das Kauf- und Verkaufsvolumen speichert... muss er das Gesamtvolumen speichern? Angesichts der Tatsache, dass es so einfach zu berechnen ist, lautet die Antwort wahrscheinlich nein. Die Entscheidung liegt beim Entwickler, ist aber sicher nicht erforderlich.",
+                    "updated": 1708265554453,
+                    "style": "Text"
                 }
             ]
         },
@@ -65,6 +82,12 @@
                     "language": "TR",
                     "text": "Not: Hesaplama prosedürü, geliştiricinin veri kümesinde saklamamayı tercih ettiği özellikleri hesaplamak için kullanılır.",
                     "updated": 1652797141680
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Berechnungsverfahren wird verwendet, um Eigenschaften zu berechnen, die der Entwickler nicht im Datensatz speichern möchte.",
+                    "updated": 1708265554688,
+                    "style": "Note"
                 }
             ]
         },
@@ -81,6 +104,12 @@
                     "language": "TR",
                     "text": "Not: Hesaplama prosedürünün rolünü tam olarak anlamak için lütfen veri madenciliği iş akışı sayfasına bakın.",
                     "updated": 1652797151465
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Rolle des Berechnungsverfahrens vollständig zu verstehen, lesen Sie bitte die Seite zum Data-Mining-Workflow.",
+                    "updated": 1708265554828,
+                    "style": "Note"
                 }
             ]
         }

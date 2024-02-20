@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "İptal emri olayı, limit emirlerini iptal etmeyi mümkün kılar.",
                 "updated": 1652797304986
+            },
+            {
+                "language": "DE",
+                "text": "Das Ereignis \"cancel order\" ermöglicht die Stornierung von limitierten Aufträgen.",
+                "updated": 1708265555016
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "İptal emri olayı, bir limit emrinin iptal edileceği piyasa durumlarını tanımlar. Etkinlik tetiklendiğinde, sipariş kısmen doldurulmuş olsa bile sipariş kapatılır. Böyle bir durumda, doldurulan boyut olduğu gibi kalır ve tüm hesaplar kısmi dolum ile buna göre hesaplanır.",
                     "updated": 1652797320244
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Auftragsstornierungsereignis definiert die Marktsituationen, in denen ein Limitauftrag storniert werden soll. Wenn das Ereignis ausgelöst wird, wird der Auftrag geschlossen, auch wenn der Auftrag möglicherweise teilweise ausgeführt wurde. In einem solchen Fall bleibt die gefüllte Größe unverändert, und alle Konten werden entsprechend mit der Teilfüllung berechnet.",
+                    "updated": 1708265555158,
+                    "style": "Text"
                 }
             ]
         }

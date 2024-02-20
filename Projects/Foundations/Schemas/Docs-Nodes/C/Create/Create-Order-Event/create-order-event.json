@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Sipariş oluşturma olayı, siparişlerin yerleşimini kontrol eder.",
                 "updated": 1652798860066
+            },
+            {
+                "language": "DE",
+                "text": "Das Ereignis \"Auftrag erstellen\" steuert die Auftragserteilung.",
+                "updated": 1708265561257
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Bir pozisyon alma kararı verilmiş olsa bile, kullanıcı yine de emirlerin verilmesi üzerinde ek kontrol uygulamaya karar verebilir. Create order olayının amacı budur.",
                     "updated": 1652798868336
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch wenn die Entscheidung, eine Position einzunehmen, bereits gefallen ist, kann der Benutzer immer noch beschließen, zusätzliche Kontrolle über die Platzierung von Aufträgen auszuüben. Dies ist der Zweck des Ereignisses \"Order erstellen\".",
+                    "updated": 1708265561398,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Yürütme algoritmasında tanımlanan bir sipariş, yalnızca olayın true olarak değerlendirilmesi durumunda yürütülür.",
                     "updated": 1652798892681
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein in einem Ausführungsalgorithmus definierter Auftrag wird nur ausgeführt, wenn das Ereignis als wahr bewertet wird.",
+                    "updated": 1708265561601,
+                    "style": "Text"
                 }
             ]
         },
@@ -65,6 +82,12 @@
                     "language": "TR",
                     "text": "Pozisyon alma olayının tetiklenmesinden hemen sonra emirlerin tanımlandığı gibi verilmesini istiyorsanız, sadece emir oluşturma olay koşulunuz için true ifadesini kullanın.",
                     "updated": 1652798919883
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie möchten, dass Aufträge wie definiert unmittelbar nach dem Auslösen des Take-Position-Ereignisses platziert werden, verwenden Sie die Anweisung true Ihre einzige Bedingung für das Erzeugen von Aufträgen.",
+                    "updated": 1708265561757,
+                    "style": "Text"
                 }
             ]
         }

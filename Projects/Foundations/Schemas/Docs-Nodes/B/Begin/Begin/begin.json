@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Begin, üst düğüm tarafından temsil edilen nesnenin var olmaya başladığı andaki tarih-saattir.",
                 "updated": 1652795628601
+            },
+            {
+                "language": "DE",
+                "text": "Begin ist der Zeitpunkt, an dem das Objekt, das durch den übergeordneten Knoten repräsentiert wird, seinen Anfang nahm.",
+                "updated": 1701930800659
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Bir mum bağlamında, borsa tarafından sağlanan mumun açılış tarihidir.",
                     "updated": 1652795642330
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Kerze ist dies der Zeitpunkt der Eröffnung der Kerze, wie von der Börse angegeben.",
+                    "updated": 1701930800806,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "language": "TR",
                     "text": "Begin Yapılandırması",
                     "updated": 1652795651715
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin der Konfiguration",
+                    "updated": 1701930800940,
+                    "style": "Title"
                 }
             ]
         },
@@ -72,6 +89,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652795658603
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930801020,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -89,6 +112,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652795668537
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930801123,
+                    "style": "List"
                 }
             ]
         }

@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Bot veri bağımlılıkları düğümü, belirli bir bota karşılık gelen veri bağımlılıklarını düzenlemek için kullanılan kurumsal bir cihazdır.",
                 "updated": 1652796199434
+            },
+            {
+                "language": "DE",
+                "text": "Ein Knoten für Bot-Datenabhängigkeiten ( Bot Data Dependencies) ist ein Organisationsmittel, das dazu dient, Datenabhängigkeiten zu einem bestimmten Bot zu organisieren.",
+                "updated": 1701930801286
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Cihaz, bir veri madeni veri bağımlılıkları düğümünün bir ürünü olarak bulunur ve verilen veri madeninde bir bota referans gerektirmez.",
                     "updated": 1652796217373
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Gerät existiert als Abkömmling eines Knotens für Datenabhängigkeiten in der Datenmine und benötigt keinen Verweis auf einen Bot in der gegebenen Datenmine.",
+                    "updated": 1701930801452,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,6 +64,12 @@
                     "language": "TR",
                     "text": "Bot Veri Bağımlılıklarını Yapılandırma",
                     "updated": 1652796236860
+                },
+                {
+                    "language": "de",
+                    "text": "Konfigurieren von Bot Data Dependencies",
+                    "updated": 1701930801647,
+                    "style": "Title"
                 }
             ]
         },
@@ -69,6 +86,12 @@
                     "language": "TR",
                     "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
                     "updated": 1652796247360
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü Konfigurieren, um auf die Konfiguration zuzugreifen.",
+                    "updated": 1701930801762,
+                    "style": "Text"
                 }
             ]
         }

@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Bir bot ürünleri düğümü, belirli bir bota karşılık gelen veri ürünlerini düzenlemek için kullanılan kurumsal bir cihazdır.",
                 "updated": 1652796385450
+            },
+            {
+                "language": "DE",
+                "text": "Ein Bot-Produktknoten ist ein Organisationsmittel, das dazu dient, Datenprodukte zu ordnen, die einem bestimmten Bot entsprechen.",
+                "updated": 1701930802189
             }
         ]
     },
@@ -38,6 +43,12 @@
                     "language": "TR",
                     "text": "Cihaz, bir veri veya ticari maden ürünleri düğümünün ürünü olarak bulunur ve verilen verilerde veya ticaret madeninde bir bot referansı gerektirmez.",
                     "updated": 1652796403572
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Gerät existiert als Abkömmling eines Daten- oder Handelsminenproduktknotens ( data or trading mine products ) und benötigt keinen Verweis auf einen Bot in der gegebenen Daten- oder Handelsmine.",
+                    "updated": 1701930802360,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,6 +65,12 @@
                     "language": "TR",
                     "text": "Veri ürünleri bot ürünlerinin dışında da bulunabileceğinden, bot ürünleri düğümünün kullanımı isteğe bağlıdır.",
                     "updated": 1652796413138
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwendung des Knotens Bot-Produkte ist optional, da Datenprodukte auch außerhalb von Bot-Produkten existieren können.",
+                    "updated": 1701930802530,
+                    "style": "Text"
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Farklı Ağırlık Oyları ( Weight Votes ) türlerini ortaya çıkarmak ve büyük tanım yapılarını eşlemek için Proje Tanımı Hiyerarşilerinden ( Project Definition Hierarchies ) herhangi biri içindeki Sınıf düğüm türlerine başvurmak için bu anahtarı kullanın.",
                 "updated": 1671559302289
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Schalter, um verschiedene Arten von Gewichtungsabstimmungen zu erzeugen und um Klassentypen von Knoten innerhalb einer der Projektdefinitionshierarchien zu referenzieren, um große Strukturen von Definitionen abzubilden.",
+                "updated": 1707855838601
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bu anahtarı üç farklı amaç için kullanabilirsiniz:",
                     "updated": 1671559331009
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können diesen Schalter für drei verschiedene Zwecke verwenden:",
+                    "updated": 1707855891985
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Organizasyonel bir araç olarak (As an organizational device): Daha fazla anahtar ve oy üreterek keyfi oy düzenlemeleri oluşturabilirsiniz.",
                     "updated": 1671559511434
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Organisationsmittel: Sie können beliebige Anordnungen von Stimmen erstellen, die weitere Schalter und Stimmen hervorbringen.",
+                    "updated": 1707855902619
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "TR",
                     "text": "Bir anahtar olarak (As a switch): Ağırlık Gücü ( Weight Power ) akışını, tıpkı bir Token Güç Anahtarında ( Token Power Switch ) olduğu gibi, ancak Oylama Programı ( Voting Program ) içinde kontrol edebilirsiniz. Hatırlatmaya ihtiyacınız varsa, Token Gücünün ( Token Power Flows ) nasıl aktığını okuyun.",
                     "updated": 1671560118608
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Schalter: Sie können den Fluss der Gewichtskraft (Weight Power) steuern, ähnlich wie bei einem Token Power Switch, aber innerhalb des Abstimmungsprogramms (Voting Program). Wenn Sie eine Erinnerung brauchen, lesen Sie, wie Token Power fließt (Token Power Flows).",
+                    "updated": 1707855965818
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "TR",
                     "text": "Bir veri yapısı eşleyicisi olarak (As a data-structure mapper): Tanımların tüm yapılarını eşleştirmek için Proje Tanımı Hiyerarşileri ( Project Definition Hierarchies ) içindeki Sınıf tipi düğümlere başvurmak için bu düğümü kullanın.",
                     "updated": 1671560491019
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Datenstruktur-Mapper: Verwenden Sie den Knoten, um auf Klassentypen von Knoten innerhalb von Projektdefinitionshierarchien (Project Definition Hierarchies) zu verweisen, um ganze Strukturen von Definitionen abzubilden.",
+                    "updated": 1707856033280
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "TR",
                     "text": "İlk iki kullanım durumu kendi kendini açıklamaktadır. Üçüncüsünü daha ayrıntılı olarak inceleyelim.",
                     "updated": 1671560725274
+                },
+                {
+                    "language": "DE",
+                    "text": "Die ersten beiden Anwendungsfälle sind selbsterklärend. Lassen Sie uns den dritten Fall genauer untersuchen.",
+                    "updated": 1707856043005
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "TR",
                     "text": "Proje Tanımı Hiyerarşileri ( Project Definition Hierarchies ) içinde bir Sınıf tipi düğümle -Havuz Sınıfı ( Pool Class ), Pozisyon Sınıfı ( Position Class ), Özellik Sınıfı ( Feature Class ) veya Varlık Sınıfı ( Asset Class )- referansı oluşturmak için bir Ağırlık Oyları Anahtarı düğümü kullanın. Ardından hiyerarşinin tüm Sınıf bölümünü eşlemek için Ağırlık Oyları Anahtarı menüsündeki Eksik Oyları Yükle seçeneğini kullanın!",
                     "updated": 1671561308162
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie einen Schalter für die Stimmengewichtung, um einen Bezug zu einem Klassentyp von Knoten - Poolklasse, Positionsklasse, Featureklasse oder Assetklasse (Pool Class, Position Class, Feature Class, or Asset Class) - innerhalb von Projektdefinitionshierarchien (Project Definition Hierarchies) herzustellen. Verwenden Sie dann die Option Fehlende Stimmen installieren im Menü des Schalters für Gewichtungsstimmen, um den gesamten Klassenbereich der Hierarchie zuzuordnen!",
+                    "updated": 1707856098829
                 }
             ]
         },
@@ -133,6 +168,11 @@
                     "language": "TR",
                     "text": "İşlem, her Sınıf düğümü türü için bir Ağırlık Oyları Anahtarı ve her Sınıf düğümü içinde tanımlanan tüm Varlık ( Asset ), Özellik ( Feature ), Pozisyon ( Position ) veya Havuz ( Pool ) için eşleşen Ağırlık Oylarını ( Weight Votes ) oluşturur.",
                     "updated": 1671561786488
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Prozess erstellt einen Schalter für Gewichtungsstimmen für jeden Klassentyp von Knoten und passende Gewichtungsstimmen für jedes Asset, Feature, jede Position oder jeden Pool (Weight Votes Switch for each Class type of node, and matching Weight Votes for each Asset, Feature, Position, or Pool), die innerhalb jedes Klassenknotens definiert sind.",
+                    "updated": 1707856144302
                 }
             ]
         },
@@ -149,6 +189,11 @@
                     "language": "TR",
                     "text": "Tanımlar tarafında bir şey değişirse, her zaman geri dönüp Eksik Oyları Yükle işlemini tekrar çalıştırabilirsiniz. İşlem, yapıyı uygun oylarla ve anahtarlarla yeniden eşleştirecektir.",
                     "updated": 1671561869807
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sich an den Definitionen etwas ändert, können Sie jederzeit zurückgehen und den Prozess Fehlende Abstimmungen installieren erneut ausführen. Der Prozess wird die Struktur mit den entsprechenden Stimmen und Schaltern neu zuordnen.",
+                    "updated": 1707856156390
                 }
             ]
         },

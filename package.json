@@ -95,7 +95,7 @@
     "electron-updater": "^4.6.1"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.28.0",
     "css-loader": "^6.7.1",
     "eslint": "^8.10.0",
     "file-loader": "^6.2.0",

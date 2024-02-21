@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu anahtarı farklı türlerde Talep Oyları oluşturmak ve büyük talep yapılarını eşleştirmek için Kullanıcı Profili hiyerarşisinin Talep Programı bölümündeki Talep Klasörü düğüm türlerine başvurmak için kullanın.",
                 "updated": 1654394546552
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Schalter, um verschiedene Arten von Fallabstimmungen (Claim Votes) zu erzeugen und um auf Fallordnertypen (Claims Folder types) von Knoten innerhalb des Fallprogrammabschnitts (Claims Program section) der Benutzerprofilhierarchie (User Profile hierarchy) zu verweisen, um große Strukturen von Fällen abzubilden. ",
+                "updated": 1708551585696
             }
         ]
     },

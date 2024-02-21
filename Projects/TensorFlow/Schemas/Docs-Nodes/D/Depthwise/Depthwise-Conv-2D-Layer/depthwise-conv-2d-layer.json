@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Tiefenweise trennbare 2D-Faltung. Tiefenweise trennbare Faltungen bestehen darin, nur den ersten Schritt einer tiefenweisen räumlichen Faltung durchzuführen (der auf jeden Eingangskanal separat wirkt). Das Argument depthMultiplier steuert, wie viele Ausgangskanäle pro Eingangskanal im tiefenweisen Schritt erzeugt werden.",
-                "updated": 1708460279352
+                "text": "Tiefenweise trennbare 2D-Faltung. Tiefenweise trennbare Faltungen bestehen darin, nur den ersten Schritt einer tiefenweisen räumlichen Faltung durchzuführen (der auf jeden Eingangskanal separat wirkt). Das Argument depthMultiplier steuert, wie viele Ausgangskanäle pro Eingangskanal im tiefenweisen Schritt erzeugt werden. ",
+                "updated": 1708551708047
             }
         ]
     },

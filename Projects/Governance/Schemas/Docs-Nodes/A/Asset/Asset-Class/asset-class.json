@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varlık Sınıfı düğümü, Varlık düğümlerini rastgele düzenlemelerde gruplamak için kullanılan bir organizasyon aracıdır. Düğüm Ağırlık Oyları alabilir. Aldığında, oylar yavru düğümler arasında eşit olarak dağıtılır.",
                 "updated": 1654394408600
+            },
+            {
+                "language": "DE",
+                "text": "Der Asset-Klassenknoten ist ein Organisationsmittel, mit dem Asset -Knoten in beliebiger Anordnung gruppiert werden können. Der Knoten kann Gewichtungsstimmen (Weight Votes) erhalten. Wenn dies der Fall ist, werden die Stimmen gleichmäßig auf die Nachfolgeknoten verteilt.",
+                "updated": 1708551468592
             }
         ]
     },

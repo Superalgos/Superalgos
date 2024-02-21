@@ -1,5 +1,26 @@
 {
     "type": "Bot Layers",
+    "definition": {
+        "text": "The Bot Layers node is an organizational device used to group layers originating on a specific bot.",
+        "updated": 1609784614091,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Bot Layers - это организационное устройство, используемое для группировки слоев, происходящих от конкретного бота.",
+                "updated": 1638645008381
+            },
+            {
+                "language": "TR",
+                "text": "Bot Katmanları düğümü, belirli bir bottan kaynaklanan katmanları gruplamak için kullanılan kurumsal bir cihazdır.",
+                "updated": 1652796293962
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Bot-Ebenen ( Bot Layers ) ist ein Organisationsmittel zur Gruppierung von Ebenen, die von einem bestimmten Bot stammen.",
+                "updated": 1701930801919
+            }
+        ]
+    },
     "paragraphs": [
         {
             "style": "Text",
@@ -15,24 +36,14 @@
                     "language": "TR",
                     "text": "Yeni pazarlar kurulurken düğüm otomatik olarak oluşturulur.",
                     "updated": 1652796306010
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten wird bei der Installation neuer Märkte automatisch erstellt.",
+                    "updated": 1701930802055,
+                    "style": "Text"
                 }
             ]
         }
-    ],
-    "definition": {
-        "text": "The Bot Layers node is an organizational device used to group layers originating on a specific bot.",
-        "updated": 1609784614091,
-        "translations": [
-            {
-                "language": "RU",
-                "text": "Узел Bot Layers - это организационное устройство, используемое для группировки слоев, происходящих от конкретного бота.",
-                "updated": 1638645008381
-            },
-            {
-                "language": "TR",
-                "text": "Bot Katmanları düğümü, belirli bir bottan kaynaklanan katmanları gruplamak için kullanılan kurumsal bir cihazdır.",
-                "updated": 1652796293962
-            }
-        ]
-    }
+    ]
 }

@@ -9,7 +9,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@popperjs/core": "^2.11.5",
-    "axios": "^0.27.2",
+    "axios": "^0.28.0",
     "bootstrap": "^4.6.1",
     "moment": "^2.29.3",
     "mutationobserver-shim": "^0.3.7",

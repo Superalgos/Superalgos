@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Im Debug-Modus wird jeder ausgeführte Vorgang auf der Konsole protokolliert, ebenso wie Informationen zur Laufzeitleistung, wie z. B. der Speicherbedarf und die Gesamtausführungszeit des Kernels. Beachten Sie, dass dies Ihre Anwendung stark verlangsamt, verwenden Sie dies nicht in der Produktion. ",
-                "updated": 1708551678646
+                "text": "Im Debug-Modus wird jeder ausgeführte Vorgang auf der Konsole protokolliert, ebenso wie Informationen zur Laufzeitleistung, wie z. B. der Speicherbedarf und die Gesamtausführungszeit des Kernels. Beachten Sie, dass dies Ihre Anwendung stark verlangsamt, verwenden Sie dies nicht in der Produktion.  ",
+                "updated": 1708628969388
             }
         ]
     },

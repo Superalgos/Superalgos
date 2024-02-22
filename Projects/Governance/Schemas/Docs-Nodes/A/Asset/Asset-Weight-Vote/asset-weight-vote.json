@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Verwenden Sie diesen Knoten, um einen Bezug zu einem Anlagenknoten (Asset node) in einer Anlagenhierarchie (Assets hierarchy) herzustellen. Mit dieser Abstimmung geben Sie Gewichtskraft (Weight Power) an den referenzierten Knoten weiter. Auf diese Weise erhält der Knoten einen größeren Anteil an den in der Hierarchie verfügbaren Token-Belohnungen (Token Rewards). Auf diese Weise beeinflussen Sie, wie verschiedene Bereiche des Projekts incentiviert werden. ",
-                "updated": 1708551549902
+                "text": "Verwenden Sie diesen Knoten, um einen Bezug zu einem Anlagenknoten (Asset node) in einer Anlagenhierarchie (Assets hierarchy) herzustellen. Mit dieser Abstimmung geben Sie Gewichtskraft (Weight Power) an den referenzierten Knoten weiter. Auf diese Weise erhält der Knoten einen größeren Anteil an den in der Hierarchie verfügbaren Token-Belohnungen (Token Rewards). Auf diese Weise beeinflussen Sie, wie verschiedene Bereiche des Projekts incentiviert werden.  ",
+                "updated": 1708628855308
             }
         ]
     },

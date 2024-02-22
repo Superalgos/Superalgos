@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Wendet Dropout auf die Eingabe an. Dropout besteht darin, dass bei jeder Aktualisierung während der Trainingszeit ein Bruchteil der Eingabeeinheiten zufällig auf 0 gesetzt wird, was dazu beiträgt, eine Überanpassung zu verhindern. ",
-                "updated": 1708551733766
+                "text": "Wendet Dropout auf die Eingabe an. Dropout besteht darin, dass bei jeder Aktualisierung während der Trainingszeit ein Bruchteil der Eingabeeinheiten zufällig auf 0 gesetzt wird, was dazu beiträgt, eine Überanpassung zu verhindern.  ",
+                "updated": 1708629028744
             }
         ]
     },

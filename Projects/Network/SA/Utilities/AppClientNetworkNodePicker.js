@@ -17,7 +17,7 @@ exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetwo
     }
 
     /**
-     * The default will return a list exluding all local network addresses, 
+     * The default will return a full list including all local network addresses, 
      * to change this behaviour filters need to be applied
      * @param {Network[]} p2pNetworkNodes 
      * @param {Filters | undefined} filters
@@ -40,11 +40,11 @@ exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetwo
                 }
                 return filteredUserNetworks.filter(n => !isLocalNetwork(n.node.config.host))
             }
-            if(!!filters.includeLocalNetworks) {
-                return validNetworkNodes
+            if(filters.includeLocalNetworks !== undefined && !filters.includeLocalNetworks) {
+                return validNetworkNodes.filter(n => !isLocalNetwork(n.node.config.host))
             }
         }
-        return validNetworkNodes.filter(n => !isLocalNetwork(n.node.config.host))
+        return validNetworkNodes
     }
 
     /**

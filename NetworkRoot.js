@@ -10,7 +10,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
 
     return thisObject
 
-    async function run(debugSettings) {
+    async function run(debugSettings, networkFilters) {
         /* 
         The NT object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for this Network.
@@ -20,7 +20,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         The SA object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for Superalgos in general.
         */
-        global.SA = {}
+        global.SA = {networkFilters}
         /* Load Environment Variables */
         let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
@@ -61,7 +61,9 @@ exports.newNetworkRoot = function newNetworkRoot() {
         SA.version = require('./package.json').version
 
         const saLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'Network')
+        const socketsLogsPath = SA.nodeModules.path.join(global.env.PATH_TO_LOG_FILES, 'NetworkSockets')
         SA.logger = require('./loggerFactory').loggerFactory(saLogsPath, 'NT')
+        SA.socketLogger = require('./loggerFactory').loggerFactory(socketsLogsPath, 'NT')
 
         /* 
         Setting up the App Schema Memory Map. 

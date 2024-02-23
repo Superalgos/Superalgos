@@ -75,24 +75,22 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
              * interval the client will be removed from all lists and
              * the connection terminated.
              */
-            interval = setInterval(ping(), 30000)
-
-            function ping() {
-                SA.logger.debug(`Number of websocket clients: ${clients.size}`);
+            interval = setInterval(function ping() {
+                SA.socketLogger.info(`Number of websocket clients: ${clients.size}`);
                 [...clients.keys()].forEach(socket => {
                     const client = clients.get(socket);
                     if(!client.isAlive) {
-                        SA.logger.info('Server could not confirm client to be alive, terminating Websockets connection for ' + tailLogInfo(client))
+                        // SA.socketLogger.info('Server could not confirm client to be alive, terminating Websockets connection for ' + tailLogInfo(client))
                         thisObject.socketInterfaces.onConnectionClosed(client.id)
                         socket.terminate()
                         clients.delete(socket)
                         return
                     }
-                    SA.logger.debug('Server-side heart beat pinged for ' + tailLogInfo(client))
+                    // SA.socketLogger.info('Server-side heart beat pinged for ' + tailLogInfo(client))
                     client.isAlive = false
                     socket.ping()
                 })
-            }
+            }, 30000)
 
             /**
              * This function is executed every time a new Websockets connection
@@ -100,9 +98,12 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
              * 
              * @param {WebSocket} socket
              */
-            function onConnectionOpened(socket) {
+            function onConnectionOpened(socket, req) {
+                const ip = req.socket.remoteAddress;
+                socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+
                 /** @type {Caller} */ let caller = {
-                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    id: socket.id,
                     isAlive: true,
                     socket,
                     userProfile: undefined,
@@ -110,9 +111,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     role: undefined
                 }
                 clients.set(socket, caller);
-                SA.logger.debug('Added new caller to network client list ' + caller.id)
+                SA.socketLogger.info('Added new caller to network client list ' + caller.id + ' from IP ' + ip)
 
-                caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
                 caller.socket.on('close', onConnectionClosed)
 
                 /* 
@@ -131,18 +131,18 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 function heartbeat() {
                     caller.isAlive = true
-                    SA.logger.debug('Incoming Pong received for ' + tailLogInfo(caller))
+                    SA.socketLogger.info('Incoming Pong received for ' + tailLogInfo(caller))
                 }
 
                 function onConnectionClosed() {
-                    SA.logger.debug('Closing socket for ' + tailLogInfo(caller))
+                    SA.socketLogger.info('Closing socket for ' + tailLogInfo(caller))
                     thisObject.socketInterfaces.onConnectionClosed(caller.id)
-                    SA.logger.debug('Deleting socket client for ' + tailLogInfo(caller))
+                    SA.socketLogger.info('Deleting socket client for ' + tailLogInfo(caller))
                     clients.delete(socket)
                 }
             }
         } catch (err) {
-            SA.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            SA.socketLogger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
 
         /**

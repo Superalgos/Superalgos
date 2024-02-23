@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varlıklar hiyerarşisi, bir projenin oluşturduğu varlıkların yapısını tanımlar. Bir Projenin (Project) herhangi bir dijital bileşeni, kod dosyaları, stil sayfaları, resimler, dokümantasyon sayfaları, eğitim sayfaları vb. dahil olmak üzere bir varlık olarak nitelendirilebilir. Özellikler (Features) gibi varlıkların oluşturulması ve sürdürülmesi gerekir, bu nedenle bunların oluşturulması ve bakımı teşvik edilmelidir.",
                 "updated": 1644568893756
+            },
+            {
+                "language": "DE",
+                "text": "Die Hierarchie der Assets definiert die Struktur der Assets, aus denen ein Projekt besteht. Jede digitale Komponente eines Projekts (Project) kann als Asset bezeichnet werden, einschließlich Codedateien, Stylesheets, Bilder, Dokumentationsseiten, Tutorialseiten usw. Assets müssen ebenso wie Features erstellt und gepflegt werden, daher müssen Anreize für ihre Erstellung und Pflege geschaffen werden.  ",
+                "updated": 1708628874677
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Varlıkları proje düzeyinde tanımlamak, bir projenin tanımını atomize etmenin mükemmel bir yoludur. Bu ayrıntı, çok sayıda Katkıda Bulunan grubunun, büyük bir işbirliği yoluyla geniş bir projeyi geliştirmek ve sürdürmek için çok önemli olan,bileşenlerin sorumluluğunu üstlenmesine olanak tanır.",
                     "updated": 1644569193331
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Definition von Assets auf Projektebene ist eine hervorragende Möglichkeit, die Beschreibung eines Projekts zu atomisieren. Diese Granularität ermöglicht es mehreren Gruppen von Mitwirkenden, die Verantwortung für klar abgegrenzte Komponenten zu übernehmen, was für die Entwicklung, Weiterentwicklung und Pflege eines umfangreichen Projekts durch massive Zusammenarbeit entscheidend ist.",
+                    "updated": 1708291393760
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Hiyerarşi, bir kuruluş aygıtı olan Varlık Sınıfı (Asset Class) düğümlerini ve gerçek varlıkların temsili olan Varlık (Asset) düğümlerini içerir. Her iki düğüm türü de gelen Ağırlık Oylarını (Weight Votes) kabul edebilir, ancak yalnızca Varlık düğümleri Katkı Taleplerini (Contribution Claims) kabul edebilir.",
                     "updated": 1644569311827
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Hierarchie besteht aus Asset-Klassen-Knoten (Asset Class nodes), einer organisatorischen Einrichtung, und Asset-Knoten, die tatsächliche Vermögenswerte darstellen. Beide Knotentypen können eingehende Gewichtungsstimmen (Weight Votes) annehmen, aber nur Asset-Knoten können Beitragsforderungen (Contribution Claims) annehmen.",
+                    "updated": 1708291466130
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Bu hiyerarşinin önemli bir özelliği, hem hiyerarşinin en üst düzeyinde hem de Varlık Sınıfı (Asset Class) düğüm düzeyinde kullanılabilen Varlıkları Kurabilme özelliğidir.",
                     "updated": 1644569374047
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein wichtiges Merkmal dieser Hierarchie ist die Funktion Assets installieren, die sowohl auf der obersten Ebene der Hierarchie als auch auf der Ebene der Asset-Klassen-Knoten (Asset Class node) verfügbar ist.",
+                    "updated": 1708291499341
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "language": "TR",
                     "text": "Eksik Varlıkları Yüklemek...",
                     "updated": 1644569398564
+                },
+                {
+                    "language": "DE",
+                    "text": "Fehlende Assets installieren",
+                    "updated": 1708291507441
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "TR",
                     "text": "Eksik Varlıkları Yükle (Install Missing Assets) özelliği, Proje Tanımı Hiyerarşilerini (Project Definition Hierarchies) tanıyıp anlayan kişilere yöneliktir. Yönetişim hakkında bilgi edinen düzenli bir kullanıcıysanız bu açıklamayı güvenle atlayabilirsiniz.",
                     "updated": 1644569719310
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktion Fehlende Assets installieren richtet sich an Personen, die Projektdefinitionshierarchien (Project Definition Hierarchies) verwalten. Sie können diese Erklärung getrost überspringen, wenn Sie ein regelmäßiger Benutzer sind, der sich mit Governance beschäftigt.",
+                    "updated": 1708291535616
                 }
             ]
         },
@@ -119,6 +149,11 @@
                     "language": "TR",
                     "text": "Hem Varlıklar (Assets) düğümü hem de Varlık Sınıfı (Asset Class) düğümleri, menüde bulunan Eksik Varlıkları Yükle ((Install Missing Assets) ) komutunu destekler. Varlık düğümleri, sistemle birlikte gönderilen dijital dosyaları eşitlediğinden, Install Missing Assets özelliği, diskteki dosyaları, Install Missing Assets  komutunun çalıştırıldığı düğümün altındaki hiyerarşik düğüm yapılarına eşitlemek için tasarlanmıştır. Ortaya çıkan düğüm yapısında Varlık Sınıfı düğümleri klasörleri ve Varlık düğümleri dosyaları temsil eder.",
                     "updated": 1644569863745
+                },
+                {
+                    "language": "DE",
+                    "text": "Sowohl der Asset-Knoten als auch der Asset-Klassen-Knoten (Asset Class nodes) unterstützen den im Menü verfügbaren Befehl Fehlende Assets installieren. Da Asset-Knoten (Asset nodes) digitale Dateien abbilden, die mit dem System ausgeliefert werden, ist die Funktion \"Fehlende Assets installieren\" so konzipiert, dass sie die Dateien auf der Festplatte in eine hierarchische Struktur von Knoten unterhalb des Knotens einordnet, in dem der Befehl \"Fehlende Assets installieren\" ausgeführt wird. In der sich daraus ergebenden Knotenstruktur stehen Asset-Klassenknoten (Asset Class nodes) für Ordner und Asset-Knoten (Asset nodes) für Dateien.",
+                    "updated": 1708291639743
                 }
             ]
         },
@@ -135,6 +170,11 @@
                     "language": "TR",
                     "text": "Komutu çalıştırmak için, eşitlemek istediğiniz yolu yapılandırmanız gerekir.",
                     "updated": 1644569886841
+                },
+                {
+                    "language": "DE",
+                    "text": "Um den Befehl auszuführen, müssen Sie den Pfad konfigurieren, den Sie zuordnen möchten.",
+                    "updated": 1708291650479
                 }
             ]
         },
@@ -151,6 +191,11 @@
                     "language": "TR",
                     "text": "Örneğin:",
                     "updated": 1644569896608
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1708291656535
                 }
             ]
         },
@@ -173,6 +218,11 @@
                     "language": "TR",
                     "text": "Yukarıdaki yapılandırmayı kullanarak, Eksik Varlıkları Yükle (Install Missing Assets) komutu bir Superalgos Varlık Sınıfı (Asset Class) düğümü (Superalgos klasörünün kökü) ve bir alt düğüm olarak UI Varlık Sınıfı (UI Asset Class) düğümü oluşturur. Ardından, UI klasörünün içeriği, UI Varlık Sınıfı düğümünün ürünü olarak eşitlenir.",
                     "updated": 1644570003781
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit der obigen Konfiguration erstellt der Befehl Fehlende Assets installieren einen Superalgos- Asset Class -Knoten (die Wurzel des Superalgos-Ordners) und den UI Asset Class -Knoten als Unterknoten. Anschließend wird der Inhalt des UI -Ordners als Unterknoten des UI Asset Class -Knotens abgebildet.",
+                    "updated": 1708291754797
                 }
             ]
         },
@@ -193,6 +243,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1644570014317
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1708291761358
                 }
             ]
         }

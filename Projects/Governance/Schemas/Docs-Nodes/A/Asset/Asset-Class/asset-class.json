@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varlık Sınıfı düğümü, Varlık düğümlerini rastgele düzenlemelerde gruplamak için kullanılan bir organizasyon aracıdır. Düğüm Ağırlık Oyları alabilir. Aldığında, oylar yavru düğümler arasında eşit olarak dağıtılır.",
                 "updated": 1654394408600
+            },
+            {
+                "language": "DE",
+                "text": "Der Asset-Klassenknoten ist ein Organisationsmittel, mit dem Asset -Knoten in beliebiger Anordnung gruppiert werden können. Der Knoten kann Gewichtungsstimmen (Weight Votes) erhalten. Wenn dies der Fall ist, werden die Stimmen gleichmäßig auf die Nachfolgeknoten verteilt.  ",
+                "updated": 1708628803961
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Ağırlığı, içindeki tüm varlıklar dahil olmak üzere tüm sınıfa yönlendirmek istediğinizde, Ağırlık Oylarını bir Varlık Sınıfı düğümüne yönlendirebilirsiniz.",
                     "updated": 1654394414418,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Gewichtungsabstimmungen (Weight Votes) auf einen Anlagenklassenknoten richten, wenn Sie beabsichtigen, die gesamte Klasse einschließlich aller darin enthaltenen Anlagen zu gewichten (Weight).",
+                    "updated": 1708291040853
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "text": "Varlık Sınıfı düğümleri gelen Ağırlık Oylarını alabilir. Bir Varlık Sınıfı düğümüne Ağırlık Oyları verdiğinizde, oylar tüm yavru düğümlere eşit olarak yayılır.",
                     "updated": 1654394420062,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Anlagenklassenknoten können eingehende Gewichtungsstimmen (Weight Votes) annehmen. Wenn Sie Gewichtungsstimmen (Weight Votes) für einen Anlagenklassenknoten abgeben, werden die Stimmen gleichmäßig auf alle Nachfolgeknoten verteilt.",
+                    "updated": 1708291073228
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "text": "Konfigürasyon",
                     "updated": 1654394425558,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1708291079627
                 }
             ]
         }

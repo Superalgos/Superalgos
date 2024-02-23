@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu düğümü, iş arkadaşınız tarafından Kullanıcı Profilinin Talep Programı bölümüne yerleştirilen bir Varlık Katkı Talebi ile referans oluşturmak için kullanın. Bu oy, meslektaşınızın talebini Talep Oyları düğümüne sürdüğünüz Talep Destek Gücü ile desteklediğiniz anlamına gelir!",
                 "updated": 1654394360622
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Knoten, um einen Bezug zu einem Asset Contribution Claim herzustellen, den Ihr Kollege im Abschnitt Claims Program seines Benutzerprofils (User Profile) platziert hat. Dieses Votum bedeutet, dass Sie den Claim Ihres Kollegen mit der Claim Support Power unterstützen, die Sie in den Knoten Claim Votes eingeben!  ",
+                "updated": 1708628786940
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "text": "Birden Fazla Çalışma Alanında Çalışma",
                     "updated": 1654394372715,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeiten an mehreren Arbeitsbereichen",
+                    "updated": 1708290901878
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "text": "Konfigürasyon",
                     "updated": 1654394391381,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1708290908786
                 }
             ]
         }

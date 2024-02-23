@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Pozitif tamsayı, çıktı uzayının boyutluluğu.",
                 "updated": 1654396982954
+            },
+            {
+                "language": "DE",
+                "text": "Positive Ganzzahl, Dimensionalität des Ausgaberaums.  ",
+                "updated": 1708629013383
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654396989403,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1708460330655
                 }
             ]
         },

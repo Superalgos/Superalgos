@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varlık, çoğunlukla dijital formatta olan ve bir Projeye ait olan bir eserdir. Bir kod dosyası, bir dokümantasyon veya eğitim sayfası, bir resim, bir video, bir sosyal medya hesabı veya hatta bir gönderi, pazarlama teminatı ve daha fazlası olabilir. Varlıkların üretimini ve bakımını teşvik etmek için düğüm Ağırlık Oyları alabilir. Ayrıca, üretim ve bakımlarında yer alan Katılımcılardan Katkı Talepleri de alabilir.",
                 "updated": 1654394480398
+            },
+            {
+                "language": "DE",
+                "text": "Ein Asset ist ein Artefakt, meist in einem digitalen Format, das zu einem Projekt (Project) gehört. Dabei kann es sich um eine Codedatei, eine Dokumentations- oder Anleitungsseite, ein Bild, ein Video, ein Social-Media-Konto oder sogar einen Beitrag, Marketingmaterial und mehr handeln. Um Anreize für die Erstellung und Pflege von Assets zu schaffen, kann der Knoten Gewichtungsstimmen (Weight Votes) erhalten. Er kann auch Beitragsforderungen (Contribution Claims) von Mitwirkenden erhalten, die an der Erstellung und Pflege der Assets beteiligt sind.  ",
+                "updated": 1708628758683
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Söz konusu varlığın iyileştirilmesini, geliştirilmesini ve bakımını teşvik etmek için tek tek Varlık düğümlerine Ağırlık Oyları verebilirsiniz.",
                     "updated": 1654394486201,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Gewichtungsstimmen (Weight Votes) für einzelne Asset-Knoten abgeben, um Anreize für die Verbesserung, Entwicklung und Instandhaltung des betreffenden Assets zu schaffen.",
+                    "updated": 1708290711804
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "text": "Söz konusu varlığın geliştirilmesinde veya bakımında yer alıyorsanız, bir Varlık Katkı Talebinde bulunabilir ve çalışmalarınızın karşılığını alabilmeniz için Topluluğu talebinizi desteklemeye çağırabilirsiniz.",
                     "updated": 1654394492405,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie an der Entwicklung oder Instandhaltung des besagten Vermögenswerts beteiligt sind, können Sie einen Antrag auf einen Vermögensbeitrag (Asset Contribution Claim) stellen und die Gemeinschaft (Community) auffordern, Ihren Antrag zu unterstützen, damit Sie für Ihre Arbeit belohnt werden können.",
+                    "updated": 1708290769709
                 }
             ]
         },

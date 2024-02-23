@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Hata Ayıklama Modu, yürütülen her işlemin yanı sıra bellek ayak izi ve toplam çekirdek yürütme süresi gibi çalışma zamanı performans bilgilerini konsola kaydeder. Bunun uygulamanızı büyük ölçüde yavaşlatacağını unutmayın, bunu üretimde kullanmayın.",
                 "updated": 1654396939524
+            },
+            {
+                "language": "DE",
+                "text": "Im Debug-Modus wird jeder ausgeführte Vorgang auf der Konsole protokolliert, ebenso wie Informationen zur Laufzeitleistung, wie z. B. der Speicherbedarf und die Gesamtausführungszeit des Kernels. Beachten Sie, dass dies Ihre Anwendung stark verlangsamt, verwenden Sie dies nicht in der Produktion.  ",
+                "updated": 1708628969388
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396946400,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1708460171936
                 }
             ]
         }

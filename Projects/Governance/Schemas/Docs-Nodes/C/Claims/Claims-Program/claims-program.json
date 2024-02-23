@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Superalgos'a katkıda bulunduğunuzda, katkınız için bir talepte bulunmalı ve size yakın çalışan, iddialarınıza kefil olacak veya oy verecek kişilerin desteğini istemelisiniz.",
                 "updated": 1644495276016
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie einen Beitrag zu Superalgos leisten, müssen Sie eine Forderung für Ihren Beitrag vorlegen, und Sie müssen sich die Unterstützung von Personen sichern, die in Ihrer Nähe arbeiten und für Ihre Forderungen bürgen oder abstimmen.  ",
+                "updated": 1708628907732
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Yönetim merkeziyetsizdir. Kimin katkıda bulunacağını veya katkıda bulunanların hangi ödülleri alacağını kontrol eden merkezi bir otorite yoktur. Bunun yerine, proje, Topluluk içindeki katkıların değerini belirleme ve kimin neye katkıda bulunduğunu belirlemek için yetkisini topluluğa devretmiştir.",
                     "updated": 1644495374637
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwaltung ist dezentralisiert. Es gibt keine zentrale Behörde, die kontrolliert, wer was beiträgt oder welche Belohnungen die Beitragenden erhalten. Stattdessen überträgt das Projekt der Gemeinschaft (Community) die Befugnis, den Wert der Beiträge festzulegen und zu bestimmen, wer was beigetragen hat.",
+                    "updated": 1708374709140
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Dolayısıyla yönetim sosyal bir sistemdir. Superalgos'a dahil olduğunuzda, Topluluk (Community) ile etkileşime girer ve katkıda bulunmanın yollarını bulursunuz. Bunu yaparken, benzer ilgi alanlarına sahip veya üzerinde çalıştığınız projenin aynı alanlarına odaklanmış topluluk üyeleriyle ilişki kurarsınız. İddialarınıza kefil olacak olan bu insanlardır!",
                     "updated": 1644495444067
+                },
+                {
+                    "language": "DE",
+                    "text": "Daher ist die Governance ein soziales System. Wenn Sie sich bei Superalgos engagieren, interagieren Sie mit der Gemeinschaft (Community) und finden Wege, um einen Beitrag zu leisten. Dabei knüpfen Sie Beziehungen zu Mitgliedern der Gemeinschaft, die ähnliche Interessen haben oder sich auf die gleichen Bereiche des Projekts konzentrieren, an dem Sie vielleicht arbeiten. Es sind diese Leute, die für Ihre Ansprüche bürgen werden!",
+                    "updated": 1708374741514
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Yapabileceğiniz üç farklı hak talebi türü vardır:",
                     "updated": 1644495472288
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei verschiedene Arten von Anträgen, die Sie stellen können:",
+                    "updated": 1708375004634
                 }
             ]
         },
@@ -99,6 +119,11 @@
                     "language": "TR",
                     "text": "Asset Contribution Claim (Varlık Katkı Talebi)",
                     "updated": 1644495482905
+                },
+                {
+                    "language": "DE",
+                    "text": "Anspruch auf Vermögensabgabe (Asset Contribution Claim)",
+                    "updated": 1708375147857
                 }
             ]
         },
@@ -110,6 +135,11 @@
                     "language": "TR",
                     "text": "Feature Contribution Claim (Özellik Katkı Talebi)",
                     "updated": 1644495523143
+                },
+                {
+                    "language": "DE",
+                    "text": "Feature Beitragsanspruch (Feature Contribution Claim)",
+                    "updated": 1708375156010
                 }
             ]
         },
@@ -122,6 +152,11 @@
                     "language": "TR",
                     "text": "Position Contribution Claim (Pozisyon Katkı Talebi)",
                     "updated": 1644495537263
+                },
+                {
+                    "language": "DE",
+                    "text": "Position Beitragsforderung (Position Contribution Claim)",
+                    "updated": 1708375162729
                 }
             ]
         },
@@ -143,6 +178,11 @@
                     "language": "TR",
                     "text": "Ayrıca, yukarıdaki talep düğümlerini oluşturabileceğiniz kurumsal aygıtlar gibi davranan üç farklı klasör tipi düğüm vardır:",
                     "updated": 1644495560501
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt auch drei verschiedene Ordnertypen von Knoten, die als Organisationsmittel fungieren, von denen aus Sie die oben genannten Anspruchsknoten erzeugen können:",
+                    "updated": 1708375172035
                 }
             ]
         },
@@ -154,6 +194,11 @@
                     "language": "TR",
                     "text": "Asset Claims Folder (Varlık Talep Klasörü)",
                     "updated": 1644495635878
+                },
+                {
+                    "language": "DE",
+                    "text": "Vermögensantragsmappe (Asset Claims Folder)",
+                    "updated": 1708375195232
                 }
             ]
         },
@@ -166,6 +211,11 @@
                     "language": "TR",
                     "text": "Feature Claims Folder (Özellik Talep Klasörü)",
                     "updated": 1644495646450
+                },
+                {
+                    "language": "DE",
+                    "text": "Merkmal Forderungsmappe (Feature Claims Folder)",
+                    "updated": 1708375210012
                 }
             ]
         },
@@ -178,6 +228,11 @@
                     "language": "TR",
                     "text": "Position Claims Folder (Pozisyon Talep Düğümü)",
                     "updated": 1644495661705
+                },
+                {
+                    "language": "DE",
+                    "text": "Position Forderungsmappe (Position Claims Folder)",
+                    "updated": 1708375226828
                 }
             ]
         },
@@ -199,6 +254,11 @@
                     "language": "TR",
                     "text": "Bu üç talep türü, projeyi tanımlamak için kullanılan üç tür hiyerarşisiyle eşleşir:",
                     "updated": 1644495691830
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese drei Arten von Ansprüchen entsprechen den drei Arten von Definitionshierarchien, die zur Beschreibung des Projekts verwendet werden:",
+                    "updated": 1708375234644
                 }
             ]
         },
@@ -210,6 +270,11 @@
                     "language": "TR",
                     "text": "Assets (Varlıklar)",
                     "updated": 1644495702403
+                },
+                {
+                    "language": "DE",
+                    "text": "Vermögenswerte (Assets)",
+                    "updated": 1708375249468
                 }
             ]
         },
@@ -221,6 +286,11 @@
                     "language": "TR",
                     "text": "Features (Özelikler)",
                     "updated": 1644495710502
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften (Features)",
+                    "updated": 1708375262956
                 }
             ]
         },
@@ -232,6 +302,11 @@
                     "language": "TR",
                     "text": "Positions (Pozisyonlar)",
                     "updated": 1644495719579
+                },
+                {
+                    "language": "DE",
+                    "text": "Positionen (Positions)",
+                    "updated": 1708375276612
                 }
             ]
         },
@@ -254,6 +329,11 @@
                     "language": "TR",
                     "text": "Bir talepte bulunmak için, eşleşen tanım türüne başvuruda bulunmak üzere uygun türde katkı talebi düğümünü kullanın. Örneğin, Varlıklar hiyerarşisindeki bir Varlık (Asset) düğümüne başvurmak için bir Varlık Katkı Talebi (Asset Contribution Claim) düğümü kullanın. Bunu yaptığınızda, o varlık üzerinde etkili bir şekilde hak talebinde bulunmuş olursunuz.",
                     "updated": 1644496782797
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Anspruch zu platzieren, verwenden Sie die entsprechende Art von Beitragsforderungsknoten, um auf die passende Definitionsart zu verweisen. Verwenden Sie z. B. einen Anlagenbeitragsanspruchsknoten (Asset Contribution Claim), um auf einen Anlagenknoten (Asset node) innerhalb einer Anlagenhierarchie (Assets hierarchy) zu verweisen. Wenn Sie dies tun, erheben Sie einen Anspruch auf diesen Vermögenswert.",
+                    "updated": 1708375331695
                 }
             ]
         },
@@ -275,6 +355,11 @@
                     "language": "TR",
                     "text": "Bu iddia, o varlık üzerinde çalıştığınızı, onu yarattığınızı veya iyileştirdiğinizi ve buna göre ödüllendirilmeyi beklediğinizi beyan ettiğiniz anlamına gelir.",
                     "updated": 1644496802287
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Anspruch bedeutet, dass Sie erklären, dass Sie an diesem Vermögenswert gearbeitet haben, indem Sie ihn entweder erstellt oder verbessert haben, und dass Sie erwarten, entsprechend belohnt zu werden.",
+                    "updated": 1708375346296
                 }
             ]
         },
@@ -297,6 +382,11 @@
                     "language": "TR",
                     "text": "Bir talebin nasıl çözüldüğü birbiriyle ilişkili üç kavrama bağlıdır:",
                     "updated": 1644496867937
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie eine Forderung abgewickelt wird, hängt von drei miteinander verknüpften Konzepten ab:",
+                    "updated": 1708375364135
                 }
             ]
         },
@@ -319,6 +409,11 @@
                     "language": "TR",
                     "text": "Hak talebinin yerleştirildiği düğüme verdiğiniz Talep Gücü.",
                     "updated": 1644496907479
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Claim Power fahren Sie in den Knoten, der den Claim platziert.",
+                    "updated": 1708375383803
                 }
             ]
         },
@@ -340,6 +435,11 @@
                     "language": "TR",
                     "text": "Talep Oyları, talebinizin diğer kullanıcılardan aldığı oylar ve bu oylara verdikleri Oylama Gücü.",
                     "updated": 1644496937691
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Claim-Stimmen (Claim Votes), die Ihr Claim von anderen Nutzern erhält, und die Stimmkraft (Voting Power), die sie in diese Stimmen einbringen.",
+                    "updated": 1708375423901
                 }
             ]
         },
@@ -362,6 +462,11 @@
                     "language": "TR",
                     "text": "Talep ettiğiniz düğümde bulunan Token Ödülleri.",
                     "updated": 1644496960239
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Token-Belohnungen (Token Rewards) sind in dem von Ihnen beanspruchten Definitionsknoten verfügbar.",
+                    "updated": 1708375529379
                 }
             ]
         },
@@ -384,6 +489,11 @@
                     "language": "TR",
                     "text": "Taleplerin çözümlenmesiyle ilgili tüm ayrıntıları öğrenmek için, Yönetişim Projesi kitabının (The Governance Project) Yönetişim Akışı konusundaki Talepler Nasıl Çözülür (How Claims are Resolved) sayfasını okuyun.",
                     "updated": 1644497022746
+                },
+                {
+                    "language": "DE",
+                    "text": "Um alle Details über die Lösung von Ansprüchen zu erfahren, lesen Sie die Seite \"Wie Ansprüche gelöst werden (How Claims are Resolved)\" unter dem Thema \"Governance Flow\" im Buch \"The Governance Project (Governance Project book)\".",
+                    "updated": 1708375584701
                 }
             ]
         },
@@ -408,6 +518,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1644497038427
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1708375590687
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Girişe dropout uygular. Bırakma, eğitim süresi boyunca her güncellemede girdi birimlerinin bir kısmının rastgele 0 olarak ayarlanmasından oluşur ve bu da aşırı uyumu önlemeye yardımcı olur.",
                 "updated": 1654396996133
+            },
+            {
+                "language": "DE",
+                "text": "Wendet Dropout auf die Eingabe an. Dropout besteht darin, dass bei jeder Aktualisierung während der Trainingszeit ein Bruchteil der Eingabeeinheiten zufällig auf 0 gesetzt wird, was dazu beiträgt, eine Überanpassung zu verhindern.  ",
+                "updated": 1708629028744
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397002337,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1708460374144
                 }
             ]
         }

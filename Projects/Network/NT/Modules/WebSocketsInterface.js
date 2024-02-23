@@ -75,10 +75,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
              * interval the client will be removed from all lists and
              * the connection terminated.
              */
-            interval = setInterval(ping(), 30000)
-
-            function ping() {
-                SA.logger.debug(`Number of websocket clients: ${clients.size}`);
+            interval = setInterval(function ping() {
                 [...clients.keys()].forEach(socket => {
                     const client = clients.get(socket);
                     if(!client.isAlive) {
@@ -92,7 +89,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     client.isAlive = false
                     socket.ping()
                 })
-            }
+            }, 30000)
 
             /**
              * This function is executed every time a new Websockets connection

@@ -2,6 +2,97 @@
 This module represents the Nodejs command that users use to start the Network Node.
 */
 
-let APP_ROOT = require('./NetworkRoot.js')
-let APP_ROOT_MODULE = APP_ROOT.newNetworkRoot()
-APP_ROOT_MODULE.run()
+const yargs = require('yargs/yargs')
+const { hideBin } = require('yargs/helpers')
+const chalk = require('chalk')
+
+const helpMessage = `
+USAGE:
+    ${chalk.red('node network')} ${chalk.italic.red('[options]')}
+        
+OPTIONS:
+    - ${chalk.italic.red('--include-local-networks')} ${chalk.bold.red('true/false')}
+            Do you want to include all local networks nodes?
+    - ${chalk.italic.red('--only-me')} ${chalk.bold.red('true/false')}
+            Do you want to limit the network to only your network nodes?
+    - ${chalk.italic.red('--users')} ${chalk.bold.red('text')}
+            Repeat for each username you want to connect to
+
+EXAMPLES:
+    ############################################################
+    # To limit the network connections to only my network nodes, 
+    # in order for this to work you will need at least 2 network 
+    # nodes setup
+    ############################################################
+    node network --onlyMe
+
+    ############################################################
+    # To exclude all local networks from the connection pool set
+    # the ${chalk.italic.red('--include-local-networks')} to ${chalk.bold.red('false')}. This is useful as 
+    # many users will use localhost or a 192 style address when 
+    # testing their own network setup and this will create
+    # multiple connections self referencing connections.
+    ############################################################
+    node network --include-local-networks false
+
+    ############################################################
+    # To create a network pool with a friend or some specfic
+    # users then add as many ${chalk.italic.red('--users <USER>')} options as you need.
+    # This will limit the network connection pool to only these
+    # user networks.
+    ############################################################
+    node network --users <USER1> --users <USER2>
+    
+    ############################################################
+    # The options ${chalk.italic.red('--users')} and ${chalk.italic.red('--include-local-networks')} can also
+    # be combined so you do not create duplicate local network
+    # connections. Providing these users are not on your local
+    # network
+    ############################################################
+    node network --users <USER1> --users <USER2> --include-local-networks false
+`
+function buildFilters(args) {
+    let filters = undefined
+    if(args.includeLocalNetworks !== undefined) {
+        filters = {
+            includeLocalNetworks: args.includeLocalNetworks
+        }
+    }
+    if(args.onlyMe !== undefined) {
+        if(filters === undefined) {
+            filters = {}
+        }
+        filters.onlyMe = args.onlyMe
+    }
+    if(args.users !== undefined) {
+        if(filters === undefined) {
+            filters = {}
+        }
+        filters.users = args.users
+    }
+    console.log(JSON.stringify(filters))
+    return filters
+}
+
+yargs(hideBin(process.argv))
+    .version(require('./package.json').version)
+    .alias('h', 'help')
+    .command('$0', 'the default command', () => {}, (args) => {
+        let APP_ROOT = require('./NetworkRoot.js')
+        let APP_ROOT_MODULE = APP_ROOT.newNetworkRoot()
+        APP_ROOT_MODULE.run(undefined, buildFilters(args))
+    })
+    .option('include-local-networks', {
+        boolean: true,
+        demandOption: false,
+    })
+    .option('only-me', {
+        boolean: true,
+        demandOption: false,
+    })
+    .option('users', {
+        array: true,
+        demandOption: false,
+    })
+    .help(helpMessage)
+    .parse()

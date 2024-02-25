@@ -19,6 +19,7 @@ exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetwo
     /**
      * The default will return a full list including all local network addresses, 
      * to change this behaviour filters need to be applied
+     * 
      * @param {Network[]} p2pNetworkNodes 
      * @param {Filters | undefined} filters
      * @returns {Network[]}
@@ -27,27 +28,39 @@ exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetwo
         const me = whoami()
         const validNetworkNodes = p2pNetworkNodes.filter(isValidNetworkNode)
         if(filters !== undefined) {
+            let filteredList = validNetworkNodes
             if (filters.onlyMe) {
+                filteredList = filteredList.filter(n => n.userProfile.name == me)
                 if(filters.includeLocalNetworks !== undefined && !filters.includeLocalNetworks) {
-                    return validNetworkNodes.filter(n => n.userProfile.name == me && !isLocalNetwork(n.node.config.host))
+                    filteredList = filteredList.filter(!isLocalNetwork(n.node.config.host))
                 }
-                return validNetworkNodes.filter(n => n.userProfile.name == me)
+                else if(filters.excludeLocalhost !== undefined && filters.excludeLocalhost) {
+                    filteredList = filteredList.filter(n => !isLocalhost(n.config.host))
+                }
+                return filteredList
             }
             if (filters.users !== undefined && filters.users.length > 0) {
-                const filteredUserNetworks = validNetworkNodes.filter(n => filters.users.indexOf(n.userProfile.name) > -1)
+                filteredList = filteredList.filter(n => filters.users.indexOf(n.userProfile.name) > -1)
                 if(!!filters.includeLocalNetworks) {
-                    return filteredUserNetworks
+                    return filteredList
                 }
-                return filteredUserNetworks.filter(n => !isLocalNetwork(n.node.config.host))
+                if(filters.excludeLocalhost !== undefined && filters.excludeLocalhost) {
+                    return filteredList.filter(n => !isLocalhost(n.config.host))
+                }
+                return filteredList.filter(n => !isLocalNetwork(n.node.config.host))
             }
             if(filters.includeLocalNetworks !== undefined && !filters.includeLocalNetworks) {
-                return validNetworkNodes.filter(n => !isLocalNetwork(n.node.config.host))
+                return filteredList.filter(n => !isLocalNetwork(n.node.config.host))
+            }
+            if(filteredList = filteredList.filter(n => !isLocalhost(n.config.host))) {
+                return filteredList.filter(n => !isLocalhost(n.config.host))
             }
         }
         return validNetworkNodes
     }
 
     /**
+     * Tests if the network has a valid note with a config and host property
      * 
      * @param {NetworkNode | undefined} node 
      * @returns {boolean}
@@ -67,13 +80,22 @@ exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetwo
      * @returns {boolean}
      */
     function isLocalNetwork(host) {
-        return host == 'localhost'
-            || localhostRegex.test(host)
-            || network192Regex.test(host)
-            || network10Regex.test(host)
-            || network100Regex.test(host)
-            || network172Regex.test(host)
-            || network168Regex.test(host)
+        return isLocalhost(host)
+        || network192Regex.test(host)
+        || network10Regex.test(host)
+        || network100Regex.test(host)
+        || network172Regex.test(host)
+        || network168Regex.test(host)
+    }
+    
+    /**
+     * Tests is the host is a localhost or 127 address
+     * 
+     * @param {string} host 
+     * @returns {boolean}
+     */
+    function isLocalhost(host) {
+        return host == 'localhost' || localhostRegex.test(host)
     }
 
     /**
@@ -123,6 +145,7 @@ exports.newAppClientNetworkNetworkNodePicker = function newAppClientNetworkNetwo
 /**
  * @typedef Filters
  * @property {boolean | undefined} includeLocalNetworks 
+ * @property {boolean | undefined} excludeLocalhost 
  * @property {boolean | undefined} onlyMe defaults to including local network addresses to override specify includesLocalNetworks = false
  * @property {string[] | undefined} users defaults to excluding local network addresses to override specify includesLocalNetworks = true
  */

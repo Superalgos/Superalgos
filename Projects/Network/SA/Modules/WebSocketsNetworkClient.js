@@ -66,8 +66,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             try {
                 // will send a rejection response if this timeout is not cancelled in 30 seconds
                 // the timeout is cancelled by any of the onopen, onclose or onerror functions
-                let connectionTimeout = setTimeout(() => reject('Connection initialization timed out after 30 seconds trying to connect to ' + connectionInfo()), 30000) 
-                
+                let connectionTimeout = setTimeout(() => reject('Connection initialization timed out after 30 seconds trying to connect to ' + connectionInfo()), 30000)
+
                 socket.onopen = () => { onConnectionOpened() }
                 socket.onclose = () => { onConnectionClosed() }
                 socket.onerror = err => { onError(err) }

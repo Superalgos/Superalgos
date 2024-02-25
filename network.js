@@ -17,6 +17,9 @@ A specific P2P network signing account to start using. This overrides the defaul
 ${chalk.italic.red('--include-local-networks')} ${chalk.bold.red('true/false')}
 Do you want to include all local networks nodes?
 
+${chalk.italic.red('--exclude-localhost')} ${chalk.bold.red('true/false')}
+Do you want to exclude all localhost and 127.#.#.# nodes?
+
 ${chalk.italic.red('--only-me')} ${chalk.bold.red('true/false')}
 Do you want to limit the network to only your network nodes?
 
@@ -82,6 +85,12 @@ function buildFilters(args) {
         }
         filters.users = args.users
     }
+    if(args.excludeLocalhost !== undefined) {
+        if(filters === undefined) {
+            filters = {}
+        }
+        filters.excludeLocalhost = args.excludeLocalhost
+    }
     return filters
 }
 
@@ -102,7 +111,12 @@ yargs(hideBin(process.argv))
     .option('include-local-networks', {
         boolean: true,
         demandOption: false,
-        describe: `To exclude all local networks from the connection pool set the ${chalk.italic.red('--include-local-networks')} to ${chalk.bold.red('false')}. This is useful as  many users will use localhost or a 192 style address when  testing their own network setup and this will create multiple connections self referencing connections.`
+        describe: `To exclude all local networks from the connection pool set the ${chalk.italic.red('--include-local-networks')} to ${chalk.bold.red('false')}. This is useful as many users will use localhost or a 192 style address when testing their own network setup and this will create multiple connections self referencing connections.`
+    })
+    .option('exclude-localhost', {
+        boolean: true,
+        demandOption: false,
+        describe: `To exclude all localhosts from the connection pool set the ${chalk.italic.red('--exclude-localhost')} to ${chalk.bold.red('true')}. This is useful as many users will use localhost or a 127 style address when testing their own network setup and this will create multiple connections self referencing connections.`
     })
     .option('only-me', {
         boolean: true,

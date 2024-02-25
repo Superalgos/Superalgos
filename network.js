@@ -8,57 +8,60 @@ const chalk = require('chalk')
 
 const helpMessage = `
 USAGE:
-    ${chalk.red('node network')} ${chalk.italic.red('[options]')}
+${chalk.red('node network')} ${chalk.italic.red('[options]')}
         
 OPTIONS:
-    - ${chalk.italic.red('--network-signing-account')} ${chalk.bold.red('text')}
-            A specific P2P network signing account to start using. This overrides the default "P2P-Network-Node-1"
-    - ${chalk.italic.red('--include-local-networks')} ${chalk.bold.red('true/false')}
-            Do you want to include all local networks nodes?
-    - ${chalk.italic.red('--only-me')} ${chalk.bold.red('true/false')}
-            Do you want to limit the network to only your network nodes?
-    - ${chalk.italic.red('--users')} ${chalk.bold.red('text')}
-            Repeat for each username you want to connect to
+${chalk.italic.red('--network-signing-account')} ${chalk.bold.red('text')}
+A specific P2P network signing account to start using. This overrides the default "P2P-Network-Node-1"
+
+${chalk.italic.red('--include-local-networks')} ${chalk.bold.red('true/false')}
+Do you want to include all local networks nodes?
+
+${chalk.italic.red('--only-me')} ${chalk.bold.red('true/false')}
+Do you want to limit the network to only your network nodes?
+
+${chalk.italic.red('--users')} ${chalk.bold.red('text')}
+Repeat for each username you want to connect to
 
 EXAMPLES:
 
-    ############################################################
-    # To specify a network node on your profile called
-    # ${chalk.italic.red('Local-Network-Node')}
-    ############################################################
-    node network --network-signing-account Local-Network-Node
+############################################################
+# To specify a network node on your profile called
+# ${chalk.italic.red('Local-Network-Node')}
+############################################################
+node network --network-signing-account Local-Network-Node
 
-    ############################################################
-    # To limit the network connections to only my network nodes, 
-    # in order for this to work you will need at least 2 network 
-    # nodes setup
-    ############################################################
-    node network --onlyMe
+############################################################
+# To limit the network connections to only my network nodes, 
+# in order for this to work you will need at least 2 network 
+# nodes setup
+############################################################
+node network --onlyMe
 
-    ############################################################
-    # To exclude all local networks from the connection pool set
-    # the ${chalk.italic.red('--include-local-networks')} to ${chalk.bold.red('false')}. This is useful as 
-    # many users will use localhost or a 192 style address when 
-    # testing their own network setup and this will create
-    # multiple connections self referencing connections.
-    ############################################################
-    node network --include-local-networks false
+############################################################
+# To exclude all local networks from the connection pool set
+# the ${chalk.italic.red('--include-local-networks')} to ${chalk.bold.red('false')}. This is useful as 
+# many users will use localhost or a 192 style address when 
+# testing their own network setup and this will create
+# multiple connections self referencing connections.
+############################################################
+node network --include-local-networks false
 
-    ############################################################
-    # To create a network pool with a friend or some specfic
-    # users then add as many ${chalk.italic.red('--users <USER>')} options as you need.
-    # This will limit the network connection pool to only these
-    # user networks.
-    ############################################################
-    node network --users <USER1> --users <USER2>
-    
-    ############################################################
-    # The options ${chalk.italic.red('--users')} and ${chalk.italic.red('--include-local-networks')} can also
-    # be combined so you do not create duplicate local network
-    # connections. Providing these users are not on your local
-    # network
-    ############################################################
-    node network --users <USER1> --users <USER2> --include-local-networks false
+############################################################
+# To create a network pool with a friend or some specfic
+# users then add as many ${chalk.italic.red('--users <USER>')} options as you need.
+# This will limit the network connection pool to only these
+# user networks.
+############################################################
+node network --users <USER1> --users <USER2>
+
+############################################################
+# The options ${chalk.italic.red('--users')} and ${chalk.italic.red('--include-local-networks')} can also
+# be combined so you do not create duplicate local network
+# connections. Providing these users are not on your local
+# network
+############################################################
+node network --users <USER1> --users <USER2> --include-local-networks false
 `
 function buildFilters(args) {
     let filters = undefined

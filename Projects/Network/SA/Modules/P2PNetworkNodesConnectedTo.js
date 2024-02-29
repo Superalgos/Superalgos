@@ -49,6 +49,13 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         async function connectToPeers() {
             // logPeers()
             if (thisObject.peers.length >= maxOutgoingPeers) {
+                checkConnectedPeers()
+                if(thisObject.peers.length >= maxOutgoingPeers) {
+                    const itemsToPrune = thisObject.peers.splice(0, maxOutgoingPeers)
+                    for(let i = 0; i < itemsToPrune.length; i++) {
+                        itemsToPrune[i].webSocketsClient.finalize()
+                    }
+                }
                 intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)
                 return
             }
@@ -154,7 +161,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 let peer = thisObject.peers[i]
                 if (peer.webSocketsClient.socketNetworkClients.isConnected !== true) {
                     thisObject.peers.splice(i, 1)
-                    return
                 }
             }
         }

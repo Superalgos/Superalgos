@@ -37,7 +37,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         
 
         let socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
-        SA.socketLogger.info('created socket connection to '+ hostInfo())
+        // SA.logger.debug('created socket connection to '+ hostInfo())
         thisObject.socketNetworkClients = SA.projects.network.modules.socketNetworkClients.newNetworkModulesSocketNetworkClients()
         thisObject.socketNetworkClients.initialize(
             socket,
@@ -75,7 +75,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionOpened() {
                     clearTimeout(connectionTimeout)
-                    SA.socketLogger.info('opened socket connection with '+ hostInfo())
+                    // SA.logger.debug('opened socket connection with '+ hostInfo())
                     heartbeat()
                     new Promise((handshakeResolution, handshakeRejection) => thisObject.socketNetworkClients.handshakeProcedure(handshakeResolution, handshakeRejection))
                         .then(() => resolve())
@@ -137,7 +137,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 Longer grace period is required due to large Bitcoin Factory files being transferred, this blocking the connection for the ping for a little while. 
                 */
                 function heartbeat() {
-                    SA.socketLogger.info('pinged from '+ hostInfo())
+                    // SA.logger.debug('pinged from '+ hostInfo())
                     clearTimeout(socket.pingTimeout)
                     socket.pingTimeout = setTimeout(() => {
                         SA.logger.info('No Websockets heartbeat received from server, re-initializing connection...')

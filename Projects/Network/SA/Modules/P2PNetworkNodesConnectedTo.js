@@ -32,7 +32,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         thisObject.peers = undefined
         clearTimeout(intervalIdConnectToPeers)
         // clearInterval(intervalIdCheckConnectedToPeers)
-        SA.socketLogger.info('finalized P2PNetworkNodesConnectedTo')
     }
 
     async function initialize(
@@ -42,48 +41,40 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         p2pNetworkClient,
         maxOutgoingPeers
     ) {
-        SA.socketLogger.info('initializing P2PNetworkNodesConnectedTo with max outgoing peers ' + maxOutgoingPeers)
+        // SA.logger.info('initializing P2PNetworkNodesConnectedTo with max outgoing peers ' + maxOutgoingPeers)
         thisObject.peers = []
         connectToPeers()
         // intervalIdCheckConnectedToPeers = setInterval(checkConnectedPeers, HEALTH_CHECK_DELAY)
 
         async function connectToPeers() {
-            logPeers()
+            // logPeers()
             if (thisObject.peers.length >= maxOutgoingPeers) {
                 intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)
                 return
             }
             let processedPeers = []
             for (let i = 0; i < p2pNetwork.p2pNodesToConnect.length; i++) {
-                SA.socketLogger.info('iteration ' + i)
-                // if (thisObject.peers.length >= maxOutgoingPeers) {
-                //     SA.socketLogger.info('breaking from loop due to max peers being met')
-                //     break
-                // }
+                if (thisObject.peers.length >= maxOutgoingPeers) {
+                    SA.logger.info('breaking from loop due to max peers being met')
+                    break
+                }
 
                 let peer = {
                     p2pNetworkNode: undefined,
                     webSocketsClient: undefined
                 }
 
-                // SA.socketLogger.info('init peer object')
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
-                SA.socketLogger.info('current node is for ' + peerInfo(peer))
                 if (peer.p2pNetworkNode.node.config.host === undefined ) {
-                    // SA.socketLogger.info('host is undefined, moving to next iteration')
                     continue
                 } else if (peer.p2pNetworkNode.node.networkInterfaces === undefined) {
-                    // SA.socketLogger.info('networkInterfaces is undefined, moving to next iteration')
                     continue
                 } else if (peer.p2pNetworkNode.node.networkInterfaces.websocketsNetworkInterface === undefined) {
-                    // SA.socketLogger.info('websocketsNetworkInterface is undefined, moving to next iteration')
                     continue
                 } else if (isPeerConnected(peer) === true) {
-                    SA.socketLogger.info('peer is already connected')
                     continue
                 }
 
-                SA.socketLogger.info('initialising websocketClient for ' + peerInfo(peer))
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
                 const task = peer.webSocketsClient.initialize(
                     callerRole,
@@ -95,29 +86,26 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     .then(addPeer)
                     .catch(onError)
                 processedPeers.push(task)
-                // automatically add to the peer group then remove is connection is unsuccessful
+                // automatically add to the peer group then remove if connection is unsuccessful
                 thisObject.peers.push(peer)
-                logPeers()
                 function addPeer() {
-                    SA.socketLogger.info('added peer ' + peerInfo(peer))
-                    console.log('this is our connected network peers', thisObject.peers)
+                    SA.logger.info('added peer ' + peerInfo(peer))
+                    // logPeers()
+                    // console.log('this is our connected network peers', thisObject.peers)
                 }
 
                 function onError(err) {
-                    SA.socketLogger.error('Peer connection error for ' + peerInfo(peer))
-                    // if (err !== undefined) {
-                    //     SA.logger.error('P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.id + ' -> ' + err.message)
-                    // } else {
-                    //     /*
-                    //     DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
-                    //     */      
-                    //     //SA.logger.debug           
-                    //     SA.socketLogger.info('P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.id)
-                    // }
+                    // SA.logger.error('Peer connection error for ' + peerInfo(peer))
+                    if (err !== undefined) {
+                        SA.logger.error('P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.id + ' -> ' + err.message)
+                    } else {
+                        /*
+                         * DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
+                         */          
+                        SA.logger.info('P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.id)
+                    }
                     const idx = findPeerIndex(peer)
-                    SA.socketLogger.info('peer index is ' + idx)
                     if(idx > -1) {
-                        SA.socketLogger.info('splicing peers in onError(...)')
                         thisObject.peers.splice(idx, 1)
                     }
                 }
@@ -126,7 +114,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     for (let i = 0; i < thisObject.peers.length; i++) {
                         let connectedPeer = thisObject.peers[i]
                         if (connectedPeer.webSocketsClient.id === webSocketsClientId) {
-                            SA.socketLogger.info('splicing peers in onConnectionClosed(...)')
                             thisObject.peers.splice(i, 1)
                             return
                         }
@@ -134,17 +121,13 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
             }
 
-            SA.socketLogger.info('Waiting for all initialization tasks to complete')
             await Promise.all(processedPeers)
-            SA.socketLogger.info('All initialization tasks completed')
 
             function isPeerConnected(peer) {
                 return findPeerIndex(peer) > -1
             }
 
             function findPeerIndex(peer) {
-                SA.socketLogger.info('finding peer ' + peerInfo(peer))
-                logPeers()
                 for (let i = 0; i < thisObject.peers.length; i++) {
                     if (thisObject.peers[i].p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
                         return i
@@ -159,7 +142,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
             
             function logPeers() {
                 const output = thisObject.peers.length == 0 ? '[]' : '[\n' + thisObject.peers.map(p => '\t' + peerInfo(p)).join('\n') + '\n]'
-                SA.socketLogger.info('peers '+ output)
+                SA.logger.info('peers ' + output)
             }
 
             /* Reschedule execution after connectToPeers() execution finalizes. Not using intervals here to avoid duplicate connections. */
@@ -170,7 +153,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
             for (let i = 0; i < thisObject.peers.length; i++) {
                 let peer = thisObject.peers[i]
                 if (peer.webSocketsClient.socketNetworkClients.isConnected !== true) {
-                    SA.socketLogger.info('splicing peers in checkConnectedPeers()')
                     thisObject.peers.splice(i, 1)
                     return
                 }
@@ -230,7 +212,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
         let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message, responseHandler)
         if (response.result === 'Error' && response.message === 'Websockets Connection Not Ready.') {
-            SA.socketLogger.info('splicing peers in sendMessage(...)')
             thisObject.peers.splice(peerIndex, 1)
         }
         return response

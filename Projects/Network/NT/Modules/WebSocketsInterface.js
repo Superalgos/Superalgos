@@ -1,5 +1,3 @@
-const { SlashCommandBooleanOption } = require("discord.js");
-
 /**
  * This module represents the websockets interface of the Network Node.
  *

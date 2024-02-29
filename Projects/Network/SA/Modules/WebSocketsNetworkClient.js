@@ -77,7 +77,16 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     clearTimeout(connectionTimeout)
                     SA.socketLogger.info('opened socket connection with '+ hostInfo())
                     heartbeat()
-                    thisObject.socketNetworkClients.handshakeProcedure(resolve, reject)
+                    new Promise((handshakeResolution, handshakeRejection) => thisObject.socketNetworkClients.handshakeProcedure(handshakeResolution, handshakeRejection))
+                        .then(() => resolve())
+                        .catch(err => {
+                            let message = 'handshake rejection'
+                            if(err) {
+                                message = err
+                            }
+                            reject(message)
+                            socket.close()
+                        })
                 }
                 
                 function onConnectionClosed() {
@@ -101,14 +110,13 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     if(connectionTimeout !== undefined) {
                         clearTimeout(connectionTimeout)
                     }
-
                     if (err.message.indexOf('ECONNREFUSED') >= 0) {
                         /*
                         DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
                         */ 
                         SA.logger.error('Web Sockets Network Client -> onError -> Nobody home at ' + hostInfo())
                         
-                        reject()
+                        reject('Web Sockets Network Client -> onError -> Nobody home at ' + hostInfo())
                         return
                     } else if (err.message.indexOf('ETIMEDOUT') >= 0) {
                         /*
@@ -116,12 +124,12 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                         */ 
                         SA.logger.error('Web Sockets Network Client -> onError -> Connection Timed out ' + hostInfo())
                         
-                        reject()
+                        reject('Web Sockets Network Client -> onError -> Connection Timed out ' + hostInfo())
                         return
                     }
                     SA.logger.error('Web Sockets Network Client -> onError -> err.message = ' + err.message)
                     SA.logger.error('Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
-                    reject()
+                    reject('Web Sockets Network Client -> onError -> err.message = ' + err.message)
                     return
                 }
 

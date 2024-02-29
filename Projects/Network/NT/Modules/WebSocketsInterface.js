@@ -1,3 +1,5 @@
+const { SlashCommandBooleanOption } = require("discord.js");
+
 /**
  * This module represents the websockets interface of the Network Node.
  *
@@ -76,17 +78,15 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
              * the connection terminated.
              */
             interval = setInterval(function ping() {
-                SA.socketLogger.info(`Number of websocket clients: ${clients.size}`);
                 [...clients.keys()].forEach(socket => {
                     const client = clients.get(socket);
                     if(!client.isAlive) {
-                        // SA.socketLogger.info('Server could not confirm client to be alive, terminating Websockets connection for ' + tailLogInfo(client))
+                        SA.logger.debug('Server could not confirm client to be alive, terminating Websockets connection for ' + tailLogInfo(client))
                         thisObject.socketInterfaces.onConnectionClosed(client.id)
                         socket.terminate()
                         clients.delete(socket)
                         return
                     }
-                    // SA.socketLogger.info('Server-side heart beat pinged for ' + tailLogInfo(client))
                     client.isAlive = false
                     socket.ping()
                 })
@@ -99,7 +99,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
              * @param {WebSocket} socket
              */
             function onConnectionOpened(socket, req) {
-                const ip = req.socket.remoteAddress;
                 socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
 
                 /** @type {Caller} */ let caller = {
@@ -111,7 +110,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     role: undefined
                 }
                 clients.set(socket, caller);
-                SA.socketLogger.info('Added new caller to network client list ' + caller.id + ' from IP ' + ip)
 
                 caller.socket.on('close', onConnectionClosed)
 
@@ -131,18 +129,15 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 function heartbeat() {
                     caller.isAlive = true
-                    SA.socketLogger.info('Incoming Pong received for ' + tailLogInfo(caller))
                 }
 
                 function onConnectionClosed() {
-                    SA.socketLogger.info('Closing socket for ' + tailLogInfo(caller))
                     thisObject.socketInterfaces.onConnectionClosed(caller.id)
-                    SA.socketLogger.info('Deleting socket client for ' + tailLogInfo(caller))
                     clients.delete(socket)
                 }
             }
         } catch (err) {
-            SA.socketLogger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+            SA.logger.error('Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
         }
 
         /**

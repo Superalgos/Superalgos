@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu programlar, Superalgos kullanıcılarını yönetişime katılmak ve projeye katkı sağlamalarını başlatmak için ilk birkaç adımı atmaya teşvik eder.İlk birkaç jetonu kazanmayı çok kolaylaştırır ve herkesin Superalgos SA Token'a yatırım yapmasına izin verir! Airdrop Program ve Github Program' dan bahsediyoruz",
                 "updated": 1644480816574
+            },
+            {
+                "language": "DE",
+                "text": "Diese Programme bieten Superalgos-Benutzern einen Anreiz, die ersten Schritte zur Teilnahme an der Governance zu unternehmen und dem Projekt etwas zurückzugeben. Sie machen das Verdienen der ersten paar Token zu einem Kinderspiel und ermöglichen es jedem, in den Superalgos SA Token zu investieren! Wir sprechen über das Airdrop Program und das Github Program.",
+                "updated": 1707857429104
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "İpucu: Token Gücünün bu programlara nasıl aktığı hakkında daha fazla bilgi edinin!",
                     "updated": 1644480869142
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfahren Sie mehr darüber, wie Token Power (Token Power Flows) in diese Programme fließt!",
+                    "updated": 1707857455670
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Bu iki programın ortak özelliği, çalışması için Token Power gerektirmemeleridir. Yani, sıfır Superalgos SA Jetonunuz ve sıfır Delegasyon Gücünüz olsa bile, yine de ilk birkaç jetonunuzu kazanmak için katılabilirsiniz!",
                     "updated": 1644481003949
+                },
+                {
+                    "language": "DE",
+                    "text": "Was diese beiden Programme gemeinsam haben, ist, dass sie keine Token Power benötigen, um zu funktionieren. Das heißt, selbst wenn Sie keine Superalgos SA-Token und keine delegierte Macht haben, können Sie trotzdem teilnehmen und Ihre ersten Token verdienen!",
+                    "updated": 1707857474420
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "TR",
                     "text": "Katılmak için tek yapmanız gereken program düğümlerinin her birini oluşturmak ve Kullanıcı Profilinizi göndermek!",
                     "updated": 1644481020086
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles, was Sie tun müssen, um teilzunehmen, ist, jeden der Programmknoten zu erstellen und Ihr Benutzerprofil () einzureichen!",
+                    "updated": 1707857493769
                 }
             ]
         },
@@ -109,6 +129,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1644481029372
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1707857501866
                 }
             ]
         }

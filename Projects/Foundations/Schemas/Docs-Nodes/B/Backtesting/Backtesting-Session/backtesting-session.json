@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Geriye dönük test oturumu, ticaret botu'nun kullanıcı tanımlı bir tarih-saat aralığında geçmiş piyasa verilerini okuduğu, ilgili ticaret sisteminde tanımlanan kuralları uyguladığı ve bir ticaret simülasyonunu çalıştırdığı  ticaret modudur.",
                 "updated": 1639119649450
+            },
+            {
+                "language": "DE",
+                "text": "Eine Backtesting Session (Backtesting-Sitzung) ist ein Handelsmodus, bei dem die Trading-Bot-Instanz historische Marktdaten in einem benutzerdefinierten Zeitbereich liest, die im zugehörigen Handelssystem definierten Regeln anwendet und eine Handelssimulation erstellt.",
+                "updated": 1701930796638
             }
         ]
     },
@@ -39,6 +44,12 @@
                     "language": "TR",
                     "text": "Geriye dönük test oturumu düğümü, oturum sırasında uygulanacak ticaret mantığına erişim kazanmak için bir ticaret sistemine başvurmalıdır. Oturumu çerçeveleyen diğer hususlar, ona ekli parametreler kümesinden gelir.",
                     "updated": 1652795236870
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Backtesting-Session-Knoten muss auf ein Handelssystem verweisen, um Zugriff auf die Handelslogik zu erhalten, die während der Session angewendet werden soll. Weitere Überlegungen, die die Sitzung einrahmen, ergeben sich aus dem Satz von Parametern, die mit ihr verbunden sind.",
+                    "updated": 1701930796863,
+                    "style": "Text"
                 }
             ]
         },
@@ -60,6 +71,12 @@
                     "language": "TR",
                     "text": "Geriye Dönük Test Oturumu Çalıştırma",
                     "updated": 1652795252439
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausführen einer Backtesting Session",
+                    "updated": 1701930797073,
+                    "style": "Title"
                 }
             ]
         },
@@ -76,6 +93,12 @@
                     "language": "TR",
                     "text": "Bir geriye dönük test oturumu başlatmadan önce, ticaret botu örneğini çalıştıran görev olduğu için ilgili görevin çalışıyor olması gerekir. Ticaret botu örneği çalıştığında, oturumu başlatmak için menüden Çalıştır'ı seçin.",
                     "updated": 1652795287906
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie eine Backtesting-Sitzung starten, muss die entsprechende Aufgabe ausgeführt werden, da sie die Instanz des Handelsroboters zum Laufen bringt. Sobald die Trading-Bot-Instanz ausgeführt wird, wählen Sie im Menü Ausführen, um die Sitzung zu starten.",
+                    "updated": 1701930797186,
+                    "style": "Text"
                 }
             ]
         },
@@ -92,6 +115,12 @@
                     "language": "TR",
                     "text": "Birkaç saniye sonra, oturum düğümünün altında, o anda işlenmekte olan tarihi gösteren, hesaplamaların ilerleyişinin gerçek bir göstergesi belirir. Hesaplama bittiğinde, oturum durur ve oturum düğümünün altındaki tarih kaybolur.",
                     "updated": 1652795307445
+                },
+                {
+                    "language": "DE",
+                    "text": "Nach einigen Sekunden erscheint unterhalb des Sitzungsknotens eine wörtliche Anzeige des Berechnungsfortschritts, die das aktuell bearbeitete Datum anzeigt. Sobald die Berechnung abgeschlossen ist, wird die Sitzung beendet und das Datum unterhalb des Sitzungsknotens verschwindet.",
+                    "updated": 1701930797364,
+                    "style": "Text"
                 }
             ]
         },
@@ -108,6 +137,12 @@
                     "language": "TR",
                     "text": "Geriye dönük test oturumunu durdurmak için menüden Durdur'u seçin.",
                     "updated": 1652795316852
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Backtesting-Sitzung zu beenden, wählen Sie im Menü Stop.",
+                    "updated": 1701930797548,
+                    "style": "Text"
                 }
             ]
         },
@@ -128,6 +163,12 @@
                     "language": "TR",
                     "text": "Geri Test Oturumu Yapılandırması",
                     "updated": 1652795326567
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der Backtesting Session",
+                    "updated": 1701930797691,
+                    "style": "Title"
                 }
             ]
         },
@@ -145,6 +186,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652795340040
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930797777,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -162,6 +209,12 @@
                     "language": "TR",
                     "text": "folderName, oturum tarafından oluşturulan veri ürünlerinin ve günlüklerin depolandığı klasöre önemli bir ad ayarlamanıza olanak tanır. Boş bırakılırsa, sistem klasörleri oturum kimliğiyle adlandırır. Bu, oturum tarafından oluşturulan ham verilere başvurmayı düşündüğünüzde kullanışlı olabilir, aksi takdirde klasörün tanımlanması zor olacaktır.",
                     "updated": 1652795357020
+                },
+                {
+                    "language": "DE",
+                    "text": "folderName ermöglicht es Ihnen, einen aussagekräftigen Namen für den Ordner festzulegen, in dem die von der Sitzung erzeugten Datenprodukte und Protokolle gespeichert werden. Wenn Sie nichts angeben, benennt das System die Ordner mit der Sitzungs-ID. Dies kann praktisch sein, wenn Sie die von der Sitzung erzeugten Rohdaten einsehen wollen, da der Ordner sonst schwer zu identifizieren wäre.",
+                    "updated": 1701930797855,
+                    "style": "List"
                 }
             ]
         },

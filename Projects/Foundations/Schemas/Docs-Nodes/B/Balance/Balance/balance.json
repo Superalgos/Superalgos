@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Balance, mevcut bakiyedir, yani herhangi bir zamanda var olan varlığın tutarıdır.",
                 "updated": 1652795503097
+            },
+            {
+                "language": "DE",
+                "text": "Balance ist der laufende Saldo, d. h. der Betrag des Vermögenswertes (asset), der zu einem bestimmten Zeitpunkt vorhanden ist.",
+                "updated": 1701930798074
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Bir varlığın bakiyesi, varlığı içeren bir sipariş her doldurulduğunda değişir. Alım satım botu, verilen her siparişin durumunu öğrenmek için borsaya danıştığında, borsa, sipariş için doldurulan boyut ve gerçek kur ile yanıt verir. Bakiyeleri hesaplamak için kullanılan bilgi budur.",
                     "updated": 1652795523841
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Saldo eines Vermögenswerts ändert sich jedes Mal, wenn ein Auftrag für diesen Vermögenswert ausgeführt wird. Wenn der Trading-Bot die Börse befragt, um den Status eines jeden erteilten Auftrags zu erfahren, antwortet die Börse mit dem Umfang des ausgeführten Auftrags und dem aktuellen Kurs für den Auftrag. Diese Informationen werden zur Berechnung des Saldos verwendet.",
+                    "updated": 1701930798239,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "language": "TR",
                     "text": "Balance Yapılandırması",
                     "updated": 1652795549997
+                },
+                {
+                    "language": "DE",
+                    "text": "Balance Konfiguration",
+                    "updated": 1701930798421,
+                    "style": "Title"
                 }
             ]
         },
@@ -72,6 +89,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652795557375
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930798515,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -89,6 +112,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652795568924
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930798738,
+                    "style": "List"
                 }
             ]
         }

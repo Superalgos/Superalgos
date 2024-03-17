@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Değerli katkılar üretebileceğiniz noktaya kadar Superalgos'ta yeterince yetkin olmak uzun bir süreç olabilir. Mentorluk programı, derin işbirliğini, çıraklığı ve Katkıda Bulunanların oluşumunu teşvik eder.",
                 "updated": 1645100440566
+            },
+            {
+                "language": "DE",
+                "text": "Es kann ein langwieriger Prozess sein, sich mit Superalgos so weit vertraut zu machen, dass Sie wertvolle Beiträge leisten können. Das Mentorenprogramm bietet Anreize für eine intensive Zusammenarbeit, die Ausbildung und die Bildung von Beitragenden.",
+                "updated": 1707857688356
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "TR",
                     "text": "Bu programla, mentorluk yaptığınız her kullanıcı ve ayrıca onların mentorluk yaptıkları kullanıcılar için Superalgos SA Tokenları kazanabilirsiniz!",
                     "updated": 1645100467479
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit diesem Programm können Sie Superalgos SA Token für jeden Benutzer verdienen, den Sie betreuen, und auch für die Benutzer, die sie betreuen!",
+                    "updated": 1707857705115
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "TR",
                     "text": "Katılmak için Mentorluk Programını oluşturmalı ve mentorlarınızı beyan etmelisiniz. Bunu yapmak için bir Kullanıcı Mentoru (User Mentor) düğümü ekleyin ve bunu size akıl hocalığı yapan kişinin Kullanıcı Profiline referans oluşturmak için kullanın. Birden fazla mentorunuz varsa, daha fazla User Mentor düğümü ekleyin!",
                     "updated": 1645100511560
+                },
+                {
+                    "language": "DE",
+                    "text": "Um teilzunehmen, müssen Sie das Mentorenprogramm ins Leben rufen und Ihre Mentoren benennen. Fügen Sie dazu einen Benutzer-Mentor-Knoten (User Mentor node) hinzu und verwenden Sie ihn, um einen Verweis auf das Benutzerprofil (User Profile) der Person einzurichten, die Sie betreut hat. Wenn Sie mehr als einen Mentor haben, fügen Sie weitere Benutzer-Mentor-Knoten (User Mentor nodes) hinzu!",
+                    "updated": 1707857777427
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "TR",
                     "text": "Superalgos'un büyük bir küresel işbirliğine dönüşmesi amaçlanıyor. Bunu yapmak için projenin sürekli büyüyen bir \"Katkıda Bulunanlar Grubuna\" ihtiyacı var!",
                     "updated": 1645100537787
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos soll zu einer massiven globalen Zusammenarbeit heranwachsen. Um das zu erreichen, braucht das Projekt eine ständig wachsende Gruppe von Mitwirkenden!",
+                    "updated": 1707857786975
                 }
             ]
         },
@@ -121,6 +141,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1645100547874
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1707857794902
                 }
             ]
         }

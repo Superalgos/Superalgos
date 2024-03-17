@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Varlıklar hiyerarşisindeki bir Varlık düğümü ile referans oluşturmak için bu düğümü kullanın. Bu oylama ile Ağırlık Gücünü başvurulan düğüme aktarmış olursunuz. Bu şekilde, düğüm hiyerarşide bulunan Token Ödüllerinden daha fazlasını alır. Projenin farklı alanlarının nasıl teşvik edileceğini bu şekilde etkilersiniz.",
                 "updated": 1654394443576
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Knoten, um einen Bezug zu einem Anlagenknoten (Asset node) in einer Anlagenhierarchie (Assets hierarchy) herzustellen. Mit dieser Abstimmung geben Sie Gewichtskraft (Weight Power) an den referenzierten Knoten weiter. Auf diese Weise erhält der Knoten einen größeren Anteil an den in der Hierarchie verfügbaren Token-Belohnungen (Token Rewards). Auf diese Weise beeinflussen Sie, wie verschiedene Bereiche des Projekts incentiviert werden.  ",
+                "updated": 1708628855308
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "text": "Birden Fazla Çalışma Alanında Çalışma",
                     "updated": 1654394455539,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeiten an mehreren Arbeitsbereichen",
+                    "updated": 1708291214736
                 }
             ]
         },
@@ -93,6 +103,11 @@
                     "text": "Konfigürasyon",
                     "updated": 1654394474704,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1708291224265
                 }
             ]
         }

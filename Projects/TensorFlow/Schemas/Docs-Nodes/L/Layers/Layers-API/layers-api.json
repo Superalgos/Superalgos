@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Layers API, model oluşturmak için daha üst düzey bir API'dir.",
                 "updated": 1654397273084
+            },
+            {
+                "language": "DE",
+                "text": "Die Ebenen-API ist eine übergeordnete API für die Erstellung von Modellen.",
+                "updated": 1707240322261
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397281025,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707240332844
                 }
             ]
         }

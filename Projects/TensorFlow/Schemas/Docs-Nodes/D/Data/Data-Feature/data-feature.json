@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Giriş özellikleri kümesinin her bir özelliği.",
                 "updated": 1654396914708
+            },
+            {
+                "language": "DE",
+                "text": "Jedes einzelne Merkmal aus der Menge der Eingabemerkmale.  ",
+                "updated": 1708628946548
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396920692,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1708459820004
                 }
             ]
         }

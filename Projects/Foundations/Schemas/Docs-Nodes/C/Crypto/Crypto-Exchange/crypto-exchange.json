@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Bir kripto Exchange düğümü, belirli bir borsadaki varlıkların ve pazarların tanımlarını tutar.",
                 "updated": 1652799015108
+            },
+            {
+                "language": "DE",
+                "text": "Ein Krypto-Börsenknoten enthält die Definitionen von Vermögenswerten und Märkten an einer bestimmten Börse.",
+                "updated": 1708265562633
             }
         ]
     },
@@ -39,6 +44,12 @@
                     "language": "TR",
                     "text": "Test Edilen Exchange'ler",
                     "updated": 1652799056133
+                },
+                {
+                    "language": "DE",
+                    "text": "Getestete Exchanges",
+                    "updated": 1708265562805,
+                    "style": "Title"
                 }
             ]
         },
@@ -61,6 +72,12 @@
                     "language": "TR",
                     "text": "Teorik olarak, Superalgos düzinelerce borsayı destekler. Ancak, hepsi CCXT kitaplığı tarafından önerilen standarda uymadığından, her değişim bir test sürecinden geçmelidir.",
                     "updated": 1652799075432
+                },
+                {
+                    "language": "DE",
+                    "text": "Theoretisch unterstützt Superalgos Dutzende von Börsen. Allerdings muss jede Börse einen Testprozess durchlaufen, da nicht alle dem von der CCXT-Bibliothek vorgeschlagenen Standard entsprechen.",
+                    "updated": 1708265562914,
+                    "style": "Text"
                 }
             ]
         },
@@ -73,6 +90,12 @@
                     "language": "TR",
                     "text": "Binance Test Durumu",
                     "updated": 1654391518307,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Binance Test Status",
+                    "updated": 1708265563087,
                     "style": "List"
                 }
             ]
@@ -87,6 +110,12 @@
                     "text": "Binance Vadeli İşlemleri USDⓈ-M/COIN-M Test Durumu",
                     "updated": 1654391523838,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Binance Futures USDⓈ-M/COIN-M Teststatus",
+                    "updated": 1708265563196,
+                    "style": "List"
                 }
             ]
         },
@@ -98,6 +127,12 @@
                     "language": "TR",
                     "text": "Binance-ABD Test Durumu",
                     "updated": 1654391530627,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Binance-US Test Status",
+                    "updated": 1708265563337,
                     "style": "List"
                 }
             ]
@@ -111,6 +146,12 @@
                     "text": "Bitfinex Test Durumu",
                     "updated": 1654391537736,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitfinex Test Status",
+                    "updated": 1708265563462,
+                    "style": "List"
                 }
             ]
         },
@@ -123,6 +164,12 @@
                     "text": "Bittrex Test Durumu",
                     "updated": 1654391543303,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bittrex Test Status",
+                    "updated": 1708265563587,
+                    "style": "List"
                 }
             ]
         },
@@ -134,6 +181,12 @@
                     "language": "TR",
                     "text": "CoinbasePro Test Durumu",
                     "updated": 1654391549262,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "CoinbasePro Test Status",
+                    "updated": 1708265563681,
                     "style": "List"
                 }
             ]
@@ -148,6 +201,12 @@
                     "text": "FTX Test Durumu",
                     "updated": 1654391555993,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "FTX-Teststatus",
+                    "updated": 1708265563806,
+                    "style": "List"
                 }
             ]
         },
@@ -161,6 +220,12 @@
                     "text": "Kraken Test Durumu",
                     "updated": 1654391561963,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kraken Test Status",
+                    "updated": 1708265563915,
+                    "style": "List"
                 }
             ]
         },
@@ -173,6 +238,12 @@
                     "text": "Kucoin Test Durumu",
                     "updated": 1654391569616,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kucoin Test Status",
+                    "updated": 1708265564025,
+                    "style": "List"
                 }
             ]
         },
@@ -184,6 +255,12 @@
                     "language": "TR",
                     "text": "Luno Test Durumu",
                     "updated": 1654391576496,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Luno Test Status",
+                    "updated": 1708265564150,
                     "style": "List"
                 }
             ]
@@ -201,6 +278,12 @@
                     "language": "TR",
                     "text": "Kripto Exchange Yapılandırma",
                     "updated": 1652799127267
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration der Krypto-Börse",
+                    "updated": 1708265564259,
+                    "style": "Title"
                 }
             ]
         },
@@ -223,6 +306,12 @@
                     "language": "TR",
                     "text": "Her Exchange çok özel bir konfigürasyon gerektirebilir. Bu, değişim testi sürecinde belirlenir. Yukarıda listelenen her borsanın sayfasına bakın. Yeni bir değişimi test etmekle ilgileniyorsanız, Yeni Değişimler Nasıl Test Edilir ( How to Test New Exchanges ) sayfasına gidin.",
                     "updated": 1652799182432
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Börse kann eine ganz bestimmte Konfiguration erfordern. Dies wird bei der Prüfung des Austauschs festgestellt. Konsultieren Sie die Seite der jeweiligen Börse, wie oben aufgeführt. Wenn Sie eine neue Börse testen möchten, gehen Sie auf die Seite How to Test New Exchanges.",
+                    "updated": 1708265564400,
+                    "style": "Text"
                 }
             ]
         },
@@ -240,6 +329,12 @@
                     "language": "TR",
                     "text": "Özellikler ve Parametreler",
                     "updated": 1652799193595
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften und Parameter",
+                    "updated": 1708265564572,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -252,6 +347,12 @@
                     "language": "TR",
                     "text": "Superalgos, borsalara bağlanmak için CCXT'yi (CryptoCurrency eXchange Trading Library) kullanır. Kullanıcı tarafından exchange üzerinde oluşturulan API'ler aracılığıyla bağlandığı yüzlerce exchange'i destekler. ccxt'nin en iyi özelliklerinden biri, exchange agnostik olmasıdır. İster FTX'te ister Bybit'te işlem yapın, borsaya bağlanma süreci aynıdır. Kitaplık, gerektiğinde bağlantıya ince ayar yapmak için birçok parametreyi kabul eder. Binance gibi iyi desteklenen borsalar için borsaya bağlanmak için tek yapmanız gereken kullanmak istediğiniz borsanın adı olan codeName'i genellikle küçük harflerle bildirmektir.",
                     "updated": 1652799206992
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos verwendet CCXT (CryptoCurrency eXchange Trading Library), um sich mit Börsen zu verbinden. Sie unterstützt Hunderte von Börsen, mit denen sie sich über APIs verbindet, die vom Benutzer an der Börse erstellt werden. Eine der besten Eigenschaften von ccxt ist, dass es börsenunabhängig ist. Ob Sie nun an FTX oder Bybit handeln, der Prozess der Verbindung zur Börse ist derselbe. Die Bibliothek akzeptiert viele Parameter, um die Verbindung bei Bedarf fein abzustimmen. Bei gut unterstützten Börsen wie Binance müssen Sie nur den CodeName angeben, der der Name der Börse ist, die Sie verwenden möchten, normalerweise in Kleinbuchstaben.",
+                    "updated": 1708265564682,
+                    "style": "Text"
                 }
             ]
         },
@@ -273,6 +374,12 @@
                     "language": "TR",
                     "text": "codeName, sistem kodunda işlendiği şekliyle Exchange adıdır.",
                     "updated": 1652799238746
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Name des Austauschs, wie er im Code des Systems behandelt wird.",
+                    "updated": 1708265564901,
+                    "style": "List"
                 }
             ]
         },
@@ -290,6 +397,12 @@
                     "language": "TR",
                     "text": "sandBox bazı borsalarda, tüccarların simüle edilmiş bir ortamda tüm borsa özelliklerini denemelerini sağlayan testnet/sandBox modu vardır. Etkinleştirmek için true olarak ayarlayın. Lütfen bazı borsaların (örneğin Bittrex gibi) bu parametrenin false olarak ayarlanmasıyla hata verebileceğini unutmayın. Bu gibi durumlarda o satırı silmeniz yeterlidir.",
                     "updated": 1652799269237
+                },
+                {
+                    "language": "DE",
+                    "text": "sandBox Einige Börsen verfügen über einen so genannten Testnet/SandBox-Modus, der es Händlern ermöglicht, alle Funktionen der Börse in einer simulierten Umgebung auszuprobieren. Setzen Sie ihn auf true, um ihn zu aktivieren. Bitte beachten Sie, dass einige Börsen (wie z.B. Bittrex) einen Fehler ausgeben können, wenn dieser Parameter auf false gesetzt ist. Löschen Sie diese Zeile in solchen Fällen einfach.",
+                    "updated": 1708265565041,
+                    "style": "List"
                 }
             ]
         },
@@ -307,6 +420,12 @@
                     "language": "TR",
                     "text": "maxRate, veriler kaydedilmeden önce çekilen maksimum OHCLV sayısını ayarlar. Bu, yalnızca borsa veri madenciliğini rastgele başlattığında ve kullanıcının verileri daha sık kaydetmesine ve veri madenciliğinin ilerlemesine izin verdiğinde kullanılmalıdır.",
                     "updated": 1652799278482
+                },
+                {
+                    "language": "DE",
+                    "text": "maxRate legt die maximale Anzahl von OHCLV fest, die gezogen werden, bevor die Daten gespeichert werden. Dies ist nur zu verwenden, wenn die Börse die Data-Mine willkürlich auswirft und es dem Benutzer ermöglicht, die Daten häufiger zu speichern, damit die Data-Mine fortschreiten kann.",
+                    "updated": 1708265565307,
+                    "style": "List"
                 }
             ]
         },
@@ -319,6 +438,12 @@
                     "language": "TR",
                     "text": "ccxt kitaplığı tarafından ayarlanan varsayılan değeri geçersiz kılmak için rateLimit.",
                     "updated": 1652799286994
+                },
+                {
+                    "language": "DE",
+                    "text": "rateLimit, um den von der ccxt-Bibliothek festgelegten Standardwert außer Kraft zu setzen.",
+                    "updated": 1708265565526,
+                    "style": "List"
                 }
             ]
         },
@@ -331,6 +456,12 @@
                     "language": "TR",
                     "text": "limit: düzgün bağlanmak için bazı borsalar tarafından gerekli olabilir.",
                     "updated": 1652799302057
+                },
+                {
+                    "language": "DE",
+                    "text": "Limit: könnte von einigen Börsen verlangt werden, um eine ordnungsgemäße Verbindung herzustellen.",
+                    "updated": 1708265565682,
+                    "style": "List"
                 }
             ]
         },
@@ -343,6 +474,12 @@
                     "language": "TR",
                     "text": "seçenekler: örneğin ters bir çiftle işlem yaparken, borsaya ek parametreleri iletmek için bir nesne olarak kullanılır.",
                     "updated": 1652799310476
+                },
+                {
+                    "language": "DE",
+                    "text": "options: wird als Objekt zur Übergabe zusätzlicher Parameter an die Börse verwendet, z.B. beim Handel mit einem umgekehrten Paar.",
+                    "updated": 1708265565838,
+                    "style": "List"
                 }
             ]
         },
@@ -355,6 +492,12 @@
                     "language": "TR",
                     "text": "ana bilgisayar adı: değişim için özel ana bilgisayar adı ayarlamak için.",
                     "updated": 1652799318231
+                },
+                {
+                    "language": "DE",
+                    "text": "hostname: zum Festlegen eines eigenen Hostnamens für die Börse.",
+                    "updated": 1708265566011,
+                    "style": "List"
                 }
             ]
         },
@@ -366,6 +509,12 @@
                     "language": "TR",
                     "text": "Kullanım örneği:",
                     "updated": 1652799329113
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel für die Verwendung:",
+                    "updated": 1708265566168,
+                    "style": "Text"
                 }
             ]
         },
@@ -383,6 +532,12 @@
                     "language": "TR",
                     "text": "Not: Bilinen değiş tokuşlar için, bağlantıyı etkinleştirmek için doğru kodAdı'nı ayarlamak yeterlidir ve genellikle ek parametreye gerek yoktur!",
                     "updated": 1652799337547
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei bekannten Börsen genügt es, den korrekten Codenamen einzugeben, um die Verbindung zu aktivieren, und es sind in der Regel keine weiteren Parameter erforderlich!",
+                    "updated": 1708265566277,
+                    "style": "Note"
                 }
             ]
         },
@@ -394,6 +549,12 @@
                     "language": "TR",
                     "text": "Bazı borsalar, mumları getirmek için standart bir yapılandırmayı kabul etmez. Bu durumda mum getirmek için farklı bir yöntem kullanmak olası bir çözüm olabilir. API, bir dakikalık mumları getiren ve mevcut varsayılan olan OHLCV süreci yerine, yalnızca sensör botunun alım satımları (Tarihi-Ticaret sürecini kullanarak) getirmesi durumunda kullanılan bir dizi tanımı içerir. Böyle bir durumda, belirli bir değişim ile çalışmak için doğru parametre setini bulmak zor olabilir ve değişim API'sinin ve CCXT Kitaplık API'sinin nasıl çalıştığını anlamayı gerektirir. Başka bir deyişle, değerlerin her birinin ne olması gerektiğine dair kesin bir kural yoktur. Bu değerlerin her birinin belirlenmesi, değiş tokuşun API belgelerinin yanı sıra CCXT Kitaplığının belgelerinin araştırılmasını gerektirir. API kullanımını etkinleştirmek için, önce tüm parametrelerine erişim için kullanımını bildirin.",
                     "updated": 1652799346422
+                },
+                {
+                    "language": "DE",
+                    "text": "Einige Börsen akzeptieren keine Standardkonfiguration für den Abruf von Kerzen. In diesem Fall kann eine mögliche Lösung darin bestehen, eine andere Methode zum Abrufen von Kerzen zu verwenden. API enthält eine Reihe von Definitionen, die nur in dem Fall verwendet werden, in dem der Sensor-Bot Trades abruft (unter Verwendung des Historic-Trades-Prozesses) anstelle des OHLCV-Prozesses, der einminütige Kerzen abruft und die aktuelle Standardeinstellung ist. In einem solchen Fall kann es schwierig sein, die richtigen Parameter zu finden, um mit einer bestimmten Börse zu arbeiten, und man muss verstehen, wie die Börsen-API und die CCXT Library API funktionieren. Mit anderen Worten: Es gibt keine feste Regel, wie die einzelnen Werte lauten sollten. Um die einzelnen Werte zu ermitteln, müssen Sie die API-Dokumentation der Börse sowie die Dokumentation der CCXT-Bibliothek studieren. Um die Verwendung der API zu aktivieren, müssen Sie zunächst ihre Verwendung deklarieren, um Zugriff auf alle Parameter zu erhalten.",
+                    "updated": 1708265566480,
+                    "style": "Text"
                 }
             ]
         },
@@ -406,6 +567,12 @@
                     "language": "TR",
                     "text": "API parametrelerinin kullanımını etkinleştirmek için API.method fetch_ohlcv gereklidir",
                     "updated": 1652799355867
+                },
+                {
+                    "language": "DE",
+                    "text": "Die API.methode fetch_ohlcv ist erforderlich, um die Verwendung der API-Parameter zu aktivieren.",
+                    "updated": 1708265566777,
+                    "style": "List"
                 }
             ]
         },
@@ -418,6 +585,12 @@
                     "language": "TR",
                     "text": "API.class, \"exchangeId\" bildirmek için kullanılır",
                     "updated": 1652799363355
+                },
+                {
+                    "language": "DE",
+                    "text": "API.class wird für die Deklaration der \"exchangeId\" verwendet",
+                    "updated": 1708265566949,
+                    "style": "List"
                 }
             ]
         },
@@ -430,6 +603,12 @@
                     "language": "TR",
                     "text": "API.fetchOHLCVs fetchOHLCVsYöntemini kullanma yöntemi",
                     "updated": 1652799370821
+                },
+                {
+                    "language": "DE",
+                    "text": "API.fetchOHLCVsMethod, um die Methode fetchOHLCVsMethod zu verwenden",
+                    "updated": 1708265567091,
+                    "style": "List"
                 }
             ]
         },
@@ -442,6 +621,12 @@
                     "language": "TR",
                     "text": "API.firstId, ilk kimliği bildirmek için",
                     "updated": 1652799378676
+                },
+                {
+                    "language": "DE",
+                    "text": "API.firstId zur Deklaration der firstId",
+                    "updated": 1708265567231,
+                    "style": "List"
                 }
             ]
         },
@@ -454,6 +639,12 @@
                     "language": "TR",
                     "text": "Varsayılan rateLimit'i değiştirmek için API.rateLimit",
                     "updated": 1652799387406
+                },
+                {
+                    "language": "DE",
+                    "text": "API.rateLimit, um das Standard-RateLimit zu ändern",
+                    "updated": 1708265567372,
+                    "style": "List"
                 }
             ]
         },
@@ -466,6 +657,12 @@
                     "language": "TR",
                     "text": "API.hostname varsayılan ana bilgisayar adını değiştirmek için",
                     "updated": 1652799410949
+                },
+                {
+                    "language": "DE",
+                    "text": "API.limit, um den Standardparameter für die Umtauschgrenze zu ändern",
+                    "updated": 1708265567513,
+                    "style": "List"
                 }
             ]
         },
@@ -478,6 +675,12 @@
                     "language": "TR",
                     "text": "API.hostname varsayılan ana bilgisayar adını değiştirmek için",
                     "updated": 1652799414732
+                },
+                {
+                    "language": "DE",
+                    "text": "API.hostname zum Ändern des Standard-Hostnamens",
+                    "updated": 1708265567653,
+                    "style": "List"
                 }
             ]
         },
@@ -490,6 +693,12 @@
                     "language": "TR",
                     "text": "API.fetchType, API.useFetchTradesForFetchOHLCVs ile birlikte kullanılır",
                     "updated": 1652799424949
+                },
+                {
+                    "language": "DE",
+                    "text": "API.fetchType wird in Kombination mit API.useFetchTradesForFetchOHLCVs verwendet",
+                    "updated": 1708265567794,
+                    "style": "List"
                 }
             ]
         },
@@ -502,6 +711,12 @@
                     "language": "TR",
                     "text": "API kullanırken maxRate değerini ayarlamak için API.maxTradesPerFetch",
                     "updated": 1652799432735
+                },
+                {
+                    "language": "DE",
+                    "text": "API.maxTradesPerFetch zum Festlegen der maxRate bei Verwendung von API",
+                    "updated": 1708265567973,
+                    "style": "List"
                 }
             ]
         },
@@ -513,6 +728,12 @@
                     "language": "TR",
                     "text": "Kullanım örneği:",
                     "updated": 1652799441752
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiel für die Verwendung:",
+                    "updated": 1708265568129,
+                    "style": "Text"
                 }
             ]
         },

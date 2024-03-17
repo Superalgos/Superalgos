@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Kapatma aşaması olayı, karşılık gelen aşamanın kapatılması için karşılanması gereken kurallar kümesini tanımlar.",
                 "updated": 1652798036129
+            },
+            {
+                "language": "DE",
+                "text": "Das Ereignis \"Abschluss der Stufe\" definiert die Regeln, die erfüllt sein müssen, damit die entsprechende Stufe abgeschlossen werden kann.",
+                "updated": 1708272498090
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Hedef boyut dolduğunda hem açık hem de kapalı aşamalar kapatılır.",
                     "updated": 1652798045300
+                },
+                {
+                    "language": "DE",
+                    "text": "Sowohl die Eröffnungs- als auch die Abschlussphase werden geschlossen, sobald die Zielgröße erreicht ist.",
+                    "updated": 1708272498262,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Bununla birlikte, Superalgos, kullanıcının belirli piyasa durumlarına göre herhangi bir aşamayı kapatmayı seçebilmesi için ekstra bir kontrol düzeyi sağlar. Yakın sahne olayının amacı budur.",
                     "updated": 1652798053898
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos bietet jedoch eine zusätzliche Kontrollebene, so dass der Benutzer in bestimmten Marktsituationen eine der beiden Phasen schließen kann. Dies ist die Absicht des Ereignisses \"Abschlussphase\".",
+                    "updated": 1708272498418,
+                    "style": "Text"
                 }
             ]
         }

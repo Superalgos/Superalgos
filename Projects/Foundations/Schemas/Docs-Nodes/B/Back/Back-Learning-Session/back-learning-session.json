@@ -1,5 +1,20 @@
 {
     "type": "Back Learning Session",
+    "definition": {
+        "text": "Right click and select the pencil button to edit this tex. Replace it with a definition / summary. Hit ESC to exit edit mode.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bu metni düzenlemek için sağ tıklayın ve kalem düğmesini seçin. Bir tanım / özet ile değiştirin. Düzenleme modundan çıkmak için ESC'ye basın.",
+                "updated": 1652794998294
+            },
+            {
+                "language": "DE",
+                "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um diesen Text zu bearbeiten. Ersetzen Sie ihn durch eine Definition / Zusammenfassung. Drücken Sie ESC, um den Bearbeitungsmodus zu verlassen.",
+                "updated": 1701930796300
+            }
+        ]
+    },
     "paragraphs": [
         {
             "style": "Text",
@@ -9,18 +24,14 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle. Yeni paragraflar yazmak için ENTER'a basın. Düzenleme modundan çıkmak için ESC. Ardından, değişikliklerinizi kaydetmek için docs.save'i ve ana depoya göndermek için app.contribute'i kullanabilirsiniz.",
                     "updated": 1652795019737
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1701930796463,
+                    "style": "Text"
                 }
             ]
         }
-    ],
-    "definition": {
-        "text": "Right click and select the pencil button to edit this tex. Replace it with a definition / summary. Hit ESC to exit edit mode.",
-        "translations": [
-            {
-                "language": "TR",
-                "text": "Bu metni düzenlemek için sağ tıklayın ve kalem düğmesini seçin. Bir tanım / özet ile değiştirin. Düzenleme modundan çıkmak için ESC'ye basın.",
-                "updated": 1652794998294
-            }
-        ]
-    }
+    ]
 }

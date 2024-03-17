@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Başlangıç ​​bakiyesi ( Begin Balance ), ana düğümün veya kavramın başlangıç ​​özelliğinin tarih saatindeki bakiyedir.",
                 "updated": 1652795861104
+            },
+            {
+                "language": "DE",
+                "text": "Der Anfangssaldo ( Begin Balance ) ist der Saldo zum Zeitpunkt des Beginns der Eigenschaft des übergeordneten Knotens oder Konzepts.",
+                "updated": 1701930798893
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Bir bölüm bağlamında, bölümün başladığı tarihteki bakiyedir.",
                     "updated": 1652795747399
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Episode ist dies der Saldo zum Zeitpunkt des Beginns der Episode.",
+                    "updated": 1701930799030,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,6 +60,12 @@
                     "language": "TR",
                     "text": "Bir pozisyon bağlamında, pozisyonun başladığı tarihteki bakiyedir.",
                     "updated": 1652795768495
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Position ist dies der Saldo zu dem Zeitpunkt, an dem die Position begann.",
+                    "updated": 1701930799168,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,6 +88,12 @@
                     "language": "TR",
                     "text": "Begin Balance Yapılandırması",
                     "updated": 1652795801730
+                },
+                {
+                    "language": "DE",
+                    "text": "Begin Balance Konfiguration",
+                    "updated": 1701930799317,
+                    "style": "Title"
                 }
             ]
         },
@@ -88,6 +111,12 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652795810787
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1701930799418,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -105,6 +134,12 @@
                     "language": "TR",
                     "text": "initialValue, düğümün başlangıç ​​durumunun keyfi bir değere sıfırlanmasına izin verir.",
                     "updated": 1652795820172
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1701930799525,
+                    "style": "List"
                 }
             ]
         }

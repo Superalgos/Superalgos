@@ -1,8 +1,8 @@
 {
     "type": "Claim Votes Switch",
     "definition": {
-        "text": "Use this switch to spawn different types of Claim Votes, and to reference Claims Folder types of nodes within the Claims Program section of the User Profile hierarchy to map large structures of claims.",
-        "updated": 1630349853006,
+        "text": "Verwenden Sie diesen Schalter, um verschiedene Arten von Fallabstimmungen (Claim Votes) zu erzeugen und um auf Fallordnertypen (Claims Folder types) von Knoten innerhalb des Fallprogrammabschnitts (Claims Program section) der Benutzerprofilhierarchie (User Profile hierarchy) zu verweisen, um große Strukturen von Fällen abzubilden.",
+        "updated": 1708373675860,
         "translations": [
             {
                 "language": "ES",
@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu anahtarı farklı türlerde Talep Oyları oluşturmak ve büyük talep yapılarını eşleştirmek için Kullanıcı Profili hiyerarşisinin Talep Programı bölümündeki Talep Klasörü düğüm türlerine başvurmak için kullanın.",
                 "updated": 1654394546552
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Schalter, um verschiedene Arten von Fallabstimmungen (Claim Votes) zu erzeugen und um auf Fallordnertypen (Claims Folder types) von Knoten innerhalb des Fallprogrammabschnitts (Claims Program section) der Benutzerprofilhierarchie (User Profile hierarchy) zu verweisen, um große Strukturen von Fällen abzubilden.  ",
+                "updated": 1708628890220
             }
         ]
     },
@@ -29,8 +34,8 @@
         },
         {
             "style": "Text",
-            "text": "You may use this switch for three different purposes:",
-            "updated": 1630345326820,
+            "text": "Sie können diesen Schalter für drei verschiedene Zwecke verwenden:",
+            "updated": 1708373767345,
             "translations": [
                 {
                     "language": "ES",
@@ -52,8 +57,8 @@
         },
         {
             "style": "List",
-            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes.",
-            "updated": 1630345425238,
+            "text": "Als Organisationsmittel: Sie können beliebige Anordnungen von Stimmen erstellen, die weitere Schalter und Stimmen hervorbringen.",
+            "updated": 1708373793750,
             "translations": [
                 {
                     "language": "ES",
@@ -75,8 +80,8 @@
         },
         {
             "style": "List",
-            "text": "As a switch: You may control the flow of Claim Support Power, pretty much like with the Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
-            "updated": 1630355954531,
+            "text": "Als Schalter: Sie können den Fluss der Claim Support Power steuern, ähnlich wie mit dem Token Power Switch, aber innerhalb des Abstimmungsprogramms (Voting Program). Wenn Sie eine Erinnerung brauchen, lesen Sie, wie Token Power fließt (Token Power Flows).",
+            "updated": 1708373848382,
             "translations": [
                 {
                     "language": "ES",
@@ -98,8 +103,8 @@
         },
         {
             "style": "List",
-            "text": "As a data-structure mapper: Use the node to reference Claims Folder types of nodes to map entire structures of claims on other User Profile hierarchies.",
-            "updated": 1630345729468,
+            "text": "Als Datenstruktur-Mapper: Verwenden Sie den Knoten zur Referenzierung von Claims Folder -Knotentypen, um ganze Strukturen von Claims auf anderen User Profile Hierarchien abzubilden.",
+            "updated": 1708373875102,
             "translations": [
                 {
                     "language": "ES",
@@ -121,8 +126,8 @@
         },
         {
             "style": "Text",
-            "text": "The first two use cases are self-explanatory. Let's explore the third one in more detail.",
-            "updated": 1630349876232,
+            "text": "Die ersten beiden Anwendungsfälle sind selbsterklärend. Lassen Sie uns den dritten Fall genauer untersuchen.",
+            "updated": 1708373885125,
             "translations": [
                 {
                     "language": "ES",
@@ -144,8 +149,8 @@
         },
         {
             "style": "Callout",
-            "text": "Use a Claim Votes Switch node to establish a reference with a Claims Folder type of node — Position Claims Folder, Feature Claims Folder, or Asset Claims Folder — within the Claims Program section of your colleague's User Profile node. Then use the Install Missing Votes option on the menu of the Claim Votes Switch to map the entire Claims Folder! ",
-            "updated": 1630497475900,
+            "text": "Verwenden Sie einen Claim Votes Switch-Knoten, um einen Bezug zu einem Claims Folder-Knoten - Position Claims Folder, Feature Claims Folder oder Asset Claims Folder - innerhalb des Claims Program-Abschnitts des User Profile-Knotens Ihres Kollegen herzustellen. Verwenden Sie dann die Option Fehlende Stimmen installieren im Menü des Claim Votes-Schalter, um den gesamten Claims-Ordner zuzuordnen!",
+            "updated": 1708374307972,
             "translations": [
                 {
                     "language": "ES",
@@ -167,7 +172,7 @@
         },
         {
             "style": "Note",
-            "text": "The process creates a Claim Votes Switch for each Claims Folder, and matching Claim Votes for each Asset Contribution Claim, Feature Contribution Claim, or Position Contribution Claim defined within each folder.",
+            "text": "Der Prozess erstellt einen Claim Votes Switch für jeden Claims Folder und passende Claim Votes für jeden Asset Contribution Claim, Feature Contribution Claim oder Position Contribution Claim, die innerhalb jedes Ordners definiert sind.",
             "translations": [
                 {
                     "language": "ES",
@@ -185,12 +190,13 @@
                     "updated": 1654394592496,
                     "style": "Note"
                 }
-            ]
+            ],
+            "updated": 1708374494440
         },
         {
             "style": "Success",
-            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Votes process again. The process will remap the structure with the appropriate votes and switches.",
-            "updated": 1630348162382,
+            "text": "Wenn sich an den Definitionen etwas ändert, können Sie jederzeit zurückgehen und den Prozess Fehlende Abstimmungen installieren erneut ausführen. Der Prozess wird die Struktur mit den entsprechenden Stimmen und Schaltern neu zuordnen.",
+            "updated": 1708374521123,
             "translations": [
                 {
                     "language": "ES",
@@ -216,7 +222,7 @@
         },
         {
             "style": "Title",
-            "text": "Configuration",
+            "text": "Konfiguration",
             "translations": [
                 {
                     "language": "RU",
@@ -229,7 +235,8 @@
                     "updated": 1654394604393,
                     "style": "Title"
                 }
-            ]
+            ],
+            "updated": 1708374528819
         }
     ]
 }

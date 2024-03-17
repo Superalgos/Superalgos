@@ -31,7 +31,8 @@ function addDataAttribute(value) {
 }
 
 function findTranslation(translationKey) {
-    const currentLanguage = UI.projects.education.spaces.docsSpace.language.toLowerCase()
+    const docsLanguauge = UI.projects.education.spaces.docsSpace.language
+    const currentLanguage = docsLanguauge === undefined ? 'en' : docsLanguauge.toLowerCase()
     const languageMatch = i18next.translator.resourceStore.data[currentLanguage]
     if(languageMatch !== undefined) {
         let value = languageMatch.translation

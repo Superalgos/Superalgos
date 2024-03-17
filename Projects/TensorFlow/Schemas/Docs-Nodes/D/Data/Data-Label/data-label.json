@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Tek bir bireysel Çıktı Etiketi.",
                 "updated": 1654396926422
+            },
+            {
+                "language": "DE",
+                "text": "Ein einzelnes individuelles Output Label.  ",
+                "updated": 1708628957924
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396933643,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1708460113681
                 }
             ]
         }

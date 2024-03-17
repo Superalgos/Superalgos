@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Makine öğreniminde model, bir girdiyi bir çıktıya eşleyen öğrenilebilir parametrelere sahip bir fonksiyondur. En uygun parametreler, modelin veriler üzerinde eğitilmesiyle elde edilir. İyi eğitilmiş bir model, girdiden istenen çıktıya doğru bir eşleme sağlayacaktır.",
                 "updated": 1654397345762
+            },
+            {
+                "language": "DE",
+                "text": "Beim maschinellen Lernen ist ein Modell eine Funktion mit erlernbaren Parametern, die eine Eingabe auf eine Ausgabe abbildet. Die optimalen Parameter werden durch Training des Modells anhand von Daten ermittelt. Ein gut trainiertes Modell liefert eine genaue Abbildung der Eingabe auf die gewünschte Ausgabe.",
+                "updated": 1707240560955
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "TensorFlow.js'de bir makine öğrenimi modeli oluşturmanın iki yolu vardır:",
                     "updated": 1654397351751,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In TensorFlow.js gibt es zwei Möglichkeiten, ein maschinelles Lernmodell zu erstellen:",
+                    "updated": 1707240580482
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "text": "Katmanları kullanarak bir model oluşturduğunuz Katmanlar API'sini kullanarak.",
                     "updated": 1654397358286,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "unter Verwendung der API-Ebenen (Layers API), bei der Sie ein Modell mit Ebenen aufbauen.",
+                    "updated": 1707240595236
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "text": "tf.matMul(), tf.add(), vb. gibi daha düşük seviyeli işlemlerle Core API'yi kullanmak.",
                     "updated": 1654397364009,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwendung der Kern-API (Core API) mit untergeordneten Operationen wie tf.matMul(), tf.add(), usw.",
+                    "updated": 1707240604126
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Yoğun (tam bağlı) bir katman oluşturur.",
                 "updated": 1654396952246
+            },
+            {
+                "language": "DE",
+                "text": "Erzeugt eine dichte (vollständig verbundene) Schicht.  ",
+                "updated": 1708628989146
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396960800,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1708460225697
                 }
             ]
         }

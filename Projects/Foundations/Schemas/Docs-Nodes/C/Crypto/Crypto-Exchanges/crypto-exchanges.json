@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Kripto borsaları, kullanıcının etkileşime girebileceği farklı borsaların tanımları düğüm gruplarıdır.",
                 "updated": 1652799502893
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Kryptobörsen gruppiert die Definitionen der verschiedenen Börsen, mit denen der Benutzer interagieren kann.",
+                "updated": 1708265568255
             }
         ]
     },
@@ -40,6 +45,12 @@
                     "language": "TR",
                     "text": "Varsayılan çalışma alanı, her birinin bir amacı olan bu türden birkaç düğüm içerir:",
                     "updated": 1652799511254
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Standardarbeitsbereich enthält mehrere Knoten dieser Art, die jeweils einen bestimmten Zweck erfüllen:",
+                    "updated": 1708265568426,
+                    "style": "Text"
                 }
             ]
         },
@@ -62,6 +73,12 @@
                     "language": "TR",
                     "text": "Test edildi: Kapsamlı bir şekilde test edilmiş Crypto Exchange borsa düğümlerini içerir.",
                     "updated": 1652799539143
+                },
+                {
+                    "language": "DE",
+                    "text": "Getestet: bietet Crypto Exchange Nodes von Börsen, die gründlich getestet wurden.",
+                    "updated": 1708265568598,
+                    "style": "List"
                 }
             ]
         },
@@ -84,6 +101,12 @@
                     "language": "TR",
                     "text": "Test Edilmemiş: Superalgos'un çalışması gereken CCXT kitaplığının API gereksinimlerine uyan, test edilmemiş borsalardan oluşan bir Crypto Exchange düğümleri koleksiyonuna sahiptir.",
                     "updated": 1652799559376
+                },
+                {
+                    "language": "DE",
+                    "text": "Ungetestet: enthält eine Sammlung von Krypto-Börsenknoten von ungetesteten Börsen, die die API-Anforderungen der CCXT-Bibliothek erfüllen, die Superalgos zum Funktionieren benötigt.",
+                    "updated": 1708265568755,
+                    "style": "List"
                 }
             ]
         },
@@ -106,6 +129,12 @@
                     "language": "TR",
                     "text": "Test Sırası: Test ederken Crypto Exchange düğümlerini dağıtmak için bu düğümü kullanabilirsiniz.",
                     "updated": 1652799568889
+                },
+                {
+                    "language": "DE",
+                    "text": "Testing Queue: Sie können diesen Knoten verwenden, um Crypto Exchange-Knoten zu testen.",
+                    "updated": 1708265568974,
+                    "style": "List"
                 }
             ]
         },

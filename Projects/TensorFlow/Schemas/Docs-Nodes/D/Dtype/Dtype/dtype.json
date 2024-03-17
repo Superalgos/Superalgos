@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu katman için veri türü. Varsayılan olarak 'float32'. Bu bağımsız değişken yalnızca giriş katmanları (bir modelin ilk katmanı) için geçerlidir.",
                 "updated": 1654397008334
+            },
+            {
+                "language": "DE",
+                "text": "Der Datentyp für diese Ebene. Der Standardwert ist'float32'. Dieses Argument gilt nur für Eingabeschichten (die erste Schicht eines Modells).  ",
+                "updated": 1708629039202
             }
         ]
     },
@@ -32,6 +37,11 @@
                     "text": "Olası Değerler",
                     "updated": 1654397015194,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mögliche Werte",
+                    "updated": 1708460510689
                 }
             ]
         },

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Derinlemesine ayrılabilir 2D konvolüsyon. Derinlemesine Ayrılabilir konvolüsyonlar, derinlemesine uzamsal konvolüsyonda (her bir giriş kanalına ayrı ayrı etki eden) sadece ilk adımın gerçekleştirilmesinden oluşur. depthMultiplier bağımsız değişkeni, derinlik adımında giriş kanalı başına kaç çıkış kanalı oluşturulacağını kontrol eder.",
                 "updated": 1654396970522
+            },
+            {
+                "language": "DE",
+                "text": "Tiefenweise trennbare 2D-Faltung. Tiefenweise trennbare Faltungen bestehen darin, nur den ersten Schritt einer tiefenweisen räumlichen Faltung durchzuführen (der auf jeden Eingangskanal separat wirkt). Das Argument depthMultiplier steuert, wie viele Ausgangskanäle pro Eingangskanal im tiefenweisen Schritt erzeugt werden.  ",
+                "updated": 1708629001418
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654396976912,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1708460262569
                 }
             ]
         }

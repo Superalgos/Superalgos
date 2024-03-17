@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Tahmin yaparken kullanılan bir girdi değişkeni.",
                 "updated": 1654397126735
+            },
+            {
+                "language": "DE",
+                "text": "Eine Eingabevariable, die bei der Erstellung von Vorhersagen verwendet wird.",
+                "updated": 1707239546339
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
                     "updated": 1654397132900,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1707239554291
                 }
             ]
         }

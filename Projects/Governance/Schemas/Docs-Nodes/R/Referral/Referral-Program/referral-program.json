@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Yönlendirme programı, projenin tanıtımını ya ağızdan ağıza ya da makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla \"toplu olarak\" teşvik eder.",
                 "updated": 1645083071226
+            },
+            {
+                "language": "DE",
+                "text": "Das Empfehlungsprogramm bietet Anreize für die Werbung für das Projekt, entweder durch Mundpropaganda oder \"en masse\" durch Artikel, Beiträge in den sozialen Medien, Videos und andere Formen des Influencer Marketings.",
+                "updated": 1707856977554
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "TR",
                     "text": "Bu programla, projeye yönlendirdiğiniz her kullanıcı için ve ayrıca onların tavsiye ettikleri kullanıcılar için Superalgos SA Tokenları kazanabilirsiniz!",
                     "updated": 1645083121594
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Teilnahme an diesem Programm wird mit einem Token-Bonus belohnt, d. h. Sie verdienen Token allein durch Ihre Teilnahme! Lesen Sie über den Token-Bonus, um mehr zu erfahren!",
+                    "updated": 1707857021457
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "TR",
                     "text": "Katılmak için Yönlendirme Programını (Referral Program) oluşturmalı ve yönlendireninizi bildirmelisiniz. Bunu yapmak için, bir Kullanıcı Yönlendiren düğümü (User Referrer) ekleyin ve sizi Superalgos'a yönlendiren kişinin Kullanıcı Profiline bir referans oluşturun. Birden fazla yönlendireniniz varsa, daha fazla User Referrer düğümü eklemeniz gerekir.",
                     "updated": 1645083281050
+                },
+                {
+                    "language": "DE",
+                    "text": "Um teilzunehmen, müssen Sie das Empfehlungsprogramm starten und Ihren Empfehlungsgeber bekannt geben. Dazu fügen Sie einen User Referrer -Knoten hinzu und verwenden ihn, um einen Verweis auf das Benutzerprofil (User Profile) der Person zu erstellen, die Sie an Superalgos verwiesen hat. Wenn Sie mehr als einen Referrer haben, fügen Sie einfach weitere User Referrer-Knoten (Referrer nodes) hinzu.",
+                    "updated": 1707857033496
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Belki de Superalgos'u bir makaleden, bir videodan, Reddit'teki bir yorumdan, bir tweet'ten, resmi web sitesinden veya size bizden bahseden birinden öğrendiniz!",
                     "updated": 1645083308367
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht haben Sie von Superalgos durch einen Artikel, ein Video, einen Kommentar auf Reddit, einen Tweet, die offizielle Website oder jemanden, der Ihnen von uns erzählt hat, erfahren!",
+                    "updated": 1707857042184
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Yönlendirenlerinizi bildirmek, o makaleyi veya tweet'i yazan, o videoyu hazırlayan, web sitesinin bakımını yapan veya size Superalgos'tan bahseden kişilere teşekkür etmenin en iyi yoludur! Onlar olmasaydı muhtemelen burada olmazdınız!",
                     "updated": 1645083341210
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Angabe von Empfehlern ist der beste Weg, um sich bei den Menschen zu bedanken, die diesen Artikel oder Tweet geschrieben, dieses Video produziert, die Website gepflegt oder Ihnen von Superalgos erzählt haben! Ohne sie wärst du wahrscheinlich noch nicht hier!",
+                    "updated": 1707857055945
                 }
             ]
         },
@@ -128,6 +153,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1638984168546
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1707857069552
                 }
             ]
         }

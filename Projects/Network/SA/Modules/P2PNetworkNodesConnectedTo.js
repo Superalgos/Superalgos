@@ -164,8 +164,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     disconnectedPeers.push(i)
                 }
             }
+            //remove the items in reverse order
             while (disconnectedPeers.length > 0) {
-                let peer = disconnectedPeers.unshift()
+                let peer = disconnectedPeers.pop()
                 thisObject.peers.splice(peer, 1)
             }
         }

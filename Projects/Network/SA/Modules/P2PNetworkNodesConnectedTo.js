@@ -22,9 +22,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
     }
 
     const RECONNECT_DELAY = 10 * 1000
-    const HEALTH_CHECK_DELAY = 1 * 1000
+    //const HEALTH_CHECK_DELAY = 1 * 1000
     let intervalIdConnectToPeers
-    let intervalIdCheckConnectedToPeers
+    //let intervalIdCheckConnectedToPeers
 
     return thisObject
 

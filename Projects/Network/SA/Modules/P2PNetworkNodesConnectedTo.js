@@ -157,11 +157,16 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         }
 
         function checkConnectedPeers() {
+            let disconnectedPeers = []
             for (let i = 0; i < thisObject.peers.length; i++) {
                 let peer = thisObject.peers[i]
                 if (peer.webSocketsClient.socketNetworkClients.isConnected !== true) {
-                    thisObject.peers.splice(i, 1)
+                    disconnectedPeers.push(i)
                 }
+            }
+            while (disconnectedPeers.length > 0) {
+                let peer = disconnectedPeer.unshift()
+                thisObject.peers.splice(peer, 1)
             }
         }
     }

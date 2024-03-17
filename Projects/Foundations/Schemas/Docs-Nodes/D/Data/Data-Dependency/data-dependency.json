@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Veri bağımlılıkları, referansı oluşturan sürecin hangi veri kümelerini girdi olarak kullanacağını belirleyen, diğer botların veri kümesi tanımlarıyla oluşturulan referanslardır.",
                 "updated": 1639142451353
+            },
+            {
+                "language": "DE",
+                "text": "Datenabhängigkeiten sind Referenzen, die mit Datensatzdefinitionen anderer Bots hergestellt werden und bestimmen, welche Datensätze der Prozess, der die Referenz herstellt, als Eingabe verwendet.",
+                "updated": 1708265570444
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Çoğu bot, diğer botların ürettiği verileri tüketir. Botlar hesaplamaları için girdi olarak verilere ihtiyaç duyduklarından, süreçler diğer botların veri kümesi tanımlarıyla bir veri bağımlılığı oluşturur. Referans, sürece veri kümesinin kodunu çözmek için gereken tüm bilgileri sağlayarak gerekli hesaplamaları yapmasına olanak tanır.",
                     "updated": 1654391633488,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Bots verbrauchen Daten, die andere Bots erzeugt haben. Da Bots die Daten als Eingabe für ihre Berechnungen benötigen, stellen Prozesse eine Datenabhängigkeit mit den Datensatzdefinitionen anderer Bots her. Die Referenz liefert dem Prozess alle Informationen, die er zur Entschlüsselung des Datensatzes benötigt, damit er die erforderlichen Berechnungen durchführen kann.",
+                    "updated": 1708265570616,
                     "style": "Text"
                 }
             ]

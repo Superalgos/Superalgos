@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Veri görevleri, veri madenciliğini, yani veri işleme faaliyetini ifade eder. Grafikleri beslemek için verileri işlemeniz gerekir ve böylece ticaret sistemleriniz kaliteli bilgilere dayalı kararlar verebilir.",
                 "updated": 1639120026724
+            },
+            {
+                "language": "DE",
+                "text": "Datenaufgaben beziehen sich auf Data-Mining, d. h. die Verarbeitung von Daten. Sie müssen Daten verarbeiten, um Diagramme zu erstellen und damit Ihre Handelssysteme Entscheidungen auf der Grundlage hochwertiger Informationen treffen können.",
+                "updated": 1708265576417
             }
         ]
     },
@@ -43,6 +48,12 @@
                     "text": "Kaliteli bilgiye erişim, ticaretin çok önemli bir unsurudur. Bu nedenle Superalgos, kullanıcılara verilerin nasıl, nerede ve ne zaman işleneceği konusunda tam kontrol sağlamaya çalışmaktadır. Bu kontrolü uygulamak için ağ hiyerarşisinin bu bölümünü kullanacaksınız.",
                     "updated": 1654391823200,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Zugang zu hochwertigen Informationen ist ein entscheidendes Element des Handels. Aus diesem Grund ist Superalgos bestrebt, den Benutzern die volle Kontrolle darüber zu geben, wie, wo und wann die Daten verarbeitet werden. Sie werden diesen Abschnitt der Netzhierarchie nutzen, um diese Kontrolle auszuüben.",
+                    "updated": 1708265576589,
+                    "style": "Text"
                 }
             ]
         },
@@ -65,6 +76,12 @@
                     "language": "TR",
                     "text": "Veri madenciliği, sensör ve gösterge botlarının örneklerini çalıştıran görevler aracılığıyla yapılır. Bu düğümün altındaki veri yapısı, veri madenciliği işleminin proje, borsa, piyasa ve veri madeni tarafından düzenlenmesine olanak tanır.",
                     "updated": 1654391828887,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Data Mining erfolgt durch Aufgaben, die Instanzen von Sensor- und Indikator-Bots ausführen. Die Datenstruktur unter diesem Knoten ermöglicht die Organisation des Data-Mining-Vorgangs nach Projekt, Börse, Markt und Data-Mine.",
+                    "updated": 1708265576792,
                     "style": "Text"
                 }
             ]
@@ -89,6 +106,12 @@
                     "text": "Veri madenciliği işleminin kurulumu, borsa piyasaları düğümü altındaki Kripto Ekosistemi hiyerarşisinde tanımlandığı şekilde kurmak istediğiniz piyasanın Piyasa Yükle işlevi kullanılarak yapılabilir.",
                     "updated": 1654391834428,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Einrichtung der Data-Mining-Operation kann über die Funktion Install Market (Markt installieren) des zu installierenden Marktes erfolgen, der in der Crypto Ecosystem Hierarchie unter dem Knoten Börsenmärkte definiert ist.",
+                    "updated": 1708265576964,
+                    "style": "Text"
                 }
             ]
         },
@@ -111,6 +134,12 @@
                     "text": "Bu düğümün menüsündeki seçeneklerden başlayarak hiyerarşinin bu bölümündeki farklı işlevleri kullanarak veri madenciliği görevlerini de ayarlayabilirsiniz. Bu yol, hangi görevleri nasıl ayarlayacağınız konusunda daha hassas bir kontrol sunar.",
                     "updated": 1654391840348,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Data-Mining-Aufgaben auch mit Hilfe der verschiedenen Funktionen in diesem Abschnitt der Hierarchie einrichten, beginnend mit den Optionen im Menü dieses Knotens. Dieser Weg bietet eine feinere Kontrolle darüber, welche Aufgaben Sie einrichten und wie.",
+                    "updated": 1708265577184,
+                    "style": "Text"
                 }
             ]
         },
@@ -123,6 +152,12 @@
                     "language": "TR",
                     "text": "Foundations->Concept->Reusable Snippets->Düğüm Silme Uyarısı",
                     "updated": 1654391847059,
+                    "style": "Include"
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlagen->Konzept->Wiederverwendbare Schnipsel->Knotenwarnung löschen",
+                    "updated": 1708265577356,
                     "style": "Include"
                 }
             ]

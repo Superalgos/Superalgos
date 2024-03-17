@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Veri madeni veri bağımlılıkları, belirli bir veri madenindeki birden fazla veri kümesiyle veri bağımlılıkları kurmayı kolaylaştırmak için tüm veri madenleriyle kurulan referanslardır.",
                 "updated": 1654391650689
+            },
+            {
+                "language": "DE",
+                "text": "Data-Mine-Datenabhängigkeiten sind Referenzen, die mit ganzen Data-Mines hergestellt werden, um die Herstellung von Datenabhängigkeiten mit mehreren Datensätzen in der gegebenen Data Mine zu erleichtern.",
+                "updated": 1708265571179
             }
         ]
     },
@@ -34,6 +39,12 @@
                     "text": "Düğüm, sadece bot veri bağımlılıklarını düzenlemek için organizasyonel bir cihaz olarak kullanılabilir. Ancak düğümün akıllıca kullanımı, birden fazla veri bağımlılığının ve bunların referanslarının dağıtımının otomatikleştirilmesini içerir.",
                     "updated": 1654391656768,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten kann als organisatorisches Hilfsmittel verwendet werden, um einfach Datenabhängigkeiten zu ordnen. Die intelligente Nutzung des Knotens beinhaltet jedoch die Automatisierung der Bereitstellung mehrerer Datenabhängigkeiten und ihrer Referenzen.",
+                    "updated": 1708265571382,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "text": "Veri Madeni Veri Bağımlılıklarını Yapılandırma",
                     "updated": 1654391662219,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren von Data-Mine-Datenabhängigkeiten",
+                    "updated": 1708265571554,
+                    "style": "Title"
                 }
             ]
         },
@@ -71,6 +88,12 @@
                     "language": "TR",
                     "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
                     "updated": 1654391668139,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü Konfigurieren, um auf die Konfiguration zuzugreifen.",
+                    "updated": 1708265571695,
                     "style": "Text"
                 }
             ]

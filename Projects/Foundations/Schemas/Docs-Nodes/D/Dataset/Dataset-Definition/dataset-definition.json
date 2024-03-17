@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Veri seti, ilgili veri madeninde referans verilen veri ürünündeki tanımlara göre belirlenen konumda depolanan bir dosya koleksiyonudur.",
                 "updated": 1654391852731
+            },
+            {
+                "language": "DE",
+                "text": "Ein Datensatz ist eine Sammlung von Dateien, die an einem bestimmten Ort gespeichert sind, gemäß den Definitionen auf dem referenzierten Datenprodukt in der entsprechenden Datenmine.",
+                "updated": 1708265577528
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Veri kümelerinin diğer botlar tarafından kullanılmasını kolaylaştıran şeylerin önemli bir kısmı, yapıları bakımından standartlaştırılmış olmalarıdır. Veri kümesi tanımlarında belirtilen de bu yapıdır.",
                     "updated": 1654391858815,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die einfache Nutzung von Datensätzen durch andere Bots ist zu einem guten Teil darauf zurückzuführen, dass sie in Bezug auf ihre Struktur standardisiert sind. Diese Struktur ist in den Datensatzdefinitionen festgelegt.",
+                    "updated": 1708265577699,
                     "style": "Text"
                 }
             ]
@@ -56,6 +67,12 @@
                     "text": "Veri Kümesi Tanımı Yapılandırması",
                     "updated": 1654391864939,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Datensatzdefinition Konfiguration",
+                    "updated": 1708265577887,
+                    "style": "Title"
                 }
             ]
         },
@@ -73,6 +90,12 @@
                     "language": "TR",
                     "text": "Özellikler",
                     "updated": 1654391870352,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1708265577997,
                     "style": "Subtitle"
                 }
             ]
@@ -92,6 +115,12 @@
                     "text": "codeName, kod içinde kullanılan veri kümesinin adıdır. 'Single-File' özel bir değerdir. Zaman Çerçevelerine bağlı olmayan ve normal Başlangıç ve Bitiş yerine bir zaman damgası Kayıt Özelliğine sahip veri kümeleri için kullanın. Bu tür veri kümeleri Piyasa veya Günlük veri kümelerinin bir bağımlılığı olduğunda, diskte bulunabilmeleri için 'Tek Dosya' kod adına ihtiyaç duyarlar.",
                     "updated": 1654391876109,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Name des Datensatzes, wie er im Code verwendet wird. Single-File\" ist ein besonderer Wert. Verwenden Sie ihn für Datensätze, die nicht von Zeitrahmen abhängen und die anstelle der regulären Beginn- und Enddaten einen Zeitstempel als Datensatzeigenschaft haben. Wenn diese Art von Datensätzen von Markt- oder Tagesdatensätzen abhängt, benötigen sie den Codenamen \"Single-File\", um auf der Festplatte gefunden zu werden.",
+                    "updated": 1708265578091,
+                    "style": "List"
                 }
             ]
         },
@@ -110,6 +139,12 @@
                     "text": "type veri kümesinin türünü ifade eder; olası değerler piyasa dosyaları ve günlük dosyalardır.",
                     "updated": 1654391883099,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "type bezieht sich auf die Art des Datensatzes; mögliche Werte sind Marktdateien und Tagesdateien.",
+                    "updated": 1708265578341,
+                    "style": "List"
                 }
             ]
         },
@@ -126,6 +161,12 @@
                     "language": "TR",
                     "text": "validTimeFrames veri kümesi tarafından işlenen zaman dilimlerini ifade eder.",
                     "updated": 1654391888543,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "validTimeFrames bezieht sich auf die Zeiträume, die der Datensatz verarbeitet.",
+                    "updated": 1708265578513,
                     "style": "List"
                 }
             ]
@@ -144,6 +185,12 @@
                     "text": "filePath dosyaların depolandığı yolu ayarlar; veri madeni, bot ve ürünün doğru adının girilmesi gerekir.",
                     "updated": 1654391894309,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "filePath legt den Pfad fest, unter dem die Dateien gespeichert werden; der richtige Name der Datenmine, des Bots und des Produkts muss eingegeben werden.",
+                    "updated": 1708265578638,
+                    "style": "List"
                 }
             ]
         },
@@ -160,6 +207,12 @@
                     "language": "TR",
                     "text": "fileName, veri kümesini oluşturan dosyaların adını ayarlar.",
                     "updated": 1654391899793,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "fileName legt den Namen der Dateien fest, aus denen der Datensatz besteht.",
+                    "updated": 1708265578841,
                     "style": "List"
                 }
             ]
@@ -178,6 +231,12 @@
                     "text": "timeFrames, kullanıcılar bir zaman çerçeveleri filtresi ayarladığında hangi zaman çerçevelerinin filtreleneceğini gösteren dosyanın adını ve yolunu ayarlar.",
                     "updated": 1654391907609,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "timeFrames legt den Namen und den Pfad der Datei fest, die angibt, welche Zeitrahmen gefiltert werden sollen, wenn der Benutzer einen Zeitrahmenfilter setzt.",
+                    "updated": 1708265578998,
+                    "style": "List"
                 }
             ]
         },
@@ -189,6 +248,12 @@
                     "language": "TR",
                     "text": "Çok Zamanlı Çerçeve-Pazar",
                     "updated": 1654391913978,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Multi-Zeit-Rahmen-Markt",
+                    "updated": 1708265579186,
                     "style": "Subtitle"
                 }
             ]
@@ -207,6 +272,12 @@
                     "language": "TR",
                     "text": "Çoklu Zaman Çerçevesi-Günlük",
                     "updated": 1654391919783,
+                    "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Multi-Zeit-Rahmen-Tag",
+                    "updated": 1708265579296,
                     "style": "Subtitle"
                 }
             ]

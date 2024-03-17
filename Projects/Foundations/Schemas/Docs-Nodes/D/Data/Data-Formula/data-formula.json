@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Veri formülü, panel verilerine genellikle ilgili kayıt özelliğinin adı biçiminde bir değer atamak için kullanılan bir araçtır.",
                 "updated": 1654391638903
+            },
+            {
+                "language": "DE",
+                "text": "Eine Datenformel ist ein Hilfsmittel, das dazu dient, den Paneldaten einen Wert zuzuweisen, normalerweise in Form des Namens der entsprechenden Datensatzeigenschaft.",
+                "updated": 1708265570803
             }
         ]
     },
@@ -29,6 +34,12 @@
                     "language": "TR",
                     "text": "Düzenleme moduna girmek ve bu metni değiştirmek için sağ tıklayın ve Düzenle deyin. Yeni paragraflar yazmak için ENTER tuşuna basın. Düzenleme modundan çıkmak için ESC.",
                     "updated": 1654391645019,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1708265571007,
                     "style": "Text"
                 }
             ]

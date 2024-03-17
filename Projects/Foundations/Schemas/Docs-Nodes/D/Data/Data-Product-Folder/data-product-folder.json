@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Bir veri ürün klasörü düğümü, ilgili veri veya ticaret madeninin bot tanımında mevcut olabilecek ürün tanımı klasörlerinin düzenini eşlemek için kullanılan bir organizasyonel cihazdır.",
                 "updated": 1654391724446
+            },
+            {
+                "language": "DE",
+                "text": "Ein Datenproduktordnerknoten ist ein Organisationsmittel, das dazu dient, die Anordnung von Produktdefinitionsordnern abzubilden, wie sie in der Bot-Definition des entsprechenden Daten- oder Handelsmine vorhanden sein kann.",
+                "updated": 1708265573696
             }
         ]
     },
@@ -33,6 +38,12 @@
                     "language": "TR",
                     "text": "Veri ürünleri, veri ürünü klasörlerinin dışında da bulunabileceğinden, veri ürünü klasörü düğümünün kullanımı isteğe bağlıdır.",
                     "updated": 1654391730341,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwendung des Knotens Datenproduktordner ist optional, da Datenprodukte auch außerhalb von Datenproduktordnern existieren können.",
+                    "updated": 1708265573946,
                     "style": "Text"
                 }
             ]

@@ -147,10 +147,10 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 return `name: ${peer.p2pNetworkNode.userProfile.name}, id: ${peer.p2pNetworkNode.node.id}`
             }
             
-            function logPeers() {
-                const output = thisObject.peers.length == 0 ? '[]' : '[\n' + thisObject.peers.map(p => '\t' + peerInfo(p)).join('\n') + '\n]'
-                SA.logger.info('peers ' + output)
-            }
+            //function logPeers() {
+            //    const output = thisObject.peers.length == 0 ? '[]' : '[\n' + thisObject.peers.map(p => '\t' + peerInfo(p)).join('\n') + '\n]'
+            //    SA.logger.info('peers ' + output)
+            //}
 
             /* Reschedule execution after connectToPeers() execution finalizes. Not using intervals here to avoid duplicate connections. */
             intervalIdConnectToPeers = setTimeout(connectToPeers, RECONNECT_DELAY)

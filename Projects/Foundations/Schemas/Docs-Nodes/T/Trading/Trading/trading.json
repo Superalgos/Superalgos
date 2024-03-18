@@ -1,14 +1,15 @@
 {
     "type": "Trading",
     "definition": {
-        "text": "Write the definition for this Node.",
+        "text": "Trading  is the action of buying and selling digital currencies to profit from market movements and capitalize on price fluctuations within the cryptocurrency market.",
         "translations": [
             {
                 "language": "RU",
                 "text": "Напишите определение для этого узла.",
                 "updated": 1645179854047
             }
-        ]
+        ],
+        "updated": 1710775713910
     },
     "paragraphs": [
         {

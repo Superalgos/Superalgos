@@ -2,7 +2,7 @@
     "type": "Dynamic Indicators",
     "definition": {
         "text": "",
-        "translations": [ ]
+        "translations": []
     },
     "paragraphs": [
         {
@@ -15,6 +15,11 @@
                     "text": "Dinamik bir gösterge, ticaret botunun bir döngüsünün yürütülmesinden önce, doğrudan ticaret botu sürecinde hesaplanacak bir formülle tanımladığınız bir göstergedir. Bu, bir veri madenciliği işleminin parçası olarak kendi görevlerinde / süreçlerinde önceden hesaplanan normal göstergelerin tersidir.",
                     "updated": 1654391978345,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein dynamischer Indikator ist ein Indikator, den Sie mit einer Formel definieren, die vor der Ausführung eines Zyklus des Trading-Bots direkt im Prozess des Trading-Bots berechnet werden soll. Dies steht im Gegensatz zu regulären Indikatoren, die im Rahmen einer Data-Mining-Operation in ihrer eigenen Aufgabe/ihrem eigenen Prozess vorberechnet werden.",
+                    "updated": 1710690678122
                 }
             ]
         },
@@ -27,6 +32,11 @@
                     "text": "Dinamik Göstergeler ticaret sistemi düzeyinde tanımlanır ve çok basit bir kavramdır, sadece yazabileceğiniz bir formüldür, oradan mevcut veri yapıları (tradingEngine, tradingSystem, sessionParameters, grafikler) hakkındaki herhangi bir bilgiye erişir ve bununla istediğiniz her şeyi hesaplar. Hesaplamalarınızın sonuçları daha sonra ticaret sisteminizin herhangi bir noktasındaki koşullarda ve formüllerde kullanılabilir. İhtiyaç duyduğunuz kadar Dinamik Gösterge tanımlayabilirsiniz.",
                     "updated": 1654391983821,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dynamische Indikatoren werden auf der Ebene des Handelssystems definiert und sind ein sehr einfaches Konzept: Sie bestehen aus einer Formel, die Sie schreiben können und von der aus Sie auf alle Informationen der vorhandenen Datenstrukturen (tradingEngine, tradingSystem, sessionParameters, charts) zugreifen und damit alles berechnen können, was Sie wollen. Die Ergebnisse Ihrer Berechnungen können dann in Bedingungen und Formeln an jeder Stelle Ihres Handelssystems verwendet werden. Sie können so viele dynamische Indikatoren definieren, wie Sie benötigen.",
+                    "updated": 1710690758003
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Dinamik Göstergeler hesaplandıktan sonra, Ticaret Sistemi çalıştırılır ve hesaplanan tüm değerler kaybolur. Ticaret botu tekrar çalıştığında, aynı işlem tekrar tekrar yürütülür.",
                     "updated": 1654391989716,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachdem die dynamischen Indikatoren berechnet wurden, wird das Handelssystem (Trading System) ausgeführt und alle berechneten Werte sind verschwunden. Wenn der Trading-Bot wieder läuft, wird der gleiche Prozess ausgeführt, immer und immer wieder.",
+                    "updated": 1710690812234
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Dinamik Göstergeler, bir Veri Madeni içinde bir gösterge oluşturma sürecinden geçmek zorunda kalmadan yeni gösterge fikirlerini test etmek istediğinizde de kullanışlıdır. Veri Madeni göstergeleri, çizilebilmeleri (onlar için bir çizici oluşturursanız) ve çıktılarının diğer göstergeler veya ticaret sistemleri / stratejileri tarafından tüketilebilmesi avantajına sahiptir.",
                     "updated": 1654391995088,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Dynamische Indikatoren sind auch nützlich, wenn Sie neue Ideen für Indikatoren testen möchten, ohne einen Indikator in einer Data Mine erstellen zu müssen. Data Mine Indikatoren haben den Vorteil, dass sie geplottet werden können (wenn Sie einen Plotter für sie erstellen) und ihre Ausgabe von anderen Indikatoren oder Handelssystemen / Strategien genutzt werden kann.",
+                    "updated": 1710690866129
                 }
             ]
         }

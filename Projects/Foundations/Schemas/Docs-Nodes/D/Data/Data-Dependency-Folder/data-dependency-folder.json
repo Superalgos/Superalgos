@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Veri bağımlılığı klasör düğümü, belirli bir botun ürün tanımı klasörlerinin düzenini eşlemek için kullanılan bir organizasyon aracıdır.",
                 "updated": 1654391609653
+            },
+            {
+                "language": "DE",
+                "text": "Ein Datenabhängigkeitsordner-Knoten ist ein Organisationsmittel, das dazu dient, die Anordnung der Produktdefinitionsordner eines bestimmten Bots abzubilden.",
+                "updated": 1708265569818
             }
         ]
     },
@@ -34,6 +39,12 @@
                     "text": "Veri bağımlılıkları klasörlerin dışında da mevcut olabileceğinden, ürün veri bağımlılığı klasörlerinin kullanımı isteğe bağlıdır.",
                     "updated": 1654391615583,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwendung von Ordnern für die Produktdatenabhängigkeit ist optional, da Datenabhängigkeiten auch außerhalb von Ordnern bestehen können.",
+                    "updated": 1708265570006,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "text": "Veri Bağımlılığı Klasörünü Yapılandırma",
                     "updated": 1654391621667,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Datenabhängigkeitsordner konfigurieren",
+                    "updated": 1708265570178,
+                    "style": "Title"
                 }
             ]
         },
@@ -71,6 +88,12 @@
                     "language": "TR",
                     "text": "Yapılandırmaya erişmek için menüden Yapılandır'ı seçin.",
                     "updated": 1654391627605,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü Konfigurieren, um auf die Konfiguration zuzugreifen.",
+                    "updated": 1708265570303,
                     "style": "Text"
                 }
             ]

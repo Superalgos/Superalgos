@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Veri ürünü, ilgili veri madeni veya ticaret madeninde tanımlandığı gibi bir bot örneği tarafından oluşturulan veri kümelerinin koleksiyonunu temsil eder.",
                 "updated": 1639142540097
+            },
+            {
+                "language": "DE",
+                "text": "Ein Datenprodukt ist eine Sammlung von Datensätzen, die von der Instanz eines Bots gemäß der Definition in der entsprechenden Datenmine oder Handelsmine erzeugt werden.",
+                "updated": 1708265574118
             }
         ]
     },
@@ -45,6 +50,12 @@
                     "text": "Veri ürünleri, ticaret madenleri verileri ve veri madenleri veri düğümleri bağlamında mevcuttur. İlk durumda, bir veri ürünü, bir ticaret madeninde tanımlanan ve bir ticaret oturumu yürüten bir ticaret botu örneği tarafından oluşturulan veri kümeleri koleksiyonudur. İkinci durumda, bir veri madeninde tanımlanan ve bir veri madenciliği görevi yürüten bir sensör botu veya bir gösterge botu örneği tarafından üretilen veri kümeleri koleksiyonudur.",
                     "updated": 1654391735900,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Datenprodukte gibt es im Zusammenhang mit Handelsminen-Daten und Datenminen-Datenknoten. Im ersten Fall ist ein Datenprodukt die Sammlung von Datensätzen, die von einer Instanz eines in einem Handelsmine definierten Handelsroboters in einer Handelssitzung erzeugt werden. Im zweiten Fall handelt es sich um eine Sammlung von Datensätzen, die entweder von einem Sensor-Bot oder einem Indikator-Bot erzeugt werden, der in einem Data-Mine definiert ist und eine Data-Mining-Aufgabe ausführt.",
+                    "updated": 1708265574322,
+                    "style": "Text"
                 }
             ]
         },
@@ -67,6 +78,12 @@
                     "text": "Bir veri ürünü düğümü, ilgili botta bir ürün tanımına referans vermelidir.",
                     "updated": 1654391741815,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Datenproduktknoten muss auf eine Produktdefinition im entsprechenden Bot verweisen.",
+                    "updated": 1708265574572,
+                    "style": "Text"
                 }
             ]
         },
@@ -88,6 +105,12 @@
                     "language": "TR",
                     "text": "Veri ürünleri yalnızca görevin&mdash;veri madenciliği veya ticaret&mdash;üzerinde çalıştığı aynı ağ düğümünde depolanabilir.",
                     "updated": 1654391748584,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Datenprodukte dürfen nur auf demselben Netzknoten gespeichert werden, auf dem die Aufgabe&mdash;Data Mining oder Handel&mdash;läuft.",
+                    "updated": 1708265574712,
                     "style": "Important"
                 }
             ]

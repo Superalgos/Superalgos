@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Seans bağımsız veriler, işlem seanslarıyla ilgili olmayan sensörler ve göstergeler tarafından üretilen verileri ifade eder.",
                 "updated": 1654391700640
+            },
+            {
+                "language": "DE",
+                "text": "Sitzungsunabhängige Daten beziehen sich auf Daten, die von Sensoren und Indikatoren generiert werden und nicht mit Handelssitzungen zusammenhängen.",
+                "updated": 1708265572742
             }
         ]
     },
@@ -34,6 +39,12 @@
                     "text": "Görevlerin sıralanması sayfasında açıklandığı gibi, veri madeni verileri borsa, piyasa ve ilgili veri madeni, sensör veya gösterge botu ve bot ürününe göre sıralanır. Yani, hiyerarşinin bu bölümündeki düğümlerin çoğu organizasyonel bir rol oynamaktadır.",
                     "updated": 1654391707384,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie auf der Seite \"Sortierung der Aufgaben\" erläutert, werden die Daten der Datenminen nach Börse, Markt und der entsprechenden Datenmine, dem Sensor- oder Indikatorbot und dem Botprodukt sortiert. Das heißt, die meisten Knoten in diesem Abschnitt der Hierarchie spielen eine organisatorische Rolle.",
+                    "updated": 1708265572914,
+                    "style": "Text"
                 }
             ]
         },
@@ -51,6 +62,12 @@
                     "text": "Bunların birçoğu, verilerin uygulanabilir olduğu bağlamı sınırlayan düğümlere referanslar gerektirir. Örneğin, market veri ürünleri düğümü, kurulu marketlerden birine, özellikle de veri madenciliği işleminin yürütüldüğü markete referans vermelidir. Bu referanslar, diğer varlıkların verilerin ait olduğu bağlamı anlamasına yardımcı olur.",
                     "updated": 1656932454504,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Viele von ihnen erfordern Verweise auf die Knoten, die den Kontext abgrenzen, für den die Daten gelten. So muss beispielsweise der Knoten \"Marktdatenprodukte\" auf einen der installierten Märkte verweisen, insbesondere auf den Markt, auf dem die Data-Mining-Operation durchgeführt wird. Diese Verweise helfen anderen Einheiten, den Kontext zu verstehen, zu dem die Daten gehören.",
+                    "updated": 1708265573180,
+                    "style": "Text"
                 }
             ]
         },
@@ -67,6 +84,12 @@
                     "language": "TR",
                     "text": "Veri madenciliği görevlerini Ağ hiyerarşisi içinden manuel olarak oluşturduğunuzda (Kripto Ekosistemi hiyerarşisinin borsa piyasaları düğümü altındaki piyasa yükle işlevini kullanmanın aksine",
                     "updated": 1654391718644,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Data-Mining-Aufgaben manuell innerhalb der Netzwerkhierarchie erstellen (im Gegensatz zur Verwendung der Funktion \"Markt installieren\" unter dem Knoten \"Börsenmärkte\" der Crypto Ecosystem Hierarchie",
+                    "updated": 1708265573415,
                     "style": "Text"
                 }
             ]

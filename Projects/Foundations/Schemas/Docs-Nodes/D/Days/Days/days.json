@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Günler, üst düğüm tarafından temsil edilen nesnenin açık olmasından bu yana ticaret botunun çevrim yaptığı gün sayısını sayar.",
                 "updated": 1654391926247
+            },
+            {
+                "language": "DE",
+                "text": "Days zählt die Anzahl der Tage, die der Trading-Bot durchlaufen hat, seit das durch den übergeordneten Knoten dargestellte Objekt geöffnet wurde.",
+                "updated": 1708265579421
             }
         ]
     },
@@ -34,6 +39,12 @@
                     "text": "Bir bölüm bağlamında, bölümdeki gün sayısını sayar.",
                     "updated": 1654391932373,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Episode zählt sie die Anzahl der Tage in der Episode.",
+                    "updated": 1708265579608,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,6 +61,12 @@
                     "language": "TR",
                     "text": "Bir pozisyon bağlamında, bir pozisyonun açık olduğu gün sayısını sayar.",
                     "updated": 1654391937950,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Zusammenhang mit einer Position wird die Anzahl der Tage gezählt, die eine Position offen ist.",
+                    "updated": 1708265579749,
                     "style": "Text"
                 }
             ]
@@ -74,6 +91,12 @@
                     "text": "Gün Yapılandırması",
                     "updated": 1654391943683,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tage Konfiguration",
+                    "updated": 1708265579905,
+                    "style": "Title"
                 }
             ]
         },
@@ -92,6 +115,12 @@
                     "text": "Özellikler",
                     "updated": 1654391949516,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1708265580015,
+                    "style": "Subtitle"
                 }
             ]
         },
@@ -109,6 +138,12 @@
                     "language": "TR",
                     "text": "initialValue düğümün ilk durumunun rastgele bir değere sıfırlanmasını sağlar.",
                     "updated": 1654391954946,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Ausgangszustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1708265580125,
                     "style": "List"
                 }
             ]

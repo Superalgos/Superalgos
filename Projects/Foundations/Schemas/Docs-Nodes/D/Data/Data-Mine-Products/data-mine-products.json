@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Veri madeni ürünleri, belirlenen veri madeninde birden fazla ürünle veri ürünü referanslarının oluşturulmasını kolaylaştırmak için veri madenleriyle oluşturulan referanslardır.",
                 "updated": 1639214920185
+            },
+            {
+                "language": "DE",
+                "text": "Data-Mine-Produkte sind Referenzen, die mit Data-Mines erstellt werden, um die Erstellung von Datenproduktreferenzen mit mehreren Produkten in der gegebenen Data Mine zu erleichtern.",
+                "updated": 1708265571851
             }
         ]
     },
@@ -39,6 +44,12 @@
                     "text": "Düğüm, sadece bot ürünlerini düzenlemek için organizasyonel bir cihaz olarak kullanılabilir. Bununla birlikte, düğümün akıllı kullanımı, birden fazla veri ürününün dağıtımının otomatikleştirilmesini içerir.",
                     "updated": 1654391673820,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten kann als Organisationsmittel verwendet werden, um einfach Bot-Produkte anzuordnen. Die intelligente Nutzung des Knotens beinhaltet jedoch die Automatisierung der Bereitstellung mehrerer Datenprodukte.",
+                    "updated": 1708265572039,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,6 +66,12 @@
                     "language": "TR",
                     "text": "Veri ürünleri veri madeni ürünleri düğümlerinin dışında da bulunabileceğinden, veri madeni ürünleri düğümünün kullanımı isteğe bağlıdır.",
                     "updated": 1654391679461,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verwendung des Knotens \"Data-Mine-Produkte\" ist optional, da Datenprodukte auch außerhalb von Data-Mine-Produkte-Knoten existieren können.",
+                    "updated": 1708265572211,
                     "style": "Text"
                 }
             ]

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Veri depolama hiyerarşisi, botların ürettiği tüm verilere referansları tutar.",
                 "updated": 1654391754063
+            },
+            {
+                "language": "DE",
+                "text": "Die Datenspeicherhierarchie enthält Verweise auf alle Daten, die Bots produziert haben.",
+                "updated": 1708265574884
             }
         ]
     },
@@ -36,6 +41,12 @@
                     "text": "Bu hiyerarşiyi bir hazine sandığı gibi düşünün. Bu sandığın içinde, bu çalışma alanı içinde üretilen tüm değerli veri kümeleri uygun bir yerde tutulur, böylece sistem genelinde diğer botlar, ticaret sistemleri vb. tarafından kullanılabilir.",
                     "updated": 1654391759986,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sich diese Hierarchie wie eine Schatztruhe vor. In dieser Truhe werden alle wertvollen Datensätze, die in diesem Arbeitsbereich generiert werden, an einem praktischen Ort aufbewahrt, so dass sie im gesamten System von anderen Bots, Handelssystemen usw. genutzt werden können.",
+                    "updated": 1708265575025,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,6 +64,12 @@
                     "text": "Bu hiyerarşi altında tutulan ana veri türleri şunlardır:",
                     "updated": 1654391765562,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die wichtigsten Arten von Daten, die in dieser Hierarchie enthalten sind, sind:",
+                    "updated": 1708265575244,
+                    "style": "Text"
                 }
             ]
         },
@@ -64,6 +81,12 @@
                     "language": "TR",
                     "text": "Öğrenme Madenleri Verileri",
                     "updated": 1654391771018,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Daten der Lernenden Handelsminen",
+                    "updated": 1708265575354,
                     "style": "List"
                 }
             ]
@@ -77,6 +100,12 @@
                     "text": "Maden Ticareti Verileri",
                     "updated": 1654391776528,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Daten der Handelsminen",
+                    "updated": 1708265575479,
+                    "style": "List"
                 }
             ]
         },
@@ -89,6 +118,12 @@
                     "text": "Veri Madenleri Verileri",
                     "updated": 1654391782030,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Daten der Handelsminen Daten",
+                    "updated": 1708265575588,
+                    "style": "List"
                 }
             ]
         },
@@ -100,6 +135,12 @@
                     "language": "TR",
                     "text": "Portföy Maden Verileri",
                     "updated": 1654391787541,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Portfolio Minen Daten",
+                    "updated": 1708265575697,
                     "style": "List"
                 }
             ]
@@ -119,6 +160,12 @@
                     "text": "Hiyerarşiye baktığınızda verilerin Maden Türü, Proje, Borsa ve Pazara göre düzenlendiğini göreceksiniz. Bu, Superalgos içinde kullanılan çok çeşitli verilerin erişilebilir ve anlaşılabilir olmasına yardımcı olur.  Bu hiyerarşi altında belirli veri kümelerini tutan düğümler şunlardır:",
                     "updated": 1654391793247,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sich die Hierarchie ansehen, werden Sie feststellen, dass die Daten nach Mine Type, Project, Exchange und Market geordnet sind. Dies trägt dazu bei, dass die riesige Menge an Daten, die in Superalgos verwendet werden, leicht zugänglich und verständlich bleibt.  Die Knoten unter dieser Hierarchie, die bestimmte Datensätze enthalten, sind:",
+                    "updated": 1708265575823,
+                    "style": "Text"
                 }
             ]
         },
@@ -130,6 +177,12 @@
                     "language": "TR",
                     "text": "Bot Ürünleri",
                     "updated": 1654391798839,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bot Produkte",
+                    "updated": 1708265576026,
                     "style": "List"
                 }
             ]
@@ -143,6 +196,12 @@
                     "text": "İşlem Seansı Referansı",
                     "updated": 1654391804194,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Referenz der Handelssitzung",
+                    "updated": 1708265576104,
+                    "style": "List"
                 }
             ]
         },
@@ -154,6 +213,12 @@
                     "language": "TR",
                     "text": "Öğrenme Oturumu Referansı",
                     "updated": 1654391809884,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Referenz der Lerneinheit",
+                    "updated": 1708265576198,
                     "style": "List"
                 }
             ]
@@ -167,6 +232,12 @@
                     "language": "TR",
                     "text": "Portföy Oturumu Referansı",
                     "updated": 1654391817684,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Portfolio-Sitzung Referenz",
+                    "updated": 1708265576292,
                     "style": "List"
                 }
             ]

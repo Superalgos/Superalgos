@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Veri madeni görevleri düğümü, başvurulan veri madenine karşılık gelen görevleri gruplayan bir organizasyon aracıdır.",
                 "updated": 1654391685080
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten \"Data-Mine-Aufgaben\" ist ein Organisationsmittel, das die Aufgaben gruppiert, die dem referenzierten Data Mine entsprechen.",
+                "updated": 1708265572398
             }
         ]
     },
@@ -38,6 +43,12 @@
                     "language": "TR",
                     "text": "Veri madeni görevleri düğümü bir veri madeni tanımına referans vermelidir. Düğüm, veri madenindeki her bot için görevler oluşturabilir.",
                     "updated": 1654391694853,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Knoten für Datenminenaufgaben muss auf die Definition einer Datenmine verweisen. Der Knoten kann Aufgaben für jeden Bot in der Datenmine erzeugen.",
+                    "updated": 1708265572570,
                     "style": "Text"
                 }
             ]

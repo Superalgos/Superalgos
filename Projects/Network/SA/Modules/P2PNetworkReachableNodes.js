@@ -52,8 +52,8 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                                 connectOnlyRequestedToP2pNode = true
                             }
                         }
-                        }
                     }
+                }
                 else {
                     SA.logger.error('The P2P Network Client node is required at each task. Please add the node and try again.')
                 }
@@ -121,8 +121,12 @@ exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2
                 thisObject.p2pNodesToConnect = []
 
                 let thisP2PNodeId = SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).nodeId
-                for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
-                    let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+                let nodes = SA.projects.network.utilities.appClientNetworkNodePicker.filteredNetworkNodes(
+                    SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES,
+                    SA.networkFilters
+                )
+                for (let i = 0; i < nodes.length; i++) {
+                    let p2pNetworkNode = nodes[i]
 
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent === undefined) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }

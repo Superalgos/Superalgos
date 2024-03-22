@@ -97,7 +97,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
 
             if (response.result !== 'Ok') {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
                 return
             }
 
@@ -108,7 +108,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             */
             if (called.blockchainAccount === undefined) {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
                 return
             }
             /*
@@ -124,7 +124,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
                 SA.logger.warn('Socket Network Clients -> stepOneResponse -> Not possible to connect to node belonging to ' + thisObject.p2pNetworkNode.userProfile.name)
                 SA.logger.warn('Socket Network Clients -> stepOneResponse -> This error happens when 1) This network node is configured to run on localhost and at localhost you are running your own network node instead. 2) The user profile that owns the Network Node you are connecting to, it is not up-to-date at your machine. Run an app.update to get the latest version of all User Profile plugins and try again. 3) The Network Node you are trying to connect to does not have in memory the latest version of the User Profile Plugin that owns that Network Node. The Network Node updates itself every 5 minutes, so you should wait at least that time and try again.')
                 */
-                reject()
+                reject('blockchainAccounts do not match')
                 return
             }
 
@@ -137,7 +137,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             let hash = web3.eth.accounts.hashMessage(signature.message)
             if (hash !== signature.messageHash) {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
                 return
             }
             /*
@@ -146,7 +146,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             */
             if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.config.codeName) {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Profile codeName.')
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> The Network Node called does not have the expected Profile codeName.')
                 return
             }
             /*
@@ -155,7 +155,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             */
             if (signedMessage.callerProfileHandle !== SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle) {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                 return
             }
             /*
@@ -164,7 +164,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
             */
             if (signedMessage.callerTimestamp !== callerTimestamp) {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
                 return
             }
 
@@ -198,7 +198,7 @@ exports.newNetworkModulesSocketNetworkClients = function newNetworkModulesSocket
 
             if (response.result !== 'Ok') {
                 SA.logger.error('Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
-                reject()
+                reject('Socket Network Clients -> stepOneResponse -> response.message = ' + response.message)
                 return
             }
             /*

@@ -1,0 +1,58 @@
+[
+    {
+        "code": "AR",
+        "title": "Arabic"
+    },
+    {
+        "code": "CN",
+        "title": "Simplified Chinese-Mandarin"
+    },
+    {
+        "code": "DE",
+        "title": "German"
+    },
+    {
+        "code": "EL",
+        "title": "Greek"
+    },
+    {
+        "code": "EN",
+        "title": "English"
+    },
+    {
+        "code": "ES",
+        "title": "Spanish"
+    },
+    {
+        "code": "FR",
+        "title": "French"
+    },
+    {
+        "code": "ID",
+        "title": "Bahasa"
+    },
+    {
+        "code": "IT",
+        "title": "Italian"
+    },
+    {
+        "code": "NL",
+        "title": "Dutch"
+    },
+    {
+        "code": "PL",
+        "title": "Polish"
+    },
+    {
+        "code": "PT",
+        "title": "Portuguese"
+    },
+    {
+        "code": "RU",
+        "title": "Russian"
+    },
+    {
+        "code": "TR",
+        "title": "Turkish"
+    }
+]

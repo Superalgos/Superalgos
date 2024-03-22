@@ -151,6 +151,11 @@
                     "language": "TR",
                     "text": "Ticaret Botu ( Trading Bot ): Bir ticaret botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer ticaret botları) tarafından ürün olarak ortaya çıkarılan veri kümelerine dayalı olarak, bir tarafta eksiksiz bir ticaret simülasyonu oluşturmak (alım satımları, stratejilerin eylemini, koşulların doğrulanmasını vb. içeren veri kümelerinin çıktısını almak) için bir ticaret sisteminde tanımlanan ticaret mantığını uygulayan ve diğer tarafta, ileri test veya canlı ticaret oturumundayken emirlerin uygulanmasını yöneten bir bilgisayar programıdır.",
                     "updated": 1698699162721
+                },
+                {
+                    "language": "PT",
+                    "text": "Trading Bot: Um bot de negociação (Trading Bot) é um programa de computador que — com base em conjuntos de dados expostos como produtos por outros bots (incluindo sensores, indicadores e até mesmo outros bots de negociação) — aplica a lógica de negociação definida em um sistema de negociação para, por um lado, gerar uma simulação completa de negociação (produzindo conjuntos de dados que incluem negociações, ação de estratégias, validação de condições, etc.), e por outro lado, gerir a execução de ordens durante uma sessão de teste avançado ou em uma sessão de negociação ao vivo.",
+                    "updated": 1711151874187
                 }
             ]
         },

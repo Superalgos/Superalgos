@@ -94,9 +94,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 let dataRangeFile = await loadFileFromGithubRepository('Data.Range', '/Nodes/' + p2pNetworkNodeCodeName, userProfileCodeName)
                 SA.logger.info(userProfileCodeName)
                 /*
-                Searching for the node that is most up-to-date
-                */
-               SA.logger.info("IS DATA RANGE FILE UNDEFINED? " + dataRangeFile)
+                 * Searching for the node that is most up-to-date
+                 */
+                SA.logger.info("IS DATA RANGE FILE UNDEFINED? " + dataRangeFile)
                 if (dataRangeFile !== undefined) {
                     if (maxDataRangeEnd < dataRangeFile.end) {
                         maxDataRangeEnd = dataRangeFile.end
@@ -105,8 +105,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                 }
             }
             /*
-            We can not continue if we cannot identify the most up to date node.
-            */
+             * We can not continue if we cannot identify the most up to date node.
+             */
             SA.logger.info("MOST UP TO DATE NETWORK NODE #2 = " + p2pNetworkNodeMostUpToDate)
             if (p2pNetworkNodeMostUpToDate === undefined){
                 return
@@ -116,15 +116,15 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             */
             if (p2pNetworkNodeMostUpToDate.node.id === thisObject.p2pNetworkNode.node.id) {
                 /*
-                There is no need to update ourselves from some other node because no other
-                is more up-to-date than ourselves.
-                */
+                 * There is no need to update ourselves from some other node because no other
+                 * is more up-to-date than ourselves.
+                 */
                 SA.logger.info("WE ARE THE MOST UP TO DATE NETWORK NODE")
                 return
             }
             /*
-            We will use the node with the most recent history.
-            */
+             * We will use the node with the most recent history.
+             */
             let p2pNetworkNodeCodeName = p2pNetworkNodeMostUpToDate.node.config.codeName
             let userProfileCodeName = p2pNetworkNodeMostUpToDate.userProfile.config.codeName
             SA.logger.info("USER PROFILE MOST UPDATED = " + userProfileCodeName)

@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Botlar Superalgos'da çok önemli bir kavramdır ve hiyerarşilerin birbirleriyle nasıl etkileşime girdiğini açıklamak için iyi bir konu başlığıdır.",
                 "updated": 1698699077443
+            },
+            {
+                "language": "PT",
+                "text": "Os Bots são um conceito crucial no Superalgos e representam uma boa explicação para demonstrar como as hierarquias interagem entre si.",
+                "updated": 1711143947128
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "TR",
                     "text": "Bazen insanlar ticaret botu, ticaret stratejisi ve ticaret sistemi terimlerini birbirinin yerine kullanırken, Superalgos'ta ayrım keskin ve nettir. Üç temel tanım sunarak başlayalım:",
                     "updated": 1698699082731
+                },
+                {
+                    "language": "PT",
+                    "text": "Embora às vezes as pessoas usem os termos bot de negociação, estratégia de negociação e sistema de negociação (trading system) de forma indistinta, no Superalgos a distinção é clara e inequívoca. Vamos começar oferecendo três definições fundamentais:",
+                    "updated": 1711149947305
                 }
             ]
         },
@@ -79,6 +89,11 @@
                     "language": "TR",
                     "text": "Ticaret Sistemi ( Trading System ) : Bir ticaret sistemi, ticaret stratejilerini uygulamak ve dağıtmak için kullanılan süreçleri ve yöntemleri yapılandırmaya hizmet eden düşük seviyeli mantığı ele alan bir çerçevedir.",
                     "updated": 1698699101162
+                },
+                {
+                    "language": "PT",
+                    "text": "Trading System: Um sistema de negociação (Trading System) é uma estrutura que lida com a lógica fundamental que serve para estruturar os processos e métodos utilizados para implementar e implantar estratégias de negociação.",
+                    "updated": 1711144345201
                 }
             ]
         },
@@ -105,6 +120,11 @@
                     "language": "TR",
                     "text": "Ticaret Stratejisi ( Trading Strategy ): Bir alım satım stratejisi, aşamalı olarak yürütülen bir dizi eylem veya olayın açıklamasıdır. Olaylar, belirli piyasa durumlarını tanımlayan kesin koşulların doğrulanması üzerine tetiklenir. Alım satım stratejileri, pozisyon alma ve yönetme yoluyla bir alım satım sisteminin daha geniş planı dahilinde belirli bir hedefe ulaşmak için tasarlanmıştır.",
                     "updated": 1698699132018
+                },
+                {
+                    "language": "PT",
+                    "text": "Trading Strategy: Uma estratégia de negociação (Trading Strategy) é a descrição de um conjunto de ações ou eventos executados faseadamente. Os eventos são iniciados após a validação de condições precisas que descrevem situações de mercado específicas. As estratégias de negociação são projetadas para alcançar um objetivo específico dentro do plano mais amplo de um sistema de negociação (Trading System), através da tomada e a gestão das posições.",
+                    "updated": 1711144792379
                 }
             ]
         },

@@ -33,8 +33,8 @@
             },
             {
                 "language": "PT",
-                "text": "O Superalgos retira a complexidade e descreve os conceitos fundamentais que compõem a inteligência de negociação em hierarquias de NODES. Estes NODES (nós) podem fazer referência a outros NODES (nós) para aceder informações noutras hierarquias.",
-                "updated": 1711128029951
+                "text": "O Superalgos retira a complexidade e descreve os conceitos fundamentais que compõem a inteligência de negociação em hierarquias de Nós (NODES). Estes Nós (NODES) podem fazer referência a outros Nós (NODES) para aceder informações noutras hierarquias.",
+                "updated": 1711148880630
             }
         ]
     },
@@ -143,8 +143,8 @@
                 },
                 {
                     "language": "PT",
-                    "text": "A inteligência de Trading (negociação) surge ao aproveitar as interações de múltiplos conceitos complexos.",
-                    "updated": 1711128118782
+                    "text": "A inteligência de negociação (Trading) surge ao aproveitar as interações de múltiplos conceitos complexos.",
+                    "updated": 1711149109200
                 }
             ]
         },
@@ -395,8 +395,8 @@
                 },
                 {
                     "language": "PT",
-                    "text": "Uma referência é um mecanismo pelo qual as informações contidas num node (nó) estão relacionadas a, ou acedidas por, outros nodes (nós). A capacidade de um node (nó) estabelecer uma referência com outro node (nó) permite que o primeiro aceda as informações ou recursos contidos no segundo node (nó). ",
-                    "updated": 1711128277512
+                    "text": "Uma referência é um mecanismo pelo qual as informações contidas num nó (node) estão relacionadas a, ou acedidas por, outros nós (nodes). A capacidade de um nó (node) estabelecer uma referência com outro nó (node) permite que o primeiro aceda as informações ou recursos contidos no segundo nó (node).",
+                    "updated": 1711149252937
                 }
             ]
         },

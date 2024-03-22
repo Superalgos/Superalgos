@@ -27,6 +27,11 @@
                 "language": "EL",
                 "text": "Ένα σύστημα συναλλαγών είναι ένα πλαίσιο που χειρίζεται τη λογική θεμελιώδους επιπέδου που χρησιμεύει στη δομή των διαδικασιών και των μεθόδων που χρησιμοποιούνται για την εφαρμογή και την ανάπτυξη στρατηγικής συναλλαγών.",
                 "updated": 1641827933473
+            },
+            {
+                "language": "PT",
+                "text": " Um sistema de negociação (Trading System) é uma estrutura que lida com a lógica fundamental que serve para estruturar os processos e métodos utilizados para implementar e implantar estratégias de negociação.",
+                "updated": 1711146278560
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "language": "DE",
                     "text": "In der Praxis ist ein Handelssystem eine hierarchische Anordnung, die die umsetzbaren Aspekte Ihres Investitionsplans organisiert. Die Hierarchie enthält Definitionen für eine beliebige Anzahl von Handelsstrategien, die alle auf demselben Markt operieren und dieselbe anfängliche Kapitalzuweisung teilen.",
                     "updated": 1641657276395
+                },
+                {
+                    "language": "PT",
+                    "text": "Em termos práticos, um sistema de negociação (trading system) é uma estrutura hierárquica que organiza os elementos funcionais do seu plano de investimento. A hierarquia contém definições sobre qualquer número de estratégias de negociação, todas funcionando no mesmo mercado e compartilhando a mesma alocação inicial de capital.",
+                    "updated": 1711146602498
                 }
             ]
         },
@@ -94,6 +104,11 @@
                     "language": "DE",
                     "text": "Sie verwenden ein Handelssystem, um Strategien nach dem Superalgos-Protokoll zu definieren, das die Strategien in vier Phasen unterteilt: Auslösen (trigger), Öffnen (open), Verwalten (manage) und Schließen (close).",
                     "updated": 1641657258431
+                },
+                {
+                    "language": "PT",
+                    "text": "Um sistema de negociação é utilizado para definir estratégias seguindo o Protocolo Superalgos, dividindo as estratégias em quatro distintos estágios: ativação (trigger), abertura (open), gestão (manage) e encerramento (close).",
+                    "updated": 1711147070109
                 }
             ]
         },
@@ -125,6 +140,11 @@
                     "language": "DE",
                     "text": "Das Konzept der stufenweisen Beschreibung von Strategien ist für den methodischen Aspekt des Handelssystems von grundlegender Bedeutung, da es einen Rahmen bietet, um jede Strategie mit demselben Rahmen auszuführen, was zur Entwicklung skalierbarer Handelssysteme beiträgt, die auf eine beliebige Anzahl von Strategien anwachsen können.",
                     "updated": 1641657292077
+                },
+                {
+                    "language": "PT",
+                    "text": "A conceção de definir estratégias em diferentes estágios é fundamental para a abordagem metódica do sistema de negociação, pois proporciona uma estrutura para executar cada estratégia de forma consistente, o que contribui para o desenvolvimento de sistemas de negociação escaláveis que podem crescer para qualquer número de estratégias.",
+                    "updated": 1711147640477
                 }
             ]
         },
@@ -156,6 +176,11 @@
                     "language": "DE",
                     "text": "Wenn ein Handelssystem mehr als eine Strategie enthält, hat die erste Strategie Vorrang vor der zweiten, die zweite vor der dritten und so weiter. Dies bedeutet, dass die Strategien in einer bestimmten Reihenfolge ausgewertet werden. Wenn eine bestimmte Strategie ausgelöst wird, werden die übrigen Strategien in der Warteschlange nicht mehr ausgewertet, bis die Strategie ausgelöst wird. Mit anderen Worten: Wenn mehrere Strategien in einem einzigen Handelssystem eingesetzt werden, kann zu einem bestimmten Zeitpunkt nur eine Strategie gehandelt werden, und der Vorrang ergibt sich aus der Reihenfolge um den Knoten des Handelssystems.",
                     "updated": 1641657320329
+                },
+                {
+                    "language": "PT",
+                    "text": "Quando um sistema de negociação (trading system) apresenta várias estratégias, a primeira tem precedência sobre a segunda, a segunda sobre a terceira e assim sucessivamente. Isso significa que as estratégias são avaliadas em sequência. Quando uma estratégia é ativada, as seguintes não serão mais avaliadas até que a anterior seja desativada. Por outras palavras, quando múltiplas estratégias estão implementadas dentro do mesmo sistema de negociação, apenas uma pode operar num determinado momento, e a ordem de prioridade é determinada pela disposição no nó do sistema de negociação (trading system node).",
+                    "updated": 1711148272812
                 }
             ]
         },
@@ -187,6 +212,11 @@
                     "language": "DE",
                     "text": "Wenn Sie also möchten, dass Strategien auf verschiedenen Märkten operieren oder gleichzeitig Positionen eingehen können, müssen Sie diese Strategien in verschiedenen Handelssystemen einrichten.",
                     "updated": 1641657362414
+                },
+                {
+                    "language": "PT",
+                    "text": "Assim, como corolário do acima exposto, se deseja que diferentes estratégias operem em mercados diferentes, ou deseja que diferentes estratégias possam assumir posições simultaneamente, então é necessário configurar essas estratégias em diferentes sistemas de negociação (trading systems).",
+                    "updated": 1711148671925
                 }
             ]
         }

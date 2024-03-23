@@ -1,5 +1,3 @@
-const { current } = require('@reduxjs/toolkit')
-
 exports.newWeb3Server = function newWeb3Server() {
 
     const MODULE = "Web3 Server"

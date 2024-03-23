@@ -104,7 +104,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 function onError(err) {
                     // SA.logger.error('Peer connection error for ' + peerInfo(peer))
                     if (err !== undefined) {
-                        SA.logger.error('P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.id + ' -> ' + err.message)
+                        SA.logger.error('P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.config.codeName + ' -> ' + peer.p2pNetworkNode.node.id + ' -> ' + err)
                     } else {
                         /*
                          * DEBUG NOTE: If you are having trouble undestanding why you can not connect to a certain network node, then you can activate the following Console Logs, otherwise you keep them commented out.
@@ -224,7 +224,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
         let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message, responseHandler)
         if (response.result === 'Error' && response.message === 'Websockets Connection Not Ready.') {
-            thisObject.peers.splice(peerIndex, 1)
+            thisObject.peers.splice(findPeerIndex(peer), 1)
         }
         return response
     }

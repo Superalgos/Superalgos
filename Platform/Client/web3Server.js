@@ -1,3 +1,5 @@
+const { current } = require('@reduxjs/toolkit')
+
 exports.newWeb3Server = function newWeb3Server() {
 
     const MODULE = "Web3 Server"
@@ -625,6 +627,12 @@ exports.newWeb3Server = function newWeb3Server() {
 
                     /* Default Gas Price for all chains but ETH */
                     let gasPrice = 5000000000
+                    let gasLimit = 210000
+
+                    if (chain === 'ZKS') {
+                        gasPrice = 25000000
+                        gasLimit = 500000
+                    }
 
                     /* If executing on ETH, verify if current gas price is within reasonable range and calculate price for transaction */
                     if (chain === 'ETH') {
@@ -658,7 +666,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     const rawTransaction = {
                         "from": fromAddress,
                         "gasPrice": web3.utils.toHex(gasPrice),
-                        "gasLimit": web3.utils.toHex(210000),
+                        "gasLimit": web3.utils.toHex(gasLimit),
                         "to": contractAddressDict[chain], "value": "0x0",
                         "data": contract.methods.transfer(toAddress, amountBigNumber).encodeABI(),
                         "nonce": web3.utils.toHex(nonce)

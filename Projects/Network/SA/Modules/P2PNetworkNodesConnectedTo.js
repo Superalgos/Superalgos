@@ -224,7 +224,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
 
         let response = await peer.webSocketsClient.socketNetworkClients.sendMessage(message, responseHandler)
         if (response.result === 'Error' && response.message === 'Websockets Connection Not Ready.') {
-            thisObject.peers.splice(peerIndex, 1)
+            thisObject.peers.splice(findPeerIndex(peer), 1)
         }
         return response
     }

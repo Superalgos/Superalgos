@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Dokümanlar'a yeni bir sayfa eklemek için bu komutu kullanın.",
                 "updated": 1640610061953
+            },
+            {
+                "language": "PT",
+                "text": "Use este comando para adicionar uma nova página à documentação.",
+                "updated": 1711313773284
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Dieser Befehl fügt eine neue Seite zu den Dokumenten hinzu, wobei Sie angeben können, wo und welche Art von Seite Sie hinzufügen möchten. Der Befehl legt vier Haupteigenschaften der neuen Seite fest:",
                     "updated": 1681404620708
+                },
+                {
+                    "language": "PT",
+                    "text": "Este comando adiciona uma nova página à documentação, permitindo que especifique onde e qual tipo de página deseja adicionar. O comando especifica quatro propriedades principais da nova página:",
+                    "updated": 1711313875186
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "DE",
                     "text": "Seitentyp: Die Dokumentation von Superalgos ist in verschiedene Seitenkategorien unterteilt. Sie können mehr über die verschiedenen Optionen auf dieser Seite lesen: Docs Seiten-Kategorie (Docs Page Category)",
                     "updated": 1681404814334
+                },
+                {
+                    "language": "PT",
+                    "text": "Tipo da Página: A documentação do Superalgos é dividida numa variedade de categorias de página diferentes. Você poderá saber mais sobre estas diferentes opções nesta página: Docs Page Category (Categoria de Página de Documentação).",
+                    "updated": 1711314082112
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "DE",
                     "text": "Das Projekt (Project), in dem sich die Seite befinden wird: Jedes Projekt in Superalgos enthält seine eigene Dokumentation. Mit dieser Option können Sie das Projekt auswählen, zu dem Ihre Seite hinzugefügt werden soll.",
                     "updated": 1681404947025
+                },
+                {
+                    "language": "PT",
+                    "text": "O Projeto (Project) dentro do qual a página será incluída: Cada projeto dentro do Superalgos contém sua própria documentação. Esta opção permite que escolha o projeto ao qual sua página será adicionada.",
+                    "updated": 1711314230450
                 }
             ]
         },
@@ -109,6 +129,11 @@
                     "language": "DE",
                     "text": "Bestehende Projekte sind in der nachstehenden Tabelle aufgeführt, um Ihnen die Arbeit zu erleichtern.",
                     "updated": 1681404965581
+                },
+                {
+                    "language": "PT",
+                    "text": "Na tabela abaixo, a lista dos projetos existentes, para sua conveniência.",
+                    "updated": 1711314382054
                 }
             ]
         },
@@ -144,6 +169,11 @@
                     "language": "DE",
                     "text": "Titel des Themas, des Tutorial oder der Rezension: Sammlungen von Seiten werden unter Thementiteln zusammengefasst. Diese Titel dienen als eindeutige Schlüssel, die die Sammlung von Seiten als Einheit durchsuchbar machen. Mit dieser Option können Sie wählen, zu welchem Thema Sie Ihre Seite erstellen oder hinzufügen möchten.",
                     "updated": 1681405099475
+                },
+                {
+                    "language": "PT",
+                    "text": "Título, Tutorial ou Revisão do Título: Os conjunto de páginas são agrupadas sob títulos de tópicos. Esses títulos atuam como chaves únicas que tornam a coleção de páginas navegáveis como uma unidade. Esta opção permite que escolha em qual tópico criar ou adicionar sua página.",
+                    "updated": 1711318735380
                 }
             ]
         },
@@ -166,6 +196,11 @@
                     "language": "DE",
                     "text": "Seitentitel: Jede Seite wird durch einen eindeutigen Titel gekennzeichnet. Dieser Titel soll den Nutzern helfen, den Inhalt Ihrer Seite zu finden. Mit dieser Option können Sie diesen Titel auswählen.",
                     "updated": 1681405123666
+                },
+                {
+                    "language": "PT",
+                    "text": "Título da Página: Cada página é identificada por um título único. Este título deve ajudar os utilizadores a encontrar o conteúdo da sua página. Esta opção permite que escolha esse título.",
+                    "updated": 1711314855625
                 }
             ]
         },
@@ -188,6 +223,11 @@
                     "language": "DE",
                     "text": "Seitenzahl: Optional kann eine Seitennummer für die neue Seite manuell festgelegt werden. Wenn Sie dies nicht tun, generiert das System automatisch die nächste verfügbare Nummer für Ihre Seite.",
                     "updated": 1681405142385
+                },
+                {
+                    "language": "PT",
+                    "text": "Número da Página: Opcionalmente, o número de página poderá ser definido manualmente por si para a sua nova página. Se não o fizer, o sistema irá, automaticamente, criar o próximo número disponível para a sua página.",
+                    "updated": 1711315032830
                 }
             ]
         },
@@ -204,6 +244,11 @@
                     "language": "TR",
                     "text": "Tek Sayfa Sözdizimi",
                     "updated": 1652129125211
+                },
+                {
+                    "language": "PT",
+                    "text": "Sintaxe de Página Única",
+                    "updated": 1711315062600
                 }
             ]
         },
@@ -226,6 +271,11 @@
                     "language": "DE",
                     "text": "Einige Seitenkategorien werden ohne einen Thementitel hinzugefügt. Wenn Sie eine dieser einzelnen Seitenkategorien hinzufügen möchten, können Sie die folgende Syntax verwenden.",
                     "updated": 1681405200102
+                },
+                {
+                    "language": "PT",
+                    "text": "Algumas categorias de páginas serão adicionadas sem usar um título de tópico. Se desejar adicionar uma dessas categorias de página única, pode usar a seguinte sintaxe.",
+                    "updated": 1711315184128
                 }
             ]
         },
@@ -253,6 +303,11 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1652129166505
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711315196496
                 }
             ]
         },
@@ -290,6 +345,11 @@
                     "language": "DE",
                     "text": "Page-Collection Syntax ",
                     "updated": 1681405277483
+                },
+                {
+                    "language": "PT",
+                    "text": "Sintaxe de Conjunto de Páginas",
+                    "updated": 1711315265106
                 }
             ]
         },
@@ -311,6 +371,11 @@
                     "language": "DE",
                     "text": "Die anderen Seitenkategorien verwenden einen Thementitel, um Seiten zusammenzufassen. Sie können eine dieser Seiten mit dieser Syntax hinzufügen.",
                     "updated": 1681405295962
+                },
+                {
+                    "language": "PT",
+                    "text": "As outras categorias de páginas usam o título para congregar as páginas. Poderá adicionar uma dessas páginas usando esta sintaxe.",
+                    "updated": 1711318891238
                 }
             ]
         },
@@ -338,6 +403,11 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1652129217368
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711315470602
                 }
             ]
         },

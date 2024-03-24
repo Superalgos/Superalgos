@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Dokümanlar'dan bir sayfa silmek için bu komutu kullanın.",
                 "updated": 1652129293577
+            },
+            {
+                "language": "PT",
+                "text": "Utilize este comando para apagar páginas nos Docs.",
+                "updated": 1711315543540
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Tek Sayfa Sözdizimi",
                     "updated": 1652129311347
+                },
+                {
+                    "language": "PT",
+                    "text": "Sintaxe de Página Única",
+                    "updated": 1711315562370
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1652129321313
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711315570841
                 }
             ]
         },
@@ -97,6 +112,11 @@
                     "language": "TR",
                     "text": "Sayfa Koleksiyonu Sözdizimi",
                     "updated": 1652129332315
+                },
+                {
+                    "language": "PT",
+                    "text": "Sintaxe de Conjunto de Páginas",
+                    "updated": 1711315597479
                 }
             ]
         },
@@ -124,6 +144,11 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1652129342215
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711315606851
                 }
             ]
         },
@@ -160,6 +185,11 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1652129361241
+                },
+                {
+                    "language": "PT",
+                    "text": "Parâmetros ",
+                    "updated": 1711315652744
                 }
             ]
         },
@@ -182,6 +212,11 @@
                     "language": "TR",
                     "text": "Project: Sayfanın tanımlandığı projedir.",
                     "updated": 1652129414503
+                },
+                {
+                    "language": "PT",
+                    "text": "Projeto (Project): É o projeto onde a página está definida.",
+                    "updated": 1711315927149
                 }
             ]
         },
@@ -204,6 +239,11 @@
                     "language": "TR",
                     "text": "Docs Page Category: Mevcut kategorilerden biri.",
                     "updated": 1652129437381
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria de Página nos Docs (Docs Page Category): Uma das categorias disponíveis.",
+                    "updated": 1711316192278
                 }
             ]
         },
@@ -226,6 +266,11 @@
                     "language": "TR",
                     "text": "Docs Page Name: Sayfanın adı.",
                     "updated": 1652129453489
+                },
+                {
+                    "language": "PT",
+                    "text": "Nome da Página nos Docs (Docs Page Name): O nome da página.",
+                    "updated": 1711316180144
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu komut, bir Dokümanlar sayfasına veya sayfa içindeki bir bağlantıya gitmek için bir mekanizma sağlar.",
                 "updated": 1652127299956
+            },
+            {
+                "language": "PT",
+                "text": "Este comando fornece uma forma para navegar até uma página de documentos ou um marcador dentro da página.",
+                "updated": 1711313232189
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Sözdizimi",
                     "updated": 1652127315175
+                },
+                {
+                    "language": "PT",
+                    "text": "Syntaxe",
+                    "updated": 1711313129766
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "TR",
                     "text": "Parametreler",
                     "updated": 1652127332916
+                },
+                {
+                    "language": "PT",
+                    "text": "Parametros",
+                    "updated": 1711313242715
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Project: Sayfanın tanımlandığı projedir.",
                     "updated": 1652127436114
+                },
+                {
+                    "language": "PT",
+                    "text": "Project: É o projeto onde a página é definida.",
+                    "updated": 1711313287744
                 }
             ]
         },
@@ -109,6 +129,11 @@
                     "language": "TR",
                     "text": "Docs Page Category: Mevcut kategorilerden biri.",
                     "updated": 1652127476865
+                },
+                {
+                    "language": "PT",
+                    "text": "Docs Page Category: Uma das categorias disponiveis.",
+                    "updated": 1711313339880
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "language": "TR",
                     "text": "Docs Page Name: Sayfanın adı.",
                     "updated": 1652127498219
+                },
+                {
+                    "language": "PT",
+                    "text": "Docs Page Name: O nome da página.",
+                    "updated": 1711313375382
                 }
             ]
         },
@@ -153,6 +183,11 @@
                     "language": "TR",
                     "text": "Docs Page Anchor: Bu parametre isteğe bağlıdır. Kullanılabilir olduğunda, sayfa içinde Dokümanlar Bağlantı Stili ( Docs Anchor Style ) olan bir Dokümanlar Paragrafına ( Docs Paragraph ) atıfta bulunur.",
                     "updated": 1652127676347
+                },
+                {
+                    "language": "PT",
+                    "text": "Docs Page Anchor: Este parâmetro é opcional. Quando presente, refere-se a um Parágrafo de Docs (Docs Paragraph) com o Estilo de Referência de Docs (Docs Anchor Style) dentro da página.",
+                    "updated": 1711313650936
                 }
             ]
         },
@@ -175,6 +210,11 @@
                     "language": "TR",
                     "text": "Örnekler",
                     "updated": 1652127710668
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos",
+                    "updated": 1711313666234
                 }
             ]
         },

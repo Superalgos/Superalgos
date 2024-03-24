@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bir Dokümanlar Konu Sayfası veya Dokümanlar Öğretici ( Tutorial ) Sayfası eklediğinizde, bir sayfa numarası tanımlayabilirsiniz. Bu sayı, sayfanın içindekiler tablosundaki konumunu tanımlar. Diğer sayfaların arasına sayfa eklemek için ondalık değerleri kullanabilirsiniz. Tüm sayfa numaralarını yeniden hesaplamak ve kümenin tamamını tamsayılar halinde bırakmak için Yeniden Sayfalandır komutunu kullanın.",
                 "updated": 1652198534340
+            },
+            {
+                "language": "PT",
+                "text": "Quando adiciona um Título a uma Página ou uma Página de Tutorial aos Documentos, poderá definir o número de página. O número define a posição da página dentro do índice. Para adicionar uma página entre páginas, pode usar valores decimais. Assim, utilize o comando Repaginar para recalcular automaticamente todos os números das páginas, ficando posteriormente numeradas em números inteiros.",
+                "updated": 1711317718932
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Varolan konular veya öğreticiler üzerinde Dokümanlar Yeniden Sayfalandır Komutunu kullanmadan önce Superalgos Dokümantasyon Grubunu bildiğinizden  emin olun. Yeniden sayfalama, koleksiyondaki tüm dosyaları değiştirir. Bu nedenle, komut, bu dosyalar üzerinde de çalışabilecek diğer kullanıcılarla çakışmalar oluşturmaya eğilimli olabilir.",
                     "updated": 1652198725610
+                },
+                {
+                    "language": "PT",
+                    "text": "Tenha a certeza que consultou e entendeu toda a documentação contida no Grupo de Documentação do Superalgos antes de usar o Comando Repaginar Docs nos títulos ou tutoriais existentes. A repaginação afeta todos os arquivos na categoria. Por este motivo, o comando pode gerar conflitos com outros utilizadores que também podem estar a trabalhar nesses arquivos.",
+                    "updated": 1711317656791
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "TR",
                     "text": "Sözdizimi",
                     "updated": 1652199595661
+                },
+                {
+                    "language": "PT",
+                    "text": "Syntaxe",
+                    "updated": 1711316970160
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "language": "TR",
                     "text": "Özellikleri",
                     "updated": 1652198799400
+                },
+                {
+                    "language": "PT",
+                    "text": "Propriedades",
+                    "updated": 1711317279116
                 }
             ]
         },
@@ -100,6 +120,11 @@
                     "language": "TR",
                     "text": "Category: Konu veya Öğretici ( Tutorial ) olmalıdır.",
                     "updated": 1652198865935
+                },
+                {
+                    "language": "PT",
+                    "text": "Categoria: Deve ser ou Título ou Tutorial.",
+                    "updated": 1711317619976
                 }
             ]
         },
@@ -121,6 +146,11 @@
                     "language": "TR",
                     "text": "Project: Mevcut herhangi bir entegre proje.",
                     "updated": 1652198888042
+                },
+                {
+                    "language": "PT",
+                    "text": "Projeto (Project): Qualquer projeto existente e já integrado .",
+                    "updated": 1711317462422
                 }
             ]
         },
@@ -143,6 +173,11 @@
                     "language": "TR",
                     "text": "Topic or Tutorial name: Yeniden isimlendirmek istediğiniz Konuya veya Öğreticiye ( Tutorial ) verilen ad.",
                     "updated": 1652199065556
+                },
+                {
+                    "language": "PT",
+                    "text": "Nome do Título ou Tutorial: O nome dado ao Título ou Tutorial que deseja repaginar.",
+                    "updated": 1711317611786
                 }
             ]
         },
@@ -164,6 +199,11 @@
                     "language": "TR",
                     "text": "Örnek",
                     "updated": 1652198974101
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplo",
+                    "updated": 1711317329809
                 }
             ]
         },
@@ -189,6 +229,11 @@
                     "language": "TR",
                     "text": "Kullanma",
                     "updated": 1652199227058
+                },
+                {
+                    "language": "PT",
+                    "text": "Emprego",
+                    "updated": 1711318429835
                 }
             ]
         },
@@ -211,6 +256,11 @@
                     "language": "TR",
                     "text": "Bir Konuyu veya Öğreticiyi ( Tutorial ) yeniden isimlendirdikten sonra devam etmenin en iyi yolu, o Konu / Öğreticiyle ( Tutorial ) ilişkili tüm dosyaları diskten manuel olarak silmektir. Bunları sildikten sonra ardından docs.save yazın.",
                     "updated": 1652199455049
+                },
+                {
+                    "language": "PT",
+                    "text": "Depois de repaginar um Título ou Tutorial, o melhor procedimento é apagar manualmente todos os arquivos associados a esse Título/Tutorial no disco. Após apagá-los, execute o comando de repaginação e só depois então o comando docs.save.",
+                    "updated": 1711317891197
                 }
             ]
         },
@@ -233,6 +283,11 @@
                     "language": "TR",
                     "text": "Yeniden isimlendirdikten , bu Konunun / Öğreticinin ( Tutorial ) tüm dosyalarını değiştirilmiş olarak işaretler, böylece silinen dosyalar hakkında endişelenmenize gerek kalmaz, çünkü hepsi yeniden oluşturulur.",
                     "updated": 1652199377240
+                },
+                {
+                    "language": "PT",
+                    "text": "A repaginação sinaliza todos os arquivos desse Título/Tutorial como alterados, então não se precisa de preocupar com os arquivos apagados, pois todos serão recriados.",
+                    "updated": 1711318040507
                 }
             ]
         },
@@ -254,6 +309,11 @@
                     "language": "TR",
                     "text": "Yeniden etiketlemeden sonra, yalnızca yeniden etiketlenmiş sürümü belleğe almak için kullanıcı arayüzünü ( UI ) yeniden yükleyin.",
                     "updated": 1652199551990
+                },
+                {
+                    "language": "PT",
+                    "text": "Após a repaginação, recarregue a UI para carregar apenas a versão repaginada na memória.",
+                    "updated": 1711318312834
                 }
             ]
         }

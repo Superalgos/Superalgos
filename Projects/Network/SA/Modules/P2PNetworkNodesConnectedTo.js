@@ -134,15 +134,6 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 return findPeerIndex(peer) > -1
             }
 
-            function findPeerIndex(peer) {
-                for (let i = 0; i < thisObject.peers.length; i++) {
-                    if (thisObject.peers[i].p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
-                        return i
-                    }
-                }
-                return -1
-            }
-
             function peerInfo(peer) {
                 return `name: ${peer.p2pNetworkNode.userProfile.name}, id: ${peer.p2pNetworkNode.node.id}`
             }
@@ -228,4 +219,15 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         }
         return response
     }
+
+
+    function findPeerIndex(peer) {
+        for (let i = 0; i < thisObject.peers.length; i++) {
+            if (thisObject.peers[i].p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
+                return i
+            }
+        }
+        return -1
+    }
+
 }

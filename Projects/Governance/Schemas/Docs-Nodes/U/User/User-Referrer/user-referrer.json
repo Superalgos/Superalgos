@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir Kullanıcı Yönlendiren düğümü, yönlendireninizin Kullanıcı Profili ( User Profile ) ile bir referans oluşturmalıdır. Birden fazla yönlendireniniz varsa, daha fazla düğüm ekleyin! Yönlendirenlerinizin kim olduğunu bu şekilde belirlersiniz.",
                 "updated": 1671461278150
+            },
+            {
+                "language": "DE",
+                "text": "Ein User Referrer-Knoten muss eine Referenz mit dem Benutzerprofil (User Profile) Ihres Referrers herstellen. Wenn Sie mehr als einen Referrer haben, fügen Sie weitere Knoten hinzu! Auf diese Weise stellen Sie fest, wer Ihre Referrer sind.",
+                "updated": 1711280610209
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": " Programa katılmak için en az bir Kullanıcı Yönlendiren beyan etmek gerekliliktir. En az bir tanesini beyan etmezseniz, Token Bonus ( Tokens Bonus ) teşviklerine hak kazanamazsınız.",
                     "updated": 1671461505863
+                },
+                {
+                    "language": "DE",
+                    "text": "Um an dem Programm teilnehmen zu können, müssen Sie mindestens einen User Referrer angeben. Wenn Sie nicht mindestens einen Freundschaftswerber angeben, qualifizieren Sie sich nicht für die Tokens Bonus -Prämien.",
+                    "updated": 1711280620906
                 }
             ]
         },
@@ -45,7 +55,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711280627406
+                }
+            ]
         }
     ]
 }

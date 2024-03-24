@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir Kullanıcı Destekçisi düğümü, destekçinizin Kullanıcı Profili ( User Profile ) ile bir referans oluşturmalıdır. Birden fazla destekçiniz varsa, daha fazla düğüm ekleyin! Destekçilerinizin kim olduğunu bu şekilde belirlersiniz.",
                 "updated": 1671558279208
+            },
+            {
+                "language": "DE",
+                "text": "Ein Nutzer-Unterstützer-Knoten muss einen Bezug zum Nutzerprofil (User Profile) Ihres Unterstützers herstellen. Wenn Sie mehr als einen Unterstützer haben, fügen Sie weitere Knoten hinzu! Auf diese Weise stellen Sie fest, wer Ihre Unterstützer sind.",
+                "updated": 1711280643340
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "En az bir Kullanıcı Destekçisi beyan etmek programa katılmak için bir gerekliliktir. En az bir tane beyan etmezseniz, Token Bonus ( Tokens Bonus ) teşviklerine hak kazanamazsınız.",
                     "updated": 1671558377505
+                },
+                {
+                    "language": "DE",
+                    "text": "Um an dem Programm teilnehmen zu können, müssen Sie mindestens einen User Supporter anmelden. Wenn Sie nicht mindestens einen Unterstützer angeben, haben Sie keinen Anspruch auf die Tokens Bonus -Prämien.",
+                    "updated": 1711280653452
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639128693711
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711280660916
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir Kullanıcı Mentoru düğümü, mentorunuzun Kullanıcı Profili ile bir referans oluşturmalıdır. Birden fazla mentorunuz varsa, daha fazla düğüm ekleyin! Mentorlarınızın kim olduğunu bu şekilde belirlersiniz.",
                 "updated": 1645100600175
+            },
+            {
+                "language": "DE",
+                "text": "Ein Benutzer-Mentor-Knoten muss einen Bezug zum Benutzerprofil (User Profile) Ihres Mentors herstellen. Wenn Sie mehr als einen Mentor haben, fügen Sie weitere Knoten hinzu! Auf diese Weise stellen Sie fest, wer Ihre Mentoren sind.",
+                "updated": 1711279786789
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Programa katılmak için en az bir Kullanıcı Mentoru beyan etmek şarttır. En az birini beyan edemezseniz, Token Bonus teşviklerine hak kazanamazsınız.",
                     "updated": 1645100617643
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Anmeldung von mindestens einem Benutzer-Mentor ist eine Voraussetzung für die Teilnahme am Programm. Wenn Sie nicht mindestens einen Mentor anmelden, haben Sie keinen Anspruch auf den Token Bonus.",
+                    "updated": 1711279798355
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1645100624179
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711279806015
                 }
             ]
         }

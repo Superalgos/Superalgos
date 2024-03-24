@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Oy Anahtarı düğümü Oylama Gücünü ( Voting Power ) hiyerarşide aşağıya doğru kanalize eder. Diğer anahtar türlerini ortaya çıkarmak ve düzenlemek için organizasyonel bir araç olarak kullanılan üst düzey bir anahtardır.",
                 "updated": 1671558642085
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Abstimmungsschalter leitet die Abstimmungsmacht  (Voting Power) in der Hierarchie nach unten. Es handelt sich um einen Schalter der obersten Ebene, der als organisatorisches Mittel zum Hervorbringen und Anordnen anderer Schaltertypen dient.",
+                "updated": 1711274424960
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bu düğüm diğer hiyerarşilerdeki \"sınıf\" veya \"klasör\" tipi düğümlere referans veremez. Sadece bir organizasyon aracıdır.",
                     "updated": 1671558691058
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Knoten kann nicht auf \"Klassen\"- oder \"Ordner\"-Typen von Knoten in anderen Hierarchien verweisen. Er ist lediglich ein Organisationsmittel.",
+                    "updated": 1711274430300
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639136444763
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711274437311
                 }
             ]
         }

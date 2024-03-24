@@ -11,8 +11,8 @@
             },
             {
                 "language": "DE",
-                "text": "Das Governance Project ist der Teil der Superalgos Plattform, der die verteilte Verwaltung des Superalgos Projekts ermöglicht.",
-                "updated": 1638747763320
+                "text": "Das Governance-Projekt (The Governance Project) ist der Teil der Superalgos-Plattform, der die verteilte Verwaltung des Superalgos-Projekts (Superalgos Project) ermöglicht.",
+                "updated": 1711273863481
             },
             {
                 "language": "RU",
@@ -34,8 +34,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Verwenden Sie diese Hierarchie, project definition hierarchies wie die Pools, Positions, Features und Assets Hierarchies. zu erstellen.",
-                    "updated": 1638747796607
+                    "text": "Verwenden Sie diese Hierarchie, um Projektdefinitionshierarchien wie die Pools (Pools), Positionen (Positions), Merkmale(Features)und Anlagenhierarchien (Assets Hierarchies) zu erstellen.",
+                    "updated": 1711273875041
                 },
                 {
                     "language": "RU",
@@ -60,8 +60,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Hier finden Sie auch die Option, die Profile Constructor Node zu erzeugen.",
-                    "updated": 1638747821859
+                    "text": "Hier finden Sie auch die Option, den Profile Constructor-Knoten (Profile Constructor)zu erzeugen.",
+                    "updated": 1711273882969
                 },
                 {
                     "language": "RU",

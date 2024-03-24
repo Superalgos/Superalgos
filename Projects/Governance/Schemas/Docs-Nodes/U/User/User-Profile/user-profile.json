@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Token Gücü (Token Power), hiyerarşi yapısını izleyerek Kullanıcı Profili (User Profile) düğümünden Token Güç Anahtarı (Token Power Switch) düğümüne,sonra onun alt düğümlerine doğru kademeli olarak akar.",
                 "updated": 1642713345079
+            },
+            {
+                "language": "DE",
+                "text": "Token Power fließt kaskadenartig vom Benutzerprofilknoten zum Token Power Switch -Knoten, zu dessen Nachkommen und so weiter, entsprechend der Struktur der Hierarchie.",
+                "updated": 1711280248260
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Profilinizi Oluşturma sayfasında (Building Your Profile) açıklandığı gibi, Kullanıcı Profiliniz Yönetişim Adresinizle (Governance Address) eşleştirilir. Bu adreste tuttuğunuz tokenlar size, Superalgos'un her bir sürümüne tahsis edilen tokenlerin nasıl dağıtılacağını etkilemek için kullanabileceğiniz Token Gücü verir.",
                     "updated": 1642712984132
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie auf der Seite \"Erstellen Ihres Profils (Building Your Profile)\" erläutert, ist Ihr Benutzerprofil mit Ihrer Governance-Adresse (Governance Address) verknüpft. Die Token, die Sie in dieser Adresse halten, verleihen Ihnen Token Power, mit der Sie beeinflussen können, wie Superalgos die Token verteilt, die jeder Veröffentlichung zugewiesen werden.",
+                    "updated": 1711279846027
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "TR",
                     "text": "Profilinizi oluşturduktan sonra, Token Gücünüzün hiyerarşinin ilk başladığı düğüm olan Token Power Switch düğümüne aktığını görmelisiniz. Bu ilke, hiyerarşi boyunca korunur: Simge Gücü, hiyerarşinin her bölümü aracılığıyla alt düğümlere akar.",
                     "updated": 1642713185856
+                },
+                {
+                    "language": "DE",
+                    "text": "Nachdem Sie Ihr Profil erstellt haben, sollten Sie sehen, dass Ihre Token Power zum Token-Power-Schalterknoten (Token Power Switch) fließt, dem ersten Abkömmling des Kopfes der Hierarchie. Dieses Prinzip wird in der gesamten Hierarchie beibehalten: Token Power fließt durch jeden Abschnitt der Hierarchie hinunter zu den Nachfolgeknoten.",
+                    "updated": 1711280231660
                 }
             ]
         },
@@ -80,6 +95,11 @@
                     "language": "TR",
                     "text": "Token Power Akışı",
                     "updated": 1642713235845
+                },
+                {
+                    "language": "DE",
+                    "text": "Token Stromflüsse",
+                    "updated": 1711280239372
                 }
             ]
         },
@@ -99,7 +119,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711280284415
+                }
+            ]
         },
         {
             "style": "Text",

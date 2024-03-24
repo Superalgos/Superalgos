@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bir iş arkadaşınızın Kullanıcı Profili ( User Profile ) ile bir referans oluşturmak için bu düğümü kullanın. Bu referans ile Token Gücünü ( Token Power ) doğrudan iş arkadaşınızın profiline aktararak Token Gücünüzü ( Token Power ) etkin bir şekilde devretmiş olursunuz. İş arkadaşınız bu gücü Yönetim Programlarından ( Governance Programs ) herhangi birinde kullanabilir.",
                 "updated": 1671806932778
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Knoten, um eine Referenz mit dem Benutzerprofil (User Profile) eines Kollegen herzustellen. Mit dieser Referenz geben Sie die Token-Macht (Token Power) direkt an das Profil Ihres Kollegen weiter und delegieren somit Ihre Token-Macht (Token Power). Ihr Kollege kann die Berechtigung in jedem der Governance-Programme (Governance Programs) verwenden.",
+                "updated": 1711279689492
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Token Gücünü ( Token Power ) devretmenin ana kullanım durumu, mentorların danışanlarının ilk birkaç Katkı Talebini ( Contribution Claims ) yapmalarına yardımcı olmak istemeleridir.",
                     "updated": 1671807132608
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Hauptanwendungsfall für das Delegieren von Token Power ist, wenn Mentoren ihren Mentees bei ihren ersten Beitragsforderungen (Contribution Claims) helfen wollen.",
+                    "updated": 1711279699275
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Katılımcıların etkili olabilmeleri için Talep Gücünü ( Claim Power ) taleplerine yönlendirmeleri gerekir. Ancak Superalgos'ta yeni olduklarında, taleplerini desteklemek için yeterli tokene sahip olmayabilirler.",
                     "updated": 1671807389751
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Mitwirkenden müssen ihre Claims mit Claim Power versorgen, damit sie effektiv sind. Wenn sie jedoch neu bei Superalgos sind, haben sie vielleicht nicht genug Token, um ihre Ansprüche zu unterstützen.",
+                    "updated": 1711279710716
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Mentorlar, danışanlarının ilk birkaç dağıtımda tokenlerini  almalarına yardımcı olmaktan mutluluk duyarlar ve Mentorluk Programı ( Mentorship Program ) aracılığıyla çalışmaları ve cömertlikleri için ödüllendirilirler.",
                     "updated": 1671807632491
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Mentoren helfen ihren Mentees gerne bei der Beschaffung der ersten Wertmarken und werden für ihre Arbeit und Großzügigkeit im Rahmen des Mentorenprogramms (Mentorship Program) belohnt.",
+                    "updated": 1711279722538
                 }
             ]
         },
@@ -109,6 +129,11 @@
                     "language": "TR",
                     "text": "Token Gücü ( Token Power ) yetkilendirmesinin bu biçimi, Oylama Programında ( Voting Program ) da uygulanan Şeffaf Demokrasi (Liquid Democracy) kavramından esinlenmiştir.",
                     "updated": 1671807941680
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Form der Delegation von Token Power orientiert sich an dem Konzept der Liquid Democracy, das auch im Voting Program umgesetzt wird.",
+                    "updated": 1711279734901
                 }
             ]
         },
@@ -130,6 +155,11 @@
                     "language": "TR",
                     "text": "Aynı Token Gücü ( Token Power ), aşağıdaki uyarı kutusundaki uyarı ile birden fazla kez yetkilendirilebilir. Yetkilendirme, Kullanıcı Temsilcisi düğümü veya referansı kaldırılarak herhangi bir noktada da geri çekilebilir.",
                     "updated": 1671808079569
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieselbe Token Power kann mehrfach delegiert werden, wobei der unten stehende Warnhinweis zu beachten ist. Die Delegierung kann auch jederzeit widerrufen werden, indem der Knoten Benutzerdelegierter oder sein Verweis entfernt wird.",
+                    "updated": 1711279745949
                 }
             ]
         },
@@ -152,6 +182,11 @@
                     "language": "TR",
                     "text": "Bir Kullanıcı Yetkilendirme düğümüne yönlendirdiğiniz Yetkilendirme Gücünün ( Delegate Power ) sadece %10'u alıcı Kullanıcı Profiline ( User Profile ) ulaşır. Bu, döngüsel beyanlar, sahte profiller veya oy ticareti gibi ortaya çıkabilecek hileli davranışları caydırmak içindir.",
                     "updated": 1671808326703
+                },
+                {
+                    "language": "DE",
+                    "text": "Nur 10 % der Delegiertenmacht (Delegate Power), die Sie in einen Benutzerdelegiertenknoten einbringen, erreicht das Benutzerprofil des Empfängers. Damit sollen betrügerische Verhaltensweisen verhindert werden, die durch zirkuläre Erklärungen, gefälschte Profile (User Profile) oder den Handel mit Stimmen entstehen können.",
+                    "updated": 1711279756317
                 }
             ]
         },
@@ -167,6 +202,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639140630764
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711279764333
                 }
             ]
         }

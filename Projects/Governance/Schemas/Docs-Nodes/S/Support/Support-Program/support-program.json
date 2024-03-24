@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Superalgos'ta, yeni gelenlere ve genel olarak Topluluğa (Commnity) sunduğumuz destek düzeyinden gurur duyuyoruz. Her şeyden önce işbirliğine dayanan kültürümüzün çok önemli bir yönüdür. Destek Programı (The Support Program), Topluluğun, projenin destek çabalarına katkıda bulunan Topluluk Modlarının (Community Mods) desteklenmesini sağlar.\nAt Superalgos, we take pride in the level of support we offer to newcomers and the Community in general. It is a crucial aspect of our culture, based above all on collaboration. The Support Program enables the Community to compensate Community Mods contributing to the project’s support efforts.",
                 "updated": 1644576634496
+            },
+            {
+                "language": "DE",
+                "text": "Bei Superalgos sind wir stolz auf das Niveau der Unterstützung, die wir Neuankömmlingen und der Gemeinschaft (Community) im Allgemeinen bieten. Es ist ein wesentlicher Aspekt unserer Kultur, die vor allem auf Zusammenarbeit basiert. Das Support-Programm (The Support Program) ermöglicht es der Community, Community Mods zu entschädigen, die zu den Support-Bemühungen des Projekts beitragen.",
+                "updated": 1711294795883
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "TR",
                     "text": "Superalgos geniş bir sistemdir ve öğrenme eğrisi hala oldukça diktir. Birçok kullanıcının, özellikle erken aşamalarda yardıma ihtiyacı vardır.",
                     "updated": 1644576655436
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein umfangreiches System, und die Lernkurve ist noch recht steil. Viele Nutzer brauchen Hilfe, vor allem in der Anfangsphase.",
+                    "updated": 1711294812806
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "TR",
                     "text": "Topluluk (Community) tipik sorularda her zaman yardıma hazır olsa da, etkili destek sağlamanın belirli bir düzeyde deneyim ve bilgi gerektirdiğini fark ettik. Bu nedenle, Destek Grubundan (Support Group) belirli Topluluk Modları (Community Mods) sorumludur.",
                     "updated": 1644576726737
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl die Community immer bereit ist, bei typischen Fragen zu helfen, haben wir festgestellt, dass es ein gewisses Maß an Erfahrung und Wissen braucht, um effektive Unterstützung zu leisten. Aus diesem Grund sind ausgewählte Community Mods für die Support Group zuständig.",
+                    "updated": 1711294828891
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "TR",
                     "text": "Topluluk Modları (Community Mods) ekibine katılmak isterseniz, çeşitli Telegram gruplarına ve Discord kanallarına katılmaya başlayın, kullanıcılara yardım edin ve soruları yanıtlayın. Böylece sizi tespit edip Topluluk Modları ekibine dahil edebiliriz!",
                     "updated": 1644576780676
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn du dem Team der Community Mods beitreten möchtest, nimm an den verschiedenen Telegram-Gruppen und Discord-Kanälen teil, hilf den Benutzern und beantworte Fragen. Wir werden dich bald entdecken und dich in das Team der Community Mods aufnehmen!",
+                    "updated": 1711294840431
                 }
             ]
         },
@@ -115,6 +135,11 @@
                     "language": "TR",
                     "text": "Katılmak için Destek Programını oluşturmalı ve favori destekçilerinizi ilan etmelisiniz. Bunu yapmak için, bir Kullanıcı Destekçi User Supporter) düğümü ekleyin ve bunu size en çok yardımcı olan kişinin Kullanıcı Profiline (User Profile) bir referans oluşturmak için kullanın! Birden fazla favori destekçiniz varsa, daha fazla Kullanıcı Destekçi düğümü ekleyin!",
                     "updated": 1644577355829
+                },
+                {
+                    "language": "DE",
+                    "text": "Um teilzunehmen, müssen Sie das Unterstützungsprogramm starten und Ihre Lieblingsunterstützer (User Supporter) benennen. Fügen Sie dazu einen Benutzer-Unterstützer-Knoten hinzu und verwenden Sie ihn, um einen Verweis auf das Benutzerprofil (User Profile) der Person zu erstellen, die Ihnen am meisten geholfen hat! Wenn Sie mehr als einen Lieblingsunterstützer haben, fügen Sie weitere Benutzerunterstützer-Knoten (User Supporter nodes) hinzu!",
+                    "updated": 1711294877506
                 }
             ]
         },
@@ -137,6 +162,11 @@
                     "language": "TR",
                     "text": "Destek Grubunu (Support Group) nadiren kullanıyorsanız, bunun nedeni iyi hazırlanmış öğreticiler ve belgeler olabilir. Durumunuz buysa, bu işi yapan kişileri veya ekipleri tercih ettiğiniz destekçiler olarak seçmekten çekinmeyin!",
                     "updated": 1644577805297
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Support-Gruppe (Support Group) nur selten nutzen, liegt das vielleicht an der Mühe, die in die Erstellung von Anleitungen und Dokumentationen gesteckt wird. Wenn das bei Ihnen der Fall ist, können Sie die Personen oder Teams, die diese Arbeit leisten, als Ihre bevorzugten Unterstützer auswählen!",
+                    "updated": 1711294732583
                 }
             ]
         },
@@ -161,6 +191,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1644577815004
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711294712956
                 }
             ]
         }

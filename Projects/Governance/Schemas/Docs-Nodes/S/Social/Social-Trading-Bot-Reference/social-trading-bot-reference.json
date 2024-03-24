@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu düğüm, ana Ticaret Botu Örneği ( Trading Bot Instance ) tarafından Superalgos eşler arası ağında Ticaret Sinyalleri ( Trading Signals ) göndermek veya almak için kullanılan Sosyal Ticaret Botuna ( Social Trading Bot ) bir referans depolar.",
                 "updated": 1672063502367
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Knoten speichert einen Verweis auf den Social Trading Bot, der von seiner übergeordneten Trading Bot Instance zum Senden oder Empfangen von Handelssignalen (Trading Signals) im Superalgos Peer-to-Peer-Netzwerk verwendet wird.",
+                "updated": 1711290893322
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Bir kullanıcı alım satım sinyalleri gönderiyorsa, referans alınacak sosyal alım satım botu kullanıcının profili altında ayarlanmalıdır.",
                     "updated": 1672063543524
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn ein Nutzer Handelssignale sendet, sollte der Social Trading Bot, auf den verwiesen wird, unter dem Profil des Nutzers eingerichtet werden.",
+                    "updated": 1711290905360
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "TR",
                     "text": "Kullanıcı sinyal alıyorsa, başvurulacak sosyal ticaret botu sinyal sağlayıcıların kullanıcı profili altında bulunacaktır.",
                     "updated": 1672063582583
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Nutzer Signale empfängt, wird der zu referenzierende Social Trading Bot unter dem Nutzerprofil des Signalanbieters zu finden sein.",
+                    "updated": 1711290915898
                 }
             ]
         }

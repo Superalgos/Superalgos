@@ -80,7 +80,7 @@
     "vite": "^3.2.4",
     "vue": "^3.2.40",
     "vue-router": "^4.1.5",
-    "web3": "^1.6.1",
+    "web3": "^4.6.0",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1",
     "workbox-webpack-plugin": "^6.5.4",

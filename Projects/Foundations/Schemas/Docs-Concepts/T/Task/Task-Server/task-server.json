@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Der Task Server ist eine der 3 Haupt-Softwarekomponenten von Superalgos. Der Zweck des Task Servers ist es, einen Task auszuführen. Tasks werden in einem Workspace auf der UI definiert. Um einen Task auszuführen, erhält der Task Server zur Laufzeit alle benötigten Definitionen von der Benutzeroberfläche (UI).",
                 "updated": 1698613567456
+            },
+            {
+                "language": "PT",
+                "text": "O Servidor de Tarefas (Task Server) é um dos 3 principais componentes do software Superalgos. O objetivo do Servidor de Tarefas (Task Server) é executar uma Tarefa (Task). As tarefas são definidas na Área de Trabalho (Workspace) no interface do utilizador (UI). Para executar uma Tarefa (Task), o Servidor de Tarefas (Task Server) recebe, durante o tempo de processamento (runtime), todas as definições necessárias do UI.",
+                "updated": 1711387462089
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "language": "DE",
                     "text": "Für Entwickler: Wenn Sie den Code durchlesen, werden Sie feststellen, dass das TS Objekt häufig verwendet wird. Das TS Objekt ist das Stammobjekt einer Datenstruktur, die zur Laufzeit innerhalb des Task Server ´s verfügbar ist.",
                     "updated": 1698613625025
+                },
+                {
+                    "language": "PT",
+                    "text": "Para programadores: Ao ver o código, deverá observar o uso extensivo do objeto TS. O objeto TS é o objeto raiz de uma estrutura de dados disponível durante o tempo de processamento (runtime) dentro do Servidor de Tarefas (Task Server).",
+                    "updated": 1711387613211
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "DE",
                     "text": "Eine Beschreibung, wie Sie eine auf dem Aufgabenserver ausgeführte Aufgabe debuggen können, finden Sie auf der Seite Debuggen einer Aufgabe (Debugging a Task).",
                     "updated": 1698613652407
+                },
+                {
+                    "language": "PT",
+                    "text": "ara perceber como depurar (debug) uma tarefa em execução no servidor de tarefas, consulte a página Depuração de uma Tarefa (Debugging a Task).",
+                    "updated": 1711387795725
                 }
             ]
         }

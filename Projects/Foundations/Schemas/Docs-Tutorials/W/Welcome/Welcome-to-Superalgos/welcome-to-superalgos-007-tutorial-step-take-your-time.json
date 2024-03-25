@@ -8,23 +8,51 @@
         "icon": {
             "name": "time-machine",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "PT",
+                "text": "Passar rapidamente pelas seções dos tutoriais ou saltar etapas será por sua própria conta e risco! As chances são de que você irá encontrar uma parede intransponível!",
+                "updated": 1711384001926
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You may be tempted to skip steps or fly by the instructions provided in some tutorial steps. It's OK, provided that you come back and do the work later!",
-            "updated": 1687629812634
+            "updated": 1687629812634,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Passar rapidamente pelas seções dos tutoriais ou saltar etapas será por sua própria conta e risco! As chances são de que você irá encontrar uma parede intransponível!",
+                    "updated": 1711384069961
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Better read carefully and let concepts sink in! You will need every ounce of knowledge to succeed.",
-            "updated": 1687630138952
+            "updated": 1687630138952,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Aconselhamos que leia com atenção tudo e que consiga assimilar bem todos conceitos! Irá precisar de cada “um deles” para poder ter sucesso.",
+                    "updated": 1711384246149
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "I can't stress this enough! You will play the game against apex predators counting trading firms, hedge funds, and investment banks that eat retail traders for breakfast! Do the work or die!",
-            "updated": 1687630227204
+            "updated": 1687630227204,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Não posso deixar de enfatizar! Você vai jogar contra os principais predadores que estão no “topo da cadeia alimentar”, incluindo corretoras, fundos de capital de risco e bancos de investimento que devoram traders ao pequeno almoço! Faça o seu trabalho ou “irá morrer”!",
+                    "updated": 1711384438082
+                }
+            ]
         }
     ]
 }

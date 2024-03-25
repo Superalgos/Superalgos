@@ -29,6 +29,11 @@
                 "language": "DE",
                 "text": "Der Client ist zusammen mit dem TS und der UI eine der drei Kernkomponenten der Superalgos Software.",
                 "updated": 1696955460616
+            },
+            {
+                "language": "PT",
+                "text": "O Cliente, juntamente com o TS e a IU, é um dos três principais componentes do Software Superalgos.",
+                "updated": 1711386536837
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "text": "Der Client ist das, was die Benutzer ausführen.",
                     "updated": 1696955460773,
                     "style": "Success"
+                },
+                {
+                    "language": "PT",
+                    "text": "O Cliente é o que os utilizadores correm nos seus computadores.",
+                    "updated": 1711386572780
                 }
             ]
         }

@@ -59,6 +59,11 @@
                 "language": "PL",
                 "text": "Możesz wybrać swój preferowany język dzięki temu, że inni użytkownicy uczestniczą w tłumaczeniu! To Community jest super!",
                 "updated": 1674746973418
+            },
+            {
+                "language": "PT",
+                "text": "Os utilizadores estão a contribuir com traduções para que possas escolher o teu idioma preferido! Esta Comunidade (Community) é incrível!",
+                "updated": 1711371916056
             }
         ]
     },
@@ -117,6 +122,11 @@
                     "language": "PL",
                     "text": "Działa to tak: Domyślnym językiem jest angielski. Jeżeli zmienisz język, system wyświetli stronę w wybranym języku. Jeżeli tłumaczenie na wybrany język nie jest dostępne, strona będzie wyświetlona w języku angielskim!",
                     "updated": 1674748044891
+                },
+                {
+                    "language": "PT",
+                    "text": "O procedimento é este: o idioma standard é o Inglês. Se escolheres um qualquer outro idioma e existir uma tradução para a referida página, então a mesma estará no idioma selecionado. Caso contrário, a página será apresenta em Inglês!",
+                    "updated": 1711372198710
                 }
             ]
         },
@@ -174,6 +184,11 @@
                     "language": "PL",
                     "text": "Użyj rolki w swojej myszce i przewiń stronę na sam dół. Jeżeli masz ochotę, kliknij w wybraną flagę żeby zmienić język!",
                     "updated": 1674748215781
+                },
+                {
+                    "language": "PT",
+                    "text": "Para navegar até ao rodapé desta página use o botão scroll para descer. Selecione a bandeira do seu dialeto para alterar para o idioma preferido, se assim o desejar!",
+                    "updated": 1711376553167
                 }
             ]
         },
@@ -231,6 +246,11 @@
                     "language": "PL",
                     "text": "Jedynie dokumentacja i samouczki mogę być tłumaczone. Interfejs i tytuły nie podlegają tłumaczeniu!",
                     "updated": 1674745893517
+                },
+                {
+                    "language": "PT",
+                    "text": "Apenas os documentos e tutoriais podem ser traduzidos, não é possível traduzir a interface nem os títulos!",
+                    "updated": 1711376649965
                 }
             ]
         }

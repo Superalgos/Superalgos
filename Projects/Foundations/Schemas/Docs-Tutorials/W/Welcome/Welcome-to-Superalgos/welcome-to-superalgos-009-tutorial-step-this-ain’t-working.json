@@ -8,28 +8,63 @@
         "icon": {
             "name": "help",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "PT",
+                "text": "Se por algum momento o tutorial se tornar confuso, a Comunidade está cá pronta para ajudar! Não é preciso bater com a cabeça na parede!",
+                "updated": 1711385345245
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "I rely heavily on automated actions that your browser should be able to resolve. For instance, I will take you to places in the Design Space, open up charts in the Charting Space, turn layers on and off, and so on.",
-            "updated": 1687721920371
+            "updated": 1687721920371,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Base-o-me em muito em ações automatizadas que o seu navegador deverá ser capaz de lidar com. Por exemplo, irei levá-lo a lugares no Interface de Design (Design Space), abrir gráficos no Interface dos Gráficos (Charting Space) ligar e desligar layers, e assim por diante.",
+                    "updated": 1711385664769
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "If you ever feel your browser is not showing you what I'm suggesting you should be seeing on screen, ask for help!",
-            "updated": 1687722090020
+            "updated": 1687722090020,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Se em algum momento persentir que o seu navegador não está a mostrar o que eu estou a sugerir que devia estar a ver no ecrã, peça ajuda!",
+                    "updated": 1711385745320
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Use the link below to join the Support Group now!",
-            "updated": 1687722109332
+            "updated": 1687722109332,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Utilize o link abaixo para juntar-se ao Grupo de Apoio (Support Group ) agora!",
+                    "updated": 1711385801141
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "Superalgos Support Group->t.me/superalgossupport",
-            "updated": 1687721770906
+            "updated": 1687721770906,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Grupo de Apoio (Superalgos Support Group)->t.me/superalgossupport",
+                    "updated": 1711385831474
+                }
+            ]
         }
     ]
 }

@@ -59,6 +59,11 @@
                 "language": "PL",
                 "text": "Jestem pierwszym w serii interaktywnym samouczkiem. Moim zadaniem jest wdrożenie Cię i nauczenie wszystkich podstaw!",
                 "updated": 1674748486705
+            },
+            {
+                "language": "PT",
+                "text": "Sou um tutorial interativo, o primeiro de uma série planeada para facilitar sua integração e ensina-lo nos aspectos mais básicos da plataforma!",
+                "updated": 1711376781955
             }
         ],
         "updated": 1633159917192
@@ -118,6 +123,11 @@
                     "language": "PL",
                     "text": "Pomogę Ci zacząć, pokażę Ci narzędzia, które pomogą Ci swobodnie się poruszać i razem odkryjemy wszystkie fajne rzeczy, które Superalgos może dla Ciebie zrobić.",
                     "updated": 1674749228693
+                },
+                {
+                    "language": "PT",
+                    "text": "Vou guiá-lo pela plataforma, mostrar-lhe as ferramentas que o ajudarão a movimentar-se confortavelmente e ajudá-lo a descobrir todas as coisas incríveis que o Superalgos pode fazer por si.",
+                    "updated": 1711380555701
                 }
             ],
             "updated": 1633159949363
@@ -176,6 +186,11 @@
                     "language": "PL",
                     "text": "Samouczki to najlepsze narzędzia do wejścia w świat Superalgos! Próba poznania Superalgos w inny sposób to błąd - żadne inne narzędzie nie pozwoli Ci zrobić tego szybciej. Powinieneś wykonać wszystkie samouczki zanim zaczniesz próbować implementować swoje pomysły!",
                     "updated": 1674749386824
+                },
+                {
+                    "language": "PT",
+                    "text": "Os tutoriais são a melhor forma para a sua introdução ao Superalgos! Começar com o Superalgos de outra forma é um erro, pois nenhum outro recurso o deixará tão bem preparado eficientemente. Deve fazer todos os tutoriais antes de tentar implementar suas próprias ideias!",
+                    "updated": 1711380618852
                 }
             ],
             "updated": 1633159975051
@@ -235,6 +250,11 @@
                     "language": "PL",
                     "text": "Żeby kontynuować, zawsze klikaj Next!",
                     "updated": 1674748536117
+                },
+                {
+                    "language": "PT",
+                    "text": "Por favor, opte sempre por clicar em \"Próximo / Next\" para continuar!",
+                    "updated": 1711380487727
                 }
             ]
         }

@@ -60,6 +60,11 @@
                 "language": "PL",
                 "text": "Samouczki są częścią systemu, więc możesz stworzyć ich więcej jeżeli chcesz! Omówimy moc tworzenia później. Najpierw skupmy się na podstawach!",
                 "updated": 1674751236230
+            },
+            {
+                "language": "PT",
+                "text": "Os tutoriais são definidos dentro do sistema, poderá criar mais tutoriais se desejar! Mas discutiremos esse poder divino mais tarde. Primeiramente, vamos focar-nos nos conceitos básicos!",
+                "updated": 1711386029623
             }
         ]
     },
@@ -119,6 +124,11 @@
                     "language": "PL",
                     "text": "Superalgos z natury jest narzędziem graficznym. System prezentuje informacje jako hierarchicznie powiązane ze sobą węzły, które z kolei są reprezentowane przez ikony. To co widzisz po prawej to jedna z takich hierarchii, hierarchia Tutorial. W tym wypadku, \"tutorial\" jest typem węzła a \"Welcome to Superalgos!\" jest nazwą tego węzła.",
                     "updated": 1674751643942
+                },
+                {
+                    "language": "PT",
+                    "text": "O Superalgos é inerentemente uma ferramenta visual. O sistema representa informações em estruturas hierárquicas de Nós (Node) inter-conectados, representados por ícones. O que vê à sua direita é uma dessas hierarquias, em particular, uma hierarquia de Tutorial. Neste caso, o \"tutorial\" é o tipo de Nós (Node) e \"Welcome to Superalgos!/Bem-vindo ao Superalgos!\" é o nome do Nós (Node).",
+                    "updated": 1711386239573
                 }
             ],
             "updated": 1616410534255
@@ -184,6 +194,11 @@
                     "language": "PL",
                     "text": "Przesuń kursor myszy na węzeł Tutorial i zobacz co się stanie! Wow! Ekstra prawda? To naprawdę dużo przycisków!",
                     "updated": 1674751730969
+                },
+                {
+                    "language": "PT",
+                    "text": "Passe o ponteiro do rato por cima do Nó (Node) do Tutorial e veja o que acontece! Uau! Espantoso não é? Tantos botões!",
+                    "updated": 1711386404640
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "In Knoten kann Code enthalten sein. Wenn dies der Fall ist, können die Benutzer in der Regel über einen der Knotenmenüpunkte (Node Menu) darauf zugreifen und ihn ändern. Der in einem Knoten gespeicherte Code wird später bei der Verarbeitung von Aufgaben oder Bots verwendet.",
                 "updated": 1689420240734
+            },
+            {
+                "language": "PT",
+                "text": "Os Nós (Nodes) podem conter código no seu interior. Quando o fazem, geralmente permitem que os utilizadores acedam e modifiquem através de um dos itens do Menu do Nó. O código armazenado num Nó (Node) é posteriormente utilizado em Tarefas (Tasks) ou Bots durante o seu processamento.",
+                "updated": 1711483190483
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Einige Knotentypen können einen Code haben, der ihr Verhalten definiert. Auf diesen Code kann der Benutzer in der Regel über den Menüpunkt Bearbeiten zugreifen. Bei der ersten Erstellung wird der Code (Node) eines Knotens mit dem Anfangswert initialisiert, der im Definitionsdokument des Knotens (Node's) vorhanden ist. Einige Knotentypen stellen Formeln dar und enthalten den Code, der diese Formeln im Knotencode definiert.",
                     "updated": 1689420249279
+                },
+                {
+                    "language": "PT",
+                    "text": "Alguns tipos de Nós (Nodes) podem ter código que define o seu comportamento. O código geralmente pode ser acedido pelos utilizadores através do item de menu \"Editar\". Quando são criados pela primeira vez, o código de um Nó (Node) é inicializado com o valor inicial presente no Documento de Definição do Nó (Node). Alguns tipos de Nós (Nodes) representam Fórmulas e contêm código que define essas fórmulas no Código do Nó (Node).",
+                    "updated": 1711483288757
                 }
             ]
         }

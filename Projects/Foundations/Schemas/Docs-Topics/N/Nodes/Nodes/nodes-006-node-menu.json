@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Knoten verfügen in der Regel über ein Menü, das es dem Benutzer ermöglicht, mit dem Knoten zu interagieren. Jeder Knotentyp (Node Type) kann einen anderen Satz von Menüpunkten haben.",
                 "updated": 1689423413442
+            },
+            {
+                "language": "PT",
+                "text": "Os Nós (Nodes) geralmente têm um menu que permite aos utilizadores interagir com o Nó (Node). Cada tipo de Nó (Node) pode ter um conjunto diferente de itens de menu.",
+                "updated": 1711483511238
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Jeder Knotentyp kann ein Menü haben, das es den Benutzern ermöglicht, mit dem Knoten (Node) zu interagieren. Es gibt keinen festen Satz von Menüpunkten. Stattdessen wird jeder Menüpunkt bei der Definition eines jeden Knotens (Node's) definiert. Jeder Menüpunkt hat eine Reihe von Eigenschaften, die es dem System ermöglichen, eine Aktion auszuführen, wenn der Benutzer auf den Menüpunkt klickt.",
                     "updated": 1689423436043
+                },
+                {
+                    "language": "PT",
+                    "text": "Cada tipo de Nó (Node Type)  pode ter um menu que permite aos utilizadores interagir com o Nó (Node). Não há um conjunto fixo de itens de menu. Em vez disso, cada item de menu é definido na definição de cada Nó (Node). Cada item de menu possui um conjunto de propriedades que permitem ao sistema executar alguma ação quando o item de menu é acedido pelos utilizadores.",
+                    "updated": 1711483617463
                 }
             ]
         }

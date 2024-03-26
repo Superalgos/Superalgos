@@ -38,6 +38,11 @@
                 "language": "ES",
                 "text": "El comando docs.reindex ha terminado de reconstruir el Docs Search Engine Index.",
                 "updated": 1677428006143
+            },
+            {
+                "language": "PT",
+                "text": "O comando docs.reindex terminou de reconstruir o Índice do Motor de Busca de Documentos (Docs Search Engine Index). ",
+                "updated": 1711480857215
             }
         ]
     },
@@ -79,6 +84,11 @@
                     "language": "ES",
                     "text": "El índice se ha reconstruido y ahora incluye todos los últimos cambios realizados desde que se abrió la interfaz de usuario o desde la última vez que se ejecutó el comando docs.reindex. Esto significa que ahora se pueden realizar búsquedas en los nuevos contenidos creados. Los cambios en el Workspace también se han introducido en el índice.",
                     "updated": 1677428035986
+                },
+                {
+                    "language": "PT",
+                    "text": "O índice foi reconstruído e agora inclui todas as últimas alterações que você fez desde que abriu a interface do utilizador (UI) ou desde a última vez que executou o comando \"docs.reindex\". Isso significa que o novo conteúdo criado agora é pesquisável. As alterações no Área de Trabalho (Workspace) também foram introduzidas no índice.",
+                    "updated": 1711485174545
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Der Referenz-Elternteil eines bestimmten Knotens A (Node A) ist der Knoten, mit dem A einen Bezug herstellt.",
                 "updated": 1689423289658
+            },
+            {
+                "language": "PT",
+                "text": "O Nó Primário (Parent Node) de referência de um determinado Nó (Node) A é o Nó (Node) com o qual A estabelece uma referência.",
+                "updated": 1711484988755
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689423308926
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711485008823
                 }
             ]
         }

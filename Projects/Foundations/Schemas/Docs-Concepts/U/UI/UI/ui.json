@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "UI ist eine Abkürzung für User Interface, was sich auf die Bedienoberfläche und die Arbeitsweise der Software bezieht. In Superalgos ist die UI eine Web-App, die auf einem Internet-Browser läuft.",
                 "updated": 1701012728080
+            },
+            {
+                "language": "PT",
+                "text": "UI é uma abreviação para Interface do Utilizador, que se refere ao ecrã de trabalho e ao método de utilização do software. No Superalgos, a UI é uma Aplicação Web que é executada num Navegador de Internet, preferencialmente o Chrome e Safari.",
+                "updated": 1711481837076
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1701012743944
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711481892199
                 }
             ]
         }

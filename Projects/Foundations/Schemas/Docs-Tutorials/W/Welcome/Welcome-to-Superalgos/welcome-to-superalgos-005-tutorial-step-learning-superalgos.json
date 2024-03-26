@@ -8,13 +8,27 @@
         "icon": {
             "name": "superalgos",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "NL",
+                "text": "Superalgos is een robuust, uitgebreid en flexibel platform met een steile leercurve. Laten we de verwachtingen vanaf het begin bijstellen!",
+                "updated": 1711430874669
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "If you're looking for a plug-and-play bot that will make you money out of thin air, I'm sorry but that doesn't exist. Bot companies make you believe that trading is easy just to sell more subscriptions.",
-            "updated": 1687626765602
+            "updated": 1687626765602,
+            "translations": [
+                {
+                    "language": "NL",
+                    "text": "Als je op zoek bent naar een plug-and-play-bot waarmee je uit het niets geld kunt verdienen, dan spijt het me, maar die bestaat niet. Botbedrijven laten je geloven dat handelen gemakkelijk is, alleen maar om meer abonnementen te verkopen,",
+                    "updated": 1711430987812
+                }
+            ]
         },
         {
             "style": "Success",
@@ -24,7 +38,14 @@
         {
             "style": "Text",
             "text": "If you don't know how to trade and are not a technical person, you're up for a real challenge! You will either learn a lot, or quit. We — tutorials — will help you along the way, but you need to do your part. Developers and/or traders should have it much easier, though.",
-            "updated": 1687630679481
+            "updated": 1687630679481,
+            "translations": [
+                {
+                    "language": "NL",
+                    "text": "Als je niet weet hoe je moet handelen en geen technisch persoon bent, dan ben je klaar voor een echte uitdaging! Je leert óf veel, óf je stopt ermee. Wij – tutorials – helpen je op weg, maar jij moet jouw steentje bijdragen. Ontwikkelaars en/of handelaars zouden het echter veel gemakkelijker moeten hebben.",
+                    "updated": 1711431027311
+                }
+            ]
         }
     ]
 }

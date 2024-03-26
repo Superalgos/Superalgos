@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Stake programı, (Staking Program) Superalgos Topluluğunun jeton sahiplerine jeton tuttukları için ödül verilmesine izin verir. Token tutmak, Topluluğun herhangi bir noktada teşvik etmeye karar verebileceği değerli bir katkı olabilir.",
                 "updated": 1645183947945
+            },
+            {
+                "language": "DE",
+                "text": "Das Staking-Programm ermöglicht es der Superalgos Community, Token-Inhaber für das Halten von Token zu entschädigen. Das Halten von Token kann ein wertvoller Beitrag sein, für den die Gemeinschaft (Community) jederzeit einen Anreiz schaffen kann.",
+                "updated": 1711290960732
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bu çok basit bir programdır çünkü akıllı sözleşmeler veya Yönetim Adresinizden para transferleri gibi aktiviteleri içermez.",
                     "updated": 1645183980734
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein sehr einfaches Programm, da es keine intelligenten Verträge oder Überweisungen von Ihrer Governance Address beinhaltet.",
+                    "updated": 1711291015981
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Başka amaçlarla kullanmadığınız Token Power ile Stake Programına katılabilirsiniz. Yapmanız gereken tek şey, programı Finansal Programlar (Financial Programs) düğümünden oluşturmak ve ona bir miktar Token Gücünün akmasına izin vermek.",
                     "updated": 1645184117819
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können am Staking-Programm mit der Token Power teilnehmen, die Sie nicht für andere Zwecke verwendet haben. Alles, was Sie tun müssen, ist, das Programm innerhalb des Knotens \"Financial Programs\" zu starten und etwas Token Power in das Programm fließen zu lassen.",
+                    "updated": 1711291058731
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Yönetişim Programları (Governance Programs) düğümü altındaki Superalgos Havuzları (Superalgos Pools) hiyerarşisinde tanımlanan Stake Ödül Havuzundan (Staking Rewards Pool), programa yönlendirdiğiniz Stake Gücü (Staking Power)ile orantılı olarak jetonlar alacaksınız.",
                     "updated": 1645184331346
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie erhalten Token aus dem Einsatz-Belohnungs-Pool (Staking Rewards Pool), der in der Superalgos Pool -Hierarchie unter dem Knoten \"Governance Programs\" definiert ist, proportional zu der Einsatzstärke (Staking Power), die Sie dem Programm zuweisen.",
+                    "updated": 1711291186389
                 }
             ]
         },

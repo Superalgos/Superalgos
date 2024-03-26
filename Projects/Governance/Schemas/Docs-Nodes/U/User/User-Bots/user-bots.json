@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Kullanıcı Botları hiyerarşisi, Superalgos Eşler Arası Ağda mevcut Kullanıcı Profili ( User Profile ) ile ilişkili tüm Botlar için tanımları saklar.",
                 "updated": 1671809045455
+            },
+            {
+                "language": "DE",
+                "text": "Die Benutzer-Bots-Hierarchie speichert Definitionen für alle Bots, die mit dem aktuellen Benutzerprofil (User Profile) verbunden sind, das im Superalgos Peer-to-Peer-Netzwerk verfügbar ist.",
+                "updated": 1711279580140
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "TR",
                     "text": "Superalgos Platfromunda bulunan botların aksine (Superalgos'taki Botlar ( Bots In Superalgos ) makalesinde açıklandığı gibi), bu hiyerarşide tutulan botlar Superalgos Eşler Arası Ağ bağlamında çalışır.",
                     "updated": 1671809163220
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Gegensatz zu Bots innerhalb der Superalgos-Plattform (wie in diesem Artikel Bots in Superalgos beschrieben), laufen Bots in dieser Hierarchie im Kontext des Superalgos Peer-to-Peer-Netzwerks.",
+                    "updated": 1711279590787
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "TR",
                     "text": "Bu tür botları ayırt etmenin yararlı bir yolu, platformda çalışan botların platform içindeki görevleri tamamladığını hatırlamaktır. Ağ üzerinde çalışan botlar ise ağ üzerindeki görevleri tamamlar.",
                     "updated": 1671809234258
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine hilfreiche Methode zur Unterscheidung dieser Arten von Bots besteht darin, sich daran zu erinnern, dass Bots, die in der Plattform laufen, Aufgaben innerhalb der Plattform erledigen. Während Bots, die im Netzwerk laufen, Aufgaben im Netzwerk erledigen.",
+                    "updated": 1711279601596
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "TR",
                     "text": "Bunun anlamı, bu hiyerarşi altındaki botların Superalgos Eşler Arası Ağda keşfedilebilir olması gerektiğidir. Bu, bu botların ağ üzerinden ticaret sinyalleri göndermek veya sosyal ticaret faaliyetlerinde ağdaki diğer botlarla etkileşim kurmak gibi şeyler yapmasına olanak tanır.",
                     "updated": 1671809459085
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Bots unter dieser Hierarchie im Superalgos Peer-to-Peer-Netzwerk auffindbar sein sollen. Dies ermöglicht es diesen Bots, Dinge wie das Senden von Handelssignalen über das Netzwerk oder die Interaktion mit anderen Bots im Netzwerk bei sozialen Handelsaktivitäten zu tun.",
+                    "updated": 1711279620158
                 }
             ]
         }

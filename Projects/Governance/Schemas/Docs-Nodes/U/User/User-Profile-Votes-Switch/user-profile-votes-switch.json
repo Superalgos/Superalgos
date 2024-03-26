@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bu anahtarı bir organizasyon cihazı olarak ve Kullanıcı Profili Oylama ( User Profile Vote ) düğümlerini oluşturmak için kullanın.",
                 "updated": 1671460524466
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Schalter als Organisationsgerät und um User Profile Vote -Knoten zu erzeugen.",
+                "updated": 1711280386012
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Bu anahtarı iki farklı amaç için kullanabilirsiniz:",
                     "updated": 1671460559932
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können diesen Schalter für zwei verschiedene Zwecke verwenden:",
+                    "updated": 1711280521748
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Organizasyonel bir araç olarak (As an organizational device): Daha fazla anahtar ve oy üreterek keyfi oy düzenlemeleri oluşturabilirsiniz.",
                     "updated": 1671460727935
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Organisationsmittel (As an organizational device): Sie können beliebige Anordnungen von Stimmen erstellen, die weitere Schalter und Stimmen hervorbringen.",
+                    "updated": 1711280555946
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Bir anahtar olarak (As a switch): Oylama Gücünün ( Voting Power ) akışını, tıpkı bir Token Güç Anahtarında ( Token Power Switch ) olduğu gibi, ancak Oylama Programı ( Voting Program ) içinde kontrol edebilirsiniz. Hatırlatmaya ihtiyacınız varsa, Token Gücü Akışının ( Token Power Flows ) nasıl gerçekleştiğini okuyun.",
                     "updated": 1671460938623
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Schalter (As a switch): Sie können den Fluss der Stimmkraft (Voting Power) kontrollieren, ähnlich wie bei einem Token Power Switch, aber innerhalb des Abstimmungsprogramms (Voting Program). Wenn Sie eine Erinnerung brauchen, lesen Sie, wie Token Power fließt (Token Power Flows).",
+                    "updated": 1711280580738
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639042118301
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711280588985
                 }
             ]
         }

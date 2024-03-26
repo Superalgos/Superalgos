@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Signing Accounts , kullanıcıların Superalgos eşler arası Ağında kendilerini tanımlamalarına olanak tanıyan benzersiz karma kimlikleri depolar.",
                 "updated": 1672058803427
+            },
+            {
+                "language": "DE",
+                "text": "Signing Accounts speichern eindeutige Hash-IDs, mit denen sich die Benutzer im Superalgos Peer-to-Peer-Netzwerk identifizieren können.",
+                "updated": 1711295114951
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Sinyallerin ve diğer tüm iletişimin Superalgos Eşler Arası Ağ üzerinden güvenli bir şekilde iletilmesi önemlidir. Signing Accounts, Superalgos ağı içindeki güvenliğin merkezidir.",
                     "updated": 1672058838534
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig, dass Signale und jede andere Kommunikation sicher über das Superalgos Peer-to-Peer Netzwerk übertragen werden. Signing Accounts sind das Zentrum der Sicherheit innerhalb des Superalgos Netzwerks.",
+                    "updated": 1711295497615
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Bunu başarmak ve alınan sinyallerin değiştirilmediğinden emin olmak için, ağ üzerindeki her iletişim özel bir anahtar imzası kullanılarak imzalanır. Bu, mesaj birçok atlamadan geçse bile alıcının imzayı doğrulayabileceği anlamına gelir.",
                     "updated": 1672058885510
+                },
+                {
+                    "language": "DE",
+                    "text": "Um dies zu erreichen und sicherzustellen, dass die empfangenen Signale nicht verfälscht wurden, wird jede Kommunikation über das Netz mit einer privaten Schlüsselsignatur versehen. Das bedeutet, dass der Empfänger die Signatur überprüfen kann, selbst wenn die Nachricht viele Zwischenstationen durchläuft.",
+                    "updated": 1711295601116
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Bu, sinyal ve mesaj ticaretinin yanı sıra ağa bağlı her uygulama veya düğümün kimliğini doğrulamak için de geçerlidir. Ağa bağlanan her varlık, birbirleriyle iletişim kuran varlıkların gerçekten söyledikleri kişi olduklarından emin olmak için benzersiz imzasıyla tanımlanmalıdır.",
                     "updated": 1672059154037
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies gilt sowohl (This is true) für den Handel mit Signalen und Nachrichten als auch für die Bestätigung der Identität jeder Anwendung oder jedes Knotens, der mit dem Netzwerk verbunden ist. Jede Einheit, die sich mit dem Netzwerk verbindet, muss durch ihre eindeutige Signatur identifiziert werden, um sicherzustellen, dass die miteinander kommunizierenden Einheiten auch wirklich die sind, für die sie sich ausgeben.",
+                    "updated": 1711295613068
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Bu kimlik doğrulaması iki seviyede gerçekleşir. Birincisi, herhangi bir iletişim gerçekleşmeden önce varlıklar arasında bir başlangıç doğrulamasıdır. İkincisi ise her sinyal alındığında özel anahtar imzasının geçerliliğinin kontrol edilmesidir. Yukarıda belirtildiği gibi, her uygulamanın (masaüstü uygulaması, mobil uygulama, sunucu uygulaması, platform uygulaması veya ağ düğümü gibi) İmzalama Hesabı adı verilen bir ağ kimliği ile çalışması gerekir.",
                     "updated": 1672059244682
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Identitätsbestätigung erfolgt auf zwei Ebenen. Die erste ist eine anfängliche Überprüfung zwischen Einheiten, bevor eine Kommunikation stattfindet. Auf der zweiten Ebene wird die Gültigkeit der Signatur des privaten Schlüssels jedes Mal überprüft, wenn ein Signal empfangen wird. Wie bereits erwähnt, muss jede Anwendung (wie die Desktop-Anwendung, die mobile Anwendung, die Server-Anwendung, die Plattform-Anwendung oder der Netzwerkknoten) mit einer Netzwerkidentität laufen, die als Signing Account bezeichnet wird.",
+                    "updated": 1711295623628
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "Sinyaller söz konusu olduğunda, gönderici her mesajı kendi özel anahtarını kullanarak imzalar. Ardından alıcının botları, oluşturulan hash'in doğru olduğunu doğrulamak için gönderenin profilinde tutulan Signing Account düğümüne bakar.",
                     "updated": 1672059321767
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Falle von Signalen signiert der Absender jede Nachricht mit seinem privaten Schlüssel. Anschließend überprüfen die Bots des Empfängers anhand des Knotens \"Signing Account\" im Profil des Absenders, ob der generierte Hash korrekt ist.",
+                    "updated": 1711295633453
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "TR",
                     "text": "Signing Account düğümü, özel anahtar imzasının nasıl doğrulandığını gösterir. Signing account yapısında, alıcının gelen mesajın gerçekten de orijinal özel anahtar kullanılarak imzalanıp imzalanmadığını kontrol etmek için kullanacağı gerekli hash'ler saklanır.",
                     "updated": 1672059814713
+                },
+                {
+                    "language": "DE",
+                    "text": "Über den Knoten Signing Account wird die Signatur des privaten Schlüssels überprüft. In der Config des Signing Account werden die erforderlichen Hashes gespeichert, mit denen der Empfänger überprüft, ob die eingehende Nachricht tatsächlich mit dem ursprünglichen privaten Schlüssel signiert wurde.",
+                    "updated": 1711295647413
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "TR",
                     "text": "Bu bilgilerin tüm alıcılar tarafından kullanılabilir olmasının yolu, tüm bu Signing Account düğümlerinin (her uygulama veya bot için diğer tanım düğümleriyle birlikte) yönetim profilinde saklanmasıdır. Yönetim profilleri Superalgos ekosisteminin herkese açık parçaları olduğu için bu tanımlara Platformun tüm kullanıcıları erişebilir.",
                     "updated": 1672059908496
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Art und Weise, wie diese Informationen allen Empfängern zur Verfügung stehen, besteht darin, dass alle diese Signing Account-Knoten (zusammen mit den anderen Definitionsknoten für jede App oder jeden Bot) innerhalb des Governance-Profils gespeichert werden. Da Governance-Profile öffentliche Teile des Superalgos-Ökosystems sind, sind diese Definitionen für alle Nutzer der Plattform zugänglich.",
+                    "updated": 1711295662036
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "TR",
                     "text": "Signing accounts çok özeldir. Her uygulamanın, ağ düğümünün ve Sosyal Ticaret Botlarının ( Social Trading Bots ) (sinyal koleksiyonları olan) kendi Signing Account düğümü vardır. Bu, profil kimliğinizin kendi özel anahtarına sahip olduğu anlamına gelir. Her uygulamanın kendi özel anahtarı vardır. Her Sosyal Ticaret Botunun ( Social Trading Bots ) kendi Özel anahtarı vb. vardır. Bu, yalnızca belirli bir cihazın ihtiyaç duyduğu özel anahtarların saklanmasını mümkün kılar.",
                     "updated": 1672060185285
+                },
+                {
+                    "language": "DE",
+                    "text": "Signing Accounts sind sehr spezifisch. Jede App, jeder Netzwerkknoten und Social Trading Bots (die Sammlungen von Signalen sind) hat einen eigenen Signing Account-Knoten. Das bedeutet, dass Ihre Profilidentität ihren eigenen privaten Schlüssel hat. Jede App hat ihren eigenen privaten Schlüssel. Jeder Social Trading Bot hat seinen eigenen privaten Schlüssel, usw. Dies ermöglicht es, nur die privaten Schlüssel zu speichern, die für ein bestimmtes Gerät benötigt werden.",
+                    "updated": 1711295671772
                 }
             ]
         },
@@ -163,6 +208,11 @@
                     "language": "TR",
                     "text": "Örneğin, bir raspberry pi kullanarak bir ticaret botu çalıştırdığınızı varsayalım. Bu pi'nin Superalgos ağında kendini tanımlayabilmesi için bir görev sunucusu signing account'u kurması gerekecektir. Bu kimliği kullanarak pi ağ üzerinden sinyal gönderebilir ve alabilir. Yalnızca görev sunucusunun özel anahtarının bu makinede saklanması gerekir. Yani ana yönetim özel anahtarınızın ya da diğer özel anahtarlarınızın tehlikeye girme olasılığı kesinlikle yoktur. Her makinenin yalnızca ihtiyacı olana erişimi vardır, daha fazlasına değil. Bu, özellikle bir yönetim profilinin ana özel anahtarının korunmasında önemlidir çünkü bu anahtar, söz konusu profilin token varlıklarına erişimi sağlayan anahtardır.",
                     "updated": 1672061202626
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir zum Beispiel an, Sie betreiben einen Trading-Bot mit einem Raspberry Pi. Für diesen Pi muss ein Task-Server-Signaturkonto eingerichtet werden, damit sich der Pi im Superalgos-Netzwerk identifizieren kann. Mit dieser Identität kann der Pi dann Signale über das Netzwerk senden und empfangen. Nur der private Schlüssel für den Taskserver muss auf diesem Rechner gespeichert werden. Das bedeutet, dass es absolut keine Möglichkeit gibt, dass der private Schlüssel der Hauptverwaltung oder andere private Schlüssel kompromittiert werden. Jeder Rechner hat nur Zugriff auf das, was er braucht, und nicht mehr. Dies ist besonders wichtig für den Schutz des privaten Hauptschlüssels eines Governance-Profils, da dieser Schlüssel den Zugriff auf den Token-Bestand des Profils ermöglicht.",
+                    "updated": 1711295684989
                 }
             ]
         },
@@ -175,6 +225,11 @@
                     "language": "TR",
                     "text": "İmzalama Hesabı Oluşturma (Creating a Signing Account)",
                     "updated": 1672061348793
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen eines Signing Accounts",
+                    "updated": 1711295725558
                 }
             ]
         },
@@ -187,6 +242,11 @@
                     "language": "TR",
                     "text": "Bir İmzalama Hesabı için gerekli imza anahtarlarını oluşturmak için çalışma alanınıza bir Profil Oluşturucu ( Profile Constructor ) yerleştirmeniz gerekecektir. Yönetişim Projesi ( Governance Project ) düğümüne gidip Profil Oluşturucu Ekle'ye tıklayarak ekleyebilirsiniz.",
                     "updated": 1672061710578
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen eines Signing Account Um die benötigten Signaturschlüssel für ein Signing Account zu generieren, müssen Sie einen Profile Constructor in Ihrem Arbeitsbereich platzieren. Sie können ihn hinzufügen, indem Sie zum Knoten Governance Project navigieren und auf Add Profile Constructor klicken.",
+                    "updated": 1711295765785
                 }
             ]
         },
@@ -199,6 +259,11 @@
                     "language": "TR",
                     "text": "Ardından Profil Oluşturucu ( Profile Constructor ) düğümü ile Kullanıcı Profili ( User Profile ) düğümü arasında bir referans bağlayın. Bu bağlandıktan sonra Signing Account Install'a tıklayın. Bu, profilinizle ilişkili tüm çeşitli imzalama hesapları için anahtarlar oluşturacaktır.",
                     "updated": 1672062503248
+                },
+                {
+                    "language": "DE",
+                    "text": "Verbinden Sie dann einen Verweis zwischen dem Profile Constructor -Knoten und Ihrem Benutzerprofil-Knoten. Sobald diese Verbindung hergestellt ist, klicken Sie auf Signierkonten installieren (Install Signing Accounts). Dadurch werden Schlüssel für alle verschiedenen Signierkonten generiert, die mit Ihrem Profil verbunden sind.",
+                    "updated": 1711295774552
                 }
             ]
         },

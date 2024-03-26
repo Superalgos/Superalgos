@@ -13,6 +13,11 @@
                 "language": "TR",
                 "text": "Bir iş arkadaşınızın Kullanıcı Profili ( User Profile ) ile referans oluşturmak için bu düğümü kullanın. Bu oylama ile Oylama Gücünü ( Voting Power ) doğrudan iş arkadaşınızın Oylama Programına ( Voting Program ) aktararak Oylama Gücünüzü ( Voting Power ) etkin bir şekilde devretmiş olursunuz.",
                 "updated": 1671458833079
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Knoten, um einen Bezug zum Benutzerprofil (User Profile) eines Kollegen herzustellen. Mit dieser Abstimmung geben Sie Ihr Stimmrecht (Voting Power) direkt an das Abstimmungsprogramm (Voting Program) Ihres Kollegen weiter und delegieren somit Ihr Stimmrecht.",
+                "updated": 1711280312836
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Güvendiğiniz kişileri yetkilendirmek için Oylama Gücünüzü ( Voting Power ) devredebilirsiniz! Topluluğun ( Community ) güvendiğiniz üyeleri, özellikle yönetimin belirli yönleriyle ilgilenmek için zamanınız veya uzmanlığınız olmadığını düşünüyorsanız, Oylama Gücünüzü ( Voting Power ) iyi bir şekilde kullanabilir.",
                     "updated": 1671459210014
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können Ihr Stimmrecht (Voting Power) delegieren, um Stimmen Ihres Vertrauens zu ermächtigen! Vertrauenswürdige Mitglieder der Gemeinschaft (Community) können Ihr Stimmrecht gut gebrauchen, insbesondere wenn Sie das Gefühl haben, dass Sie nicht die Zeit oder das Fachwissen haben, um sich mit bestimmten Aspekten der Verwaltung zu befassen.",
+                    "updated": 1711280326532
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Aynı Oylama Gücü ( Voting Power ), aşağıdaki uyarı kutusundaki uyarı ile birden fazla kez devredilebilir. Yetkilendirme, Kullanıcı Profili Oy düğümü veya referansı kaldırılarak herhangi bir noktada geri çekilebilir.",
                     "updated": 1671459923618
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein und dasselbe Stimmrecht (Voting Power) kann mehrfach übertragen werden, wobei der unten stehende Warnhinweis beachtet werden muss. Die Übertragung kann auch jederzeit zurückgenommen werden, indem der Knoten \"Abstimmung im Benutzerprofil\" oder sein Verweis entfernt wird.",
+                    "updated": 1711280349708
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "Bir Kullanıcı Profili ( User Profile ) Oy düğümüne yönlendirdiğiniz Oylama Gücünün ( Voting Power ) sadece %10'u alıcı Kullanıcı Profiline ( User Profile ) ulaşır. Bu, döngüsel beyanlar, sahte profiller veya oy ticareti gibi ortaya çıkabilecek hileli davranışları caydırmak içindir.",
                     "updated": 1671460064764
+                },
+                {
+                    "language": "DE",
+                    "text": "Nur 10 % der Stimmkraft (Voting Power), die Sie in einen Benutzerprofil-Abstimmungsknoten einbringen, erreicht das Empfänger-Benutzerprofil (User Profile). Dies dient dazu, betrügerische Verhaltensweisen zu verhindern, die durch zirkuläre Erklärungen, gefälschte Profile oder den Handel mit Stimmen entstehen können.",
+                    "updated": 1711280360115
                 }
             ]
         },
@@ -89,6 +109,11 @@
                     "language": "RU",
                     "text": "Конфигурация",
                     "updated": 1639041889629
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711280367109
                 }
             ]
         }

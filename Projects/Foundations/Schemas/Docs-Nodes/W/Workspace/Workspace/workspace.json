@@ -17,8 +17,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ein Workspace enthält Daten über:",
-                    "updated": 1639344135929
+                    "text": "Ein Arbeitsbereich speichert Informationen über:",
+                    "updated": 1711274750334
                 },
                 {
                     "language": "TR",
@@ -76,8 +76,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Nodes, die sich losgelöst von Hierarchien im Umlauf befinden können.",
-                    "updated": 1639344198115
+                    "text": "Knoten, die sich losgelöst von Hierarchien im Umlauf befinden können.",
+                    "updated": 1711274773244
                 },
                 {
                     "language": "TR",
@@ -109,8 +109,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Informationen über die physische Position und den Zustand aller Knoten innerhalb des Entwurfsraums(design space), auch derjenigen, die von Hierarchien losgelöst sind.",
-                    "updated": 1639344266368
+                    "text": "Informationen über die physische Position und den Zustand aller Knoten innerhalb des Entwurfsraums, auch derjenigen, die von Hierarchien losgelöst sind.",
+                    "updated": 1711274782686
                 },
                 {
                     "language": "TR",
@@ -141,8 +141,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ein Workspace ist nicht Teil einer der Hierarchien, sondern enthält sie.",
-                    "updated": 1639344339043
+                    "text": "Ein Arbeitsbereich ist nicht Teil einer der Hierarchien, sondern enthält sie.",
+                    "updated": 1711274790674
                 },
                 {
                     "language": "TR",
@@ -158,15 +158,36 @@
         },
         {
             "style": "Title",
-            "text": "Native Workspaces"
+            "text": "Native Workspaces",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Native Arbeitsbereiche",
+                    "updated": 1711274799426
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos ships with several Native Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on."
+            "text": "Superalgos ships with several Native Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos wird mit mehreren nativen Arbeitsbereichen (Native Workspaces) geliefert. Dabei handelt es sich um vorkonfigurierte Arbeitsbereiche, die für bestimmte Zwecke eingerichtet wurden, z. B. für Tutorials, Demostrategien, bestimmte Projekte und so weiter.",
+                    "updated": 1711274808846
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Native workspaces are stored in the Plugins folder, organized by Project. For instance, the Getting Started Tutorials Native Workspace is stored in the following location:"
+            "text": "Native workspaces are stored in the Plugins folder, organized by Project. For instance, the Getting Started Tutorials Native Workspace is stored in the following location:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Native Arbeitsbereiche werden im Ordner Plugins gespeichert, der nach Projekten (Project) geordnet ist. Der native Arbeitsbereich \"Erste Schritte\" (Project) ist beispielsweise an folgendem Ort gespeichert:",
+                    "updated": 1711274832295
+                }
+            ]
         },
         {
             "style": "Json",
@@ -193,8 +214,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Workspaces speichern",
-                    "updated": 1639344719336
+                    "text": "Speichern von Arbeitsbereichen",
+                    "updated": 1711274840235
                 },
                 {
                     "language": "TR",
@@ -226,8 +247,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Jeder Workspace, der vom Benutzer gespeichert wird, ist ein User Workspace",
-                    "updated": 1639344751205
+                    "text": "Jeder Arbeitsbereich, der vom Benutzer gespeichert wird, ist ein Benutzerarbeitsbereich (User Workspace).",
+                    "updated": 1711274847435
                 },
                 {
                     "language": "TR",
@@ -259,8 +280,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Workspaces werden als JSON-Dateien im Ordner My-Workspaces gespeichert.",
-                    "updated": 1639344889249
+                    "text": "Arbeitsbereiche (Workspaces) werden als JSON-Dateien im Ordner Platform/My-Workspaces gespeichert.",
+                    "updated": 1711274999444
                 },
                 {
                     "language": "TR",
@@ -292,8 +313,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sie können einen Workspace manuell mit der folgenden Tastenkombination speichern:",
-                    "updated": 1639344930505
+                    "text": "Um einen Arbeitsbereich (Workspace) zu speichern, verwenden Sie die Option Arbeitsbereich speichern im Menü Arbeitsbereiche, oder verwenden Sie die folgende Tastenkombination:",
+                    "updated": 1711274924763
                 },
                 {
                     "language": "TR",
@@ -337,46 +358,107 @@
                     "language": "EL",
                     "text": "Η δημιουργία αντιγράφων ασφαλείας ενός χώρου εργασίας κατεβάζει το ίδιο αρχείο στον τοπικό σας φάκελο \"Λήψεις\". Αυτός είναι ένας καλός τρόπος αποθήκευσης διαδοχικών εκδόσεων σε περίπτωση που χρειαστεί να επιστρέψετε σε μια προηγούμενη κατάσταση πραγμάτων.",
                     "updated": 1641830034677
+                },
+                {
+                    "language": "DE",
+                    "text": "Beim Sichern eines Arbeitsbereichs wird dieselbe Datei in Ihren lokalen Download-Ordner heruntergeladen. Dies ist eine gute Möglichkeit, um aufeinanderfolgende Versionen zu speichern, falls Sie jemals zu einem früheren Stand zurückkehren müssen.",
+                    "updated": 1711275018512
                 }
             ]
         },
         {
             "style": "Important",
             "text": "When you load, modify, and save a Native Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the Platform/My-Workspaces folder. This file is a copy of the Native Workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
-            "updated": 1687798576929
+            "updated": 1687798576929,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen nativen Arbeitsbereich (Native Workspace) laden, ändern und speichern, bleibt die eigentliche Plugin-Datei intakt, d. h. das Plugin wird nicht geändert. Stattdessen wird eine neue Datei im Ordner Platform/My-Workspaces erstellt. Diese Datei ist eine Kopie des nativen Arbeitsbereichs (Native Workspace) mit den von Ihnen vorgenommenen Änderungen. Die Kopie wird unter dem Namen des Workspace-Knotens gespeichert, der in der Regel derselbe ist wie der Name des Plugins. Um den Arbeitsbereich unter einem anderen Namen zu speichern, müssen Sie den Namen des Workspace-Knotens ändern und speichern.",
+                    "updated": 1711275031876
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Loading Workspaces",
-            "updated": 1687798809487
+            "updated": 1687798809487,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Arbeitsbereiche laden",
+                    "updated": 1711275042892
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point."
+            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutzer können mehrere Arbeitsbereiche verwalten, aber es kann immer nur ein Arbeitsbereich im System geladen sein.",
+                    "updated": 1711275053604
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "To load a workspace, use the Native Workspaces or the User Workspace option on the Workspaces menu.",
-            "updated": 1687798877373
+            "updated": 1687798877373,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um einen Arbeitsbereich zu laden, verwenden Sie die Option \"Eigene Arbeitsbereiche\" (Native Workspaces) oder \"Benutzerarbeitsbereich\" (User Workspace) im Menü \"Arbeitsbereiche\" (Workspaces).",
+                    "updated": 1711275067028
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To load a workspace you got from a third party, you may place the file in the Platform/My-Workspaces folder so that you may open it from the User Workspace menu. You may also drag the file and drop it on the Design Space.",
-            "updated": 1687798940870
+            "updated": 1687798940870,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um einen Arbeitsbereich zu laden, den Sie von einem Drittanbieter erhalten haben, können Sie die Datei im Ordner Platform/My-Workspaces ablegen, so dass Sie sie über das Menü Benutzerarbeitsbereich (User Workspace) öffnen können. Sie können die Datei auch auf den Designbereich (Design Space) ziehen und dort ablegen.",
+                    "updated": 1711275228475
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "It is not recommended to launch multiple instances of the UI in separate browser tabs to load different workspaces at the same time. The system is not prepared to handle this type of use and it may behave erratically as a consequence.",
-            "updated": 1687798954286
+            "updated": 1687798954286,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es wird nicht empfohlen, mehrere Instanzen der Benutzeroberfläche (UI) in separaten Browser-Tabs zu starten, um verschiedene Arbeitsbereiche gleichzeitig zu laden. Das System ist auf diese Art der Nutzung nicht vorbereitet und kann sich infolgedessen fehlerhaft verhalten.",
+                    "updated": 1711275234023
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Configuration",
-            "updated": 1687798668404
+            "updated": 1687798668404,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711275240332
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A workspace can have the following configuration properties, all are optional:"
+            "text": "A workspace can have the following configuration properties, all are optional:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Arbeitsbereich kann die folgenden Konfigurationseigenschaften haben, die alle optional sind:",
+                    "updated": 1711275259788
+                }
+            ]
         },
         {
             "style": "Json",
@@ -386,17 +468,38 @@
         {
             "style": "List",
             "text": "<strong>docsLanuage</strong>: sets the language for the documentation",
-            "updated": 1679579295030
+            "updated": 1679579295030,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "docsLanuage: legt die Sprache für die Dokumentation fest",
+                    "updated": 1711275274219
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<strong>contributionsBranch</strong>: sets the git branch for making your contributions",
-            "updated": 1679579295030
+            "updated": 1679579295030,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "contributionsBranch: legt den Git-Zweig fest, in dem Sie Ihre Beiträge leisten",
+                    "updated": 1711275370428
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<strong>location</strong>: a specific folder location for this workspace to live. If you want this to be nested in multiple folders, examples would be <i>copy-trading/live</i>, <i>copy-trading/paper</i>.",
-            "updated": 1679579295030
+            "updated": 1679579295030,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "location: ein bestimmter Ordner, in dem dieser Arbeitsbereich gespeichert werden soll. Wenn Sie möchten, dass dieser in mehreren Ordnern verschachtelt wird, wären Beispiele: copy-trading/live, copy-trading/paper.",
+                    "updated": 1711275414941
+                }
+            ]
         },
         {
             "style": "Title",
@@ -415,8 +518,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Workspaces erstellen:",
-                    "updated": 1639346933048
+                    "text": "Arbeitsbereiche erstellen",
+                    "updated": 1711275424689
                 },
                 {
                     "language": "EL",
@@ -441,8 +544,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um einen neuen Workspace zu erstellen, benennen Sie einen der vorhandenen Workspaces um, indem Sie die Bezeichnung der Workspace Node ändern, und speichern Sie ihn wie oben beschrieben. Nach dem Ändern der Bezeichnung und dem Speichern des Workspaces (auf einem der üblichen Wege) wird eine neue Datei im Ordner My-Workspaces gespeichert.",
-                    "updated": 1639347021732
+                    "text": "Um einen neuen Arbeitsbereich zu erstellen, benennen Sie einen der vorhandenen Arbeitsbereiche um, indem Sie die Bezeichnung des Arbeitsbereichsknotens ändern, und speichern Sie ihn wie oben beschrieben. Nach dem Ändern der Bezeichnung und dem Speichern des Arbeitsbereichs (auf einem der üblichen Wege) wird eine neue Datei im Ordner My-Workspaces gespeichert.",
+                    "updated": 1711275432164
                 },
                 {
                     "language": "EL",
@@ -468,8 +571,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Der Blank Template Native Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
-                    "updated": 1639347042936
+                    "text": "Die leere Vorlage Native Workspace (Blank Template Native Workspace) eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
+                    "updated": 1711275443206
                 },
                 {
                     "language": "EL",
@@ -500,8 +603,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Workspaces löschen",
-                    "updated": 1639347055020
+                    "text": "Löschen von Arbeitsbereichen",
+                    "updated": 1711275460788
                 },
                 {
                     "language": "EL",
@@ -532,8 +635,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um einen Workspace zu löschen, löschen Sie die entsprechende workspace datei in der Dateisystemanwendung(Datei verwaltung/File system) Ihres Betriebssystems.",
-                    "updated": 1639347139221
+                    "text": "Um einen Arbeitsbereich zu löschen, löschen Sie die entsprechende Arbeitsbereichsdatei in der Dateisystemanwendung Ihres Betriebssystems. (...Superalgos\\Platform\\My-Workspaces)",
+                    "updated": 1711275596699
                 },
                 {
                     "language": "EL",
@@ -565,8 +668,8 @@
             },
             {
                 "language": "DE",
-                "text": "Ein Workspace (=Arbeitsbereich) ist eine Entität, in der alle System- und benutzergenerierten Informationen gespeichert werden, mit Ausnahme des Status und der Inhalte von Plugins. Technisch gesehen ist ein Arbeitsbereich eine JSON-Datei.",
-                "updated": 1639344118881
+                "text": "Ein Arbeitsbereich ist eine Entität, in der alle System- und benutzergenerierten Informationen gespeichert werden, mit Ausnahme des Status und der Inhalte von Plugins. Technisch gesehen ist ein Arbeitsbereich eine JSON-Datei.",
+                "updated": 1711274737975
             },
             {
                 "language": "TR",

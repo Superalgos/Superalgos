@@ -11,8 +11,8 @@
             },
             {
                 "language": "DE",
-                "text": "Votes (Abstimmungen) und Claims (Ansprüche) sind Instrumente, mit denen die Gemeinschaft bestimmt, was gefördert wird und wie Beiträge vergütet werden. Verwenden Sie diese Nodes, um das Claims Program und das Voting Program zu starten.",
-                "updated": 1640304162727
+                "text": "Abstimmungen und Ansprüche sind Instrumente, mit denen die Gemeinschaft (Community) bestimmt, was gefördert wird und wie Beiträge vergütet werden. Verwenden Sie diesen Knoten, um das Claims Program und das Voting Program zu starten.",
+                "updated": 1711274289443
             },
             {
                 "language": "TR",
@@ -39,8 +39,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Erfahren Sie mehr darüber, wie Token Power Flows in diese Programme fließt!",
-                    "updated": 1640304209039
+                    "text": "Tipp: Erfahren Sie mehr darüber, wie Token Power in diese Programme fließt (Token Power Flows)!",
+                    "updated": 1711274306049
                 },
                 {
                     "language": "TR",
@@ -66,6 +66,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1645182051884
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711274313533
                 }
             ]
         }

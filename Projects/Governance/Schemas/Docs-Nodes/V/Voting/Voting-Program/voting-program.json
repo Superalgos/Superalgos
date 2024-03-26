@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Oylama Programı, (Voting Program), çeşitli türlerde oy vermenizi sağladığı için yönetimin kalbi ve ruhudur. Neyi teşvik edeceğinize, Havuzları (Pools), Varlıkları (Assets), Özellikleri (Features) ve Pozisyonları (Positions) tartarak karar verebilirsiniz. Ayrıca Katkı İddialarını (Contribution Claims) değerlendirebilir, destekleyebilir ve Oylama Gücünü diğer kullanıcılara aktarabilirsiniz.",
                 "updated": 1645182213674
+            },
+            {
+                "language": "DE",
+                "text": "Das Abstimmungsprogramm (Voting Program) ist das Herz und die Seele der Verwaltung, da es Ihnen ermöglicht, verschiedene Arten von Stimmen abzugeben. Sie können entscheiden, was Sie fördern möchten, indem Sie Pools, Vermögenswerte, Funktionen und Positionen (weighing Pools, Assets, Features, and Positions) abwägen. Sie können auch Beitragsforderungen (Contribution Claims) bewerten und unterstützen und Stimmrechte (Voting Power) an andere Nutzer übertragen.",
+                "updated": 1711274454521
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "RU",
                     "text": "Ваша репутация Reputation добавляется к силе токена Token Power, которая вливается в программу голосования Voting Program, эффективно увеличивая вашу силу голоса Voting Power. Узнайте больше о Reputation !",
                     "updated": 1638986609516
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre Reputation wird der Token Power hinzugefügt, die in das Abstimmungsprogramm fließt, und erhöht somit Ihre Stimmkraft (Voting Power). Lesen Sie mehr über Reputation!",
+                    "updated": 1711274479095
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "Oylama Programındaki özellikler, üç farklı kategoride oy vermenizi sağlar:",
                     "updated": 1645182912981
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktionen des Abstimmungsprogramms ermöglichen es Ihnen, drei verschiedene Kategorien von Stimmen abzugeben:",
+                    "updated": 1711274487028
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "TR",
                     "text": "Oyları Talep Edin (Claim Votes): Katkılarından dolayı hak ettikleri ödülleri alabilmeleri ve diğer kullanıcıların iddialarını desteklemek için Talep Oylarını kullanın. Varlık Talebi Oyu (Asset Claim Vote), Özellik Talebi Oyu (Feature Claim Vote) ve Pozisyon Talebi Oyu (Position Claim Vote) düğümleri olmak üzere üç tür talep oyu düğümü vardır.",
                     "updated": 1645182355182
+                },
+                {
+                    "language": "DE",
+                    "text": "Claim Votes: Verwenden Sie Claim Votes, um die Claims anderer Benutzer zu unterstützen, damit diese die Belohnungen erhalten, die sie für ihre Beiträge verdienen. Es gibt drei Arten von Claim-Vote-Knoten, nämlich Asset Claim Vote, Feature Claim Vote und Position Claim Vote Knoten.",
+                    "updated": 1711274499772
                 }
             ]
         },
@@ -111,6 +131,11 @@
                     "language": "TR",
                     "text": "Weight Votes (Ağırlık Oyları): Projenin hangi alanlarının teşvik edilmesi gerektiğini etkilemek için Ağırlık Oylarını kullanın. Havuz Ağırlığı Oyu (Pool Weight Vote), Varlık Ağırlığı Oyu (Asset Weight Vote), Özellik Ağırlığı Oyu (Feature Weight Vote) ve Konum Ağırlığı Oyu (Position Weight Vote) düğümleri olmak üzere dört tür ağırlık oyu vardır.",
                     "updated": 1645182463365
+                },
+                {
+                    "language": "DE",
+                    "text": "Weight Votes: Verwenden Sie Gewichtungsabstimmungen (Weight Votes), um zu beeinflussen, welche Bereiche des Projekts incentiviert werden sollen. Es gibt vier Arten von Gewichtungsabstimmungen, nämlich Poolgewichtungsabstimmung, Assetgewichtungsabstimmung, Featuregewichtungsabstimmung und Positionsgewichtungsabstimmungsknoten (Pool Weight Vote, Asset Weight Vote, Feature Weight Vote).",
+                    "updated": 1711274530027
                 }
             ]
         },
@@ -155,21 +180,47 @@
                     "language": "TR",
                     "text": "Her biri yukarıda açıklanan farklı oy türleriyle ilişkilendirilmiş birkaç başka anahtarın oluşturulmasına izin veren üst düzey bir Oy Anahtarı düğümü (Votes Switch) vardır:",
                     "updated": 1645182952202
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einen Knoten Abstimmungsschalter (Votes Switch) auf oberster Ebene, der es ermöglicht, mehrere andere Schalter zu erzeugen, von denen jeder mit den verschiedenen oben beschriebenen Arten von Abstimmungen verbunden ist:",
+                    "updated": 1711274550707
                 }
             ]
         },
         {
             "style": "List",
             "text": "Claim Votes Switch",
-            "updated": 1630329624666
+            "updated": 1630329624666,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalter Stimmen einfordern (Claim Votes Switch)",
+                    "updated": 1711274567035
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Weight Votes Switch"
+            "text": "Weight Votes Switch",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalter Stimmengewichte (Weight Votes Switch) ",
+                    "updated": 1711274591038
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "User Profile Votes Switch"
+            "text": "User Profile Votes Switch",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutzerprofil Schalter Abstimmungen (User Profile Votes Switch)",
+                    "updated": 1711274600115
+                }
+            ]
         },
         {
             "style": "Success",
@@ -190,6 +241,11 @@
                     "language": "TR",
                     "text": "Bu anahtarlar Oylama Gücü (Voting Power) akışını kontrol eden organizasyonel cihazlar olarak kullanılabilir, farklı oy türlerini ortaya çıkarabilir ve tüm veri yapılarını kolayca eşlemenize yardımcı olabilir. Ayrıntılara her anahtarın yardım sayfasında bulabilirsiniz!",
                     "updated": 1645183040742
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Schalter steuern den Fluss der Abstimmungskraft (Voting Power), können als Organisationsmittel verwendet werden, können die verschiedenen Arten von Abstimmungen hervorbringen und können Ihnen helfen, ganze Datenstrukturen einfach abzubilden. Die Details finden Sie auf der Seite des jeweiligen Schalters!",
+                    "updated": 1711274622531
                 }
             ]
         },
@@ -211,6 +267,11 @@
                     "language": "TR",
                     "text": "Yapılandırma",
                     "updated": 1645183052338
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1711274629139
                 }
             ]
         }

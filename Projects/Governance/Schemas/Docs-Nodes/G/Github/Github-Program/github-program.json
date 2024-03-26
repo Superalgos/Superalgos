@@ -16,8 +16,8 @@
             },
             {
                 "language": "DE",
-                "text": "Dieses Programm bietet Nutzern einen Anreiz, das Superalgos-Repository zu forken, ein notwendiger Schritt, um einen Beitrag zu leisten (contribute). Es bietet auch einen Anreiz für Nutzer, einen Stern zu vergeben und das Repository zu beobachten, was Entwicklern hilft, das Projekt bei der Suche auf Github.com zu finden.",
-                "updated": 1641768486881
+                "text": "Dieses Programm bietet Nutzern einen Anreiz, das Superalgos-Repository zu forken, ein notwendiger Schritt, um einen Beitrag zu leisten. Es bietet auch einen Anreiz für Nutzer, einen Stern zu vergeben und das Repository zu beobachten, was Entwicklern hilft, das Projekt bei der Suche auf Github.com zu finden. ",
+                "updated": 1711273068603
             },
             {
                 "language": "TR",
@@ -49,8 +49,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Das Github Program verteilt den Rewards Pool, der unter dem Abschnitt Governance Programs > Onboarding Programs in der Superalgos Pool hierarchy definiert ist.",
-                    "updated": 1641768601946
+                    "text": "Das Github-Programm (Github Program) verteilt den Belohnungspool (Rewards Pool), der unter dem Abschnitt Governance-Programme (Governance Programs)> Onboarding-Programme der Superalgos-Pool-Hierarchie (Superalgos Pools hierarchy) definiert ist.",
+                    "updated": 1711273081419
                 },
                 {
                     "language": "TR",
@@ -75,8 +75,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um am Github Program teilzunehmen, müssen Sie nur das Github Program starten und Ihr User Profile (Benutzerprofil) einreichen (contribute User Profile).  Um Ihre Tokens Belohnung zu maximieren, stellen Sie sicher, dass Sie einen Fork und einen Stern haben und das Repository beobachten! Das System überprüft automatisch und in Echtzeit die Existenz der Repositories auf Github.com.",
-                    "updated": 1641768690045
+                    "text": "Um an dem Programm teilzunehmen, müssen Sie nur das Github-Programm starten und Ihr Benutzerprofil (User Profile) einreichen. Um die Anzahl der vergebenen Token (Tokens Awarded) zu maximieren, stellen Sie sicher, dass Sie einen Fork und einen Stern haben und das Repository beobachten! Das System führt automatische Überprüfungen auf Github.com durch und verifiziert deren Existenz in Echtzeit.",
+                    "updated": 1711273092955
                 },
                 {
                     "language": "TR",
@@ -102,8 +102,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Für jeden dieser Anreize gibt es eine Obergrenze von 1.000 SA. Das bedeutet, dass Sie bis zu 3.000 SA in Token erhalten können (Tokens Awarded), wenn Sie Ihre Teilnahme maximieren.",
-                    "updated": 1641768723743
+                    "text": "Für jeden dieser Anreize gibt es eine Obergrenze von 1.000 SA. Das bedeutet, dass Sie bis zu 3.000 SA in Token (Tokens Awarded) erhalten können, wenn Sie Ihre Teilnahme maximieren.",
+                    "updated": 1711273118404
                 },
                 {
                     "language": "TR",
@@ -128,8 +128,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Falls nicht genügend Token im Belohnungspool (Rewards Pool) vorhanden sind, um alle Anreize bis zur festgelegten Obergrenze für alle Benutzerprofile abzudecken, erhält jedes Profil einen gleichen Anteil für jeden der anwendbaren Anreize.",
-                    "updated": 1641768763512
+                    "text": "Falls nicht genügend Token im Belohnungspool (Rewards Pool) vorhanden sind, um alle Anreize bis zur festgelegten Obergrenze für alle Benutzerprofile abzudecken, erhält jedes Profil einen gleichen Anteil für jeden der anwendbaren Anreize. ",
+                    "updated": 1711273125747
                 },
                 {
                     "language": "TR",
@@ -157,8 +157,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Konfiguration",
-                    "updated": 1641768788568
+                    "text": "Konfiguration ",
+                    "updated": 1711273135763
                 },
                 {
                     "language": "TR",

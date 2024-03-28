@@ -30,6 +30,11 @@
                 "language": "EL",
                 "text": "Η ιεραρχία χαρακτηριστικών του οδηγού εκμάθησης περιλαμβάνει μια ελεύθερη διάταξη των κόμβων του Tutorial Topic (Θέμα Οδηγού Εκμάθησης) και του Tutorial Step (Βήματος Εκμάθησης) που συνθέτουν τον Οδηγό Εκμάθησης. Κάθε κόμβος στην ιεραρχία, συμπεριλαμβανομένου του γονικού εκπαιδευτικού κόμβου, αντιπροσωπεύει μια σελίδα HTML που μπορεί να επικαλύπτεται πάνω από το Design Space (Χώρο Σχεδίασης) και το Charting Space (Χώρο Χαρτογράφησης).",
                 "updated": 1641829121689
+            },
+            {
+                "language": "NL",
+                "text": "De tutorialhiërarchie beschikt over een vrije rangschikking van de knooppunten Tutorialonderwerp en Tutorialstap waaruit een tutorial bestaat. Elk knooppunt in de hiërarchie, inclusief het bovenliggende tutorialknooppunt, vertegenwoordigt een HTML-pagina die over zowel de ontwerpruimte als de diagramruimte kan worden gelegd.",
+                "updated": 1711651760109
             }
         ]
     },
@@ -68,6 +73,11 @@
                     "language": "TR",
                     "text": "Hiyerarşideki düğümler serbestçe düzenlenebilir, bu da istendiği kadar çok öğretici konusu ve öğretici adımı olabileceği anlamına gelir. Öğretici konular, öğretici adımların yanı sıra diğer eğitim konularını da içerebilir. Bu, yuvalama konularının alt konular olarak kullanılmasına izin verir.",
                     "updated": 1652014591013
+                },
+                {
+                    "language": "NL",
+                    "text": "Knooppunten in de hiërarchie kunnen vrij worden gerangschikt, wat betekent dat er zoveel lesonderwerpen en lesstappen kunnen zijn als gewenst. Tutorialonderwerpen kunnen tutorialstappen bevatten, maar ook andere tutorialonderwerpen. Hierdoor kunnen geneste onderwerpen als subonderwerpen worden gebruikt.",
+                    "updated": 1711651823377
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "TR",
                     "text": "Sistem - her zamanki gibi - ana Eğitim düğümünün sağındaki düğümden başlayarak hiyerarşiyi saat yönünde değerlendirir ve bir sonrakine geçmeden önce her dalın en derin düğümüne gider.",
                     "updated": 1652014609236
+                },
+                {
+                    "language": "NL",
+                    "text": "Het systeem evalueert – zoals gebruikelijk – de hiërarchie met de klok mee, beginnend bij het knooppunt rechts van het bovenliggende Tutorial-knooppunt, en gaat naar het diepste knooppunt van elke tak voordat het naar de volgende gaat.",
+                    "updated": 1711651904395
                 }
             ]
         },
@@ -134,6 +149,11 @@
                     "language": "TR",
                     "text": "Genel anlamda, tüm düğüm türleri, kesin türden bağımsız olarak her düğümün kendi başına bir eğitim adımını temsil etmesi anlamında benzer şekilde davranır. Yani, en üst düzey Öğretici düğümü, Öğretici Konu ( Tutorial Topic ) düğümü ve Öğretici Adım ( Tutorial Step ) düğümü dahil tüm düğümler, öğreticide bir adım olarak bir içerik sayfası görüntüleyebilir. Uygun olan yerlerde küçük farklılıklar belirtilecektir.",
                     "updated": 1652014692910
+                },
+                {
+                    "language": "NL",
+                    "text": "In het algemeen gedragen alle typen knooppunten zich op dezelfde manier, in die zin dat elk knooppunt, onafhankelijk van het precieze type, een leerstap op zichzelf vertegenwoordigt. Dat wil zeggen dat alle knooppunten, inclusief het Tutorial-knooppunt op het hoogste niveau, het Tutorial Topic-knooppunt en het Tutorial Step-knooppunt, een inhoudspagina kunnen weergeven als stap in de tutorial. Waar nodig wordt gewezen op subtiele verschillen.",
+                    "updated": 1711652002325
                 }
             ]
         },
@@ -663,7 +683,7 @@
             "style": "Subtitle",
             "text": "slider",
             "updated": 1617635668767,
-            "translations": [ ]
+            "translations": []
         },
         {
             "style": "Text",
@@ -1128,7 +1148,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Свойство searchPage выходит за пределы настроек редактора учебника и загружает домашнюю страницу поиска с полем поиска в центре.",
+                    "text": "Свойство searchPage выходит за пределы ��астроек редактора учебника и загружает домашнюю страницу поиска с полем поиска в центре.",
                     "updated": 1638344044257
                 },
                 {

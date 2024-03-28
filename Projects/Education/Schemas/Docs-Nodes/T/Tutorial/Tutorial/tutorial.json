@@ -30,6 +30,11 @@
                 "language": "EL",
                 "text": "Η ιεραρχία χαρακτηριστικών του οδηγού εκμάθησης περιλαμβάνει μια ελεύθερη διάταξη των κόμβων του Tutorial Topic (Θέμα Οδηγού Εκμάθησης) και του Tutorial Step (Βήματος Εκμάθησης) που συνθέτουν τον Οδηγό Εκμάθησης. Κάθε κόμβος στην ιεραρχία, συμπεριλαμβανομένου του γονικού εκπαιδευτικού κόμβου, αντιπροσωπεύει μια σελίδα HTML που μπορεί να επικαλύπτεται πάνω από το Design Space (Χώρο Σχεδίασης) και το Charting Space (Χώρο Χαρτογράφησης).",
                 "updated": 1641829121689
+            },
+            {
+                "language": "NL",
+                "text": "De tutorialhiërarchie beschikt over een vrije rangschikking van de knooppunten Tutorialonderwerp en Tutorialstap waaruit een tutorial bestaat. Elk knooppunt in de hiërarchie, inclusief het bovenliggende tutorialknooppunt, vertegenwoordigt een HTML-pagina die over zowel de ontwerpruimte als de diagramruimte kan worden gelegd.",
+                "updated": 1711651760109
             }
         ]
     },
@@ -68,6 +73,11 @@
                     "language": "TR",
                     "text": "Hiyerarşideki düğümler serbestçe düzenlenebilir, bu da istendiği kadar çok öğretici konusu ve öğretici adımı olabileceği anlamına gelir. Öğretici konular, öğretici adımların yanı sıra diğer eğitim konularını da içerebilir. Bu, yuvalama konularının alt konular olarak kullanılmasına izin verir.",
                     "updated": 1652014591013
+                },
+                {
+                    "language": "NL",
+                    "text": "Knooppunten in de hiërarchie kunnen vrij worden gerangschikt, wat betekent dat er zoveel lesonderwerpen en lesstappen kunnen zijn als gewenst. Tutorialonderwerpen kunnen tutorialstappen bevatten, maar ook andere tutorialonderwerpen. Hierdoor kunnen geneste onderwerpen als subonderwerpen worden gebruikt.",
+                    "updated": 1711651823377
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "language": "TR",
                     "text": "Sistem - her zamanki gibi - ana Eğitim düğümünün sağındaki düğümden başlayarak hiyerarşiyi saat yönünde değerlendirir ve bir sonrakine geçmeden önce her dalın en derin düğümüne gider.",
                     "updated": 1652014609236
+                },
+                {
+                    "language": "NL",
+                    "text": "Het systeem evalueert – zoals gebruikelijk – de hiërarchie met de klok mee, beginnend bij het knooppunt rechts van het bovenliggende Tutorial-knooppunt, en gaat naar het diepste knooppunt van elke tak voordat het naar de volgende gaat.",
+                    "updated": 1711651904395
                 }
             ]
         },
@@ -134,6 +149,11 @@
                     "language": "TR",
                     "text": "Genel anlamda, tüm düğüm türleri, kesin türden bağımsız olarak her düğümün kendi başına bir eğitim adımını temsil etmesi anlamında benzer şekilde davranır. Yani, en üst düzey Öğretici düğümü, Öğretici Konu ( Tutorial Topic ) düğümü ve Öğretici Adım ( Tutorial Step ) düğümü dahil tüm düğümler, öğreticide bir adım olarak bir içerik sayfası görüntüleyebilir. Uygun olan yerlerde küçük farklılıklar belirtilecektir.",
                     "updated": 1652014692910
+                },
+                {
+                    "language": "NL",
+                    "text": "In het algemeen gedragen alle typen knooppunten zich op dezelfde manier, in die zin dat elk knooppunt, onafhankelijk van het precieze type, een leerstap op zichzelf vertegenwoordigt. Dat wil zeggen dat alle knooppunten, inclusief het Tutorial-knooppunt op het hoogste niveau, het Tutorial Topic-knooppunt en het Tutorial Step-knooppunt, een inhoudspagina kunnen weergeven als stap in de tutorial. Waar nodig wordt gewezen op subtiele verschillen.",
+                    "updated": 1711652002325
                 }
             ]
         },
@@ -167,6 +187,11 @@
                     "language": "TR",
                     "text": "Not: Hiyerarşideki tüm düğüm türleri arasındaki temel benzerlik, hepsinin, öğreticinin Dokümanlar'daki sayfa koleksiyonundan içerik çekebilmesidir. Diğer bir deyişle, hiyerarşideki her düğüm bir Dokümanlar Sayfasına işaret eder ve verilen adım için görüntülenen içeriğin yer aldığı Dokümanlar'daki o sayfadır. İşaretçi, her düğümün yapılandırmasında belirtilir (docs özelliğine bakın).",
                     "updated": 1652014704284
+                },
+                {
+                    "language": "NL",
+                    "text": "De belangrijkste overeenkomst tussen alle typen knooppunten in de hiërarchie is dat ze allemaal inhoud kunnen halen uit de verzameling pagina's van de tutorial in de Documenten. Dat wil zeggen dat elk knooppunt in de hiërarchie naar een Documentenpagina verwijst, en het is die pagina in de Documenten die de inhoud bevat die voor de gegeven stap wordt weergegeven. De pointer wordt gespecificeerd in de configuratie van elk knooppunt (zie de docs-eigenschap).",
+                    "updated": 1711652610044
                 }
             ]
         },
@@ -222,6 +247,11 @@
                     "language": "TR",
                     "text": "Öğretici hiyerarşisindeki her düğümün yapılandırması, her adımın içeriğini ve davranışını belirler. Tüm düğüm türleri aynı temel yapılandırmayı paylaşır. Ancak, Eğitim Adımı ( Tutorial Step )  düğümleri, Eğitim Adımı düğüm sayfasında açıklanan ekstra özelliklere sahiptir.",
                     "updated": 1652014737946
+                },
+                {
+                    "language": "NL",
+                    "text": "De configuratie van elk knooppunt in de tutorialhiërarchie bepaalt de inhoud en het gedrag van elke stap. Alle typen knooppunten delen dezelfde basisconfiguratie. Tutorial Step-knooppunten hebben echter extra eigenschappen, die worden beschreven op de Tutorial Step-knooppuntpagina.",
+                    "updated": 1711652634811
                 }
             ]
         },
@@ -250,6 +280,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu sayfada tartışılan yapılandırma özellikleri, hiyerarşideki tüm düğüm türleri için geçerlidir.",
                     "updated": 1652014747767
+                },
+                {
+                    "language": "NL",
+                    "text": "De configuratie-eigenschappen die op deze pagina worden besproken, zijn van toepassing op alle typen knooppunten in de hiërarchie.",
+                    "updated": 1711652684112
                 }
             ]
         },
@@ -278,6 +313,11 @@
                     "language": "TR",
                     "text": "HTML sayfasının düzeni, eğitim penceresinin sınırları içinde görüntülenmesine rağmen, Dokümanlar'daki ilişkili sayfanın düzenini takip eder.",
                     "updated": 1652014756953
+                },
+                {
+                    "language": "NL",
+                    "text": "De lay-out van de HTML-pagina volgt de lay-out van de bijbehorende pagina in Documenten, hoewel deze binnen de grenzen van het zelfstudievenster wordt weergegeven.",
+                    "updated": 1711652719330
                 }
             ]
         },
@@ -306,6 +346,11 @@
                     "language": "TR",
                     "text": "Diğer bir deyişle, ilgili Dokümanlar Sayfasındaki ( Docs Page ) tek tek paragraflara içerik yazarak ve stiller uygulayarak belirli adımın düzenini etkilersiniz.",
                     "updated": 1652014804710
+                },
+                {
+                    "language": "NL",
+                    "text": "Met andere woorden, u beïnvloedt de lay-out van de specifieke stap door inhoud te schrijven en stijlen toe te passen op individuele alinea's op de bijbehorende Documentenpagina.",
+                    "updated": 1711652744965
                 }
             ]
         },
@@ -334,6 +379,11 @@
                     "language": "TR",
                     "text": "Not: HTML sayfası sınırlı bir alana sahiptir ve kaydırmayı desteklemez. İlişkili Dokümanlar Sayfasında ( Docs Page ) çok fazla bilgi tanımlanırsa, ortaya çıkan içerik eğitim penceresindeki kullanılabilir alanı aşar. Bu tür taşmalarla başa çıkmak için sistem tarafında bir kontrol yoktur, bu nedenle bilgiyi birden çok adıma yaymak ve her sayfayı kendi sınırları içinde tutmak size kalmıştır.",
                     "updated": 1652014827699
+                },
+                {
+                    "language": "NL",
+                    "text": "De HTML-pagina heeft een beperkte ruimte en ondersteunt geen scrollen. Als er te veel informatie is gedefinieerd op de bijbehorende Documentenpagina, overschrijdt de resulterende inhoud de beschikbare ruimte in het zelfstudievenster. Er is geen controle aan de systeemzijde om met dergelijke overflows om te gaan, dus het is aan jou om informatie over meerdere stappen te verspreiden en elke pagina binnen de limieten te houden.",
+                    "updated": 1711652789458
                 }
             ]
         },
@@ -408,6 +458,11 @@
                     "language": "TR",
                     "text": "Özellik simgesi iki tanım gerektirir:",
                     "updated": 1652014850170
+                },
+                {
+                    "language": "NL",
+                    "text": "Het eigenschappenpictogram vereist twee definities:",
+                    "updated": 1711652932113
                 }
             ]
         },
@@ -435,6 +490,11 @@
                     "language": "TR",
                     "text": "Uzantısı olmayan simgenin \"adı\";",
                     "updated": 1652014861207
+                },
+                {
+                    "language": "NL",
+                    "text": "De \"naam\" van het pictogram zonder de extensie;",
+                    "updated": 1711652963093
                 }
             ]
         },
@@ -462,6 +522,11 @@
                     "language": "TR",
                     "text": "Simgenin ait olduğu \"proje\".",
                     "updated": 1652014871030
+                },
+                {
+                    "language": "NL",
+                    "text": "Het \"project\" waartoe het pictogram behoort.",
+                    "updated": 1711653008419
                 }
             ]
         },
@@ -489,6 +554,11 @@
                     "language": "TR",
                     "text": "Referans olması için simgeler aşağıdaki yolda saklanır:",
                     "updated": 1652014880451
+                },
+                {
+                    "language": "NL",
+                    "text": "Ter referentie worden pictogrammen opgeslagen in het volgende pad:",
+                    "updated": 1711653030340
                 }
             ]
         },
@@ -522,6 +592,11 @@
                     "language": "TR",
                     "text": "İpucu: Eğitimin her adımını göstermek için mevcut simgeler koleksiyonunu kullanın. Bu çizimler daha çekici bir iletişim kurmaya yardımcı olur.",
                     "updated": 1652014894553
+                },
+                {
+                    "language": "NL",
+                    "text": "Tip: Gebruik de bestaande verzameling pictogrammen om elke stap van de zelfstudie te illustreren. Deze illustraties zorgen voor overtuigendere communicatie.",
+                    "updated": 1711653081917
                 }
             ]
         },
@@ -550,6 +625,11 @@
                     "language": "TR",
                     "text": "Yapılandırma mevcut olduğunda, simge, ilişkili Dokümanlar Sayfasının ( Docs Page ) tanım alanını oluşturan metin bloğu ile yan yana bir tablo içine yerleştirilir. Simge olmadığında, tanım sayfanın tüm genişliğini kaplar.",
                     "updated": 1652014914792
+                },
+                {
+                    "language": "NL",
+                    "text": "Als de configuratie bestaat, wordt het pictogram in een tabel geplaatst, naast het tekstblok dat het definitieveld van de bijbehorende Documentenpagina vormt. Als er geen pictogram is, beslaat de definitie de volledige breedte van de pagina.",
+                    "updated": 1711653118585
                 }
             ]
         },
@@ -663,7 +743,7 @@
             "style": "Subtitle",
             "text": "slider",
             "updated": 1617635668767,
-            "translations": [ ]
+            "translations": []
         },
         {
             "style": "Text",

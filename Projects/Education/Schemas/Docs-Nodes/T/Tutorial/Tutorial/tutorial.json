@@ -187,6 +187,11 @@
                     "language": "TR",
                     "text": "Not: Hiyerarşideki tüm düğüm türleri arasındaki temel benzerlik, hepsinin, öğreticinin Dokümanlar'daki sayfa koleksiyonundan içerik çekebilmesidir. Diğer bir deyişle, hiyerarşideki her düğüm bir Dokümanlar Sayfasına işaret eder ve verilen adım için görüntülenen içeriğin yer aldığı Dokümanlar'daki o sayfadır. İşaretçi, her düğümün yapılandırmasında belirtilir (docs özelliğine bakın).",
                     "updated": 1652014704284
+                },
+                {
+                    "language": "NL",
+                    "text": "De belangrijkste overeenkomst tussen alle typen knooppunten in de hiërarchie is dat ze allemaal inhoud kunnen halen uit de verzameling pagina's van de tutorial in de Documenten. Dat wil zeggen dat elk knooppunt in de hiërarchie naar een Documentenpagina verwijst, en het is die pagina in de Documenten die de inhoud bevat die voor de gegeven stap wordt weergegeven. De pointer wordt gespecificeerd in de configuratie van elk knooppunt (zie de docs-eigenschap).",
+                    "updated": 1711652610044
                 }
             ]
         },
@@ -242,6 +247,11 @@
                     "language": "TR",
                     "text": "Öğretici hiyerarşisindeki her düğümün yapılandırması, her adımın içeriğini ve davranışını belirler. Tüm düğüm türleri aynı temel yapılandırmayı paylaşır. Ancak, Eğitim Adımı ( Tutorial Step )  düğümleri, Eğitim Adımı düğüm sayfasında açıklanan ekstra özelliklere sahiptir.",
                     "updated": 1652014737946
+                },
+                {
+                    "language": "NL",
+                    "text": "De configuratie van elk knooppunt in de tutorialhiërarchie bepaalt de inhoud en het gedrag van elke stap. Alle typen knooppunten delen dezelfde basisconfiguratie. Tutorial Step-knooppunten hebben echter extra eigenschappen, die worden beschreven op de Tutorial Step-knooppuntpagina.",
+                    "updated": 1711652634811
                 }
             ]
         },
@@ -270,6 +280,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu sayfada tartışılan yapılandırma özellikleri, hiyerarşideki tüm düğüm türleri için geçerlidir.",
                     "updated": 1652014747767
+                },
+                {
+                    "language": "NL",
+                    "text": "De configuratie-eigenschappen die op deze pagina worden besproken, zijn van toepassing op alle typen knooppunten in de hiërarchie.",
+                    "updated": 1711652684112
                 }
             ]
         },
@@ -298,6 +313,11 @@
                     "language": "TR",
                     "text": "HTML sayfasının düzeni, eğitim penceresinin sınırları içinde görüntülenmesine rağmen, Dokümanlar'daki ilişkili sayfanın düzenini takip eder.",
                     "updated": 1652014756953
+                },
+                {
+                    "language": "NL",
+                    "text": "De lay-out van de HTML-pagina volgt de lay-out van de bijbehorende pagina in Documenten, hoewel deze binnen de grenzen van het zelfstudievenster wordt weergegeven.",
+                    "updated": 1711652719330
                 }
             ]
         },
@@ -326,6 +346,11 @@
                     "language": "TR",
                     "text": "Diğer bir deyişle, ilgili Dokümanlar Sayfasındaki ( Docs Page ) tek tek paragraflara içerik yazarak ve stiller uygulayarak belirli adımın düzenini etkilersiniz.",
                     "updated": 1652014804710
+                },
+                {
+                    "language": "NL",
+                    "text": "Met andere woorden, u beïnvloedt de lay-out van de specifieke stap door inhoud te schrijven en stijlen toe te passen op individuele alinea's op de bijbehorende Documentenpagina.",
+                    "updated": 1711652744965
                 }
             ]
         },
@@ -354,6 +379,11 @@
                     "language": "TR",
                     "text": "Not: HTML sayfası sınırlı bir alana sahiptir ve kaydırmayı desteklemez. İlişkili Dokümanlar Sayfasında ( Docs Page ) çok fazla bilgi tanımlanırsa, ortaya çıkan içerik eğitim penceresindeki kullanılabilir alanı aşar. Bu tür taşmalarla başa çıkmak için sistem tarafında bir kontrol yoktur, bu nedenle bilgiyi birden çok adıma yaymak ve her sayfayı kendi sınırları içinde tutmak size kalmıştır.",
                     "updated": 1652014827699
+                },
+                {
+                    "language": "NL",
+                    "text": "De HTML-pagina heeft een beperkte ruimte en ondersteunt geen scrollen. Als er te veel informatie is gedefinieerd op de bijbehorende Documentenpagina, overschrijdt de resulterende inhoud de beschikbare ruimte in het zelfstudievenster. Er is geen controle aan de systeemzijde om met dergelijke overflows om te gaan, dus het is aan jou om informatie over meerdere stappen te verspreiden en elke pagina binnen de limieten te houden.",
+                    "updated": 1711652789458
                 }
             ]
         },
@@ -428,6 +458,11 @@
                     "language": "TR",
                     "text": "Özellik simgesi iki tanım gerektirir:",
                     "updated": 1652014850170
+                },
+                {
+                    "language": "NL",
+                    "text": "Het eigenschappenpictogram vereist twee definities:",
+                    "updated": 1711652932113
                 }
             ]
         },
@@ -455,6 +490,11 @@
                     "language": "TR",
                     "text": "Uzantısı olmayan simgenin \"adı\";",
                     "updated": 1652014861207
+                },
+                {
+                    "language": "NL",
+                    "text": "De \"naam\" van het pictogram zonder de extensie;",
+                    "updated": 1711652963093
                 }
             ]
         },
@@ -482,6 +522,11 @@
                     "language": "TR",
                     "text": "Simgenin ait olduğu \"proje\".",
                     "updated": 1652014871030
+                },
+                {
+                    "language": "NL",
+                    "text": "Het \"project\" waartoe het pictogram behoort.",
+                    "updated": 1711653008419
                 }
             ]
         },
@@ -509,6 +554,11 @@
                     "language": "TR",
                     "text": "Referans olması için simgeler aşağıdaki yolda saklanır:",
                     "updated": 1652014880451
+                },
+                {
+                    "language": "NL",
+                    "text": "Ter referentie worden pictogrammen opgeslagen in het volgende pad:",
+                    "updated": 1711653030340
                 }
             ]
         },
@@ -542,6 +592,11 @@
                     "language": "TR",
                     "text": "İpucu: Eğitimin her adımını göstermek için mevcut simgeler koleksiyonunu kullanın. Bu çizimler daha çekici bir iletişim kurmaya yardımcı olur.",
                     "updated": 1652014894553
+                },
+                {
+                    "language": "NL",
+                    "text": "Tip: Gebruik de bestaande verzameling pictogrammen om elke stap van de zelfstudie te illustreren. Deze illustraties zorgen voor overtuigendere communicatie.",
+                    "updated": 1711653081917
                 }
             ]
         },
@@ -570,6 +625,11 @@
                     "language": "TR",
                     "text": "Yapılandırma mevcut olduğunda, simge, ilişkili Dokümanlar Sayfasının ( Docs Page ) tanım alanını oluşturan metin bloğu ile yan yana bir tablo içine yerleştirilir. Simge olmadığında, tanım sayfanın tüm genişliğini kaplar.",
                     "updated": 1652014914792
+                },
+                {
+                    "language": "NL",
+                    "text": "Als de configuratie bestaat, wordt het pictogram in een tabel geplaatst, naast het tekstblok dat het definitieveld van de bijbehorende Documentenpagina vormt. Als er geen pictogram is, beslaat de definitie de volledige breedte van de pagina.",
+                    "updated": 1711653118585
                 }
             ]
         },
@@ -1148,7 +1208,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Свойство searchPage выходит за пределы ��астроек редактора учебника и загружает домашнюю страницу поиска с полем поиска в центре.",
+                    "text": "Свойство searchPage выходит за пределы настроек редактора учебника и загружает домашнюю страницу поиска с полем поиска в центре.",
                     "updated": 1638344044257
                 },
                 {

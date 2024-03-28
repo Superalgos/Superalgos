@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Jeder Knotentyp (Node Type) kann über eine Reihe von Regeln verfügen, die festlegen, mit welchem Knotentyp er sich verbinden kann.",
                 "updated": 1689421436956
+            },
+            {
+                "language": "PT",
+                "text": "Cada tipo de Nó (Node Type) pode ter um conjunto de regras que define a quais tipos de Nós (Node’s Type) ele pode se anexar.",
+                "updated": 1711484436389
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "DE",
                     "text": "Jeder Knotentyp kann eine Reihe von Regeln haben, die festlegen, mit welchen Knoten er verbunden werden kann. Diese Regeln sind buchstäblich zwei Listen von Knotentypen, eine für kompatible Typen und die zweite für inkompatible Typen. Es besteht auch die Möglichkeit, die Liste der Typen durch das Schlüsselwort *Any Node* zu ersetzen.",
                     "updated": 1689421451540
+                },
+                {
+                    "language": "PT",
+                    "text": "Cada tipo de Nó (Node Type) pode ter um conjunto de regras que define a quais Nós (Nodes) ele pode ser anexado. Essas regras consistem em duas listas de tipos de Nó (Node Type): uma para tipos compatíveis e outra para tipos incompatíveis. Também existe a possibilidade de substituir a lista de tipos pelo termo *Qualquer Nó*.",
+                    "updated": 1711484540637
                 }
             ]
         }

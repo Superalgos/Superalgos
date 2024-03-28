@@ -33,6 +33,11 @@
                 "language": "PL",
                 "text": "Książka ta przeprowadzi Cię przez ścieżkę, która pomoże Ci poznać Superalgos w najbardziej efektywny sposób. Interaktywne samouczki to bardzo dobre narzędzia aby zmierzyć się procesem nauki. Bardzo mocno sugerujemy wykonywanie samouczków w zaproponowanej kolejności.",
                 "updated": 1674743098756
+            },
+            {
+                "language": "PT",
+                "text": "Este livro vai ser o seu guia pelo caminho que o ajudará a aprender o Superalgos da forma mais eficiente possível. Os tutoriais interativos são as melhores ferramentas para enfrentar a curva de aprendizagem. Fazer os tutoriais na ordem proposta é a nossa forte recomendação. ",
+                "updated": 1711655814743
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "PL",
                     "text": "Jak czytać tą książkę",
                     "updated": 1674743089666
+                },
+                {
+                    "language": "PT",
+                    "text": "Como Usar Este Livro",
+                    "updated": 1711319136652
                 }
             ]
         },
@@ -107,6 +117,11 @@
                     "language": "PL",
                     "text": "Samouczki dają możliwość nakui dzięki praktyce. Zostało dowiedzione, że wykonanie wszystkich samouczków jest najbardziej efektywną ścieżką nauki.",
                     "updated": 1674743356586
+                },
+                {
+                    "language": "PT",
+                    "text": "Os tutoriais fornecem a experiência prática e definitiva de aprendizagem. Fazer todos os tutoriais existentes tem se mostrado ser a forma mais eficaz de encurtar a curva de aprendizagem.",
+                    "updated": 1711319699737
                 }
             ]
         },
@@ -144,6 +159,11 @@
                     "language": "PL",
                     "text": "Aby wykonać samouczek, załaduj odpowiedni Native Workspace. Znajdź samouczek na dole Design Space i wciśnij Play w menu.",
                     "updated": 1674743455800
+                },
+                {
+                    "language": "PT",
+                    "text": "Para fazer um tutorial, carregue  a Área de Trabalho Nativa (Workspace) correspondente, encontre o tutorial na parte inferior da Interface de Design (Design Space) e selecione Play no menu.",
+                    "updated": 1711320075487
                 }
             ]
         },
@@ -180,6 +200,11 @@
                     "language": "PL",
                     "text": "Kiedy potrzebujesz przypomnienia, możesz zawsze wrócić i wykonać samouczek jeszcze raz, w całości albo tylko wybraną część. Samouczki są stworzone ze stron, które można przeszukiwać, możesz zawsze przeszukać zawartość bez wykonywania samouczka.",
                     "updated": 1674744922879
+                },
+                {
+                    "language": "PT",
+                    "text": "Quando precisar de rever alguma informação, pode sempre voltar e recomeçar todo o tutorial ou alguns dos passos. Como os tutoriais são compostos por páginas pesquisáveis, também pode pesquisar o conteúdo sem realmente fazer o tutorial.",
+                    "updated": 1711320279125
                 }
             ]
         },
@@ -217,6 +242,11 @@
                     "language": "PL",
                     "text": "Zalecana kolejność wykonywania jest podana poniżej, ale tak naprawdę najważniejsze jest żebyś po prostu wykonał je wszystkie.",
                     "updated": 1674744985315
+                },
+                {
+                    "language": "PT",
+                    "text": "A ordem recomendada é dada pela lista abaixo, mas, na verdade, fazer todos os tutoriais é que é o mais importante, independentemente da sua ordem.",
+                    "updated": 1711320390390
                 }
             ]
         },
@@ -253,6 +283,11 @@
                     "language": "PL",
                     "text": "Lista Native Workspaces oraz Samouczków",
                     "updated": 1674745024051
+                },
+                {
+                    "language": "PT",
+                    "text": "Lista das Áreas de Trabalho (Workspaces) Nativos e Tutoriais",
+                    "updated": 1711320512401
                 }
             ]
         },
@@ -290,6 +325,11 @@
                     "language": "PL",
                     "text": "Dla Twojej wygody przedstawiamy powiązanie danego Native Workspace z konkretnym samouczkiem.",
                     "updated": 1674745571190
+                },
+                {
+                    "language": "PT",
+                    "text": "Para sua conveniência, encontre a lista das Áreas de Trabalho Nativa (Native Workspace) e os tutoriais a si ligados.",
+                    "updated": 1711320668245
                 }
             ]
         },

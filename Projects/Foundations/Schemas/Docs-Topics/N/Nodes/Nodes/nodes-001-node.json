@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Düğümler, çalışma alanlarında bulunan ve Tasarım Alanının görselleştirilmesine yarayan nesnelerdir. Düğümler hiyerarşik yapılar oluşturarak birbirine eklenebilir.",
                 "updated": 1639119352639
+            },
+            {
+                "language": "PT",
+                "text": "Os nós (nodes) são objetos que existem dentro de Área de Trabalho (Workspace) e podem ser visualizados na Interface de Design (Design Space). Os nós (nodes) podem ser ligados uns aos outros formando estruturas hierárquicas.",
+                "updated": 1711482151158
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689416621114
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711482173237
                 }
             ]
         }

@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Hiyerarşi, kapsayıcı, üst düzey bir kavramı temsil eden ve genellikle birçok dallanmaya sahip uzun bir düğüm zinciriyle sonuçlanan bir veri yapısıdır. Sistem, her biri belirli bir odağa sahip olan farklı hiyerarşi türlerini yönetir.",
                 "updated": 1698699306798
+            },
+            {
+                "language": "PT",
+                "text": "Uma hierarquia é uma estrutura de dados que representa um conceito principal e abrangente, resultando numa cadeia longa de nós (nodes), geralmente com muitas ramificações.",
+                "updated": 1711655488091
             }
         ]
     },
@@ -58,6 +63,11 @@
                     "language": "TR",
                     "text": "Tasarım alanında, her hiyerarşinin başı veya üst düğümü, çalışma alanında daha kolay bulunabilmeleri için her zaman mevcut olan beyaz bir halka ile çevrili ilgili simge ile temsil edilir.",
                     "updated": 1698699312458
+                },
+                {
+                    "language": "PT",
+                    "text": "Na Interface de Design (Design Space), o Nó (Node) raiz de cada hierarquia é representado pelo ícone correspondente cercado por um anel branco sempre presente, para que sejam mais fáceis de localizar dentro da Área de Trabalho (Workspace).",
+                    "updated": 1711462718353
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "TR",
                     "text": "Çalışma alanına eklenti olarak dahil edilen hiyerarşiler çalışma alanı düzeyinde kaydedilmez. Bu nedenle, bu hiyerarşilerde yapılan değişiklikler kalıcı olmaz. Bir eklentiyi değiştirmek ve gelecekte değiştirilmiş sürümle çalışmaya devam etmek istiyorsanız, eklentiyi klonlamanız veya yedeklemeniz ve bunun yerine ortaya çıkan kopya üzerinde çalışmanız gerekir.",
                     "updated": 1698699317418
+                },
+                {
+                    "language": "PT",
+                    "text": "As hierarquias incluídas na Área de Trabalho (Workspace) como plugins não são guardadas no nível do área de trabalho (workspace). Portanto, as alterações feitas nessas hierarquias não persistem. Se deseja modificar um plugin e continuar a trabalhar com essa versão modificada no futuro, deve clonar ou fazer backup do plugin e trabalhar na cópia resultante.",
+                    "updated": 1711462952221
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "language": "TR",
                     "text": "Vakıflar Projesi ( Foundations Project )",
                     "updated": 1698699375483
+                },
+                {
+                    "language": "PT",
+                    "text": "Fundações do Projecto",
+                    "updated": 1711462976615
                 }
             ]
         },
@@ -129,6 +149,11 @@
                     "language": "TR",
                     "text": "Tasarım Alanı ( Design Space )",
                     "updated": 1698699390770
+                },
+                {
+                    "language": "PT",
+                    "text": "Interface de Design (Design Space)",
+                    "updated": 1711463072416
                 }
             ]
         },
@@ -155,6 +180,11 @@
                     "language": "TR",
                     "text": "Kripto Ekosistemi ( Crypto Ecosystem )",
                     "updated": 1698699403648
+                },
+                {
+                    "language": "PT",
+                    "text": "Ecosistema Crypto",
+                    "updated": 1711463119841
                 }
             ]
         },
@@ -182,6 +212,11 @@
                     "language": "TR",
                     "text": "LAN Ağı ( LAN Network )",
                     "updated": 1698699420457
+                },
+                {
+                    "language": "PT",
+                    "text": "Rede LAN",
+                    "updated": 1711463145338
                 }
             ]
         },
@@ -209,6 +244,11 @@
                     "language": "TR",
                     "text": "Grafik Alanı ( Charting Space )",
                     "updated": 1698699435642
+                },
+                {
+                    "language": "PT",
+                    "text": "Interface dos Gráficos (Charting Space)",
+                    "updated": 1711463174244
                 }
             ]
         },
@@ -236,6 +276,11 @@
                     "language": "TR",
                     "text": "Ticaret Sistemi ( Trading System )",
                     "updated": 1698699452639
+                },
+                {
+                    "language": "PT",
+                    "text": "Sistema de negociação (Trading System)",
+                    "updated": 1711463207292
                 }
             ]
         },
@@ -262,6 +307,11 @@
                     "language": "TR",
                     "text": "Maden Ticareti ( Trading Mine )",
                     "updated": 1698699466010
+                },
+                {
+                    "language": "PT",
+                    "text": "Minas de Negociação (Trading Mines)",
+                    "updated": 1711463260677
                 }
             ]
         },
@@ -289,6 +339,11 @@
                     "language": "TR",
                     "text": "Ticaret Motoru ( Trading Mine )",
                     "updated": 1698699475808
+                },
+                {
+                    "language": "PT",
+                    "text": "Motores de Negociação (Trading Engine)",
+                    "updated": 1711463299197
                 }
             ]
         },
@@ -316,6 +371,11 @@
                     "language": "TR",
                     "text": "Veri Madeni ( Data Mine )",
                     "updated": 1698699492082
+                },
+                {
+                    "language": "PT",
+                    "text": "Minas de Dados/Informação (Data Mines)",
+                    "updated": 1711463340855
                 }
             ]
         },
@@ -397,6 +457,11 @@
                     "language": "TR",
                     "text": "Süper Komut Dosyaları ( Super Scripts )",
                     "updated": 1698699549612
+                },
+                {
+                    "language": "PT",
+                    "text": "Scripts Avançados",
+                    "updated": 1711463400248
                 }
             ]
         },

@@ -8,23 +8,51 @@
         "icon": {
             "name": "superalgos",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "PT",
+                "text": "O Superalgos é uma plataforma robusta, vasta e flexível, contudo, com uma curva de aprendizagem íngreme. É importante, desde o início, ajustar as suas expectavivas! ",
+                "updated": 1711655885289
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "If you're looking for a plug-and-play bot that will make you money out of thin air, I'm sorry but that doesn't exist. Bot companies make you believe that trading is easy just to sell more subscriptions.",
-            "updated": 1687626765602
+            "updated": 1687626765602,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Se está à procura de um bot pronto a usar que o faça ganhar dinheiro do nada, lamento, mas isso não existe. As empresas de bots fazem-nos acreditar que negociar é fácil apenas para vender mais subscrições.",
+                    "updated": 1711382127343
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The truth is trading is hard and you will need to master complex concepts and tools to succeed.",
-            "updated": 1687626178946
+            "updated": 1687626178946,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "A verdade é que negociar é difícil e será necessário  dominar conceitos e ferramentas complexas para que possa ter sucesso.",
+                    "updated": 1711382213709
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you don't know how to trade and are not a technical person, you're up for a real challenge! You will either learn a lot, or quit. We — tutorials — will help you along the way, but you need to do your part. Developers and/or traders should have it much easier, though.",
-            "updated": 1687630679481
+            "updated": 1687630679481,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Se não sabe negociar e não é uma pessoa técnica, irá enfrentar um desafio real! Irá aprender muito ou desistir. Nós — os tutoriais — iremos ajudar-lo no caminho, mas precisa de fazer a tua parte. Se é programador e/ou negociador a sua tarefa deverá ser muito mais fácil, todavia.",
+                    "updated": 1711382499017
+                }
+            ]
         }
     ]
 }

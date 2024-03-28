@@ -43,6 +43,11 @@
                 "language": "NL",
                 "text": "De opdracht docs.save is gelukt en alle wijzigingen zijn opgeslagen in de Superalgos-client.",
                 "updated": 1669749167457
+            },
+            {
+                "language": "PT",
+                "text": "O comando docs.save foi bem-sucedido e todas as alterações foram guardadas no Cliente Superalgos.",
+                "updated": 1711479834565
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "ES",
                     "text": "Todos los últimos cambios en las páginas de nodos, conceptos, temas, tutoriales, revisiones y libros se han guardado en el disco.",
                     "updated": 1668195020322
+                },
+                {
+                    "language": "PT",
+                    "text": "Todas as últimas alterações nas páginas de nó (node), conceitos, título, tutorial, revisão e livro foram guardadas no seu disco.",
+                    "updated": 1711480018676
                 }
             ]
         }

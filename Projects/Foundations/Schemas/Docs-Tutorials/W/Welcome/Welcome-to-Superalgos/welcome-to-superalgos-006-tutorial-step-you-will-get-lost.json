@@ -8,23 +8,51 @@
         "icon": {
             "name": "layer",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "PT",
+                "text": "Pode ser difícil compreender a interface, pois ela não se torna intuitiva até que domines alguns conceitos. Por favor, seja paciente! ",
+                "updated": 1711655895863
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The right way to start is to embrace the following idea:",
-            "updated": 1687628448673
+            "updated": 1687628448673,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Para começar da melhor forma deverá de abraçar a seguinte ideia:",
+                    "updated": 1711383277283
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Superalgos is built on a different paradigm, optimized to handle and digest extreme complexity. It takes time to make sense of it, so please, open your mind and let go of all preconceived notions.",
-            "updated": 1687695564212
+            "updated": 1687695564212,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "O Superalgos assenta num paradigma diferente, otimizado para lidar e gerir uma complexidade extrema. Vai demorar algum tempo para perceber isso, assim, mantenha a sua mente aberta e deixe de lado todas as noções pré-concebidas.",
+                    "updated": 1711383732476
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "There's a lot to learn. Tutorials are packed with information introduced in the order we believe makes the most sense for most people. Please, revisit tutorials until you master all the basics.",
-            "updated": 1687628953383
+            "updated": 1687628953383,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Há muito a aprender. Os tutoriais estão repletos de informações, dispostas na ordem que acreditamos fazer mais sentido para a maioria das pessoas. Por favor, estude todos tutoriais até dominar todos os conceitos básicos.",
+                    "updated": 1711383834920
+                }
+            ]
         }
     ]
 }

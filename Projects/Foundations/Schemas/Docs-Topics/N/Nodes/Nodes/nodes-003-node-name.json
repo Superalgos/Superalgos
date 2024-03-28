@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Jede Instanz eines Knotens (Node) kann einen vom Benutzer zugewiesenen Namen oder einen Standardnamen haben, der ihm vom System bei der Erstellung des Knotens zugewiesen wurde. Im Entwurfsbereich (Design Space) erscheint der Name eines Knotens oberhalb des Knotensymbols (Node Icon).",
                 "updated": 1689418602379
+            },
+            {
+                "language": "PT",
+                "text": "Cada instância de um Nó (Node) pode ter um nome atribuído pelo utilizador ou um nome predefinido atribuído pelo sistema no momento em que o Nó (Node) foi criado. No Interface de Design (Design Space), o nome de um Nó (Node) aparece acima do Ícone do Nó (Node).",
+                "updated": 1711482638034
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689418612754
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711482656417
                 }
             ]
         }

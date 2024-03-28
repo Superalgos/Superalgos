@@ -8,23 +8,51 @@
             "name": "trading-bot-instance",
             "project": "Foundations"
         },
-        "updated": 1687696144006
+        "updated": 1687696144006,
+        "translations": [
+            {
+                "language": "PT",
+                "text": "A cópia de negociação (Copy Trading) vai ser uma história completamente diferente e deverá ser muito mais acessível a todos! Aplicações mais fáceis, otimizadas para a experiência do utilizador, estão a caminho! ",
+                "updated": 1711655911319
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The social trading apps that will make copy trading a breeze are currently in the making. In the mean time, you will use this very same platform.",
-            "updated": 1687696237918
+            "updated": 1687696237918,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "As aplicações de Negociação Social (Social Trading) vão facilitarão a cópia de negociações, estão neste momento em desenvolvimento. Por enquanto, poderá usar esta mesma plataforma.",
+                    "updated": 1711384934703
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "For the time being, you need to learn to move around the Superalgos Platform and grasp a few concepts, so that you can properly operate a copy trading setup.",
-            "updated": 1687696469337
+            "updated": 1687696469337,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Entretanto, necessita aprender a movimentar-se pela plataforma Superalgos e a compreender alguns conceitos, para que possa operar adequadamente uma configuração de cópia de negociação (copy trading setup).",
+                    "updated": 1711385065648
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The three tutorials in this workspace will get you up to speed!",
-            "updated": 1687696319732
+            "updated": 1687696319732,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Os três tutoriais nesta Área de Trabalho (Workspace) vão deixa-lo a par!",
+                    "updated": 1711385214600
+                }
+            ]
         }
     ]
 }

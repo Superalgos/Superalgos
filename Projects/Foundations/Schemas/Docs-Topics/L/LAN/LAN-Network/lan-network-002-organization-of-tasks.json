@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Die Netzwerkhierarchie unterstützt den Einsatz mehrerer Börsen, Märkte und Minen, und die Aufgaben werden nach diesen Kriterien organisiert.",
                 "updated": 1651910723729
+            },
+            {
+                "language": "PT",
+                "text": "A hierarquia de rede suporta uma implantação multi-corretora, multi-mercado e multi-minas, e as tarefas são organizadas com base nesses critérios.  ",
+                "updated": 1711655702914
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Bevor Sie sich mit der Funktionsweise der einzelnen Vorgänge befassen, die Sie in der Netzwerkhierarchie definieren und steuern können, sollten Sie auf einige Gemeinsamkeiten zwischen ihnen hinweisen.",
                     "updated": 1651910747159
+                },
+                {
+                    "language": "PT",
+                    "text": "Antes de mergulhar nos detalhes de cada uma das operações que você pode definir e controlar dentro da hierarquia de Rede, vale ressaltar uma certa semelhança entre elas.",
+                    "updated": 1711557589698
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Da Superalgos den Einsatz von Data-Mining- und Trading-Operationen an mehreren Börsen und Märkten sowie die Verwendung von Bots aus mehreren Data- und Trading-Mines unterstützt, folgt die Organisation der verschiedenen Datenstrukturen unter jedem Netzwerkknoten demselben Muster:",
                     "updated": 1651910800905
+                },
+                {
+                    "language": "PT",
+                    "text": "Como o Superalgos suporta a implantação de operações de mineração de dados e de negociação em múltiplas corretoras, múltiplos mercados e usando bots originários de várias minas de dados e de negociação, a organização das diferentes estruturas de dados sob o nó de rede segue o mesmo padrão em cada uma delas:",
+                    "updated": 1711557663905
                 }
             ]
         },
@@ -61,6 +76,11 @@
                     "language": "DE",
                     "text": "Art des Vorgangs > Projektreferenz > Krypto-Börsenreferenz > Marktreferenz > An dem Vorgang beteiligte Mine.",
                     "updated": 1651910830215
+                },
+                {
+                    "language": "PT",
+                    "text": "Tipo de operação > Referência do Projeto (Project) > Referência da Corretora de Criptomoedas (Crypto Exchange) > Referência de Mercado (Market) > A mina envolvida na operação.",
+                    "updated": 1711557797549
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "language": "DE",
                     "text": "Dies ist zum Beispiel die Struktur unter Data Tasks:",
                     "updated": 1651910859279
+                },
+                {
+                    "language": "PT",
+                    "text": "Por exemplo, esta estrutura de dados sob as Tarefas de Dados (Data Tasks):",
+                    "updated": 1711557874057
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, wie sich das Muster unter dem Knoten Testing Trading Tasks wiederholt:",
                     "updated": 1651910911019
+                },
+                {
+                    "language": "PT",
+                    "text": "Repare como o igual padrão se repete sob o Nó das Tarefas de Simulação de Negociação (Testing Trading Tasks):",
+                    "updated": 1711558058807
                 }
             ]
         },
@@ -126,6 +156,11 @@
                     "language": "DE",
                     "text": "Die Datenstruktur der Production Trading Tasks ist praktisch identisch:",
                     "updated": 1651910927426
+                },
+                {
+                    "language": "PT",
+                    "text": "A estrutura das Tarefas de Negociação / Produção, (Production Trading Tasks) é virtualmente a mesma:",
+                    "updated": 1711558203312
                 }
             ]
         },
@@ -148,6 +183,11 @@
                     "language": "DE",
                     "text": "Der Fall bei Data Storage ist etwas anders, da es eine Aufteilung der Struktur in Data Mines Data, Trading Mines Data und Learning Mines Data gibt. Jede der daraus resultierenden Knotenstrukturen weist jedoch eine Ähnlichkeit mit den oben erläuterten organisatorischen Kriterien auf:",
                     "updated": 1651911014819
+                },
+                {
+                    "language": "PT",
+                    "text": "No caso do Armazenamento de Dados (Data Storage), há uma ligeira diferença porque há uma divisão na estrutura em Dados de Mineração de Dados (Data Mines Data), Dados de Mineração de Negociação (Trading Mines Data) e Dados de Mineração de Aprendizado (Learning Mines Data). No entanto, cada uma das estruturas resultantes de Nós (Node's) apresenta uma semelhança com os critérios de organização explicados acima:",
+                    "updated": 1711558470709
                 }
             ]
         },
@@ -170,6 +210,11 @@
                     "language": "DE",
                     "text": "Diese Art der Organisation ist für einen skalierbaren Betrieb erforderlich, da sie dazu beiträgt, eine logische Gruppierung von Aufgaben beizubehalten und die Vermischung von Aufgaben aus verschiedenen Börsen, Märkten oder Minen zu vermeiden.",
                     "updated": 1651911070799
+                },
+                {
+                    "language": "PT",
+                    "text": "Esse tipo de organização é necessário para operações escaláveis, pois ajuda a manter um agrupamento lógico de tarefas e evita misturar tarefas de diferentes bolsas, mercados ou minas.",
+                    "updated": 1711558643558
                 }
             ]
         }

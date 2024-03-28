@@ -55,6 +55,11 @@
                 "language": "PL",
                 "text": "Ten samouczek wprowadzi Cię w świat Superalgos. Omawia główne obszary systemu, uczy podstawowych operacji, przedstawia proces testowania wstecznego demonstrując Trading System a nawet pomoże Ci skonfigurować Twoją pierwszę Live Trading Session.",
                 "updated": 1674745328936
+            },
+            {
+                "language": "PT",
+                "text": "Este tutorial apresenta-lhe o universo do Superalgos. Ele guia-o pelas principais áreas do sistema, ensina-lhe a operação básica, orienta-o no processo de teste retrospetivo (backtesting) de um Sistema de Negociação (Trading System) de demonstração e até o prepará para a primeira Sessão de Negociação ao Vivo (Live Trading Session). ",
+                "updated": 1711655850986
             }
         ]
     },
@@ -85,6 +90,11 @@
                     "language": "PL",
                     "text": "O Samouczku",
                     "updated": 1674745351707
+                },
+                {
+                    "language": "PT",
+                    "text": "Acerca deste Tutorial",
+                    "updated": 1711322073999
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "text": "Çalışma alanı: Başlarken Öğreticiler Eklenti Çalışma Alanı.",
                     "updated": 1654394214699,
                     "style": "List"
+                },
+                {
+                    "language": "PT",
+                    "text": "Área de Trabalho (Workspace): Começar com os Tutoriais das Áreas de Trabalho Nativas (Getting Started Tutorials Native Workspace).",
+                    "updated": 1711322260945
                 }
             ]
         },
@@ -132,6 +147,11 @@
                     "language": "ES",
                     "text": "Responsable: @julianmolina (Telegram).",
                     "updated": 1675448804379
+                },
+                {
+                    "language": "PT",
+                    "text": "Gestor: @julianmolina (Telegram).",
+                    "updated": 1711322351130
                 }
             ]
         }

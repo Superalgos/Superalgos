@@ -33,6 +33,11 @@
                 "language": "PL",
                 "text": "Podręcznik użytkownika opisuje Superalgos od A do Z, zaczynając od kompleksowego wprowadzenia do jego koncepcji. Obejmuje także funkcjonalności i cechy, oraz omawia zależności jakie między nimi występują. Jest zorganizowany w sposób umożliwiający czytanie go jak książki - od początku do końca, to najlepszy sposób żeby z początkującego zostać zaawansowanym użytkownikiem Superalgos.",
                 "updated": 1674739578866
+            },
+            {
+                "language": "PT",
+                "text": "O Manual do Utilizador abrange o Superalgos de A a Z, começando com uma introdução conceptual abrangente. O livro cobre funcionalidades e características, juntamente com a descrição de cada hierarquia. Está organizado para leitura contínua e irá levá-lo do nível de utilizador iniciante ao avançado do Superalgos. ",
+                "updated": 1711655978932
             }
         ]
     },

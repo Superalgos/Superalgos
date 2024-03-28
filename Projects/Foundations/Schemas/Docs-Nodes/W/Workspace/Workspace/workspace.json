@@ -24,6 +24,11 @@
                     "language": "TR",
                     "text": "Bir çalışma alanı aşağıdakilerle ilgili bilgileri depolar:",
                     "updated": 1639746801749
+                },
+                {
+                    "language": "PT",
+                    "text": "Uma Área de Trabalho (Workspace) armazena informações sobre:",
+                    "updated": 1711485943575
                 }
             ]
         },
@@ -56,6 +61,11 @@
                     "language": "EL",
                     "text": "Οποιαδήποτε ιεραρχία που δεν περιλαμβάνεται ως πρόσθετο.",
                     "updated": 1641829782309
+                },
+                {
+                    "language": "PT",
+                    "text": "Qualquer hierarquia que não esteja incluída como um plugin. ",
+                    "updated": 1711486001595
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "EL",
                     "text": "Κόμβοι που μπορεί να επιπλέουν, αποκομμένοι από ιεραρχίες.",
                     "updated": 1641829796376
+                },
+                {
+                    "language": "PT",
+                    "text": "Nós que podem estar flutuando, desligados de hierarquias. ",
+                    "updated": 1711486039092
                 }
             ]
         },
@@ -121,6 +136,11 @@
                     "language": "EL",
                     "text": "Πληροφορίες σχετικά με τη φυσική θέση και την κατάσταση όλων των κόμβων εντός του σχεδιαστικού χώρου, ακόμη και εκείνων που είναι αποκομμένοι από ιεραρχίες.",
                     "updated": 1641829810443
+                },
+                {
+                    "language": "PT",
+                    "text": "Informações sobre a posição física e estado de todos os Nós (Nodes) dentro da Interface de Design (Design Space), mesmo aqueles desvinculados de hierarquias. ",
+                    "updated": 1711486104973
                 }
             ]
         },
@@ -153,20 +173,46 @@
                     "language": "EL",
                     "text": "Ένας χώρος εργασίας δεν αποτελεί μέρος καμίας από τις ιεραρχίες. Αντίθετα, τις περιέχει.",
                     "updated": 1641829822166
+                },
+                {
+                    "language": "PT",
+                    "text": "Uma Área de Trabalho (Workspace) não faz parte de nenhuma das hierarquias; em vez disso, as hierarquias estão contidas na própria Área de Trabalho (Workspace).",
+                    "updated": 1711486297828
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Native Workspaces"
+            "text": "Native Workspaces",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Área de Trabalho Nativas (Nativa Workspaces)",
+                    "updated": 1711486348639
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos ships with several Native Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on."
+            "text": "Superalgos ships with several Native Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, specific projects, and so on.",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "O Superalgos é fornecido com várias Área de Trabalho Nativa (Native Workspace). Estas são Área de Trabalho (Workspace) pré-configurados construídos para fins específicos, por exemplo, para hospedar tutoriais, estratégias de demonstração, projetos específicos, entre outros.",
+                    "updated": 1711486501167
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Native workspaces are stored in the Plugins folder, organized by Project. For instance, the Getting Started Tutorials Native Workspace is stored in the following location:"
+            "text": "Native workspaces are stored in the Plugins folder, organized by Project. For instance, the Getting Started Tutorials Native Workspace is stored in the following location:",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "As Área de Trabalho Nativas (Native Workspace) são armazenados na pasta \"Plugins\", organizados por projeto (Project). Por exemplo, a Área de Trabalho Nativasa(Native Workspace) dos Tutoriais de Iniciação (Started Tutorials Native Workspace) é armazenado no seguinte local:",
+                    "updated": 1711486685925
+                }
+            ]
         },
         {
             "style": "Json",
@@ -205,6 +251,11 @@
                     "language": "EL",
                     "text": "Saving Workspaces (Αποθήκευση Xώρων Eργασίας)",
                     "updated": 1641829933201
+                },
+                {
+                    "language": "PT",
+                    "text": "Gravar  Área de Trabalho (Workspace)",
+                    "updated": 1711486715926
                 }
             ]
         },
@@ -238,6 +289,11 @@
                     "language": "EL",
                     "text": "Κάθε χώρος εργασίας που αποθηκεύεται από τον χρήστη είναι ένας User Workspace (Χώρος Εργασίας Χρήστη).",
                     "updated": 1641829969120
+                },
+                {
+                    "language": "PT",
+                    "text": "Qualquer Área de Trabalho (Workspace) que seja guardado pelo utilizador é uma Área de Trabalho (User Workspace) do Utilizador",
+                    "updated": 1711486815899
                 }
             ]
         },
@@ -271,6 +327,11 @@
                     "language": "EL",
                     "text": "Οι Workspaces (Χώροι Εργασίας) αποθηκεύονται ως αρχεία JSON στο φάκελο My-Workspaces.",
                     "updated": 1641829997794
+                },
+                {
+                    "language": "PT",
+                    "text": "Os Área de Trabalho (Workspace) são guardados como ficheiros JSON na pasta \"Platform/My-Workspaces\".",
+                    "updated": 1711486860631
                 }
             ]
         },
@@ -304,6 +365,11 @@
                     "language": "EL",
                     "text": "Μπορείτε να αποθηκεύσετε χειροκίνητα έναν χώρο εργασίας χρησιμοποιώντας τον ακόλουθο συνδυασμό πλήκτρων συντόμευσης:",
                     "updated": 1641830020438
+                },
+                {
+                    "language": "PT",
+                    "text": "Para guardar uma Área de Trabalho (Workspace), utilize a opção \"Guardar Espaço de Trabalho (Save Workspace)\" no menu Área de Trabalho (Workspace),  ou utilize a seguinte combinação de teclas de atalho:",
+                    "updated": 1711486989582
                 }
             ]
         },
@@ -337,46 +403,107 @@
                     "language": "EL",
                     "text": "Η δημιουργία αντιγράφων ασφαλείας ενός χώρου εργασίας κατεβάζει το ίδιο αρχείο στον τοπικό σας φάκελο \"Λήψεις\". Αυτός είναι ένας καλός τρόπος αποθήκευσης διαδοχικών εκδόσεων σε περίπτωση που χρειαστεί να επιστρέψετε σε μια προηγούμενη κατάσταση πραγμάτων.",
                     "updated": 1641830034677
+                },
+                {
+                    "language": "PT",
+                    "text": "Fazer backup de uma Área de Trabalho (Workspace) faz o download do mesmo ficheiro para a pasta de Downloads local. Esta é uma boa maneira de armazenar versões sequenciais no caso de precisar voltar a um estado anterior.",
+                    "updated": 1711487099527
                 }
             ]
         },
         {
             "style": "Important",
             "text": "When you load, modify, and save a Native Workspace, the actual plugin file remains intact, that is, the plugin is not modified. Instead, a new file is created in the Platform/My-Workspaces folder. This file is a copy of the Native Workspace featuring the modifications you introduced. The copy is saved with the name of the Workspace node, which is usually the same name as the plugin. To save the workspace with a different name, you must change the name of the Workspace node and save.",
-            "updated": 1687798576929
+            "updated": 1687798576929,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Quando você carrega, modifica e salva um Espaço de Trabalho Nativo, o arquivo de plugin real permanece intacto, ou seja, o plugin não é modificado. Em vez disso, um novo arquivo é criado na pasta \"Platform/My-Workspaces\". Este arquivo é uma cópia do Espaço de Trabalho Nativo com as modificações introduzidas. A cópia é salva com o nome do nó do Espaço de Trabalho, que geralmente é o mesmo nome do plugin. Para salvar o espaço de trabalho com um nome diferente, você deve alterar o nome do nó do Espaço de Trabalho e salvar.",
+                    "updated": 1711487235157
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Loading Workspaces",
-            "updated": 1687798809487
+            "updated": 1687798809487,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Carregar uma Área de Trabalho (Workspace) ",
+                    "updated": 1711487265446
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point."
+            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point.",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Os utilizadores podem gerir vários Área de Trabalho (Workspace), mas apenas um espaço de trabalho pode estar carregado no sistema a qualquer momento.",
+                    "updated": 1711487311560
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "To load a workspace, use the Native Workspaces or the User Workspace option on the Workspaces menu.",
-            "updated": 1687798877373
+            "updated": 1687798877373,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Para carregar um Área de Trabalho (Workspace), utilize a opção Área de Trabalho Nativa (Native Workspace) ou Área de Trabalho do Utilizador (User Workspace) no menu Área de Trabalho (Workspace).",
+                    "updated": 1711487458037
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To load a workspace you got from a third party, you may place the file in the Platform/My-Workspaces folder so that you may open it from the User Workspace menu. You may also drag the file and drop it on the Design Space.",
-            "updated": 1687798940870
+            "updated": 1687798940870,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Para carregar um espaço de trabalho que obteve de terceiros, poderá colocar no arquivo na pasta \"Platform/My-Workspaces\" para que possa abri-lo a partir do menu Área de Trabalho do Utilizador (User Workspace) . Por outro lado, poderá também arrastar e soltar o arquivo na Interface de Design (Design Space).",
+                    "updated": 1711487652167
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "It is not recommended to launch multiple instances of the UI in separate browser tabs to load different workspaces at the same time. The system is not prepared to handle this type of use and it may behave erratically as a consequence.",
-            "updated": 1687798954286
+            "updated": 1687798954286,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Não é recomendado iniciar várias instâncias da interface do utilizador (UI) em separado em abas do navegador para carregar Áreas de Trabalho (Workspace) diferentes ao mesmo tempo. O sistema não está preparado para lidar com esse tipo de uso e pode comportar-se de forma errática como consequência deste múltiplo uso das Áreas de Trabalho (Workspace) simultâneas.",
+                    "updated": 1711487889639
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Configuration",
-            "updated": 1687798668404
+            "updated": 1687798668404,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Configuração",
+                    "updated": 1711487901877
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A workspace can have the following configuration properties, all are optional:"
+            "text": "A workspace can have the following configuration properties, all are optional:",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Um Área de Trabalho (Workspace) pode ter as seguintes propriedades de configuração, sendo todas opcionais:",
+                    "updated": 1711487948011
+                }
+            ]
         },
         {
             "style": "Json",
@@ -386,17 +513,38 @@
         {
             "style": "List",
             "text": "<strong>docsLanuage</strong>: sets the language for the documentation",
-            "updated": 1679579295030
+            "updated": 1679579295030,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "docsLanuage: define o idioma para a documentação",
+                    "updated": 1711487974915
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<strong>contributionsBranch</strong>: sets the git branch for making your contributions",
-            "updated": 1679579295030
+            "updated": 1679579295030,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "contributionsBranch: define o git branch para fazer suas contribuições",
+                    "updated": 1711488048978
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<strong>location</strong>: a specific folder location for this workspace to live. If you want this to be nested in multiple folders, examples would be <i>copy-trading/live</i>, <i>copy-trading/paper</i>.",
-            "updated": 1679579295030
+            "updated": 1679579295030,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "location: uma localização específica da pasta para este espaço de trabalho habitar. Se deseja que isso esteja aninhado em várias pastas, exemplos seriam copy-trading/live, copy-trading/paper.",
+                    "updated": 1711488084237
+                }
+            ]
         },
         {
             "style": "Title",
@@ -427,6 +575,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanlarını Oluşturma",
                     "updated": 1654762881660
+                },
+                {
+                    "language": "PT",
+                    "text": "Criar Áreas de Trabalho (Workspace)",
+                    "updated": 1711488107799
                 }
             ]
         },
@@ -453,6 +606,11 @@
                     "language": "TR",
                     "text": "Yeni bir çalışma alanı oluşturmak için, çalışma alanı düğümünün etiketini değiştirerek mevcut çalışma alanlarından herhangi birini yeniden adlandırın ve yukarıda açıklandığı gibi kaydedin. Etiketi değiştirdikten ve çalışma alanı kaydedildikten sonra (normal yollardan herhangi biriyle), Çalışma Alanlarım (My Workspaces) klasöründe yeni bir dosya olarak saklanır.",
                     "updated": 1654762946402
+                },
+                {
+                    "language": "PT",
+                    "text": "Para criar um novo espaço de trabalho, dê um novo nome a qualquer uma das Área de Trabalho (Workspace) existentes alterando o rótulo do Nó (Node) da Área de Trabalho (Workspace) e grave-a conforme explicado anteriormente. Após alterar o nome e uma vez que a Área de Trabalho (Workspace) seja guardada (por qualquer dos meios habituais), um novo arquivo é armazenado na pasta \"My-Workspaces\".",
+                    "updated": 1711488318707
                 }
             ]
         },
@@ -480,6 +638,11 @@
                     "language": "TR",
                     "text": "Boş Şablon Eklentisi Çalışma Alanı (The Blank Template Native Workspace) , kendi kurulumunuzu oluşturmak istiyorsanız başlamak için en iyisidir.",
                     "updated": 1654763011045
+                },
+                {
+                    "language": "PT",
+                    "text": "O Modelo em Branco da Área de Trabalho Nativa (Blank Template Native Workspace) é o melhor para começar se desejar criar a sua própria configuração.",
+                    "updated": 1711488424387
                 }
             ]
         },
@@ -512,6 +675,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanlarını Silmek",
                     "updated": 1654763025181
+                },
+                {
+                    "language": "PT",
+                    "text": "Apagar  Áreas de Trabalho (Workspace)",
+                    "updated": 1711488445981
                 }
             ]
         },
@@ -544,6 +712,11 @@
                     "language": "TR",
                     "text": "Bir çalışma alanını silmek için, işletim sisteminizin dosya sistemi uygulaması içinden ilgili çalışma alanı dosyasını silin.",
                     "updated": 1654763041517
+                },
+                {
+                    "language": "PT",
+                    "text": "Para excluir um Área de Trabalho (Workspace), apague o ficheiro correspondente do Área de Trabalho (Workspace) dentro da aplicação de gestão de arquivos do seu OS, sistema operacional.",
+                    "updated": 1711488563163
                 }
             ]
         }
@@ -577,6 +750,11 @@
                 "language": "EL",
                 "text": "Ο χώρος εργασίας είναι μια οντότητα που αποθηκεύει όλες τις πληροφορίες που δημιουργούνται από το σύστημα και τους χρήστες, εξαιρουμένης της κατάστασης και των περιεχομένων των προσθηκών. Από τεχνική άποψη, ένας χώρος εργασίας είναι ένα αρχείο JSON.",
                 "updated": 1641829753699
+            },
+            {
+                "language": "PT",
+                "text": "Uma Área de Trabalho (Workspace) é uma entidade que armazena todas as informações geradas pelo sistema e pelo utilizador, excluindo o estado e o conteúdo dos plugins. Em termos técnicos, um espaço de trabalho é um arquivo JSON.",
+                "updated": 1711485822687
             }
         ]
     }

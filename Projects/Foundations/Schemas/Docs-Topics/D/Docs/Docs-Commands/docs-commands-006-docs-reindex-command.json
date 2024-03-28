@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Geçerli çalışma alanındaki tüm düğümlerle birlikte Dokümanların tüm sayfalarını yeniden indekslemek için bu komutu kullanın. İçerikte yaptığınız değişiklikler, komutu çalıştırdıktan sonra arama yoluyla kullanılabilir hale gelir.",
                 "updated": 1652130179943
+            },
+            {
+                "language": "PT",
+                "text": "Use este comando para reindexar todas as páginas nos Docs, juntamente com todos os nós (Node) na Área de trabalho (Workspace) atual. As alterações que fez no conteúdo ficarão então disponíveis para pesquisa após executar o comando.",
+                "updated": 1711316376386
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Sözdizimi",
                     "updated": 1652130205394
+                },
+                {
+                    "language": "PT",
+                    "text": "Syntaxe",
+                    "updated": 1711316382853
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "language": "TR",
                     "text": "Tüm sayfaların ve çalışma alanı düğümünün yeniden dizine eklenmesi bir veya iki dakika sürebilir. Çalışma alanınız çok büyükse, bundan daha uzun sürebilir bekleyin.",
                     "updated": 1652130320499
+                },
+                {
+                    "language": "PT",
+                    "text": "A reindexação de todas as páginas e nós no espaço de trabalho pode levar um ou dois minutos. Se o seu espaço de trabalho for muito grande, tenha em conta que levará ainda mais tempo.",
+                    "updated": 1711316493605
                 }
             ]
         }

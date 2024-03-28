@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "TS ist die Abkürzung für Task Server, eine der Kernkomponenten der Superalgos Software.",
                 "updated": 1698614096384
+            },
+            {
+                "language": "PT",
+                "text": "TS é a abreviatura de Servidor de Tarefas (Task Server) , um dos componentes principais do Software Superalgos.",
+                "updated": 1711386722199
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "language": "DE",
                     "text": "TS ist auch das Stammobjekt einer Datenstruktur, die zur Laufzeit innerhalb des Task Server verfügbar ist.",
                     "updated": 1698614120033
+                },
+                {
+                    "language": "PT",
+                    "text": "TS também é o objeto de raiz de uma estrutura de dados disponível em tempo de processamento (runtime) dentro do Servidor de Tarefas (Task Server).",
+                    "updated": 1711386995604
                 }
             ]
         }

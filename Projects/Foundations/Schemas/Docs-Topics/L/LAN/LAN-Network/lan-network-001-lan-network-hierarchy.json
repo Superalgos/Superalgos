@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Die LAN-Netzwerkhierarchie organisiert die Infrastruktur für den Betrieb von Bots und die Speicherung von Daten. Dies ist die Hierarchie, die Sie am häufigsten für den Betrieb des Systems verwenden werden.",
                 "updated": 1651909558942
+            },
+            {
+                "language": "PT",
+                "text": "A hierarquia da Rede LAN organiza a infraestrutura para executar bots e armazenar dados. É a hierarquia que você usará principalmente para operar o sistema. ",
+                "updated": 1711655675611
             }
         ]
     },
@@ -41,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "LAN Network Node"
+            "text": "LAN Network Node",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Rede LAN Node",
+                    "updated": 1711557915385
+                }
+            ]
         },
         {
             "style": "Include",
@@ -62,6 +74,11 @@
                     "language": "DE",
                     "text": "Hauptabschnitte unter einem Network Node",
                     "updated": 1651910642029
+                },
+                {
+                    "language": "PT",
+                    "text": "Principais Seções Sob um Nó de Rede (Network Node)",
+                    "updated": 1711557086749
                 }
             ]
         },
@@ -74,6 +91,11 @@
                     "language": "DE",
                     "text": "Wir werden die wichtigsten Datenstrukturen unter einem Netzwerkknoten kurz erwähnen und jede von ihnen auf den nächsten Seiten im Detail untersuchen.",
                     "updated": 1651910673052
+                },
+                {
+                    "language": "PT",
+                    "text": "Vamos mencionar brevemente as principais estruturas de dados sob um Nó de Rede (Network Node)e estudar cada uma delas em detalhes nas próximas páginas.",
+                    "updated": 1711557142929
                 }
             ]
         },
@@ -83,7 +105,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Data Tasks"
+            "text": "Data Tasks",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Dados",
+                    "updated": 1711557160309
+                }
+            ]
         },
         {
             "style": "Include",
@@ -92,7 +121,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Learning Tasks"
+            "text": "Learning Tasks",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Aprendizagem",
+                    "updated": 1711557180253
+                }
+            ]
         },
         {
             "style": "Include",
@@ -102,7 +138,14 @@
         {
             "style": "Subtitle",
             "text": "Testing Trading Tasks",
-            "updated": 1610049812605
+            "updated": 1610049812605,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Simulação de Negociação",
+                    "updated": 1711557220354
+                }
+            ]
         },
         {
             "style": "Include",
@@ -112,7 +155,14 @@
         {
             "style": "Subtitle",
             "text": "Production Trading Tasks",
-            "updated": 1610049840354
+            "updated": 1610049840354,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Negociação / Produção",
+                    "updated": 1711557374605
+                }
+            ]
         },
         {
             "style": "Include",
@@ -121,7 +171,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Data Storage"
+            "text": "Data Storage",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Armazenamento de Informação",
+                    "updated": 1711557428672
+                }
+            ]
         },
         {
             "style": "Include",

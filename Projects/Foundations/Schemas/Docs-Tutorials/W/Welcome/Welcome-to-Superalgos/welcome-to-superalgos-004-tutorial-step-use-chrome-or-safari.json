@@ -61,6 +61,11 @@
                 "language": "PL",
                 "text": "Kiedy uruchamiasz interfejs graficzny, używaj przeglądarki Chrome albo Safari na Mac. Superalgos nie jest testowany na inncyh przeglądarkach!",
                 "updated": 1674749829950
+            },
+            {
+                "language": "PT",
+                "text": "Ao executar o interface, opte por utilizar o Chrome ou o Safari no Mac! Não estamos a testar a plataforma noutros navegadores! ",
+                "updated": 1711655878162
             }
         ]
     },
@@ -120,6 +125,11 @@
                     "language": "PL",
                     "text": "Oczywiste jest, że każda przeglądarka działa inaczej a my znamy funkcje, które po prostu na niektórych nie działają. Jeżeli używasz Chrome lub Safari, po prostu kliknij Next i kontynuuj. W przeciwnym razie wykonaj następujące kroki:",
                     "updated": 1674750688990
+                },
+                {
+                    "language": "PT",
+                    "text": "Como sabe, nem todos os navegadores se comportam da mesma maneira, e sabemos que há recursos da plataforma que não funcionam noutros navegadores. Se estiver usando Chrome ou Safari, clique em Próximo / Next e continue. Caso contrário, siga estas instruções:",
+                    "updated": 1711381068576
                 }
             ]
         },
@@ -179,6 +189,11 @@
                     "language": "PL",
                     "text": "skopiuj adres URL",
                     "updated": 1674750713597
+                },
+                {
+                    "language": "PT",
+                    "text": "copie o actual endereço URL;",
+                    "updated": 1711381126216
                 }
             ]
         },
@@ -238,6 +253,11 @@
                     "language": "PL",
                     "text": "zamknij przeglądarkę w takim stanie jakim jest; nie zamykaj samouczka...",
                     "updated": 1674750747509
+                },
+                {
+                    "language": "PT",
+                    "text": "feche a janela deste navegador sem mexer em mais nada, não feche o tutorial …",
+                    "updated": 1711381221917
                 }
             ]
         },
@@ -297,6 +317,11 @@
                     "language": "PL",
                     "text": "otwórz Chrome/Safari i wklej URL; samouczek powinien otworzyć się w miejscu gdzie skończyłeś!",
                     "updated": 1674750794935
+                },
+                {
+                    "language": "PT",
+                    "text": "abra o Chrome / Safari e cole o endereço URL que copiou; este tutorial deverá estar neste ponto quando voltar!",
+                    "updated": 1711381335885
                 }
             ]
         },
@@ -355,6 +380,11 @@
                     "language": "PL",
                     "text": "Oferujemy wsparcie online, ale nie możemy Ci pomóc jeżeli użwyasz niewspieranej przeglądarki!",
                     "updated": 1674750841771
+                },
+                {
+                    "language": "PT",
+                    "text": "Oferecemos suporte online, mas não o poderemos ajudar se usar outros navegadores!",
+                    "updated": 1711381434171
                 }
             ]
         }

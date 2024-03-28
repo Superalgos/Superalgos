@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Dokümanlar'da paragraf eklerken, silerken veya düzenlerken yaptığınız değişiklikleri kaydetmek için bu komutu kullanın; veya sayfa ekleme veya silme.",
                 "updated": 1652129732714
+            },
+            {
+                "language": "PT",
+                "text": "Use este comando para guardar as alterações que fez ao adicionar, excluir ou editar parágrafos no Docs; ou adicionar ou excluir páginas.",
+                "updated": 1711312117496
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Oluşturduğunuz veya değiştirdiğiniz sayfalar, siz bu komutu çalıştırana kadar yalnızca tarayıcı oturumu bağlamında bellekte kalır. Bu komutu yalnızca bir kez çalıştırdığınızda, değişiklikler diske kaydedilir. Dokümanları Kaydet Komutunu çalıştırmadan önce sayfayı yenilerseniz veya tarayıcıyı kapatırsanız, değişiklikler kaybolur. Değişiklikler, yalnızca Dokümanlar Yeniden İndeks ( Docs Reindex Command ) Komutunu çalıştırdıktan sonra Dokümanlar Arama Motoru Dizinine ( Docs Search Engine Index ) uygulanır.",
                     "updated": 1652130042336
+                },
+                {
+                    "language": "PT",
+                    "text": "As páginas que cria ou modifica permanecem apenas na memória da sessão do browser até que execute este comando. Somente após a execução deste comando é que as alterações serão guardadas no disco. Se atualizar a página ou fechar o navegador antes de executar o Comando de Guardar Docs, as alterações ficarão perdidas permanentemente. As alterações só são aplicadas ao Índice de Pesquisa dos Docs (Docs Search Engine Index) após a execução do Comando de Reindexação dos Docs (Docs Reindex Command).",
+                    "updated": 1711312055887
                 }
             ]
         },

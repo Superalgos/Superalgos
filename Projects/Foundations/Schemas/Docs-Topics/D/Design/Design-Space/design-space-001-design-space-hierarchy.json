@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Özet: Tasarım Alanının ( Design Space ) görünümünü, hissini ve davranışını kontrol etmek için bu hiyerarşiyi kullanın.",
                 "updated": 1645975857879
+            },
+            {
+                "language": "PT",
+                "text": "Utilize esta hierarquia para controlar a aparência, sensação e comportamento do Interface de Design (Design Space). ",
+                "updated": 1711655582763
             }
         ]
     },

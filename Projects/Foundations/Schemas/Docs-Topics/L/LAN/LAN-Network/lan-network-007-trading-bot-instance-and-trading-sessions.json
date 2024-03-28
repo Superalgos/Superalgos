@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Ticaret Botu Örneği ( Trading Bot Instance ) dört farklı türde ticaret görevi çalıştırabilir: Geriye Dönük Test Oturumu ( ( Backtesting Session ), Kağıt Ticareti Oturumu ( Paper Trading Session ), İleriye Dönük Test Oturumu ( Forward Testing Session ) ve Canlı Ticaret Oturumu ( Live Trading Session ).",
                 "updated": 1672264911017
+            },
+            {
+                "language": "PT",
+                "text": "A instância do Bot de Negociação (Trading Bot Instance) pode executar quatro tipos diferentes de tarefas de negociação: Sessão de Backtesting (Backtesting Session), Sessão de Simulação de Negociação (Paper Trading Session), Sessão de Teste Avançado (Forward Testing Session) e Sessão de Negociação ao Vivo (Live Trading Session). ",
+                "updated": 1711655779157
             }
         ]
     },

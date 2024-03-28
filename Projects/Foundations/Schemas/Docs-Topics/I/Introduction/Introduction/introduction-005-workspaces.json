@@ -30,6 +30,11 @@
                 "language": "DE",
                 "text": "Workspaces sind ein leistungsfähiges Konzept. Sie ermöglichen das geordnete Arbeiten an mehreren Settings.",
                 "updated": 1641766742496
+            },
+            {
+                "language": "PT",
+                "text": "A Área de Trabalho (Workspace) é um poderoso conceito pois permite trabalhar em várias configurações de forma organizada. ",
+                "updated": 1711655527076
             }
         ]
     },

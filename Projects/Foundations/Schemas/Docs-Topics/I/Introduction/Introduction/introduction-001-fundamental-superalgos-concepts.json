@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Superalgos karmaşıklığı parçalara ayırır ve düğüm hiyerarşilerinde ticari zekayı oluşturan temel kavramları tanımlar. Düğümler, diğer hiyerarşilerdeki bilgilere erişmek için diğer düğümlere referans verebilir.",
                 "updated": 1698698747813
+            },
+            {
+                "language": "PT",
+                "text": "O Superalgos retira a complexidade e descreve os conceitos fundamentais que compõem a inteligência de negociação em hierarquias de Nós (Node). Estes Nós (Node) podem fazer referência a outros Nós (Node) para aceder informações noutras hierarquias. ",
+                "updated": 1711655460728
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "language": "TR",
                     "text": "Algoritmik ticaret veri odaklı bir uygulamadır. Otomatik ticarete manuel ticarete göre avantaj sağlayan şey, her şeyden önce verilerden istihbarat elde etme konusundaki üstün yetenektir.",
                     "updated": 1698698753186
+                },
+                {
+                    "language": "PT",
+                    "text": "A negociação algorítmica é uma aplicação orientada por dados. É a capacidade superior de extrair inteligência dos dados - acima de tudo - que confere à negociação automatizada uma vantagem sobre a negociação manual. ",
+                    "updated": 1711458695484
                 }
             ]
         },
@@ -94,6 +104,11 @@
                     "language": "TR",
                     "text": "Ancak, ticari zekanın yalnızca verilerden ortaya çıktığını varsaymak basitlik olur.",
                     "updated": 1698698757385
+                },
+                {
+                    "language": "PT",
+                    "text": "Contudo, seria simplista assumir que a inteligência de negociação emerge apenas dos dados.",
+                    "updated": 1711458725481
                 }
             ]
         },
@@ -125,6 +140,11 @@
                     "language": "TR",
                     "text": "Ticari zeka, çok sayıda karmaşık kavramın etkileşiminden yararlanılarak ortaya çıkar.",
                     "updated": 1698698761378
+                },
+                {
+                    "language": "PT",
+                    "text": "A inteligência de negociação (Trading) surge ao aproveitar as interações de múltiplos conceitos complexos.",
+                    "updated": 1711458761887
                 }
             ]
         },
@@ -156,6 +176,11 @@
                     "language": "TR",
                     "text": "Superalgos, karmaşıklığı düğüm adı verilen küçük bilgi birimlerine ayırarak ve bunları hiyerarşi adı verilen daha büyük veri yapıları halinde düzenleyerek bu kavramların ve etkileşimlerin kullanılmasına katkıda bulunan bir yazılım altyapısıdır.",
                     "updated": 1698698766857
+                },
+                {
+                    "language": "PT",
+                    "text": "O Superalgos é uma infraestrutura de software que contribui para aproveitar esses conceitos e interações, desmembrando a complexidade em pequenas unidades de informação chamadas Nós (Node) e organizando-os em estruturas de dados maiores chamadas hierarquias. ",
+                    "updated": 1711458820703
                 }
             ]
         },
@@ -187,6 +212,11 @@
                     "language": "TR",
                     "text": "Hiyerarşi, kapsayıcı, üst düzey bir kavramı temsil eden ve genellikle birçok dallanmaya sahip uzun bir düğüm zinciriyle sonuçlanan bir veri yapısıdır. Sistem, her biri belirli bir odağa sahip farklı hiyerarşi türlerini yönetir. Örneğin, kripto ekosistemi, veri madenleri veya grafik alanı.",
                     "updated": 1698698770953
+                },
+                {
+                    "language": "PT",
+                    "text": "Uma hierarquia é uma estrutura de dados que representa um conceito amplo e de alto nível, resultando  numa longa cadeia de Nós (Node), geralmente com muitas ramificações. O sistema gere diferentes tipos de hierarquias, cada uma delas com um foco específico. Por exemplo, ecossistema de cripto moedas (crypto ecosystem), minas de dados/informação (data mines), ou o Interface de Gráficos (Charting Space). ",
+                    "updated": 1711458991249
                 }
             ]
         },
@@ -218,6 +248,11 @@
                     "language": "TR",
                     "text": "Bir düğüm, piyasa bilgileri, ticari istihbarat, sistemin çalışması veya diğer kavramlarla ilgili olabilecek bilgileri içeren küçük bir veri yapısıdır. Tasarım alanında görsel olarak simgelerle temsil edilirler.",
                     "updated": 1698698776586
+                },
+                {
+                    "language": "PT",
+                    "text": "Um Nó (Node) é uma pequena estrutura de dados contendo informações que podem estar relacionadas a informações de mercado, inteligência de negociação (trading intelligence), actividade do sistema ou outros conceitos. Eles são visualmente representados por ícones na Interface de Design (Design Space). ",
+                    "updated": 1711459082866
                 }
             ]
         },
@@ -249,6 +284,11 @@
                     "language": "TR",
                     "text": "Tasarım alanı, tüm sistem ve kullanıcı tanımlarını barındıran görsel ortamdır. Pratik anlamda, ekranı yatay olarak bölen ve alttaki tasarım alanını üstteki grafik alanından ayıran kaydırıcının altındaki siyah alandır. Bir hiyerarşi olarak, alanın görünümü, hissi ve davranışının belirli yönleri üzerinde kullanıcı kontrolünü sağlayan düğümlere sahiptir.",
                     "updated": 1698698782203
+                },
+                {
+                    "language": "PT",
+                    "text": "A Interface de Design (Design Space) é o ambiente visual que contêm todas as definições do sistema e do utilizador. Em termos práticos, é o espaço preto que fica por de baixo de uma tela  deslizante e divide o ecrã horizontalmente, separando a interface de design na parte inferior da Interface dos Gráficos (Charting Space) na parte superior. Tal como uma hierarquia, contêm Nós (Node) que permitem ao utilizador controlar certos aspectos da aparência, sensação e comportamento do espaço.",
+                    "updated": 1711459281356
                 }
             ]
         },
@@ -280,6 +320,11 @@
                     "language": "TR",
                     "text": "Başka bir deyişle, hiyerarşik veri yapılarında düzenlenen düğümler, ticari zekayı oluşturan üst düzey kavramları, kullanıcıların bunları görselleştirmesine ve daha iyi anlamasına yardımcı olacak şekilde tanımlar.",
                     "updated": 1698698786850
+                },
+                {
+                    "language": "PT",
+                    "text": "Por outras palavras, os Nós (Node), estando organizados numa estrutura hierárquicas de dados, descrevem os conceitos de alto nível que compõem a inteligência de negociação de uma maneira que ajuda os utilizadores a visualizá-los e a melhor compreendê-los.",
+                    "updated": 1711459340505
                 }
             ]
         },
@@ -311,6 +356,11 @@
                     "language": "TR",
                     "text": "Hiyerarşiler olarak tanımlanan bu üst düzey kavramlar diğer kavramlarla, yani diğer hiyerarşilerle etkileşim halindedir. Hiyerarşiler arasındaki etkileşimler referanslar olarak adlandırılır.",
                     "updated": 1698698791642
+                },
+                {
+                    "language": "PT",
+                    "text": "Estes conceitos principais definidos como hierarquias interagem com outros conceitos, ou seja, com outras hierarquias. As interações entre hierarquias são chamadas referências. ",
+                    "updated": 1711459376432
                 }
             ]
         },
@@ -342,6 +392,11 @@
                     "language": "TR",
                     "text": "Referans, bir düğümdeki bilginin diğer düğümlerle ilişkili olduğu veya diğer düğümler tarafından erişildiği bir mekanizmadır. Bir düğümün başka bir düğümle referans kurabilmesi, ilkinin ikincisinde bulunan bilgi ya da özelliklere erişebilmesini sağlar.",
                     "updated": 1698698796569
+                },
+                {
+                    "language": "PT",
+                    "text": "Uma referência é um mecanismo pelo qual as informações contidas numNó (Node) estão relacionadas a, ou acedidas por, outros Nós (Node). A capacidade de um Nó (Node) estabelecer uma referência com outro Nó (Node) permite que o primeiro aceda as informações ou recursos contidos no segundo Nó (Node). ",
+                    "updated": 1711459444728
                 }
             ]
         },
@@ -373,6 +428,11 @@
                     "language": "TR",
                     "text": "Tüm bu bilgileri düzenlemek için Superalgos çalışma alanları kavramını yönetir. Çalışma alanı, eklentilerin durumu ve içeriği hariç olmak üzere, tüm sistem ve kullanıcı tarafından oluşturulan bilgileri depolayan bir varlıktır. Teknik açıdan, bir çalışma alanı bir JSON dosyasıdır.",
                     "updated": 1698698800705
+                },
+                {
+                    "language": "PT",
+                    "text": "Para organizar todas essas informações, o Superalgos gere o conceito de Área de Trabalho (Workspace). Um Área de Trabalho (Workspace) é uma entidade que armazena todas as informações geradas pelo sistema e pelo utilizador, excluindo o estado e o conteúdo dos plugins. Em termos técnicos, uma Área de Trabalho (Workspace) é um arquivo JSON.",
+                    "updated": 1711459560784
                 }
             ]
         },
@@ -405,6 +465,11 @@
                     "language": "TR",
                     "text": "Botlar sayfası bu kavramsal tanımları yeryüzüne indirir ve bu üst düzey kavramların ne olduğuna ve birbirleriyle nasıl etkileşime girdiklerine dair genel bir bakış sunar.",
                     "updated": 1698698805541
+                },
+                {
+                    "language": "PT",
+                    "text": "A página de Bots simplifica estes conceitos de uma forma prática e oferece uma visão geral dos principais conceitos e como estes interagem entre si.",
+                    "updated": 1711459592831
                 }
             ]
         }

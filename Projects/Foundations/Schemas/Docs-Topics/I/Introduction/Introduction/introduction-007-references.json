@@ -30,6 +30,11 @@
                 "language": "NL",
                 "text": "Om een referentie vast te stellen, klikt u met de rechtermuisknop op het eerste knooppunt en sleept u het naar het doelknooppunt. Gebruik de delink knop in het menu om een referentie te verwijderen.",
                 "updated": 1668338997266
+            },
+            {
+                "language": "PT",
+                "text": "Para estabelecer uma referência, clique com o botão direito do rato no primeiro nó (node) e arraste-o para próximo do nó (node) de destino. Para remover uma referência, use o botão de desvinculação no menu. ",
+                "updated": 1711655558325
             }
         ]
     },
@@ -57,6 +62,11 @@
                     "language": "TR",
                     "text": "Yön ( Direction )",
                     "updated": 1698699624578
+                },
+                {
+                    "language": "PT",
+                    "text": "Direcção",
+                    "updated": 1711466243053
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "NL",
                     "text": "Referenties hebben een richtingseigenschap met betrekking tot elk van de knooppunten die bij de referentie betrokken zijn: het knooppunt dat de referentie tot stand brengt, stelt een uitgaande referentie in, terwijl degene die de referentie accepteert een inkomende referentie instelt.",
                     "updated": 1668338647809
+                },
+                {
+                    "language": "PT",
+                    "text": "As referências possuem uma propriedade na direção em relação a cada um dos nós (nodes) envolvidos na referência: o nó (node) que estabelece a referência define uma referência de saída, enquanto o que aceita a referência define uma referência de entrada.",
+                    "updated": 1711466360109
                 }
             ]
         },
@@ -120,6 +135,11 @@
                     "language": "NL",
                     "text": "Een Backtesting Session brengt bijvoorbeeld een uitgaande referentie tot stand met een Trading System. Hierdoor heeft de sessie toegang tot de informatie binnen de hele hiërarchie van het handelssysteem, inclusief strategieën. Op het niveau van het handelssysteem wordt dezelfde referentie gezien als een inkomende referentie.",
                     "updated": 1668338688023
+                },
+                {
+                    "language": "PT",
+                    "text": "Por exemplo, numa Sessão de Backtesting (Backtesting Session) estabelece uma referência de saída com um Sistema de Negociação (Trading System). Isso permite que a sessão aceda às informações dentro de toda a hierarquia do sistema de negociação (Trading System), incluindo as estratégias. No nível do sistema de negociação (Trading System), a mesma referência é vista como uma referência de entrada.",
+                    "updated": 1711466595311
                 }
             ]
         },
@@ -151,6 +171,11 @@
                     "language": "NL",
                     "text": "Een knooppunt kan slechts één uitgaande referentie produceren, maar het kan meerdere inkomende referenties accepteren.",
                     "updated": 1668338720701
+                },
+                {
+                    "language": "PT",
+                    "text": "Um nó (node) pode produzir apenas uma referência de saída, no entanto, pode receber várias referências de entrada.",
+                    "updated": 1711466683837
                 }
             ]
         },
@@ -177,6 +202,11 @@
                     "language": "DE",
                     "text": "Geltungsbereich",
                     "updated": 1643179205457
+                },
+                {
+                    "language": "PT",
+                    "text": "Âmbito",
+                    "updated": 1711466692058
                 }
             ]
         },
@@ -208,6 +238,11 @@
                     "language": "NL",
                     "text": "Een referentie die tot stand wordt gebracht tussen knooppunten van een bepaalde structuur binnen een hiërarchie wordt een interne referentie genoemd met betrekking tot de genoemde structuur van knooppunten. Evenzo wordt een referentie die tot stand is gebracht met een knooppunt buiten de genoemde structuur, dat wil zeggen in een ander deel van de hiërarchie of in een andere hiërarchie, een externe referentie genoemd.",
                     "updated": 1668338752770
+                },
+                {
+                    "language": "PT",
+                    "text": "Uma referência estabelecida entre nós (nodes) de uma estrutura particular dentro de uma hierarquia é considerada uma referência interna em relação a essa estrutura de nós (nodes). Da mesma forma, uma referência estabelecida com um nó (node) fora dessa estrutura, ou seja, numa parte diferente da hierarquia ou noutra hierarquia, é considerado uma referência externa.",
+                    "updated": 1711466804650
                 }
             ]
         },
@@ -240,6 +275,11 @@
                     "language": "NL",
                     "text": "Voorbeelden van interne verwijzingen zijn te vinden in de hiërarchieën Data Mine en Crypto Ecosystem. Laten we bijvoorbeeld kort kijken naar een dergelijk geval binnen een Plotter Module.",
                     "updated": 1668338783386
+                },
+                {
+                    "language": "PT",
+                    "text": "Exemplos de referências internas podem ser encontrados nas hierarquias Data Mine e Crypto Ecosystem. Por exemplo, vamos dar uma breve olhada em um caso desses dentro de um Módulo da Plotter (Plotter Module).",
+                    "updated": 1711466884931
                 }
             ]
         },
@@ -272,6 +312,11 @@
                     "language": "NL",
                     "text": "De onderstaande opname toont het Shapes knooppunt en verschillende sub-knooppunten: aan de ene kant verschillende Polygoon knooppunten; aan de andere kant, het knooppunt Chart Points.",
                     "updated": 1668338832753
+                },
+                {
+                    "language": "PT",
+                    "text": "O screenshot abaixo mostra o nó (node) da Formas (Shapes) e vários nós (nodes) descendentes: por um lado, vários nós (nodes) Polígonos (Polygon); por outro lado, o nó (node) Pontos de Gráfico (Chart Points).",
+                    "updated": 1711467152676
                 }
             ]
         },
@@ -308,6 +353,11 @@
                     "language": "NL",
                     "text": "Merk op dat hoekpunten onder elke polygoon verwijzen naar punten onder het knooppunt van chart points.",
                     "updated": 1668338862641
+                },
+                {
+                    "language": "PT",
+                    "text": "Repare que os vértices sob cada polígono referem a pontos sob o nó Pontos do Gráfico.",
+                    "updated": 1711467314777
                 }
             ]
         },
@@ -340,6 +390,11 @@
                     "language": "NL",
                     "text": "Dit betekent dat het knooppunt Shapes verschillende interne referenties heeft.",
                     "updated": 1668338879168
+                },
+                {
+                    "language": "PT",
+                    "text": "Isso significa que o nó Formas (Shapes) possui várias referências internas.",
+                    "updated": 1711467399764
                 }
             ]
         },
@@ -372,6 +427,11 @@
                     "language": "NL",
                     "text": "De back-up-, kloon- en deelbewerkingen maken verschillend gebruik van de eigenschappen van referenties. We zullen deze drie uitgebreid behandelen, zodat u het meeste uit deze functies kunt halen.",
                     "updated": 1668338901977
+                },
+                {
+                    "language": "PT",
+                    "text": "As operações de backup, partilhar e clonagem fazem diferentes usos das propriedades das referências. Vamos abordar cada uma delas detalhadamente para que possa aproveitar ao máximo estes recursos.",
+                    "updated": 1711467576634
                 }
             ]
         },
@@ -399,6 +459,11 @@
                     "language": "DE",
                     "text": "Grafische Darstellung",
                     "updated": 1643179862875
+                },
+                {
+                    "language": "PT",
+                    "text": "Representação Gráfica",
+                    "updated": 1711467593321
                 }
             ]
         },
@@ -431,6 +496,11 @@
                     "language": "NL",
                     "text": "Verwijzingen worden grafisch weergegeven met vage grijze stippellijnen, maar zijn standaard niet zichtbaar. Referenties worden zichtbaar wanneer u de muisaanwijzer op een knooppunt houdt dat een referentie heeft, of wanneer u de weergave van alle referenties activeert met de volgende toetsencombinatie:",
                     "updated": 1668338930529
+                },
+                {
+                    "language": "PT",
+                    "text": "As referências são representadas graficamente com linhas tracejadas cinzento claro, mas não são visíveis por padrão. As referências tornam-se visíveis quando passa o ponteiro do rato sobre um nó (node) que possui uma referência, ou quando ativa a exibição de todas as referências com a seguinte combinação de teclas:",
+                    "updated": 1711467741059
                 }
             ]
         },
@@ -467,6 +537,11 @@
                     "language": "NL",
                     "text": "Om referenties zichtbaar te maken, moeten beide knooppunten die bij de referentie betrokken zijn, zichtbaar zijn.",
                     "updated": 1668338949493
+                },
+                {
+                    "language": "PT",
+                    "text": "Para que as referências sejam visíveis, ambos os nós (nodes) envolvidos na referência devem estar visíveis.",
+                    "updated": 1711467826630
                 }
             ]
         },
@@ -503,6 +578,11 @@
                     "language": "NL",
                     "text": "Hoe referenties tot stand te brengen en te verwijderen",
                     "updated": 1668338965915
+                },
+                {
+                    "language": "PT",
+                    "text": "Como Estabelecer e Remover Referências",
+                    "updated": 1711467895301
                 }
             ]
         },

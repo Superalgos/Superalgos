@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Jeder Knoten (Node) ist von einem bestimmten Typ. Sein Typ definiert, wofür der Knoten verwendet werden kann, das Knotenmenü (Node Menu, an welche anderen Knoten er angehängt werden kann, und möglicherweise andere Eigenschaften, die vom Knotentyp abhängen Im Entwurfsbereich (Design Space) wird der Typ des Knotens unter dem Knotensymbol (Node Icon) angezeigt.",
                 "updated": 1689417652438
+            },
+            {
+                "language": "PT",
+                "text": "Cada nó (node) é de um determinado tipo. O seu tipo define para que o nó (node) pode ser usado, o Menu do Nó (Node), a que outros nós pode ser anexado e muitas outras propriedades que dependem do Tipo de Nó. Na Interface de Design (Design Space), o tipo de Nó (Node) é exibido abaixo do Ícone do Nó (Node).",
+                "updated": 1711482408102
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689417661590
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711482430697
                 }
             ]
         }

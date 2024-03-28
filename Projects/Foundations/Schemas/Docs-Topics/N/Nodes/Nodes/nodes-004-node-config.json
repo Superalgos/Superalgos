@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Knoten können - nur bei Bedarf - eine Konfiguration haben, die zum Speichern von Informationen zu diesem Knoten verwendet wird. Wenn dies der Fall ist, kann der Benutzer normalerweise über einen der Knotenmenüpunkte (Node Menu) darauf zugreifen. Eine Knotenkonfiguration wird später von Tasks oder Bots während ihrer Verarbeitung verwendet.",
                 "updated": 1689420114035
+            },
+            {
+                "language": "PT",
+                "text": "Os Nós (Nodes) podem ter uma configuração - apenas quando necessário - que é usada para armazenar informações relacionadas a esse Nó (Node). Quando têm uma configuração, geralmente permitem que os utilizadores acedam através de um dos itens do Menu do Nó (Node Menu). Mais tarde, uma Configuração de Nó é usada por Tarefas (Tasks) ou Bots durante o seu processamento.",
+                "updated": 1711482967538
             }
         ]
     },

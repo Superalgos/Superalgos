@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Özet: Arayüzde gezinmek için farenizi ve klavyenizi kullanabilirsiniz.",
                 "updated": 1645975948313
+            },
+            {
+                "language": "PT",
+                "text": "Você pode usar o rato e o teclado para navegar na interface. ",
+                "updated": 1711655592945
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "TR",
                     "text": "Tasarım Alanına Erişim",
                     "updated": 1645975962401
+                },
+                {
+                    "language": "PT",
+                    "text": "Aceder ao Interface de Design (Design Space)",
+                    "updated": 1711539905362
                 }
             ]
         },
@@ -79,6 +89,11 @@
                     "language": "TR",
                     "text": "Fareyi kullanma",
                     "updated": 1645975988695
+                },
+                {
+                    "language": "PT",
+                    "text": "Utilizando o rato",
+                    "updated": 1711539919060
                 }
             ]
         },
@@ -89,7 +104,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Щелкните и перетащите ползунок вверх и вниз, чтобы освободить место для пространства Charting Space вверху или пространства Design Space внизу.",
+                    "text": "Щелкните и перетащите ползунок вверх и вниз, чтобы освободить место для прос��ранства Charting Space вверху или пространства Design Space внизу.",
                     "updated": 1638349016667
                 },
                 {
@@ -106,6 +121,11 @@
                     "language": "TR",
                     "text": "Kaydırıcıyı yukarı ve aşağı çekmek için tıklayın ve sürükleyin, üstte Grafik Alanı veya altta Tasarım Alanı ( Design Space ) için daha fazla yer açın.",
                     "updated": 1645976007752
+                },
+                {
+                    "language": "PT",
+                    "text": "Clique e arraste para cima e para baixo para mover o controlo deslizante, criando mais espaço para o Interface dos Gráficos (Charting Space) no topo ou o Interface de Design (Design Space) na parte inferior.",
+                    "updated": 1711540077286
                 }
             ]
         },
@@ -142,6 +162,11 @@
                     "language": "TR",
                     "text": "Klavyeyi Kullanma",
                     "updated": 1645976031769
+                },
+                {
+                    "language": "PT",
+                    "text": "Utilizando o teclado",
+                    "updated": 1711540102171
                 }
             ]
         },
@@ -169,6 +194,11 @@
                     "language": "TR",
                     "text": "Aynı amaç için aşağıdaki tuş kombinasyonlarını kullanın:",
                     "updated": 1645976043694
+                },
+                {
+                    "language": "PT",
+                    "text": "Utilize as seguintes combinações de teclas para o mesmo propósito:",
+                    "updated": 1711540149842
                 }
             ]
         },
@@ -196,6 +226,11 @@
                     "language": "TR",
                     "text": "Grafik alanını kapatmak ve tasarım alanını açmak için Ctrl veya ⌘ + Shift + ↑.",
                     "updated": 1645976060774
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + Shift + ↑ para fechar o Interface dos Gráficos (Charting Space) e abrir o Interface de Design (Design Space).",
+                    "updated": 1711556464994
                 }
             ]
         },
@@ -223,6 +258,11 @@
                     "language": "TR",
                     "text": "Tasarım alanını kapatmak ve grafik alanını açmak için Ctrl veya ⌘ + Shift + ↓.",
                     "updated": 1645976084555
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + Shift + ↓ para fechar o Interface de Design (Design Space) e abrir o Interface dos Gráficos (Charting Space).",
+                    "updated": 1711556479119
                 }
             ]
         },
@@ -250,6 +290,11 @@
                     "language": "TR",
                     "text": "Kaydırıcıyı kademeli olarak düşürmek için Ctrl veya ⌘ + Shift + →.",
                     "updated": 1645976092924
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + Shift + → para diminuir o controle deslizante incrementalmente.",
+                    "updated": 1711556487056
                 }
             ]
         },
@@ -277,6 +322,11 @@
                     "language": "TR",
                     "text": "Kaydırıcıyı kademeli olarak yükseltmek için Ctrl veya ⌘ + Shift + ←.",
                     "updated": 1645976101826
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + Shift + ← para aumentar o controle deslizante incrementalmente.",
+                    "updated": 1711556495353
                 }
             ]
         },
@@ -304,6 +354,11 @@
                     "language": "TR",
                     "text": "Navigasyon",
                     "updated": 1645976123039
+                },
+                {
+                    "language": "PT",
+                    "text": "Navegação",
+                    "updated": 1711540486351
                 }
             ]
         },
@@ -331,6 +386,11 @@
                     "language": "TR",
                     "text": "Siyah arka plana sol tıklayın ve çalışma alanında gezinmek için sürükleyin.",
                     "updated": 1645976131676
+                },
+                {
+                    "language": "PT",
+                    "text": "Clique no botão esquerdo do rato no fundo preto e arraste para mover ao redor do espaço de trabalho.",
+                    "updated": 1711540558341
                 }
             ]
         },
@@ -357,6 +417,11 @@
                     "language": "TR",
                     "text": "Klavyenizde aşağıdaki tuş kombinasyonlarını da kullanabilirsiniz:",
                     "updated": 1645976140383
+                },
+                {
+                    "language": "PT",
+                    "text": "Pode também usar as seguintes combinações de teclas no seu teclado:",
+                    "updated": 1711540602003
                 }
             ]
         },
@@ -384,6 +449,11 @@
                     "language": "TR",
                     "text": "Sola kaydırmak için Ctrl veya ⌘ + ←.",
                     "updated": 1645976150250
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + ← para percorrer para a esquerda.",
+                    "updated": 1711556506163
                 }
             ]
         },
@@ -411,6 +481,11 @@
                     "language": "TR",
                     "text": "Sağa kaydırmak için Ctrl veya ⌘ + →.",
                     "updated": 1645976159175
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + → para percorrer para a direita.",
+                    "updated": 1711556513131
                 }
             ]
         },
@@ -438,6 +513,11 @@
                     "language": "TR",
                     "text": "Yukarı kaydırmak için Ctrl veya ⌘ + ↑.",
                     "updated": 1645976167321
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + ↑ para percorrer para cima.",
+                    "updated": 1711556522333
                 }
             ]
         },
@@ -465,6 +545,11 @@
                     "language": "TR",
                     "text": "Aşağı kaydırmak için Ctrl veya ⌘ + ↓.",
                     "updated": 1645976174982
+                },
+                {
+                    "language": "PT",
+                    "text": "Ctrl ou Cmd + ↓ para percorrer para baixo.",
+                    "updated": 1711556530692
                 }
             ]
         },
@@ -496,6 +581,11 @@
                     "language": "DE",
                     "text": "Nodes Verschieben",
                     "updated": 1644785315683
+                },
+                {
+                    "language": "PT",
+                    "text": "Mover os Nós (Nodes)",
+                    "updated": 1711540803488
                 }
             ]
         },
@@ -522,6 +612,11 @@
                     "language": "DE",
                     "text": "Es gibt zwei Wege, um Nodes zu verschieben:",
                     "updated": 1644785333965
+                },
+                {
+                    "language": "PT",
+                    "text": "Existem duas formas principais de mover um Nó (Node):",
+                    "updated": 1711540863992
                 }
             ]
         },
@@ -549,6 +644,11 @@
                     "language": "DE",
                     "text": "Unabhängig davon, welche Methode Sie verwenden, stellen Sie sicher, dass der Node gepinnt ist. Andernfalls rastet er wieder an seiner ursprünglichen Position ein.",
                     "updated": 1644785377607
+                },
+                {
+                    "language": "PT",
+                    "text": "Independentemente do método que utilize, certifique-se de que o Nó (Node) está fixado. Caso contrário, ele retornará à sua posição original.",
+                    "updated": 1711540908647
                 }
             ]
         },
@@ -575,6 +675,11 @@
                     "language": "DE",
                     "text": "Klicken und halten Sie Ctrl. Dann verwenden Sie die Pfeiltasten ← → ↑ ↓ um den Node zur gewünschten Position zu verschieben.",
                     "updated": 1644785441160
+                },
+                {
+                    "language": "PT",
+                    "text": "Clique num Nó (Node) enquanto mantém pressionada a tecla Ctrl. Em seguida, utilize as setas ← → ↑ ↓ para arrastar o Nó (Node) para a posição desejada.",
+                    "updated": 1711540977619
                 }
             ]
         },
@@ -602,6 +707,11 @@
                     "language": "DE",
                     "text": "Bei der zweiten Methode wird der zu verschiebende Node kopiert und dann an der neuen Position eingerastet. Suchen Sie dazu zunächst die Menüoption \"Save Node to Move\" auf dem Node, den Sie verschieben möchten, und klicken Sie darauf. Gehen Sie dann zu einem anderen Node in der Nähe der Stelle, an die Sie den aktuellen Node verschieben möchten, und klicken Sie auf die Schaltfläche \"Snap Saved Node to Position\".",
                     "updated": 1644785512748
+                },
+                {
+                    "language": "PT",
+                    "text": "O segundo método, copia o Nó (Node) que deseja mover e, em seguida, ajusta-o para a nova posição. Para fazer isso, primeiro encontre a opção de menu \"Salvar Nó (Node) para Mover\" no Nó (Node) que deseja mover e clique nela. Em seguida, mova-se para um Nó (Node) diferente perto de onde deseja que o Nó (Node) atual esteja e clique no botão \"Ajustar Nó (Node) Salvo para Posição (Position)\".",
+                    "updated": 1711541262004
                 }
             ]
         },
@@ -634,6 +744,11 @@
                     "language": "DE",
                     "text": "Es gibt auch Tastenkombinationen, um das Einrasten von Nodes zu erreichen. Weitere Informationen finden Sie auf der Seite \"Keyboard Shortcut Quick Guide\".",
                     "updated": 1644785570250
+                },
+                {
+                    "language": "PT",
+                    "text": "Também existem atalhos de teclado para realizar a ligação entre Nós (Nodes). Consulte a página Keyboard Shortcut Quick Guide para mais detalhes.",
+                    "updated": 1711541872614
                 }
             ]
         },
@@ -661,6 +776,11 @@
                     "language": "DE",
                     "text": "Diese UI-Tricks können Ihr Leben ebenfalls einfacher machen:",
                     "updated": 1644785610208
+                },
+                {
+                    "language": "PT",
+                    "text": "Estes truques da interface (UI) também podem facilitar sua vida:",
+                    "updated": 1711541497000
                 }
             ]
         },
@@ -687,6 +807,11 @@
                     "language": "DE",
                     "text": "Benutzen Sie die Design Space Map so oft wie nötig, um den Weg von einer Hierarchie zur anderen zu finden.",
                     "updated": 1644785633259
+                },
+                {
+                    "language": "PT",
+                    "text": "Utilize o mapa do Interface de Design (Design Space) quantas vezes forem necessárias para encontrar o caminho de uma hierarquia para outra.",
+                    "updated": 1711541549849
                 }
             ]
         },
@@ -713,6 +838,11 @@
                     "language": "DE",
                     "text": "Entfernen Sie den Pin, sobald der Bezug hergestellt ist, damit der Node an seinen Platz zurückkehrt.",
                     "updated": 1644785661891
+                },
+                {
+                    "language": "PT",
+                    "text": "Anule a opção do alfinete assim que a referência for estabelecida para que o Nó (Node) volte ao seu lugar.",
+                    "updated": 1711541660857
                 }
             ]
         },
@@ -743,6 +873,11 @@
                     "language": "DE",
                     "text": "Tastenkombinationen",
                     "updated": 1644785684167
+                },
+                {
+                    "language": "PT",
+                    "text": "Atalhos/Shortcuts do Teclado",
+                    "updated": 1711541689967
                 }
             ]
         },
@@ -765,6 +900,11 @@
                     "language": "DE",
                     "text": "Superalgos bietet auch eine Reihe von Tastaturkürzeln, die die Arbeit mit der Plattform erleichtern. Eine Liste aller aktuellen Tastenkombinationen finden Sie auf der Seite \"Keyboard Shortcut Quick Guide\".",
                     "updated": 1644785727038
+                },
+                {
+                    "language": "PT",
+                    "text": "O Superalgos também oferece uma variedade de atalhos de teclado para facilitar o trabalho com a plataforma. Pode encontrar uma lista de todos os atalhos atuais na página Keyboard Shortcut Quick Guide.",
+                    "updated": 1711541855635
                 }
             ]
         },

@@ -31,6 +31,11 @@
                 "language": "ES",
                 "text": "El comando docs.delete ha borrado de la memoria la página solicitada.",
                 "updated": 1677428110603
+            },
+            {
+                "language": "PT",
+                "text": "O comando docs.delete eliminou da memória a página que solicitou.",
+                "updated": 1711481123695
             }
         ]
     },
@@ -65,6 +70,11 @@
                     "language": "ES",
                     "text": "La página ha sido marcada para ser borrada. Se eliminará de la colección de páginas en memoria una vez que ejecute el comando Docs Save Command. El comando Docs Save Command indica al Client que elimine el archivo del disco. Para eliminar la página del índice, es necesario ejecutar el comando Docs Reindex.",
                     "updated": 1677428114802
+                },
+                {
+                    "language": "PT",
+                    "text": "A página foi marcada para ser excluída. Será removida da coleção de páginas em memória assim que executar o comando \"Docs Save Command\". O comando \"Docs Save Command\" instrui o Cliente a eliminar o ficheiro do disco. Para remover a página do índice, deve executar o comando \"Docs Reindex Command\".",
+                    "updated": 1711481317337
                 }
             ]
         }

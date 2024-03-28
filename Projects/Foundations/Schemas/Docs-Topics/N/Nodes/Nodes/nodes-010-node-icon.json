@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Jeder Knoten (Node) muss ein Icon haben, das den Knoten im Desing Space repräsentiert.",
                 "updated": 1689422403577
+            },
+            {
+                "language": "PT",
+                "text": "Cada Nó (Node) deve ter um ícone, que é aquele que representa o Nó (Node) no Interface de Design (Design Space). ",
+                "updated": 1711484777255
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689422415233
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711484789168
                 }
             ]
         }

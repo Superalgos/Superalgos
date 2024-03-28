@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Bir düğüm, piyasa bilgileri, ticari işlem zekası, sistemin işleyişi veya diğer kavramlarla ilgili olabilecek bilgileri içeren küçük bir veri yapısıdır. Tasarım alanında görsel olarak simgelerle temsil edilirler.",
                 "updated": 1671962503169
+            },
+            {
+                "language": "PT",
+                "text": "Para desligar um nó (node), clique no botão de desanexar no menu do nó (node). Para anexar um nó (node), clique com o botão direito do rato no nó (node) e arraste-o para mais perto do nó (node) ao qual deseja anexá-lo. Solte o botão direito do rato quando o nó (node) de destino estiver destacado. ",
+                "updated": 1711655546879
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "TR",
                     "text": "Düğümlerin Yapısı",
                     "updated": 1671962518105
+                },
+                {
+                    "language": "PT",
+                    "text": "Estruturas dos Nós (Nodes)",
+                    "updated": 1711464611893
                 }
             ]
         },
@@ -79,6 +89,11 @@
                     "language": "TR",
                     "text": "Düğümler, düğüm yapıları oluşturacak şekilde birbirine zincirlenebilir. Her düğüm yapısında alt düğümleri olan bir ana düğüm vardır. Yani, bir düğüm yapısı, herhangi bir düğüm ve onun alt düğümlerinden oluşan bir veri yapısıdır.",
                     "updated": 1671962556030
+                },
+                {
+                    "language": "PT",
+                    "text": "Os nós (nodes) podem ser encadeados formando estruturas de nós (nodes). Em cada estrutura de nós (nodes), há um Nó Primário (Parent Node) com descendentes. Ou seja, uma estrutura de nós (nodes) é uma estrutura de dados composta por qualquer nó (node) e seus descendentes.",
+                    "updated": 1711464855629
                 }
             ]
         },
@@ -105,6 +120,11 @@
                     "language": "TR",
                     "text": "Sonuç olarak, düğüm yapıları hiyerarşik yapılardır ve her bir düğüm tarafından somutlaştırılan kavramların birbirleriyle nasıl ilişkili olduğunun mantıksal bir temsilidir.",
                     "updated": 1671962576236
+                },
+                {
+                    "language": "PT",
+                    "text": "Consequentemente, as estruturas de nós (nodes) são estruturas hierárquicas e uma representação lógica de como os conceitos incorporados por cada nó (node) se relacionam entre si.",
+                    "updated": 1711464954414
                 }
             ]
         },
@@ -131,6 +151,11 @@
                     "language": "TR",
                     "text": "Ebeveyn-Çocuk İlişkileri ( Parent-Offspring Relationships )",
                     "updated": 1698699604394
+                },
+                {
+                    "language": "PT",
+                    "text": "Relações entre Nós Principais e Descendentes",
+                    "updated": 1711465121915
                 }
             ]
         },
@@ -157,6 +182,11 @@
                     "language": "TR",
                     "text": "Düğüm yapılarındaki düğümler, üst-alt ilişkileriyle birbirlerine zincirlenir. Bu ilişkiler görsel olarak turuncu noktalı çizgilerle temsil edilir ve kullanıcının kontrol edebileceği belirli görselleştirme özelliklerine bağlı olarak sarı veya maviye dönüşebilir. Düğümler birbirine zincirlendiğinde düğüm yapılarını oluştururlar.",
                     "updated": 1671962618503
+                },
+                {
+                    "language": "PT",
+                    "text": "Nas estruturas de nós (nodes), os nós (nodes) são encadeados uns aos outros por meio de relacionamentos chamados de Principais-Descendentes. Esses relacionamentos são visualmente representados por linhas de pontos a laranja, que podem se tornar amarelas ou azuis, dependendo de certas propriedades de visualização que o utilizador pode controlar. Quando os nós (nodes) são encadeados, eles formam estruturas de nós (nodes).",
+                    "updated": 1711465337918
                 }
             ]
         },
@@ -183,6 +213,11 @@
                     "language": "TR",
                     "text": "Aradaki bağlantının yönü, çoğu durumda, bir düğümün alt düğümü üretme kabiliyetine göre belirlenir. Yani, üst düğüm, yazılım tasarımı gereği alt düğümü üretebilen düğümdür.",
                     "updated": 1671962661689
+                },
+                {
+                    "language": "PT",
+                    "text": "A direção da relação é determinada, na maioria dos casos, pela capacidade de um nó (node) de produzir o nó descendente. Ou seja, o nó (node) principal é aquele que, por design de software, pode produzir um nó (node) descendente.",
+                    "updated": 1711465525430
                 }
             ]
         },
@@ -209,6 +244,11 @@
                     "language": "TR",
                     "text": "Düğümler Nasıl Ayrılır ve Eklenir",
                     "updated": 1671962683406
+                },
+                {
+                    "language": "PT",
+                    "text": "Como ligar e desligar Nós (Nodes)",
+                    "updated": 1711465565034
                 }
             ]
         },

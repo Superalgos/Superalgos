@@ -37,6 +37,11 @@
                 "language": "ES",
                 "text": "El comando docs.reindex ha iniciado la reconstrucción del Docs Search Engine Index.",
                 "updated": 1677427939877
+            },
+            {
+                "language": "PT",
+                "text": "O comando docs.reindex iniciou a reconstrução do Índice do Motor de Busca de Docs (Docs Search Engine Index).",
+                "updated": 1711480149526
             }
         ]
     },
@@ -77,6 +82,11 @@
                     "language": "ES",
                     "text": "La re-indexación es un proceso que consume muchos recursos. Mientras se ejecuta el proceso, no podrás utilizar la interfaz ya que todos los recursos de la CPU se dedican a recrear el índice lo más rápido posible.",
                     "updated": 1677427953749
+                },
+                {
+                    "language": "PT",
+                    "text": "A reindexação é um processo intensivo em recursos. Enquanto o processo estiver em execução, não poderá utilizar a interface, pois todos os recursos da CPU estão dedicados a recriar o índice o mais rápido possível.",
+                    "updated": 1711480230125
                 }
             ]
         },
@@ -115,6 +125,11 @@
                     "language": "ES",
                     "text": "El peso de tu Workspace impacta en el tiempo requerido para reindexar el contenido ya que cada nodo del Workspace debe ser escaneado. Se indexan todos los códigos y configuraciones.",
                     "updated": 1677427961783
+                },
+                {
+                    "language": "PT",
+                    "text": "O peso do seu Área de Trabalho (Workspace) afeta o tempo necessário para reindexar o conteúdo, pois cada nó (node) na sua Área de Trabalho (Workspace) deve ser analizado. Todo o código e configurações são indexados.",
+                    "updated": 1711480563603
                 }
             ]
         },
@@ -153,6 +168,11 @@
                     "language": "ES",
                     "text": "Espera unos segundos hasta que finalice el proceso. Recibirás un nuevo mensaje cuando haya terminado.",
                     "updated": 1677427967021
+                },
+                {
+                    "language": "PT",
+                    "text": "Deverá de aguardar alguns momentos até que o processo termine. Assim que o processo terminar, será notificado.",
+                    "updated": 1711480650472
                 }
             ]
         }

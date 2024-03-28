@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Düğümlerin Veri Görevleri ( Data Tasks ) yapısı, borsalardan veri almak ve bunları göstergelere veya teknik çalışmalara dönüştürmek için çalıştırmanız gereken botları kontrol eder.\n",
                 "updated": 1673807059655
+            },
+            {
+                "language": "PT",
+                "text": "A estrutura de Nós (Node's) das Tarefas de Dados (Data Tasks) controla os bots que você precisa executar para extrair dados das corretoras e processar os indicadores ou estudos técnicos. ",
+                "updated": 1711655715060
             }
         ]
     },
@@ -41,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "Project Data Tasks"
+            "text": "Project Data Tasks",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Projectos de Dados (Project Data Tasks)",
+                    "updated": 1711558871896
+                }
+            ]
         },
         {
             "style": "Include",
@@ -51,7 +63,14 @@
         {
             "style": "Title",
             "text": "Exchange Data Tasks",
-            "updated": 1610051854969
+            "updated": 1610051854969,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Dados de Corretoras (Exchange Data Tasks)",
+                    "updated": 1711558914981
+                }
+            ]
         },
         {
             "style": "Include",
@@ -66,7 +85,14 @@
         {
             "style": "Title",
             "text": "Data Mine Tasks",
-            "updated": 1610051908264
+            "updated": 1610051908264,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Dados das Minas (Data Mine Tasks)",
+                    "updated": 1711558992928
+                }
+            ]
         },
         {
             "style": "Include",
@@ -81,7 +107,14 @@
         {
             "style": "Title",
             "text": "Task Manager",
-            "updated": 1610051922962
+            "updated": 1610051922962,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Gestor de Tarefas",
+                    "updated": 1711559008058
+                }
+            ]
         },
         {
             "style": "Include",
@@ -95,7 +128,14 @@
         },
         {
             "style": "Title",
-            "text": "Task"
+            "text": "Task",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas",
+                    "updated": 1711559024946
+                }
+            ]
         },
         {
             "style": "Include",
@@ -126,13 +166,25 @@
                     "language": "TR",
                     "text": "Veri görevleri, Gösterge Botlarının veya Sensör Botlarının örneklerini çalıştırabilir. Bu ikisini bir sonraki sayfada ele alacağız. Bazı borsalar, belirli türde veya miktarda veriyi indirmek için bir API anahtarı gerektirebilir. Şimdi Anahtar Referansı (  Key Reference ) düğümüne bakalım.",
                     "updated": 1673807153791
+                },
+                {
+                    "language": "PT",
+                    "text": "As tarefas de dados podem executar instâncias de Bots de Indicadores ou Bots de Sensores. Vamos cobrir estes dois tópicos na próxima página. Algumas corretoras podem exigir uma chave de API para fazer o download de determinados tipos de dados ou os seus valores. Vamos investigar o Nó (Node) de Referência de Chave (Key Reference).",
+                    "updated": 1711559256531
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Key Reference",
-            "updated": 1610053470203
+            "updated": 1610053470203,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Chaves API",
+                    "updated": 1711559382796
+                }
+            ]
         },
         {
             "style": "Include",

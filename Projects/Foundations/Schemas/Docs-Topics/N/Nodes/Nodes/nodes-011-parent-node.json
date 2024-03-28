@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Der übergeordnete Knoten (Node) eines bestimmten Knotens A ist der Knoten, der zur Erstellung von A verwendet wurde. Nicht alle Knoten haben einen Elternknoten.",
                 "updated": 1689423063285
+            },
+            {
+                "language": "PT",
+                "text": "O Nó Primário (Parent Node) de um certo Nó (Node) A é o Nó (Node) que foi usado para criar A. Os nós são automaticamente anexados ao seu Nó Primário (Parent Node). Nem todos os nós têm um Nó Primário (Parent Node).",
+                "updated": 1711484898010
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689423077447
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711484807235
                 }
             ]
         }

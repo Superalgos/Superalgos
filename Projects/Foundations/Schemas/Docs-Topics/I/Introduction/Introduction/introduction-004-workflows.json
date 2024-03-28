@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Tercih ettiğiniz iş akışı, Superalgos'un ticari zekayı oluşturan çoklu kavramların karmaşıklığını nasıl yönettiğini anlamanızla ortaya çıkacaktır.",
                 "updated": 1673376368621
+            },
+            {
+                "language": "PT",
+                "text": "O seu workflow preferido surgirá a partir da compreensão de como o Superalgos administra a complexidade de múltiplos conceitos que compõem a inteligência de negociação (trading intelligence). ",
+                "updated": 1711655509984
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "language": "TR",
                     "text": "Superalgos, her biri birden fazla sonuç ve çeşitliliğe sahip, iç içe geçmiş birden fazla iş akışına sahiptir. Superalgos gibi bir alım satım otomasyon platformunun kullanım alanları çoktur ve bunları birbirinden ayırmak muhtemelen imkansızdır:",
                     "updated": 1673376418963
+                },
+                {
+                    "language": "PT",
+                    "text": "O Superalgos apresenta múltiplos fluxos de trabalho interligados, cada um com várias ramificações e variações. Os casos de uso para uma plataforma de automação de negociação como o Superalgos são abundantes e provavelmente impossíveis de serem separados entre si:",
+                    "updated": 1711463675021
                 }
             ]
         },
@@ -78,6 +88,11 @@
                     "language": "TR",
                     "text": "Kullanıcılar birden fazla borsadan ve birden fazla piyasadan veri indirebilir.",
                     "updated": 1673376437420
+                },
+                {
+                    "language": "PT",
+                    "text": "Os utilizadores podem descarregar dados de múltiplas correctoras e mercados diferentes.",
+                    "updated": 1711463693398
                 }
             ]
         },
@@ -104,6 +119,11 @@
                     "language": "TR",
                     "text": "Mevcut göstergeleri kullanarak verileri işleyebilir, bu göstergeleri değiştirebilir veya farklı karmaşıklık derecelerinde kendi teknik çalışmalarını oluşturabilirler.",
                     "updated": 1673376458666
+                },
+                {
+                    "language": "PT",
+                    "text": "Eles podem processar os dados usando os indicadores existentes, modificar esses mesmos indicadores ou criar os seus próprios estudos técnicos com diferentes graus de complexidade.",
+                    "updated": 1711463711466
                 }
             ]
         },
@@ -130,6 +150,11 @@
                     "language": "TR",
                     "text": "Basit grafikler kullanabilirler veya farklı piyasalardan ve farklı borsalardan gelen bilgileri üst üste bindirerek karmaşık grafikler yapılandırabilirler.",
                     "updated": 1673376477424
+                },
+                {
+                    "language": "PT",
+                    "text": "Eles podem usar gráficos simples ou configurar gráficos complexos sobrepondo essas informações de diferentes mercados e de diferentes correctoras.",
+                    "updated": 1711463730763
                 }
             ]
         },
@@ -156,6 +181,11 @@
                     "language": "TR",
                     "text": "Mevcut ticaret sistemlerini kullanabilir ve değiştirebilir veya kodlu ya da kodsuz olarak kendi sistemlerini oluşturabilirler.",
                     "updated": 1673376497386
+                },
+                {
+                    "language": "PT",
+                    "text": "Eles podem usar e modificar sistemas de negociação existentes (trading systems) ou criar os seus próprios, com ou sem programação.",
+                    "updated": 1711463744702
                 }
             ]
         },
@@ -182,6 +212,11 @@
                     "language": "TR",
                     "text": "Tam otomatik bir şekilde işlem yapabilir, sistemi geriye dönük test için veya kağıt alım satım seanslarından sinyal üretmek için kullanabilirler.",
                     "updated": 1673376516251
+                },
+                {
+                    "language": "PT",
+                    "text": "É possível negociar de forma totalmente automatizada, usar o sistema para testes retroativos (backtesting) ou para gerar indicadores a partir de sessões de simulação (paper trading sessions).",
+                    "updated": 1711463760945
                 }
             ]
         },
@@ -208,6 +243,11 @@
                     "language": "TR",
                     "text": "Minimum düzeyde, kendi çaplarında ticaret operasyonları yürütebilir veya profesyonel düzeyde ticaret merkezleri kurabilirler.",
                     "updated": 1673376587982
+                },
+                {
+                    "language": "PT",
+                    "text": "É possível criar operações de negociação simples de pequena escala em casa ou implementar infra-estruturas de negociação de grande dimensão.",
+                    "updated": 1711463775668
                 }
             ]
         },
@@ -234,6 +274,11 @@
                     "language": "TR",
                     "text": "Tek bir piyasada faaliyet gösterebilirler veya karmaşık bir ticaret sistemleri ağıyla birden fazla borsa ve piyasadan yararlanabilirler.",
                     "updated": 1673376607593
+                },
+                {
+                    "language": "PT",
+                    "text": "Operar num único mercado ou actuar em múltiplas correctores e mercados numa rede complexa de sistemas de negociação (trading systems).",
+                    "updated": 1711463799068
                 }
             ]
         },
@@ -260,6 +305,11 @@
                     "language": "TR",
                     "text": "Tüm bu kullanım durumları ve her bir kullanım boyutunun farklı ölçülerde birleştirilmesiyle ortaya çıkabilecek sonsuz permütasyon, sonsuz iş akışları da üretebilir.",
                     "updated": 1673376641505
+                },
+                {
+                    "language": "PT",
+                    "text": "Todos estes exemplos de uso da plataforma e as infinitas combinações que podem surgir ao combinar cada aspecto em diferentes proporções, podem resultar numa infinidade de workflows.",
+                    "updated": 1711463828435
                 }
             ]
         },
@@ -286,6 +336,11 @@
                     "language": "TR",
                     "text": "İş akışınızı geliştirmeye başlamak için en iyi yaklaşım, sistemin nasıl yapılandırıldığına ve özellikle de bilgilerin sistemin her bir bileşenine nasıl sunulduğuna ilişkin anlayışınızı geliştirmektir.",
                     "updated": 1673376665992
+                },
+                {
+                    "language": "PT",
+                    "text": "A melhor forma para começar a desenvolver o seu próprio workflow é aprofundar o seu conhecimento de como o sistema está organizado e, em particular, de como as informações são disponibilizadas para cada um dos componentes no sistema.",
+                    "updated": 1711463843803
                 }
             ]
         },
@@ -312,6 +367,11 @@
                     "language": "TR",
                     "text": "Genel bir kural olarak, Superalgos için en önde gelen sistem tasarım kriterlerinden biri esnekliktir. Sistem hiçbir kısıtlama getirmemeli ve yapabileceklerinizin ya da yapamayacaklarınızın sınırlarını hayal gücünüzün ve donanım kaynaklarınızın belirlemesine izin vermelidir.",
                     "updated": 1673376709699
+                },
+                {
+                    "language": "PT",
+                    "text": "Como regra geral, um dos critérios de design mais importantes no Superalgos é a flexibilidade. O sistema não deve impor restrições, mas sim, permitir que sua imaginação e recursos de hardware definam os limites daquilo que pode ou não fazer.",
+                    "updated": 1711463865936
                 }
             ]
         }

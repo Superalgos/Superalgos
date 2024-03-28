@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Jeder Knotentyp (Node Type) kann über eine Reihe von Regeln verfügen, die festlegen, mit welchem Knotentyp er einen Bezug herstellen kann.",
                 "updated": 1689421600448
+            },
+            {
+                "language": "PT",
+                "text": "Cada tipo de Nó (Node Type) pode ter um conjunto de regras que define com qual tipo de Nó (Node Type) pode estabelecer uma referência.",
+                "updated": 1711484607783
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1689421611035
+                },
+                {
+                    "language": "PT",
+                    "text": "Para entrar no modo de edição e alterar este texto, clique com o botão direito do rato e selecione \"Editar\". Pressione ENTER para escrever novos parágrafos e ESC para sair do modo de edição.",
+                    "updated": 1711484627998
                 }
             ]
         }

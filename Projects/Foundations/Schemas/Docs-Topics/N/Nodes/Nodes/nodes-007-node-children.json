@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Knoten können Kinder haben. Wenn dies der Fall ist, bieten sie dem Benutzer normalerweise die Möglichkeit, über das Knotenmenü (Node Menu) Kinder zu erstellen. Ein Knoten Kinder könnte am Ende an den übergeordneten Knoten (Parent Node) angehängt werden, aber das ist nicht immer der Fall.",
                 "updated": 1689420657766
+            },
+            {
+                "language": "PT",
+                "text": "Os nós podem ter Subnó (Node Children). Quando o fazem, geralmente oferecem ao utilizador uma forma de criar os seus Subnós (Node Children) através do Menu do Nó (Node Menu)  Um Subnó (Node Children) pode acabar ligado ao Nó Primário (Parent Node), mas nem sempre é o caso.",
+                "updated": 1711483936544
             }
         ]
     },
@@ -64,6 +69,11 @@
                     "language": "DE",
                     "text": "Jede Art von Knoten kann Kinder haben. Wenn dies der Fall ist, wird ein Verweis auf die Kinder zur Laufzeit in einer oder mehreren Eigenschaften des Knotenobjekts vorhanden sein. Es gibt keine generische Eigenschaft childrenNodes (wie in HTML) mit einem Array von Kinderknoten. Stattdessen definiert jeder Knotentyp (Node Type), welche Eigenschaften die Verweise auf die Kinder enthalten.",
                     "updated": 1689421148399
+                },
+                {
+                    "language": "PT",
+                    "text": "Cada tipo de Nó (Node) pode ter Subnós (Node Children). Se o tiverem, uma referência aos Subnós (Node Children) estará presente em tempo de execução numa ou mais propriedades do objeto do Nó (Node). Não há uma propriedade genérica `childrenNodes` (como no HTML) com uma array de Subnós (Node Children). Em vez disso, o que podemos encontrar é que cada tipo de Nó (Node) define quais propriedades irão conter essas referências aos Subnós (Node Children).",
+                    "updated": 1711484285059
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Özet: Her düğümün çeşitli düzenleme, ilişki ve üretkenlik özelliklerini içeren bir menüsü vardır.",
                 "updated": 1645976201400
+            },
+            {
+                "language": "PT",
+                "text": "Cada Nó (Node) possui um menu com várias opções de organização, vínculos (relationships) e funcionalidades de produtividade (productivity features). ",
+                "updated": 1711655605646
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Fare işaretçisini düğümlerin üzerine getirmek bir menünün açılmasına neden olur. Bu durumda, düğüm odaklanmıştır.",
                     "updated": 1645976228569
+                },
+                {
+                    "language": "PT",
+                    "text": "Quando passa o ponteiro do rato sobre os Nós (Nodes), aparece um menu. Nesta situação, o Nó (Node) está em destaque.",
+                    "updated": 1711542199906
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "TR",
                     "text": "Düzenleme Özellikleri",
                     "updated": 1645976238087
+                },
+                {
+                    "language": "PT",
+                    "text": "Opções de Organização",
+                    "updated": 1711542246298
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "TR",
                     "text": "Tasarım alanı, düğümlerin, düğüm menüsünden kontrol edebileceğiniz belirli düzenleme özellikleri tarafından yönlendirilen yerlerini bulma eğiliminde olduğu, kendi kendini organize eden bir çalışma alanı paradigması altında işlev görür.",
                     "updated": 1645976258907
+                },
+                {
+                    "language": "PT",
+                    "text": "A Interface de Design (Design Space) funciona sob o paradigma de uma Área de Trabalho (Workspace) que se auto-organiza e na qual os Nós (Node’s) tendem a organizar-se nas suas posições ordenados por determinadas propriedades de organização que poderá controlar a partir do menu do Nó (Node).",
+                    "updated": 1711542458944
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Serbestlik Seviyesi",
                     "updated": 1645976273674
+                },
+                {
+                    "language": "PT",
+                    "text": "Nivel de Liberdade",
+                    "updated": 1711542470810
                 }
             ]
         },
@@ -286,6 +311,11 @@
                     "language": "TR",
                     "text": "Aranjman Stili",
                     "updated": 1645976404672
+                },
+                {
+                    "language": "PT",
+                    "text": "Configuração do Design",
+                    "updated": 1711550323087
                 }
             ]
         },
@@ -308,6 +338,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki seçenekler, bir düğümün üst öğesi etrafında veya ona göre nasıl düzenlendiğini etkiler.",
                     "updated": 1645976418997
+                },
+                {
+                    "language": "PT",
+                    "text": "As seguintes opções afetam como um Nó (Node) é organizado ao redor ou em relação ao seu Nó Primário (Parent Node).",
+                    "updated": 1711550384612
                 }
             ]
         },
@@ -330,6 +365,11 @@
                     "language": "TR",
                     "text": "Önemli: Bu özelliğin mevcut uygulaması optimal değildir ve bu seçeneklerden bazılarının davranışını tahmin etmek zordur. Bir geliştiriciyseniz, bu, mevcut kodu yinelemek ve bu özelliği daha kullanılabilir bir duruma getirmek için iyi bir fırsat olabilir.",
                     "updated": 1645976426667
+                },
+                {
+                    "language": "PT",
+                    "text": "A atual implementação desta funcionalidade não é a ideal e o comportamento de algumas destas funcionalidades são, infelizmente, difíceis de prever. Se é um programador, esta poderia ser uma boa oportunidade para olhar o código existente e trazer, a esta funcionalidade, alguma estabilidade.",
+                    "updated": 1711550572462
                 }
             ]
         },
@@ -382,6 +422,11 @@
                     "language": "TR",
                     "text": "İlişkiler ve Referanslar",
                     "updated": 1645976443988
+                },
+                {
+                    "language": "PT",
+                    "text": "Relações e Referências",
+                    "updated": 1711550619926
                 }
             ]
         },
@@ -404,6 +449,11 @@
                     "language": "TR",
                     "text": "Düğümü Ayır",
                     "updated": 1645976476120
+                },
+                {
+                    "language": "PT",
+                    "text": "Desligar um Nó (Node)",
+                    "updated": 1711550606660
                 }
             ]
         },
@@ -426,6 +476,11 @@
                     "language": "TR",
                     "text": "Bağlantıyı Kaldırma Düğümü",
                     "updated": 1645976497789
+                },
+                {
+                    "language": "PT",
+                    "text": "Remover uma Referência de um Nó (Node)",
+                    "updated": 1711550656762
                 }
             ]
         },
@@ -452,6 +507,11 @@
                     "language": "TR",
                     "text": "Üretkenlik Özellikler",
                     "updated": 1645976520265
+                },
+                {
+                    "language": "PT",
+                    "text": "Funcionalidades de Produtividade",
+                    "updated": 1711550685621
                 }
             ]
         },
@@ -473,6 +533,11 @@
                     "language": "TR",
                     "text": "Varlık Yedekleme",
                     "updated": 1645976551695
+                },
+                {
+                    "language": "PT",
+                    "text": "Entidade de Backup",
+                    "updated": 1711550699078
                 }
             ]
         },
@@ -500,6 +565,11 @@
                     "language": "TR",
                     "text": "Varlık Klonlama",
                     "updated": 1645976568956
+                },
+                {
+                    "language": "PT",
+                    "text": "Entidade de Colonagem",
+                    "updated": 1711550719838
                 }
             ]
         },
@@ -526,6 +596,11 @@
                     "language": "TR",
                     "text": "Varlığı Paylaş",
                     "updated": 1645976582676
+                },
+                {
+                    "language": "PT",
+                    "text": "Entidade de Partilha",
+                    "updated": 1711550732064
                 }
             ]
         },
@@ -552,6 +627,11 @@
                     "language": "TR",
                     "text": "Varlığı Silme",
                     "updated": 1645976597160
+                },
+                {
+                    "language": "PT",
+                    "text": "Entidade para Apagar",
+                    "updated": 1711550745427
                 }
             ]
         },

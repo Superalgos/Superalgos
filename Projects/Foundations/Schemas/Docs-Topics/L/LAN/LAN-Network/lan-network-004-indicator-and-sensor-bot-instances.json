@@ -20,13 +20,25 @@
                 "language": "TR",
                 "text": "Veri görevleri Gösterge Botlarının veya Sensör Botlarının örneklerini çalıştırabilir ve bazı borsalar belirli türde veya miktarda veriyi indirmek için bir API anahtarı gerektirebilir. Bu durumların her birini inceleyeceğiz.",
                 "updated": 1673807705189
+            },
+            {
+                "language": "PT",
+                "text": "As tarefas de dados podem executar instâncias de Bots de Indicadores ou Bots de Sensores, e algumas correctoras podem exigir uma chave de API para fazer o download das informações de mercado ou conta privada. Vamos analisar cada um destes casos. ",
+                "updated": 1711655736495
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Indicator Bot Instance"
+            "text": "Indicator Bot Instance",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Instância do Bot de Indicadores (Indicator Bot)",
+                    "updated": 1711559713874
+                }
+            ]
         },
         {
             "style": "Include",
@@ -45,7 +57,14 @@
         },
         {
             "style": "Title",
-            "text": "Indicator Process Instance"
+            "text": "Indicator Process Instance",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Instância de Indicador de Processos (Indicator Process)",
+                    "updated": 1711559828901
+                }
+            ]
         },
         {
             "style": "Include",
@@ -60,7 +79,14 @@
         {
             "style": "Title",
             "text": "Time Frames Filter",
-            "updated": 1610053086734
+            "updated": 1610053086734,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Filtro dos Intervalos de Tempo",
+                    "updated": 1711559870996
+                }
+            ]
         },
         {
             "style": "Include",
@@ -74,7 +100,14 @@
         },
         {
             "style": "Title",
-            "text": "Sensor Bot Instance"
+            "text": "Sensor Bot Instance",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Instância do Bot Sensor",
+                    "updated": 1711560020836
+                }
+            ]
         },
         {
             "style": "Include",
@@ -93,7 +126,14 @@
         },
         {
             "style": "Title",
-            "text": "Sensor Process Instance"
+            "text": "Sensor Process Instance",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Instancia do Sensor de Processos",
+                    "updated": 1711560009397
+                }
+            ]
         },
         {
             "style": "Include",
@@ -108,7 +148,14 @@
         {
             "style": "Title",
             "text": "Key Reference",
-            "updated": 1610103821335
+            "updated": 1610103821335,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Chave API",
+                    "updated": 1711560050724
+                }
+            ]
         },
         {
             "style": "Include",

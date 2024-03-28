@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Test ortamı, strateji testi kaynaklarınızı, gruplama görevlerinizi ve ilgili geçmiş test ve borsa yatırım oturumlarınızı düzenler",
                 "updated": 1671963078834
+            },
+            {
+                "language": "PT",
+                "text": "O ambiente de testes organiza os seus recursos de testes das suas estratégias, agrupando as tarefas e sessões associadas de backtesting e de simulações de negociação. ",
+                "updated": 1711655751215
             }
         ]
     },
@@ -42,7 +47,14 @@
         {
             "style": "Title",
             "text": "Project Trading Tasks",
-            "updated": 1610099464447
+            "updated": 1610099464447,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Projectos de Negociação (Project Trading Tasks)",
+                    "updated": 1711560458351
+                }
+            ]
         },
         {
             "style": "Include",
@@ -56,7 +68,14 @@
         },
         {
             "style": "Title",
-            "text": "Exchange Trading Tasks"
+            "text": "Exchange Trading Tasks",
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas das Corretoras de Negociação (Project Trading Exchange)",
+                    "updated": 1711560528678
+                }
+            ]
         },
         {
             "style": "Include",
@@ -71,7 +90,14 @@
         {
             "style": "Title",
             "text": "Market Trading Tasks",
-            "updated": 1610099570869
+            "updated": 1610099570869,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Negociações de Mercado (Market Trading Tasks)",
+                    "updated": 1711560559344
+                }
+            ]
         },
         {
             "style": "Include",
@@ -86,7 +112,14 @@
         {
             "style": "Title",
             "text": "Trading Mine Tasks",
-            "updated": 1610099612379
+            "updated": 1610099612379,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas de Minas de Negociação (Trading Mine Tasks)",
+                    "updated": 1711561079821
+                }
+            ]
         },
         {
             "style": "Include",
@@ -101,7 +134,14 @@
         {
             "style": "Title",
             "text": "Task Manager",
-            "updated": 1610099672822
+            "updated": 1610099672822,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Gestor de Tarefas",
+                    "updated": 1711561125559
+                }
+            ]
         },
         {
             "style": "Include",
@@ -116,7 +156,14 @@
         {
             "style": "Title",
             "text": "Task",
-            "updated": 1610099791047
+            "updated": 1610099791047,
+            "translations": [
+                {
+                    "language": "PT",
+                    "text": "Tarefas",
+                    "updated": 1711561139914
+                }
+            ]
         },
         {
             "style": "Include",
@@ -146,6 +193,11 @@
                     "language": "TR",
                     "text": "Alım satım ( Trading )görevleri, dört farklı türde alım satım seansı yürütebilen Alım Satım Botu ( Trading Bot ) örneklerini çalıştırır. Bunları önümüzdeki birkaç sayfada inceleyeceğiz.",
                     "updated": 1672264304257
+                },
+                {
+                    "language": "PT",
+                    "text": "As tarefas de negociação (Trading) executam instâncias do Bot de Negociação (Trading Bot), que podem executar quatro tipos diferentes de sessões de negociação. Vamos estudar esses na próxima páginas.",
+                    "updated": 1711561334808
                 }
             ]
         }

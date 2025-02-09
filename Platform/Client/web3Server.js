@@ -627,11 +627,6 @@ exports.newWeb3Server = function newWeb3Server() {
                     let gasPrice = 5000000000
                     let gasLimit = 210000
 
-                    if (chain === 'ZKS') {
-                        gasPrice = 25000000
-                        gasLimit = 500000
-                    }
-
                     /* If executing on ETH, verify if current gas price is within reasonable range and calculate price for transaction */
                     if (chain === 'ETH') {
                         /* Maximum gas price in Gwei we are ready to pay */
@@ -679,6 +674,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
                             SA.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
+                            SA.logger.error(err.stack)
                             errorList.push(transactionDetails)
                         })
 

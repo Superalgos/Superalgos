@@ -1,0 +1,18 @@
+{
+    "type": "AWS API",
+    "definition": {
+        "text": "This node allows you to add your own AWS credentials. This is an easy option to get started or test out your configuration. For better security you should add the keys as environment variables on the system or if you are running on AWS infrastructure use AWS RBAC.",
+        "updated": 1738258387335
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For more information about AWS credentials read here:",
+            "updated": 1738258631388
+        },
+        {
+            "style": "Link",
+            "text": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html"
+        }
+    ]
+}

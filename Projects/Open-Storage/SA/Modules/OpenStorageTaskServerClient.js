@@ -84,32 +84,24 @@ exports.newOpenStorageModulesOpenStorageTaskServerClient = function newOpenStora
             let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
             let fileContent
 
-            switch (storageContainer.parentNode.type) {
-                case 'Github Storage': {
-                    await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                        .then(onFileLoaded)
-                        .catch(onFileNotLoaded)
+            const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.parentNode.type)
+            if(storageClient !== undefined) {
+                storageClient.loadFile(fileName, filePath, storageContainer)
+                    .then(onFileLoaded)
+                    .catch(onFileNotLoaded)
+            }
+            function onFileLoaded(encryptedFileContent) {
+                fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
+                /*
+                We are going to remember that we already loaded this file from one of it's storage containers.
+                */
+                filesLoadedByIdMap.set(fileKey.fileId, true)
+                resolve(fileContent)
+            }
 
-                    function onFileLoaded(encryptedFileContent) {
-                        fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
-                        /*
-                        We are going to remember that we already loaded this file from one of it's storage containers.
-                        */
-                        filesLoadedByIdMap.set(fileKey.fileId, true)
-                        resolve(fileContent)
-                    }
-
-                    function onFileNotLoaded(error) {
-                        SA.logger.error('Open Storage Client -> onFileNotLoaded -> Error = ' + error)
-                        resolve()
-                    }
-
-                    break
-                }
-                case 'Superalgos Storage': {
-                    // TODO Build the Superalgos Storage Provider
-                    break
-                }
+            function onFileNotLoaded(error) {
+                SA.logger.error('Open Storage Client -> onFileNotLoaded -> Error = ' + error)
+                resolve()
             }
         }
     }
@@ -154,17 +146,11 @@ exports.newOpenStorageModulesOpenStorageTaskServerClient = function newOpenStora
 
             let storageContainer = storageContainerReference.referenceParent
 
-            switch (storageContainer.type) {
-                case 'Github Storage Container': {
-                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
-                        .then(onFileSaved)
-                        .catch(onFileNodeSaved)
-                    break
-                }
-                case 'Superalgos Storage Container': {
-                    // TODO Build the Superalgos Storage Provider
-                    break
-                }
+            const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.type)
+            if(storageClient !== undefined) {
+                storageClient.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
+                    .then(onFileSaved)
+                    .catch(onFileNodeSaved)
             }
 
             function onFileSaved() {

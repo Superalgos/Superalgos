@@ -89,18 +89,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
                 }
 
                 let storageContainer = storageContainerReference.referenceParent
-
-                switch (storageContainer.type) {
-                    case 'Github Storage Container': {
-                        await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
-                            .then(onFileSaved)
-                            .catch(onFileNodeSaved)
-                        break
-                    }
-                    case 'Superalgos Storage Container': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.type)
+                if(storageClient !== undefined) {
+                    storageClient.saveFile(fileName, filePath, fileContent, storageContainer)
+                        .then(onFileSaved)
+                        .catch(onFileNodeSaved)
                 }
 
                 function onFileSaved() {
@@ -217,17 +210,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
                 let fileName = socialEntity.id
                 let filePath = "Social-Entities"
 
-                switch (storageContainer.parentNode.type) {
-                    case 'Github Storage': {
-                        await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                            .then(onFileLoaded)
-                            .catch(onFileNotLoaded)
-                        break
-                    }
-                    case 'Superalgos Storage': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.parentNode.type)
+                if(storageClient !== undefined) {
+                    storageClient.loadFile(fileName, filePath, storageContainer)
+                        .then(onFileLoaded)
+                        .catch(onFileNotLoaded)
                 }
 
                 function onFileLoaded(fileData) {

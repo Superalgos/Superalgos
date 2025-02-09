@@ -95,17 +95,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 let fileName = socialEntity.id
                 let filePath = "Social-Entities"
 
-                switch (storageContainer.parentNode.type) {
-                    case 'Github Storage': {
-                        await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                            .then(onFileLoaded)
-                            .catch(onFileNotLoaded)
-                        break
-                    }
-                    case 'Superalgos Storage': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.parentNode.type)
+                if(storageClient !== undefined) {
+                    storageClient.loadFile(fileName, filePath, storageContainer)
+                        .then(onFileLoaded)
+                        .catch(onFileNotLoaded)
                 }
 
                 function onFileLoaded(fileData) {

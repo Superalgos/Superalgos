@@ -20,6 +20,7 @@
     import Drawer from './components/Drawer.vue'
     import logo from "./assets/superalgos-logo-white.png"
     import background from "./assets/superalgos-header-background.png"
+    import { reactive } from 'vue'
 
     export default {
         components: { Drawer },
@@ -85,6 +86,27 @@
             };
         },
     }
+    export const eventBus = reactive({
+        favoriteDashboards: [],
+        addFavorite(dashboardName){
+            if(!this.favoriteDashboards.includes(dashboardName)){
+            this.favoriteDashboards.push(dashboardName);
+            localStorage.setItem('favoriteDashboards', JSON.stringify(this.favoriteDashboards));
+            eventBus.$emit('favorites-updated');
+            }
+        },
+        removeFavorite(dashboardName){
+            this.favoriteDashboards = this.favoriteDashboards.filter(fav => fav !== dashboardName);
+            localStorage.setItem('favoriteDashboards', JSON.stringify(this.favoriteDashboards));
+            eventBus.$emit('favorites-updated');
+        },
+        loadFavorites(){
+            const favs = localStorage.getItem('favoriteDashboards');
+            if(favs){
+            this.favoriteDashboards = JSON.parse(favs);
+            }
+        }
+        });
 </script>
 
 <style>

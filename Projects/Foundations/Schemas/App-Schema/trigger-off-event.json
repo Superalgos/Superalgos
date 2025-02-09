@@ -32,6 +32,15 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Report",
+            "translationKey": "add.report",
+            "relatedUiObject": "Report",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Dashboards",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "outgoingSignals",
@@ -87,6 +96,12 @@
             "type": "array",
             "childType": "Announcement",
             "project": "Social-Bots"
+        },
+        {
+            "name": "reports",
+            "type": "array",
+            "childType": "Report",
+            "project": "Dashboards"
         },
         {
             "name": "outgoingSignals",

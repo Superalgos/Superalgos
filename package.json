@@ -1,6 +1,6 @@
 {
   "name": "superalgos",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "Superalgos is a free, open-source crypto trading bot",
   "author": {
     "name": "Superalgos Contributors"
@@ -33,6 +33,8 @@
   },
   "main": "manageApps.js",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.511.0",
+    "@aws-sdk/client-sts": "^3.511.0",
     "@bundled-es-modules/axios": "^0.27.2",
     "@discordjs/rest": "^0.1.0-canary.0",
     "@octokit/plugin-retry": "^4.0.3",
@@ -43,7 +45,7 @@
     "bootstrap": "*",
     "bootstrap-vue": "*",
     "boxen": "^5.1.2",
-    "ccxt": "^2.7.62",
+    "ccxt": "^4.4.25",
     "chalk": "^4.1.2",
     "chart.js": "^4.4.4",
     "chartjs-adapter-date-fns": "^3.0.0",
@@ -73,7 +75,9 @@
     "pako": "^2.1.0",
     "path": "^0.12.7",
     "pg": "^8.11.0",
+    "pinia": "^2.2.8",
     "pm2": "^5.2.2",
+    "rss-parser": "^3.13.0",
     "simple-git": "^3.13.0",
     "sqlite3": "^5.1.6",
     "telegraf": "^4.11.2",

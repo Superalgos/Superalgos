@@ -1,0 +1,55 @@
+{
+    "type": "User Defined Dashboards Code",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "propertyToCheckFor": "javascriptCode",
+            "label": "Add Code",
+            "translationKey": "add.code",
+            "relatedUiObject": "Javascript Code",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true,
+    "initialValues": {
+        "config": "{ \n  \"runBeforeCheckIns\": false, \n \"runAfterCheckOuts\": false \n }"
+    },
+    "editors": {
+        "config": true
+    },
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Dashboards Bot->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "javascriptCode",
+            "type": "array",
+            "childType": "Javascript Code",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "userDefinedDashboardsCode"
+}

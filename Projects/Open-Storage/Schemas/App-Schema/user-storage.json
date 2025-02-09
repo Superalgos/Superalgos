@@ -23,12 +23,12 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "superalgosStorage",
+            "propertyToCheckFor": "awsS3Storage",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Superalgos Storage",
-            "translationKey": "add.superalgosStorage",
-            "relatedUiObject": "Superalgos Storage",
+            "label": "Add AWS S3 Storage",
+            "translationKey": "add.awsS3Storage",
+            "relatedUiObject": "AWS S3 Storage",
             "relatedUiObjectProject": "Open-Storage"
         },        
         {
@@ -64,9 +64,9 @@
             "autoAdd": false
         },
         {
-            "name": "superalgosStorage",
+            "name": "awsS3Storage",
             "type": "node",
-            "childType": "Superalgos Storage",
+            "childType": "AWS S3 Storage",
             "autoAdd": false
         }
     ]

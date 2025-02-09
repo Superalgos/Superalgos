@@ -1,0 +1,42 @@
+{
+    "type": "Dashboards",
+    "definition": {
+        "text": "The Dashboards project provides tools and visual interfaces for analyzing and tracking trading bot performance in Superalgos.",
+        "updated": 1622165615601,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "",
+                "updated": 1645164778025
+            },
+            {
+                "language": "TR",
+                "text": "",
+                "updated": 1651949789834
+            },
+            {
+                "language": "DE",
+                "text": "",
+                "updated": 1674279204847
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Düzenleme moduna girmek için sağ tıklayın ve kalem düğmesini seçin.",
+                    "updated": 1651949804645
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste und wählen Sie die Schaltfläche \"Stift\", um in den Bearbeitungsmodus zu gelangen.",
+                    "updated": 1674279227257
+                }
+            ]
+        }
+    ]
+}

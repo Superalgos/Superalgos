@@ -1,0 +1,28 @@
+{
+    "type": "Web3 API",
+    "definition": {
+        "text": "The Web3 API node allows to set configuration parameters for Superalgos interaction with blockchains.",
+        "updated": 1730566188251
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Web3 API configuration",
+            "updated": 1730566336707
+        },
+        {
+            "style": "List",
+            "text": "mnemonic: Used to set wallet access credentials. Only required for the user executing the monthly token distribution.",
+            "updated": 1730566561020
+        },
+        {
+            "style": "List",
+            "text": "etherscanApiKey: Superalgos internally uses Etherscan to obtain information about blockchain transactions. This includes how many SA tokens any given user has received in the past. Past token receipts are used to calculate the user's reputation. Etherscan is not providing this information for free access, but only for registered users with an API Key. At the time of writing, API Keys with sufficient access limits can be obtained for free. To see correct reputation scores, obtain an Etherscan API Key from etherscan.io and enter its value here.",
+            "updated": 1730566794747
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

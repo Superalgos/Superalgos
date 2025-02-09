@@ -209,17 +209,11 @@ exports.newOpenStorageModulesOpenStorageNetworkClient = function newOpenStorageM
 
             let storageContainer = storageContainerReference.referenceParent
 
-            switch (storageContainer.type) {
-                case 'Github Storage Container': {
-                    await SA.projects.openStorage.utilities.githubStorage.saveFile(repoFileName, repoFilePath, repoFileContent, storageContainer)
-                        .then(onFileSaved)
-                        .catch(onFileNotSaved)
-                    break
-                }
-                case 'Superalgos Storage Container': {
-                    // TODO Build the Superalgos Storage Provider
-                    break
-                }
+            const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.type)
+            if(storageClient !== undefined) {
+                storageClient.saveFile(repoFileName, repoFilePath, repoFileContent, storageContainer)
+                    .then(onFileSaved)
+                    .catch(onFileNotSaved)
             }
 
             function onFileSaved() {

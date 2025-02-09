@@ -53,7 +53,7 @@ async function runRoot() {
     web3: require('web3'),
     nodeFetch: require('node-fetch'),
     ccxt: require('ccxt'),
-    ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
+    ccxtMisc: require('./node_modules/ccxt/dist/cjs/src/base/Exchange'),
     lookpath: require('lookpath'),
     twitter: require('twitter-api-v2'),
     slack: require('@slack/web-api'),

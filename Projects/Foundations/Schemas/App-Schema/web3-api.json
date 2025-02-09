@@ -27,7 +27,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"token\": \"\", \n\"mnemonic\": \"\"\n}"
+        "config": "{ \n\"token\": \"\", \n\"mnemonic\": \"\", \n\"etherscanApiKey\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,

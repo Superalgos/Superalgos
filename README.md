@@ -1,4 +1,4 @@
-# :small_orange_diamond: Superalgos 1.6.1
+# :small_orange_diamond: Superalgos 1.7.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)

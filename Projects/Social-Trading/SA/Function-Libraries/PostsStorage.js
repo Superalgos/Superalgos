@@ -69,18 +69,11 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                 }
 
                 let storageContainer = storageContainerReference.referenceParent
-
-                switch (storageContainer.type) {
-                    case 'Github Storage Container': {
-                        await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
-                            .then(onFileSaved)
-                            .catch(onFileNodeSaved)
-                        break
-                    }
-                    case 'Superalgos Storage Container': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.type)
+                if(storageClient !== undefined) {
+                    storageClient.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
+                        .then(onFileSaved)
+                        .catch(onFileNodeSaved)
                 }
 
                 function onFileSaved() {
@@ -185,17 +178,11 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
                 let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
 
                 try {
-                    switch (storageContainer.parentNode.type) {
-                        case 'Github Storage': {
-                            await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                                .then(onFileLoaded)
-                                .catch(onFileNotLoaded)
-                            break
-                        }
-                        case 'Superalgos Storage': {
-                            // TODO Build the Superalgos Storage Provider
-                            break
-                        }
+                    const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.parentNode.type)
+                    if(storageClient !== undefined) {
+                        storageClient.loadFile(fileName, filePath, storageContainer)
+                            .then(onFileLoaded)
+                            .catch(onFileNotLoaded)
                     }
                 } catch (err) {
                     reject(err)
@@ -275,17 +262,9 @@ exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
             let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
 
             try {
-                switch (storageContainer.parentNode.type) {
-                    case 'Github Storage': {
-
-                        await SA.projects.openStorage.utilities.githubStorage.removeFile(fileName, filePath, storageContainer)
-                            
-                        break
-                    }
-                    case 'Superalgos Storage': {
-                        // TODO Build the Superalgos Storage Provider
-                        break
-                    }
+                const storageClient = SA.projects.openStorage.utilities.storageFactory.getStorageClient(storageContainer.parentNode.type)
+                if(storageClient !== undefined) {
+                    storageClient.removeFile(fileName, filePath, storageContainer)
                 }
             } catch (err) {
                 reject(err)

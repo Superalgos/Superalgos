@@ -1,0 +1,86 @@
+{
+    "type": "Report",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "reportFormula",
+            "label": "Add Report Formula",
+            "translationKey": "add.reportFormula",
+            "relatedUiObject": "Report Formula",
+            "relatedUiObjectProject": "Dashboards",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "reportCondition",
+            "label": "Add Report Condition",
+            "translationKey": "add.reportCondition",
+            "relatedUiObject": "Report Condition",
+            "relatedUiObjectProject": "Dashboards",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"text\": \"Type the message you wish to announce when there is no formula\",\n \"onEnter\": true,\n \"onExit\": false \n}"
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Next Phase Event->Move To Phase Event->Phase->Trigger Stage->Open Stage->Manage Stage->Close Stage->Create Order Event->Cancel Order Event->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Dashboards Bot->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "reportFormula",
+            "type": "node",
+            "childType": "Report Formula",
+            "autoAdd": true,
+            "project": "Dashboards"
+        },
+        {
+            "name": "reportCondition",
+            "type": "node",
+            "childType": "Report Condition",
+            "autoAdd": true,
+            "project": "Dashboards"
+        },
+        {
+            "name": "reportTimer",
+            "type": "node",
+            "childType": "Report Timer",
+            "autoAdd": true,
+            "project": "Dashboards"
+        }
+    ],
+    "propertyNameAtParent": "reports"
+}

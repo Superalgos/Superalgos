@@ -20,7 +20,7 @@ exports.newSaveWorkspaceRoute = function newSaveWorkspaceRoute() {
                 const body = SA.nodeModules.pako.inflate(compressedBody, { to: 'string' })
                 let filePath = global.env.PATH_TO_MY_WORKSPACES + '/' + fileName + '.json'
                 
-                let workspace = PL.projects.foundations.utilities.credentials.storeExchangesCredentials(PL.projects.foundations.utilities.credentials.storeGithubCredentials(JSON.parse(body)))
+                let workspace = PL.projects.foundations.utilities.credentials.storeAll(JSON.parse(body))
                 let fileContent = JSON.stringify(workspace, undefined, 4)
                 let fs = SA.nodeModules.fs
                 let dirParts = filePath.split('/');

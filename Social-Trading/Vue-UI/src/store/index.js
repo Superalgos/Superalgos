@@ -1,4 +1,8 @@
 import { createStore } from 'vuex';
+import { personas } from './modules/personas'
+import { posts } from './modules/posts'
+import { localStorageModule } from './modules/localStorage'
+
 
 export default createStore({
   state: {
@@ -160,5 +164,9 @@ export default createStore({
   actions: {
   },
   modules: {
+    personas: personas,
+    posts: posts,   
+    //socialBots: socialBotsModule,     
+    localStorage: localStorageModule,
   }
 })

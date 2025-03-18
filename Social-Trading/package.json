@@ -41,5 +41,5 @@
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
     "vue-cli-plugin-vuetify": "^2.5.8"
   },
-  "type": "module"
+  "type": "commonjs"
 }

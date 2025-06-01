@@ -45,7 +45,7 @@
     "bootstrap": "*",
     "bootstrap-vue": "*",
     "boxen": "^5.1.2",
-    "ccxt": "^4.4.25",
+    "ccxt": "^4.4.86",
     "chalk": "^4.1.2",
     "chart.js": "^4.4.4",
     "chartjs-adapter-date-fns": "^3.0.0",

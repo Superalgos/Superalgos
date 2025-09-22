@@ -97,6 +97,6 @@ async function runRoot() {
   async function run() {
     TS.app = require('./TaskServer/TaskServer.js').newTaskServer()
     await TS.app.run()
-    console.log('Superalgos TaskServer is Running!')
+    SA.logger.info('Superalgos TaskServer is Running!')
   }
 }

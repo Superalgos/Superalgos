@@ -10,10 +10,10 @@
         start: start
     };
 
-    let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex);
+    let storage
     let statusDependencies
 
-    let MAX_OHLCVs_PER_EXECUTION = 10000000
+    let MAX_OHLCVs_PER_EXECUTION = 10000
 
 /*  CCXT and its unifiedAPI require a different way to find the pair because now not only spot is supported
     but swaps and futures too.
@@ -99,6 +99,14 @@
         */
         try {
             statusDependencies = pStatusDependencies;
+            
+            // Initialize storage based on configuration
+            const StorageFactory = require('../../../../../../lib/StorageFactory')
+            const storageConfig = require('../../../../../../config/storage')
+            storage = StorageFactory.create(storageConfig)
+            
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                "[INFO] initialize -> Using " + storage.constructor.name + " storage")
             
     		/*
 	    	maxRate - sets the  maximum number of OHCLV that is pulled before the data is saved.
@@ -334,12 +342,16 @@
                             let dateForPath = datetime.getUTCFullYear() + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
-                            let fullFileName = filePath + '/' + fileName
-                            fileStorage.getTextFile(fullFileName, onFileReceived)
-
+                            let filePath = "Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath + '/' + fileName
+                            
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getRawDataArray -> from file = " + fullFileName)
+                                "[INFO] start -> getRawDataArray -> from file = " + filePath)
+                            
+                            storage.readFile(filePath).then(text => {
+                                onFileReceived(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE, text)
+                            }).catch(err => {
+                                onFileReceived(err)
+                            })
 
                             function onFileReceived(err, text) {
                                 try {
@@ -445,7 +457,7 @@
                             processingDate = processingDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit)
-                            let heartBeatText = "Fetching " + rawDataArray.length.toFixed(0) + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
+                            let heartBeatText = "Fetching OHLCVs (" + rawDataArray.length.toFixed(0) + " collected) from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
                             let currentDate = new Date(since)
                             let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                             TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, heartBeatText, percentage) // tell the world we are alive and doing well
@@ -1036,9 +1048,12 @@
                                     SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
                                     SA.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
 
+                                let totalProcessed = Math.min(ohlcvArrayIndex, rawDataArray.length)
+                                let progressPercentage = rawDataArray.length > 0 ? Math.round((totalProcessed / rawDataArray.length) * 100) : 0
+                                
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> ohlcvArrayIndex = " + ohlcvArrayIndex + " -> total = " + rawDataArray.length)
-                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (ohlcvArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " OHLCVs from " + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
+                                    "[INFO] start -> saveOHLCVs -> Processing OHLCVs @ " + processingDate + " -> processed = " + totalProcessed + " -> total = " + rawDataArray.length + " -> " + progressPercentage + "%")
+                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "Processing OHLCVs (" + totalProcessed + "/" + rawDataArray.length + " - " + progressPercentage + "%) @ " + processingDate, progressPercentage) // tell the world we are alive and doing well                                
                             }
                         }
 
@@ -1064,15 +1079,31 @@
 
                             let fileName = 'Data.json'
 
+                            const dayDate = new Date(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[INFO] saveFile -> Saving data for day: " + dayDate.toISOString().split('T')[0])
+                            
                             filesToCreate++
-                            fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n', onFileCreated);
+                            storage.writeFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, CANDLES_FOLDER_NAME) + '/' + fileName, candlesFileContent + '\n').then(() => {
+                                onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                            }).catch(err => {
+                                onFileCreated({result: 'Fail', message: err.message || err.toString()})
+                            })
 
                             filesToCreate++
-                            fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
+                            storage.writeFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n').then(() => {
+                                onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                            }).catch(err => {
+                                onFileCreated({result: 'Fail', message: err.message || err.toString()})
+                            })
 
                             if (ohlcvsFileContent !== undefined) {
                                 filesToCreate++
-                                fileStorage.createTextFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, ohlcvsFileContent + '\n', onFileCreated);
+                                storage.writeFile(getFilePath(day * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, ohlcvsFileContent + '\n').then(() => {
+                                    onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                }).catch(err => {
+                                    onFileCreated({result: 'Fail', message: err.message || err.toString()})
+                                })
                                 mustLoadRawData = true
                             } else {
                                 mustLoadRawData = false
@@ -1138,7 +1169,7 @@
                             let dateForPath = datetime.getUTCFullYear() + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
                                 SA.projects.foundations.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
-                            let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + folderName + '/' + dateForPath;
+                            let filePath = "Output/" + folderName + '/' + dateForPath;
                             return filePath
                         }
                     }

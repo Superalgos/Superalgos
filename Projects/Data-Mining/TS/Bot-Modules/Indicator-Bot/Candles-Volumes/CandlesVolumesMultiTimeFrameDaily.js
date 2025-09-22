@@ -12,6 +12,7 @@
     }
 
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
+    let storage
     let statusDependenciesModule
     let beginingOfMarket
 
@@ -20,6 +21,15 @@
     function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
             statusDependenciesModule = pStatusDependenciesModule
+            
+            // Initialize storage based on configuration
+            const StorageFactory = require('../../../../../../lib/StorageFactory')
+            const storageConfig = require('../../../../../../config/storage')
+            storage = StorageFactory.create(storageConfig)
+            
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                "[INFO] initialize -> Using " + storage.constructor.name + " storage")
+            
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
         } catch (err) {
@@ -288,10 +298,16 @@
                                 let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath
                                 filePath += '/' + fileName
 
-                                fileStorage.getTextFile(filePath, onFileReceived)
+                                // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                                storage.readFile(filePath).then(text => {
+                                    onFileReceived(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE, text)
+                                }).catch(err => {
+                                    // Fall back to fileStorage for backwards compatibility
+                                    fileStorage.getTextFile(filePath, onFileReceived)
+                                })
 
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> getting file at dateForPath = " + dateForPath)
+                                    "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> getting file at dateForPath = " + dateForPath + " using " + storage.constructor.name)
 
                                 function onFileReceived(err, text) {
                                     try {
@@ -414,10 +430,16 @@
                                         dateForPath
                                     filePath += '/' + fileName
 
-                                    fileStorage.getTextFile(filePath, onFileReceived);
+                                    // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                                    storage.readFile(filePath).then(text => {
+                                        onFileReceived(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE, text)
+                                    }).catch(err => {
+                                        // Fall back to fileStorage for backwards compatibility
+                                        fileStorage.getTextFile(filePath, onFileReceived);
+                                    })
 
                                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
+                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath + " using " + storage.constructor.name);
 
                                     function onFileReceived(err, text) {
                                         let volumesFile
@@ -550,10 +572,16 @@
                             dateForPath
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                        // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                        storage.writeFile(filePath, fileContent + '\n').then(() => {
+                            onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                        }).catch(err => {
+                            // Fall back to fileStorage for backwards compatibility
+                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                        })
 
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
+                            "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath + " using " + storage.constructor.name);
 
                         function onFileCreated(err) {
                             if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -596,10 +624,16 @@
                             timeFrame + "/" + dateForPath
                         filePath += '/' + fileName
 
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+                        // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                        storage.writeFile(filePath, fileContent + '\n').then(() => {
+                            onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                        }).catch(err => {
+                            // Fall back to fileStorage for backwards compatibility
+                            fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+                        })
 
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
+                            "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath + " using " + storage.constructor.name);
 
                         function onFileCreated(err) {
 
@@ -674,7 +708,13 @@
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                     filePath += '/' + fileName
 
-                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+                    // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                    storage.writeFile(filePath, fileContent + '\n').then(() => {
+                        onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                    }).catch(err => {
+                        // Fall back to fileStorage for backwards compatibility
+                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+                    })
 
                     function onFileCreated(err) {
                         if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

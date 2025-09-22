@@ -11,6 +11,7 @@
     };
 
     let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
+    let storage
 
     let statusDependenciesModule
     let dataDependenciesModule
@@ -24,6 +25,14 @@
     function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
         statusDependenciesModule = pStatusDependencies;
         dataDependenciesModule = pDataDependenciesModule;
+
+        // Initialize storage based on configuration
+        const StorageFactory = require('../../../../../lib/StorageFactory')
+        const storageConfig = require('../../../../../config/storage')
+        storage = StorageFactory.create(storageConfig)
+        
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            "[INFO] initialize -> Using " + storage.constructor.name + " storage")
 
         indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
@@ -548,7 +557,13 @@
                 let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" +
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
 
-                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                storage.writeFile(filePath, fileContent + '\n').then(() => {
+                    onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                }).catch(err => {
+                    // Fall back to fileStorage for backwards compatibility
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                })
 
                 function onFileCreated(err) {
                     if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -596,7 +611,13 @@
                 let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" +
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
 
-                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                // Try storage abstraction first, fall back to fileStorage for backwards compatibility
+                storage.writeFile(filePath, fileContent + '\n').then(() => {
+                    onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                }).catch(err => {
+                    // Fall back to fileStorage for backwards compatibility
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+                })
 
                 function onFileCreated(err) {
                     if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

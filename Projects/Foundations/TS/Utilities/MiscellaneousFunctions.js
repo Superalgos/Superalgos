@@ -24,18 +24,47 @@ exports.newFoundationsUtilitiesMiscellaneousFunctions = function() {
         /*
         This function helps a caller to use await syntax while the called
         function uses callbacks, specifically for retrieving files.
+        Updated to use storage abstraction for SQLite compatibility.
         */
         let promise = new Promise((resolve, reject) => {
-
-            datasetModule.getTextFile(filePath, fileName, onFileReceived)
-
-            function onFileReceived(err, text) {
-
-                let response = {
-                    err: err,
-                    text: text
+            
+            // Try storage abstraction first (for SQLite), fallback to old system
+            try {
+                const StorageFactory = require('../../../../lib/StorageFactory')
+                let storage = StorageFactory.createStorage()
+                let fullPath = filePath + '/' + fileName
+                
+                storage.readFile(fullPath)
+                    .then(text => {
+                        let response = {
+                            err: TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE,
+                            text: text
+                        }
+                        resolve(response)
+                    })
+                    .catch(() => {
+                        // Fallback to old system
+                        datasetModule.getTextFile(filePath, fileName, onFileReceived)
+                        
+                        function onFileReceived(err, text) {
+                            let response = {
+                                err: err,
+                                text: text
+                            }
+                            resolve(response)
+                        }
+                    })
+            } catch (err) {
+                // If StorageFactory fails to load, use old system
+                datasetModule.getTextFile(filePath, fileName, onFileReceived)
+                
+                function onFileReceived(err, text) {
+                    let response = {
+                        err: err,
+                        text: text
+                    }
+                    resolve(response)
                 }
-                resolve(response)
             }
         })
 

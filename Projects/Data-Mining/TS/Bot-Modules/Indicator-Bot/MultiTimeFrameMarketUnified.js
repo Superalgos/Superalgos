@@ -1,48 +1,50 @@
-﻿exports.newDataMiningStudyMultiTimeFrameMarket = function (processIndex) {
-    const MODULE_NAME = "Multi Time Frame Market"
-    /*
-    This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
-    It also assumes that the data dependencies are in Market Files, one file for each Time Frame.
-    */
+exports.newDataMiningIndicatorMultiTimeFrameMarketUnified = function (processIndex) {
+    const MODULE_NAME = "Multi Time Frame Market Unified"
+    console.log("[FORCE DEBUG] MultiTimeFrameMarketUnified module loaded for process", processIndex)
+    
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
         start: start
     };
 
-    let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
-    
-    // Initialize storage abstraction
-    const StorageFactory = require('../../../../../lib/StorageFactory')
-    let storage = StorageFactory.createStorage()
-
+    let storage
     let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map()
-    let studyOutputModule
+    let indicatorOutputModule
 
     return thisObject;
 
     function initialize(pStatusDependencies, pDataDependenciesModule, callBackFunction) {
-
         statusDependenciesModule = pStatusDependencies
         dataDependenciesModule = pDataDependenciesModule
 
-        studyOutputModule = TS.projects.dataMining.botModules.studyOutput.newDataMiningBotModulesStudyOutput(processIndex)
-        studyOutputModule.initialize(callBackFunction)
+        // Initialize storage based on configuration
+        const StorageFactory = require('../../../../../lib/StorageFactory')
+        const storageConfig = require('../../../../../config/storage')
+        storage = StorageFactory.create(storageConfig)
+        
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            "[INFO] initialize -> Using " + storage.constructor.name + " storage")
+
+        indicatorOutputModule = TS.projects.dataMining.botModules.indicatorOutput.newDataMiningBotModulesIndicatorOutput(processIndex)
+        indicatorOutputModule.initialize(callBackFunction)
     }
 
     function finalize() {
-        fileStorage = undefined
+        storage = undefined
         dataFiles = undefined
         statusDependenciesModule = undefined
         dataDependenciesModule = undefined
-        studyOutputModule = undefined
+        indicatorOutputModule = undefined
         thisObject = undefined
     }
 
     function start(callBackFunction) {
         try {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                "[DEBUG] start -> Bot starting with " + storage.constructor.name + " storage")
             processTimeFrames()
 
             function processTimeFrames() {
@@ -50,12 +52,11 @@
                 timeFramesLoop()
 
                 function timeFramesLoop() {
-                    /* We will iterate through all possible timeFrames.*/
-                    n = 0   // loop Variable representing each possible period as defined at the timeFrames array.
+                    n = 0
                     timeFramesLoopBody()
                 }
 
-                async function timeFramesLoopBody() {
+                function timeFramesLoopBody() {
                     const timeFrame = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][0]
                     const timeFrameLabel = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][1]
 
@@ -63,52 +64,12 @@
                     if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames !== undefined) {
                             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames.includes(timeFrameLabel) === false) {
-                                /* We are not going to process this Time Frame */
                                 timeFramesControlLoop()
                                 return
                             }
                         }
                     }
-                    /*
-                    At this section we are going to create the main objects that are going to be available for user code.
-        
-                    chart, market and exchang
-                    */
-                    let chart = {}
-                    let market = {}
-                    let exchange = {}
 
-                    let multiTimeFrameDataFiles = new Map()
-                    let currentTimeFrame = {}
-
-                    if (await TS.projects.foundations.functionLibraries.dataDependenciesFunctions.processMarketFiles(
-                        processIndex,
-                        multiTimeFrameDataFiles,
-                        dataDependenciesModule,
-                        currentTimeFrame,
-                        timeFrameLabel
-                    ) === false) {
-                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                        return
-                    }
-
-                    TS.projects.foundations.functionLibraries.dataDependenciesFunctions.buildDataStructures(
-                        processIndex,
-                        dataDependenciesModule,
-                        multiTimeFrameDataFiles,
-                        currentTimeFrame,
-                        chart,
-                        market,
-                        exchange,
-                        callBackFunction
-                    )
-                    /*
-                    If Execution was halted that distroyed this object, then we can not continue execution.
-                    */
-                    if (thisObject === undefined) {return}
-                    /*
-                    From here, it is almost the same code than for an Indicator.
-                    */
                     let dependencyIndex = 0;
                     dataFiles = new Map;
 
@@ -116,42 +77,35 @@
 
                     function dependencyLoopBody() {
                         let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
-                        let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                         getFile()
 
-                        function getFile() {
+                        async function getFile() {
                             let fileName = "Data.json";
                             let filePath
 
-                            /*
-                            For datasets that are not dependent on a Time Frame we will build the file path without the timeFrameLabel
-                            */
                             if (dependency.referenceParent.config.codeName === "Single-File") {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName
+                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + '/' + fileName
                             } else {
-                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel
+                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + '/' + fileName
                             }
 
-                            datasetModule.getTextFile(filePath, fileName, onFileReceived)
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[INFO] getFile -> Attempting to read: " + filePath + " using " + storage.constructor.name)
 
-                            function onFileReceived(err, text) {
-                                if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                    if (err.message === "File does not exist.") {
-                                        // Wait silently for dependency files to be created by other bots
-                                        callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                                        return
-                                    }
-                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> getFile -> onFileReceived -> err = " + JSON.stringify(err))
-                                    callBackFunction(err)
-                                    return;
-                                }
-
-                                let dataFile = JSON.parse(text)
+                            try {
+                                // Use unified storage interface
+                                const dataFile = await storage.readFile(filePath)
+                                const dataLength = dataFile ? JSON.parse(dataFile).length : 0
+                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[INFO] getFile -> Successfully read " + filePath + " -> " + dataLength + " records")
                                 dataFiles.set(dependency.id, dataFile)
-
                                 dependencyControlLoop()
+                            } catch (err) {
+                                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[ERROR] getFile -> Failed to read " + filePath + " -> " + (err.message || err.toString()))
+                                callBackFunction(err)
+                                return;
                             }
                         }
                     }
@@ -165,10 +119,7 @@
                         }
 
                         function generateOutput() {
-                            studyOutputModule.start(
-                                chart,
-                                market,
-                                exchange,
+                            indicatorOutputModule.start(
                                 dataFiles,
                                 timeFrame,
                                 timeFrameLabel,
@@ -200,15 +151,16 @@
                 }
             }
 
-            function writeTimeFramesFiles(callBack) {
+            async function writeTimeFramesFiles(callBack) {
                 let outputDatasets =
                     SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 
-                function productLoopBody() {
+                async function productLoopBody() {
                     let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName;
-                    writeTimeFramesFile(productCodeName, controlLoop)
+                    await writeTimeFramesFile(productCodeName)
+                    controlLoop()
                 }
 
                 function controlLoop() {
@@ -221,13 +173,11 @@
                 }
             }
 
-            function writeTimeFramesFile(productCodeName, callBack) {
-
+            async function writeTimeFramesFile(productCodeName) {
                 let timeFramesArray = []
                 for (let n = 0; n < TS.projects.foundations.globals.timeFrames.marketTimeFramesArray().length; n++) {
                     let timeFrameLabel = TS.projects.foundations.globals.timeFrames.marketTimeFramesArray()[n][1]
 
-                    /* Check Time Frames Filter */
                     if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
                         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames !== undefined) {
                             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.timeFramesFilter.config.marketTimeFrames.includes(timeFrameLabel) === true) {
@@ -241,28 +191,20 @@
                     }
                 }
 
-                let fileContent = JSON.stringify(timeFramesArray)
-                let fileName = '/Time.Frames.json';
-                let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productCodeName + "/" +
-                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + fileName;
+                let filePath = "Output/" + productCodeName + "/" +
+                    TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/Time.Frames.json";
 
-                // Try storage abstraction first, fallback to fileStorage
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    "[INFO] writeTimeFramesFile -> Writing " + filePath + " with " + timeFramesArray.length + " timeframes")
+                
                 try {
-                    storage.writeFile(filePath, fileContent + '\n')
-                        .then(() => onFileCreated(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE))
-                        .catch(() => fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated))
+                    await storage.writeFile(filePath, timeFramesArray)
+                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[INFO] writeTimeFramesFile -> Successfully wrote " + filePath)
                 } catch (err) {
-                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-                }
-
-                function onFileCreated(err) {
-                    if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> writeTimeFramesFile -> onFileCreated -> err = " + err.stack)
-                        callBack(err)
-                        return
-                    }
-                    callBack()
+                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[ERROR] writeTimeFramesFile -> Failed to write " + filePath + " -> " + (err.message || err.toString()))
+                    throw err
                 }
             }
 
@@ -281,7 +223,6 @@
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
                 }
 
-                /*  Telling the world we are alive and doing well */
                 let currentDateString = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCDate(), 2)
                 let currentDate = new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(

@@ -11,6 +11,7 @@ debug.log
 *.db
 Projects/Foundations/Icons/Thumbs.db
 *.bat
+data/
 # exception for installer batch
 !clone_superalgos.bat
 !launch-windows.bat

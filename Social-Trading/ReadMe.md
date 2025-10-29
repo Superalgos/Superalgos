@@ -21,7 +21,7 @@ Welcome to Superalgos Social Trading App! This project is built with Vue.js, Vit
 
 ## Getting Started
 
-To successfully run the app, please follow these preliminary steps:
+To successfully run the app, please make sure and follow these preliminary steps:
 
 ### Pre-requisites
 

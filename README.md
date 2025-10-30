@@ -45,7 +45,7 @@ Superalgos is a vast project. The focus of this README file is the Superalgos Pl
 
 # :small_orange_diamond: Before You Begin
 
-Worth noting before you start:
+It is impotant to mention before you start:
 
 * Online Demo | To get a feel of what Superalgos is about without installing anything, take the (limited) [online demo](https://superalgos.org/crypto-trading-bots-platform-demo.shtml) for a spin!
 

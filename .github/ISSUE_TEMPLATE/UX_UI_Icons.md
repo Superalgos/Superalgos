@@ -18,7 +18,7 @@ e.g. Governance, foundations, trading-signals.
 Answer:
 
 ## Describe how you want it to look like (optional)
-A clear and concise description will help speed up the designing process.
+A clear and concise description will help to understand and speed up the designing process.
 
 Answer (optional):
 

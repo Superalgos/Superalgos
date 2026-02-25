@@ -68,7 +68,7 @@
     "ndjson": "^2.0.0",
     "node-fetch": "^2.6.6",
     "node-static": "^0.7.11",
-    "npm": ">=10.3.0",
+    "npm": ">=11.10.1",
     "open": "^8.4.0",
     "pako": "^2.1.0",
     "path": "^0.12.7",
@@ -95,7 +95,7 @@
   "optionalDependencies": {
     "@tensorflow/tfjs-node": "^2.8.6",
     "electron": "^21.3.1",
-    "electron-builder": "^23.6.0",
+    "electron-builder": "^26.8.1",
     "electron-updater": "^4.6.1"
   },
   "devDependencies": {

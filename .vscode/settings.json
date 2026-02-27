@@ -22,5 +22,19 @@
         "**/My-Log-Files*": true,
     },
     "search.maintainFileSearchCache": true,
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "workbench.colorCustomizations": {
+        "activityBar.foreground": "#B5D966",
+        "activityBar.background": "#000000",
+        "activityBar.inactiveForeground": "#494300",
+        "activityBarBadge.foreground": "#000000",
+        "activityBarBadge.background": "#54DD59",
+        "statusBar.foreground": "#96FBFE",
+        "statusBar.background": "#14787B",
+        "statusBarItem.hoverBackground": "#224D6B",
+        "statusBarItem.remoteForeground": "#E3EAFF",
+        "statusBarItem.remoteBackground": "#3D59AE",
+        "statusBar.debuggingForeground": "#000101",
+        "statusBar.debuggingBackground": "#4AAFB2"
+    }
 }

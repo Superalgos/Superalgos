@@ -65,7 +65,7 @@ Worth noting before you start:
 
 # :small_orange_diamond: Getting Started
 
-Superalgos is an ever-growing ecosystem of tools and applications. This guide will walk you through the main ways to install the Superalgos Platform — the flagship application of the ecosystem.
+Superalgos is fast an ever-growing ecosystem of tools and applications. This guide will walk you through the main ways to install the Superalgos Platform — the flagship application of the ecosystem.
 
 Once you install and launch the app, a series of interactive tutorials take you by the hand and walk you around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended to do all tutorials, as they are carefully crafted to make your onboarding as easy as possible. 
 

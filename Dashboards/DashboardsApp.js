@@ -79,7 +79,7 @@ exports.newDashboardsApp = function newDashboardsApp() {
             } else if (mode === "devFrontend") {
                 DS.servers.UI_SERVER = UI_SERVER.newDashboardsUIApp()
                 DS.servers.UI_SERVER.initialize()
-                SA.logger.info('UI Server .................................................. Started in Dev Mode')
+                SA.logger.info('UI Server .................................................. Started in Developer Mode')
             
             } else {
                 // Start both front and backend if no dev mode declared

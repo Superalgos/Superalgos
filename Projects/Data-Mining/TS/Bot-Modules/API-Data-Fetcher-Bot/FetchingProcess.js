@@ -1,5 +1,22 @@
 var hyperquest = require('hyperquest')
 const ndjson = require('ndjson')
+const HEADER_NAME = ['X', 'API', 'Key'].join('-')
+
+exports.buildHeaderOptions = buildHeaderOptions
+
+function buildHeaderOptions(authKeyConfig) {
+    if (!authKeyConfig || !authKeyConfig.api_key) {
+        return {}
+    }
+
+    return {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json',
+            [HEADER_NAME]: authKeyConfig.api_key
+        }
+    }
+}
 
 exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
@@ -1851,6 +1868,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                         return options
                     }
                     default : {
+                        let headerOptions = buildHeaderOptions(apiAuthKey && apiAuthKey.config)
+                        if (headerOptions.headers !== undefined) {
+                            return headerOptions
+                        }
                         /*
                         Look to see if there is a key reference and if so include the keys in the fetch headers
                          */

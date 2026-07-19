@@ -37,6 +37,11 @@
                     "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Note",
+            "text": "Set api_key for APIs that authenticate with an X-API-Key request header, or bearer_token for APIs that use an Authorization: Bearer header. Leave unused values empty.",
+            "updated": 1784469600000
         }
     ]
 }

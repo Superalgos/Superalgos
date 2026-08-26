@@ -1,5 +1,5 @@
 exports.newDataMiningFunctionLibrariesFXMacroData = function () {
-    const DEFAULT_BASE_URL = 'https://fxmacrodata.com/api/v1/'
+    const DEFAULT_BASE_URL = 'https://api.fxmacrodata.com/v1/'
 
     let thisObject = {
         buildUrl: buildUrl,

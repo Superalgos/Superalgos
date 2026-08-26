@@ -1245,6 +1245,12 @@
                     "propertyName": "databaseAccess",
                     "functionName": "newDataMiningFunctionLibrariesDatabaseAccess",
                     "fileName": "DatabaseAccess.js"
+                },
+                {
+                    "name": "FX Macro Data",
+                    "propertyName": "fxMacroData",
+                    "functionName": "newDataMiningFunctionLibrariesFXMacroData",
+                    "fileName": "FXMacroData.js"
                 }
             ]
         },

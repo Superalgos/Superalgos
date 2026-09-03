@@ -84,7 +84,7 @@
     "vue": "^3.2.40",
     "vue-chartjs": "^5.3.1",
     "vue-router": "^4.1.5",
-    "web3": "^1.6.1",
+    "web3": "^4.16.0",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1",
     "workbox-webpack-plugin": "^6.5.4",
@@ -113,7 +113,7 @@
     "vue-template-compiler": "^2.7.10",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^6.0.0"
   },
   "jest": {
     "testEnvironment": "node",

@@ -375,7 +375,8 @@ function newVisualScriptingNodeActionSwitch() {
                 break
             case 'Highlight Referencing Nodes':
                 {
-                    UI.projects.visualScripting.nodeActionFunctions.referenceChildren.toggleHighlightReferenceChildren(action.node)
+                    // Modified 2026-10-05: preserve optional reference-type menu selection (#3498).
+                    UI.projects.visualScripting.nodeActionFunctions.referenceChildren.toggleHighlightReferenceChildren(action.node, action.relatedNodeType, action.relatedNodeProject)
                 }
                 break
             default: {

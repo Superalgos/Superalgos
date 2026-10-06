@@ -48,7 +48,7 @@ function newGovernanceUtilitiesNodeCalculations() {
         return result
     }
 
-    function drawPercentage(node, percentage, percentageAngleOffset) {
+    function drawPercentage(node, percentage, percentageAngleOffset, negative) {
         /* Outputs percentage power allocations at nodes, depending if the allocation is percentage or absolute amount-based */
         if (node === undefined) { return }
         if (percentage === undefined) { return }
@@ -59,7 +59,12 @@ function newGovernanceUtilitiesNodeCalculations() {
                 node.payload.uiObject.percentageAngleOffset = percentageAngleOffset
                 node.payload.uiObject.percentageAtAngle = true
             }
-            node.payload.uiObject.setPercentage(percentage.toFixed(2),
+            // Modified 2026-10-05: the optional sign is display-only, including a configured negative zero.
+            let displayPercentage = percentage.toFixed(2)
+            if (negative === true && percentage >= 0) {
+                displayPercentage = '-' + displayPercentage
+            }
+            node.payload.uiObject.setPercentage(displayPercentage,
             UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER)
         }
     }

@@ -512,7 +512,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
             node.payload.uiObject.setValue(votesText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
-            UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180)
+            // Modified 2026-10-05: show configured negative outgoing votes without changing allocation (#3503).
+            let negative = node.payload.referenceParent !== undefined
+                && node.type !== 'Votes Switch'
+                && node.type !== 'Claim Votes Switch'
+                && node.type !== 'Weight Votes Switch'
+                && UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'negative') === true
+            UI.projects.governance.utilities.nodeCalculations.drawPercentage(node, percentage, 180, negative)
 
 
             function drawUserNode(node, votes, percentage) {

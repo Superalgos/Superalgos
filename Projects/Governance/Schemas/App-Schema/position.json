@@ -28,6 +28,28 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Highlight Referencing Nodes",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Highlight Weight Votes",
+            "relatedUiObject": "Position Weight Vote",
+            "relatedUiObjectProject": "Governance",
+            "iconPathOn": "highlight-referencing-nodes-on",
+            "iconPathOff": "highlight-referencing-nodes-off",
+            "iconProject": "Visual-Scripting"
+        },
+        {
+            "action": "Highlight Referencing Nodes",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Highlight Contribution Claims",
+            "relatedUiObject": "Position Contribution Claim",
+            "relatedUiObjectProject": "Governance",
+            "iconPathOn": "highlight-referencing-nodes-on",
+            "iconPathOff": "highlight-referencing-nodes-off",
+            "iconProject": "Visual-Scripting"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,

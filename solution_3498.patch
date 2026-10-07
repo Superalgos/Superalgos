@@ -1,0 +1,22 @@
+- // Original code
++ // Original code
++ import { getVoteReferences, getClaimReferences } from './referenceTracker.js';
++ 
+- function handleNodeOperation(node, operation) {
++ function handleNodeOperation(node, operation) {
+-     // Handle operation on node
++     // Handle operation on node
+-     // Track incoming references for votes and claims
++     // Track incoming references for votes and claims
++     const voteReferences = getVoteReferences(node);
++     const claimReferences = getClaimReferences(node);
++ 
++     // Process references
++     voteReferences.forEach((reference) => {
++         console.log(`Vote reference from ${reference.sender} on node ${node.id}`);
++     });
++ 
++     claimReferences.forEach((reference) => {
++         console.log(`Claim reference from ${reference.sender} on node ${node.id}`);
++     });
+  }

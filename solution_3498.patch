@@ -1,0 +1,30 @@
+diff --git a/governance/tracing.js b/governance/tracing.js
+index 5c9f2e7..7c8d901 100644
+--- a/governance/tracing.js
++++ b/governance/tracing.js
+@@ -15,6 +15,10 @@ const getVote = (nodeId, voterId) => {
+   return votes.find(vote => vote.nodeId === nodeId && vote.voterId === voterId);
+ };
+ 
++const getClaim = (nodeId, claimantId) => {
++  return claims.find(claim => claim.nodeId === nodeId && claim.claimantId === claimantId);
++};
++
+ const traceIncomingReferences = (nodeId) => {
+   const voteReferences = incomingReferences.filter(ref => ref.type === 'vote' && ref.nodeId === nodeId);
+   const claimReferences = incomingReferences.filter(ref => ref.type === 'claim' && ref.nodeId === nodeId);
+@@ -24,6 +28,7 @@ const traceIncomingReferences = (nodeId) => {
+     const vote = getVote(nodeId, ref.voterId);
+     // Process vote
+   }
++
+   for (const ref of claimReferences) {
+     const claim = getClaim(nodeId, ref.claimantId);
+     // Process claim
+@@ -31,6 +36,8 @@ const traceIncomingReferences = (nodeId) => {
+   }
+ };
+ 
++exports.getClaim = getClaim;
++
+ exports.traceIncomingReferences = traceIncomingReferences;

@@ -24,7 +24,7 @@
         data() {
             return {
                 tabList: ["Events", "Raw Data"],
-                dataKey: 'Platform-EventServer',
+                dataKey: 'Platform-EventServerData',
                 eventObj: [],
                 rawObj: [],
             };

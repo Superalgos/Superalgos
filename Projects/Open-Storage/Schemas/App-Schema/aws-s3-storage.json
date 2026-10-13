@@ -1,0 +1,54 @@
+{
+    "type": "AWS S3 Storage",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add AWS S3 Storage Container",
+            "translationKey": "add.awsS3StorageContainer",
+            "relatedUiObject": "AWS S3 Storage Container",
+            "relatedUiObjectProject": "Open-Storage"
+        },      
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Storage->"
+    },
+    "propertyNameAtParent": "awsS3Storage",
+    "childrenNodesProperties": [
+        {
+            "name": "awsS3StorageContainers",
+            "type": "array",
+            "childType": "AWS S3 Storage Container",
+            "autoAdd": false
+        }
+    ]
+}

@@ -24,7 +24,7 @@
         data() {
             return {
                 tabList: ["Tasks", "Raw Data"],
-                dataKey: 'Platform-TaskManager',
+                dataKey: 'Platform-TaskManagerData',
                 taskObj: [],
                 rawObj: [],
             };

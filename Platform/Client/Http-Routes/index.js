@@ -27,6 +27,7 @@ exports.newHttpRoutes = function newHttpRoutes() {
             require('./icons').newIconsRoute(),
             require('./images').newImagesRoute(),
             require('./legacy-plotter').newLegacyPlotterRoute(),
+            require('./launch-dashboards').newLaunchDashboardsRoute(),
             require('./list-function-libraries').newListFunctionLibrariesRoute(),
             require('./list-global-files').newListGlobalFilesRoute(),
             require('./list-node-action-functions').newListNodeActionFunctionsRoute(),

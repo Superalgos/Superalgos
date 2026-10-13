@@ -18,7 +18,6 @@
         "name": "Machine-Learning",
         "propertyName": "machineLearning",
         "systemMenu": []
-        
     },
     {
         "name": "Visual-Scripting",
@@ -159,5 +158,20 @@
                 "order": 3
             }
         ]
-    }
+    },
+    {
+        "name": "Dashboards",
+        "translationKey": "nav.dashboards.title",
+        "propertyName": "dashboards",
+        "systemMenu": [
+            {
+                "label": "Run Dashboards",
+                "translationKey": "nav.dashboards.run",
+                "action": {
+                    "name": "runDashboards"
+                },
+                "order": 1
+            }
+        ]
+    }    
 ]

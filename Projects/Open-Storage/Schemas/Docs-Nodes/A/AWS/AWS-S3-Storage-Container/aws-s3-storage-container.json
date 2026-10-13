@@ -1,0 +1,50 @@
+{
+    "type": "AWS S3 Storage Container",
+    "definition": {
+        "text": "AWS S3 bucket object storage",
+        "updated": 1738274353729
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1738274409247
+        },
+        {
+            "style": "Title",
+            "text": "AWS S3 Bucket Storage Node Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Required properties"
+        },
+        {
+            "style": "List",
+            "text": "codeName This property defines the name associated with the Open Storage Container used within the Superalgos system."
+        },
+        {
+            "style": "List",
+            "text": "endpointUrl This is the URL used to access the files for download, Ideally you want to use a CloudFront distribution"
+        },
+        {
+            "style": "Success",
+            "text": "The best option would be to use a CloudFront distrubition to take advantage of the caching, but using the bucket endpoint is also suitable."
+        },
+        {
+            "style": "List",
+            "text": "bucketName This is the name of the bucket you created to store your uploaded files"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Optional properties"
+        },
+        {
+            "style": "List",
+            "text": "bucketRegion This will overwrite the default region on your system or the a region supplied in the API secret"
+        },
+        {
+            "style": "List",
+            "text": "pathPrefix An optional path prefix to act like a file directory in S3"
+        }
+    ]
+}

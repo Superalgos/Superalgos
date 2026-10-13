@@ -28,19 +28,57 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
             Each Social Entity must have a Storage Container so that we can here
             use it to save content on it. 
             */
-            let socialEntity
-            if (profileMessage.originSocialPersonaId !== undefined) {
-                let socialEntityId = profileMessage.originSocialPersonaId
-                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+            /*
+    Determine the Social Entity and Storage
+    */
+            let socialEntity;
+            let storageEntity;
+            let filePath;
+            let botName;
+            let fileName;
+
+            const parsedProfileData = JSON.parse(profileMessage.profileData);
+            
+            // If both IDs exist, prioritize the bot
+            if (profileMessage.originSocialPersonaId !== undefined && profileMessage.originSocialTradingBotId !== undefined) {
+                let personaId = profileMessage.originSocialPersonaId;
+                let botId = profileMessage.originSocialTradingBotId;
+                botName = parsedProfileData?.codeName;
+            
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(personaId);
+                let botEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(botId);
+            
+                if (botEntity !== undefined && socialEntity !== undefined) {
+                    storageEntity = socialEntity; // Bot uses Persona's storage
+                    fileName = botEntity.id; // Use bot's ID for fileName
+                    filePath = `Bots/${botName}/Profile`; // Save under Bots directory
+                } else {
+                    return resolve({
+                        result: 'Error',
+                        message: 'Cannot Save Social Trading Bot Profile: Bot requires a Persona with storage'
+                    });
+                }
+            } 
+            // If only the Persona ID is given, use User-Profile path
+            else if (profileMessage.originSocialPersonaId !== undefined) {
+                let personaId = profileMessage.originSocialPersonaId;
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(personaId);
+                storageEntity = socialEntity;
+                filePath = `User-Profile`;
+                fileName = socialEntity.id; // Use persona's ID for fileName
+            } 
+            // If only the Bot ID is given (which shouldn't happen), return an error
+            else {
+                return resolve({
+                    result: 'Error',
+                    message: 'Cannot Save Profile: A Persona is required to store the data'
+                });
             }
-            if (profileMessage.originSocialTradingBotId !== undefined) {
-                let socialEntityId = profileMessage.originSocialTradingBotId
-                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
-            }
+    
             /*
             Some Validations
             */
-            if (socialEntity === undefined) {
+            if (storageEntity === undefined) {
                 let response = {
                     result: 'Error',
                     message: 'Cannot Save Social Entity Profile Because Social Entity is Undefined'
@@ -49,7 +87,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
                 return
             }
 
-            let availableStorage = socialEntity.node.availableStorage
+            let availableStorage = storageEntity.node.availableStorage
             if (availableStorage === undefined) {
                 let response = {
                     result: 'Error',
@@ -71,8 +109,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
             Prepare the content to be saved
             */
             let fileContent = profileMessage.profileData
-            let fileName = socialEntity.id
-            let filePath = "Social-Entities"
+            
             /*
             We are going to save this file at all of the Storage Containers defined.
             */
@@ -92,9 +129,9 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
 
                 switch (storageContainer.type) {
                     case 'Github Storage Container': {
-                        await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
+                       await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
                             .then(onFileSaved)
-                            .catch(onFileNodeSaved)
+                            .catch(onFileNotSaved)
                         break
                     }
                     case 'Superalgos Storage Container': {
@@ -110,7 +147,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
                     }
                 }
 
-                function onFileNodeSaved() {
+                function onFileNotSaved() {
                     notSavedCount++
                     if (savedCount + notSavedCount === availableStorage.storageContainerReferences.length) {
                         allFilesSaved()
@@ -148,27 +185,61 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
         return new Promise(loadSocialEntityAsync)
 
         async function loadSocialEntityAsync(resolve, reject) {
-            console.log("LOADING SOCIAL ENTITY ASYNC")
+
+            console.log("LOADING SOCIAL ENTITY ASYNC", profileMessage)
             /*
             Each Social Entity must have a Storage Container so that we can here
             use it to load content on it. 
             */
-            let socialEntity
-            if (profileMessage.originSocialPersonaId !== undefined) {
-                let socialEntityId = profileMessage.originSocialPersonaId
-                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+            let socialEntity;
+            let storageEntity;
+            let filePath;
+            let botName;
+            let fileName;
+            
+            // If both IDs exist, prioritize the bot
+            if (profileMessage.originSocialPersonaId !== undefined && profileMessage.originSocialTradingBotId !== undefined) {
+                let personaId = profileMessage.originSocialPersonaId;
+                let botId = profileMessage.originSocialTradingBotId;
+                botName = profileMessage.codeName;
+            
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(personaId);
+                let botEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(botId);
+            
+                if (botEntity !== undefined && socialEntity !== undefined) {
+                    storageEntity = socialEntity; // Bot uses Persona's storage
+                    fileName = botEntity.id; // Use bot's ID for fileName
+                    filePath = `Bots/${botName}/Profile`; // Save under Bots directory
+                } else {
+                    return resolve({
+                        result: 'Error',
+                        message: 'Cannot Save Social Trading Bot Profile: Bot requires a Persona with storage'
+                    });
+                }
+            } 
+            // If only the Persona ID is given, use User-Profile path
+            else if (profileMessage.originSocialPersonaId !== undefined) {
+                let personaId = profileMessage.originSocialPersonaId;
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(personaId);
+                storageEntity = socialEntity;
+                filePath = `User-Profile`;
+                fileName = socialEntity.id; // Use persona's ID for fileName
+            } 
+            // If only the Bot ID is given (which shouldn't happen), return an error
+            else {
+                return resolve({
+                    result: 'Error',
+                    message: 'Cannot Save Profile: A Persona is required to store the data'
+                });
             }
-            if (profileMessage.originSocialTradingBotId !== undefined) {
-                let socialEntityId = profileMessage.originSocialTradingBotId
-                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
-            }
+    
             /*
             Some Validations
             */
-            if (socialEntity === undefined) {
+            if (storageEntity === undefined) {
                 let response = {
                     result: 'Error',
-                    message: 'Cannot Load Social Entity Profile Because Social Entity is Undefined'
+                    message: 'Cannot Save Social Entity Profile Because Social Entity is Undefined'
                 }
                 resolve(response)
                 return
@@ -214,8 +285,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesStorage = function () {
                 We are going to try to read it first from the first Storage container
                 and if it is not possible we will try with the next ones.
                 */
-                let fileName = socialEntity.id
-                let filePath = "Social-Entities"
+                
 
                 switch (storageContainer.parentNode.type) {
                     case 'Github Storage': {

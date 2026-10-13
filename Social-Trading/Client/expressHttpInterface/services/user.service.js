@@ -49,7 +49,7 @@ const loadProfile = async (message, res) => {
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId: message.targetSocialPersonaId
+            originSocialPersonaId: message.originSocialPersonaId
         }
 
         let query = {

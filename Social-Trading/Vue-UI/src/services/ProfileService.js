@@ -9,7 +9,13 @@ const http = axios.create({
     }
 });
 
-
+    // This is to retrieve a list of Social Personas or Social Trading Bots belonging to the User Profile created at Sign Up.
+    async function getSocialEntityList() {
+        return http.get('/users/social-entities')
+            .then(response => {
+                return response.data
+        });
+}
 
     // This function retrieves the users profile data and saves it in the store.
     async function getSocialPersona() {
@@ -106,6 +112,7 @@ const http = axios.create({
 
 
 export {
+    getSocialEntityList,
     getProfiles,
     getProfile,
     updateProfile,

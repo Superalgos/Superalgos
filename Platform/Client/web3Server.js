@@ -93,7 +93,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 URI = 'https://bsc-dataseed1.binance.org'
                 break
             case 'ETH':
-                URI = 'https://rpc.ankr.com/eth'
+                URI = 'https://eth.llamarpc.com'
                 break
             case 'GOERLI':
                 URI = 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
@@ -139,7 +139,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 URI = 'https://bsc-dataseed1.binance.org'        
                 break
             case 'ETH':
-                URI = 'https://rpc.ankr.com/eth'
+                URI = 'https://eth.llamarpc.com'
                 break
             case 'GOERLI':
                 URI = 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
@@ -523,7 +523,7 @@ exports.newWeb3Server = function newWeb3Server() {
                             URI = 'https://bsc-dataseed.binance.org/'
                             break
                         case 'ETH':
-                            URI = 'https://rpc.ankr.com/eth'
+                            URI = 'https://eth.llamarpc.com'
                             break
                         case 'GOERLI':
                             URI = 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'
@@ -577,7 +577,7 @@ exports.newWeb3Server = function newWeb3Server() {
                                     name: 'Ethereum Mainnet',
                                     networkId: 1,
                                     chainId: 1,
-                                    url: 'https://rpc.ankr.com/eth'
+                                    url: 'https://eth.llamarpc.com'
                                 },
                                 'istanbul',
                             );
@@ -627,11 +627,6 @@ exports.newWeb3Server = function newWeb3Server() {
                     let gasPrice = 5000000000
                     let gasLimit = 210000
 
-                    if (chain === 'ZKS') {
-                        gasPrice = 25000000
-                        gasLimit = 500000
-                    }
-
                     /* If executing on ETH, verify if current gas price is within reasonable range and calculate price for transaction */
                     if (chain === 'ETH') {
                         /* Maximum gas price in Gwei we are ready to pay */
@@ -679,6 +674,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
                             SA.logger.error('sendSignedTransaction -> err =' + JSON.stringify(err))
+                            SA.logger.error(err.stack)
                             errorList.push(transactionDetails)
                         })
 

@@ -27,7 +27,7 @@ jobs:
       
       - name: Get version
         id: vars
-        run:  echo "::set-output name=tag::$(node -p "require('./package.json').version")"
+        run:  echo "tag=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1

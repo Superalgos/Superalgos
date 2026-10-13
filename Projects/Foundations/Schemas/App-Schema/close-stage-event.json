@@ -53,6 +53,15 @@
             "actionProject": "Visual-Scripting"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Report",
+            "translationKey": "add.report",
+            "relatedUiObject": "Report",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Dashboards",
+            "actionProject": "Visual-Scripting"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -99,6 +108,12 @@
             "type": "array",
             "childType": "Announcement",
             "project": "Social-Bots"
+        },
+        {
+            "name": "reports",
+            "type": "array",
+            "childType": "Report",
+            "project": "Dashboards"
         }
     ],
     "propertyNameAtParent": "closeStageEvent"

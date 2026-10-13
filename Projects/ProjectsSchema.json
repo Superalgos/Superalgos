@@ -1830,6 +1830,12 @@
                     "propertyName": "tokenpower",
                     "functionName": "newGovernanceUtilitiesTokenPower",
                     "fileName": "TokenPower.js"
+                },
+                {
+                    "name": "Pools",
+                    "propertyName": "pools",
+                    "fileName": "Pools.js",
+                    "functionName": "newGovernanceUtilitiesPools"
                 }
             ]
         },
@@ -2465,10 +2471,10 @@
             ],
             "utilities": [
                 {
-                    "name": "Github Storage",
-                    "propertyName": "githubStorage",
-                    "functionName": "newOpenStorageUtilitiesGithubStorage",
-                    "fileName": "GithubStorage.js"
+                    "name": "Storage Factory",
+                    "propertyName": "storageFactory",
+                    "functionName": "newOpenStorageUtilitiesStorageFactory",
+                    "fileName": "StorageFactory.js"
                 }
             ]
         }
@@ -2686,5 +2692,78 @@
                 }
             ]
         }
-    }
+    },
+    {
+        "name": "Dashboards",
+        "propertyName": "dashboards",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "DS": {
+            "modules": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "SA": {
+            "modules": [
+                {
+                    "name": "DashboardsEventServerClient",
+                    "propertyName": "dashboardsEventServerClient",
+                    "functionName": "newEventServerClient",
+                    "fileName": "DashboardsEventServerClient.js"
+                },
+                {
+                    "name": "DashboardsAppBootstrappingProcess",
+                    "propertyName": "dashboardsAppBootstrappingProcess",
+                    "functionName": "newDashboardsAppBootstrappingProcess",
+                    "fileName": "DashboardsAppBootstrappingProcess.js"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [ 
+                {
+                    "name": " Simulation Data",
+                    "propertyName": "SimulationData",
+                    "functionName": "newSimulationData",
+                    "fileName": "SimulationData.js"
+                },
+                {
+                    "name": " Candles Data",
+                    "propertyName": "CandlesData",
+                    "functionName": "newCandlesData",
+                    "fileName": "CandlesData.js"
+                },
+                {
+                    "name": "Examples Data",
+                    "propertyName": "ExamplesData",
+                    "functionName": "newExamplesData",
+                    "fileName": "ExamplesData.js"
+                },
+                {
+                    "name": "Event Server Data",
+                    "propertyName": "EventServerData",
+                    "functionName": "newEventServerData",
+                    "fileName": "EventServerData.js"
+                },
+                {
+                    "name": "Task Manager Data",
+                    "propertyName": "TaskManagerData",
+                    "functionName": "newTaskManagerData",
+                    "fileName": "TaskManagerData.js"
+                },
+                {
+                    "name": "Governance Data",
+                    "propertyName": "GovernanceData",
+                    "functionName": "newGovernanceData",
+                    "fileName": "GovernanceData.js"
+                }
+            ],
+            "utilities": []
+        },
+        "plugins": []
+    }  
 ]

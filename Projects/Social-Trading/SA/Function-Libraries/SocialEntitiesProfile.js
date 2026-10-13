@@ -104,6 +104,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             let userProfile
             let targetNode
             let targetNodeTypeCount
+            let targetNodeType
             let response = {
                 result: 'Ok'
             }
@@ -162,15 +163,19 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response)
                 return
             }
-            await addOpenStorageNodes()
-            if (response.result === 'Error') {
-                resolve(response)
-                return
+            if (profileMessage.socialEntityType !== 'Social Trading Bot') {
+                await addOpenStorageNodes();
+                if (response.result === 'Error') {
+                    resolve(response);
+                    return;
+                }
             }
-            addAvailableStorageNodes()
-            if (response.result === 'Error') {
-                resolve(response)
-                return
+            if (profileMessage.socialEntityType !== 'Social Trading Bot') {
+                addAvailableStorageNodes();
+                if (response.result === 'Error') {
+                    resolve(response);
+                    return;
+                }
             }
             await pushUserProfileAndPullRequest()
             if (response.result === 'Error') {
@@ -182,10 +187,12 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response) 
                 return
             }
-            saveApiAppFile()
-            if (response.result === 'Error') {
-                resolve(response)
-                return
+            if (profileMessage.socialEntityType !== 'Social Trading Bot') {
+                saveApiAppFile();
+                if (response.result === 'Error') {
+                    resolve(response);
+                    return;
+                }
             }
             reloadSecretsArray()
             if (response.result === 'Error') {
@@ -264,23 +271,30 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 socialPersonas: []
                             }
                         }
+                        targetNodeType = "Social Persona"
+                        targetNodeTypeCount = userProfile.socialPersonas.socialPersonas.length + 1
+
                         targetNode = {
-                            type: 'Social Persona',
+                            type: targetNodeType,
                             name: profileMessage.socialEntityHandle,
                             project: 'Social-Trading',
                             savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
+                            config: JSON.stringify(
+                                {
+                                    codeName: targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount,
+                                    handle: profileMessage.socialEntityHandle
+                                }
+                            ),
                         }
                         userProfile.socialPersonas.socialPersonas.push(targetNode)
-                        targetNodeTypeCount = userProfile.socialPersonas.socialPersonas.length
                         break
                     }
                     case "Social Trading Bot": {
                         if (userProfile.userBots === undefined) {
                             userProfile.userBots = {
                                 type: 'User Bots',
-                                name: 'New User Bots',
+                                name: profileMessage.socialEntityHandle,
                                 project: 'Governance',
                                 savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
@@ -290,23 +304,30 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         if (userProfile.userBots.socialTradingBots === undefined) {
                             userProfile.userBots.socialTradingBots = {
                                 type: 'Social Trading Bots',
-                                name: 'New Social Trading Bots',
+                                name: profileMessage.socialEntityHandle,
                                 project: 'Social-Trading',
                                 savedPayload: savedPayloadNode,
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                                 config: '{}'
                             }
                         }
+                        targetNodeType = "Social Trading Bot"
+                        targetNodeTypeCount = userProfile.userBots.socialTradingBots.socialTradingBots.length + 1
+                        
                         targetNode = {
-                            type: 'Social Trading Bot',
+                            type: targetNodeType,
                             name: 'New Social Trading Bot',
                             project: 'Social-Trading',
                             savedPayload: savedPayloadNode,
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
+                            config: JSON.stringify(
+                                {
+                                    codeName: targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount,
+                                    handle: profileMessage.socialEntityHandle
+                                }
+                            ),
                         }
                         userProfile.userBots.socialTradingBots.socialTradingBots.push(targetNode)
-                        targetNodeTypeCount = userProfile.userBots.socialTradingBots.socialTradingBots.length
                         break
                     }
                 }
@@ -318,7 +339,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     targetNode,
                     targetNodeTypeCount,
                     response,
-                    savedPayloadNode
+                    savedPayloadNode,
+                    profileMessage
                 )
                 if (response.result === 'Error') { resolve(response) }
             }

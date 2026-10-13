@@ -2,6 +2,7 @@ const express = require('express');
 const userRoute = require('./user.routes');
 const postRoute = require('./post.routes');
 const socialRoute = require('./social.routes');
+const botRoute = require('./bots.route');
 
 const router = express.Router();
 
@@ -17,7 +18,12 @@ const defaultRoutes = [
     {
         path: '/social',
         route: socialRoute
+    },
+    {
+        path: '/bots',
+        route: botRoute
     }
+    
 ];
 
 defaultRoutes.forEach((route) => {

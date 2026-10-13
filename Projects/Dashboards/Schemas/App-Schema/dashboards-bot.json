@@ -1,0 +1,75 @@
+{
+    "type": "Dashboards Bot",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add User Defined Report",
+            "translationKey": "add.userDefinedDashboardsCode",
+            "relatedUiObject": "User Defined Dashboards Code",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Dashboards"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Report Timer",
+            "translationKey": "add.reportTimer",
+            "relatedUiObject": "Report Timer",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Dashboards"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "icon": "dashboards-bot",
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\"\n}"
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Dashboards Bot Manager->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "userDefinedDashboardsCode",
+            "type": "node",
+            "childType": "User Defined Dashboards Code",
+            "autoAdd": true,
+            "project": "Dashboards"
+        },
+        {
+            "name": "reportTimer",
+            "type": "node",
+            "childType": "Report Timer",
+            "autoAdd": true,
+            "project": "Dashboards"
+        }
+    ],
+    "propertyNameAtParent": "dashboardsBot"
+}

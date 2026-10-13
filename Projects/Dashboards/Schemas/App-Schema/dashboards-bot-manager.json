@@ -1,0 +1,55 @@
+{
+    "type": "Dashboards Bot Manager",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "translationKey": "general.configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Dashboards Bot",
+            "translationKey": "add.dashboardsBot",
+            "relatedUiObject": "Dashboards Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Dashboards"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "confirmationLabelTranslationKey": "general.confirm.delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "translationKey": "general.delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isTitleAllwaysVisible": false,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "icon": "dashboards-bot",
+    "editors": {
+        "config": true
+    },
+    "level": 0,
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "dashboardsBot",
+            "type": "array",
+            "childType": "Dashboards Bot",
+            "project": "Dashboards"
+        }
+    ]
+}

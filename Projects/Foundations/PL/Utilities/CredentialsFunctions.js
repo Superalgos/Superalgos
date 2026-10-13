@@ -26,12 +26,13 @@
  *     project: string,
  *     type: string,
  *     githubAPI: Config|undefined,
+ *     awsAPI: Config|undefined,
  *     cryptoExchanges: CryptoExchange[]
  *   }[]
  * }} Payload
  * 
  * @typedef {{
- *   type: 'github'|'exchange',
+ *   type: 'github'|'aws'|'exchange',
  *   key: string,
  *   value: string
  * }} Credentials
@@ -41,11 +42,15 @@ exports.newFoundationsUtilitiesCredentials = function newFoundationsUtilitiesCre
     let thisObject = {
         loadExchangesCredentials: loadExchangesCredentials,
         loadGithubCredentials: loadGithubCredentials,
+        loadAWSCredentials: loadAWSCredentials,
+        storeAll: storeAll,
         storeExchangesCredentials: storeExchangesCredentials,
         storeGithubCredentials: storeGithubCredentials,
+        storeAWSCredentials: storeAWSCredentials,
     }
 
     const githubType = 'github'
+    const awsType = 'aws'
     const exchangeType = 'exchange'
 
     return thisObject
@@ -66,6 +71,26 @@ exports.newFoundationsUtilitiesCredentials = function newFoundationsUtilitiesCre
                 }
             }
             node.githubAPI.config = JSON.stringify(config, null, 4)
+        }
+        return payload
+    }
+
+    /**
+     * @param {Payload} payload 
+     * @returns {Payload}
+     */
+    function loadAWSCredentials(payload) {
+        const node = payload.rootNodes.find(node => node.project == 'Foundations' && node.type == 'APIs' && node.awsAPI !== undefined)
+        if (node !== undefined) {
+            const config = JSON.parse(node.awsAPI.config)
+            if (config.access_key_id !== undefined && config.access_key_id.length > 0) {
+                const credentials = readCredentialsFile()
+                const match = credentials.find(creds => creds.type == awsType && creds.key == config.access_key_id)
+                if (match !== undefined) {
+                    config.secret_access_key = match.value
+                }
+            }
+            node.awsAPI.config = JSON.stringify(config, null, 4)
         }
         return payload
     }
@@ -103,6 +128,17 @@ exports.newFoundationsUtilitiesCredentials = function newFoundationsUtilitiesCre
      * @param {Payload} payload 
      * @returns {Payload}
      */
+    function storeAll(payload) {
+        payload = storeGithubCredentials(payload);
+        payload = storeAWSCredentials(payload);
+        payload = storeExchangesCredentials(payload);
+        return payload;
+    }
+
+    /**
+     * @param {Payload} payload 
+     * @returns {Payload}
+     */
     function storeGithubCredentials(payload) {
         const node = payload.rootNodes.find(node => node.project == 'Foundations' && node.type == 'APIs' && node.githubAPI !== undefined)
         if (node !== undefined) {
@@ -124,6 +160,36 @@ exports.newFoundationsUtilitiesCredentials = function newFoundationsUtilitiesCre
             }
             config.token = ''
             node.githubAPI.config = JSON.stringify(config, null, 4)
+        }
+        return payload
+    }
+
+    /**
+     * @param {Payload} payload 
+     * @returns {Payload}
+     */
+    function storeAWSCredentials(payload) {
+        const node = payload.rootNodes.find(node => node.project == 'Foundations' && node.type == 'APIs' && node.awsAPI !== undefined)
+        if (node !== undefined) {
+            const config = JSON.parse(node.awsAPI.config)
+            if (config.access_key_id !== undefined && config.access_key_id.length > 0 && config.secret_access_key !== undefined && config.secret_access_key.length > 0) {
+                const credentials = readCredentialsFile()
+                const matchIdx = credentials.findIndex(creds => creds.type == awsType && creds.key == config.access_key_id)
+                if (matchIdx > -1) {
+                    credentials[matchIdx].value = config.secret_access_key
+                }
+                else {
+                    credentials.push({
+                        type: awsType,
+                        key: config.access_key_id,
+                        value: config.secret_access_key,
+                        region: config.region
+                    })
+                }
+                writeCredentialsFile(credentials)
+            }
+            config.secret_access_key = ''
+            node.awsAPI.config = JSON.stringify(config, null, 4)
         }
         return payload
     }

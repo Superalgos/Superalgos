@@ -1,22 +1,23 @@
 ﻿exports.newTaskManagerServer = function newTaskManagerServer() {
 
+    const { fork } = require('child_process');
+    let tasksMap = new Map();  // Declarar tasksMap primero
+
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
         run: run,
-        newEventsServerClient: newEventsServerClient
-    }
+        newEventsServerClient: newEventsServerClient,
+        tasksMap: tasksMap  // Asignar tasksMap a thisObject
+    };
+
+    return thisObject;
 
     /*
     This server creates and destroys Task Servers according to what is going on at the UI. Each of these created servers will do their own
     work. The responsibility of this server is to manage those children processes in order to be in sync with what the end user want and is defining
     at the user interface.
     */
-
-    const { fork } = require('child_process')
-    tasksMap = new Map()
-
-    return thisObject
 
     function finalize() {
 

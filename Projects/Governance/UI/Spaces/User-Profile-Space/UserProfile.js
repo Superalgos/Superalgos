@@ -165,6 +165,14 @@ function newGovernanceUserProfileSpace() {
                         break
                     case 'ETH':
                         url = "https://api.etherscan.io/api?module=account&action=tokentx&address=" + token["treasuryAccountAddress"] + "&startblock=0"
+                        
+                        /* Etherscan requires API keys. Obtain key from Web3 API node */
+                        let etherscanApiKey
+                        let web3API = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
+                        etherscanApiKey = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(web3API?.payload, 'etherscanApiKey')
+                        if (etherscanApiKey !== undefined && etherscanApiKey !== "") {
+                            url += "&apikey=" + etherscanApiKey 
+                        }
                         break
                     case 'ZKS':
                         url = "https://block-explorer-api.mainnet.zksync.io/address/" + token["treasuryAccountAddress"] + "/transfers?limit=50"

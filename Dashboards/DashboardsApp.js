@@ -1,13 +1,17 @@
+// DashboardsApp.js
+
 exports.newDashboardsApp = function newDashboardsApp() {
 
     let thisObject = {
         run: run
     }
 
+    DS.dashboardsApp = thisObject
+
     return thisObject
 
     async function run(mode) {
-        
+
         process.on('uncaughtException', function (err) {
             if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
                 SA.logger.error("The Superalgos Dashboards Client cannot be started. Reason: the port configured might be being used by another application, or Superalgos Dashboards Client might be already running.")
@@ -30,6 +34,7 @@ exports.newDashboardsApp = function newDashboardsApp() {
             SA.logger.error('Dashboards App -> unhandledRejection -> p = ' + JSON.stringify(p))
             process.exit(1)
         })
+
         try {
             /* Callbacks default responses. */
 
@@ -46,17 +51,17 @@ exports.newDashboardsApp = function newDashboardsApp() {
             global.DEFAULT_RETRY_RESPONSE = {
                 result: 'Retry',
                 message: 'Retry Later'
-            }
+            };
 
             global.CUSTOM_OK_RESPONSE = {
                 result: 'Ok, but check Message',
                 message: 'Custom Message'
-            }
+            };
 
             global.CUSTOM_FAIL_RESPONSE = {
                 result: 'Fail Because',
                 message: 'Custom Message'
-            }
+            };
 
             /* Servers */
             let UI_SERVER = require('./UI/UiLoader.js')
@@ -67,6 +72,7 @@ exports.newDashboardsApp = function newDashboardsApp() {
             /*
             Setting up servers running inside this Client.
             */
+
             DS.servers = {}
             SA.logger.info('SUPERALGOS DASHBOARDS CLIENT SERVERS:')
             SA.logger.info('')
@@ -96,7 +102,6 @@ exports.newDashboardsApp = function newDashboardsApp() {
             SA.logger.info("You are running Superalgos Dashboards App: " + SA.version)
             SA.logger.info('')
             SA.logger.info('Join the @superalgosdevelop Telegram Group to learn more!')
-
             SA.logger.info('')
 
         } catch (err) {

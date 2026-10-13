@@ -52,6 +52,15 @@ const http = axios.create({
                 return response
             });
     }
+    async function timeline(socialPersonaId) {
+    console.log('you are fetching Post in the timeline of postService', socialPersonaId)
+    
+    return  http.get('/posts/feed', {params: socialPersonaId})
+            .then(response => {
+                console.log('Post response in postService', response)
+                return response.data.data
+            }); 
+    }
 
     // Working 
     // Returns all activity, posts, likes, reposts, loves, ect.
@@ -106,6 +115,13 @@ const http = axios.create({
         return http.post('/posts/replies', body);
     }
 
+    /* Used to create a reaction to a post */
+    async function createReaction(body) {
+        return http.post('/posts/reactions', body)
+            .then(result => {
+                return result.data;
+            });
+    }
 
     /* Used to re-post a post */
     async function repostPost(body) {
@@ -116,6 +132,7 @@ const http = axios.create({
     }
 
 export {
+    timeline,
     createPost,
     removePost,
     getPosts,
@@ -124,5 +141,6 @@ export {
     getFeed,
     createReply,
     getReplies,
-    repostPost
+    repostPost,
+    createReaction
 }

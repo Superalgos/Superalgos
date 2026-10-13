@@ -37,7 +37,7 @@ node dashboards devBackend
 ## Alpha 1 Caveats
 Being the first Alpha version, the Dashboards app is still in its infancy. What follows is a short list of standing caveats to using the Dashboards app in its current state.
 
-- Due to the underlying architecture of the Dashboards app running its own websocket server, the Dashboard app listens for new clients to be started and automatically connects. However when the platform is started first, there is currently no way to inform the platform that the Dashboards app has been started later. This is a restriction that will be solved in Alpha 2.
+- Due to the underlying architecture of the Dashboards app running its own websocket server, the Dashboard app listens for new clients to be started and automatically connects.
 
 - An additional caveat is that the data collection features of the Dashboards app’s Platform client are still in there basic proof of concept phase. Developing these features will be the main push of Alpha 2.
 
@@ -94,7 +94,7 @@ In order to help facilitate the creation of clients the Dashboards app offered a
 The main tool within this dashboard is the Raw Data tab. Opening this tab will automatically display all incoming data in the form of a collapsible tree. Developers can expand and contract this tree to get an idea of if the data they are sending to the app is being delivered correctly without having to dive into the inner workings of the Dashboards app itself.
 
 ## Platform Client
-The Alpha 1 version possesses a very rudimentary Platform app client. This section of the readme will expand as the features of the client take shape.
+The Alpha 1.2 version possesses a very rudimentary Platform app client. This section of the readme will expand as the features of the client take shape.
 
 # Frontend Overview
 
@@ -312,21 +312,33 @@ The expandable tree is a recurive component that will add copies of itself until
 
 </details>
 
-# First usage implementations Alpha 1.1
+# Alpha 1.1 - First data implementation
 
 Governance Dashboard: This Dashboard is not working at the moment. It will be available when global UI object are available from the Dashboards UI.
 
 Algorithmic Trading Dashboard: This Dashboards will show your trading bots and candles data directly from the Storage Path. 
 
-# Roadmap to Alpha 2
-The push for alpha 2 will be making data available to the Dashboards app. This work will primarily take place within the Platform app’s Dashboards client. Filtering and managing reported data will come in subsequent versions. What follows is a board roadmap toward the Alpha 2 version:
+# Alpha 1.2 - [Current Status]
 
-⁃ Create a dashboards project within SA to refactor functions into function libraries.
+This version of the Dashboards App has fixes some of the main issues from the original Version Alpha 1.
+
+SOLVED:
+ ⁃ Create a dashboards project within SA to refactor functions into function libraries.
 
 ⁃ Handle platform starting first.
 
+⁃ Tap in and listen to all Platform system events.
+
+# Roadmap to Alpha 2
+The push for alpha 2 will be making data available to the Dashboards app. This work will primarily take place within the Platform app’s Dashboards client. Filtering and managing reported data will come in subsequent versions. What follows is a board roadmap toward the Alpha 2 version:
+
+⁃ Create a dashboards project within SA to refactor functions into function libraries. (already implemented in Alpha 1.2)
+
+⁃ Handle platform starting first. (already implemented in Alpha 1.2)
+
 ⁃ Platform client Data collection features:
-⁃ Tap in and listen to all Platform system events. Especially task output events.
+⁃ Tap in and listen to all Platform system events. Especially task output events. (already implemented in Alpha 1.2)
+
 ⁃ Reporter function that can be dropped into the midst of any Platform code and forward context data.
 
 ⁃ Make the global UI object available to the Dashboard’s UI. This will allow calling all the same functions used to build and manage the Platform’s UI. A major possibility opened up by this is the reuse of major UI features from the platform, such as data plotting. It also allows for new features built for the Dashboards app to eventually be ported over to the Platform’s UI as well.

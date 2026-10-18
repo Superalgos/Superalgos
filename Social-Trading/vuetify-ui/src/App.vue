@@ -1,32 +1,37 @@
 <template>
-  <v-app>
-    <v-main>
-      <div class="landing">
-        <img
-          alt="Superalgos Social Trading branding board"
-          class="landing__board"
-          src="@/assets/branding-board.png"
-        >
+  <AppShell>
+    <template #app-bar>
+      <AppBar />
+    </template>
+
+    <template #main>
+      <div class="ft-workspace">
+        <v-card variant="flat" class="ft-workspace__card">
+          <v-card-text class="text-medium-emphasis">
+            Main workspace
+          </v-card-text>
+        </v-card>
       </div>
-    </v-main>
-  </v-app>
+    </template>
+
+    <template #right-panel>
+      <RightSideBar />
+    </template>
+  </AppShell>
 </template>
 
+<script setup lang="ts">
+import AppShell from './AppShell.vue'
+import AppBar from './components/App_Nav_components/AppBar/AppBar.vue'
+import RightSideBar from './components/App_Nav_components/RightSideBar/RightSideBar.vue'
+</script>
+
 <style scoped>
-.landing {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  min-height: 100%;
-  padding: 24px;
+.ft-workspace {
+  padding-top: 4px;
 }
 
-.landing__board {
-  display: block;
-  height: auto;
-  max-height: calc(100vh - 48px);
-  max-width: 100%;
-  object-fit: contain;
-  width: auto;
+.ft-workspace__card {
+  min-height: 320px;
 }
 </style>

@@ -53,7 +53,7 @@ Worth noting before you start:
 
 * FAQS:
 
-  * [Before you begin](https://superalgos.org/faqs-crypto-trading-bots-before-you-being.shtml)
+  * [Before you begin](https://superalgos.org/faqs-crypto-trading-bots-before-you-begin.shtml)
 
   * [Trust and safety](https://superalgos.org/faqs-crypto-trading-bots-trust-and-safety.shtml)
 
@@ -532,7 +532,7 @@ There are a few things that need to be configured to obtain full functionality f
 
 On windows:
 
-- First, you need to install WSL and WSL2 [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install) then reboot if prompted.
+- First, you need to install WSL and WSL2 [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install) then reboot if prompted.
 
   - You may want to review the Docker WSL2 Backend information for VSCode as well before proceeding. [https://aka.ms/vscode-remote/containers/docker-wsl2](https://aka.ms/vscode-remote/containers/docker-wsl2)
 
@@ -544,7 +544,7 @@ To make managing these WSL instances a lot easier, we will now move to installin
 
 - Install VSCode [https://code.visualstudio.com/docs/?dv=win64user](https://code.visualstudio.com/docs/?dv=win64user)
 
-  - Install the remote container and remote docker plugins/extensions for Visual Studio Code [https://code.visualstudio.com/docs/remote/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation) 
+  - Install the remote container and remote docker plugins/extensions for Visual Studio Code [https://code.visualstudio.com/docs/devcontainers/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation) 
 
     - _You may want to spend time reading the specifics of this documentation on their website._ 
     

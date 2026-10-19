@@ -34,7 +34,7 @@ First, Docker Desktop needs to be installed on a Mac or Windows computer in orde
 
 ### Mac OS
 
-Docker can be downloaded from the Docker Store following the [directions in the official Docker Docs](https://docs.docker.com/desktop/mac/install/). It can also be installed from the command line using Homebrew.
+Docker can be downloaded from the Docker Store following the [directions in the official Docker Docs](https://docs.docker.com/desktop/setup/install/mac-install/). It can also be installed from the command line using Homebrew.
 
 ```shell
 brew cask install docker

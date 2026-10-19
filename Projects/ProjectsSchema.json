@@ -2471,6 +2471,12 @@
             ],
             "utilities": [
                 {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
+                },
+                {
                     "name": "Storage Factory",
                     "propertyName": "storageFactory",
                     "functionName": "newOpenStorageUtilitiesStorageFactory",

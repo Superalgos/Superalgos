@@ -61,12 +61,11 @@ const loadProfile = async (message, res) => {
         const result = await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
+        res = result
+        res.data = result.profileData;
+        res.result = result.result;
 
-        let response = {}
-        response.data = result.profileData;
-        response.result = result.result;
-
-        return response
+        return res
 
     } catch (error) {
         console.log(error);

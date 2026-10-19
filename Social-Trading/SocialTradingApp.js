@@ -170,6 +170,49 @@ exports.newSocialTradingApp = function newSocialTradingApp() {
                 
                 // TODO: move clean UI to use this httpinterface
                 } */
+            } else if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vuetifyDev') {
+                /* 
+                These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.
+                If UI chosen is Vuetify Dev server, launch the development Server 
+                */
+                let port = '3000'
+                const PATH_TO_UI_ROOT = SA.nodeModules.path.join(process.cwd(), global.env.PATH_TO_SOCIALTRADING, 'vuetify-ui')
+                const PATH_TO_VITE = SA.nodeModules.path.join(process.cwd(), global.env.PATH_TO_SOCIALTRADING, 'vuetify-ui/node_modules/.bin/vite')
+                console.log('this is our current working directory', PATH_TO_UI_ROOT)
+                const command = `${PATH_TO_VITE} --port ${port}` 
+                const nodeInstPromise = new Promise(() => {
+                  const child = SA.nodeModules.childProcess.exec(command, 
+                    {cwd: PATH_TO_UI_ROOT}, 
+                    (error, stdout) => {
+                      if (error) {
+                        console.log('')
+                        console.log('There was an error starting the Vuetify UI development server: ')
+                        console.log('')
+                        console.log(error)
+                        process.exit(1)
+                      }
+                      console.log('')
+                      console.log(stdout)
+                    })
+                  try {
+                    child.stdout.pipe(process.stdout)
+                    child.on('exit', async () => {
+                      console.log('')
+                      console.log('Closing Vuetify Development Server....')
+                      await nodeInstPromise
+                    })
+                  } catch (e) {
+                    console.log('')
+                    console.log('Event error: ')
+                    console.log('')
+                    console.log(e)
+                    process.exit(1)
+                }})
+               
+                // Then launch the backend server
+                thisObject.expressHttpInterface = EXPRESS_HTTP_INTERFACE_MODULE.SocialTradingBackend(ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, ST);
+                console.log(`express Interface ................................................ Listening at port ${ST.socialTradingApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
+
             } else if (global.env.SOCIALTRADING_APP_UI_TYPE === 'vue') {
                 /* 
                 These are the Network Interfaces by which the Web App interacts with this Social Trading App Client.

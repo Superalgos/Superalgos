@@ -7,6 +7,7 @@ import { getBotEntityList } from '@/services/botsService'
 import { useProfileStore } from '@/stores/profile'
 import { usePersonaStore, type Persona } from '@/stores/persona'
 import { useBotStore, type Bot } from '@/stores/bot'
+import { usePostStore } from '@/stores/post'
 
 /*
  * useBootstrap — app-start orchestration (adapted from the old UI's
@@ -19,11 +20,14 @@ import { useBotStore, type Bot } from '@/stores/bot'
  * 3. map to skeletons → setPersonas (selector has data immediately)
  * 4. serial getProfile enrichment per persona; failures skip enrichment
  *    (persona stays as skeleton — old app.js:73-75 swallow semantics)
- * 5. getBotEntityList → bots (old app.js:114 dispatch socialBots/fetchSocialBots;
+ * 5. serial posts fetch per persona (old app.js:108-112 loop — BETWEEN
+ *    enrichment and the bots dispatch); failures swallowed inside
+ *    fetchPersonaPosts (old posts.js:672-675 catch, never rethrown)
+ * 6. getBotEntityList → bots (old app.js:114 dispatch socialBots/fetchSocialBots;
  *    failure swallowed internally — old fetchSocialBots try/catch never
  *    failed bootstrap)
- * 6. map to bot skeletons → setBots (selector has data immediately)
- * 7. bot profile enrichment in background (old app.js:114 dispatched
+ * 7. map to bot skeletons → setBots (selector has data immediately)
+ * 8. bot profile enrichment in background (old app.js:114 dispatched
  *    fetchSocialBots WITHOUT await; old getMyProfiles socialBots.js:104-155
  *    loops bots × personas until first 'Social Entity Profile Found').
  *    Not awaited so profile requests never delay bootstrapped/redirect —
@@ -42,6 +46,7 @@ export function useBootstrap() {
   const profileStore = useProfileStore()
   const personaStore = usePersonaStore()
   const botStore = useBotStore()
+  const postStore = usePostStore()
 
   /*
    * Old getMyProfiles (socialBots.js:104-155): for each bot, try each
@@ -111,6 +116,14 @@ export function useBootstrap() {
         }
       }
 
+      /* Posts loop (old app.js:108-112): for each discovered persona,
+         await posts/fetchPersonaPosts. Runs BETWEEN persona enrichment
+         and the bots dispatch, exactly as in the old bootstrap. The
+         action swallows its own errors (old posts.js:672-675) so a
+         failing timeline never fails bootstrap; skeletons unaffected. */
+      for (const skeleton of skeletons) {
+        await postStore.fetchPersonaPosts(skeleton.originSocialPersonaId)
+      }
 
       /* T-Bots (old app.js:114 dispatch socialBots/fetchSocialBots).
          Old fetchSocialBots had its own try/catch that swallowed failures
@@ -134,7 +147,7 @@ export function useBootstrap() {
         /* bots fetch failed — keep bootstrap alive, selector shows empty */
       }
 
-      /* Step 7 — background bot profile enrichment; deliberately not
+      /* Step 8 — background bot profile enrichment; deliberately not
          awaited (old app.js:114 fire-and-forget dispatch; task: do not
          block the application while waiting for profiles). */
       if (bots.length > 0 && personaStore.allPersonaIds.length > 0) {

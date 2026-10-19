@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PageContainer from '@/components/PageContainer.vue'
 import PagePlaceholder from '@/components/PagePlaceholder.vue'
+import HomeView from '@/views/HomeView.vue'
 
 const LAST_PERSONA_KEY = 'ft-last-persona-id'
 
@@ -23,7 +24,7 @@ const routes = [
       {
         path: 'home',
         name: 'home',
-        component: PagePlaceholder,
+        component: HomeView,
         meta: { title: 'Home' },
       },
       {

@@ -7,7 +7,7 @@
         :value="item"
         color="primary"
         link
-        :to="item.to"
+        :to="`/p/${personaId}/${item.path}`"
         class="ft-rail-item"
         :aria-label="item.title"
       >
@@ -38,9 +38,11 @@
 
 <script setup lang="ts">
 import { useNavRail } from '../../../composables/useNavRail'
+import { usePersona } from '../../../composables/usePersona'
 import { navItems, userSettingsItem } from './navigation'
 
 const { collapsed } = useNavRail()
+const { personaId } = usePersona()
 </script>
 
 <style scoped>

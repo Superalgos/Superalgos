@@ -12,7 +12,7 @@
         color="primary"
         rounded="shaped"
         link
-        :to="item.to"
+        :to="`/p/${personaId}/${item.path}`"
         class="ft-drawer-item"
         :aria-label="item.title"
         :prepend-icon="item.icon"
@@ -40,6 +40,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePersona } from '../../../composables/usePersona'
 import { navItems, userSettingsItem } from './navigation'
 
 defineProps({
@@ -47,6 +48,8 @@ defineProps({
 })
 
 defineEmits(['update:open'])
+
+const { personaId } = usePersona()
 </script>
 
 <style scoped>

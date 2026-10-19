@@ -16,18 +16,16 @@
 
   <!-- Entity profile placeholders: Personas and Tbots (right side).
        Not the user's own account settings - those live in the left panel. -->
-  <v-btn icon variant="text" aria-label="Persona profile" title="Persona profile">
-    <v-icon>mdi-account-circle</v-icon>
-  </v-btn>
-  <v-btn icon variant="text" class="ml-2" aria-label="Tbot profile" title="Tbot profile">
-    <v-icon>mdi-robot</v-icon>
-  </v-btn>
+  <PersonaSelector />
+  <BotSelector class="ml-2" />
 </template>
 
 <script setup lang="ts">
 import { inject } from 'vue'
 import superalgosIcon from '@/assets/superalgos.png'
 import superalgosLogo from '@/assets/superalgos-logo.png'
+import PersonaSelector from './PersonaSelector.vue'
+import BotSelector from './BotSelector.vue'
 
 const { navMode, toggleNavDrawer } = inject('appShell', {
   navMode: 'rail',

@@ -1,19 +1,19 @@
 export interface NavItem {
   icon: string
   title: string
-  to: string
+  path: string
 }
 
 export const navItems: NavItem[] = [
-  { icon: 'mdi-home', title: 'Home', to: '/' },
-  { icon: 'mdi-view-dashboard', title: 'Dashboard', to: '/dashboard' },
-  { icon: 'mdi-chart-bar', title: 'Charts', to: '/charts' },
-  { icon: 'mdi-chart-arc', title: 'Portfolio', to: '/portfolio' },
-  { icon: 'mdi-account-group', title: 'Users', to: '/users' },
-  { icon: 'mdi-robot', title: 'T-Bots', to: '/bots' },
-  { icon: 'mdi-bank', title: 'exchange', to: '/todos' },
-  { icon: 'mdi-account-network', title: 'Networks', to: '/networks' },
-  { icon: 'mdi-walk', title: 'Follow', to: '/followers' },
+  { icon: 'mdi-home', title: 'Home', path: 'home' },
+  { icon: 'mdi-view-dashboard', title: 'Dashboard', path: 'dashboard' },
+  { icon: 'mdi-chart-bar', title: 'Charts', path: 'charts' },
+  { icon: 'mdi-chart-arc', title: 'Portfolio', path: 'portfolio' },
+  { icon: 'mdi-account-group', title: 'Users', path: 'users' },
+  { icon: 'mdi-robot', title: 'T-Bots', path: 'bots' },
+  { icon: 'mdi-bank', title: 'exchange', path: 'todos' },
+  { icon: 'mdi-account-network', title: 'Networks', path: 'networks' },
+  { icon: 'mdi-walk', title: 'Follow', path: 'followers' },
 ]
 
 export const userSettingsItem = {

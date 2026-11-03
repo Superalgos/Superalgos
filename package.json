@@ -52,7 +52,7 @@
     "cli-table3": "^0.6.3",
     "date-fns": "^2.29.3",
     "discord-api-types": "^0.25.2",
-    "discord.js": "^14.6.0",
+    "discord.js": "^14.28.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "ethereumjs-common": "^1.5.2",
